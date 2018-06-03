@@ -1,14 +1,16 @@
-<!-- this is the navbar all our pages -->
+<!-- this is the navbar all our pages, Not currently in use-->
 <nav class="navbar navbar-expand-md navbar-light bg-light nav-tabs">
   <!-- this button is for mobile phones -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- This one is the whole navbar
+      Follow through to find that each <ul> represents a dropdown item -->
     <div class="collapse navbar-collapse " id="navbars">
       <ul class="nav navbar-nav flex-row justify-content-between mr-auto">
       <!-- this is the Login dropDown button -->
-      <li class="dropdown order-1"> 
-          <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">دخول <span class="caret"></span></button>
+      <li class="dropdown order-1">
+          <button type="button" id="loginDropDown" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">دخول <span class="caret"></span></button>
           <ul class="dropdown-menu dropdown-menu-left mt-2">
              <li class="px-3 py-2">
                <!-- this is the login form -->
