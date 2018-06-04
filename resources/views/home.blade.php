@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                  {{ Auth::user()->name }} مرحبا بك في صفحتك الخاصة
+                  {{ Auth::user()->getFullName() }} مرحبا بك في صفحتك الخاصة
                 </div>
             </div>
         </div>

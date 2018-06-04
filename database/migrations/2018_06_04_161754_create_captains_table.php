@@ -16,7 +16,7 @@ class CreateCaptainsTable extends Migration
         Schema::create('captains', function (Blueprint $table) {
             $table->unsignedInteger('scout_id');
             $table->string('role', 3);
-            $table->boolean('apr')->default('false');
+            $table->boolean('apr')->default('0');
             $table->timestamps();
 
             //Foreign Key Constraint

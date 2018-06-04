@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-abstract class Scout extends Authenticatable
+class Scout extends Authenticatable
 {
     use Notifiable;
+
+    protected $table = 'scouts';
+    protected $primaryKey = 'scout_id';
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +18,7 @@ abstract class Scout extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first-name', 'last-name', 'email', 'password',
+        'email', 'password', 'first_name', 'last_name', 'date_of_birth'
     ];
 
     /**
@@ -27,5 +30,9 @@ abstract class Scout extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $table = 'scouts';
+    public function getFullName(){
+        return $this->first_name.' '.$this->last_name;
+    }
+
+
 }

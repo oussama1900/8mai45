@@ -12,6 +12,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -67,7 +68,7 @@
                           -->
                           <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  {{ Auth::user()->name }} <span class="caret"></span>
+                                  {{ Auth::user()->getFullName() }} <span class="caret"></span>
                               </a>
 
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">

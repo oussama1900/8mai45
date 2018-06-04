@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateScoutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             //Business Data Requirements
-            $table->string('first-name');
-            $table->string('last-name');
-            $table->date('date-of-birth');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->date('date_of_birth')->default('1996-01-01');
            
             $table->rememberToken();
 
@@ -38,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('scouts');
     }
 }
