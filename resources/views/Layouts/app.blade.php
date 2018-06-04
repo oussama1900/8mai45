@@ -39,11 +39,6 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-          <!-- Navbar Brand, should be changed by the logo later-->
-          <a class="navbar-brand" href="{{ url('/') }}">
-              {{ config('app.name', 'Laravel') }}
-          </a>
-
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,7 +52,7 @@
                           <ul class="dropdown-menu dropdown-menu-left mt-2 bg-secondary">
                              <li class="px-3 py-2">
                                <!-- this is the login form -->
-                               @include('includes.loginWindow')
+                                    @include('includes.loginWindow')
                               </li>
                           </ul>
                       @else
@@ -85,7 +80,6 @@
                           </li>
                       @endguest
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li> <a class="nav-link">عنوان</a> </li>

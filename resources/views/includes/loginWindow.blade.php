@@ -55,5 +55,3 @@
     </form>
 </div>
 </div> <!-- End of Login Card -->
-
-</div>
