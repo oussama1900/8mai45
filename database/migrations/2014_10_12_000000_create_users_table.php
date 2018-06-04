@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+
+            //Not sure if we really need to store timestamps though ... -@hzerrad
             $table->timestamps();
         });
     }

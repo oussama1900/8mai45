@@ -1,4 +1,7 @@
-<!-- This is subject to be deleted long as we do not have any registration in our usecase -->
+<!-- This is subject to be deleted long as we do not have any registration in our usecase 
+     UPDATE: I guess we should keep this page at least for the super-admin to register user
+             as I have seen that this actually encrypts the password inside the database-->
+             
 @extends('layouts.app')
 
 @section('content')
