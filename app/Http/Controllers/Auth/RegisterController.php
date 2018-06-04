@@ -64,10 +64,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $date_of_birth = $data['year'].'-'.$data['month'].'-'.$data['day'];
+
         return Scout::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'date_of_birth' => $date_of_birth,
             'password' => Hash::make($data['password']),
         ]);
     }

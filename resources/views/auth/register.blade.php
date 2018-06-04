@@ -44,6 +44,22 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth')}}</label>
+
+                            <div class="col-md-2">
+                              @include('includes.datepicker.day')
+                            </div>
+
+                            <div class="col-md-2">
+                                @include('includes.datepicker.month')
+                            </div>
+
+                            <div class="col-md-2">
+                                @include('includes.datepicker.year')
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
