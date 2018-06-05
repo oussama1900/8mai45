@@ -1,4 +1,7 @@
-<!-- This is subject to be deleted long as we do not have any registration in our usecase -->
+<!-- This is subject to be deleted long as we do not have any registration in our usecase 
+     UPDATE: I guess we should keep this page at least for the super-admin to register user
+             as I have seen that this actually encrypts the password inside the database-->
+             
 @extends('layouts.app')
 
 @section('content')
@@ -13,16 +16,46 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('first_name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('first_name'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('first_name') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" required autofocus>
+
+                                @if ($errors->has('last_name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth')}}</label>
+
+                            <div class="col-md-2">
+                              @include('includes.datepicker.day')
+                            </div>
+
+                            <div class="col-md-2">
+                                @include('includes.datepicker.month')
+                            </div>
+
+                            <div class="col-md-2">
+                                @include('includes.datepicker.year')
                             </div>
                         </div>
 
