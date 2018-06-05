@@ -1,65 +1,116 @@
-<!-- this is the navbar all our pages, Not currently in use-->
-<nav class="navbar navbar-expand-md navbar-light bg-light nav-tabs">
-  <!-- this button is for mobile phones -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- This one is the whole navbar
-      Follow through to find that each <ul> represents a dropdown item -->
-    <div class="collapse navbar-collapse " id="navbars">
-      <ul class="nav navbar-nav flex-row justify-content-between mr-auto">
-      <!-- this is the Login dropDown button -->
-      <li class="dropdown order-1">
-          <button type="button" id="loginDropDown" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">دخول <span class="caret"></span></button>
-          <ul class="dropdown-menu dropdown-menu-left mt-2">
-             <li class="px-3 py-2">
-               <!-- this is the login form -->
-                 <form class="form" role="form">
-                      <div class="form-group">
-                        <!-- this is the email input field -->
-                          <input id="emailInput" style="text-align:right" placeholder="الاسم" class="form-control form-control-sm" type="email" required="">
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+  <!-- Navbar Brand, should be changed by the logo later-->
+  <a class="navbar-brand" href="{{ url('/') }}">
+      {{ config('app.name', 'Laravel') }}
+  </a>
+
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav mr-auto">
+              @guest
+                <button type="button" id="login-drop-down" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" href="{{ route('login') }}">{{ __('ساحة الكشاف') }} <span class="carret"></span></button>
+                  <ul class="dropdown-menu dropdown-menu-left mt-2 bg-secondary">
+                     <li class="px-3 py-2">
+                       <!-- this is the login form -->
+                       <div class="card">
+                       <div class="card-body">
+                           <form method="POST" action="{{ route('login') }}">
+                               @csrf
+
+                               <div class="form-group row">
+                                   <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('البـــريد الالكتروني') }}</label>
+
+                                   <div class="col-md-6">
+                                       <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                                       @if ($errors->has('email'))
+                                           <span class="invalid-feedback">
+                                               <strong>{{ $errors->first('email') }}</strong>
+                                           </span>
+                                       @endif
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('كلــمة السر') }}</label>
+
+                                   <div class="col-md-6">
+                                       <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                       @if ($errors->has('password'))
+                                           <span class="invalid-feedback">
+                                               <strong>{{ $errors->first('password') }}</strong>
+                                           </span>
+                                       @endif
+                                   </div>
+                               </div>
+
+                               <div class="form-group row">
+                                   <div class="col-md-6 offset-md-4">
+                                       <div class="checkbox">
+                                           <label>
+                                               <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('تذكرني على هذا الجهاز') }}
+                                           </label>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="form-group row mb-0">
+                                   <div class="col-md-8 offset-md-4">
+                                       <button type="submit" class="btn btn-primary">
+                                           {{ __('تسجيل الدخول') }}
+                                       </button>
+
+                                       <a class="btn btn-link" href="{{ route('password.request') }}">
+                                           {{ __('نسيت كلمة المرور؟') }}
+                                       </a>
+                                   </div>
+                               </div>
+                           </form>
+                       </div>
+                       </div> <!-- End of Login Card -->
+                      </li>
+                  </ul>
+              @else
+                <!-- User Profile Snippet (When Logged In)
+                SUGGESTION: in later stages, this part should be snipped out of the collapsed navbar
+                      and represented with the user's icon.
+                      @hzerrad
+                  -->
+                  <li class="nav-item dropdown">
+                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                              {{ __('Logout') }}
+                          </a>
+
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
                       </div>
-                      <div class="form-group">
-                        <!-- this is the password input field -->
-                          <input id="passwordInput" style="text-align:right" placeholder="كلمة السر" class="form-control form-control-sm" type="password" required="">
-                      </div>
-                      <div class="form-group">
-                        <!-- this is the login(submit) button -->
-                          <button type="submit" class="btn btn-primary btn-block">دخول</button>
-                      </div>
-                      <div class="form-group text-center">
-                        <!-- this is the forget password link -->
-                        <small><a href="#" data-toggle="modal" data-target="#modalPassword">نسيت كلمة السر ؟</a></small>
-                      </div>
-                  </form>
-              </li>
-          </ul>
-      </li>
-  </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <!-- this is the about link -->
-          <a class="nav-link {{ Route::currentRouteNamed('about') ? 'active' : '' }}" href="/about">تعرف علينا</a>
-        </li>
-        <!-- this is the groups dropdown button -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الأفواج</a>
-          <div class="dropdown-menu align-items-center" aria-labelledby="dropdown04">
-            <a class="dropdown-item align-items-center" style="text-align:center" href="#">الأشبال</a>
-            <a class="dropdown-item" style="text-align:center" href="#">الكشاف</a>
-            <a class="dropdown-item" style="text-align:center" href="#">الجوالة</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <!-- this is the news link -->
-          <a class="nav-link" href="#">الأخبار</a>
-        </li>
-        <li class="nav-item">
-          <!-- this is the index link -->
-          <a class="nav-link {{ Route::currentRouteNamed('index') ? 'active' : '' }}" href="/">الرئيسية</a>
-        </li>
-      </ul>
+                  </li>
+              @endguest
+            </ul>
+
+            <!-- Middle of Navbar -->
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <li> <a class="nav-link">عنوان</a> </li>
+                <li> <a class="nav-link">عنوان</a> </li>
+                <li> <a class="nav-link">عنوان</a> </li>
+                <li> <a class="nav-link">عنوان</a> </li>
+            </ul>
+        </div>
     </div>
-    <!-- this is the website Logo -->
-    <a class="navbar-brand" href="/"><img src="{{ asset('images/falah.png') }}" width="35" height="35"></img></a>
-  </nav>
+</nav>
