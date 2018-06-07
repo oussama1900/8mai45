@@ -20,7 +20,7 @@ canvas{
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	<span aria-hidden="true">×</span>
   </button>
-Welcome  <?php echo e(Auth::user()->first_name); ?> <?php echo e(Auth::user()->last_name); ?> !
+	<?php echo e(trans('app.welcome')); ?>  <?php echo e(Auth::user()->first_name); ?> <?php echo e(Auth::user()->last_name); ?> !
 </div>
 <!-------------------------------- End alert message--------------->
 				

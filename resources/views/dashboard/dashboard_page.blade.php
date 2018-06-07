@@ -21,7 +21,7 @@ canvas{
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	<span aria-hidden="true">×</span>
   </button>
-Welcome  {{Auth::user()->first_name}} {{Auth::user()->last_name}} !
+	{{ trans('app.welcome')}}  {{Auth::user()->first_name}} {{Auth::user()->last_name}} !
 </div>
 <!-------------------------------- End alert message--------------->
 				
