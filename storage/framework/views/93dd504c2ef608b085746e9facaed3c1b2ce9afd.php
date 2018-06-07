@@ -26,13 +26,18 @@
 
                          </a>
                          
-                          <a class="dropdown-item" href="<?php echo e(Auth::logout()); ?>"
+                         <a class="dropdown-item" href="<?php echo e(url('/logout')); ?>"
 
-                             onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                              <?php echo e(__('تسجيل الخروج')); ?>
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          <?php echo e(__('تسجيل الخروج')); ?>
 
-                          </a>
+                      </a>
+
+                      <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                        <?php echo e(csrf_field()); ?>
+
+                    </form>
                       </div>
                   </li>
               <?php endif; ?>

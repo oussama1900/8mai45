@@ -25,12 +25,16 @@
                              {{ __('ملف شخصي') }}
                          </a>
                          
-                          <a class="dropdown-item" href="{{Auth::logout()}}"
+                         <a class="dropdown-item" href="{{ url('/logout') }}"
 
-                             onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                              {{ __('تسجيل الخروج') }}
-                          </a>
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('تسجيل الخروج') }}
+                      </a>
+
+                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                       </div>
                   </li>
               @endguest
