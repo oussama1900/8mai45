@@ -12,8 +12,8 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Falah') }}</title>
+    @php($settingdata = DB::table('settings')->get())
+    <title>@foreach($settingdata as $view) {{$view->app_title}} @endforeach</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,39 +25,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- below style is intended to center the logo -->
-    <style type="text/css">
-    .navbar-brand {
-      position: absolute;
-      width: auto;
-      left: 0;
-      top: 0;
-      text-align: center;
-      margin-left: 48%;
-      margin-right: 50%;
-    }
-    .nav-link {
-      text-align: center;
-    }
-
-    .navbar .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255, 255, 0.86)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-  </style>
 
 </head>
 <body>

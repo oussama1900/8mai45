@@ -3,10 +3,10 @@
 <body class="page-login layout-full page-dark">
 <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
   data-animsition-out="fade-out">
-    <?php $__currentLoopData = $settingdata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>	
+    <?php $__currentLoopData = $settingdata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<div class="page-content vertical-align-middle" style="background: rgba(40, 41, 41, 0.17);">
       <div class="brand">
-	  <img class="navbar-brand-logo" style="height:50px" src="<?php echo e(URL::to('/')); ?>/uploads/<?php echo e($view->logo); ?>" title="Farazisoft"/>      
+	  <img class="navbar-brand-logo" style="height:50px" src="<?php echo e(URL::to('/')); ?>/uploads/<?php echo e($view->logo); ?>" title="Farazisoft"/>
         <h2 class="brand-text"> <?php echo e($view->app_name); ?></h2>
       </div>
       <p> <?php echo e(trans('app.sing_into_your_pages_account')); ?></p>
@@ -37,7 +37,7 @@
           <div class="form-group clearfix">
 		  <?php if($view->remember_me == 'ON'): ?>
             <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
-              <input type="checkbox" id="remember" name="checkbox">
+              <input type="checkbox" id="remember" name="checkbox" title="remember">
               <label for="inputCheckbox"><?php echo e(trans('app.remember_me')); ?></label>
             </div>
 			<?php endif; ?>
@@ -51,7 +51,7 @@
 		<button type="submit" class="btn btn-primary ladda-button btn-block" data-plugin="ladda" data-style="expand-left">
 			  <?php echo e(trans('app.sign_in')); ?>
 
-		<span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
+		<span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0;"></div>
 		</button>
 		
 		</form>
@@ -70,7 +70,7 @@
           </div>
         </footer>
     </div>
-    
+</div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
 

@@ -5,10 +5,10 @@
 <body class="page-login layout-full page-dark">
 <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
   data-animsition-out="fade-out">
-    @foreach($settingdata as $view)	
+    @foreach($settingdata as $view)
 	<div class="page-content vertical-align-middle" style="background: rgba(40, 41, 41, 0.17);">
       <div class="brand">
-	  <img class="navbar-brand-logo" style="height:50px" src="{{URL::to('/')}}/uploads/{{$view->logo}}" title="Farazisoft"/>      
+	  <img class="navbar-brand-logo" style="height:50px" src="{{URL::to('/')}}/uploads/{{$view->logo}}" title="Farazisoft"/>
         <h2 class="brand-text"> {{$view->app_name}}</h2>
       </div>
       <p> {{ trans('app.sing_into_your_pages_account')}}</p>
@@ -39,7 +39,7 @@
           <div class="form-group clearfix">
 		  @if($view->remember_me == 'ON')
             <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
-              <input type="checkbox" id="remember" name="checkbox">
+              <input type="checkbox" id="remember" name="checkbox" title="remember">
               <label for="inputCheckbox">{{ trans('app.remember_me')}}</label>
             </div>
 			@endif
@@ -52,7 +52,7 @@
         
 		<button type="submit" class="btn btn-primary ladda-button btn-block" data-plugin="ladda" data-style="expand-left">
 			  {{ trans('app.sign_in')}}
-		<span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
+		<span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0;"></div>
 		</button>
 		
 		</form>
@@ -71,6 +71,6 @@
           </div>
         </footer>
     </div>
-    
+</div>
 @endforeach
 @endsection
