@@ -107,7 +107,12 @@ Route::get('/inboxDetails/{id}/{replayidid}', "MessageController@inboxDetails");
 Route::post('MessageController/save/', "MessageController@store");
 Route::post('MessageController/destroy/', "MessageController@destroy");
 
-
+/* Posts */
+Route::get('/writePosts/', "postsController@index");
+Route::get('/postsimageupload/', "postsController@upload");
+Route::post('/storePost', "postsController@store");
+Route::get('/viewPosts', "postsController@view");
+Route::get('/viewPost/{id}', "postsController@show");
 
 /* Authentication routes...*/
 Route::get('auth/login', 'Auth\AuthController@getLogin');

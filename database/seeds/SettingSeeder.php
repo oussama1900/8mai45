@@ -14,18 +14,18 @@ class SettingSeeder extends Seeder
     public function run()
     {
         Setting::create([
-            'app_name' => 'Farazisoft',
-            'app_title' => 'Elegant',
-            'app_email' => 'support@farazisoft.com',
-            'phone' => '01745666',
-            'mobile' => '01745519614',
-            'currency' => '$',
+            'app_name' => 'Falah platform',
+            'app_title' => 'falah',
+            'app_email' => 'houssem.guemer@gmail.com',
+            'phone' => '',
+            'mobile' => '0667346302',
+            'currency' => 'dzd',
             'remember_me' => 'ON',
             'forget_password' => 'ON',
             'notify_signup' => 'OFF',
             're_capcha' => 'OFF',
 			'logo' => 'logo.png',			
-            'address' => 'Amtali,Barguna'
+            'address' => 'Setif,Algeria'
         ]);
     }
 }

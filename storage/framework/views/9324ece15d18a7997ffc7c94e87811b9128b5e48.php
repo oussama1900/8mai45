@@ -500,6 +500,37 @@
               </ul>			  
             </li>
 			<?php endif; // Entrust::can ?>
+    <!-------------- posts menu ------------------>
+            <?php if (\Entrust::can(['posts.write', 'posts.approve'])) : ?>
+            <li class="site-menu-item has-sub <?php echo e(Request::is('writePosts','approvePosts','viewPosts') ? 'active' : ''); ?>">
+              <a href="javascript:void(0)">
+                <i class="site-menu-icon wb-quote-right" aria-hidden="true"></i>
+                <span class="site-menu-title">posts</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub">
+                <?php if (\Entrust::can('posts.write')) : ?>
+                <li class="site-menu-item <?php echo e(Request::is('writePosts') ? 'active' : ''); ?>">
+                  <a class="animsition-link" href="<?php echo e(URL::to('/writePosts')); ?>">
+                    <span class="site-menu-title">write posts</span>
+                  </a>
+                </li>
+                <?php endif; // Entrust::can ?>
+                <?php if (\Entrust::can('posts.approve')) : ?>
+                <li class="site-menu-item <?php echo e(Request::is('approvePosts') ? 'active' : ''); ?>">
+                  <a class="animsition-link " href="<?php echo e(URL::to('/approvePosts')); ?>">
+                    <span class="site-menu-title">approve posts</span>
+                  </a>
+                </li>
+                <?php endif; // Entrust::can ?>
+                <li class="site-menu-item <?php echo e(Request::is('viewPosts') ? 'active' : ''); ?>">
+                  <a class="animsition-link " href="<?php echo e(URL::to('/viewPosts')); ?>">
+                    <span class="site-menu-title">view posts</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <?php endif; // Entrust::can ?>
 	<!-------------- language menu --------------->
 			 <?php if (\Entrust::can('languages.languages')) : ?>
 			 <li class="site-menu-item has-sub <?php echo e(Request::is('language') ? 'active open' : ''); ?>">
@@ -559,7 +590,7 @@
                 </li>
               </ul>
             </li>
-		<?php endif; // Entrust::can ?>		
+		<?php endif; // Entrust::can ?>
 <!-------------- Settings  menu --------------->
 		<?php if (\Entrust::can('settings.general')) : ?>
 			 <li class="site-menu-item has-sub <?php echo e(Request::is('settings') ? 'active open' : ''); ?>">

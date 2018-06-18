@@ -21,6 +21,14 @@ class LanguagesSeeder extends Seeder
             'description' => 'English',
             'flag_image' => 'america.png'
         ]);
+
+        Languages::create([
+            'id' => '2',
+            'foldername' => 'ar',
+            'languagename' => 'Arabic',
+            'description' => 'Arabic best language in the world',
+            'flag_image' => 'algeria.png'
+        ]);
 		
 		Languages::create([
             'id' => '22',

@@ -26,5 +26,19 @@ class RolesSeeder extends Seeder
             'description' => 'Default system user.',
             'removable' => false
         ]);
+
+        Role::create([
+            'name' => 'Captain',
+            'display_name' => 'Captain',
+            'description' => 'this is a captain',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'Editor',
+            'display_name' => 'Editor',
+            'description' => 'this is an Editor he can approve posts and edit them',
+            'removable' => false
+        ]);
     }
 }

@@ -479,6 +479,37 @@
               </ul>			  
             </li>
 			@endpermission
+    <!-------------- posts menu ------------------>
+            @permission(['posts.write', 'posts.approve'])
+            <li class="site-menu-item has-sub {{ Request::is('writePosts','approvePosts','viewPosts') ? 'active' : '' }}">
+              <a href="javascript:void(0)">
+                <i class="site-menu-icon wb-quote-right" aria-hidden="true"></i>
+                <span class="site-menu-title">posts</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub">
+                @permission('posts.write')
+                <li class="site-menu-item {{ Request::is('writePosts') ? 'active' : '' }}">
+                  <a class="animsition-link" href="{{URL::to('/writePosts')}}">
+                    <span class="site-menu-title">write posts</span>
+                  </a>
+                </li>
+                @endpermission
+                @permission('posts.approve')
+                <li class="site-menu-item {{ Request::is('approvePosts') ? 'active' : '' }}">
+                  <a class="animsition-link " href="{{URL::to('/approvePosts')}}">
+                    <span class="site-menu-title">approve posts</span>
+                  </a>
+                </li>
+                @endpermission
+                <li class="site-menu-item {{ Request::is('viewPosts') ? 'active' : '' }}">
+                  <a class="animsition-link " href="{{URL::to('/viewPosts')}}">
+                    <span class="site-menu-title">view posts</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            @endpermission
 	<!-------------- language menu --------------->
 			 @permission('languages.languages')
 			 <li class="site-menu-item has-sub {{ Request::is('language') ? 'active open' : '' }}">
@@ -538,7 +569,7 @@
                 </li>
               </ul>
             </li>
-		@endpermission		
+		@endpermission
 <!-------------- Settings  menu --------------->
 		@permission('settings.general')
 			 <li class="site-menu-item has-sub {{ Request::is('settings') ? 'active open' : '' }}">

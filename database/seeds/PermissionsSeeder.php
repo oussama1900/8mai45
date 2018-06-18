@@ -15,6 +15,8 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         $adminRole = Role::where('name', 'Admin')->first();
+        $captainRole = Role::where('name', 'Captain')->first();
+        $editorRole = Role::where('name', 'Editor')->first();
 
         $permissions[] = Permission::create([
             'name' => 'users.manage',
@@ -58,6 +60,35 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
+        $permissions[] = Permission::create([
+            'name' => 'posts.write',
+            'display_name' => 'write posts',
+            'description' => 'write posts',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'posts.approve',
+            'display_name' => 'approve posts',
+            'description' => 'can approve posts',
+            'removable' => false
+        ]);
+
+        $permissions[] = Permission::create([
+            'name' => 'posts.edit',
+            'display_name' => 'edit posts',
+            'description' => 'can edit all posts',
+            'removable' => false
+        ]);
+
+        $permissionsCaptain []= Permission::where('name', 'users.manage')->first();
+        $permissionsCaptain []= Permission::where('name', 'posts.write')->first();
+
+        $permissionsEditor []= Permission::where('name', 'posts.approve')->first();
+        $permissionsEditor []= Permission::where('name', 'posts.edit')->first();
+
+        $editorRole->attachPermissions($permissionsEditor);
+        $captainRole->attachPermissions($permissionsCaptain);
         $adminRole->attachPermissions($permissions);
     }
 }
