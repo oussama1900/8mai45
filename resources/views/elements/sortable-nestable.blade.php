@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/html5sortable/sortable.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/tasklist/tasklist.css">
   <div class="page-header">
-  <h1 class="page-title font_lato">Sortable &amp; Nestable </h1>
+  <h1 class="page-title font_kufi">Sortable &amp; Nestable </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

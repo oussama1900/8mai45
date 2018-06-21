@@ -11,7 +11,7 @@ p.redcolor{color:red; font-size:16px;}
 </style>
 
 <div class="page-header">
-  <h1 class="page-title font_lato"><?php echo e(trans('app.create_new_user')); ?></h1>
+  <h1 class="page-title font_kufi"><?php echo e(trans('app.create_new_user')); ?></h1>
   <div class="page-header-actions">
   <ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
@@ -82,9 +82,9 @@ p.redcolor{color:red; font-size:16px;}
 			 <div class="form-group col-sm-6">
 				<label class="control-label"><?php echo e(trans('app.select_role')); ?> <span class="text-danger">*</span></label>
 				<select ng-model="role"  class="form-control" name="role" required ng-init="role = '<?php echo e(old('role')); ?>'">
-					<option value=""><?php echo e(trans('app.select_role')); ?> </option>	
+					<option value=""> ---- </option>	
 					<?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-					<option value="<?php echo e($view->name); ?>"><?php echo e($view->display_name); ?></option>	
+					<option value="<?php echo e($view->name); ?>"><?php echo e(trans($view->display_name)); ?></option>	
 					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</select>
 			  </div>

@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
   <div class="page-header">
-  <h1 class="page-title font_lato">General </h1>
+  <h1 class="page-title font_kufi">General </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
@@ -366,7 +366,7 @@
               <!-- Example Size -->
               <div class="example-wrap">
                 <h4 class="example-title">Size</h4>
-                <p>Add the relative form sizing classes to the <code>.input-group</code>                  itself and contents within will automatically resize—no need
+                <p>Add the relative form sizing classes to the <code>.input-group</code>                  itself and contents within will automatically resizeï¿½no need
                   for repeating the form control size classes on each element.</p>
                 <div class="form-group">
                   <div class="input-group input-group-lg">

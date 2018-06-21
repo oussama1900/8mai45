@@ -14,7 +14,7 @@
   background-color: #fff;
 }
 .site-navbar .navbar-header .navbar-brand {
-  font-family: "Roboto", sans-serif;
+  font-family: "DroidArabicKufiRegular", "Roboto", sans-serif;
   color: #fff;
   cursor: pointer;
 }
@@ -48,7 +48,7 @@ body {
   height: 100%;
   height: -webkit-calc(100% - 66px);
   height:         calc(100% - 66px);
-  font-family: "Roboto", sans-serif;
+  font-family: "DroidArabicKufiRegular", "Roboto", sans-serif;
   color: rgba(163, 175, 183, .9);
   background: #263238;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .08);

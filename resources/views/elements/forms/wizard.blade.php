@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/jquery-wizard/jquery-wizard.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/formvalidation/formValidation.css">
   <div class="page-header">
-  <h1 class="page-title font_lato">Wizard </h1>
+  <h1 class="page-title font_kufi">Wizard </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

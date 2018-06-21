@@ -8,19 +8,16 @@
    <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="author" content="">
   <title> Login Management</title>  
-  <link rel="stylesheet" href="{{URL::to('/')}}/global/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{URL::to('/')}}/global/css/bootstrap-extend.min.css">
-  <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/site.min.css"> 
+  <!--link rel="stylesheet" href="{{URL::to('/')}}/global/css/bootstrap.min.css"-->
+  <!--link rel="stylesheet" href="{{URL::to('/')}}/global/css/bootstrap-extend.min.css"-->
+  <!--link rel="stylesheet" href="{{URL::to('/')}}/assets/css/site.min.css"-->
   <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/pages/login.css">
-  <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/pages/register.css">
   <!-- Fonts -->
-  <link rel="stylesheet" href="{{URL::to('/')}}/global/fonts/web-icons/web-icons.min.css">
-  <link rel="stylesheet" href="{{URL::to('/')}}/global/fonts/brand-icons/brand-icons.min.css">
-  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
-  <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/ladda-bootstrap/ladda.css">
-  {{Html::style('global/fonts/font-awesome/font-awesome.css')}}
-  {{Html::style('global/fonts/weather-icons/weather-icons.css')}}
-  {{Html::style('assets/css/bootstrap-glyphicons.css')}}
+  <!--link rel="stylesheet" href="{{URL::to('/')}}/global/fonts/web-icons/web-icons.min.css"-->
+  <!--link rel="stylesheet" href="{{URL::to('/')}}/global/fonts/brand-icons/brand-icons.min.css"-->
+  <!--link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'-->
+  <!--link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/ladda-bootstrap/ladda.css"-->
+
   
  <script src="{{URL::to('/')}}/global/vendor/modernizr/modernizr.js"></script>
   <script src="{{URL::to('/')}}/global/vendor/breakpoints/breakpoints.js"></script>

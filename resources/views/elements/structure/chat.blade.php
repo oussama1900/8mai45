@@ -2,7 +2,7 @@
 @section('content')
   <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/structure/chat.css">  
 <div class="page-header">
-  <h1 class="page-title font_lato">Chat </h1>
+  <h1 class="page-title font_kufi">Chat </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

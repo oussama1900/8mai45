@@ -10,7 +10,7 @@ p.redcolor{color:red; font-size:16px;}
 <script src="{{URL::to('assets')}}/croppie.js"></script>
   <link rel="stylesheet" href="{{URL::to('assets')}}/croppie.css">
 <div class="page-header">
-  <h1 class="page-title font_lato">{{$userdata->first_name}} {{$userdata->last_name}}</h1>
+  <h1 class="page-title font_kufi">{{$userdata->first_name}} {{$userdata->last_name}}</h1>
   <div class="page-header-actions">
   <ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

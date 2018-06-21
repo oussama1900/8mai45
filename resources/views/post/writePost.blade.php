@@ -2,7 +2,7 @@
 <script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
 @section('content')
     <div class="page-header">
-        <h1 class="page-title font_lato">Write post</h1>
+        <h1 class="page-title font_kufi">Write post</h1>
         <div class="page-header-actions">
             <ol class="breadcrumb">
                 <li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

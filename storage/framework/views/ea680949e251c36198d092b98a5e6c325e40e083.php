@@ -9,7 +9,7 @@ p.redcolor{color:red; font-size:16px;}
 <script src="<?php echo e(URL::to('assets')); ?>/croppie.js"></script>
   <link rel="stylesheet" href="<?php echo e(URL::to('assets')); ?>/croppie.css">
 <div class="page-header">
-  <h1 class="page-title font_lato"><?php echo e($userdata->first_name); ?> <?php echo e($userdata->last_name); ?></h1>
+  <h1 class="page-title font_kufi"><?php echo e($userdata->first_name); ?> <?php echo e($userdata->last_name); ?></h1>
   <div class="page-header-actions">
   <ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>

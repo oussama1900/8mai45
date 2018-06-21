@@ -28,10 +28,8 @@ class Scout extends Model
     }
 
     private function getYear(){
-        $id = $this->scout_id;
-        $scout = Scout::find($id);
-        $date = $scout->membership_date->format('d/m/Y');
-        list($day, $month, $year) = explode('/', $date);
+        $date = $this->attributes['membership_date'];
+        list($year, $month, $day) = explode('-', $date);
 
         return $year;
     }

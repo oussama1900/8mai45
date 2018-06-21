@@ -5,7 +5,7 @@
 p.redcolor{color:red; font-size:16px;}
 </style>
 <div class="page-header">
-  <h1 class="page-title font_lato">{{ trans('app.create_language')}} </h1>
+  <h1 class="page-title font_kufi">{{ trans('app.create_language')}} </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

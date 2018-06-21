@@ -1,7 +1,7 @@
 <script src="<?php echo e(asset('js/ckeditor/ckeditor.js')); ?>"></script>
 <?php $__env->startSection('content'); ?>
     <div class="page-header">
-        <h1 class="page-title font_lato">Write post</h1>
+        <h1 class="page-title font_kufi">Write post</h1>
         <div class="page-header-actions">
             <ol class="breadcrumb">
                 <li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>

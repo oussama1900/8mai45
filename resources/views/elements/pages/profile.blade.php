@@ -2,7 +2,7 @@
 @section('content')
  <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/pages/profile.css">
   <div class="page-header">
-  <h1 class="page-title font_lato">Profile </h1>
+  <h1 class="page-title font_kufi">Profile </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -90,7 +90,7 @@
                             <span>posted an updated</span>
                           </h4>
                           <small>active 14 minutes ago</small>
-                          <div class="profile-brief">“Check if it can be corrected with overflow : hidden”</div>
+                          <div class="profile-brief">ï¿½Check if it can be corrected with overflow : hiddenï¿½</div>
                         </div>
                       </div>
                     </li>
@@ -248,7 +248,7 @@
                             <span>posted an updated</span>
                           </h4>
                           <small>active 14 minutes ago</small>
-                          <div class="profile-brief">“Check if it can be corrected with overflow : hidden”</div>
+                          <div class="profile-brief">ï¿½Check if it can be corrected with overflow : hiddenï¿½</div>
                         </div>
                       </div>
                     </li>
@@ -326,7 +326,7 @@
                             <span>posted an updated</span>
                           </h4>
                           <small>active 14 minutes ago</small>
-                          <div class="profile-brief">“Check if it can be corrected with overflow : hidden”</div>
+                          <div class="profile-brief">ï¿½Check if it can be corrected with overflow : hiddenï¿½</div>
                         </div>
                       </div>
                     </li>

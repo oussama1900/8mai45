@@ -14,7 +14,7 @@ canvas{
         width: 95% !important;
         max-width: 100%;
         height: auto !important;
-    }
+}
 </style>
 <!------------------------------ Start Alert message--------------->
 <div class="alert alert-primary alert-dismissible alertDismissible" role="alert">
@@ -190,7 +190,7 @@ canvas{
 		     </em>
 			  </div>
 			  <div>
-				<a href="{{URL::to('/show')}}/{{$value->scout_id}}"><span><strong>{{$value->profile->getFullName()}}</strong></span></a>
+				<a href="{{URL::to('/show')}}/{{$value->scout_id}}"><span><strong>{{$value->profile->getFullName() }}</strong> <br> <small style="font-size: 10px">{{$value->profile->getRegistrationNumber()}}</small></span></a>
 			  </div>			  
 			</div>
 		  </div>

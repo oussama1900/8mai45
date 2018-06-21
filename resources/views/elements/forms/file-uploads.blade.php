@@ -3,7 +3,7 @@
  <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/blueimp-file-upload/jquery.fileupload.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/dropify/dropify.css">
   <div class="page-header">
-  <h1 class="page-title font_lato">File Uploads </h1>
+  <h1 class="page-title font_kufi">File Uploads </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -25,7 +25,7 @@
             <div class="col-lg-4 col-sm-6">
               <!-- Example Default -->
               <div class="example-wrap">
-                <h4 class="example-title">Your so fresh input file — Default version</h4>
+                <h4 class="example-title">Your so fresh input file ï¿½ Default version</h4>
                 <div class="example">
                   <input type="file" id="input-file-now" data-plugin="dropify" data-default-file=""
                   />

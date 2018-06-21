@@ -13,7 +13,7 @@ p.redcolor{color:red; font-size:16px;}
   <link rel="stylesheet" href="{{URL::to('assets')}}/croppie.css">
   
 <div class="page-header">
-  <h1 class="page-title font_lato">{{ trans('app.update_details')}}</h1>
+  <h1 class="page-title font_kufi">{{ trans('app.update_details')}}</h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

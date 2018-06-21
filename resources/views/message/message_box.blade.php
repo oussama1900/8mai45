@@ -38,7 +38,7 @@
 
 <!--------------- start inbox mail------------------>
 <div class="page-header">
-<h1 class="page-title font_lato"> {{ trans('app.inbox_message')}} </h1>
+<h1 class="page-title font_kufi"> {{ trans('app.inbox_message')}} </h1>
 <div class="page-header-actions">
   <form class="form-inline ng-pristine ng-valid" action="{{URL::to('message')}}" method="get"> 
 	<div class="form-group">  

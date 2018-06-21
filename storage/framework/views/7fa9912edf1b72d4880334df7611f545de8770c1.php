@@ -13,7 +13,7 @@ canvas{
         width: 95% !important;
         max-width: 100%;
         height: auto !important;
-    }
+}
 </style>
 <!------------------------------ Start Alert message--------------->
 <div class="alert alert-primary alert-dismissible alertDismissible" role="alert">
@@ -190,7 +190,7 @@ canvas{
 		     </em>
 			  </div>
 			  <div>
-				<a href="<?php echo e(URL::to('/show')); ?>/<?php echo e($value->scout_id); ?>"><span><strong><?php echo e($value->profile->getFullName()); ?></strong></span></a>
+				<a href="<?php echo e(URL::to('/show')); ?>/<?php echo e($value->scout_id); ?>"><span><strong><?php echo e($value->profile->getFullName()); ?></strong> <br> <small style="font-size: 10px"><?php echo e($value->profile->getRegistrationNumber()); ?></small></span></a>
 			  </div>			  
 			</div>
 		  </div>

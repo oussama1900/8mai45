@@ -11,7 +11,7 @@ p.redcolor{color:red; font-size:16px;}
 </style>
 
 <div class="page-header">
-  <h1 class="page-title font_lato"><?php echo e(trans('app.create_new_user')); ?></h1>
+  <h1 class="page-title font_kufi"><?php echo e(trans('app.create_new_user')); ?></h1>
   <div class="page-header-actions">
   <ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>

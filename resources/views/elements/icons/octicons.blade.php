@@ -11,7 +11,7 @@
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
   
 <div class="page-header">
-  <h1 class="page-title font_lato">Octicons</h1>
+  <h1 class="page-title font_kufi">Octicons</h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/icons')}}">Icons</a></li>

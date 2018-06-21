@@ -2,7 +2,7 @@
 @section('content')
  <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/modals.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Modals </h1>
+  <h1 class="page-title font_kufi">Modals </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -76,7 +76,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -100,7 +100,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -125,7 +125,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -149,7 +149,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -173,7 +173,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -197,7 +197,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -222,7 +222,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -246,7 +246,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -270,7 +270,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -294,7 +294,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -318,7 +318,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -342,7 +342,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -367,7 +367,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -392,7 +392,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default margin-0" data-dismiss="modal">Close</button>
@@ -437,7 +437,7 @@
                                 <h4 class="modal-title" id="exampleModalTitle">Modal Title</h4>
                               </div>
                               <div class="modal-body">
-                                <p>One fine body…</p>
+                                <p>One fine bodyï¿½</p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -474,7 +474,7 @@
                                 <h4 class="modal-title">Modal Title</h4>
                               </div>
                               <div class="modal-body">
-                                <p>One fine body…</p>
+                                <p>One fine bodyï¿½</p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -511,7 +511,7 @@
                                 <h4 class="modal-title">Modal Title</h4>
                               </div>
                               <div class="modal-body">
-                                <p>One fine body…</p>
+                                <p>One fine bodyï¿½</p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -548,7 +548,7 @@
                                 <h4 class="modal-title">Modal Title</h4>
                               </div>
                               <div class="modal-body">
-                                <p>One fine body… One fine body…</p>
+                                <p>One fine bodyï¿½ One fine bodyï¿½</p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-primary btn-block">Save changes</button>
@@ -1048,7 +1048,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1070,7 +1070,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1092,7 +1092,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1114,7 +1114,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1136,7 +1136,7 @@
                           <h4 class="modal-title">Modal Title</h4>
                         </div>
                         <div class="modal-body">
-                          <p>One fine body…</p>
+                          <p>One fine bodyï¿½</p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

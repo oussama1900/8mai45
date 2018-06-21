@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/advanced/lightbox.css">
   
  <div class="page-header">
-  <h1 class="page-title font_lato">Lightbox </h1>
+  <h1 class="page-title font_kufi">Lightbox </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -26,9 +26,9 @@
               <div class="example-wrap">
                 <h4 class="example-title">Single Images Lightbox</h4>
                 <p>Three simple popups with different scaling settings.
-                  <br> 1 — fits horizontally and vertically,
-                  <br> 2 — only horizontally,
-                  <br> 3 — no gaps, zoom animation, close icon in top-right corner.
+                  <br> 1 ï¿½ fits horizontally and vertically,
+                  <br> 2 ï¿½ only horizontally,
+                  <br> 3 ï¿½ no gaps, zoom animation, close icon in top-right corner.
                 </p>
                 <div class="example">
                   <a class="inline-block" href="{{URL::to('/')}}/global/photos/placeholder.png" data-plugin="magnificPopup"

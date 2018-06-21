@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/assets/examples/css/tables/jsgrid.css"> 
  <div class="page-header">
-  <h1 class="page-title font_lato">jsGrid </h1>
+  <h1 class="page-title font_kufi">jsGrid </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>

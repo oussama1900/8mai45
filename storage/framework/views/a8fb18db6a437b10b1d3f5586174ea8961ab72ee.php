@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/vendor/bootstrap-sweetalert/sweet-alert.css">
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/vendor/toastr/toastr.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Bootbox &amp; Sweetalert </h1>
+  <h1 class="page-title font_kufi">Bootbox &amp; Sweetalert </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
@@ -125,7 +125,7 @@
               <!-- Example Styles -->
               <div class="example-wrap">
                 <h4 class="example-title">Sweet Alert Styles</h4>
-                <p>Here’s a comparison of a standard error message. The first one
+                <p>Hereï¿½s a comparison of a standard error message. The first one
                   uses the built-in alert-function, while the second is using sweetAlert.
                   SweetAlert automatically centers itself on the page and looks
                   great no matter if you're using a desktop computer, mobile or

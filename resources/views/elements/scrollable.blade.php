@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/asscrollable/asScrollable.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/advanced/scrollable.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Scrollable </h1>
+  <h1 class="page-title font_kufi">Scrollable </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -322,8 +322,8 @@
               <!-- Example Content -->
               <div class="example-wrap">
                 <h4 class="example-title">Dynamic Content</h4>
-                <p>Display the content with a scrollbar While clicking the “append
-                  content” button.</p>
+                <p>Display the content with a scrollbar While clicking the ï¿½append
+                  contentï¿½ button.</p>
                 <button type="button" class="btn btn-outline btn-default" id="btnExampleDynamicAppend">APPEND CONTENT</button>
                 <div class="example">
                   <div class="height-250" id="exampleDynamic" data-plugin="scrollable">

@@ -12,7 +12,7 @@ p.redcolor{color:red; font-size:16px;}
 </style>
 
 <div class="page-header">
-  <h1 class="page-title font_lato">{{ trans('app.create_new_user')}}</h1>
+  <h1 class="page-title font_kufi">{{ trans('app.create_new_user')}}</h1>
   <div class="page-header-actions">
   <ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -79,9 +79,9 @@ p.redcolor{color:red; font-size:16px;}
 			 <div class="form-group col-sm-6">
 				<label class="control-label">{{ trans('app.select_role')}} <span class="text-danger">*</span></label>
 				<select ng-model="role"  class="form-control" name="role" required ng-init="role = '{{ old('role') }}'">
-					<option value="">{{ trans('app.select_role')}} </option>	
+					<option value=""> ---- </option>	
 					@foreach($roles as $view)
-					<option value="{{$view->name}}">{{$view->display_name}}</option>	
+					<option value="{{$view->name}}">{{trans($view->display_name)}}</option>	
 					@endforeach
 				</select>
 			  </div>

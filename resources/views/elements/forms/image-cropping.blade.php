@@ -3,7 +3,7 @@
    <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/cropper/cropper.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/forms/image-cropping.css">
   <div class="page-header">
-  <h1 class="page-title font_lato">Masks </h1>
+  <h1 class="page-title font_kufi">Masks </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -39,25 +39,25 @@
                   </button>
                   <button type="button" class="btn btn-primary" data-cropper-method="rotate" data-option="-90"
                   data-toggle="tooltip" data-container="body" title="Turn Left">
-                    <span class="cropper-tooltip" title="rotate left 90°">
+                    <span class="cropper-tooltip" title="rotate left 90ï¿½">
                       <i class="wb-arrow-left cropper-flip-horizontal"></i>
                     </span>
                   </button>
                   <button type="button" class="btn btn-primary" data-cropper-method="rotate" data-option="90"
                   data-toggle="tooltip" data-container="body" title="Turn Right">
-                    <span class="cropper-tooltip" title="rotate right 90°">
+                    <span class="cropper-tooltip" title="rotate right 90ï¿½">
                       <i class="wb-arrow-right"></i>
                     </span>
                   </button>
                   <button type="button" class="btn btn-primary" data-cropper-method="rotate" data-option="-5"
                   data-toggle="tooltip" data-container="body" title="Rotate Left">
-                    <span class="cropper-tooltip" title="rotate left 90°">
+                    <span class="cropper-tooltip" title="rotate left 90ï¿½">
                       <i class="wb-refresh cropper-flip-horizontal"></i>
                     </span>
                   </button>
                   <button type="button" class="btn btn-primary" data-cropper-method="rotate" data-option="5"
                   data-toggle="tooltip" data-container="body" title="Rotate Right">
-                    <span class="cropper-tooltip" title="rotate right 90°">
+                    <span class="cropper-tooltip" title="rotate right 90ï¿½">
                       <i class="icon wb-reload" aria-hidden="true"></i>
                     </span>
                   </button>

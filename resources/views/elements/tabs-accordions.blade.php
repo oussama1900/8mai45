@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="page-header">
-  <h1 class="page-title font_lato">Tabs &amp; Accordions </h1>
+  <h1 class="page-title font_kufi">Tabs &amp; Accordions </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -870,7 +870,7 @@
                     <a data-toggle="tab" href="#exampleCloseableTabsTwo" aria-controls="exampleCloseableTabsTwo"
                     role="tab">
                       <span class="close" data-close="tab" aria-label="Close">
-                        <strong title="true">×</strong>
+                        <strong title="true">ï¿½</strong>
                       </span>
                       Plugin
                     </a>
@@ -879,7 +879,7 @@
                     <a data-toggle="tab" href="#exampleCloseableTabsThree" aria-controls="exampleCloseableTabsThree"
                     role="tab">
                       <span class="close" data-close="tab" aria-label="Close">
-                        <strong title="true">×</strong>
+                        <strong title="true">ï¿½</strong>
                       </span>
                       Settings
                     </a>

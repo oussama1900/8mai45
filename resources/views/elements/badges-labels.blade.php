@@ -3,7 +3,7 @@
  <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/modals.css">
  <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/badges-labels.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Badges &amp; Labels </h1>
+  <h1 class="page-title font_kufi">Badges &amp; Labels </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -50,7 +50,7 @@
               <!-- Example Badges Radius -->
               <div class="example-wrap">
                 <h4 class="example-title">Badges Radius</h4>
-                <p>It’s normally used to display quantitative information. Building
+                <p>Itï¿½s normally used to display quantitative information. Building
                   on any radius style badges by adding an optional <code>.badge-radius</code>.</p>
                 <div class="example">
                   <span class="badge badge-radius badge-default">1</span>
@@ -103,7 +103,7 @@
               <!-- Example Absolute Positioning -->
               <div class="example-wrap">
                 <h4 class="example-title">Absolute Positioning</h4>
-                <p>They’re commonly found in email cilents like Mail.app or on mobile
+                <p>Theyï¿½re commonly found in email cilents like Mail.app or on mobile
                   apps for push notifications. Highligh unread items by adding
                   <code>.badge</code>, <code>.up</code>, <code>.badge-warning</code>                  class in <code>&lt;span&gt;</code> mark</p>
                 <div class="example-2 margin-top-25">
@@ -132,7 +132,7 @@
               <div class="example-wrap">
                 <h4 class="example-title">Status Badges</h4>
                 <p>You can use this examples to create status indicator badges with
-                  <code>&lt;div class="avatar-online”&gt;</code> for profile images
+                  <code>&lt;div class="avatar-onlineï¿½&gt;</code> for profile images
                   or similar elements.</p>
                 <div class="example example-avatars">
                   <div class="avatar avatar-online">
@@ -265,7 +265,7 @@
               <div class="example-wrap">
                 <h4 class="example-title">Labels In Header</h4>
                 <p>They show the information in combination with other visual heading
-                  elements by adding <code>&lt;span class=”label label-primary”&gt;</code>.</p>
+                  elements by adding <code>&lt;span class=ï¿½label label-primaryï¿½&gt;</code>.</p>
                 <div class="example">
                   <h1>h1. Bootstrap heading
                     <span class="label label-primary">New</span>

@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/advanced/rating.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Rating </h1>
+  <h1 class="page-title font_kufi">Rating </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>

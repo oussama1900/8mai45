@@ -14,7 +14,7 @@
   <?php echo e(Html::style('global/css/bootstrap.min.css')); ?>  
   <?php echo e(Html::style('global/css/bootstrap-extend.min.css')); ?>
 
-  
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
   <?php echo e(Html::style('assets/css/site.min.css')); ?>
 
   
@@ -50,9 +50,8 @@
 
   <?php echo e(Html::style('global/fonts/brand-icons/brand-icons.min.css')); ?>
 
-  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-  
+
   <!------------------------new mail css-------------------->
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/vendor/bootstrap-markdown/bootstrap-markdown.css">
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/vendor/select2/select2.css">
@@ -60,7 +59,20 @@
   <!------------------------end new mail css-------------------->
   
 	<style>
-	.page-content {padding: 0px 30px;}
+    .page-content {
+      padding: 0px 30px;
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+    .site-menubar {
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+    }
+    .site-navbar {
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+    }
+    .font_kufi {
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+      font-size: 100%;
+    }
 	</style>
   
   <?php echo e(Html::script('global/vendor/modernizr/modernizr.js')); ?>
@@ -447,8 +459,8 @@
           <ul class="site-menu">
            <!-- <li class="site-menu-category">General</li>-->
           <br/>
- <!-------------- Dashboard menu --------------->			
-	 <li class="site-menu-category" style="margin-top:1px; text-transform:none;font-size:16px; color:white; "><b>CRUD Example</b></li>
+			
+	 <li class="site-menu-category hidden-sm hidden-md" style="margin-top:1px; text-transform:none;font-size:16px; color:white; "><b>CRUD Example</b></li>
             <li class="site-menu-item has-sub <?php echo e(Request::is('dashboard') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
                 <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
@@ -465,10 +477,10 @@
               </ul>
 			  
             </li>
-	<!-------------- Users menu --------------->	
- <?php if (\Entrust::can(['users.manage', 'users.activity'])) : ?>	
-           
-			<li class="site-menu-item has-sub  <?php echo e(Request::is('userlist','registration','activity') ? 'active open' : ''); ?>">
+
+	<!-- Users menu -->	
+ <?php if (\Entrust::can(['users.manage', 'users.activity'])) : ?>	         
+			<li class="site-menu-item has-sub">
               <a href="javascript:void(0)">
 			  <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                 <span class="site-menu-title"><?php echo e(trans('app.users')); ?></span>
@@ -496,7 +508,7 @@
 				<?php endif; // Entrust::can ?>
               </ul>			  
             </li>
-			<?php endif; // Entrust::can ?>
+      <?php endif; // Entrust::can ?>
     <!-------------- posts menu ------------------>
             <?php if (\Entrust::can(['posts.write', 'posts.approve'])) : ?>
             <li class="site-menu-item has-sub <?php echo e(Request::is('writePosts','approvePosts','viewPosts') ? 'active' : ''); ?>">
@@ -528,7 +540,7 @@
               </ul>
             </li>
             <?php endif; // Entrust::can ?>
-	<!-------------- language menu --------------->
+	<!-- language menu -->
 			 <?php if (\Entrust::can('languages.languages')) : ?>
 			 <li class="site-menu-item has-sub <?php echo e(Request::is('language') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
@@ -545,7 +557,7 @@
               </ul>
             </li>
 			<?php endif; // Entrust::can ?>
-<!-------------- roles and permission  menu --------------->
+<!--roles and permission  menu -->
 		 <?php if (\Entrust::can(['roles.manage', 'permissions.manage'])) : ?>
 			 <li class="site-menu-item has-sub <?php echo e(Request::is('permissions','roles') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
@@ -571,7 +583,7 @@
               </ul>
             </li>
 		<?php endif; // Entrust::can ?>	
-<!-------------- Message  menu --------------->
+<!-- Message  menu -->
 		<?php if (\Entrust::can('message.messages')) : ?>
 			 <li class="site-menu-item has-sub <?php echo e(Request::is('message') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
@@ -588,7 +600,7 @@
               </ul>
             </li>
 		<?php endif; // Entrust::can ?>
-<!-------------- Settings  menu --------------->
+<!-- Settings  menu -->
 		<?php if (\Entrust::can('settings.general')) : ?>
 			 <li class="site-menu-item has-sub <?php echo e(Request::is('settings') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
@@ -606,7 +618,7 @@
             </li>			
          <?php endif; // Entrust::can ?>	
      
-	 <li class="site-menu-category" style="text-transform:none;font-size:16px; color:white;"><b>Basic Elements</b></li>
+	 <li class="site-menu-category hidden-sm hidden-md" style="text-transform:none;font-size:16px; color:white;"><b>Basic Elements</b></li>
 		<li class="site-menu-item has-sub <?php echo e(Request::is('buttons','dropdowns','icons','tooltip','modals','tabsAccordions','imagesDes','badgesLabels','progressBars','carousel','typography','colors') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
                 <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
@@ -676,9 +688,9 @@
                 </li>
               </ul>
             </li>
-	<!----------- end basic ui ------------->		
+	<!-- end basic ui ->		
 		
-<!------- Start stacture ------------->	
+<!-- Start stacture -->	
 			<li class="site-menu-item has-sub <?php echo e(Request::is('alerts','ribbon','pricingTables','overlay','cover','timeline','step','chat') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
                 <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
@@ -728,10 +740,10 @@
                 </li>                
               </ul>
             </li>	
-<!------- End stacture  ------------->	
+<!-- End stacture  -->	
 
 	
-<!------- Start Forms  ------------->	
+<!-- Start Forms  -->	
 		<li class="site-menu-item has-sub <?php echo e(Request::is('general','material','layouts','wizard','validation','masks','imageCropping','fileUploads') ? 'active open' : ''); ?>">
               <a href="javascript:void(0)">
                 <i class="site-menu-icon wb-library" aria-hidden="true"></i>
@@ -1306,3 +1318,4 @@ $(document).ready(function(){
 
 
 
+                                                                                                                                                                          

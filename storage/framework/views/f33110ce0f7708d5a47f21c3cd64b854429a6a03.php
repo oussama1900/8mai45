@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/vendor/nprogress/nprogress.css">
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/assets/examples/css/advanced/animation.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Animation </h1>
+  <h1 class="page-title font_kufi">Animation </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>

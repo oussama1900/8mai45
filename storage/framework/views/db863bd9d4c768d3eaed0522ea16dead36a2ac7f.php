@@ -2,7 +2,7 @@
  <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/assets/examples/css/uikit/modals.css">
  <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/assets/examples/css/uikit/badges-labels.css">
  <div class="page-header">
-  <h1 class="page-title font_lato">Progress Bars </h1>
+  <h1 class="page-title font_kufi">Progress Bars </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>

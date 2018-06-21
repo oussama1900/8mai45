@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <div class="page-header">
-  <h1 class="page-title font_lato">Buttons </h1>
+  <h1 class="page-title font_kufi">Buttons </h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
@@ -360,7 +360,7 @@
               <div class="example-wrap">
                 <h4 class="example-title">Flat And Raised Button</h4>
                 <p>Raised buttons behave like a piece of material resting on another
-                  sheet – they lift and color on press.
+                  sheet ï¿½ they lift and color on press.
                   <br> Flat buttons are printed on the material. They do not lift but
                   fill with color on press.</p>
                 <div class="row">

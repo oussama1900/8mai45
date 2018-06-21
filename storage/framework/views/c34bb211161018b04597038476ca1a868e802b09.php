@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/assets/examples/css/pages/profile.css">
 <div class="page-header">
-  <h1 class="page-title font_lato"><?php echo e(trans('app.profile_details')); ?></h1>
+  <h1 class="page-title font_kufi"><?php echo e(trans('app.profile_details')); ?></h1>
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
