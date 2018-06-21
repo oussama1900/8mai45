@@ -10,11 +10,12 @@
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
+use App\Scout;
 use InvalidArgumentException;
 
 trait EntrustUserTrait
 {
-    //Big block of caching functionality.
+    /*Big block of caching functionality.
     public function cachedRoles()
     {
         $userPrimaryKey = $this->primaryKey;
@@ -22,34 +23,39 @@ trait EntrustUserTrait
         return Cache::tags(Config::get('entrust.role_user_table'))->remember($cacheKey, Config::get('cache.ttl'), function () {
             return $this->roles()->get();
         });
-    }
+    }*/
+
+
     public function save(array $options = [])
     {   //both inserts and updates
         $result = parent::save($options);
-        Cache::tags(Config::get('entrust.role_user_table'))->flush();
+        // Cache::tags(Config::get('entrust.role_user_table'))->flush();
         return $result;
     }
+
     public function delete(array $options = [])
     {   //soft or hard
         $result = parent::delete($options);
-        Cache::tags(Config::get('entrust.role_user_table'))->flush();
+        // Cache::tags(Config::get('entrust.role_user_table'))->flush();
         return $result;
     }
+
     public function restore()
     {   //soft delete undo's
         $result = parent::restore();
-        Cache::tags(Config::get('entrust.role_user_table'))->flush();
+        // Cache::tags(Config::get('entrust.role_user_table'))->flush();
         return $result;
     }
     
     /**
-     * Many-to-Many relations with Role.
+     * Many-to-one relation with Role.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return Role role
      */
-    public function roles()
-    {
-        return $this->belongsToMany(Config::get('entrust.role'), Config::get('entrust.role_user_table'), Config::get('entrust.user_foreign_key'), Config::get('entrust.role_foreign_key'));
+    public function role()
+    {   
+        $captain = $this->captain;
+        return $captain->assignedRole;
     }
 
     /**
@@ -80,7 +86,18 @@ trait EntrustUserTrait
      *
      * @return bool
      */
-    public function hasRole($name, $requireAll = false)
+
+    public function hasRole($name)
+    {
+        if (is_array($name)) 
+            return false;
+        else{
+            $role = $this->role();
+            return $this->role()->name === $name; 
+        }
+    }
+
+    /*public function hasRole($name, $requireAll = false)
     {
         if (is_array($name)) {
             foreach ($name as $roleName) {
@@ -106,7 +123,7 @@ trait EntrustUserTrait
         }
 
         return false;
-    }
+    }*/
 
     /**
      * Check if user has a permission by its name.
@@ -134,14 +151,14 @@ trait EntrustUserTrait
             // Return the value of $requireAll;
             return $requireAll;
         } else {
-            foreach ($this->cachedRoles() as $role) {
+            $role = $this->role();
                 // Validate against the Permission table
                 foreach ($role->cachedPermissions() as $perm) {
                     if (str_is( $permission, $perm->name) ) {
                         return true;
                     }
                 }
-            }
+            
         }
 
         return false;

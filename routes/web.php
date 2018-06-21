@@ -21,7 +21,7 @@ Route::get('/login', 'DashboardController@index');
 Route::get('/logout', 'DashboardController@index');
 
 Auth::routes();
-Route::get('/master', "master@index");
+
 Route::get('/registration', "UserController@registration");
 Route::get('/userlist', "UserController@index");
 Route::post('/store', "UserController@store");
@@ -53,11 +53,6 @@ Route::post('/uniqueemail_edit', "UserController@uniqueemail_edit");
 /* Social Login facebook,google,twitter */
 Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');
-
-
-// Route::get('home', array('as' => 'home', 'uses' => function(){
-  // return view('home');
-// }));
 
 
 /* Language */
@@ -122,7 +117,6 @@ Route::auth();
 Route::resource('permission', 'PermissionsController');
 
 /* Basic Elements */
-/* besic controller*/
 Route::get('/buttons', 'ElementsController@buttons');
 Route::get('/dropdowns', 'ElementsController@dropdowns');
 Route::get('/icons', 'ElementsController@icons');

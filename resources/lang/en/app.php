@@ -3,6 +3,9 @@
 return [
     // common menu
     "home" => "Home",
+    "scoutspace" => 'AlFalah Dashboard',
+    "login_creds" => "Scout ID or email address",
+    "registration_number" => 'Scout ID',
 	"users"=>"Users",
 	"add_user"=>"Add User",
 	"activity_log"=>"Activity Log",

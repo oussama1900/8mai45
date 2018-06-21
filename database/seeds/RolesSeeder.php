@@ -14,30 +14,86 @@ class RolesSeeder extends Seeder
     public function run()
     {
         Role::create([
-            'name' => 'Admin',
-            'display_name' => 'Admin',
-            'description' => 'System administrator.',
+            'name' => 'gov',
+            'display_name' => trans('roles.gov'),
+            'description' => '',
             'removable' => false
         ]);
 
         Role::create([
-            'name' => 'User',
-            'display_name' => 'User',
-            'description' => 'Default system user.',
+            'name' => 'vgov',
+            'display_name' => trans('roles.vgov'),
+            'description' => '',
             'removable' => false
         ]);
 
         Role::create([
-            'name' => 'Captain',
-            'display_name' => 'Captain',
-            'description' => 'this is a captain',
+            'name' => 'med',
+            'display_name' => trans('roles.med'),
+            'description' => '',
             'removable' => false
         ]);
 
         Role::create([
-            'name' => 'Editor',
-            'display_name' => 'Editor',
-            'description' => 'this is an Editor he can approve posts and edit them',
+            'name' => 'vmed',
+            'display_name' => trans('roles.vmed'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'fin',
+            'display_name' => trans('roles.fin'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'vfin',
+            'display_name' => trans('roles.vfin'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'psv',
+            'display_name' => trans('roles.psv'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'vpsv',
+            'display_name' => trans('roles.vpsv'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'ucap',
+            'display_name' => trans('roles.ucap'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'vucp',
+            'display_name' => trans('roles.vucp'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'capa',
+            'display_name' => trans('roles.capa'),
+            'description' => '',
+            'removable' => false
+        ]);
+
+        Role::create([
+            'name' => 'trne',
+            'display_name' => trans('roles.trne'),
+            'description' => '',
             'removable' => false
         ]);
     }

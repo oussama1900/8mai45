@@ -41,16 +41,53 @@ class DashboardController extends Controller
      */
 	
 	public function index(Request $request){
-		if (Auth::user()->hasRole('Admin') || Auth::user()->hasRole('Captain')) {
+		if (Auth::user()->hasRole('gov') || Auth::user()->hasRole('Captain')) {
+			/*===============================================
+				Retrieve basic information about the website
+			================================================*/
+
+
+			//Total Users
 			$totaluser = DB::table('users')->count();
-			$newuser = DB::table('users')->where('created_at', '>=', Carbon::now()->startOfMonth())->count();
-			$todayvisitor = count(DB::table('user_activity')->groupBy('ip_address')->whereDate('created_at', '=', date('Y-m-d'))->get());
-			$monthvisitor = count(DB::table('user_activity')->select([DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d') AS `date`"),])->groupBy('ip_address')->groupBy('date')->where('created_at', '>=', Carbon::now()->startOfMonth())->get());			
-			$recentuser = DB::table('users')->orderBy('id','DES')->limit(5)->get(); 			
-			$graphregister = DB::table('users')->select([DB::raw("DATE_FORMAT(created_at, '%Y-%m') AS `date`,DATE_FORMAT(created_at, '%m') AS `month`"),
-			DB::raw('COUNT(id) AS count'),])->groupBy('date')->orderBy('date', 'ASC')->get();
+
+			//Number of new users
+			$newuser = DB::table('users')
+					  ->where('created_at', '>=', Carbon::now()->startOfMonth())
+					  ->count();
+
+			//Number of visitors today
+			$todayvisitor = count(DB::table('user_activity')
+							->groupBy('ip_address')
+							->whereDate('created_at', '=', date('Y-m-d'))
+							->get());
+
+			//Number of visitors this month				
+			$monthvisitor = count(DB::table('user_activity')
+						->select([DB::raw("DATE_FORMAT(created_at, '%Y-%m-%d') AS `date`"),])
+						->groupBy('ip_address')->groupBy('date')
+						->where('created_at', '>=', Carbon::now()->startOfMonth())
+						->get());	
+						
+			//Recently logged in users			
+			$recentuser = DB::table('users')->select('scout_id')
+						->orderBy('scout_id','DES')
+						->limit(5)->get();
+
+			$users = array();
+			foreach($recentuser as $userStd){
+				$user = User::find($userStd->scout_id);
+				array_push($users, $user);
+			}
+						
+			//Graph			
+			$graphregister = DB::table('users')
+							->select([DB::raw("DATE_FORMAT(created_at, '%Y-%m') AS `date`,DATE_FORMAT(created_at, '%m') AS `month`"),
+							DB::raw('COUNT(scout_id) AS count'),])
+							->groupBy('date')
+							->orderBy('date', 'ASC')
+							->get();
 			
-			return view('dashboard.dashboard_page',compact('todayvisitor','monthvisitor','totaluser','newuser','recentuser','recentactivity','graphregister')); 
+			return view('dashboard.dashboard_page',compact('todayvisitor','monthvisitor','totaluser','newuser','users','recentactivity','graphregister')); 
 		}
 		return $this->defaultDashboard();
 	}

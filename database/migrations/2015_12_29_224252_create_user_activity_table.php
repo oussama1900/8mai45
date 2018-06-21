@@ -25,7 +25,7 @@ class CreateUserActivityTable extends Migration
 
         Schema::table('user_activity', function(Blueprint $table) {
             $table->foreign('user_id')
-                ->references('id')
+                ->references('scout_id')
                 ->on('users')
                 ->onDelete('cascade');
         });

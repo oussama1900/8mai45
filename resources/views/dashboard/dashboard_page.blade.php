@@ -21,7 +21,7 @@ canvas{
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	<span aria-hidden="true">×</span>
   </button>
-	{{ trans('app.welcome')}}  {{Auth::user()->first_name}} {{Auth::user()->last_name}} !
+	{{ trans('app.welcome')}}  {{Auth::user()->profile->getFullName()}} !
 </div>
 <!-------------------------------- End alert message--------------->
 				
@@ -174,17 +174,12 @@ canvas{
 	</div>
 	<div class="panel-body">
 	  <ul class="list-group list-group-dividered list-group-full">
-		@foreach($recentuser as $value)
+		@foreach($users as $value)
 		<li class="list-group-item">
 		  <div class="media">
 			<div class="media-left">
-			  <a class="avatar {{Auth::user()->id == $value->id ? 'avatar-online' : 'avatar-away' }} " href="{{URL::to('/show')}}/{{$value->id}}">
-			    @if(!$value->image)				 
+			  <a class="avatar {{Auth::user()->scout_id == $value->scout_id ? 'avatar-online' : 'avatar-away' }} " href="{{URL::to('/show')}}/{{$value->scout_id}}"> 			 
 					<img src="{{URL::to('/images')}}/default.png" alt="">
-			    @else
-					<img src="{{URL::to('/uploads')}}/{{$value->image}}" alt="">
-				 @endif
-				<i></i>
 			  </a>
 			</div>
 			
@@ -195,7 +190,7 @@ canvas{
 		     </em>
 			  </div>
 			  <div>
-				<a href="{{URL::to('/show')}}/{{$value->id}}"><span><strong>{{$value->first_name}} {{$value->last_name}}</strong></span></a>
+				<a href="{{URL::to('/show')}}/{{$value->scout_id}}"><span><strong>{{$value->profile->getFullName()}}</strong></span></a>
 			  </div>			  
 			</div>
 		  </div>

@@ -304,12 +304,9 @@
             data-animation="scale-up" role="button">
               <span class="avatar avatar-online">
               <!--  <img src="{{URL::to('/')}}/global/portraits/5.jpg" alt="...">-->
-			  @if(!empty(Auth::user()->image))				
-                <img src="{{URL::to('/')}}/uploads/{{Auth::user()->image}}" alt="...">
-			  @else
+            <!-- insert user image instead -->
 				   <img src="{{URL::to('/')}}/images/default.png" alt="...">
-				 @endif
-                <i></i>
+				
               </span>
             </a>
             <ul class="dropdown-menu" role="menu">
@@ -319,7 +316,7 @@
               <!--<li role="presentation">
                 <a href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
               </li>-->
-			  @if (Auth::user()->hasRole('Admin'))
+			  @if (Auth::user()->hasRole('gov'))
               <li role="presentation">
                 <a href="{{URL::to('settings')}}" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i>{{ trans('app.settings')}}</a>
               </li>
@@ -393,7 +390,7 @@
               </li>
             </ul>
           </li>
-		  @if (Auth::user()->hasRole('Admin'))
+		  @if (Auth::user()->hasRole('gov'))
           <li id="toggleChat">
             <a data-toggle="site-sidebar" href="javascript:void(0)" title="{{ trans('app.sidebar')}}" data-url="{{URL::to('SettingController/sidebar/')}}">
            

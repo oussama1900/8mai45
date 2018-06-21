@@ -103,6 +103,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'F' => 
         array (
             'FontLib\\' => 8,
+            'Fideloper\\Proxy\\' => 16,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -292,6 +293,10 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
         ),
+        'Fideloper\\Proxy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fideloper/proxy/src',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
@@ -406,10 +411,12 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CountrySeeder' => __DIR__ . '/../..' . '/database/seeds/CountrySeeder.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'CreateCaptainsTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_20_102253_create_captains_table.php',
         'CreateLanguagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_000000_create_languages_table.php',
         'CreateMessagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_000000_create_messages_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_12_235012_create_posts_table.php',
+        'CreateScoutsTable' => __DIR__ . '/../..' . '/database/migrations/2015_06_20_101724_create_scouts_table.php',
         'CreateSettingsTable' => __DIR__ . '/../..' . '/database/migrations/2015_08_25_172600_create_settings_table.php',
         'CreateSocialAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_170911_create_social_accounts_table.php',
         'CreateSocialLoginTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_171049_create_social_login_table.php',

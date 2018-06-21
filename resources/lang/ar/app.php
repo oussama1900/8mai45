@@ -1,5 +1,10 @@
-<?php return [ "home" =>"الصفحة الرئيسية",
+<?php 
+return [ 
+"home" =>"الصفحة الرئيسية",
+"login_creds" => "رقم الكشاف أو البريد الالكتروني",
 "users" =>"المستخدمين",
+"registration_number" => 'رقم الكشاف',
+"scoutspace" => 'ساحة الكشاف',
 "add_user" =>"إضافة مستخدم",
 "activity_log" =>"سجل النشاطات",
 "languages" =>"اللغات",

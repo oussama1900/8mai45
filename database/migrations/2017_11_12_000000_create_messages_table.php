@@ -25,11 +25,11 @@ class CreateMessagesTable extends Migration
 		
 		 Schema::table('messages', function(Blueprint $table) {
             $table->foreign('receiver_id')
-                ->references('id')
+                ->references('scout_id')
                 ->on('users')
                 ->onDelete('cascade');
 			 $table->foreign('sender_id')
-                ->references('id')
+                ->references('scout_id')
                 ->on('users')
                 ->onDelete('cascade');
         });

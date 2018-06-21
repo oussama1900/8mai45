@@ -64,29 +64,5 @@ return [
     */
     'permission_role_table' => 'permission_role',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Entrust role_user Table
-    |--------------------------------------------------------------------------
-    |
-    | This is the role_user table used by Entrust to save assigned roles to the
-    | database.
-    |
-    */
-    'role_user_table' => 'role_user',
-
-    /*
-    |--------------------------------------------------------------------------
-    | User Foreign key on Entrust's role_user Table (Pivot)
-    |--------------------------------------------------------------------------
-    */
-    'user_foreign_key' => 'user_id',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Role Foreign key on Entrust's role_user Table (Pivot)
-    |--------------------------------------------------------------------------
-    */
-    'role_foreign_key' => 'role_id',
 
 ];

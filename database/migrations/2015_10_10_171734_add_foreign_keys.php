@@ -15,14 +15,14 @@ class AddForeignKeys extends Migration
       
         Schema::table('social_logins', function(Blueprint $table) {
             $table->foreign('user_id')
-                ->references('id')
+                ->references('scout_id')
                 ->on('users')
                 ->onDelete('cascade');
         });
 
         Schema::table('social_accounts', function(Blueprint $table) {
             $table->foreign('user_id')
-                ->references('id')
+                ->references('scout_id')
                 ->on('users')
                 ->onDelete('cascade');
         });

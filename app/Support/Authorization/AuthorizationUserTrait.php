@@ -13,8 +13,8 @@ trait AuthorizationUserTrait
 
     public function cachedRoles()
     {
-        return Cache::remember('entrust_roles_for_user_'.$this->{$this->primaryKey}, Config::get('cache.ttl'), function () {
-            return $this->roles()->get();
+        return Cache::remember('entrust_role_for_user_'.$this->primaryKey, Config::get('cache.ttl'), function () {
+            return $this->role();
         });
     }
 

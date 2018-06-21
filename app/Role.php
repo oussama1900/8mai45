@@ -9,7 +9,10 @@ class Role extends Model
 {
 	 use AuthorizationRoleTrait;
 	 
-	  protected $table;
+      protected $table = 'roles';
+      protected $primaryKey = 'name';
+      protected $keyType = 'string';
+      public $incrementing = false;
 
     protected $casts = [
         'removable' => 'boolean'

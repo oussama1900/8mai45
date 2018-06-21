@@ -5,11 +5,10 @@ use App\Presenters\UserPresenter;
 use App\Support\Authorization\AuthorizationUserTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 class User extends Authenticatable
 {
 	 use AuthorizationUserTrait;
-use Notifiable;
+     use Notifiable;
 	 protected $presenter = UserPresenter::class;
 
     /**
@@ -18,18 +17,17 @@ use Notifiable;
      * @var string
      */
     protected $table = 'users';
+    protected $primaryKey = 'scout_id';
+    
 
-    protected $dates = ['last_login', 'birthday'];
+    protected $dates = ['last_login'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['first_name','last_name', 'email', 'password', 'username','phone',
-        'address', 'country', 'date_of_birth','gender', 'last_login', 'confirmation_token', 'status',
-        'role','google','facebook','twitter','linkedin','skype','dribbble','remember_token'
-    ];
+    protected $fillable = ['email', 'password', 'remember_token'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -37,21 +35,6 @@ use Notifiable;
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
-    /**
-     * Always encrypt password when it is updated.
-     *
-     * @param $value
-     * @return string
-     */
-   
-
-    public function setBirthdayAttribute($value)
-    {
-        $this->attributes['birthday'] = trim($value) ?: null;
-    }
-
- 
 
     public function isUnconfirmed()
     {
@@ -68,7 +51,32 @@ use Notifiable;
         return $this->status == UserStatus::BANNED;
     }
 
-  
-	
-	 
+    /**
+     * Gets the captain row corresponding to this user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo Captain
+     */
+    public function captain(){
+        return $this->belongsTo('App\Captain', 'scout_id', 'scout_id');
+    }
+
+    public function assignRole(Role $role){
+        $this->captain()->role = $role;
+        return $this;
+    }
+
+    /**
+     * Gets the unit in which this user is active
+     * @return string unit
+     */
+    public function unit(){
+        return $this->captain()->unit;
+    }
+
+    /**
+     * Gets the basic information of this user
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne Scout
+     */
+    public function profile(){
+        return $this->hasOne('App\Scout', 'scout_id', 'scout_id');
+    }
 }
