@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Languages extends Model
 {
-	protected $table;
+	protected $table = 'languages';
     protected $fillable = ['foldername', 'languagename', 'description','flag_image'];
 }

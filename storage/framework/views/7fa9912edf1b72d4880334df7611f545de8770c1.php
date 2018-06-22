@@ -168,7 +168,7 @@ canvas{
   <div class="panel" id="followers">
 	<div class="panel-heading">
 	<h3 class="panel-title">
-		<?php echo e(trans('app.latest_registrations')); ?> <a href="<?php echo e(URL::to('/userlist')); ?>" class="pull-right"><button class="btn btn-outline btn-primary btn-round btn-xs"><?php echo e(trans('app.view_all')); ?></button> </a>
+		<?php echo e(trans('app.latest_registrations')); ?> <a href="<?php echo e(URL::to('/dashboard/scouts/accounts')); ?>" class="pull-right"><button class="btn btn-outline btn-primary btn-round btn-xs"><?php echo e(trans('app.view_all')); ?></button> </a>
 	  </h3>
 	</div>
 	<div class="panel-body">
@@ -177,7 +177,7 @@ canvas{
 		<li class="list-group-item">
 		  <div class="media">
 			<div class="media-left">
-			  <a class="avatar <?php echo e(Auth::user()->scout_id == $value->scout_id ? 'avatar-online' : 'avatar-away'); ?> " href="<?php echo e(URL::to('/show')); ?>/<?php echo e($value->scout_id); ?>"> 			 
+			  <a class="avatar <?php echo e(Auth::user()->scout_id == $value->scout_id ? 'avatar-online' : 'avatar-away'); ?> " href="<?php echo e(URL::to('/dashboard/scouts/accounts/show')); ?>/<?php echo e($value->scout_id); ?>"> 			 
 					<img src="<?php echo e(URL::to('/images')); ?>/default.png" alt="">
 			  </a>
 			</div>
@@ -190,7 +190,7 @@ canvas{
 		     </em>
 			  </div>
 			  <div>
-				<a href="<?php echo e(URL::to('/show')); ?>/<?php echo e($value->scout_id); ?>"><span><strong><?php echo e($value->profile->getFullName()); ?></strong> <br> <small style="font-size: 10px"><?php echo e($value->profile->getRegistrationNumber()); ?></small></span></a>
+				<a href="<?php echo e(URL::to('/dashboard/scouts/accounts/show')); ?>/<?php echo e($value->scout_id); ?>"><span><strong><?php echo e($value->profile->getFullName()); ?></strong> <br> <small style="font-size: 10px"><?php echo e($value->profile->getRegistrationNumber()); ?></small></span></a>
 			  </div>			  
 			</div>
 		  </div>

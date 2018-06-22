@@ -13,6 +13,7 @@ class Role extends Model
       protected $primaryKey = 'name';
       protected $keyType = 'string';
       public $incrementing = false;
+      public $timestamps = false;
 
     protected $casts = [
         'removable' => 'boolean'
@@ -32,16 +33,9 @@ class Role extends Model
 
     protected $fillable = ['name', 'display_name', 'description'];
 	
-	/*
-	protected $table = 'roles';
-	protected $fillable =  ['name', 'display_name', 'description'];
-	
     public function permissions(){
-		return 	$this->belongsToMany(Permission::class);
+		return 	$this->hasMany(Permission::class);
 	}
 	
-	public function assign(Permission $permission){
-		return $this->permissions()->save($permission);
-	}
-	*/
+
 }

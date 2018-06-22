@@ -18,6 +18,7 @@ class User extends Authenticatable
      */
     protected $table = 'users';
     protected $primaryKey = 'scout_id';
+    public $timestamps = false;
     
 
     protected $dates = ['last_login'];

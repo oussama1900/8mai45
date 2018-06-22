@@ -29,7 +29,7 @@ role="tablist">
         <div class="list-group">
 		
          @foreach($sidebarusers as $value) 
-		  <a class="list-group-item" href="{{URL::to('/show/')}}/{{$value->id}}" data-toggle="show-chat">
+		  <a class="list-group-item" href="{{URL::to('/dashboard/scouts/accounts/show/')}}/{{$value->id}}" data-toggle="show-chat">
             <div class="media">
               <div class="media-left">
                 <div class="avatar avatar-sm avatar-away">
@@ -50,7 +50,7 @@ role="tablist">
 		 @endforeach 
         </div>
 		<div class="list-group">
-			<a class="list-group-item" href="{{URL::to('/userlist/')}}" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
+			<a class="list-group-item" href="{{URL::to('/dashboard/scouts/accounts/')}}" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
 				<div class="media">
 				<div class="media-left">
 					 <i class="icon wb-users" aria-hidden="true"></i>
@@ -91,7 +91,7 @@ role="tablist">
 
         </ul>
 <div class="list-group">
-			<a class="list-group-item" href="{{URL::to('/activity/')}}" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
+			<a class="list-group-item" href="{{URL::to('/dashboard/activity/')}}" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
 				<div class="media">
 				<div class="media-left">
 					 <i class="icon wb-chat" aria-hidden="true"></i>

@@ -11,6 +11,7 @@ class Foo {
 	 public function language_name() {
 		return DB::table('languages')->get();
 	 } 
+	 
 	 public function users_activity($param) {
 		  $userId = Auth::id();
 		  $useragent =  $_SERVER['HTTP_USER_AGENT'];

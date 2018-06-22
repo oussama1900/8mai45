@@ -13,49 +13,41 @@
 
 
 /* home controller */
-
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/login', 'DashboardController@index');
-Route::get('/logout', 'DashboardController@index');
+Route::get('/logout', 'DashboardController@index'); 
+Route::get('/dashboard', "DashboardController@index");
 
 Auth::routes();
 
-Route::get('/registration', "UserController@registration");
-Route::get('/userlist', "UserController@index");
-Route::post('/store', "UserController@store");
-Route::get('/edit/{id}', "UserController@edit");
-Route::get('/show/{id}', "UserController@show");
-Route::post('/update/{id}', "UserController@update");
-Route::get('/destroy/{id}', "UserController@destroy");
-Route::post('/upload/{id}', "UserController@upload");
-Route::post('/authentication/{id}', "UserController@authentication");
-Route::post('/importcsv', "UserController@importcsv");
-Route::get('/import', "UserController@importuser");
-Route::get('/profile', "UserController@profile");
-Route::get('/profileEdit', "UserController@profileEdit");
-Route::get('/export', "UserController@xlsexport");
-Route::get('/pdf', "UserController@pdfexport");
-Route::get('/usersprint', "UserController@userlistprint");
+/* ================================ 
+    Dashboard Dependent Routes
+=================================== */
+Route::get('/dashboard/scouts/accounts/register', "UserController@registration");
+Route::get('/dashboard/scouts/accounts', "UserController@index");
+Route::post('/dashboard/scouts/accounts', "UserController@store");
+Route::get('/dashboard/scouts/accounts/edit/{id}', "UserController@edit");
+Route::get('/dashboard/scouts/accounts/show/{id}', "UserController@show");
+Route::put('/dashboard/scouts/accounts/update/{id}', "UserController@update");
+Route::delete('/dashboard/scouts/accounts/destroy/{id}', "UserController@destroy");
 
-/* send email */
+Route::post('/upload/{id}', "UserController@upload"); //to be revised
+Route::post('/authentication/{id}', "UserController@authentication"); //not really sure about this route ...
+Route::post('/importcsv', "UserController@importcsv"); //to be revised
+Route::get('/import', "UserController@importuser"); //to be revised
+Route::get('/profile', "UserController@profile"); //to be revised
+Route::get('/profileEdit', "UserController@profileEdit"); //to be retracked to ScoutsController
+Route::get('/dashboard/scouts/accounts/export', "UserController@xlsexport"); 
+Route::get('/pdf', "UserController@pdfexport"); //can be handled without a controller
+Route::get('/usersprint', "UserController@userlistprint"); //can be handled without a controller
 
+/* send email (needs rework) */
 Route::get('/sendemail', "UserController@sendemail");
 Route::post('/user/sendemail', "UserController@sendemail");
 
-/* username and email exists ajax check */
-Route::post('/uniqueuser', "UserController@uniqueuser");
-Route::post('/uniqueemail', "UserController@uniqueemail");
-Route::post('/uniqueuser_edit', "UserController@uniqueuser_edit");
-Route::post('/uniqueemail_edit', "UserController@uniqueemail_edit");
-
-/* Social Login facebook,google,twitter */
-Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
-Route::get('/callback/{provider}', 'SocialAuthController@callback');
-
-
-/* Language */
+/* Language (doubtful because language can be changed by setLocale())*/
 Route::get('/language', "LanguageController@index");
 Route::post('LanguageController/store', ['as' => 'languages.store', 'uses' => 'LanguageController@store']);
 Route::get('LanguageController/edit/{id}', "LanguageController@edit");
@@ -64,37 +56,31 @@ Route::get('LanguageController/chooser_language/{id}',"LanguageController@choose
 Route::get('/LanguageController/destroy/{id}/{lan}', "LanguageController@destroy");
 
 /* roles and Permission */
-Route::get('/roles', "RoleController@index");
-Route::get('/RoleController/edit/{id}', "RoleController@edit");
-Route::post('roles', ['as' => 'roles.store', 'uses' => 'RoleController@store']);
-Route::post('RoleController/update/{id}','RoleController@update');
-Route::get('/RoleController/destroy/{id}', "RoleController@destroy");
+Route::get('/dashboard/roles', "RoleController@index");
+Route::get('/dashboard/roles/edit/{id}', "RoleController@edit");
+Route::post('/dashboard/roles', 'RoleController@store');
+Route::put('/dashboard/roles/update/{id}','RoleController@update');
+Route::delete('/dashboard/roles/destroy/{id}', "RoleController@destroy");
 
-//Route::post('/roles', "RoleController@index");
-Route::get('/permissions', "PermissionController@index");
-Route::get('/PermissionController/edit/{id}', "PermissionController@edit");
-Route::post('permissions', ['as' => 'permission.store','uses' => 'PermissionController@store']);
-Route::post('PermissionController/update/{id}','PermissionController@update');
-Route::post('permissions/save', ['as' => 'permission.save', 'uses' => 'PermissionController@saveRolePermissions']);
-Route::get('/PermissionController/destroy/{id}', "PermissionController@destroy");
+Route::get('/dashboard/permissions', "PermissionController@index");
+Route::get('/dashboard/permissions/edit/{id}', "PermissionController@edit");
+Route::post('/dashboard/permissions', 'PermissionController@store');
+Route::put('/dashboard/permissions/update/{id}','PermissionController@update');
+Route::post('/dashboard/permissions/attach', 'PermissionController@saveRolePermissions');
+Route::delete('/dashboard/permissions/destroy/{id}', "PermissionController@destroy");
 
 /* User Activity activity */ 
-Route::get('/activity/', "ActivityController@index");
-Route::get('/activity/user/{id}', "ActivityController@activity_user");
+Route::get('/dashboard/activity', "ActivityController@index");
+Route::get('/dashboard/activity/user/{id}', "ActivityController@activity_user");
 
-/* Setting */ 
+/* Setting (subject to deletion)*/ 
 Route::get('/settings/', "SettingController@index");
 Route::post('/settings/', "SettingController@store");
 Route::post('/SettingController/upload/{id}', "SettingController@upload");
 Route::post('/SettingController/auth_registration', "SettingController@auth_registration");
-
 Route::get('/SettingController/sidebar', "SettingController@sidebar");
 
-/* Dashboard */ 
-Route::get('/dashboard/', "DashboardController@index");
-
-
-/* Message */ 
+/* Message (TODO)*/ 
 Route::get('/message/', "MessageController@index");
 Route::get('/SendMessage/', "MessageController@sendmail");
 Route::get('/sendDetails/{id}', "MessageController@sendDetails");
@@ -102,79 +88,9 @@ Route::get('/inboxDetails/{id}/{replayidid}', "MessageController@inboxDetails");
 Route::post('MessageController/save/', "MessageController@store");
 Route::post('MessageController/destroy/', "MessageController@destroy");
 
-/* Posts */
-Route::get('/writePosts/', "postsController@index");
-Route::get('/postsimageupload/', "postsController@upload");
-Route::post('/storePost', "postsController@store");
-Route::get('/viewPosts', "postsController@view");
-Route::get('/viewPost/{id}', "postsController@show");
-
-
-
-/* Basic Elements */
-Route::get('/buttons', 'ElementsController@buttons');
-Route::get('/dropdowns', 'ElementsController@dropdowns');
-Route::get('/icons', 'ElementsController@icons');
-Route::get('/ElementsController/brandIcons', 'ElementsController@brandIcons');
-Route::get('/ElementsController/fontAwesome', 'ElementsController@fontAwesome');
-Route::get('/ElementsController/strokeIcon', 'ElementsController@strokeIcon');
-Route::get('/ElementsController/glyphicons', 'ElementsController@glyphicons');
-Route::get('/ElementsController/ionicons', 'ElementsController@ionicons');
-Route::get('/ElementsController/materialDesign', 'ElementsController@materialDesign');
-Route::get('/ElementsController/mfglabs', 'ElementsController@mfglabs');
-Route::get('/ElementsController/octicons', 'ElementsController@octicons');
-Route::get('/ElementsController/openIconic', 'ElementsController@openIconic');
-Route::get('/ElementsController/themify', 'ElementsController@themify');
-Route::get('/ElementsController/weatherIcons', 'ElementsController@weatherIcons');
-Route::get('/ElementsController/webIcons', 'ElementsController@webIcons');
-Route::get('/tooltip', 'ElementsController@tooltip');
-Route::get('/modals', 'ElementsController@modals');
-Route::get('/tabsAccordions', 'ElementsController@tabsAccordions');
-Route::get('/imagesDes', 'ElementsController@imagesDes');
-Route::get('/badgesLabels', 'ElementsController@badgesLabels');
-Route::get('/progressBars', 'ElementsController@progressBars');
-Route::get('/carousel', 'ElementsController@carousel');
-Route::get('/carousel', 'ElementsController@carousel');
-Route::get('/typography', 'ElementsController@typography');
-Route::get('/colors', 'ElementsController@colors');
-Route::get('/animation', 'ElementsController@animation');
-Route::get('/lightbox', 'ElementsController@lightbox');
-Route::get('/scrollable', 'ElementsController@scrollable');
-Route::get('/rating', 'ElementsController@rating');
-Route::get('/toastr', 'ElementsController@toastr');
-Route::get('/sortableNestable', 'ElementsController@sortableNestable');
-Route::get('/bootboxSweetalert', 'ElementsController@bootboxSweetalert');
-Route::get('/alerts', 'ElementsController@alerts');
-Route::get('/ribbon', 'ElementsController@ribbon');
-Route::get('/pricingTables', 'ElementsController@pricingTables');
-Route::get('/overlay', 'ElementsController@overlay');
-Route::get('/cover', 'ElementsController@cover');
-Route::get('/timeline', 'ElementsController@timeline');
-Route::get('/step', 'ElementsController@step');
-Route::get('/chat', 'ElementsController@chat');
-Route::get('/social', 'ElementsController@social');
-Route::get('/general', 'ElementsController@general');
-Route::get('/material', 'ElementsController@material');
-Route::get('/layouts', 'ElementsController@layouts');
-Route::get('/wizard', 'ElementsController@wizard');
-Route::get('/validation', 'ElementsController@validation');
-Route::get('/masks', 'ElementsController@masks');
-Route::get('/imageCropping', 'ElementsController@imageCropping');
-Route::get('/fileUploads', 'ElementsController@fileUploads');
-Route::get('/basicTables', 'ElementsController@basicTables');
-Route::get('/responsiveTable', 'ElementsController@responsiveTable');
-Route::get('/editableTable', 'ElementsController@editableTable');
-Route::get('/jsgrid', 'ElementsController@jsgrid');
-Route::get('/faq', 'ElementsController@faq');
-Route::get('/gallery', 'ElementsController@gallery');
-Route::get('/searchResult', 'ElementsController@searchResult');
-Route::get('/invoice', 'ElementsController@invoice');
-Route::get('/profiledemo', 'ElementsController@profiledemo');
-Route::get('/error400', 'ElementsController@error400');
-Route::get('/error500', 'ElementsController@error500');
-Route::get('/logout', 'DashboardController@index');
-
-
-
-
-
+/* Posts to be redone from scratch*/
+Route::get('/dashboard/posts/', "postsController@index");
+Route::post('/dashboard/posts/upload', "postsController@upload");
+Route::post('/dashboard/posts/', "postsController@store");
+Route::get('/dashboard/posts/create', "postsController@create");
+Route::get('/dashboard/posts/{id}', "postsController@show");

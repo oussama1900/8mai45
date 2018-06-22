@@ -9,6 +9,7 @@ class Scout extends Model
 {
     protected $table = 'scouts';
     protected $primaryKey = 'scout_id';
+    public $timestamps = false;
     protected $membership_date;
 
     protected $fillable = [

@@ -54,7 +54,7 @@
 
 <div class="tab-content">
 <div id="createpermission" class="tab-pane fade in active">
-<form action="<?php echo e(URL::to('permissions/save')); ?>" method="post" novalidate="">
+<form action="<?php echo e(URL::to('/dashboard/permissions/attach')); ?>" method="post" novalidate="">
 <?php echo e(csrf_field()); ?>
 
 <table class="tablesaw table-striped table-bordered tablesaw-columntoggle" data-tablesaw-mode="columntoggle" data-tablesaw-minimap="" id="table-3973">

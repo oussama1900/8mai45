@@ -82,7 +82,7 @@
                             <span class="input-group-btn">
                                         <span class="btn btn-success btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
-                                            <input type="file" name="titleImage" multiple="false" onchange="post('/postsimageupload/', {image: document.getElementById('titleImage').value});" id="titleImage" ng-model="titleImage">
+                                            <input type="file" name="titleImage" multiple="false" onchange="post('/dashboard/posts/upload/', {image: document.getElementById('titleImage').value});" id="titleImage" ng-model="titleImage">
                                         </span>
                                     </span>
                         </div>

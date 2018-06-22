@@ -71,7 +71,7 @@
 				<td class="tablesaw-priority-2"><?php echo e($view->users_count); ?></td>
 				<td class="text-center"  class="tablesaw-priority-1">
 					<a href="<?php echo e(URL::to('RoleController/edit')); ?>/<?php echo e($view->id); ?>" class="btn btn-icon btn-info btn-outline btn-round" title="<?php echo e(trans('app.edit')); ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?php echo e(trans('app.edit')); ?>"><i class="icon wb-pencil" aria-hidden="true"></i></a>
-					 <button data-placement="top" data-original-title="<?php echo e(trans('app.delete')); ?>" rel="tooltip" title="<?php echo e(trans('app.delete')); ?>"  class="btn btn-icon btn-danger btn-outline btn-round" data-target=".exampleNiftyFlipVertical" data-toggle="modal" type="button" data-href="<?php echo e(URL::to('RoleController/destroy')); ?>/<?php echo e($view->id); ?>"><i class="icon fa-remove" aria-hidden="true"></i></button>
+					 <button data-placement="top" data-original-title="<?php echo e(trans('app.delete')); ?>" rel="tooltip" title="<?php echo e(trans('app.delete')); ?>"  class="btn btn-icon btn-danger btn-outline btn-round" data-target=".exampleNiftyFlipVertical" data-toggle="modal" type="button" data-href="<?php echo e(URL::to('/dashboard/roles/destroy')); ?>/<?php echo e($view->id); ?>"><i class="icon fa-remove" aria-hidden="true"></i></button>
 				 </td>
 			   </tr>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  

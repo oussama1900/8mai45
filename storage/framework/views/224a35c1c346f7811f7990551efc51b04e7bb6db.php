@@ -4,7 +4,7 @@
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
-		<li><a href="<?php echo e(URL::to('/permissions')); ?>"><?php echo e(trans('app.permissions')); ?></a></li>
+		<li><a href="<?php echo e(URL::to('/dashboard/permissions')); ?>"><?php echo e(trans('app.permissions')); ?></a></li>
 		<li class="active"><?php echo e(trans('app.edit')); ?></li>
 	</ol>
   </div>
@@ -47,7 +47,7 @@
 </div>
 <div class="row">
 <div class="col-lg-12">	 
-<form name="userForm" action="<?php echo e(URL::to('PermissionController/update')); ?>/<?php echo e($permissiondata->id); ?>" method="post" novalidate="">
+<form name="userForm" action="<?php echo e(URL::to('/dashboard/permissions/update')); ?>/<?php echo e($permissiondata->id); ?>" method="post" novalidate="">
 <?php echo e(csrf_field()); ?>
 
 <div class="col-md-6 row">

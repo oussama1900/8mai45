@@ -560,7 +560,7 @@ class PHPExcel_Worksheet_AutoFilter
 										  )
 									);
 
-		//	Set the rules for identifying rows for hide/show
+		//	Set the rules for identifying rows for hide/dashboard/scouts/accounts/show
 		$ruleValues[] = array( 'operator' => PHPExcel_Worksheet_AutoFilter_Column_Rule::AUTOFILTER_COLUMN_RULE_GREATERTHANOREQUAL,
 							   'value' => $val
 							 );

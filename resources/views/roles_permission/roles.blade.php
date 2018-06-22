@@ -69,7 +69,7 @@
 				<td class="tablesaw-priority-2">{{$view->users_count}}</td>
 				<td class="text-center"  class="tablesaw-priority-1">
 					<a href="{{URL::to('RoleController/edit')}}/{{$view->id}}" class="btn btn-icon btn-info btn-outline btn-round" title="{{ trans('app.edit')}}" data-toggle="tooltip" data-placement="top" data-original-title="{{ trans('app.edit')}}"><i class="icon wb-pencil" aria-hidden="true"></i></a>
-					 <button data-placement="top" data-original-title="{{ trans('app.delete')}}" rel="tooltip" title="{{ trans('app.delete')}}"  class="btn btn-icon btn-danger btn-outline btn-round" data-target=".exampleNiftyFlipVertical" data-toggle="modal" type="button" data-href="{{URL::to('RoleController/destroy')}}/{{$view->id}}"><i class="icon fa-remove" aria-hidden="true"></i></button>
+					 <button data-placement="top" data-original-title="{{ trans('app.delete')}}" rel="tooltip" title="{{ trans('app.delete')}}"  class="btn btn-icon btn-danger btn-outline btn-round" data-target=".exampleNiftyFlipVertical" data-toggle="modal" type="button" data-href="{{URL::to('/dashboard/roles/destroy')}}/{{$view->id}}"><i class="icon fa-remove" aria-hidden="true"></i></button>
 				 </td>
 			   </tr>
 			@endforeach  

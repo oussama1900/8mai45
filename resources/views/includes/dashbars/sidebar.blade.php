@@ -36,7 +36,7 @@
                     <ul class="site-menu-sub">
                       @permission('users.manage') 
                               <li class="site-menu-item {{ Request::is('registration') ? 'active' : '' }}">
-                        <a class="animsition-link" href="{{URL::to('/registration')}}">
+                        <a class="animsition-link" href="{{URL::to('/dashboard/scouts/accounts/register')}}">
                         <span class="site-menu-title">{{ trans('app.add_user')}}</span>
                         </a>
                       </li>
@@ -68,7 +68,7 @@
                   <ul class="site-menu-sub">
                   @permission('posts.write')
                     <li class="site-menu-item {{ Request::is('writePosts') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/writePosts')}}">
+                      <a class="animsition-link" href="{{URL::to('/dashboard/posts')}}">
                         <span class="site-menu-title">
                           write posts
                         </span>
@@ -125,14 +125,14 @@
                   <ul class="site-menu-sub">
                         @permission('roles.manage')
                     <li class="site-menu-item {{ Request::is('roles') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/roles')}}">
+                      <a class="animsition-link" href="{{URL::to('/dashboard/roles')}}">
                         <span class="site-menu-title">{{ trans('app.roles')}}</span>
                       </a>
                     </li>
                           @endpermission
                           @permission('roles.manage')
                             <li class="site-menu-item {{ Request::is('permissions') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/permissions')}}">
+                      <a class="animsition-link" href="{{URL::to('/dashboard/permissions')}}">
                         <span class="site-menu-title">{{ trans('app.permissions')}}</span>
                       </a>
                     </li>

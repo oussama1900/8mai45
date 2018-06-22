@@ -4,7 +4,7 @@
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
-		<li><a href="<?php echo e(URL::to('/roles')); ?>"><?php echo e(trans('app.roles')); ?></a></li>
+		<li><a href="<?php echo e(URL::to('/dashboard/roles')); ?>"><?php echo e(trans('app.roles')); ?></a></li>
 		<li class="active"><?php echo e(trans('app.edit')); ?></li>
 	</ol>
   </div>
@@ -47,7 +47,7 @@
 <?php endif; ?>
 </div>
 
-<form name="userForm" action="<?php echo e(URL::to('RoleController/update')); ?>/<?php echo e($roledata->id); ?>" method="post" novalidate="">
+<form name="userForm" action="<?php echo e(URL::to('/dashboard/roles/update')); ?>/<?php echo e($roledata->id); ?>" method="post" novalidate="">
 <?php echo e(csrf_field()); ?>
 
 

@@ -330,7 +330,7 @@ class UserController extends Controller
      */
     public function authentication(Request $request, $id)
     {		
-		$input = $request->all();
+	   $input = $request->all();
 	   $user = $request->input('username');
 	   $email = $request->input('email');	
 	   $password = bcrypt($request->input('password'));

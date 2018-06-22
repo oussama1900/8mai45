@@ -169,7 +169,7 @@ canvas{
   <div class="panel" id="followers">
 	<div class="panel-heading">
 	<h3 class="panel-title">
-		{{ trans('app.latest_registrations')}} <a href="{{URL::to('/userlist')}}" class="pull-right"><button class="btn btn-outline btn-primary btn-round btn-xs">{{ trans('app.view_all')}}</button> </a>
+		{{ trans('app.latest_registrations')}} <a href="{{URL::to('/dashboard/scouts/accounts')}}" class="pull-right"><button class="btn btn-outline btn-primary btn-round btn-xs">{{ trans('app.view_all')}}</button> </a>
 	  </h3>
 	</div>
 	<div class="panel-body">
@@ -178,7 +178,7 @@ canvas{
 		<li class="list-group-item">
 		  <div class="media">
 			<div class="media-left">
-			  <a class="avatar {{Auth::user()->scout_id == $value->scout_id ? 'avatar-online' : 'avatar-away' }} " href="{{URL::to('/show')}}/{{$value->scout_id}}"> 			 
+			  <a class="avatar {{Auth::user()->scout_id == $value->scout_id ? 'avatar-online' : 'avatar-away' }} " href="{{URL::to('/dashboard/scouts/accounts/show')}}/{{$value->scout_id}}"> 			 
 					<img src="{{URL::to('/images')}}/default.png" alt="">
 			  </a>
 			</div>
@@ -190,7 +190,7 @@ canvas{
 		     </em>
 			  </div>
 			  <div>
-				<a href="{{URL::to('/show')}}/{{$value->scout_id}}"><span><strong>{{$value->profile->getFullName() }}</strong> <br> <small style="font-size: 10px">{{$value->profile->getRegistrationNumber()}}</small></span></a>
+				<a href="{{URL::to('/dashboard/scouts/accounts/show')}}/{{$value->scout_id}}"><span><strong>{{$value->profile->getFullName() }}</strong> <br> <small style="font-size: 10px">{{$value->profile->getRegistrationNumber()}}</small></span></a>
 			  </div>			  
 			</div>
 		  </div>

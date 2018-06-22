@@ -5,7 +5,7 @@
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
-		<li><a href="{{URL::to('/roles')}}">{{ trans('app.roles')}}</a></li>
+		<li><a href="{{URL::to('/dashboard/roles')}}">{{ trans('app.roles')}}</a></li>
 		<li class="active">{{ trans('app.edit')}}</li>
 	</ol>
   </div>
@@ -45,7 +45,7 @@
 @endif
 </div>
 
-<form name="userForm" action="{{URL::to('RoleController/update')}}/{{$roledata->id}}" method="post" novalidate="">
+<form name="userForm" action="{{URL::to('/dashboard/roles/update')}}/{{$roledata->id}}" method="post" novalidate="">
 {{ csrf_field() }}
 
 <div class="col-md-6">

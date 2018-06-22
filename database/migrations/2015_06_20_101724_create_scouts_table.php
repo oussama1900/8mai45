@@ -24,7 +24,7 @@ class CreateScoutsTable extends Migration
 
             //Contacts
             $table->string('email', 60)->unique()->nullable()->default(NULL);
-            $table->unsignedInteger('phone')->unique()->nullable()->default(NULL);
+            $table->string('phone', 20)->nullable()->default(NULL);
         });
     }
 

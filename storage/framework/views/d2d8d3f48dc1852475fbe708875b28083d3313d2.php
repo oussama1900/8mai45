@@ -480,7 +480,7 @@
               <ul class="site-menu-sub">
                <?php if (\Entrust::can('users.manage')) : ?> 
 				<li class="site-menu-item <?php echo e(Request::is('registration') ? 'active' : ''); ?>">
-                  <a class="animsition-link" href="<?php echo e(URL::to('/registration')); ?>">
+                  <a class="animsition-link" href="<?php echo e(URL::to('/dashboard/scouts/accounts/register')); ?>">
                     <span class="site-menu-title"><?php echo e(trans('app.add_user')); ?></span>
                   </a>
                 </li>
@@ -528,14 +528,14 @@
               <ul class="site-menu-sub">
 			   <?php if (\Entrust::can('roles.manage')) : ?>
                 <li class="site-menu-item <?php echo e(Request::is('roles') ? 'active' : ''); ?>">
-                  <a class="animsition-link" href="<?php echo e(URL::to('/roles')); ?>">
+                  <a class="animsition-link" href="<?php echo e(URL::to('/dashboard/roles')); ?>">
                     <span class="site-menu-title"><?php echo e(trans('app.roles')); ?></span>
                   </a>
                 </li>
 				<?php endif; // Entrust::can ?>
 				 <?php if (\Entrust::can('roles.manage')) : ?>
 				<li class="site-menu-item <?php echo e(Request::is('permissions') ? 'active' : ''); ?>">
-                  <a class="animsition-link" href="<?php echo e(URL::to('/permissions')); ?>">
+                  <a class="animsition-link" href="<?php echo e(URL::to('/dashboard/permissions')); ?>">
                     <span class="site-menu-title"><?php echo e(trans('app.permissions')); ?></span>
                   </a>
                 </li>

@@ -10,5 +10,7 @@ class Permission extends EntrustPermission
     protected $primaryKey = 'name';
     protected $keyType = 'string';
     public $incrementing = false;
+    public $timestamps = false;
+    
     protected $fillable = ['name', 'display_name', 'description'];
 }

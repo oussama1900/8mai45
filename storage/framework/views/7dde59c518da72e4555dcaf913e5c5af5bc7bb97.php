@@ -29,7 +29,7 @@ role="tablist">
         <div class="list-group">
 		
          <?php $__currentLoopData = $sidebarusers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-		  <a class="list-group-item" href="<?php echo e(URL::to('/show/')); ?>/<?php echo e($value->id); ?>" data-toggle="show-chat">
+		  <a class="list-group-item" href="<?php echo e(URL::to('/dashboard/scouts/accounts/show/')); ?>/<?php echo e($value->id); ?>" data-toggle="show-chat">
             <div class="media">
               <div class="media-left">
                 <div class="avatar avatar-sm avatar-away">
@@ -50,7 +50,7 @@ role="tablist">
 		 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
         </div>
 		<div class="list-group">
-			<a class="list-group-item" href="<?php echo e(URL::to('/userlist/')); ?>" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
+			<a class="list-group-item" href="<?php echo e(URL::to('/dashboard/scouts/accounts/')); ?>" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
 				<div class="media">
 				<div class="media-left">
 					 <i class="icon wb-users" aria-hidden="true"></i>
@@ -91,7 +91,7 @@ role="tablist">
 
         </ul>
 <div class="list-group">
-			<a class="list-group-item" href="<?php echo e(URL::to('/activity/')); ?>" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
+			<a class="list-group-item" href="<?php echo e(URL::to('/dashboard/activity/')); ?>" style="background-color: #f3f7f9; border-top: 1px solid #e4eaec;">
 				<div class="media">
 				<div class="media-left">
 					 <i class="icon wb-chat" aria-hidden="true"></i>

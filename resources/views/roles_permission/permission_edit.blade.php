@@ -5,7 +5,7 @@
   <div class="page-header-actions">
 	<ol class="breadcrumb">
 		<li><a href="{{URL::to('/dashboard')}}">{{ trans('app.home')}}</a></li>
-		<li><a href="{{URL::to('/permissions')}}">{{ trans('app.permissions')}}</a></li>
+		<li><a href="{{URL::to('/dashboard/permissions')}}">{{ trans('app.permissions')}}</a></li>
 		<li class="active">{{ trans('app.edit')}}</li>
 	</ol>
   </div>
@@ -45,7 +45,7 @@
 </div>
 <div class="row">
 <div class="col-lg-12">	 
-<form name="userForm" action="{{URL::to('PermissionController/update')}}/{{$permissiondata->id}}" method="post" novalidate="">
+<form name="userForm" action="{{URL::to('/dashboard/permissions/update')}}/{{$permissiondata->id}}" method="post" novalidate="">
 {{ csrf_field() }}
 <div class="col-md-6 row">
 	<div class="form-group">

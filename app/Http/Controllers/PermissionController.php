@@ -145,7 +145,7 @@ class PermissionController extends Controller
         $description = array('description'=>'Roles wise permission Update');
 	    $this->foo->users_activity($description);
 		
-		return redirect('/permissions')->with('msg_update',trans('app.update_success_message'));
+		return redirect('/dashboard/permissions')->with('msg_update',trans('app.update_success_message'));
     }
 
     /**
