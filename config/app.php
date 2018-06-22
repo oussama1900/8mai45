@@ -164,7 +164,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
-		App\Providers\EntrustServiceProvider::class,
+        App\Providers\EntrustServiceProvider::class,
+        Mariuzzo\LaravelJsLocalization\LaravelJsLocalizationServiceProvider::class,
 
     ],
 

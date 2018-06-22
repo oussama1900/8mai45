@@ -10,3 +10,15 @@ import elixir from 'laravel-elixir';
  | file for our application, as well as publishing vendor resources.
  |
  */
+
+elixir.extend('langjs', function(path) {
+    gulp.task('langjs', function() {
+        gulp.src('').pipe(shell('php artisan lang:js ' + (path || 'public/js/messages.js')));
+    });
+
+    return this.queueTask('langjs');
+});
+
+elixir(function(mix) {
+    mix.langjs();
+});

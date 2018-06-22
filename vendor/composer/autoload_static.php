@@ -82,6 +82,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Mariuzzo\\LaravelJsLocalization\\' => 31,
         ),
         'L' => 
         array (
@@ -257,6 +258,10 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Mariuzzo\\LaravelJsLocalization\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mariuzzo/laravel-js-localization/src/Mariuzzo/LaravelJsLocalization',
+        ),
         'League\\OAuth1\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/oauth1-client/src',
@@ -395,6 +400,10 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
             array (
                 0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
             ),
+            'JShrink' => 
+            array (
+                0 => __DIR__ . '/..' . '/tedivm/jshrink/src',
+            ),
         ),
         'D' => 
         array (
@@ -411,7 +420,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CountrySeeder' => __DIR__ . '/../..' . '/database/seeds/CountrySeeder.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
-        'CreateCaptainsTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_20_102253_create_captains_table.php',
+        'CreateCaptainsTable' => __DIR__ . '/../..' . '/database/migrations/2015_07_20_102253_create_captains_table.php',
         'CreateLanguagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_000000_create_languages_table.php',
         'CreateMessagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_000000_create_messages_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
@@ -424,7 +433,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_170827_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
-        'EntrustSetupTables' => __DIR__ . '/../..' . '/database/migrations/2015_12_24_080704_entrust_setup_tables.php',
+        'EntrustSetupTables' => __DIR__ . '/../..' . '/database/migrations/2015_06_24_080704_entrust_setup_tables.php',
         'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',

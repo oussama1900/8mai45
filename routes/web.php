@@ -109,12 +109,7 @@ Route::post('/storePost', "postsController@store");
 Route::get('/viewPosts', "postsController@view");
 Route::get('/viewPost/{id}', "postsController@show");
 
-/* Authentication routes...*/
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-Route::auth();
-Route::resource('permission', 'PermissionsController');
+
 
 /* Basic Elements */
 Route::get('/buttons', 'ElementsController@buttons');
