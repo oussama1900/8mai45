@@ -237,4 +237,20 @@ return [
 "forgot_password" =>"نسيت كلمة المرور",
 "from" =>"من عند",
 "and" =>"و",
-"file" =>"ملف", ];
+"file" =>"ملف",
+"Publish" =>"أنشر",
+"post" =>"منشور عادي",
+"event"=>"حدث",
+"report"=>"تقرير",
+"add file"=>"أضف ملف",
+"form"=>"استمارة",
+"repport"=>"تقرير",
+"Miscellaneous"=>"متفرقات",
+"my posts"=>"منشوراتي",
+"forum"=>"المنتدى",
+"Finance"=>"المالية",
+"Financial report"=>"التقرير المالي",
+"money mangment"=>"الإدارة المالية",
+"Equipment"=>"العتاد",
+    ];
+
