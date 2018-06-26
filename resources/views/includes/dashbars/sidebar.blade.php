@@ -8,7 +8,7 @@
                     <li class="site-menu-category hidden-sm hidden-md" style="margin-top:1px; text-transform:none;font-size:16px; color:white; ">
                   <b>CRUD Example</b>
                 </li>
-                <li class="site-menu-item has-sub {{ Request::is('dashboard') ? 'active open' : '' }}">
+                <li class="site-menu-item has-sub ">
                   <a href="javascript:void(0)">
                     <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                     <span class="site-menu-title">
@@ -35,8 +35,8 @@
                     </a>
                     <ul class="site-menu-sub">
                       @permission('users.manage') 
-                              <li class="site-menu-item {{ Request::is('registration') ? 'active' : '' }}">
-                        <a class="animsition-link" href="{{URL::to('/dashboard/scouts/accounts/register')}}">
+                        <li class="site-menu-item {{ Request::is('registration') ? 'active' : '' }}">
+                        <router-link class="animsition-link" to="/dashboard/scouts/accounts/register">
                         <span class="site-menu-title">{{ trans('app.add_user')}}</span>
                         </a>
                       </li>
@@ -185,7 +185,7 @@
             </ul>
           </div>
         </div>
-      </div><!-- End of crap that is meant to be deleted -->
+      </div>
   
   
       <div class="site-menubar-footer">

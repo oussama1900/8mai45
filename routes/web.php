@@ -25,8 +25,12 @@ Auth::routes();
 /* ================================ 
     Dashboard Dependent Routes
 =================================== */
-Route::get('/dashboard/scouts/accounts/register', "UserController@registration");
-Route::get('/dashboard/scouts/accounts', "UserController@index");
+// Route::get('/dashboard/scouts/accounts/register', "UserController@registration");
+//Route::get('/dashboard/scouts/accounts', "UserController@index");
+Route::get('/dashboard/{vue_capture?}', function(){
+    return view('Layouts.template');
+    })->where('vue_capture', '[\/\w\.-]*');
+
 Route::post('/dashboard/scouts/accounts', "UserController@store");
 Route::get('/dashboard/scouts/accounts/edit/{id}', "UserController@edit");
 Route::get('/dashboard/scouts/accounts/show/{id}', "UserController@show");

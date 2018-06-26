@@ -22,7 +22,7 @@ return array(
     'CreateSocialAccountsTable' => $baseDir . '/database/migrations/2015_10_10_170911_create_social_accounts_table.php',
     'CreateSocialLoginTable' => $baseDir . '/database/migrations/2015_10_10_171049_create_social_login_table.php',
     'CreateUnitScoutsTable' => $baseDir . '/database/migrations/2015_06_22_203540_create_unit_scouts_table.php',
-    'CreateUnitsTable' => $baseDir . '/database/migrations/2016_06_22_201403_create_units_table.php',
+    'CreateUnitsTable' => $baseDir . '/database/migrations/2015_06_21_201403_create_units_table.php',
     'CreateUserActivityTable' => $baseDir . '/database/migrations/2015_12_29_224252_create_user_activity_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_10_10_170827_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
@@ -682,5 +682,6 @@ return array(
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
     'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+    'UnitsSeeder' => $baseDir . '/database/seeds/UnitsSeeder.php',
     'Zizaco\\Entrust\\MigrationCommand' => $vendorDir . '/zizaco/entrust/src/commands/MigrationCommand.php',
 );

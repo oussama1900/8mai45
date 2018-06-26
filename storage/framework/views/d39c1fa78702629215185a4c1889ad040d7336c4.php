@@ -65,17 +65,15 @@
 
  <?php echo e(Html::script('global/js/components/asscrollable.js')); ?>
 
- <?php echo e(Html::script('global/js/components/animsition.js')); ?>
-
+ 
  <?php echo e(Html::script('global/js/components/slidepanel.js')); ?>
 
  <script src="<?php echo e(URL::to('/')); ?>/global/vendor/filament-tablesaw/tablesaw.js"></script>
  <script src="<?php echo e(URL::to('/')); ?>/global/vendor/filament-tablesaw/tablesaw-init.js"></script>
  <script src="<?php echo e(URL::to('/')); ?>/global/vendor/ladda-bootstrap/spin.js"></script>
  <script src="<?php echo e(URL::to('/')); ?>/global/vendor/ladda-bootstrap/ladda.js"></script>
- <script src="<?php echo e(URL::to('/')); ?>/global/js/components/ladda-bootstrap.js"></script> 
+ 
 
-<?php echo e(Html::script('global/js/components/switchery.js')); ?>
 
 <?php echo e(Html::script('global/js/components/matchheight.js')); ?>
 
@@ -122,13 +120,13 @@
 <script src="<?php echo e(URL::to('/')); ?>/global/vendor/nestable/jquery.nestable.js"></script>
 
 
-<script src="<?php echo e(URL::to('/')); ?>/global/vendor/bootbox/bootbox.js"></script>
+
 <script src="<?php echo e(URL::to('/')); ?>/global/js/components/select2.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/plugins/action-btn.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/plugins/selectable.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/components/selectable.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/components/material.js"></script>
-<script src="<?php echo e(URL::to('/')); ?>/global/js/components/bootbox.js"></script>
+
 
 <script src="<?php echo e(URL::to('/')); ?>/assets/js/app.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/assets/examples/js/apps/mailbox.js"></script>
@@ -142,7 +140,7 @@
 <script src="<?php echo e(URL::to('/')); ?>/assets/examples/js/advanced/lightbox.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/assets/examples/js/advanced/scrollable.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/components/raty.js"></script>
- <script src="<?php echo e(URL::to('/')); ?>/global/js/components/toastr.js"></script>
+ 
   <script src="<?php echo e(URL::to('/')); ?>/global/js/components/html5sortable.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/components/nestable.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/js/components/tasklist.js"></script>
@@ -263,6 +261,3 @@ $(window).load(function() {
   $(".loadersjew").fadeOut("slow");;
  });
 </script>
-
-<!-- Vue.js -->
-<script src=<?php echo e(url("/assets/vue/app.js")); ?>></script>

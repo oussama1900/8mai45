@@ -431,7 +431,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'CreateSocialAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_170911_create_social_accounts_table.php',
         'CreateSocialLoginTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_171049_create_social_login_table.php',
         'CreateUnitScoutsTable' => __DIR__ . '/../..' . '/database/migrations/2015_06_22_203540_create_unit_scouts_table.php',
-        'CreateUnitsTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_22_201403_create_units_table.php',
+        'CreateUnitsTable' => __DIR__ . '/../..' . '/database/migrations/2015_06_21_201403_create_units_table.php',
         'CreateUserActivityTable' => __DIR__ . '/../..' . '/database/migrations/2015_12_29_224252_create_user_activity_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_170827_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
@@ -1091,6 +1091,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+        'UnitsSeeder' => __DIR__ . '/../..' . '/database/seeds/UnitsSeeder.php',
         'Zizaco\\Entrust\\MigrationCommand' => __DIR__ . '/..' . '/zizaco/entrust/src/commands/MigrationCommand.php',
     );
 

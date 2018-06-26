@@ -10,21 +10,10 @@ p.redcolor{color:red; font-size:16px;}
 .help-block{color:red;}
 </style>
 
-<div class="page-header">
-  <h1 class="page-title font_kufi"><?php echo e(trans('app.create_new_user')); ?></h1>
-  <div class="page-header-actions">
-  <ol class="breadcrumb">
-		<li><a href="<?php echo e(URL::to('/dashboard')); ?>"><?php echo e(trans('app.home')); ?></a></li>
-		<li><a href="<?php echo e(URL::to('userlist')); ?>"><?php echo e(trans('app.users')); ?></a></li>
-		<li class="active"><?php echo e(trans('app.create')); ?></li>
-	</ol>
-  </div>
-</div>
-	
 <div class="page-content" ng-app="app" ng-cloak>	
 <div class="panel">
 <div class="panel-body container-fluid">
-<!------------------------start insert, update, delete message  ---------------->
+<!-- Alerts -->
 <div class="row">
 <?php if(session('msg_success')): ?>
 	<div class="alert dark alert-icon alert-success alert-dismissible alertDismissible" role="alert">
@@ -57,6 +46,8 @@ p.redcolor{color:red; font-size:16px;}
 	</div>
 <?php endif; ?>
 </div>
+
+
 <form  name="userForm" action="<?php echo e(URL::to('store')); ?>" ng-submit="submitForm(userForm.$valid)" novalidate  id="demo-form2" data-parsley-validate="" method="post" novalidate="">
 		<?php echo e(csrf_field()); ?>
 

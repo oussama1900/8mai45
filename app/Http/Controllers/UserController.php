@@ -223,7 +223,7 @@ class UserController extends Controller
     public function registration(Request $request){
 		$country = DB::table('country')->get();
 		$roles = DB::table('roles')->get();
-       return view('users.registration',compact('country','roles')); 
+       	return view('users.registration',compact('country','roles')); 
     }
 	
 

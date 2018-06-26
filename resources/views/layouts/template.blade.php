@@ -7,9 +7,9 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>@foreach($settingdata as $view) {{$view->app_title}} @endforeach  </title>
+  <title>فوج الفلاح  </title>
   
-  @include('includes.dashdeps.predeps')
+  @include('includes.dashdependencies.predeps')
   
 	<style>
     .page-content {
@@ -27,38 +27,29 @@
       font-size: 100%;
     }
 	</style>
-
 </head>
 
-
 <body class="dashboard app-mailbox">
-  <div id="app">
-    <!-- Top Navigation Bar -->
     @include('includes.dashbars.topnavbar')
-
+  <div id="app"> 
     @include('includes.dashbars.sidebar')
-
-
-  <!-- Page -->
-  <div class="page" style="animation-duration: 800ms; opacity: 1;">
-	   @yield('content')
+    <!-- Page -->
+    <div class="page" style="animation-duration: 800ms; opacity: 1;">
+      <router-view></router-view>
+    </div>
   </div>
-
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="site-footer-legal">© {{date('Y')}} <a href="{{URL::to('/')}}">@foreach($settingdata as $view) {{$view->app_name}} @endforeach</a></div>
+    <div class="site-footer-legal">© {{date('Y')}} <a href="{{URL::to('/')}}">فوج الفلاج</a></div>
     <div class="site-footer-right">
-     {{ trans('app.email')}} <i class="red-600 wb wb-heart"></i>  @foreach($settingdata as $view) {{$view->app_email}} @endforeach 
+     {{ trans('app.email')}} <i class="red-600 wb wb-heart"></i> gov@alfalahascouts.dz 
     </div>
   </footer>
-  @include('includes.dashdeps.dependencies')
+
+
+  @include('includes.dashdependencies.scripts')
+
+  <!-- Vue.js -->
+  <script src={{ url("/assets/vue/app.js")}}></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
