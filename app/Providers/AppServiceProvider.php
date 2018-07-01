@@ -36,7 +36,6 @@ class AppServiceProvider extends ServiceProvider
 		
 	}
     
-    ug
 	public function language_name() {		
 		$datalanguages = DB::table('languages')->get();
         View::composer('includes.dashbars.topnavbar', 
