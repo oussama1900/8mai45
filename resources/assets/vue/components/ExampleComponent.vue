@@ -1,5 +1,6 @@
 <template>
-    <form  class="mx-auto" name="scout" action="/dashboard/scouts/add" novalidate id="scout-form" method="post" >
+	<div class="card">
+    <form name="scout" action="/dashboard/dash" novalidate id="scout-form" method="POST" >
         <div class="row row-lg">
 	        <div class="col-sm-8" style="border-right: 1px dotted #ddd;">
 	            <!-- Example Basic Form -->	              
@@ -58,6 +59,7 @@
 	</div>
   </div>
 </form> 
+</div>
 </template>
 
 <script>
