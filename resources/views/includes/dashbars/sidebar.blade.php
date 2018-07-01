@@ -8,6 +8,7 @@
                     <li class="site-menu-category hidden-sm hidden-md" style="margin-top:1px; text-transform:none;font-size:16px; color:white; ">
                   <b>CRUD Example</b>
                 </li>
+                <!--the home sidebar item-->
                 <li class="site-menu-item has-sub ">
                   <a href="javascript:void(0)">
                     <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
@@ -24,6 +25,27 @@
                     </li>
                   </ul>
                        </li>
+
+                  <!--the forms sidebar item-->
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-book" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.add file')}}</span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.form')}}</span>
+                              </a>
+                          </li>
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.repport')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
   
                    <!-- Users menu -->	
                  @permission(['users.manage', 'users.activity'])	         
@@ -62,39 +84,81 @@
                 <li class="site-menu-item has-sub {{ Request::is('writePosts','approvePosts','viewPosts') ? 'active' : '' }}">
                   <a href="javascript:void(0)">
                     <i class="site-menu-icon wb-quote-right" aria-hidden="true"></i>
-                    <span class="site-menu-title">posts</span>
+                    <span class="site-menu-title">{{trans('app.Publish')}}</span>
                     <span class="site-menu-arrow"></span>
                   </a>
                   <ul class="site-menu-sub">
                   @permission('posts.write')
                     <li class="site-menu-item {{ Request::is('writePosts') ? 'active' : '' }}">
                       <a class="animsition-link" href="{{URL::to('/dashboard/posts')}}">
-                        <span class="site-menu-title">
-                          write posts
-                        </span>
+                        <span class="site-menu-title">{{trans('app.post')}}</span>
                       </a>
                     </li>
                   @endpermission
                   @permission('posts.approve')
                     <li class="site-menu-item {{ Request::is('approvePosts') ? 'active' : '' }}">
                       <a class="animsition-link " href="{{URL::to('/approvePosts')}}">
-                        <span class="site-menu-title">
-                          approve posts
-                        </span>
+                        <span class="site-menu-title">{{trans('app.event')}}</span>
                       </a>
                     </li>
                   @endpermission
-                  <li class="site-menu-item {{ Request::is('viewPosts') ? 'active' : '' }}">
-                    <a class="animsition-link " href="{{URL::to('/viewPosts')}}">
-                      <span class="site-menu-title">
-                        view posts
-                      </span>
-                    </a>
-                  </li>
+
   
                 </ul>
               </li>
               @endpermission
+                  <!--the Miscellaneous sidebar item-->
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.Miscellaneous')}}</span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.my posts')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.forum')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <!--the Miscellaneous sidebar item-->
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-table" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.Finance')}}</span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.Financial report')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.money mangment')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.Equipment')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
              <!-- language menu -->
                     @permission('languages.languages')
                      <li class="site-menu-item has-sub {{ Request::is('language') ? 'active open' : '' }}">
@@ -140,25 +204,25 @@
                 </ul>
               </li>
                   @endpermission	
-            <!-- Message  menu -->
-                  @permission('message.messages')
-                     <li class="site-menu-item has-sub {{ Request::is('message') ? 'active open' : '' }}">
-                  <a href="javascript:void(0)">
-                           <i class="site-menu-icon fa fa-envelope-o" aria-hidden="true"></i>
-                     <span class="site-menu-title">
+
+                    </li>
+                  </ul><!-- Message  menu -->
+                         @permission('message.messages')
+                  <li class="site-menu-item has-sub {{ Request::is('message') ? 'active open' : '' }}">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon fa fa-envelope-o" aria-hidden="true"></i>
+                          <span class="site-menu-title">
                         {{ trans('app.messages')}}
                      </span>
-                     <span class="site-menu-arrow"></span>
-                  </a>
-                  <ul class="site-menu-sub">
-                    <li class="site-menu-item {{ Request::is('message') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/message')}}">
+                          <span class="site-menu-arrow"></span>
+                      </a>
+                      <ul class="site-menu-sub">
+                          <li class="site-menu-item {{ Request::is('message') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/message')}}">
                         <span class="site-menu-title">
                           {{ trans('app.messages')}}
                         </span>
-                      </a>
-                    </li>
-                  </ul>
+                              </a>
               </li>
                   @endpermission
             <!-- Settings  menu -->
@@ -180,8 +244,8 @@
                     </a>
                     </li>
                   </ul>
-              </li>			
-              @endpermission	
+              </li>
+              @endpermission
             </ul>
           </div>
         </div>
@@ -214,4 +278,10 @@
                      {{ csrf_field() }}
                 </form>
       </div>
+
+    <li class="site-menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+        <a class="animsition-link" href="{{URL::to('/dashboard')}}">
+            <span class="site-menu-title">{{ trans('app.home')}}</span>
+        </a>
+    </li>
     </div> <!--End of Sidebar -->
