@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivitiesTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,29 +13,27 @@ class CreateActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('activities', function (Blueprint $table) {
-            $table->increments('activity_id');
+        Schema::create('events', function (Blueprint $table) {
+            $table->increments('event_id');
             $table->string('title', 60);
             $table->string('desc');
-            $table->timestamp('activity_time');
-            $table->string('activity_place', 20);
+            $table->string('type', 4);
+            $table->integer('responsible')->unsigned();
+            $table->string('commision', 4);
+            $table->dateTime('time');
+            $table->string('location', 20);
+
+            $table->foreign('responsible')->references('scout_id')->on('users')
+                  ->onUpdate('cascade')->onDelete('cascade');
         });
 
         Schema::create('concerned', function (Blueprint $table) {
             $table->unsignedInteger('scout_id');
-            $table->unsignedInteger('activity_id');
-            $table->primary(array('scout_id', 'activity_id'));
+            $table->unsignedInteger('event_id');
+            $table->primary(array('scout_id', 'event_id'));
             $table->foreign('scout_id')->references('scout_id')->on('captains')
                     ->onUpdate('cascade')->onDelete('cascade');
-            $table->foreign('activity_id')->references('activity_id')->on('activities')
-                    ->onUpdate('cascade')->onDelete('cascade');
-        });
-
-        Schema::create('activitytags', function(Blueprint $table){
-            $table->integer('activity_id')->unsigned();
-            $table->integer('tag');
-            $table->primary(array('activity_id', 'tag'));
-            $table->foreign('activity_id')->references('activity_id')->on('activities')
+            $table->foreign('event_id')->references('event_id')->on('events')
                     ->onUpdate('cascade')->onDelete('cascade');
         });
     }

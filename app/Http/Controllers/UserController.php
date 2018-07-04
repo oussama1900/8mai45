@@ -224,7 +224,11 @@ class UserController extends Controller
 		$country = DB::table('country')->get();
 		$roles = DB::table('roles')->get();
        	return view('users.registration',compact('country','roles')); 
-    }
+	}
+	
+	public function dummy(Request $request){
+		vardump($request);
+	}
 	
 
     /**

@@ -27,18 +27,22 @@ class AppServiceProvider extends ServiceProvider
     }
 	
 	public function setting(){		
-		 $datasetting = DB::table('settings')->get();
-		View::composer(['layouts.template','auth.login','auth.register'], function($view) use($datasetting) {
-		$view->with('settingdata',$datasetting);
-		});
+		$datasetting = DB::table('settings')->get();
+        View::composer('includes.dashbars.topnavbar', 
+                    function($view) use($datasetting) {
+		                $view->with('settingdata',$datasetting);
+                    }
+                );
 		
 	}
-	
+    
 	public function language_name() {		
-		 $datalanguages = DB::table('languages')->get();
-		View::composer('layouts.template', function($view) use($datalanguages) {
-		$view->with('language',$datalanguages);
-		});
+		$datalanguages = DB::table('languages')->get();
+        View::composer('includes.dashbars.topnavbar', 
+                function($view) use($datalanguages) {
+		                $view->with('language',$datalanguages);
+                    }
+                );
 	 } 
 	 
     /**
