@@ -60,64 +60,11 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(1);
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_ExampleComponent_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_ExampleComponent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_ExampleComponent_vue__);
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-// require('./bootstrap');
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-
-
-
-/**
- * Routes
- */
-var routes = [{
-  path: "/dashboard/scouts/accounts/register",
-  component: __WEBPACK_IMPORTED_MODULE_2__components_ExampleComponent_vue___default.a
-}];
-
-var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes });
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#app',
-  router: router,
-  components: { ExampleComponent: __WEBPACK_IMPORTED_MODULE_2__components_ExampleComponent_vue___default.a }
-});
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -142,6 +89,60 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(2);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Hub_vue__);
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+// require('./bootstrap');
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+
+
+/**
+ * Vue Routes thst allow for a SPA feel in the application
+ */
+var routes = [{
+  path: "/hub",
+  component: __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue___default.a
+}];
+
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes });
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  el: '#app',
+  router: router,
+  components: { Hub: __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue___default.a }
+});
 
 /***/ }),
 /* 3 */
@@ -11107,7 +11108,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(4).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4).setImmediate))
 
 /***/ }),
 /* 4 */
@@ -11177,7 +11178,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 5 */
@@ -11370,7 +11371,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
 
 /***/ }),
 /* 6 */
@@ -14197,17 +14198,21 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(9)
+}
+var normalizeComponent = __webpack_require__(14)
 /* script */
-var __vue_script__ = __webpack_require__(10)
+var __vue_script__ = __webpack_require__(15)
 /* template */
-var __vue_template__ = __webpack_require__(11)
+var __vue_template__ = __webpack_require__(16)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-a50f86ee"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -14218,7 +14223,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\vue\\components\\ExampleComponent.vue"
+Component.options.__file = "resources\\assets\\vue\\components\\Hub.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -14227,9 +14232,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8a1c5462", Component.options)
+    hotAPI.createRecord("data-v-a50f86ee", Component.options)
   } else {
-    hotAPI.reload("data-v-8a1c5462", Component.options)
+    hotAPI.reload("data-v-a50f86ee", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -14241,6 +14246,389 @@ module.exports = Component.exports
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(10);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("4a9d0c6e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-a50f86ee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Hub.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-a50f86ee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Hub.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.icon[data-v-a50f86ee]{\n\tmax-width: 100px;\n\twidth: 100px;\n\theight: 100px;\n\tmargin: 1% auto;/*1% top to buttom auto to center it*/\n}\n.card[data-v-a50f86ee]{\n\tmargin-top:7%;\n\tmargin-left: 75px;\n\tbackground-color: white;\n}\nh2[data-v-a50f86ee] {font-size: 1.7em;\n}\nh4[data-v-a50f86ee]{font-size: 1.0em\n}\n\n/*the small size*/\n@media (max-width: 480px) {\n.icon[data-v-a50f86ee] {\n\t\twidth: 70px;\n\t\theight: 70px;\n}\n.card[data-v-a50f86ee]{\n\t\tmargin-top: 17%;\n\t\tmargin-left: 16px;\n}\n}\n\n/*the medium size*/\n@media (max-width: 720px) {\n.icon[data-v-a50f86ee] {\n\t\twidth: 70px;\n\t\theight: 70px;\n}\n.card[data-v-a50f86ee]{\n\t\tmargin-top: 25%;\n\t\tmargin-left: 25px;\n}\n}\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(13)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+var options = null
+var ssrIdKey = 'data-vue-ssr-id'
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction, _options) {
+  isProduction = _isProduction
+
+  options = _options || {}
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[' + ssrIdKey + '~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+  if (options.ssrId) {
+    styleElement.setAttribute(ssrIdKey, obj.id)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -14349,7 +14737,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 10 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14416,17 +14804,90 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['roleList'],
-
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 11 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14441,196 +14902,293 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "form",
+      "div",
       {
-        staticClass: "mx-auto",
-        attrs: {
-          name: "scout",
-          action: "/dashboard/scouts/add",
-          novalidate: "",
-          id: "scout-form",
-          method: "post"
-        }
+        staticClass: "container col-md-11 col-sm-11 col-xs-11 text-center card",
+        staticStyle: { "background-color": "transparent" }
       },
       [
-        _c("div", { staticClass: "row row-lg" }, [
+        _c("div", { staticClass: "row" }, [
           _c(
             "div",
             {
-              staticClass: "col-sm-8",
-              staticStyle: { "border-right": "1px dotted #ddd" }
+              staticClass: "col-sm-4 hoverable card",
+              staticStyle: {
+                height: "490px",
+                width: "30%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
             },
             [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-12" }, [
-                  _c("p", { staticClass: "font-size-20 blue-grey-700" }, [
-                    _vm._v("البيانات")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-sm-6" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "control-label",
-                      attrs: { for: "first_name" }
-                    },
-                    [
-                      _vm._v("الاسم"),
-                      _c("span", { staticClass: "spancolor" }, [_vm._v("*")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "first_name",
-                      name: "first_name",
-                      placeholder: "الاسم",
-                      required: ""
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-sm-6" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "control-label",
-                      attrs: { for: "ilast_name" }
-                    },
-                    [
-                      _vm._v("اللقب"),
-                      _c("span", { staticClass: "spancolor" }, [_vm._v("*")])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "last_name",
-                      name: "last_name",
-                      placeholder: "اللقب",
-                      required: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col-sm-6" }, [
-                  _c(
-                    "label",
-                    { staticClass: "control-label", attrs: { for: "phone" } },
-                    [_vm._v("الهاتف")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      id: "phone",
-                      name: "phone",
-                      placeholder: "0X XX XX XX XX",
-                      autocomplete: "off"
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col-sm-6" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "control-label",
-                      attrs: { for: "date_of_birth" }
-                    },
-                    [_vm._v("تاريخ الميلاد")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group" }, [
-                    _c("span", { staticClass: "input-group-addon" }, [
-                      _c("i", {
-                        staticClass: "icon wb-calendar",
-                        attrs: { "aria-hidden": "true" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        name: "date_of_birth",
-                        placeholder: "تاريخ الميلاد",
-                        "data-plugin": "datepicker"
-                      }
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0% 0%",
+                    height: "300px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/posts.png" }
                     })
                   ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h2", [_vm._v("المنشورات")]),
+                _vm._v(" "),
+                _c("h3", [
+                  _vm._v(
+                    "يمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث شرك إضافة منشه"
+                  )
                 ])
               ])
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "col-sm-12 row" }, [
-              _c("p", { staticClass: "font-size-20 blue-grey-700" }, [
-                _vm._v("Login Details")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-3 hoverable card",
+              staticStyle: {
+                height: "250px",
+                width: "25%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
               _c(
-                "label",
+                "div",
                 {
-                  staticClass: "control-label",
-                  attrs: { for: "inputBasicEmail" }
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0% 0%",
+                    height: "120px"
+                  }
                 },
                 [
-                  _vm._v("البريد الالكتروني "),
-                  _c("span", { staticClass: "spancolor" }, [_vm._v("*")])
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/forum.png" }
+                    })
+                  ])
                 ]
               ),
               _vm._v(" "),
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "email",
-                  id: "email",
-                  name: "email",
-                  placeholder: "البريد",
-                  autocomplete: "off"
-                }
-              })
+              _c("div", [
+                _c("h2", [_vm._v("المنتدى")]),
+                _vm._v(" "),
+                _c("h4", [
+                  _vm._v("يمكنك طرح موضوع معين و المناقشة مع كل المتعاملين")
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-3 hoverable card",
+              staticStyle: {
+                height: "250px",
+                width: "25%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0% 0%",
+                    height: "120px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/scout.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h2", [_vm._v("الكشاف")]),
+                _vm._v(" "),
+                _c("h4", [
+                  _vm._v(
+                    "يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين"
+                  )
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-3 hoverable card",
+              staticStyle: {
+                height: "210px",
+                width: "54%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
+              _c("div", [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-7",
+                    staticStyle: { height: "210px", margin: "0px 0px" }
+                  },
+                  [
+                    _c("h2", [_vm._v("المالية")]),
+                    _vm._v(" "),
+                    _c("h4", [
+                      _vm._v(
+                        "يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين"
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-5",
+                    staticStyle: {
+                      "background-color": "#57A8FF",
+                      height: "209px",
+                      margin: "0px 0px"
+                    }
+                  },
+                  [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("img", {
+                        staticClass: "icon",
+                        staticStyle: { "margin-top": "35%" },
+                        attrs: { src: "assets/images/hub/money.png" }
+                      })
+                    ])
+                  ]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-5 hoverable card",
+              staticStyle: { margin: "0 15px", padding: "0 0", height: "300px" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0 0",
+                    height: "130px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/users.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v("المستخدمين")]),
+              _vm._v(" "),
+              _c("h4", [
+                _vm._v("يمكنك الإطلاع على المستخدمين و كل المعلومات الخاصة بهم")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-5 hoverable card",
+              staticStyle: { margin: "0 15px", padding: "0 0", height: "300px" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0 0",
+                    height: "130px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/add-file.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v(" أضف ملف")]),
+              _vm._v(" "),
+              _c("h4", [
+                _vm._v("يمكنك ملئ استمارات مختلفة أو إضافة حدث و تعديله")
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col s12 m7" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-image" }, [
+                _c("img", { attrs: { src: "images/sample-1.jpg" } }),
+                _vm._v(" "),
+                _c("span", { staticClass: "card-title" }, [
+                  _vm._v("Card Title")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-content" }, [
+                _c("p", [
+                  _vm._v(
+                    "I am a very simple card. I am good at containing small bits of information.\r\n\t\t\t\t\t\tI am convenient because I require little markup to use effectively."
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-action" }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("This is a link")])
+              ])
             ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticStyle: { clear: "both" } }),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group col-sm-6" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary ladda-button",
-                attrs: {
-                  type: "submit",
-                  "ng-disabled": "userForm.$invalid",
-                  "data-plugin": "ladda",
-                  "data-style": "expand-left"
-                }
-              },
-              [
-                _c("i", { staticClass: "fa fa-save" }),
-                _vm._v("  انشاء\n\t\t"),
-                _c("span", { staticClass: "ladda-spinner" }),
-                _c("div", {
-                  staticClass: "ladda-progress",
-                  staticStyle: { width: "0px" }
-                })
-              ]
-            )
           ])
         ])
       ]
@@ -14642,7 +15200,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8a1c5462", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-a50f86ee", module.exports)
   }
 }
 

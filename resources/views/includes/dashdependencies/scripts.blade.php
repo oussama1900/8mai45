@@ -34,7 +34,10 @@
 
  <script src="{{URL::to('/')}}/global/vendor/ladda-bootstrap/spin.js"></script>
 <script src="{{URL::to('/')}}/global/vendor/ladda-bootstrap/ladda.js"></script>
-<script src="{{URL::to('/')}}/global/js/components/ladda-bootstrap.js"></script> 
+<script src="{{URL::to('/')}}/global/js/components/ladda-bootstrap.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
 {{ Html::script('global/js/components/switchery.js') }}
 {{ Html::script('global/js/components/matchheight.js') }}

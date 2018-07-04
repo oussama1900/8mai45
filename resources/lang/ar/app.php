@@ -252,5 +252,11 @@ return [
 "Financial report"=>"التقرير المالي",
 "money mangment"=>"الإدارة المالية",
 "Equipment"=>"العتاد",
+"my scout"=>"كشافتي",
+"captins"=>"القادة",
+"Received repports"=>"التقارير الواردة",
+
+
+
     ];
 

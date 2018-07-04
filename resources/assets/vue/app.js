@@ -10,7 +10,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import ExampleComponent from './components/ExampleComponent.vue';
+import Hub from './components/Hub.vue';
 
 
 
@@ -19,8 +19,8 @@ import ExampleComponent from './components/ExampleComponent.vue';
  */
 const routes = [
     {
-        path: "/dashboard/scouts/accounts/register",
-        component: ExampleComponent
+        path: "/hub",
+        component: Hub
     }
 ]
 
@@ -37,5 +37,5 @@ const router = new VueRouter({routes});
 const app = new Vue({
     el: '#app',
     router,
-    components: {ExampleComponent}
+    components: {Hub}
 });

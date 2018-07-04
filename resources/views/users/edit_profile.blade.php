@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <style>
-p.redcolor{color:red; font-size:16px;}
+.redcolor{color:red; font-size:16px;}
 .spancolor{color:red;}
 .help-block{color:red;}
 </style>
@@ -158,7 +158,7 @@ p.redcolor{color:red; font-size:16px;}
 		<div class="form-group col-sm-6">
 			<label for="twitter"> <i class="fa fa-twitter"></i> Twitter</label>			
 			<input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter" value="{{$userdata->twitter}}">
-			<input type="hidden" name="role" value="{{$userdata->role}}"/>
+			<input type="hidden" name="role" value="{{$userdata->captain()->role}}"/>
 		</div>
 		<div class="form-group col-sm-6">
 				<label for="google_plus"><i class="fa fa-dribbble"></i> Dribbble</label>		
