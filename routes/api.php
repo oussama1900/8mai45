@@ -15,4 +15,9 @@ use Illuminate\Http\Request;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
+})->middleware('auth.basic');
+
+Route::get('/scouts', function (Request $request) {
+    $permissions = $request->user()->captain->role->permissions;
+    
 })->middleware('auth:api');

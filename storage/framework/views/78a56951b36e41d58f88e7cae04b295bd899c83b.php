@@ -11,6 +11,8 @@
 
 <?php echo e(Html::script('global/vendor/ashoverscroll/jquery-asHoverScroll.js')); ?>
 
+<?php echo e(Html::script('assets/js/mdb.js')); ?>
+
 
 <!-- Plugins -->
 <?php echo e(Html::script('global/vendor/switchery/switchery.min.js')); ?>
@@ -52,6 +54,7 @@
 
 
 <?php echo e(Html::script('global/js/components/slidepanel.js')); ?>
+
 
 <script src="<?php echo e(URL::to('/')); ?>/global/vendor/filament-tablesaw/tablesaw.js"></script>
 <script src="<?php echo e(URL::to('/')); ?>/global/vendor/filament-tablesaw/tablesaw-init.js"></script>

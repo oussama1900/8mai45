@@ -2,6 +2,8 @@
 <link href="<?php echo e(URL::to('assets/css')); ?>/bootstrap-fileupload.min.css" rel="stylesheet">
  
 
+<?php echo e(Html::style('assets/css/mdb.css')); ?>
+
 <?php echo e(Html::style('global/css/bootstrap.min.css')); ?>  
 <?php echo e(Html::style('global/css/bootstrap-extend.min.css')); ?>
 
@@ -56,6 +58,7 @@
 <?php echo e(Html::style('assets/css/loaders.css')); ?>
 
 <?php echo e(Html::style('assets/css/loaders.min.css')); ?> 
+
 
 <script>
   Breakpoints();

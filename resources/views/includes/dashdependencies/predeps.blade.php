@@ -2,6 +2,7 @@
 <link href="{{URL::to('assets/css')}}/bootstrap-fileupload.min.css" rel="stylesheet">
  
 
+{{Html::style('assets/css/mdb.css')}}
 {{Html::style('global/css/bootstrap.min.css')}}  
 {{Html::style('global/css/bootstrap-extend.min.css')}}
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
@@ -39,6 +40,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 {{Html::style('assets/css/loaders.css')}}
 {{Html::style('assets/css/loaders.min.css')}} 
+
 
 <script>
   Breakpoints();

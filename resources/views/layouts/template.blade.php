@@ -7,11 +7,19 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>فوج الفلاح  </title>
+  <title>فوج الفلاح</title>
   
   @include('includes.dashdependencies.predeps')
   
 	<style>
+    .dashboard {
+      background-color: #e6f2ff;
+    }
+
+    .page{
+      background-color: #e6f2ff;
+    }
+
     .page-content {
       padding: 0px 30px;
       font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
@@ -38,13 +46,7 @@
       <router-view></router-view>
     </div>
   </div>
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-footer-legal">© {{date('Y')}} <a href="{{URL::to('/')}}">فوج الفلاج</a></div>
-    <div class="site-footer-right">
-     {{ trans('app.email')}} <i class="red-600 wb wb-heart"></i> gov@alfalahascouts.dz 
-    </div>
-  </footer>
+
 
 
   @include('includes.dashdependencies.scripts')

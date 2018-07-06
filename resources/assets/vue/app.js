@@ -7,8 +7,11 @@
 // require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueAxios from 'vue-axios';
+import Axios from 'axios';
+import Datepicker from 'vuejs-datepicker';
 
-Vue.use(VueRouter);
+Vue.use(VueRouter, VueAxios, Axios);
 
 import ExampleComponent from './components/ExampleComponent.vue';
 
@@ -37,5 +40,7 @@ const router = new VueRouter({routes});
 const app = new Vue({
     el: '#app',
     router,
-    components: {ExampleComponent}
+    components: {
+        Datepicker
+    }
 });

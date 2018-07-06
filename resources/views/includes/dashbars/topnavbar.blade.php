@@ -11,10 +11,8 @@
               </button>
     
               <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-                @foreach($settingdata as $view)
-                    <img class="navbar-brand-logo" src="{{URL::to('/')}}/uploads/{{$view->logo}}" title="{{$view->app_name}}">
-                    <span class="navbar-brand-text hidden-xs"> {{$view->app_name}} </span>
-                @endforeach	
+                    <img class="navbar-brand-logo img-circle" src="\images\default.png" title="Profile Picture">
+              <span class="navbar-brand-text hidden-xs"> {{Auth::user()->profile->getFullName()}}</span>
               </div>
     
               <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">

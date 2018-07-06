@@ -6,6 +6,7 @@
 {{ Html::script('global/vendor/mousewheel/jquery.mousewheel.js') }}
 {{ Html::script('global/vendor/asscrollable/jquery.asScrollable.all.js') }}
 {{ Html::script('global/vendor/ashoverscroll/jquery-asHoverScroll.js') }}
+{{ Html::script('assets/js/mdb.js')}}
 
 <!-- Plugins -->
 {{ Html::script('global/vendor/switchery/switchery.min.js') }}
@@ -29,6 +30,7 @@
 {{ Html::script('global/js/components/asscrollable.js') }}
 {{-- {{ Html::script('global/js/components/animsition.js') }} --}}
 {{ Html::script('global/js/components/slidepanel.js') }}
+
 <script src="{{URL::to('/')}}/global/vendor/filament-tablesaw/tablesaw.js"></script>
 <script src="{{URL::to('/')}}/global/vendor/filament-tablesaw/tablesaw-init.js"></script>
 

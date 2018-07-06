@@ -5,9 +5,6 @@
             <div>
               <ul class="site-menu">
                 <br/>
-                    <li class="site-menu-category hidden-sm hidden-md" style="margin-top:1px; text-transform:none;font-size:16px; color:white; ">
-                  <b>CRUD Example</b>
-                </li>
                 <!--the home sidebar item-->
                 <li class="site-menu-item has-sub ">
                   <a href="javascript:void(0)">
@@ -225,27 +222,6 @@
                               </a>
               </li>
                   @endpermission
-            <!-- Settings  menu -->
-                  @permission('settings.general')
-                     <li class="site-menu-item has-sub {{ Request::is('settings') ? 'active open' : '' }}">
-                  <a href="javascript:void(0)">
-                           <i class="site-menu-icon wb-settings" aria-hidden="true"></i>
-                    <span class="site-menu-title">
-                      {{ trans('app.settings')}}
-                    </span>
-                    <span class="site-menu-arrow"></span>
-                  </a>
-                  <ul class="site-menu-sub">
-                    <li class="site-menu-item {{ Request::is('settings') ? 'active' : '' }}">
-                    <a class="animsition-link" href="{{URL::to('/settings')}}">
-                      <span class="site-menu-title">
-                        {{ trans('app.general_settings')}}
-                      </span>
-                    </a>
-                    </li>
-                  </ul>
-              </li>
-              @endpermission
             </ul>
           </div>
         </div>

@@ -70,6 +70,13 @@ class RolesSeeder extends Seeder
         ]);
 
         Role::create([
+            'name' => 'surv',
+            'display_name' => 'roles.surv',
+            'description' => '',
+            'removable' => false,
+        ]);
+
+        Role::create([
             'name' => 'ucap',
             'display_name' => 'roles.ucap',
             'description' => '',

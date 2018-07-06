@@ -11,10 +11,8 @@
               </button>
     
               <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-                <?php $__currentLoopData = $settingdata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <img class="navbar-brand-logo" src="<?php echo e(URL::to('/')); ?>/uploads/<?php echo e($view->logo); ?>" title="<?php echo e($view->app_name); ?>">
-                    <span class="navbar-brand-text hidden-xs"> <?php echo e($view->app_name); ?> </span>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
+                    <img class="navbar-brand-logo img-circle" src="\images\default.png" title="Profile Picture">
+              <span class="navbar-brand-text hidden-xs"> <?php echo e(Auth::user()->profile->getFullName()); ?></span>
               </div>
     
               <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
