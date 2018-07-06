@@ -60,26 +60,85 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 10);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+<<<<<<< HEAD
+"use strict";
+=======
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(2);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Hub_vue__);
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
 
 var bind = __webpack_require__(4);
 var isBuffer = __webpack_require__(19);
 
+<<<<<<< HEAD
 /*global toString:true*/
+=======
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
 // utils is a library of generic helper functions non-specific to axios
 
 var toString = Object.prototype.toString;
 
 /**
+<<<<<<< HEAD
  * Determine if a value is an Array
  *
  * @param {Object} val The value to test
@@ -88,6 +147,16 @@ var toString = Object.prototype.toString;
 function isArray(val) {
   return toString.call(val) === '[object Array]';
 }
+=======
+ * Vue Routes thst allow for a SPA feel in the application
+ */
+var routes = [{
+  path: "/hub",
+  component: __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue___default.a
+}];
+
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes });
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
 /**
  * Determine if a value is an ArrayBuffer
@@ -95,6 +164,7 @@ function isArray(val) {
  * @param {Object} val The value to test
  * @returns {boolean} True if value is an ArrayBuffer, otherwise false
  */
+<<<<<<< HEAD
 function isArrayBuffer(val) {
   return toString.call(val) === '[object ArrayBuffer]';
 }
@@ -104,6 +174,24 @@ function isArrayBuffer(val) {
  *
  * @param {Object} val The value to test
  * @returns {boolean} True if value is an FormData, otherwise false
+=======
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  el: '#app',
+  router: router,
+  components: { Hub: __WEBPACK_IMPORTED_MODULE_2__components_Hub_vue___default.a }
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
+ * Vue.js v2.5.16
+ * (c) 2014-2018 Evan You
+ * Released under the MIT License.
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
  */
 function isFormData(val) {
   return (typeof FormData !== 'undefined') && (val instanceof FormData);
@@ -14259,6 +14347,7 @@ function guardEvent (e) {
   return true
 }
 
+<<<<<<< HEAD
 function findAnchor (children) {
   if (children) {
     var child;
@@ -14271,6 +14360,35 @@ function findAnchor (children) {
         return child
       }
     }
+=======
+Vue.compile = compileToFunctions;
+
+module.exports = Vue;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4).setImmediate))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
+            (typeof self !== "undefined" && self) ||
+            window;
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, scope, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, scope, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
   }
 }
 
@@ -14308,9 +14426,13 @@ function install (Vue) {
     }
   });
 
+<<<<<<< HEAD
   Object.defineProperty(Vue.prototype, '$router', {
     get: function get () { return this._routerRoot._router }
   });
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
   Object.defineProperty(Vue.prototype, '$route', {
     get: function get () { return this._routerRoot._route }
@@ -14478,6 +14600,7 @@ function parse (str, options) {
     var delimiter = res[2] || defaultDelimiter;
     var pattern = capture || group;
 
+<<<<<<< HEAD
     tokens.push({
       name: name || key++,
       prefix: prefix || '',
@@ -14489,6 +14612,9 @@ function parse (str, options) {
       pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
     });
   }
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
   // Match any characters still remaining.
   if (index < str.length) {
@@ -17285,6 +17411,7 @@ module.exports = function spread(callback) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
+<<<<<<< HEAD
   __webpack_require__(37)
 }
 var normalizeComponent = __webpack_require__(42)
@@ -17292,12 +17419,25 @@ var normalizeComponent = __webpack_require__(42)
 var __vue_script__ = __webpack_require__(43)
 /* template */
 var __vue_template__ = __webpack_require__(45)
+=======
+  __webpack_require__(9)
+}
+var normalizeComponent = __webpack_require__(14)
+/* script */
+var __vue_script__ = __webpack_require__(15)
+/* template */
+var __vue_template__ = __webpack_require__(16)
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
+<<<<<<< HEAD
 var __vue_scopeId__ = "data-v-8a1c5462"
+=======
+var __vue_scopeId__ = "data-v-a50f86ee"
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -17308,7 +17448,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\vue\\components\\ExampleComponent.vue"
+Component.options.__file = "resources\\assets\\vue\\components\\Hub.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -17317,9 +17457,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8a1c5462", Component.options)
+    hotAPI.createRecord("data-v-a50f86ee", Component.options)
   } else {
-    hotAPI.reload("data-v-8a1c5462", Component.options)
+    hotAPI.reload("data-v-a50f86ee", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -17330,23 +17470,40 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 37 */
+=======
+/* 9 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
+<<<<<<< HEAD
 var content = __webpack_require__(38);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var update = __webpack_require__(40)("655c6fbd", content, false, {});
+=======
+var content = __webpack_require__(10);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("4a9d0c6e", content, false, {});
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
+<<<<<<< HEAD
    module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8a1c5462\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ExampleComponent.vue", function() {
      var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8a1c5462\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ExampleComponent.vue");
+=======
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-a50f86ee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Hub.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-a50f86ee\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Hub.vue");
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -17356,21 +17513,36 @@ if(false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(39)(false);
+=======
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 // imports
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\nlabel[data-v-8a1c5462]{\n\tfont-size: 1em;\n\tmargin-top: 4%;\n\tmargin-left: 4%;\n}\nlabel.active[data-v-8a1c5462]{\n\tmargin-top: -0.5% !important;\n\tfont-size: 0.7em;\n}\n", ""]);
+=======
+exports.push([module.i, "\n.icon[data-v-a50f86ee]{\n\tmax-width: 100px;\n\twidth: 100px;\n\theight: 100px;\n\tmargin: 1% auto;/*1% top to buttom auto to center it*/\n}\n.card[data-v-a50f86ee]{\n\tmargin-top:7%;\n\tmargin-left: 75px;\n\tbackground-color: white;\n}\nh2[data-v-a50f86ee] {font-size: 1.7em;\n}\nh4[data-v-a50f86ee]{font-size: 1.0em\n}\n\n/*the small size*/\n@media (max-width: 480px) {\n.icon[data-v-a50f86ee] {\n\t\twidth: 70px;\n\t\theight: 70px;\n}\n.card[data-v-a50f86ee]{\n\t\tmargin-top: 17%;\n\t\tmargin-left: 16px;\n}\n}\n\n/*the medium size*/\n@media (max-width: 720px) {\n.icon[data-v-a50f86ee] {\n\t\twidth: 70px;\n\t\theight: 70px;\n}\n.card[data-v-a50f86ee]{\n\t\tmargin-top: 25%;\n\t\tmargin-left: 25px;\n}\n}\n\n\n\n", ""]);
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
 // exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 39 */
+=======
+/* 11 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, exports) {
 
 /*
@@ -17452,7 +17624,11 @@ function toComment(sourceMap) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 40 */
+=======
+/* 12 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -17471,7 +17647,11 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
+<<<<<<< HEAD
 var listToStyles = __webpack_require__(41)
+=======
+var listToStyles = __webpack_require__(13)
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
 /*
 type StyleObject = {
@@ -17680,7 +17860,11 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 41 */
+=======
+/* 13 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, exports) {
 
 /**
@@ -17713,7 +17897,11 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 42 */
+=======
+/* 14 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -17822,7 +18010,11 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 43 */
+=======
+/* 15 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17911,7 +18103,87 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+<<<<<<< HEAD
 
 
 
@@ -18001,12 +18273,19 @@ var Language=function(e,a,r,n){this.language=e,this.months=a,this.monthsAbbr=r,t
 
 /***/ }),
 /* 45 */
+=======
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 16 */
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+<<<<<<< HEAD
   return _c("div", { staticClass: "container-fluid font_kufi" }, [
     _c("div", { staticClass: "card mx-5 my-5" }, [
       _c(
@@ -18062,6 +18341,303 @@ var render = function() {
             _c("div", { staticStyle: { clear: "both" } }),
             _vm._v(" "),
             _vm._m(3)
+=======
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "container col-md-11 col-sm-11 col-xs-11 text-center card",
+        staticStyle: { "background-color": "transparent" }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-4 hoverable card",
+              staticStyle: {
+                height: "490px",
+                width: "30%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0% 0%",
+                    height: "300px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/posts.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h2", [_vm._v("المنشورات")]),
+                _vm._v(" "),
+                _c("h3", [
+                  _vm._v(
+                    "يمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث ونشرهيمكنك إضافة منشور أو حدث شرك إضافة منشه"
+                  )
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-3 hoverable card",
+              staticStyle: {
+                height: "250px",
+                width: "25%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0% 0%",
+                    height: "120px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/forum.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", [
+                _c("h2", [_vm._v("المنتدى")]),
+                _vm._v(" "),
+                _c("h4", [
+                  _vm._v("يمكنك طرح موضوع معين و المناقشة مع كل المتعاملين")
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-3 hoverable card",
+              staticStyle: {
+                height: "250px",
+                width: "25%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0% 0%",
+                    height: "120px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/scout.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h2", [_vm._v("الكشاف")]),
+                _vm._v(" "),
+                _c("h4", [
+                  _vm._v(
+                    "يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين"
+                  )
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-3 hoverable card",
+              staticStyle: {
+                height: "210px",
+                width: "54%",
+                margin: "15px 15px",
+                padding: "0px 0px"
+              }
+            },
+            [
+              _c("div", [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-7",
+                    staticStyle: { height: "210px", margin: "0px 0px" }
+                  },
+                  [
+                    _c("h2", [_vm._v("المالية")]),
+                    _vm._v(" "),
+                    _c("h4", [
+                      _vm._v(
+                        "يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين يمكنك الإطلاع على كل الأموال المتداولة من قبل مختلف المتعاملين"
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-sm-5",
+                    staticStyle: {
+                      "background-color": "#57A8FF",
+                      height: "209px",
+                      margin: "0px 0px"
+                    }
+                  },
+                  [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("img", {
+                        staticClass: "icon",
+                        staticStyle: { "margin-top": "35%" },
+                        attrs: { src: "assets/images/hub/money.png" }
+                      })
+                    ])
+                  ]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-5 hoverable card",
+              staticStyle: { margin: "0 15px", padding: "0 0", height: "300px" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0 0",
+                    height: "130px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/users.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v("المستخدمين")]),
+              _vm._v(" "),
+              _c("h4", [
+                _vm._v("يمكنك الإطلاع على المستخدمين و كل المعلومات الخاصة بهم")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-sm-5 hoverable card",
+              staticStyle: { margin: "0 15px", padding: "0 0", height: "300px" }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "card-img-top",
+                  staticStyle: {
+                    "background-color": "#57A8FF",
+                    margin: "0 0",
+                    height: "130px"
+                  }
+                },
+                [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      staticClass: "icon",
+                      attrs: { src: "assets/images/hub/add-file.png" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("h2", [_vm._v(" أضف ملف")]),
+              _vm._v(" "),
+              _c("h4", [
+                _vm._v("يمكنك ملئ استمارات مختلفة أو إضافة حدث و تعديله")
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col s12 m7" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-image" }, [
+                _c("img", { attrs: { src: "images/sample-1.jpg" } }),
+                _vm._v(" "),
+                _c("span", { staticClass: "card-title" }, [
+                  _vm._v("Card Title")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-content" }, [
+                _c("p", [
+                  _vm._v(
+                    "I am a very simple card. I am good at containing small bits of information.\r\n\t\t\t\t\t\tI am convenient because I require little markup to use effectively."
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-action" }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("This is a link")])
+              ])
+            ])
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
           ])
         ]
       )
@@ -18206,7 +18782,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8a1c5462", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-a50f86ee", module.exports)
   }
 }
 

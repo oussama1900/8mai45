@@ -1,6 +1,7 @@
 <!-- Stylesheets -->
 <link href="{{URL::to('assets/css')}}/bootstrap-fileupload.min.css" rel="stylesheet">
- 
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
 {{Html::style('assets/css/mdb.css')}}
 {{Html::style('global/css/bootstrap.min.css')}}  

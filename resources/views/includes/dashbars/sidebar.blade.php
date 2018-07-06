@@ -16,7 +16,7 @@
                   </a>			  
                   <ul class="site-menu-sub">
                     <li class="site-menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/dashboard')}}">
+                        <router-link class="animsition-link" to="/hub"/>
                         <span class="site-menu-title">{{ trans('app.home')}}</span>
                       </a>
                     </li>
@@ -55,7 +55,7 @@
                     <ul class="site-menu-sub">
                       @permission('users.manage') 
                         <li class="site-menu-item {{ Request::is('registration') ? 'active' : '' }}">
-                        <router-link class="animsition-link" to="/dashboard/scouts/accounts/register">
+                        <router-link class="animsition-link" to="/dashboard/scouts/accounts/register"/>
                         <span class="site-menu-title">{{ trans('app.add_user')}}</span>
                         </a>
                       </li>
@@ -88,7 +88,7 @@
                   @permission('posts.write')
                     <li class="site-menu-item {{ Request::is('writePosts') ? 'active' : '' }}">
                       <a class="animsition-link" href="{{URL::to('/dashboard/posts')}}">
-                        <span class="site-menu-title">{{trans('app.post')}}</span>
+                        <span class="site-menu-title">{{trans('app.post')}}</span>ss
                       </a>
                     </li>
                   @endpermission
@@ -125,9 +125,16 @@
                               </a>
                           </li>
                       </ul>
+                      <ul class="site-menu-sub">  <!--recived repoorts sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.Received repports')}}</span>
+                              </a>
+                          </li>
+                      </ul>
                   </li>
 
-                  <!--the Miscellaneous sidebar item-->
+                  <!--the finance sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">
                           <i class="site-menu-icon wb-table" aria-hidden="true"></i>
@@ -156,51 +163,21 @@
                           </li>
                       </ul>
                   </li>
-             <!-- language menu -->
-                    @permission('languages.languages')
-                     <li class="site-menu-item has-sub {{ Request::is('language') ? 'active open' : '' }}">
-                  <a href="javascript:void(0)">
-                          <i class="site-menu-icon fa-language" aria-hidden="true"></i>
-                    <span class="site-menu-title">
-                      {{ trans('app.languages')}}
-                    </span>
-                    <span class="site-menu-arrow"></span>
-                  </a>
-                  <ul class="site-menu-sub">
-                    <li class="site-menu-item {{ Request::is('language') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL('/language')}}">
-                        <span class="site-menu-title">{{ trans('app.languages')}}</span>
+             <!-- my scout menu -->
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-table" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.my scout')}}</span>
+                          <span class="site-menu-arrow"/>
                       </a>
-                    </li>
-                  </ul>
-                </li>
-                     @endpermission
-            <!--roles and permission  menu -->
-                  @permission(['roles.manage', 'permissions.manage'])
-                     <li class="site-menu-item has-sub {{ Request::is('permissions','roles') ? 'active open' : '' }}">
-                  <a href="javascript:void(0)">
-                          <i class="site-menu-icon fa-lock" aria-hidden="true"></i>
-                    <span class="site-menu-title">{{ trans('app.roles_and_permissions')}}</span>
-                    <span class="site-menu-arrow"></span>
-                  </a>
-                  <ul class="site-menu-sub">
-                        @permission('roles.manage')
-                    <li class="site-menu-item {{ Request::is('roles') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/dashboard/roles')}}">
-                        <span class="site-menu-title">{{ trans('app.roles')}}</span>
-                      </a>
-                    </li>
-                          @endpermission
-                          @permission('roles.manage')
-                            <li class="site-menu-item {{ Request::is('permissions') ? 'active' : '' }}">
-                      <a class="animsition-link" href="{{URL::to('/dashboard/permissions')}}">
-                        <span class="site-menu-title">{{ trans('app.permissions')}}</span>
-                      </a>
-                    </li>
-                          @endpermission
-                </ul>
-              </li>
-                  @endpermission	
+                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <a class="animsition-link" href="{{URL::to('/#')}}">
+                                  <span class="site-menu-title">{{ trans('app.captins')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
 
                     </li>
                   </ul><!-- Message  menu -->
@@ -222,6 +199,7 @@
                               </a>
               </li>
                   @endpermission
+            <!-- Settings  menu -->
             </ul>
           </div>
         </div>
