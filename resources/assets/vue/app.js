@@ -11,7 +11,11 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import Hub from './components/Hub.vue';
-
+import MyScout from './components/MyScout';
+import NewForm from './components/NewForm';
+import NewRapport from './components/NewRapport';
+import Allposts from './components/AllPosts';
+import Forum from './components/Forum';
 
 
 /**
@@ -21,6 +25,27 @@ const routes = [
     {
         path: "/hub",
         component: Hub
+    },
+
+    {
+        path: "/my_scout",
+        component: MyScout
+    },
+    {
+        path: "/new_from",
+        component: NewForm
+    },
+    {
+        path:"/new_rapport",
+        component: NewRapport
+    },
+    {
+        path:"/all_posts",
+        component: Allposts
+    },
+    {
+        path:"/forum",
+        component: Forum
     }
 ]
 

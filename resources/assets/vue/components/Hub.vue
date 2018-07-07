@@ -89,6 +89,7 @@
 <style scoped>
 
 
+
 	.icon{
 		max-width: 100px;
 		width: 100px;
@@ -96,7 +97,6 @@
 		margin: 1% auto;/*1% top to buttom auto to center it*/
 
 	}
-
 	.card{
 		margin-top:7%;
 		margin-left: 75px;
