@@ -10,9 +10,9 @@
                 <i class="icon wb-more-horizontal" aria-hidden="true"></i>
               </button>
     
-              <div class="navbar-brand">
-                    <span class="navbar-brand-text"> غجاتي أسامة </span>
-                    <img class="navbar-brand-logo img-circle" src="/images/default.png">
+              <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+                    <img class="navbar-brand-logo img-circle" src="\images\default.png" title="Profile Picture">
+              <span class="navbar-brand-text hidden-xs"> {{Auth::user()->profile->getFullName()}}</span>
               </div>
     
               <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">

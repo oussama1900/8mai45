@@ -7,8 +7,11 @@
 // require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueAxios from 'vue-axios';
+import Axios from 'axios';
+import Datepicker from 'vuejs-datepicker';
 
-Vue.use(VueRouter);
+Vue.use(VueRouter, VueAxios, Axios);
 
 import Hub from './components/Hub.vue';
 import MyScout from './components/MyScout';

@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>فوج الفلاح  </title>
+  <title>فوج الفلاح</title>
   
   @include('includes.dashdependencies.predeps')
   
@@ -57,6 +57,11 @@
       <router-view></router-view>
     </div>
   </div>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
   @include('includes.dashdependencies.scripts')
 
