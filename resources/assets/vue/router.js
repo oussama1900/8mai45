@@ -4,7 +4,7 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-import ExampleComponent from './components/Hub.vue';
+import ExampleComponent from './components/Scout/Home/Hub.vue';
 
 const routes = [
     {

@@ -255,6 +255,14 @@ return [
 "my scout"=>"كشافتي",
 "captins"=>"القادة",
 "Received repports"=>"التقارير الواردة",
+"cub"=>"الاشبال",
+"scoutboy"=>"الكشاف",
+"advanced_scout"=>"الكشاف المتقدم",
+"traveler"=>"الجوال",
+"leader"=>"القادة",
+"scouts"=>"الكشافين",
+
+
 
 
 

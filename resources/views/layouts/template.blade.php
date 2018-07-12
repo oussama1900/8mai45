@@ -8,7 +8,15 @@
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>فوج الفلاح</title>
-  
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+
   @include('includes.dashdependencies.predeps')
   
 	<style>
@@ -57,11 +65,7 @@
       <router-view></router-view>
     </div>
   </div>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> ad03c01c9b517604c4ceda85a7a1903e8f75e57a
 
   @include('includes.dashdependencies.scripts')
 
