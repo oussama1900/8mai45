@@ -21,7 +21,24 @@
                     </li>
                   </ul>
                        </li>
-
+                  <!-- post space sidebar item-->
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-book" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.Publish')}}</span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">
+                          <li class="site-menu-item {{ Request::is('form') ? 'active' : '' }}">
+                              <router-link class="animsition-link" to="/Post"/>
+                              <span class="site-menu-title">{{ trans('app.post')}}</span>
+                          </li>
+                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                              <router-link class="animsition-link" to="/Event"/>
+                              <span class="site-menu-title">{{ trans('app.event')}}</span>
+                          </li>
+                      </ul>
+                  </li>
                   <!--the forms sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">

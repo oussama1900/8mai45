@@ -14,6 +14,7 @@
   <!-- Include Date Range Picker -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 
 
@@ -31,14 +32,19 @@
       font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     .site-menubar {
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      padding-top:30px;
     }
     .site-navbar {
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      height: 80px;
     }
     .font_kufi {
       font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
       font-size: 100%;
+    }
+    .navbar-header{
+      height: 80px;
     }
 
     .navbar-brand{
@@ -48,8 +54,9 @@
     }
 
       .navbar-brand-logo{
-        margin-top: -15px;
-        margin-right: 20px !important;
+        margin-top: 10px;
+        margin-right: 10px !important;
+        margin-left: 10px !important;
         width: 55px;
         height: 55px;
       }

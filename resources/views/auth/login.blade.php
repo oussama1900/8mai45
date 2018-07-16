@@ -72,4 +72,4 @@
         </footer-->
     </div>
 </div>
-@endsectio
+@endsection

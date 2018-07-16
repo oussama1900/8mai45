@@ -6256,7 +6256,7 @@ a:focus {
 .hamburger:after {
   display: block;
   width: 1em;
-  height: .1em;
+  height: 20px;
   margin: 0;
   background: #76838f;
   border-radius: 1px;

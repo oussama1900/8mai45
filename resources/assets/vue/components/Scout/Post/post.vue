@@ -28,8 +28,18 @@
                                                             <h5 style="text-align: right">عنوان النشاط </h5>
                                                             <input type="text" dir="rtl" class="form-control" id="post_title" name="post_title" placeholder="عنوان النشاط" >
                                                         </div>
+                                                        <div class="form-group col-sm-12">
+                                                            <h5 style="text-align: right">	تاريخ النشاط </h5>
+                                                            <input type="date" dir="rtl" class="form-control" id="post_date" name="post_date" placeholder="تاريخ النشاط " >
+                                                        </div>
+                                                        <div class="form-group col-sm-12">
+                                                            <h5 style="text-align: right">مكان النشاط </h5>
+                                                            <input type="text" dir="rtl" class="form-control" id="activity_place" name="activity_place" placeholder="مكان النشاط " >
+                                                        </div>
+
                                                     </div>
                                                 </li>
+
                                                 <li>
                                                     <div>
                                                         <h5 style="text-align: right"> الخبر  </h5>
@@ -37,10 +47,17 @@
                                 </textarea>
                                                     </div>
                                                 </li>
+                                                <li>
+                                                    <div>
+                                                        <h5 style="text-align: right">	ملخص  الخبر</h5>
+                                                        <textarea  dir="rtl" name="content" id="resume" rows="20" style="height: 7rem">
+                                </textarea>
+                                                    </div>
+                                                </li>
                                                 <li style="margin-top: 25px">
                                                     <div>
                                                         <h5 style="text-align: right"> نوع النشاط</h5>
-                                                    <select class="form-control" dir="rtl" >
+                                                    <select id="select" class="form-control" dir="rtl" >
                                                         <option>	نشاط اسبوعي</option>
                                                         <option>	رياضة اسبوعية</option>
                                                         <option>	اجتماع مجلس الشرف</option>
@@ -58,15 +75,19 @@
                                                         <span class="input-group-btn">
                                         <span class="btn btn-success btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
-                                            <input type="file" name="titleImage" multiple="false" onchange="post('/dashboard/posts/upload/', {image: document.getElementById('titleImage').value});" id="titleImage" ng-model="titleImage">
+                                            <input type="file" name="titleImage" multiple="false"  accept="image/*" onchange="SpecificSize()" id="titleImage" ng-model="titleImage">
                                         </span>
                                     </span>
                                                     </div>
                                                 </li>
                                                 <li style="margin-top: 30px">
                                                     <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left">
-                                                        <i class="fa fa-save"></i>  make post
-                                                        <span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
+
+                                                        <span class="ladda-spinner"></span>
+                                                        نشر
+                                                        <div class="ladda-progress" style="width: 0px;"></div>
+                                                        <i class="fa fa-save"></i>
+
                                                     </button>
                                                 </li>
                                             </ul>
@@ -96,6 +117,18 @@
 </template>
 
 <style>
+    #post_title,#post_date,#activity_place{
+        border-top: 1px solid #9C9C9C;
+        border-right: 1px solid #9C9C9C;
+        border-left: 1px solid #9C9C9C;
+        border-radius: 7px;
+        padding: 5px
+    }
+    #select{
+        border: 1px solid #9C9C9C;
+        border-radius: 7px;
+    }
+
     .card{
         margin-top:6%;
         margin-left: 40px;
@@ -143,5 +176,10 @@
 
     export default{
 
+
     }
+
+
+
+
 </script>

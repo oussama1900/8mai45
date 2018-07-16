@@ -29,6 +29,12 @@ import Camping_request from './components/Scout/Add File/forms/Camping_request';
 import Algerian_states from './components/Scout/Add File/forms/AlgerianStates';
 import Assigning_mission from './components/Scout/Add File/forms/Assigning_mission';
 import Assigning_mission_travel from './components/Scout/Add File/forms/Assigning_mission_travel';
+import Security_reporter from './components/Scout/Add File/forms/security_reporter';
+import Inauguration from './components/Scout/Add File/forms/inauguration';
+import Educational_institutions from './components/Scout/Add File/forms/Educational_institutions';
+import Outgoing_mail from './components/Scout/Add File/forms/Outgoing_mail';
+import Scout_Function from './components/Scout/Scout_Function';
+import Event from './components/Scout/Post/Event';
 
 Vue.component('reporter-state-scout',state_scout_reporter);
 Vue.component('Honorary-meeting',Honorary_meeting);
@@ -36,6 +42,11 @@ Vue.component('Algerian-States',Algerian_states);
 Vue.component('Camping-request',Camping_request);
 Vue.component('Assigning-mission',Assigning_mission);
 Vue.component('Assigning-mission-travel',Assigning_mission_travel);
+Vue.component('Security-reporter',Security_reporter);
+Vue.component('Inauguration',Inauguration);
+Vue.component('Scout-Function',Scout_Function);
+Vue.component('Educational-Institutions',Educational_institutions);
+Vue.component('Outgoing-mail',Outgoing_mail);
 
 /**
  * Vue Routes thst allow for a SPA feel in the application
@@ -63,8 +74,12 @@ const routes = [
         component: Forum
     },
     {
-        path:"/post",
+        path:"/Post",
         component: Post
+    },
+    {
+        path:"/Event",
+        component: Event
     },
     {
         path:"/reports-received",

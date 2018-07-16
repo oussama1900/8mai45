@@ -10,9 +10,29 @@
                 <i class="icon wb-more-horizontal" aria-hidden="true"></i>
               </button>
     
-              <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-                    <img class="navbar-brand-logo img-circle" src="\images\default.png" title="Profile Picture">
-              <span class="navbar-brand-text hidden-xs"> {{Auth::user()->profile->getFullName()}}</span>
+              <div class=" navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+
+                    <img class="navbar-brand-logo img-circle" src="\images\governor.jpg" title="Profile Picture" style="float:right;margin-right:20px">
+
+
+                      <p  class=" navbar-brand-text hidden-xs" style="float: right;line-height: 35px;margin-bottom:3px"> {{Auth::user()->profile->getFullName()}}</p>
+                      <p  class=" navbar-brand-text hidden-xs" style="float: right;line-height: 5px; font-size: small"> محافظ الفوج</p>
+                  <br>
+
+                      <p  class=" navbar-brand-text hidden-xs" style="float: right;line-height: 10px; font-size: xx-small;margin-top:-7px;margin-right:10px">SF-XX-XXXX</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
     
               <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
@@ -21,16 +41,17 @@
               </button>
         </div>
     
-        <div class="navbar-container container-fluid">
+        <div class="navbar-container container-fluid" >
               <!-- Navbar Collapse -->
               <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
                 <!-- Navbar Toolbar -->
                 <ul class="nav navbar-toolbar">
-                      <li class="hidden-float" id="toggleMenubar">
-                        <a data-toggle="menubar" href="#" role="button">
-                              <i class="icon hamburger hamburger-arrow-left">
-                                  <span class="sr-only">Toggle menubar</span>
+                      <li class="hidden-xs" id="toggleMenubar" style="height: 80px">
+                        <a data-toggle="menubar" href="#" role="button"  style="height: 66px">
+                              <i class="icon hamburger hamburger-arrow-left" id="arrow" style="height: 20px;">
                                   <span class="hamburger-bar"></span>
+                                  <span class="sr-only">Toggle menubar</span>
+
                             </i>
                         </a>
                       </li>
@@ -47,7 +68,7 @@
                 </ul> <!-- End Navbar Toolbar -->
     
                 <!-- Navbar Toolbar Right -->
-                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right" style="height: 80px">
                       <li class="dropdown">
                         <a class="dropdown-toggle" title="{{ trans('app.languages')}}" 
                            data-toggle="dropdown" href="javascript:void(0)" 

@@ -1,6 +1,6 @@
 <template>
 
-    <div id = "app" class="containercol-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px">
+    <div id = "app" class="container col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px">
 <div class="card-body">
 
     <div class="stepwizard">
@@ -38,11 +38,9 @@
                         <option>	التخييم</option>
                         <option>	التكليف بمهمة</option>
                         <option>	التكليف بمهمة(رحلة)</option>
-                        <option>	اللقاء الاداري</option>
-                        <option>	الهيكلة</option>
-                        <option>	طلب تخييم</option>
-                        <option>	مراسلات الامن</option>
-                        <option>	مراسلات المؤسسات التربوية</option>
+                        <option>	 محضر تنصيب </option>
+                        <option>	مراسلة الامن</option>
+                        <option>	مراسلة المؤسسات التربوية</option>
                         <option>	مراسلة البريد الصادر</option>
                         <option>	مراسلة المحافظ الولائي</option>
                         <option>	نموذج التأمين </option>
@@ -75,6 +73,18 @@
                 </div>
                 <div id="Assigning_mission_travel">
                     <Assigning-mission-travel></Assigning-mission-travel>
+                </div>
+                <div id="Security_reporter">
+                    <Security-reporter></Security-reporter>
+                </div>
+                <div id="Inauguration">
+                    <Inauguration></Inauguration>
+                </div>
+                <div id="Educational_Institutions">
+                    <Educational-Institutions></Educational-Institutions>
+                </div>
+                <div id="Outgoing_mail">
+                    <Outgoing-mail></Outgoing-mail>
                 </div>
                 <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
             </div>
@@ -184,6 +194,10 @@ function showforms(form){
             document.getElementById('Camping_request').style.display="none";
             document.getElementById('Assigning_mission').style.display="none";
             document.getElementById('Assigning_mission_travel').style.display="none";
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
             break;
         }
 
@@ -194,6 +208,10 @@ function showforms(form){
             document.getElementById('Camping_request').style.display="none";
             document.getElementById('Assigning_mission').style.display="none";
             document.getElementById('Assigning_mission_travel').style.display="none";
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
             break;
         }
         case 'التخييم':{
@@ -202,6 +220,10 @@ function showforms(form){
             document.getElementById('Reporter-state-scout').style.display="none";
             document.getElementById('Assigning_mission').style.display="none";
             document.getElementById('Assigning_mission_travel').style.display="none";
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
             break;
         }
         case 'التكليف بمهمة':{
@@ -210,7 +232,10 @@ function showforms(form){
             document.getElementById('Honorary-meeting').style.display="none";
             document.getElementById('Reporter-state-scout').style.display="none";
             document.getElementById('Assigning_mission_travel').style.display="none";
-
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
             break;
         }
         case 'التكليف بمهمة(رحلة)':{
@@ -219,6 +244,62 @@ function showforms(form){
             document.getElementById('Camping_request').style.display="none";
             document.getElementById('Honorary-meeting').style.display="none";
             document.getElementById('Reporter-state-scout').style.display="none";
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
+            break;
+        }
+        case 'مراسلة الامن':{
+            document.getElementById('Security_reporter').style.display="inline";
+            document.getElementById('Assigning_mission_travel').style.display="none";
+            document.getElementById('Assigning_mission').style.display="none";
+            document.getElementById('Camping_request').style.display="none";
+            document.getElementById('Honorary-meeting').style.display="none";
+            document.getElementById('Reporter-state-scout').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
+            break;
+        }
+        case 'محضر تنصيب':{
+        document.getElementById('Inauguration').style.display="inline";
+        document.getElementById('Security_reporter').style.display="none";
+        document.getElementById('Assigning_mission_travel').style.display="none";
+        document.getElementById('Assigning_mission').style.display="none";
+        document.getElementById('Camping_request').style.display="none";
+        document.getElementById('Honorary-meeting').style.display="none";
+        document.getElementById('Reporter-state-scout').style.display="none";
+        document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
+
+        break;
+    }
+        case 'مراسلة المؤسسات التربوية':{
+            document.getElementById('Educational_Institutions').style.display="inline";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Assigning_mission_travel').style.display="none";
+            document.getElementById('Assigning_mission').style.display="none";
+            document.getElementById('Camping_request').style.display="none";
+            document.getElementById('Honorary-meeting').style.display="none";
+            document.getElementById('Reporter-state-scout').style.display="none";
+            document.getElementById('Outgoing_mail').style.display="none";
+
+
+            break;
+        }
+        case 'مراسلة البريد الصادر':{
+            document.getElementById('Outgoing_mail').style.display="inline";
+            document.getElementById('Educational_Institutions').style.display="none";
+            document.getElementById('Inauguration').style.display="none";
+            document.getElementById('Security_reporter').style.display="none";
+            document.getElementById('Assigning_mission_travel').style.display="none";
+            document.getElementById('Assigning_mission').style.display="none";
+            document.getElementById('Camping_request').style.display="none";
+            document.getElementById('Honorary-meeting').style.display="none";
+            document.getElementById('Reporter-state-scout').style.display="none";
+
 
 
             break;
@@ -227,7 +308,10 @@ function showforms(form){
     }
 }
     export default {
-        components: {Camping_request}
+        components: {Camping_request},
+        methods:{
+
+        }
     }
 </script>
 
