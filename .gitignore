@@ -1,2 +1,10 @@
-
-.idea/workspace.xml
+.idea
+.vscode
+node_modules/.cache
+.env
+.env.example
+artisan
+composer.lock
+gulpfile.js
+package-lock.json
+phpunit.xml
