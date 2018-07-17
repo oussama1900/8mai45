@@ -15,7 +15,7 @@
                     <span class="site-menu-arrow"/>
                   </a>			  
                   <ul class="site-menu-sub">
-                    <li class="site-menu-item {{ Request::is('hub') ? 'active' : '' }}">
+                    <li class="site-menu-item">
                         <router-link class="animsition-link" to="/hub"/>
                         <span class="site-menu-title">{{ trans('app.home')}}</span>
                     </li>
@@ -29,12 +29,12 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">
-                          <li class="site-menu-item {{ Request::is('form') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/Post"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/new"/>
                               <span class="site-menu-title">{{ trans('app.post')}}</span>
                           </li>
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/Event"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/events/new"/>
                               <span class="site-menu-title">{{ trans('app.event')}}</span>
                           </li>
                       </ul>
@@ -47,12 +47,12 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">
-                          <li class="site-menu-item {{ Request::is('form') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/new_form"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/form"/>
                                   <span class="site-menu-title">{{ trans('app.form')}}</span>
                           </li>
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/new_rapport"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/reports/create"/>
                                   <span class="site-menu-title">{{ trans('app.repport')}}</span>
                           </li>
                       </ul>
@@ -60,33 +60,30 @@
   
 
               <!-- posts menu -->
-              @permission(['posts.write', 'posts.approve'])
-                <li class="site-menu-item has-sub {{ Request::is('writePosts','approvePosts','viewPosts') ? 'active' : '' }}">
+                <li class="site-menu-item has-sub">
                   <a href="javascript:void(0)">
                     <i class="site-menu-icon wb-quote-right" aria-hidden="true"></i>
                     <span class="site-menu-title">{{trans('app.Publish')}}</span>
                     <span class="site-menu-arrow"></span>
                   </a>
                   <ul class="site-menu-sub">
-                  @permission('posts.write')
-                    <li class="site-menu-item {{ Request::is('writePosts') ? 'active' : '' }}">
+
+                    <li class="site-menu-item">
                         <router-link class="animsition-link" to="/post"/>
                         <span class="site-menu-title">{{trans('app.post')}}</span>
                       </a>
                     </li>
-                  @endpermission
-                  @permission('posts.approve')
-                    <li class="site-menu-item {{ Request::is('approvePosts') ? 'active' : '' }}">
+                
+                <li class="site-menu-item">
                         <router-link class="animsition-link" to="/events"/>
                         <span class="site-menu-title">{{trans('app.event')}}</span>
                       </a>
                     </li>
-                  @endpermission
+            
 
   
                 </ul>
-              </li>
-              @endpermission
+            </li>
                   <!--the Miscellaneous sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">
@@ -95,21 +92,21 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/all_posts"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/myposts"/>
                                   <span class="site-menu-title">{{ trans('app.my posts')}}</span>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                          <li class="site-menu-item">
                               <router-link class="animsition-link" to="/forum"/>
                                   <span class="site-menu-title">{{ trans('app.forum')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--recived repoorts sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/reports-received"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/reports/received"/>
                                   <span class="site-menu-title">{{ trans('app.Received repports')}}</span>
                               </a>
                           </li>
@@ -124,21 +121,21 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                          <li class="site-menu-item">
                               <a class="animsition-link" href="{{URL::to('/#')}}">
                                   <span class="site-menu-title">{{ trans('app.Financial report')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                          <li class="site-menu-item">
                               <a class="animsition-link" href="{{URL::to('/#')}}">
                                   <span class="site-menu-title">{{ trans('app.money mangment')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                          <li class="site-menu-item">
                               <a class="animsition-link" href="{{URL::to('/#')}}">
                                   <span class="site-menu-title">{{ trans('app.Equipment')}}</span>
                               </a>
@@ -154,36 +151,36 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/cub"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="scouts/cubs"/>
                                   <span class="site-menu-title">{{ trans('app.cub')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/scout-boy"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="scouts/scoutboy"/>
                                   <span class="site-menu-title">{{ trans('app.scoutboy')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/advanced-scout"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="scouts/advancedscout"/>
                                   <span class="site-menu-title">{{ trans('app.advanced_scout')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/traveler"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="scouts/traveler"/>
                                   <span class="site-menu-title">{{ trans('app.traveler')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
-                              <router-link class="animsition-link" to="/leader"/>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="scouts/captain"/>
                                   <span class="site-menu-title">{{ trans('app.leader')}}</span>
                               </a>
                           </li>
@@ -197,7 +194,7 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
-                          <li class="site-menu-item {{ Request::is('#') ? 'active' : '' }}">
+                          <li class="site-menu-item">
                               <router-link class="animsition-link" to="/my_scout"/>
                                   <span class="site-menu-title">{{ trans('app.captins')}}</span>
                           </li>

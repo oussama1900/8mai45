@@ -62,11 +62,11 @@ const routes = [
         component: MyScout
     },
     {
-        path:"/new_rapport",
+        path:"/reports/create",
         component: NewRapport
     },
     {
-        path:"/all_posts",
+        path:"/myposts",
         component: Allposts
     },
     {
@@ -74,40 +74,40 @@ const routes = [
         component: Forum
     },
     {
-        path:"/Post",
+        path:"/posts/new",
         component: Post
     },
     {
-        path:"/Event",
+        path:"/events/new",
         component: Event
     },
     {
-        path:"/reports-received",
+        path:"/reports/recieved",
         component: Reports_received
     },
     {
-        path:"/cub",
+        path:"scouts/cubs",
 
         component: AllScouts
     },
     {
-        path:"/scout-boy",
+        path:"scouts/scoutboy",
         component: AllScouts
     },
     {
-        path:"/advanced-scout",
+        path:"scouts/advancedscout",
         component: AllScouts
     },
     {
-        path:"/traveler",
+        path:"scouts/traveler",
         component: AllScouts
     },
     {
-        path:"/leader",
+        path:"scouts/captain",
         component: AllScouts
     },
     {
-        path:"/new_form",
+        path:"/form",
         component: New_Form
     }
 ]
