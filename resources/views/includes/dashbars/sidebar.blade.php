@@ -21,6 +21,21 @@
                     </li>
                   </ul>
                        </li>
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                          <span class="site-menu-title">
+                      {{ trans('app.profile')}}
+                    </span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/profile"/>
+                              <span class="site-menu-title">{{ trans('app.profile')}}</span>
+                          </li>
+                      </ul>
+                  </li>
                   <!-- post space sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">

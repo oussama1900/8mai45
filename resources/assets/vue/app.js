@@ -35,6 +35,15 @@ import Educational_institutions from './components/Scout/Add File/forms/Educatio
 import Outgoing_mail from './components/Scout/Add File/forms/Outgoing_mail';
 import Scout_Function from './components/Scout/Scout_Function';
 import Event from './components/Scout/Post/Event';
+import UserProfile from './components/UserProfile/UserProfile';
+import UserCard from './components/UserProfile/UserCard';
+import MembersCard from './components/UserProfile/MembersCard';
+import EditProfileForm from './components/UserProfile/EditProfileForm';
+import formGroupInput from './components/UserProfile/formGroupInput';
+import Settings from './components/UserProfile/Settings';
+import CV from './components/UserProfile/UpdateCurriculumvitae';
+import SocialMedia from './components/UserProfile/SocialMedia';
+
 
 Vue.component('reporter-state-scout',state_scout_reporter);
 Vue.component('Honorary-meeting',Honorary_meeting);
@@ -47,6 +56,14 @@ Vue.component('Inauguration',Inauguration);
 Vue.component('Scout-Function',Scout_Function);
 Vue.component('Educational-Institutions',Educational_institutions);
 Vue.component('Outgoing-mail',Outgoing_mail);
+Vue.component('fg-input',formGroupInput);
+
+Vue.component('user-card',UserCard);
+Vue.component('members-card',MembersCard);
+Vue.component('edit-profile-form',EditProfileForm);
+Vue.component('Settings',Settings);
+Vue.component('Curriculum-vitae',CV);
+Vue.component('Social-media',SocialMedia);
 
 /**
  * Vue Routes thst allow for a SPA feel in the application
@@ -109,6 +126,10 @@ const routes = [
     {
         path:"/form",
         component: New_Form
+    },
+    {
+        path:"/Profile",
+        component: UserProfile
     }
 ]
 

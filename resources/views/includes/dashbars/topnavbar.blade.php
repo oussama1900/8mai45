@@ -86,7 +86,9 @@
                 
                               @foreach($language as $viewdata)
                                   <li role="presentation">
-                                <a href="{{URL::to('/LanguageController/chooser_language/')}}/{{$viewdata->foldername}}" 
+
+
+                                <a href="{{URL::to('/LanguageController/chooser_language/')}}/{{$viewdata->foldername}}"
                                     role="menuitem">
     
                                       @if(!empty($viewdata->flag_image))	
@@ -114,7 +116,10 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                       <li role="presentation">
-                        <a href="{{URL::to('profile')}}" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> {{ trans('app.my_profile')}}</a>
+                          <a>
+                          <router-link class="animsition-link" to="/Profile"/>
+                          <span class="site-menu-title" style="color:black">{{ trans('app.form')}}</span>
+                          </a>
                       </li>
     
                            @if (Auth::user()->hasRole('gov'))

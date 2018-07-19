@@ -68,7 +68,7 @@
   <div id="app"> 
     @include('includes.dashbars.sidebar')
     <!-- Page -->
-    <div class="page" style="animation-duration: 800ms; opacity: 1;">
+    <div class="page" style="animation-duration: 2000ms; opacity: 1;">
       <router-view></router-view>
     </div>
   </div>
