@@ -36,24 +36,24 @@
                     <div>
                         <div>
                             <ul  style="margin-bottom: 0px">
-                                <li  style="background: grey; " id="first">
+                                <li  style="background: grey; " id="first"  v-on:click="ProfileCTRL('personal-info')">
                                     <div >
-                                        <span style="text-align: center;padding-right:10px;color:white;margin-top:5px" v-on:click="ProfileCTRL('personal-info')">المعلومات الشخصية</span>
+                                        <span style="text-align: center;padding-right:10px;color:white;margin-top:5px" >المعلومات الشخصية</span>
                                         <span class ="  icon-container glyphicon glyphicon-user btn btn-grey" style="float: right;height:35px"></span>
                                     </div>
 
                                 </li>
-                                <li  style="background: grey;">
-                                    <span style="text-align: center;padding-right:10px;color:white"  v-on:click="ProfileCTRL('settings')">الاعدادات</span>
+                                <li  style="background: grey;"  v-on:click="ProfileCTRL('settings')">
+                                    <span style="text-align: center;padding-right:10px;color:white"  >الاعدادات</span>
                                     <span class ="  icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right;height:35px"></span>
                                 </li>
-                                <li  style="background: grey;">
-                                    <span style="text-align: center;padding-right:10px;color:white"  v-on:click="ProfileCTRL('cv')">تعديل السيرة الذاتية</span>
+                                <li  style="background: grey;"  v-on:click="ProfileCTRL('cv')">
+                                    <span style="text-align: center;padding-right:10px;color:white"  >تعديل السيرة الذاتية</span>
                                     <span class ="  icon-container glyphicon glyphicon-file btn btn-grey" style="float: right;height:35px"></span>
                                 </li>
-                                <li  style="background: grey;">
+                                <li  style="background: grey;"  v-on:click="ProfileCTRL('social-media')">
 
-                                    <span style="text-align: center;padding-right:10px;color:white"  v-on:click="ProfileCTRL('social-media')">ربط الحساب</span>
+                                    <span style="text-align: center;padding-right:10px;color:white" >ربط الحساب</span>
                                     <span class ="  icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right;height:35px"></span>
                                 </li>
 
@@ -100,16 +100,16 @@
         <div class="col-lg-8 col-md-8" style=";padding-left:20px;padding-right:20px">
 
 
-            <div id="personal-info" >
+            <div v-if="data.personal_info" id="personal-info" >
              <edit-profile-form></edit-profile-form>
             </div>
-            <div id="Settings">
+            <div v-if="data.settings"  id="Settings">
                 <Settings></Settings>
             </div>
-            <div id="CV">
+            <div v-if="data.cv"  id="CV">
                 <Curriculum-vitae></Curriculum-vitae>
             </div>
-            <div id="social-media">
+            <div v-if="data.social_media"  id="social-media">
                 <Social-media></Social-media>
             </div>
 
@@ -123,78 +123,55 @@
 
 
     export default {
+        data(){
+            return{
+                data:{
+                    personal_info:true,
+                    settings:false,
+                    cv:false,
+                    social_media:false
+
+                }
+            }
+        },
         name: "UserProfile",
+
         methods:{
 
             ProfileCTRL:function(choice){
 
                 switch (choice){
                     case 'settings':{
-                        document.getElementById('Settings').style.display="inline";
-                        document.getElementById('personal-info').style.display="none";
-                        document.getElementById('CV').style.display="none";
-                        document.getElementById('social-media').style.display="none";
+                       this.data.personal_info=false;
+                       this.data.settings=true;
+                       this.data.cv=false;
+                       this.data.social_media=false;
                         break;
                     }
                     case 'personal-info':{
-                        document.getElementById('personal-info').style.display="inline";
-                        document.getElementById('Settings').style.display="none";
-                        document.getElementById('CV').style.display="none";
-                        document.getElementById('social-media').style.display="none";
+                        this.data.personal_info=true;
+                        this.data.settings=false;
+                        this.data.cv=false;
+                        this.data.social_media=false;
                         break;
                     }
                     case 'cv':{
-                    document.getElementById('CV').style.display="inline";
-                    document.getElementById('personal-info').style.display="none";
-                    document.getElementById('Settings').style.display="none";
-                    document.getElementById('social-media').style.display="none";
+                        this.data.personal_info=false;
+                        this.data.settings=false;
+                        this.data.cv=true;
+                        this.data.social_media=false;
                     break;
                 }
                     case 'social-media':{
-                        document.getElementById('social-media').style.display="inline";
-                        document.getElementById('CV').style.display="none";
-                        document.getElementById('personal-info').style.display="none";
-                        document.getElementById('Settings').style.display="none";
-
+                        this.data.personal_info=false;
+                        this.data.settings=false;
+                        this.data.cv=false;
+                        this.data.social_media=true;
                         break;
                     }
                 }
 
-             /*  switch (choice){
-                    case 1:{
 
-                        document.getElementById('personal-info').style.display="block-inline";
-
-                        document.getElementById('CV').style.display="none";
-                        document.getElementById('socialmedia').style.display="none";
-
-                        break;
-                    }
-                    case 2:{
-                        console.log(choice);
-                        document.getElementById('personal-info').style.display="none";
-                        document.getElementById('Settings').style.display="block-inline";
-                        document.getElementById('CV').style.display="none";
-                        document.getElementById('socialmedia').style.display="none";
-                        break;
-                    }
-                    case 3:{
-                        console.log(choice);
-                        document.getElementById('personal-info').style.display="none";
-                        document.getElementById('Settings').style.display="none";
-                        document.getElementById('CV').style.display="inline";
-                        document.getElementById('socialmedia').style.display="none";
-                        break;
-                    }
-                    case 4:{
-                        console.log(choice);
-                        document.getElementById('personal-info').style.display="none";
-                        document.getElementById('Settings').style.display="none";
-                        document.getElementById('CV').style.display="none";
-                        document.getElementById('socialmedia').style.display="inline";
-                        break;
-                    }
-                }*/
             }
         },
 
@@ -342,11 +319,6 @@
         filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
     }
 
-    #personal-info{
-        display:inline;
-    }
-    #Settings,#CV,#social-media{
-        display:none;
-    }
+
 
 </style>

@@ -7,11 +7,13 @@
 // require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueAxios from 'vue-axios';
+
 import Axios from 'axios';
 import Datepicker from 'vuejs-datepicker';
+import VueCkeditor from 'vue-ckeditor2';
 
-Vue.use(VueRouter, VueAxios, Axios);
+
+Vue.use(VueRouter,  Axios,VueCkeditor);
 
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';
@@ -64,6 +66,7 @@ Vue.component('edit-profile-form',EditProfileForm);
 Vue.component('Settings',Settings);
 Vue.component('Curriculum-vitae',CV);
 Vue.component('Social-media',SocialMedia);
+
 
 /**
  * Vue Routes thst allow for a SPA feel in the application

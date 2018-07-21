@@ -78,5 +78,6 @@
 
   <!-- Vue.js -->
   <script src={{ url("/assets/vue/app.js")}}></script>
+    <script src="https://unpkg.com/vue-ckeditor2"></script>
 </body>
 </html>

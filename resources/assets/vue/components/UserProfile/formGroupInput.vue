@@ -6,7 +6,7 @@
     <input  class="form-control border-input" v-bind="$props" :value="value" style="   border: 1px solid #CCC5B9;
     border-radius: 7px;
     padding: 5px"
-           @input="$emit('input',$event.target.value) " dir="rtl">
+           @input="$emit('input',$event.target.value) "   v-on:keyup.enter="func" dir="rtl">
   </div>
 </template>
 <script>
@@ -16,11 +16,13 @@
         type: String,
         default: 'text'
       },
+
       label: String,
       name: String,
       disabled: Boolean,
       placeholder: String,
-      value: [String, Number]
+      value: [String, Number],
+        func:String
     }
   }
 

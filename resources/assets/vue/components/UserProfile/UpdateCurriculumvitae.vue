@@ -88,13 +88,9 @@
         <div class="row">
           <div class="col-md-12" >
             <label style="float: right;font-size: medium">المعلومات الشخصية</label>
-            <textarea dir="rtl" style="height: 7rem">
-            </textarea>
+            <textarea dir="rtl" style="height: 7rem"></textarea>
           </div>
         </div>
-
-
-
 
 
 
@@ -111,10 +107,13 @@
   </div>
 </template>
 <script>
+
+
   export default {
     data () {
       return {
-        user: {
+
+          user: {
             usernumber: 'SF-XX-XXX',
             lastname:'مويات',
             firstname:'براء',

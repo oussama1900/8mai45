@@ -1499,11 +1499,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuejs_datepicker__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuejs_datepicker__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Scout_Home_Hub_vue__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Scout_Home_Hub_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Scout_Home_Hub_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_MyScout__ = __webpack_require__(47);
@@ -1577,7 +1576,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_3_axios___default.a);
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2_axios___default.a, __WEBPACK_IMPORTED_MODULE_4_vue_ckeditor2__["a" /* default */]);
 
 
 
@@ -15555,14 +15555,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(){function o(e,t){if(!o.installed){if(o.installed=!0,!t)return void console.error("You have to install axios");e.axios=t,Object.defineProperties(e.prototype,{axios:{get:function(){return t}},$http:{get:function(){return t}}})}}"object"==( false?"undefined":_typeof(exports))?module.exports=o: true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return o}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.Vue&&window.axios&&Vue.use(o,window.axios)}();
-
-/***/ }),
+/* 20 */,
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31619,7 +31612,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.card[data-v-4c3cf858]{\n    margin-top:6%;\n    margin-left: 40px;\n}\n/*the small size*/\n@media (max-width: 480px) {\n.icon[data-v-4c3cf858] {\n        width: 70px;\n        height: 70px;\n}\n.card[data-v-4c3cf858]{\n        margin-top: 17%;\n        margin-left: 16px;\n}\n}\n\n/*the medium size*/\n@media (max-width: 720px) {\n.icon[data-v-4c3cf858] {\n        width: 70px;\n        height: 70px;\n}\n.card[data-v-4c3cf858]{\n        margin-top: 25%;\n        margin-left: 25px;\n}\n}\n#avatar[data-v-4c3cf858]{\n     border:5px solid white;\n     margin-top:-45px;\n     width: 100px\n}\nli[data-v-4c3cf858]{\n    height:40px;\n\n    border-bottom: 2px solid white;\n    text-align: right;\n    padding-left:10px;\n}\nli[data-v-4c3cf858]:hover{\n\n    cursor: pointer;\n\n    font-size:16px;\n}\n.icon-container[data-v-4c3cf858]{\n\n\n    height:30px;\n    width:30px;\n    padding-top:8px;\n    padding-right:0px;\n    padding-left:0px;\n    margin:0px;\n}\n.fa[data-v-4c3cf858] {\n    padding-top:15px;\n    font-size: 15px;\n    height:50px;\n    width: 50px;\n    text-align: center;\n    text-decoration: none;\n    margin: 5px 2px;\n    border-radius: 50%;\n}\n.fa[data-v-4c3cf858]:hover {\n    opacity: 0.7;\n}\n.fa-facebook[data-v-4c3cf858] {\n    background: #3B5998;\n    color: white;\n}\n.fa-twitter[data-v-4c3cf858] {\n    background: #55ACEE;\n    color: white;\n}\n.fa-instagram[data-v-4c3cf858] {\n    background: #125688;\n    color: white;\n}\n.overlay[data-v-4c3cf858] {\n    position: absolute;\n    top: 0%;\n    left: 0;\n    right: 0;\n    background: rgba(0, 0, 0, 0.5);\n    opacity: 1;\n    overflow: hidden;\n    width: 100%;\n    height:0;\n    transition: .5s ease;\n}\n.image:hover .overlay[data-v-4c3cf858] {\n    bottom: 0;\n    height: 8%;\n}\n.inputWrapper[data-v-4c3cf858] {\n    height: 32px;\n    padding:10px;\n    width: 100%;\n    overflow: hidden;\n    position: relative;\n    cursor: pointer;\n    float: right;\n    background-color: transparent;\n}\n.fileInput[data-v-4c3cf858] {\n    cursor: pointer;\n    height: 100%;\n    position:absolute;\n    top: 0;\n    right: 0;\n    z-index: 99;\n    /*This makes the button huge. If you want a bigger button, increase the font size*/\n    font-size:50px;\n    /*Opacity settings for all browsers*/\n    opacity: 0;\n    -moz-opacity: 0;\n    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)\n}\n#personal-info[data-v-4c3cf858]{\n    display:inline;\n}\n#Settings[data-v-4c3cf858],#CV[data-v-4c3cf858],#social-media[data-v-4c3cf858]{\n    display:none;\n}\n\n", ""]);
+exports.push([module.i, "\n.card[data-v-4c3cf858]{\n    margin-top:6%;\n    margin-left: 40px;\n}\n/*the small size*/\n@media (max-width: 480px) {\n.icon[data-v-4c3cf858] {\n        width: 70px;\n        height: 70px;\n}\n.card[data-v-4c3cf858]{\n        margin-top: 17%;\n        margin-left: 16px;\n}\n}\n\n/*the medium size*/\n@media (max-width: 720px) {\n.icon[data-v-4c3cf858] {\n        width: 70px;\n        height: 70px;\n}\n.card[data-v-4c3cf858]{\n        margin-top: 25%;\n        margin-left: 25px;\n}\n}\n#avatar[data-v-4c3cf858]{\n     border:5px solid white;\n     margin-top:-45px;\n     width: 100px\n}\nli[data-v-4c3cf858]{\n    height:40px;\n\n    border-bottom: 2px solid white;\n    text-align: right;\n    padding-left:10px;\n}\nli[data-v-4c3cf858]:hover{\n\n    cursor: pointer;\n\n    font-size:16px;\n}\n.icon-container[data-v-4c3cf858]{\n\n\n    height:30px;\n    width:30px;\n    padding-top:8px;\n    padding-right:0px;\n    padding-left:0px;\n    margin:0px;\n}\n.fa[data-v-4c3cf858] {\n    padding-top:15px;\n    font-size: 15px;\n    height:50px;\n    width: 50px;\n    text-align: center;\n    text-decoration: none;\n    margin: 5px 2px;\n    border-radius: 50%;\n}\n.fa[data-v-4c3cf858]:hover {\n    opacity: 0.7;\n}\n.fa-facebook[data-v-4c3cf858] {\n    background: #3B5998;\n    color: white;\n}\n.fa-twitter[data-v-4c3cf858] {\n    background: #55ACEE;\n    color: white;\n}\n.fa-instagram[data-v-4c3cf858] {\n    background: #125688;\n    color: white;\n}\n.overlay[data-v-4c3cf858] {\n    position: absolute;\n    top: 0%;\n    left: 0;\n    right: 0;\n    background: rgba(0, 0, 0, 0.5);\n    opacity: 1;\n    overflow: hidden;\n    width: 100%;\n    height:0;\n    transition: .5s ease;\n}\n.image:hover .overlay[data-v-4c3cf858] {\n    bottom: 0;\n    height: 8%;\n}\n.inputWrapper[data-v-4c3cf858] {\n    height: 32px;\n    padding:10px;\n    width: 100%;\n    overflow: hidden;\n    position: relative;\n    cursor: pointer;\n    float: right;\n    background-color: transparent;\n}\n.fileInput[data-v-4c3cf858] {\n    cursor: pointer;\n    height: 100%;\n    position:absolute;\n    top: 0;\n    right: 0;\n    z-index: 99;\n    /*This makes the button huge. If you want a bigger button, increase the font size*/\n    font-size:50px;\n    /*Opacity settings for all browsers*/\n    opacity: 0;\n    -moz-opacity: 0;\n    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -31754,7 +31747,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: {
+                personal_info: true,
+                settings: false,
+                cv: false,
+                social_media: false
+
+            }
+        };
+    },
+
     name: "UserProfile",
+
     methods: {
 
         ProfileCTRL: function ProfileCTRL(choice) {
@@ -31762,71 +31768,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             switch (choice) {
                 case 'settings':
                     {
-                        document.getElementById('Settings').style.display = "inline";
-                        document.getElementById('personal-info').style.display = "none";
-                        document.getElementById('CV').style.display = "none";
-                        document.getElementById('social-media').style.display = "none";
+                        this.data.personal_info = false;
+                        this.data.settings = true;
+                        this.data.cv = false;
+                        this.data.social_media = false;
                         break;
                     }
                 case 'personal-info':
                     {
-                        document.getElementById('personal-info').style.display = "inline";
-                        document.getElementById('Settings').style.display = "none";
-                        document.getElementById('CV').style.display = "none";
-                        document.getElementById('social-media').style.display = "none";
+                        this.data.personal_info = true;
+                        this.data.settings = false;
+                        this.data.cv = false;
+                        this.data.social_media = false;
                         break;
                     }
                 case 'cv':
                     {
-                        document.getElementById('CV').style.display = "inline";
-                        document.getElementById('personal-info').style.display = "none";
-                        document.getElementById('Settings').style.display = "none";
-                        document.getElementById('social-media').style.display = "none";
+                        this.data.personal_info = false;
+                        this.data.settings = false;
+                        this.data.cv = true;
+                        this.data.social_media = false;
                         break;
                     }
                 case 'social-media':
                     {
-                        document.getElementById('social-media').style.display = "inline";
-                        document.getElementById('CV').style.display = "none";
-                        document.getElementById('personal-info').style.display = "none";
-                        document.getElementById('Settings').style.display = "none";
-
+                        this.data.personal_info = false;
+                        this.data.settings = false;
+                        this.data.cv = false;
+                        this.data.social_media = true;
                         break;
                     }
             }
-
-            /*  switch (choice){
-                   case 1:{
-                        document.getElementById('personal-info').style.display="block-inline";
-                        document.getElementById('CV').style.display="none";
-                       document.getElementById('socialmedia').style.display="none";
-                        break;
-                   }
-                   case 2:{
-                       console.log(choice);
-                       document.getElementById('personal-info').style.display="none";
-                       document.getElementById('Settings').style.display="block-inline";
-                       document.getElementById('CV').style.display="none";
-                       document.getElementById('socialmedia').style.display="none";
-                       break;
-                   }
-                   case 3:{
-                       console.log(choice);
-                       document.getElementById('personal-info').style.display="none";
-                       document.getElementById('Settings').style.display="none";
-                       document.getElementById('CV').style.display="inline";
-                       document.getElementById('socialmedia').style.display="none";
-                       break;
-                   }
-                   case 4:{
-                       console.log(choice);
-                       document.getElementById('personal-info').style.display="none";
-                       document.getElementById('Settings').style.display="none";
-                       document.getElementById('CV').style.display="none";
-                       document.getElementById('socialmedia').style.display="inline";
-                       break;
-                   }
-               }*/
         }
     }
 
@@ -31874,111 +31846,108 @@ var render = function() {
                           "li",
                           {
                             staticStyle: { background: "grey" },
-                            attrs: { id: "first" }
+                            attrs: { id: "first" },
+                            on: {
+                              click: function($event) {
+                                _vm.ProfileCTRL("personal-info")
+                              }
+                            }
+                          },
+                          [_vm._m(2)]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticStyle: { background: "grey" },
+                            on: {
+                              click: function($event) {
+                                _vm.ProfileCTRL("settings")
+                              }
+                            }
                           },
                           [
-                            _c("div", [
-                              _c(
-                                "span",
-                                {
-                                  staticStyle: {
-                                    "text-align": "center",
-                                    "padding-right": "10px",
-                                    color: "white",
-                                    "margin-top": "5px"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.ProfileCTRL("personal-info")
-                                    }
-                                  }
-                                },
-                                [_vm._v("المعلومات الشخصية")]
-                              ),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass:
-                                  "  icon-container glyphicon glyphicon-user btn btn-grey",
-                                staticStyle: { float: "right", height: "35px" }
-                              })
-                            ])
+                            _c(
+                              "span",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "padding-right": "10px",
+                                  color: "white"
+                                }
+                              },
+                              [_vm._v("الاعدادات")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass:
+                                "  icon-container glyphicon glyphicon-cog btn btn-grey",
+                              staticStyle: { float: "right", height: "35px" }
+                            })
                           ]
                         ),
                         _vm._v(" "),
-                        _c("li", { staticStyle: { background: "grey" } }, [
-                          _c(
-                            "span",
-                            {
-                              staticStyle: {
-                                "text-align": "center",
-                                "padding-right": "10px",
-                                color: "white"
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.ProfileCTRL("settings")
-                                }
+                        _c(
+                          "li",
+                          {
+                            staticStyle: { background: "grey" },
+                            on: {
+                              click: function($event) {
+                                _vm.ProfileCTRL("cv")
                               }
-                            },
-                            [_vm._v("الاعدادات")]
-                          ),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass:
-                              "  icon-container glyphicon glyphicon-cog btn btn-grey",
-                            staticStyle: { float: "right", height: "35px" }
-                          })
-                        ]),
+                            }
+                          },
+                          [
+                            _c(
+                              "span",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "padding-right": "10px",
+                                  color: "white"
+                                }
+                              },
+                              [_vm._v("تعديل السيرة الذاتية")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass:
+                                "  icon-container glyphicon glyphicon-file btn btn-grey",
+                              staticStyle: { float: "right", height: "35px" }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
-                        _c("li", { staticStyle: { background: "grey" } }, [
-                          _c(
-                            "span",
-                            {
-                              staticStyle: {
-                                "text-align": "center",
-                                "padding-right": "10px",
-                                color: "white"
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.ProfileCTRL("cv")
-                                }
+                        _c(
+                          "li",
+                          {
+                            staticStyle: { background: "grey" },
+                            on: {
+                              click: function($event) {
+                                _vm.ProfileCTRL("social-media")
                               }
-                            },
-                            [_vm._v("تعديل السيرة الذاتية")]
-                          ),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass:
-                              "  icon-container glyphicon glyphicon-file btn btn-grey",
-                            staticStyle: { float: "right", height: "35px" }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticStyle: { background: "grey" } }, [
-                          _c(
-                            "span",
-                            {
-                              staticStyle: {
-                                "text-align": "center",
-                                "padding-right": "10px",
-                                color: "white"
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.ProfileCTRL("social-media")
+                            }
+                          },
+                          [
+                            _c(
+                              "span",
+                              {
+                                staticStyle: {
+                                  "text-align": "center",
+                                  "padding-right": "10px",
+                                  color: "white"
                                 }
-                              }
-                            },
-                            [_vm._v("ربط الحساب")]
-                          ),
-                          _vm._v(" "),
-                          _c("span", {
-                            staticClass:
-                              "  icon-container glyphicon glyphicon-cloud btn btn-grey",
-                            staticStyle: { float: "right", height: "35px" }
-                          })
-                        ])
+                              },
+                              [_vm._v("ربط الحساب")]
+                            ),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass:
+                                "  icon-container glyphicon glyphicon-cloud btn btn-grey",
+                              staticStyle: { float: "right", height: "35px" }
+                            })
+                          ]
+                        )
                       ])
                     ])
                   ])
@@ -31988,7 +31957,7 @@ var render = function() {
                   staticStyle: { "margin-bottom": "0px", "margin-top": "0px" }
                 }),
                 _vm._v(" "),
-                _vm._m(2)
+                _vm._m(3)
               ]
             )
           ]
@@ -32001,23 +31970,31 @@ var render = function() {
             staticStyle: { "padding-left": "20px", "padding-right": "20px" }
           },
           [
-            _c(
-              "div",
-              { attrs: { id: "personal-info" } },
-              [_c("edit-profile-form")],
-              1
-            ),
+            _vm.data.personal_info
+              ? _c(
+                  "div",
+                  { attrs: { id: "personal-info" } },
+                  [_c("edit-profile-form")],
+                  1
+                )
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { attrs: { id: "Settings" } }, [_c("Settings")], 1),
+            _vm.data.settings
+              ? _c("div", { attrs: { id: "Settings" } }, [_c("Settings")], 1)
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { attrs: { id: "CV" } }, [_c("Curriculum-vitae")], 1),
+            _vm.data.cv
+              ? _c("div", { attrs: { id: "CV" } }, [_c("Curriculum-vitae")], 1)
+              : _vm._e(),
             _vm._v(" "),
-            _c(
-              "div",
-              { attrs: { id: "social-media" } },
-              [_c("Social-media")],
-              1
-            )
+            _vm.data.social_media
+              ? _c(
+                  "div",
+                  { attrs: { id: "social-media" } },
+                  [_c("Social-media")],
+                  1
+                )
+              : _vm._e()
           ]
         )
       ])
@@ -32089,6 +32066,30 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("small", [_vm._v("قائد الفوج")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "span",
+        {
+          staticStyle: {
+            "text-align": "center",
+            "padding-right": "10px",
+            color: "white",
+            "margin-top": "5px"
+          }
+        },
+        [_vm._v("المعلومات الشخصية")]
+      ),
+      _vm._v(" "),
+      _c("span", {
+        staticClass: "  icon-container glyphicon glyphicon-user btn btn-grey",
+        staticStyle: { float: "right", height: "35px" }
+      })
     ])
   },
   function() {
@@ -33343,7 +33344,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -33372,11 +33373,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       type: String,
       default: 'text'
     },
+
     label: String,
     name: String,
     disabled: Boolean,
     placeholder: String,
-    value: [String, Number]
+    value: [String, Number],
+    func: String
   }
 });
 
@@ -33412,6 +33415,15 @@ var render = function() {
           on: {
             input: function($event) {
               _vm.$emit("input", $event.target.value)
+            },
+            keyup: function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.func($event)
             }
           }
         },
@@ -33584,37 +33596,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      user: {
+    data: function data() {
+        return {
+            user: {
 
-        usernumber: 'SF-XX-XXX',
-        username: 'مويات براء عبد الاله',
-        email: 'mouyet.19@gmail.com',
-        rank: 'قائد الفوج',
-        lastName: 'براء عبد الاله',
-        place_of_birth: 'Sétif,Algeria',
-        Date_of_Birth: '06/12/1996',
-        currentpassword: '',
-        newpassword: '',
-        retype_newpassword: ''
+                usernumber: 'SF-XX-XXX',
+                username: 'مويات براء عبد الاله',
+                email: 'mouyet.19@gmail.com',
+                rank: 'قائد الفوج',
+                lastName: 'براء عبد الاله',
+                place_of_birth: 'Sétif,Algeria',
+                Date_of_Birth: '06/12/1996',
+                currentpassword: '',
+                newpassword: 'showinputvalue',
+                retype_newpassword: ''
 
-      }
-    };
-  },
+            }
+        };
+    },
 
-  methods: {}
+    methods: {
+        showinputvalue: function showinputvalue(event) {
+
+            $('#password, #confirm_password').on('keyup', function () {
+                if (!($('#password').val() == "" && $('#confirm_password').val() == "")) {
+                    if ($('#password').val() == $('#confirm_password').val()) {
+                        $('#message').html(' كلمة السر الجديدة  متطابقة').css('color', 'green');
+                    } else $('#message').html('يرجى التأكد من كلمة السر الجديدة فهي غير متطابقة').css('color', 'red');
+                } else {
+                    $('#message').html('');
+                }
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -33664,57 +33680,36 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-12" },
-              [
-                _c("fg-input", {
-                  attrs: {
-                    type: "password",
-                    id: "password",
-                    label: " كلمة السر الجديدة",
-                    placeholder: " كلمة السر الجديدة"
-                  },
-                  model: {
-                    value: _vm.user.newpassword,
-                    callback: function($$v) {
-                      _vm.$set(_vm.user, "newpassword", $$v)
-                    },
-                    expression: "user.newpassword"
-                  }
-                })
-              ],
-              1
-            )
-          ]),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-md-12" },
-              [
-                _c("fg-input", {
-                  attrs: {
-                    type: "password",
-                    id: "confirm_password",
-                    label: "أعد كتابة كلمة السر الجديدة",
-                    placeholder: "أعد كتابة كلمة السر الجديدة"
-                  },
-                  on: { keyup: _vm.check },
-                  model: {
-                    value: _vm.user.retype_newpassword,
-                    callback: function($$v) {
-                      _vm.$set(_vm.user, "retype_newpassword", $$v)
-                    },
-                    expression: "user.retype_newpassword"
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { attrs: { id: "message" } })
-              ],
-              1
-            )
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "label",
+                { staticStyle: { float: "right", "font-size": "medium" } },
+                [_vm._v("أعد كتابة كلمة السر الجديدة")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticStyle: {
+                  border: "1px solid #CCC5B9",
+                  "border-radius": "7px",
+                  padding: "5px"
+                },
+                attrs: {
+                  id: "confirm_password",
+                  type: "password",
+                  dir: "rtl",
+                  placeholder: "أعد كتابة كلمة السر الجديدة"
+                },
+                on: { keyup: _vm.showinputvalue }
+              }),
+              _vm._v(" "),
+              _c("span", {
+                staticStyle: { float: "right" },
+                attrs: { id: "message" }
+              })
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "text-center" }, [
@@ -33745,6 +33740,34 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "header" }, [
       _c("h4", { staticClass: "title" }, [_vm._v("تغيير كلمة السر")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "label",
+          { staticStyle: { float: "right", "font-size": "medium" } },
+          [_vm._v(" كلمة السر الجديدة")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticStyle: {
+            border: "1px solid #CCC5B9",
+            "border-radius": "7px",
+            padding: "5px"
+          },
+          attrs: {
+            id: "password",
+            type: "password",
+            dir: "rtl",
+            placeholder: " كلمة السر الجديدة"
+          }
+        })
+      ])
     ])
   }
 ]
@@ -33843,7 +33866,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -33962,14 +33985,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+
       user: {
         usernumber: 'SF-XX-XXX',
         lastname: 'مويات',
@@ -34554,6 +34575,308 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-7f17e86d", module.exports)
   }
 }
+
+/***/ }),
+/* 191 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var inc = new Date().getTime();
+var script = {
+  name: 'VueCkeditor',
+  props: {
+    name: {
+      type: String,
+      default: function _default() {
+        return 'editor-'.concat(++inc);
+      }
+    },
+    value: {
+      type: String
+    },
+    id: {
+      type: String,
+      default: function _default() {
+        return 'editor-'.concat(inc);
+      }
+    },
+    types: {
+      type: String,
+      default: function _default() {
+        return 'classic';
+      }
+    },
+    config: {
+      type: Object,
+      default: function _default() {}
+    },
+    instanceReadyCallback: {
+      type: Function
+    }
+  },
+  data: function data() {
+    return {
+      destroyed: false,
+      instanceValue: ''
+    };
+  },
+  computed: {
+    instance: function instance() {
+      return CKEDITOR.instances[this.id];
+    }
+  },
+  watch: {
+    value: function value(val) {
+      try {
+        if (this.instance) {
+          this.update(val);
+        }
+      } catch (e) {}
+    }
+  },
+  mounted: function mounted() {
+    this.create();
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.destroy();
+  },
+  methods: {
+    create: function create() {
+      var _this = this;
+
+      if (typeof CKEDITOR === 'undefined') {
+        console.log('CKEDITOR is missing (http://ckeditor.com/)');
+      } else {
+        if (this.types === 'inline') {
+          CKEDITOR.inline(this.id, this.config);
+        } else {
+          CKEDITOR.replace(this.id, this.config);
+        }
+
+        this.instance.setData(this.value);
+        this.instance.on('instanceReady', function() {
+          _this.instance.setData(_this.value);
+        });
+        this.instance.on('change', this.onChange);
+        this.instance.on('blur', this.onBlur);
+        this.instance.on('focus', this.onFocus);
+        this.instance.on('fileUploadResponse', function() {
+          setTimeout(function() {
+            _this.onChange();
+          }, 0);
+        });
+
+        if (typeof this.instanceReadyCallback !== 'undefined') {
+          this.instance.on('instanceReady', this.instanceReadyCallback);
+        }
+      }
+    },
+    update: function update(val) {
+      if (this.instanceValue !== val) {
+        this.instance.setData(val, {
+          internal: false
+        });
+      }
+    },
+    destroy: function destroy() {
+      try {
+        if (!this.destroyed) {
+          this.instance.focusManager.blur(true);
+          this.instance.removeAllListeners();
+          this.instance.destroy();
+          this.destroyed = true;
+        }
+      } catch (e) {}
+    },
+    onChange: function onChange() {
+      var html = this.instance.getData();
+
+      if (html !== this.value) {
+        this.$emit('input', html);
+        this.instanceValue = html;
+      }
+    },
+    onBlur: function onBlur() {
+      this.$emit('blur', this.instance);
+    },
+    onFocus: function onFocus() {
+      this.$emit('focus', this.instance);
+    }
+  }
+};
+
+/* script */
+var __vue_script__ = script;
+/* template */
+
+var __vue_render__ = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c(
+    'div',
+    {
+      staticClass: 'ckeditor'
+    },
+    [
+      _c('textarea', {
+        attrs: {
+          name: _vm.name,
+          id: _vm.id,
+          types: _vm.types,
+          config: _vm.config
+        },
+        domProps: {
+          value: _vm.value
+        }
+      })
+    ]
+  );
+};
+
+var __vue_staticRenderFns__ = [];
+__vue_render__._withStripped = true;
+/* style */
+
+var __vue_inject_styles__ = undefined;
+/* scoped */
+
+var __vue_scope_id__ = undefined;
+/* module identifier */
+
+var __vue_module_identifier__ = undefined;
+/* functional template */
+
+var __vue_is_functional_template__ = false;
+/* component normalizer */
+
+function __vue_normalize__(
+  template,
+  style,
+  script$$1,
+  scope,
+  functional,
+  moduleIdentifier,
+  createInjector,
+  createInjectorSSR
+) {
+  var component =
+    (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
+
+  {
+    component.__file =
+      '/Users/dangvanthanh/Code/dev/vue/vue-ckeditor2/src/VueCkeditor.vue';
+  }
+
+  if (!component.render) {
+    component.render = template.render;
+    component.staticRenderFns = template.staticRenderFns;
+    component._compiled = true;
+    if (functional) component.functional = true;
+  }
+
+  component._scopeId = scope;
+
+  return component;
+}
+/* style inject */
+
+function __vue_create_injector__() {
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var styles =
+    __vue_create_injector__.styles || (__vue_create_injector__.styles = {});
+  var isOldIE =
+    typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+  return function addStyle(id, css) {
+    if (document.querySelector('style[data-vue-ssr-id~="' + id + '"]')) return; // SSR styles are present.
+
+    var group = isOldIE ? css.media || 'default' : id;
+    var style =
+      styles[group] ||
+      (styles[group] = {
+        ids: [],
+        parts: [],
+        element: undefined
+      });
+
+    if (!style.ids.includes(id)) {
+      var code = css.source;
+      var index = style.ids.length;
+      style.ids.push(id);
+
+      if (isOldIE) {
+        style.element =
+          style.element ||
+          document.querySelector('style[data-group=' + group + ']');
+      }
+
+      if (!style.element) {
+        var el = (style.element = document.createElement('style'));
+        el.type = 'text/css';
+        if (css.media) el.setAttribute('media', css.media);
+
+        if (isOldIE) {
+          el.setAttribute('data-group', group);
+          el.setAttribute('data-next-index', '0');
+        }
+
+        head.appendChild(el);
+      }
+
+      if (isOldIE) {
+        index = parseInt(style.element.getAttribute('data-next-index'));
+        style.element.setAttribute('data-next-index', index + 1);
+      }
+
+      if (style.element.styleSheet) {
+        style.parts.push(code);
+        style.element.styleSheet.cssText = style.parts
+          .filter(Boolean)
+          .join('\n');
+      } else {
+        var textNode = document.createTextNode(code);
+        var nodes = style.element.childNodes;
+        if (nodes[index]) style.element.removeChild(nodes[index]);
+        if (nodes.length) style.element.insertBefore(textNode, nodes[index]);
+        else style.element.appendChild(textNode);
+      }
+    }
+  };
+}
+/* style inject SSR */
+
+var VueCkeditor = __vue_normalize__(
+  {
+    render: __vue_render__,
+    staticRenderFns: __vue_staticRenderFns__
+  },
+  __vue_inject_styles__,
+  __vue_script__,
+  __vue_scope_id__,
+  __vue_is_functional_template__,
+  __vue_module_identifier__,
+  __vue_create_injector__,
+  undefined
+);
+
+/* harmony default export */ __webpack_exports__["a"] = (VueCkeditor);
+
 
 /***/ })
 /******/ ]);
