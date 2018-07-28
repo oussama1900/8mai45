@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Scout-Project-dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scout-Project-dashboard.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b1c5ea5a-7679-4966-bba6-b4da18547a53.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b1c5ea5a-7679-4966-bba6-b4da18547a53.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Captain.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Captain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2017_11_12_000000_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2017_11_12_000000_create_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/vue/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashbars/topnavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashbars/topnavbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashdependencies/predeps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashdependencies/predeps.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashdependencies/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashdependencies/scripts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/template.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/setting/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/setting/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-    </list>
+    <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -661,7 +631,7 @@
       <workItem from="1532758373124" duration="578000" />
       <workItem from="1532759860842" duration="8025000" />
       <workItem from="1532768431289" duration="486000" />
-      <workItem from="1532770372491" duration="1170000" />
+      <workItem from="1532770372491" duration="1412000" />
     </task>
     <task id="LOCAL-00001" summary="add rapport space ,Events Space and do some modification to the top navbar">
       <created>1531761718618</created>
@@ -684,11 +654,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532198484523</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Chat System(ChatGroup + Contacts)">
+      <created>1532771878076</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532771878092</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="354256000" />
+    <option name="totallyTimeSpent" value="354498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
