@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MessagePosted;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,32 @@ Route::get('/logout', 'DashboardController@index');
 Route::get('/dashboard', "DashboardController@index");
 
 Auth::routes();
+Route::get('/dashboard/messages', function (){
+    return App\Message::with('user')->get();
+});
 
+Route::post('/dashboard/messages', function () {
+
+    $user = Auth::user();
+   $message= $user->messages()->create([
+
+
+
+        'username'=>request()->get('username'),
+        'message'=>request()->get('message')
+
+
+
+
+    ]);
+
+   broadcast(new MessagePosted($message,$user))->toOthers();
+
+    return ["status","OK"];
+});
+Route::get('/dashboard/users', function (){
+    return App\User::with('Profile')->get();
+});
 /* ================================ 
     Dashboard Dependent Routes
 =================================== */
@@ -82,7 +108,7 @@ Route::get('/settings/', "SettingController@index");
 Route::post('/settings/', "SettingController@store");
 Route::post('/SettingController/upload/{id}', "SettingController@upload");
 Route::post('/SettingController/auth_registration', "SettingController@auth_registration");
-Route::get('/SettingController/sidebar', "SettingController@sidebar");
+Route::get('/dashboard#/SettingController/sidebar', "SettingController@sidebar");
 
 /* Message (TODO)*/ 
 Route::get('/message/', "MessageController@index");

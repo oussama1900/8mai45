@@ -3,8 +3,11 @@
 namespace App;
 use App\Presenters\UserPresenter;
 use App\Support\Authorization\AuthorizationUserTrait;
+use http\Env\Response;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use function Sodium\add;
+
 class User extends Authenticatable
 {
 	 use AuthorizationUserTrait;
@@ -19,7 +22,11 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'scout_id';
     public $timestamps = false;
-    
+
+    public function __construct(){
+        parent::__construct();
+
+    }
 
     protected $dates = ['last_login'];
 
@@ -78,6 +85,15 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Relations\HasOne Scout
      */
     public function profile(){
+
         return $this->hasOne('App\Scout', 'scout_id', 'scout_id');
     }
+    public  function messages(){
+
+
+        return  $this->hasMany('App\Message','scout_id','scout_id');
+
+
+    }
+
 }

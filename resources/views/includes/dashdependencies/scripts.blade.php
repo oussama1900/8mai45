@@ -6,7 +6,7 @@
 {{ Html::script('global/vendor/mousewheel/jquery.mousewheel.js') }}
 {{ Html::script('global/vendor/asscrollable/jquery.asScrollable.all.js') }}
 {{ Html::script('global/vendor/ashoverscroll/jquery-asHoverScroll.js') }}
-{{ Html::script('assets/js/mdb.js')}}
+
 
 <!-- Plugins -->
 {{ Html::script('global/vendor/switchery/switchery.min.js') }}
@@ -34,9 +34,7 @@
 <script src="{{URL::to('/')}}/global/vendor/filament-tablesaw/tablesaw.js"></script>
 <script src="{{URL::to('/')}}/global/vendor/filament-tablesaw/tablesaw-init.js"></script>
 
- <script src="{{URL::to('/')}}/global/vendor/ladda-bootstrap/spin.js"></script>
-<script src="{{URL::to('/')}}/global/vendor/ladda-bootstrap/ladda.js"></script>
-<script src="{{URL::to('/')}}/global/js/components/ladda-bootstrap.js"></script>
+
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>

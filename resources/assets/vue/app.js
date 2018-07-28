@@ -11,7 +11,9 @@ import VueRouter from 'vue-router';
 import Axios from 'axios';
 import Datepicker from 'vuejs-datepicker';
 import VueCkeditor from 'vue-ckeditor2';
+require('./bootstrap');
 
+window.Vue = require('vue');
 
 Vue.use(VueRouter,  Axios,VueCkeditor);
 
@@ -67,7 +69,10 @@ Vue.component('Settings',Settings);
 Vue.component('Curriculum-vitae',CV);
 Vue.component('Social-media',SocialMedia);
 
-
+Vue.component('chat-message',require('./components/Chat/ChatMessage.vue'));
+Vue.component('chat-log',require('./components/Chat/ChatLog.vue'));
+Vue.component('chat-composer',require('./components/Chat/ChatComposer.vue'));
+Vue.component('friend-list',require('./components/Chat/FriendList.vue'));
 /**
  * Vue Routes thst allow for a SPA feel in the application
  */
@@ -151,3 +156,71 @@ const app = new Vue({
     router,
 
 });
+
+const app2 = new Vue({
+    el: '#chatvue',
+    data:{
+        messages:[],
+        allusers:[{
+            profile:{
+                first_name:'',
+                last_name:''
+            }
+        }
+        ],
+        usersinroom:[],
+        myaccount:'',
+    },
+    methods:{
+        addMessage(message){
+            this.messages.push(message);
+
+
+
+
+            axios.post('/dashboard/messages',{message: message.message, username:  message.username}).then(response=>{
+
+
+
+
+            });
+
+        },
+
+    },
+    created(){
+
+
+        axios.get('/dashboard/messages').then(response=>{
+
+           this.messages=response.data;
+
+
+        });
+        axios.get('/dashboard/users').then(response=>{
+            this.allusers=response.data;
+
+        });
+        Echo.join('chatroom')
+            .here((users)=>{
+                this.usersinroom = users;
+
+
+            })
+            .joining((user) =>{
+                this.usersinroom.push(user);
+            })
+            .leaving((user)=>{
+                this.usersinroom = this.usersinroom.filter(u => u != user);
+
+            })
+            .listen('MessagePosted',(e)=>{
+
+                    this.messages.push({
+                        message: e.message.message,
+                        username: e.message.username
+                    });
+            })
+    }
+});
+

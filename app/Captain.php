@@ -17,4 +17,7 @@ class Captain extends Model
     public function profile(){
         return $this->belongsTo('App\Scout', 'scout_id', 'scout_id');
     }
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }

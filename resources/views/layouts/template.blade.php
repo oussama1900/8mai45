@@ -7,26 +7,28 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>فوج الفلاح</title>
+  <link rel="stylesheet" href="css/app.css"/>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <title>الموقع الرسمي لفوج الفلاح</title>
+
+ 
 
   <!-- Include Date Range Picker -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 
 
 
   @include('includes.dashdependencies.predeps')
-  
-	<style>
-      .dashboard{
-        background-color: #e6f2ff;
-      }
-      .page{
-        background-color: #0b0b0b;
-      }
+
+  <style>
+    .dashboard{
+      background-color: #e6f2ff;
+    }
+    .page{
+      background-color: #0b0b0b;
+    }
     .page-content {
       padding: 0px 30px;
       font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
@@ -40,7 +42,7 @@
       height: 80px;
     }
     .font_kufi {
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
       font-size: 100%;
     }
     .navbar-header{
@@ -53,31 +55,78 @@
       margin-left: 100px;
     }
 
-      .navbar-brand-logo{
-        margin-top: 10px;
-        margin-right: 10px !important;
-        margin-left: 10px !important;
-        width: 55px;
-        height: 55px;
-      }
-	</style>
+    .navbar-brand-logo{
+      margin-top: 10px;
+      margin-right: 10px !important;
+      margin-left: 10px !important;
+      width: 55px;
+      height: 55px;
+    }
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    .slidePanel{
+      margin-top: 14px;
+      width: 1000px;
+      transition: 0.5s;
+
+    }
+    .control-sidebar-tabs{
+
+      height: 60px;
+      margin-bottom:0px;
+      /*background-color: #62a8ea;*/
+      background-color: #263238;
+    }
+    .chat-element{
+      height: 60px;
+      background-color: #222d32;
+    }
+    .chat-element, .friend-element{
+      height: 60px;
+
+    }
+
+    .chat-element:hover , .friend-element:hover{
+      background-color: #222d32;
+      cursor: pointer;
+
+    }
+    .sidebar-body{
+      background-color: #222d32;
+      height:100%;
+
+    }
+    .sidebar-body .friend-list{
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="dashboard app-mailbox">
-    @include('includes.dashbars.topnavbar')
-  <div id="app"> 
-    @include('includes.dashbars.sidebar')
-    <!-- Page -->
-    <div class="page" style="animation-duration: 2000ms; opacity: 1;">
-      <router-view></router-view>
-    </div>
+@include('includes.dashbars.topnavbar')
+<div id="app">
+@include('includes.dashbars.sidebar')
+<!-- Page -->
+  <div class="page" style="animation-duration: 2000ms; opacity: 1;">
+    <router-view></router-view>
   </div>
+</div>
 
 
-  @include('includes.dashdependencies.scripts')
+@include('includes.dashdependencies.scripts')
 
-  <!-- Vue.js -->
-  <script src={{ url("/assets/vue/app.js")}}></script>
-    <script src="https://unpkg.com/vue-ckeditor2"></script>
+<!-- Vue.js -->
+<script src={{ url("/assets/vue/app.js")}} charset="UTF-8"></script>
+<script src="https://unpkg.com/vue-ckeditor2"></script>
 </body>
 </html>

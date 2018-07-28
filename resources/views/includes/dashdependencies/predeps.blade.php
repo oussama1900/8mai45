@@ -3,7 +3,7 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
-{{Html::style('assets/css/mdb.css')}}
+
 {{Html::style('global/css/bootstrap.min.css')}}  
 {{Html::style('global/css/bootstrap-extend.min.css')}}
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
@@ -19,7 +19,7 @@
  {{Html::style('assets/examples/css/dashboard/v1.css')}}
  {{Html::style('assets/examples/css/dashboard/analytics.css')}}
  
-<link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/ladda-bootstrap/ladda.css">
+
 <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/buttons.css">
 <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/dropdowns.css">
  

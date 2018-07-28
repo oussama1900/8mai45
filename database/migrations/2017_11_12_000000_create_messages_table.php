@@ -13,26 +13,18 @@ class CreateMessagesTable extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->increments('id');
-			$table->unsignedInteger('receiver_id');
-			$table->unsignedInteger('sender_id');
-            $table->string('replay_id');
-            $table->string('subject');
-            $table->string('description');
-            $table->string('status',20);
+            $table->increments('id')->unique();
+            $table->integer('scout_id')->unsigned();
+            $table->string('username');
+            $table->text('message');
+
+
             $table->timestamps();
+
+
         });
 		
-		 Schema::table('messages', function(Blueprint $table) {
-            $table->foreign('receiver_id')
-                ->references('scout_id')
-                ->on('users')
-                ->onDelete('cascade');
-			 $table->foreign('sender_id')
-                ->references('scout_id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
+
 		
     }
 
@@ -43,6 +35,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('messages');
+        Schema::dropIfExists('messages');
     }
 }
