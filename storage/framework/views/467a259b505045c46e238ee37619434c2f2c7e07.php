@@ -17,7 +17,7 @@
                   -->
                   <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          <?php echo e(Auth::user()->first_name); ?> <?php echo e(Auth::user()->last_name); ?><span class="caret"></span>
+                          <?php echo e(Auth::user()->profile->getFullName()); ?><span class="caret"></span>
                       </a>
 
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
