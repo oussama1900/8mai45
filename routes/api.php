@@ -17,6 +17,63 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth.basic');
 
+Route::get('/scouts/cubs',[
+
+    'uses' =>'ScoutController@getScouts'
+]);
+Route::get('/scouts/scout',[
+
+    'uses' =>'ScoutController@getScouts'
+]);
+Route::get('/scouts/advanced_scout',[
+
+    'uses' =>'ScoutController@getScouts'
+]);
+Route::get('/scouts/traveler',[
+
+    'uses' =>'ScoutController@getScouts'
+]);
+Route::get('/scouts/captain',[
+
+    'uses' =>'ScoutController@getScouts'
+]);
+Route::get('/getScout/{id}',[
+
+    'uses' =>'ScoutController@getScout'
+]);
+Route::put('/EditScoutInfo/{id}',[
+
+    'uses' =>'ScoutController@EditScoutInfo'
+]);
+
+Route::delete('/deleteScout/{scout_id}',[
+
+    'uses' =>'ScoutController@destroy'
+]);
+Route::post('/AddNewScout',[
+
+    'uses' =>'ScoutController@AddNewScout'
+]);
+
+
+Route::post('/createOurUnits',[
+
+    'uses' =>'ScoutController@createOurUnits'
+]);
+Route::get('/Units',[
+
+    'uses' =>'ScoutController@getUnits'
+]);
+
+Route::get('/users-accounts',[
+
+    'uses' =>'AccountsController@getUsersAccounts'
+]);
+Route::post('/addnewaccount',[
+
+    'uses' =>'AccountsController@AddNewAccount'
+]);
+
 Route::get('/scouts', function (Request $request) {
     $permissions = $request->user()->captain->role->permissions;
     

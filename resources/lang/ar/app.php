@@ -2,6 +2,9 @@
 return [ 
 "home" =>"الصفحة الرئيسية",
 "login_creds" => "رقم الكشاف أو البريد الالكتروني",
+"units" => "وحدات الفوج",
+"users_accounts" => "حسابات المستخدمين",
+"website_accounts" => "حسابات الموقع",
 "users" =>"المستخدمين",
 "registration_number" => 'رقم الكشاف',
 "scoutspace" => 'ساحة الكشاف',
@@ -15,7 +18,7 @@ return [
 "settings" =>"إعدادات",
 "general_settings" =>"الاعدادات العامة",
 "logout" =>"الخروج",
-"my_profile" =>"ملفي",
+"my_profile" =>"ملفي الشخصي",
 "userslist" =>"قائمة المستخدمين",
 "general" =>"عام",
 "auth_and_registration" =>"المصادقة والتسجيل",

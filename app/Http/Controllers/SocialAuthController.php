@@ -29,6 +29,6 @@ class SocialAuthController extends Controller
 		auth()->login($user);
 		$description = array('description'=>'Loged in.');
 		$this->foo->users_activity($description);
-		return redirect()->to('/dashboard');
+		return redirect()->to('/dashboard/hub');
 	}
 }

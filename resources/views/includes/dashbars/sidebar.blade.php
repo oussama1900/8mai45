@@ -25,14 +25,18 @@
                       <a href="javascript:void(0)">
                           <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                           <span class="site-menu-title">
-                      {{ trans('app.profile')}}
+                      {{ trans('app.website_accounts')}}
                     </span>
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="/profile"/>
-                              <span class="site-menu-title">{{ trans('app.profile')}}</span>
+                              <router-link class="animsition-link" to="/myprofile"/>
+                              <span class="site-menu-title">{{ trans('app.my_profile')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/users-accounts"/>
+                              <span class="site-menu-title">{{ trans('app.users_accounts')}}</span>
                           </li>
                       </ul>
                   </li>
@@ -166,36 +170,37 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
+
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="scouts/cubs"/>
+                              <router-link class="animsition-link" to="/scouts/cubs"/>
                                   <span class="site-menu-title">{{ trans('app.cub')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="scouts/scoutboy"/>
+                              <router-link class="animsition-link" to="/scouts/scout"/>
                                   <span class="site-menu-title">{{ trans('app.scoutboy')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="scouts/advancedscout"/>
+                              <router-link class="animsition-link" to="/scouts/advanced_scout"/>
                                   <span class="site-menu-title">{{ trans('app.advanced_scout')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="scouts/traveler"/>
+                              <router-link class="animsition-link" to="/scouts/traveler"/>
                                   <span class="site-menu-title">{{ trans('app.traveler')}}</span>
                               </a>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="scouts/captain"/>
+                              <router-link class="animsition-link" to="/scouts/captain"/>
                                   <span class="site-menu-title">{{ trans('app.leader')}}</span>
                               </a>
                           </li>

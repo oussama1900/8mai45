@@ -1,7 +1,7 @@
 <template>
   <div class="card" style="margin:10px;margin-top: 22px;border-radius: 5px" >
     <div class="header">
-      <h4 class="title">تعديل الملف الشخصي</h4>
+      <h4 class="title">{{users.title}}</h4>
     </div>
     <div class="content" style="margin: 10px">
       <form style="padding: 10px">
@@ -10,13 +10,14 @@
             <fg-input type="text"
                       label="اللقب"
                       placeholder="اللقب"
-                      v-model="user.firstName">
+                      v-model="users.last_name">
             </fg-input>
           </div>
           <div class="col-md-6">
             <fg-input type="text"
                       label="الاسم"
                       placeholder="الاسم"
+                      v-model="users.first_name"
                      >
             </fg-input>
           </div>
@@ -28,7 +29,7 @@
                       label="اسم المستخدم"
                       :disabled="true"
                       placeholder="اسم المستخدم"
-                      v-model="user.username">
+                      v-model="users.user_full_name">
             </fg-input>
           </div>
           <div class="col-md-6">
@@ -36,7 +37,7 @@
                       label="رقم المستخدم"
                       :disabled="true"
                       placeholder="رقم المستخدم"
-                      v-model="user.usernumber">
+                      v-model="users.user_code">
             </fg-input>
           </div>
 
@@ -48,7 +49,7 @@
             <fg-input type="text"
                       label="الرتبة في الفوج"
                       placeholder="الرتبة في الفوج"
-                      v-model="user.rank">
+                      v-model="users.rank">
             </fg-input>
           </div>
         </div>
@@ -57,14 +58,14 @@
             <fg-input type="date"
                       label="تاريخ الميلاد"
                       placeholder="تاريخ الميلاد"
-                      v-model="user.Date_of_Birth">
+                      v-model="users.date_of_Birth">
             </fg-input>
           </div>
           <div class="col-md-6" >
             <fg-input type="text"
                       label="مكان الميلاد"
                       placeholder="مكان الميلاد"
-                      v-model="user.place_of_birth">
+                      v-model="users.phone">
             </fg-input>
           </div>
         </div>
@@ -73,7 +74,7 @@
     <fg-input type="email"
               label="البريد الإلكتروني"
               placeholder="البريد الإلكتروني"
-              v-model="user.email">
+              v-model="users.email">
     </fg-input>
   </div>
 </div>
@@ -85,7 +86,7 @@
 
         <div class="text-center">
           <button type="submit" class="btn btn-info btn-fill btn-wd" @click.prevent="updateProfile">
-            تحديث الملف الشخصي
+            {{users.button_title}}
           </button>
         </div>
 
@@ -95,20 +96,7 @@
 </template>
 <script>
   export default {
-    data () {
-      return {
-        user: {
-          usernumber: 'SF-XX-XXX',
-          username: 'مويات براء عبد الاله',
-          email: 'mouyet.19@gmail.com',
-            rank: 'قائد الفوج',
-          lastName: 'براء عبد الاله',
-            place_of_birth: 'Sétif,Algeria',
-            Date_of_Birth: '06/12/1996',
-
-        }
-      }
-    },
+     props:['users'],
     methods: {
       updateProfile () {
         alert('Your data: ' + JSON.stringify(this.user))

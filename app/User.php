@@ -84,6 +84,7 @@ class User extends Authenticatable
      * Gets the basic information of this user
      * @return \Illuminate\Database\Eloquent\Relations\HasOne Scout
      */
+
     public function profile(){
 
         return $this->hasOne('App\Scout', 'scout_id', 'scout_id');

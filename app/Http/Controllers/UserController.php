@@ -33,9 +33,9 @@ class UserController extends Controller
 	{		
        $this->middleware('auth');	 
 	   $this->foo = $foo;	  
-		if((Route::currentRouteAction() != 'App\Http\Controllers\UserController@profile') && (Route::currentRouteAction() != 'App\Http\Controllers\UserController@profileEdit') && (Route::currentRouteAction() != 'App\Http\Controllers\UserController@upload')
+		if((Route::currentRouteAction() != 'App\Http\Controllers\UserController@profile') && (Route::currentRouteAction() != 'App\Http\Controllers\UserController@profileEdit') && (Route::currentRouteAction() != 'App\Http\Controllers\UserController@upload') &&(Route::currentRouteAction() != 'App\Http\Controllers\UserController@getUsersAccounts')
 		&& (Route::currentRouteAction() != 'App\Http\Controllers\UserController@authentication') && (Route::currentRouteAction() != 'App\Http\Controllers\UserController@update')){
-			 $this->middleware('permission:users.manage');
+
 		}
     }
 	
@@ -504,4 +504,7 @@ public static function MyTest($usrid){
 	echo $messagedata = DB::table('messages')->where('receiver_id',$usrid)->where('status','0')->count();
 	
 }
+
+
+
 }

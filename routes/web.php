@@ -29,7 +29,7 @@ Route::get('/dashboard/messages', function (){
 Route::post('/dashboard/messages', function () {
 
     $user = Auth::user();
-   $message= $user->messages()->create([
+    $message= $user->messages()->create([
 
 
 
@@ -41,13 +41,15 @@ Route::post('/dashboard/messages', function () {
 
     ]);
 
-   broadcast(new MessagePosted($message,$user))->toOthers();
+    broadcast(new MessagePosted($message,$user))->toOthers();
 
     return ["status","OK"];
 });
 Route::get('/dashboard/users', function (){
     return App\User::with('Profile')->get();
 });
+
+Route::resource("Scout",'ScoutController@index');
 /* ================================ 
     Dashboard Dependent Routes
 =================================== */

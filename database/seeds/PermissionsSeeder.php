@@ -80,7 +80,7 @@ class PermissionsSeeder extends Seeder
          * Permission to manage all posts
          */
         $posts_all = Permission::create([
-            'name' => 'posts',
+            'name' => 'posts.all',
             'display_name' => 'permissions.posts',
             'description' => '',
             'removable' => false
@@ -136,7 +136,7 @@ class PermissionsSeeder extends Seeder
         $scouts = Permission::create([
             'name' => 'scouts',
             'display_name' => 'permissions.scouts',
-            'desctiption' => '',
+            'description' => '',
             'removable' => false
         ]);
     }

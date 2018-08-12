@@ -9,9 +9,15 @@ class Captain extends Model
     protected $table = 'captains';
     protected $primaryKey = 'scout_id';
     public $timestamps = false;
-
+    protected $fillable = [
+        'scout_id', 'role', 'unit', 'created_at',
+        'updated_at'
+    ];
     public function assignedRole(){
         return $this->hasOne('App\Role', 'name', 'role');
+    }
+    public function isScout(){
+        return $this->belongsTo('App\Scout', 'scout_id', 'scout_id');
     }
 
     public function profile(){

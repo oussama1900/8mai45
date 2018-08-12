@@ -15,7 +15,7 @@ class CreateScoutsTable extends Migration
     {
         Schema::create('scouts', function (Blueprint $table) {
             //Basic Information
-            $table->unsignedInteger('scout_id')->unique();
+            $table->increments('scout_id')->unique();
             $table->unsignedInteger('assurance_num')->unique();
             $table->string('first_name', 30);
             $table->string('last_name', 30);
