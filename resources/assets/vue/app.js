@@ -183,7 +183,7 @@ const routes = [
         component:AddnewScout
     },
     {
-        path:"/AddNewScout/advanced-scout",
+        path:"/AddNewScout/advancedscout",
         component:AddnewScout
     },
     {

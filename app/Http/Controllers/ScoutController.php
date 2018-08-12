@@ -69,9 +69,12 @@ class ScoutController extends Controller
 
         $unit_id = $request->input('scout_unit.0.unit_id');
 
+        if($unit_id!= 'cap'){
+            DB::insert('insert into unitscouts(scout_id,unit_id) values(?,?) ',[$scout_id,$unit_id]);
+        }
 
 
-        DB::insert('insert into unitscouts(scout_id,unit_id) values(?,?) ',[$scout_id,$unit_id]);
+
 
        if($request->input('role')){
            $role = $request->input('role');

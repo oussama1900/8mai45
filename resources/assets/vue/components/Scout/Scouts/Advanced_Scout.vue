@@ -4,7 +4,7 @@
         <h2>{{Title}} </h2>
 
         <div>
-            <router-link class="btn btn-success"   :to="'/AddNewScout/advanced-scout'" >اضف كشاف متقدم</router-link>
+            <router-link class="btn btn-success"   :to="'/AddNewScout/advancedscout'" >اضف كشاف متقدم</router-link>
         </div>
         <hr>
         <div id="products" class="row list-group">

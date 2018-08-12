@@ -45,8 +45,9 @@
                     <li>
                         <input  id="email"  type="email" placeholder=" ألايميل" dir="rtl" v-model="Scout.ScoutInfo[0].email"/>
                     </li>
-                    <li v-if="addCaptain()">
-                        <select id="role" class="form-control" v-model="Scout.role">
+                    <li  v-if="addCaptain()">
+
+                        <select id="role" class="form-control" v-model="Scout.role"  >
                             <option>gov</option>
                             <option>vgov</option>
                             <option>med</option>
@@ -62,6 +63,8 @@
                             <option>capa</option>
                             <option>trne</option>
                         </select>
+
+
                     </li>
 
                     <li style="margin-top: 30px">
@@ -118,24 +121,31 @@
 
 
 
-            var url = ""+this.$router.fullPath;
+           var vm = this;
+            var url = ""+vm.$route.fullPath;
 
-            if(url.localeCompare("/AddNewScout/cub")!==-1)
+            if(url.localeCompare("/AddNewScout/cub")===0){
+
                 this.Scout.scout_unit[0].unit_id = 'cubs';
-            else{
-                if(url.localeCompare("/AddNewScout/scout")!==-1)
-                this.Scout.scout_unit[0].unit_id = 'sct';
-                else{
-                    if(url.localeCompare("/AddNewScout/advanced-scout")!==-1)
-                        this.Scout.scout_unit[0].unit_id = 'asct';
-                    else{
-                        if(url.localeCompare("/AddNewScout/traveler")!==-1)
-                            this.Scout.scout_unit[0].unit_id = 'tvlr';
+            }
+            if(url.localeCompare("/AddNewScout/scout")===0){
 
-                    }
-                }
+                this.Scout.scout_unit[0].unit_id = 'sct';
+            }
+            if(url.localeCompare("/AddNewScout/traveler")===0){
+
+                this.Scout.scout_unit[0].unit_id = 'tvlr';
+            }
+            if(url.localeCompare("/AddNewScout/captain")===0){
+
+                this.Scout.scout_unit[0].unit_id = 'cap';
 
             }
+            if(url.localeCompare("/AddNewScout/advancedscout")===0 ){
+
+                this.Scout.scout_unit[0].unit_id = 'asct';
+            }
+
 
 
 
@@ -157,35 +167,48 @@
 
 
 
-                    switch (vm.Scout.scout_unit[0].unit_id){
-                        case 'cubs':
-                            vm.$router.push('/scouts/cubs');
-                        break;
-                        case 'sct':
-                            vm.$router.push('/scouts/scout');
-                            break;
-                        case 'asct':
-                           vm.$router.push('/scouts/advanced-scout');
-                            break;
-                        case 'tvlr':
-                           vm.$router.push('/scouts/traveler');
-                            break;
-                        default:
-                        case 5:
-                            vm.$router.push('/scouts/captain');
+                   if(vm.Scout.scout_unit[0].unit_id.localeCompare('cubs')===0){
+                       console.log(vm.Scout.scout_unit[0].unit_id);
+                       vm.$router.push('/scouts/cubs');
+                   }else{
+                       if (vm.Scout.scout_unit[0].unit_id.localeCompare('sct')===0) {
+                           console.log(vm.Scout.scout_unit[0].unit_id);
+                           vm.$router.push('/scouts/cubs');
+                       }else{
+                           if(vm.Scout.scout_unit[0].unit_id.localeCompare('asct')===0){
+                               console.log(vm.Scout.scout_unit[0].unit_id);
+                               vm.$router.push('/scouts/advanced-scout');
+                           }else{
+                               if (vm.Scout.scout_unit[0].unit_id.localeCompare('tvlr')===0) {
+                                   console.log(vm.Scout.scout_unit[0].unit_id);
+                                   vm.$router.push('/scouts/traveler');
+                               }else{
+                                   if(vm.Scout.scout_unit[0].unit_id.localeCompare('cap')===0){
+                                       console.log(vm.Scout.scout_unit[0].unit_id);
+                                       vm.$router.push('/scouts/captain');
+                                   }
 
+                               }
 
-                    }
+                           }
+                       }
+
+                   }
+
 
 
                 });
             },
             addCaptain(){
-                var url = ""+this.$router.fullPath;
-                if(url.localeCompare("/AddNewScout/captain")!==-1){
-                    return true
+                var url = ""+this.$route.fullPath;
+                if(url.localeCompare("/AddNewScout/captain")===0){
+
+                    return true;
+                }else{
+
+                    return false;
                 }
-                return false;
+
             }
 
         }
