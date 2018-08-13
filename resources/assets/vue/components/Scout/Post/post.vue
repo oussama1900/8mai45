@@ -26,7 +26,7 @@
 
                                                         <div class="form-group col-sm-12">
                                                             <h5 style="text-align: right">عنوان النشاط </h5>
-                                                            <input type="text" dir="rtl" class="form-control" id="post_title" name="post_title" placeholder="عنوان النشاط" >
+                                                            <input type="text"  dir="rtl" class="form-control" id="post_title" name="post_title" placeholder="عنوان النشاط" >
                                                         </div>
                                                         <div class="form-group col-sm-12">
                                                             <h5 style="text-align: right">	تاريخ النشاط </h5>
@@ -176,6 +176,16 @@
 
     export default{
 
+        data(){
+            return {
+                post:{
+                    post_title:'',
+                }
+            }
+        },
+        methods:{
+
+        }
 
     }
 
