@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,7 +21,7 @@ class ScoutController extends Controller
     public function getScouts(Request $request){
         $Scout ="";
 
-        switch ( url()->current()){
+       /* switch ( url()->current()){
             case 'http://localhost:8000/api/scouts/cubs':
                 $Scout = UnitScout::with('scout')->where('unit_id','cubs')->get();
                 break;
@@ -36,9 +37,22 @@ class ScoutController extends Controller
             case 'http://localhost:8000/api/scouts/captain':
             $Scout = Captain::with('isScout')->get();
             break;
-
-        }
-
+            }*/
+            if(Route::currentRouteNamed('captain')){
+                $Scout = UnitScout::with('scout')->where('unit_id','cubs')->get();
+            }
+            if(Route::currentRouteNamed('captain')){
+                $Scout = UnitScout::with('scout')->where('unit_id','sct')->get();
+            }
+            if(Route::currentRouteNamed('captain')){
+                $Scout = UnitScout::with('scout')->where('unit_id','asct')->get();
+            }
+            if(Route::currentRouteNamed('captain')){
+                $Scout = UnitScout::with('scout')->where('unit_id','tvlr')->get();
+            }
+            if(Route::currentRouteNamed('captain')){
+                $Scout = Captain::with('isScout')->get();
+            }
 
 
         return response()->json(["Scouts"=> $Scout]);

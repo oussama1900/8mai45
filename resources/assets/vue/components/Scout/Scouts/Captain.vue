@@ -8,7 +8,7 @@
         </div>
         <hr>
         <div id="products" class="row list-group">
-            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="cap in MyScouts">
+            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for='cap in MyScouts'>
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="padding: 0px;margin-left: 10px;" >
                         <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(cap)" ></span>
@@ -89,10 +89,9 @@
             var vm=this;
 
             vm.Title="قائمة القادة";
-            axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
+            axios.get("/api"+vm.$route.fullPath).then(function(response){
 
-
-            vm.MyScouts = response.data.Scouts;
+                vm.MyScouts = response.data.Scouts;
                 console.log(vm.MyScouts);
             });
 
@@ -106,7 +105,7 @@
             removeScout(cap) {
 
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + cap.is_scout.scout_id).then(function (response) {
+                axios.delete("/api/deleteScout/" + cap.is_scout.scout_id).then(function (response) {
 
 
                     var position = vm.MyScouts.indexOf(cap);
