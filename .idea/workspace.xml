@@ -4,9 +4,19 @@
     <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/vue/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AddnewScout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AddnewScout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/44/d1/44d142505dd1a3b497197e2f459d2aec779e9ed6" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/44/d1/44d142505dd1a3b497197e2f459d2aec779e9ed6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/c2/4f/c24f92750673b2169c8cb7bfbc999cfa8457dc7c" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/c2/4f/c24f92750673b2169c8cb7bfbc999cfa8457dc7c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,23 +67,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScoutController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ScoutController.php">
+      <file leaf-file-name="Cub.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+            <state relative-caret-position="578">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="39" selection-end-column="26" />
               <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddnewScout.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AddnewScout.vue">
+      <file leaf-file-name="Traveler.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-765">
-              <caret line="196" selection-start-line="196" selection-end-line="196" />
+            <state relative-caret-position="102">
+              <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,42 +100,36 @@
       <file leaf-file-name="Captain.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
+            <state relative-caret-position="345">
+              <caret line="108" column="84" selection-start-line="108" selection-start-column="84" selection-end-line="108" selection-end-column="84" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Advanced_Scout.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="6" column="83" selection-start-line="6" selection-start-column="83" selection-end-line="6" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/assets/vue/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="172" column="34" lean-forward="true" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
-              <folding>
-                <element signature="e#250#272#0" expanded="true" />
-                <element signature="e#571#621#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="188" column="93" selection-start-line="188" selection-start-column="79" selection-end-line="188" selection-end-column="93" />
+            <state relative-caret-position="292">
+              <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -132,8 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getFullName()</find>
-      <find>dashboard</find>
       <find>post</find>
       <find>height</find>
       <find>height:</find>
@@ -162,6 +173,8 @@
       <find>unit</find>
       <find>Add</find>
       <find>pusher</find>
+      <find>scout_id</find>
+      <find>AdvancedScout</find>
     </findStrings>
     <replaceStrings>
       <replace>class=&quot;column6&quot;</replace>
@@ -205,14 +218,10 @@
         <option value="$PROJECT_DIR$/app/UnitScout.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/AllScouts.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AllScouts.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Units.vue" />
         <option value="$PROJECT_DIR$/resources/lang/ar/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditProfileForm.vue" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/NewUser.vue" />
@@ -222,12 +231,16 @@
         <option value="$PROJECT_DIR$/database/seeds/PermissionsSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Captain.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/app.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AddnewScout.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" />
       </list>
     </option>
   </component>
@@ -359,7 +372,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -405,6 +417,38 @@
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="Cubs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="Traveler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -436,6 +480,16 @@
               <item name="vue" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Scout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout" type="462c0819:PsiDirectoryNode" />
+              <item name="Post" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -446,6 +500,15 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Scout" type="462c0819:PsiDirectoryNode" />
               <item name="Scouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="UserProfile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -477,6 +540,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -491,19 +555,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Scouts" />
-      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Chat" />
-      <recent name="F:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Home" />
-      <recent name="F:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Scouts" />
-      <recent name="F:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Website\dash\Scout-Project\public\images" />
       <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\UserProfile" />
       <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Scouts" />
       <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components" />
       <recent name="D:\Website\dash\Scout-Project\routes" />
-      <recent name="D:\Website\dash\Scout-Project\public\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Website\dash\Scout-Project\public\images\Cubs" />
+      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Scouts" />
+      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Chat" />
+      <recent name="F:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Home" />
+      <recent name="F:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Scouts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -589,7 +653,10 @@
       <workItem from="1534058641231" duration="14405000" />
       <workItem from="1534074458345" duration="1152000" />
       <workItem from="1534089700128" duration="5525000" />
-      <workItem from="1534099084976" duration="5772000" />
+      <workItem from="1534099084976" duration="5945000" />
+      <workItem from="1534157884999" duration="8946000" />
+      <workItem from="1534170157240" duration="10798000" />
+      <workItem from="1534182202890" duration="886000" />
     </task>
     <task id="LOCAL-00001" summary="add rapport space ,Events Space and do some modification to the top navbar">
       <created>1531761718618</created>
@@ -626,15 +693,21 @@
       <option name="project" value="LOCAL" />
       <updated>1532772036951</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix some error in vice captain space">
+      <created>1534105337959</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1534105337959</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="457475000" />
+    <option name="totallyTimeSpent" value="478278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015129" side_tool="true" weight="0.32838285" />
@@ -644,7 +717,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4977307" weight="0.32838285" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33661118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3517398" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.22108346" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -661,29 +734,29 @@
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4977307" weight="0.32673267" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3290938" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30087847" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49853587" visible="true" weight="0.32750398" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.22108346" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3290938" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5014641" side_tool="true" weight="0.32750398" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3290938" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49853587" visible="true" weight="0.32750398" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30087847" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -715,21 +788,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_10_202550_create_events_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_12_29_224252_create_user_activity_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_10_171049_create_social_login_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_10_170911_create_social_accounts_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_09_19_191655_setup_countries_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -762,13 +820,6 @@
         <state relative-caret-position="-1071" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/vue/types/options.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -790,13 +841,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Units.vue" />
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Chat/ChatMessage.vue">
       <provider selected="true" editor-type-id="text-editor">
@@ -807,13 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -937,13 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="85" column="68" selection-start-line="85" selection-start-column="60" selection-end-line="85" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
@@ -956,43 +986,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
+        <state relative-caret-position="3196">
           <caret line="188" column="93" selection-start-line="188" selection-start-column="79" selection-end-line="188" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="172" column="34" lean-forward="true" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
-          <folding>
-            <element signature="e#250#272#0" expanded="true" />
-            <element signature="e#571#621#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="83" selection-start-line="6" selection-start-column="83" selection-end-line="6" selection-end-column="83" />
         </state>
       </provider>
     </entry>
@@ -1000,28 +995,147 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="28" column="56" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="160" column="9" lean-forward="true" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="978" column="9" selection-start-line="978" selection-start-column="9" selection-end-line="978" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/default.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AddnewScout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2485">
+          <caret line="203" column="70" selection-start-line="203" selection-start-column="70" selection-end-line="203" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/Traveler/1534176926.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/Traveler/1534177313.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ScoutController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+        <state relative-caret-position="279">
+          <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="77" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/AddnewScout.vue">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        <state relative-caret-position="578">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="39" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="38" column="91" selection-start-line="38" selection-start-column="91" selection-end-line="38" selection-end-column="91" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="108" column="84" selection-start-line="108" selection-start-column="84" selection-end-line="108" selection-end-column="84" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#router-link#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
         </state>
       </provider>
     </entry>
   </component>
-</project>                                                                                                                                                                          
+</project>

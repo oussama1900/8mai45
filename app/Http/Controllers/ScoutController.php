@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Scout;
@@ -52,22 +53,66 @@ class ScoutController extends Controller
 
     public function AddNewScout(Request $request){
 
+        $unit_id = $request->input('scout_unit.0.unit_id');
+        if($request->input('ScoutInfo.0.image')==""){
+            $filename="";
+
+        }else{
+            $expl = explode(',',$request->input('ScoutInfo.0.image'));
+
+            $decode = base64_decode($expl[1]);
+            if(str_contains($expl[0],'png')){
+                $exte= 'png';
+
+            }else{
+                $exte= 'jpeg';
+            }
+            $currenttime = Carbon::now()->timestamp;
+            $filename = $currenttime.'.'.$exte;
+            switch ($unit_id){
+                case 'cubs':{
+                    $filepath = public_path().'/images/Cubs/'.$filename;
+                    break;
+                }
+                case'sct':{
+                    $filepath = public_path().'/images/Scout/'.$filename;
+                    break;
+                }
+                case 'asct':{
+                    $filepath = public_path().'/images/AdvancedScout/'.$filename;
+                    break;
+                }
+                case 'tvlr':{
+                    $filepath = public_path().'/images/Traveler/'.$filename;
+                    break;
+                }
+                case 'cap':{
+                    $filepath = public_path().'/images/Captain/'.$filename;
+                    break;
+                }
+            }
 
 
-      DB::insert('insert into scouts(assurance_num,first_name,last_name,date_of_birth,membership_date,email,phone) values (?,?,?,?,?,?,?)',
+            file_put_contents($filepath,$decode);
+        }
+
+
+
+      DB::insert('insert into scouts(assurance_num,first_name,last_name,date_of_birth,membership_date,email,phone,image) values (?,?,?,?,?,?,?,?)',
            [(int)$request->input('ScoutInfo.0.assurance_num'),
                 $request->input('ScoutInfo.0.first_name'),
                $request->input('ScoutInfo.0.last_name'),
                 $request->input('ScoutInfo.0.date_of_birth'),
                 $request->input('ScoutInfo.0.membership_date'),
                $request->input('ScoutInfo.0.email'),
-              (int) $request->input('ScoutInfo.0.phone')]);
+              (int) $request->input('ScoutInfo.0.phone'),
+               $filename]);
 
 
         $scout_id =DB::table('scouts')->where('assurance_num',(int)$request->input('ScoutInfo.0.assurance_num') )->value('scout_id');
 
 
-        $unit_id = $request->input('scout_unit.0.unit_id');
+
 
         if($unit_id!= 'cap'){
             DB::insert('insert into unitscouts(scout_id,unit_id) values(?,?) ',[$scout_id,$unit_id]);
@@ -82,7 +127,7 @@ class ScoutController extends Controller
        }
 
 
-        return response()->json(["msg" =>$unit_id]);
+        return response()->json(["msg" =>"added Successfully"]);
     }
   public function  EditScoutInfo(Request $request,$id){
 

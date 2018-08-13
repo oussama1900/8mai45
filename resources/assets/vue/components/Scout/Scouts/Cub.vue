@@ -8,32 +8,36 @@
         </div>
         <hr>
         <div id="products" class="row list-group">
-            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="scout in MyScouts">
+            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="cub in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="padding: 0px;margin-left: 10px;" >
-                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></span>
+                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(cub)" ></span>
 
                     </div>
                     <div class="col-md-7" style="padding-right: 10px;padding-top:10px;margin-right: 20px"
                     >
                         <ul style="float: right;">
                             <li>
-                                <p style="text-align: right">الاسم : {{scout.scout.last_name}} </p>
+                                <p style="text-align: right">الاسم : {{cub.scout.last_name}} </p>
 
                             </li>
                             <li>
-                                <p style="text-align: right">اللقب : {{scout.scout.first_name}} </p>
+                                <p style="text-align: right">اللقب : {{cub.scout.first_name}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">تاريخ الميلاد{{scout.scout.date_of_birth}} </p>
+                                <p style="text-align: right">تاريخ الميلاد{{cub.scout.date_of_birth}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{scout.scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">{{cub.scout.membership_date}}:تاريخ الانخراط</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px" ><img src="/images/profile.png" class="img-rounded" width="80" height="120" style="float: right"></div>
-
+                    <div class="col-md-3" style="padding-top: 10px" v-if="ImageExiste(cub)">
+                        <img v-bind:src="'/images/Cubs/'+cub.scout.image"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
+                    <div class="col-md-3" style="padding-top: 10px" v-else>
+                        <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
 
 
 
@@ -43,7 +47,7 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+scout.scout_id"></router-link>
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+cub.scout.scout_id"></router-link>
                     <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
                        SF-XX-XXXX
 
@@ -80,12 +84,15 @@
 
        },
         created: function () {
+
             var vm=this;
             vm.Title="قائمة الأشبال";
 
             axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
-                console.log(response);
+
                 vm.MyScouts = response.data.Scouts;
+
+
             });
 
 
@@ -104,18 +111,27 @@
         },
         methods:{
 
-            removeScout(scout) {
+            removeScout(cub) {
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+                axios.delete("http://localhost:8000/api/deleteScout/" + cub.scout.scout_id).then(function (response) {
 
 
-                    var position = vm.MyScouts.indexOf(scout);
+                    var position = vm.MyScouts.indexOf(cub);
+
 
                     vm.MyScouts.splice(position, 1);
                 });
 
 
             },
+            ImageExiste(cub){
+
+                if(cub.scout.image===""){
+
+                    return false;
+                }
+                return true;
+            }
 
 
         }

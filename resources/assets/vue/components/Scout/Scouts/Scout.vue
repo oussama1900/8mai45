@@ -32,7 +32,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px" ><img src="/images/profile.png" class="img-rounded" width="80" height="120" style="float: right"></div>
+                    <div class="col-md-3" style="padding-top: 10px" v-if="ImageExiste(scout)">
+                        <img v-bind:src="'/images/Scout/'+scout.scout.image"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
+                    <div class="col-md-3" style="padding-top: 10px" v-else>
+                        <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
 
 
 
@@ -43,7 +48,7 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+scout.scout_id"></router-link>
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+scout.scout.scout_id"></router-link>
                     <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
                        SF-XX-XXXX
 
@@ -57,36 +62,6 @@
 
 
 
-                <!--
-
-                <div class="thumbnail">
-                    <img class="group list-group-image" src="/images/governor.jpg"  alt=""/>
-                    <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-
-                            Product Title
-                        </h4>
-                        <p>
-                            product description..product description..product description..product description..product description..product description..
-                        </p>
-
-                        <div class="row">
-
-                            <div class="col-xs-12 col-md-6">
-
-                                <p class="lead">
-                                    $21.00
-                                </p>
-                            </div>
-
-                            <div class="col-xs-12 col-md-6">
-
-                                <a class="btn btn-success"> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>-->
 
             </div>
 
@@ -109,7 +84,7 @@
         created: function () {
             var vm=this;
             vm.Title = "قائمة الكشافين";
-            axios.get("http://localhost:8000/api"+vm.$route.fullPath,{message:"Scout"}).then(function(response){
+            axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
                 vm.MyScouts = response.data.Scouts;
             });
 
@@ -123,14 +98,21 @@
             removeScout(scout) {
 
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+                axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout.scout_id).then(function (response) {
 
 
                     var position = vm.MyScouts.indexOf(scout);
                     vm.MyScouts.splice(position, 1);
                 });
             },
+            ImageExiste(scout){
 
+                if(scout.scout.image===""){
+
+                    return false;
+                }
+                return true;
+            }
 
         }
     }

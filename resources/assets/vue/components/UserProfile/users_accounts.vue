@@ -36,7 +36,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px" ><img src="/images/profile.png" class="img-rounded" width="80" height="120" style="float: right"></div>
+                    <div class="col-md-3" style="padding-top: 10px" v-if="ImageExiste(users)">
+                        <img v-bind:src="'/images/Captain/'+users.profile.image"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
+                    <div class="col-md-3" style="padding-top: 10px" v-else>
+                        <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
 
 
 
@@ -120,7 +125,14 @@
 
 
             },
+            ImageExiste(user){
 
+                if(user.profile.image===""){
+
+                    return false;
+                }
+                return true;
+            }
 
         }
     }

@@ -25604,7 +25604,7 @@ var routes = [{
     path: "/AddNewScout/scout",
     component: __WEBPACK_IMPORTED_MODULE_37__components_Scout_Scouts_AddnewScout___default.a
 }, {
-    path: "/AddNewScout/advanced-scout",
+    path: "/AddNewScout/advancedscout",
     component: __WEBPACK_IMPORTED_MODULE_37__components_Scout_Scouts_AddnewScout___default.a
 }, {
     path: "/AddNewScout/traveler",
@@ -71674,6 +71674,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -71699,6 +71704,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                      vm.MyScouts.splice(position, 1);
                 });*/
 
+        },
+        ImageExiste: function ImageExiste(user) {
+
+            if (user.profile.image === "") {
+
+                return false;
+            }
+            return true;
         }
     }
 });
@@ -71856,7 +71869,43 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm.ImageExiste(users)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/Captain/" + users.profile.image,
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/default.png",
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
                   ]
                 ),
                 _vm._v(" "),
@@ -71898,24 +71947,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "padding-top": "10px" } },
-      [
-        _c("img", {
-          staticClass: "img-rounded",
-          staticStyle: { float: "right" },
-          attrs: { src: "/images/profile.png", width: "80", height: "120" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -75050,6 +75082,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -75063,7 +75119,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     date_of_birth: '',
                     membership_date: '',
                     email: '',
-                    phone: ''
+                    phone: '',
+                    image: ''
 
                 }],
                 scout_unit: [{
@@ -75077,14 +75134,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     created: function created() {
 
-        var url = "" + this.$router.fullPath;
+        var vm = this;
+        var url = "" + vm.$route.fullPath;
 
-        if (url.localeCompare("/AddNewScout/cub") !== -1) this.Scout.scout_unit[0].unit_id = 'cubs';else {
-            if (url.localeCompare("/AddNewScout/scout") !== -1) this.Scout.scout_unit[0].unit_id = 'sct';else {
-                if (url.localeCompare("/AddNewScout/advanced-scout") !== -1) this.Scout.scout_unit[0].unit_id = 'asct';else {
-                    if (url.localeCompare("/AddNewScout/traveler") !== -1) this.Scout.scout_unit[0].unit_id = 'tvlr';
-                }
-            }
+        if (url.localeCompare("/AddNewScout/cub") === 0) {
+
+            this.Scout.scout_unit[0].unit_id = 'cubs';
+        }
+        if (url.localeCompare("/AddNewScout/scout") === 0) {
+
+            this.Scout.scout_unit[0].unit_id = 'sct';
+        }
+        if (url.localeCompare("/AddNewScout/traveler") === 0) {
+
+            this.Scout.scout_unit[0].unit_id = 'tvlr';
+        }
+        if (url.localeCompare("/AddNewScout/captain") === 0) {
+
+            this.Scout.scout_unit[0].unit_id = 'cap';
+        }
+        if (url.localeCompare("/AddNewScout/advancedscout") === 0) {
+
+            this.Scout.scout_unit[0].unit_id = 'asct';
         }
     },
 
@@ -75094,32 +75165,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post("http://localhost:8000/api/AddNewScout/", vm.Scout).then(function (response) {
 
-                switch (vm.Scout.scout_unit[0].unit_id) {
-                    case 'cubs':
-                        vm.$router.push('/scouts/cubs');
-                        break;
-                    case 'sct':
-                        vm.$router.push('/scouts/scout');
-                        break;
-                    case 'asct':
-                        vm.$router.push('/scouts/advanced-scout');
-                        break;
-                    case 'tvlr':
-                        vm.$router.push('/scouts/traveler');
-                        break;
-                    default:
-                    case 5:
-                        vm.$router.push('/scouts/captain');
+                if (vm.Scout.scout_unit[0].unit_id.localeCompare('cubs') === 0) {
 
+                    vm.$router.push('/scouts/cubs');
+                } else {
+                    if (vm.Scout.scout_unit[0].unit_id.localeCompare('sct') === 0) {
+
+                        vm.$router.push('/scouts/scout');
+                    } else {
+                        if (vm.Scout.scout_unit[0].unit_id.localeCompare('asct') === 0) {
+
+                            vm.$router.push('/scouts/advanced_scout');
+                        } else {
+                            if (vm.Scout.scout_unit[0].unit_id.localeCompare('tvlr') === 0) {
+
+                                vm.$router.push('/scouts/traveler');
+                            } else {
+                                if (vm.Scout.scout_unit[0].unit_id.localeCompare('cap') === 0) {
+
+                                    vm.$router.push('/scouts/captain');
+                                }
+                            }
+                        }
+                    }
                 }
             });
         },
         addCaptain: function addCaptain() {
-            var url = "" + this.$router.fullPath;
-            if (url.localeCompare("/AddNewScout/captain") !== -1) {
+            var url = "" + this.$route.fullPath;
+            if (url.localeCompare("/AddNewScout/captain") === 0) {
+
                 return true;
+            } else {
+
+                return false;
             }
-            return false;
+        },
+        getImage: function getImage(e) {
+            var _this = this;
+
+            var filereader = new FileReader();
+            filereader.readAsDataURL(e.target.files[0]);
+            filereader.onload = function (e) {
+                _this.Scout.ScoutInfo[0].image = e.target.result;
+            };
+            console.log(this.Scout.ScoutInfo);
         }
     }
 });
@@ -75453,6 +75543,53 @@ var render = function() {
                 ])
               : _vm._e(),
             _vm._v(" "),
+            _c("li", [
+              _c(
+                "div",
+                {
+                  staticClass: "input-group input-group-file",
+                  staticStyle: { "margin-top": "15px" }
+                },
+                [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "image_name",
+                      readonly: "true",
+                      placeholder: "اختر صورة",
+                      dir: "rtl"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "input-group-btn" }, [
+                    _c("span", { staticClass: "btn btn-success btn-file" }, [
+                      _c("i", {
+                        staticClass: "icon wb-upload",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        attrs: {
+                          type: "file",
+                          name: "titleImage",
+                          multiple: "false",
+                          accept: "image/*",
+                          id: "titleImage",
+                          "ng-model": "titleImage"
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.getImage($event)
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
             _c("li", { staticStyle: { "margin-top": "30px" } }, [
               _c("div", [
                 _c(
@@ -75465,7 +75602,7 @@ var render = function() {
                     },
                     on: {
                       click: function($event) {
-                        _vm.addScout()
+                        _vm.addScout($event)
                       }
                     }
                   },
@@ -75681,6 +75818,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -75691,23 +75832,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     created: function created() {
+
         var vm = this;
         vm.Title = "قائمة الأشبال";
 
         axios.get("http://localhost:8000/api" + vm.$route.fullPath).then(function (response) {
-            console.log(response);
+
             vm.MyScouts = response.data.Scouts;
         });
     },
     methods: {
-        removeScout: function removeScout(scout) {
+        removeScout: function removeScout(cub) {
             var vm = this;
-            axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+            axios.delete("http://localhost:8000/api/deleteScout/" + cub.scout.scout_id).then(function (response) {
 
-                var position = vm.MyScouts.indexOf(scout);
+                var position = vm.MyScouts.indexOf(cub);
 
                 vm.MyScouts.splice(position, 1);
             });
+        },
+        ImageExiste: function ImageExiste(cub) {
+
+            if (cub.scout.image === "") {
+
+                return false;
+            }
+            return true;
         }
     }
 });
@@ -75749,7 +75899,7 @@ var render = function() {
         "div",
         { staticClass: "row list-group", attrs: { id: "products" } },
         [
-          _vm._l(_vm.MyScouts, function(scout) {
+          _vm._l(_vm.MyScouts, function(cub) {
             return _c(
               "div",
               {
@@ -75784,7 +75934,7 @@ var render = function() {
                           attrs: { role: "button" },
                           on: {
                             click: function($event) {
-                              _vm.removeScout(scout)
+                              _vm.removeScout(cub)
                             }
                           }
                         })
@@ -75809,9 +75959,7 @@ var render = function() {
                               { staticStyle: { "text-align": "right" } },
                               [
                                 _vm._v(
-                                  "الاسم : " +
-                                    _vm._s(scout.scout.last_name) +
-                                    " "
+                                  "الاسم : " + _vm._s(cub.scout.last_name) + " "
                                 )
                               ]
                             )
@@ -75824,7 +75972,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "اللقب : " +
-                                    _vm._s(scout.scout.first_name) +
+                                    _vm._s(cub.scout.first_name) +
                                     " "
                                 )
                               ]
@@ -75838,7 +75986,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "تاريخ الميلاد" +
-                                    _vm._s(scout.scout.date_of_birth) +
+                                    _vm._s(cub.scout.date_of_birth) +
                                     " "
                                 )
                               ]
@@ -75851,7 +75999,7 @@ var render = function() {
                               { staticStyle: { "text-align": "right" } },
                               [
                                 _vm._v(
-                                  _vm._s(scout.scout.membership_date) +
+                                  _vm._s(cub.scout.membership_date) +
                                     ":تاريخ الانخراط"
                                 )
                               ]
@@ -75861,7 +76009,43 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm.ImageExiste(cub)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/Cubs/" + cub.scout.image,
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/default.png",
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
                   ]
                 ),
                 _vm._v(" "),
@@ -75873,7 +76057,7 @@ var render = function() {
                       staticStyle: { float: "left", color: "green" },
                       attrs: {
                         onclick: "",
-                        to: "/EditScoutInfo/" + scout.scout_id
+                        to: "/EditScoutInfo/" + cub.scout.scout_id
                       }
                     }),
                     _vm._v(" "),
@@ -75908,24 +76092,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "padding-top": "10px" } },
-      [
-        _c("img", {
-          staticClass: "img-rounded",
-          staticStyle: { float: "right" },
-          attrs: { src: "/images/profile.png", width: "80", height: "120" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -76106,31 +76273,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -76143,7 +76285,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var vm = this;
         vm.Title = "قائمة الكشافين";
-        axios.get("http://localhost:8000/api" + vm.$route.fullPath, { message: "Scout" }).then(function (response) {
+        axios.get("http://localhost:8000/api" + vm.$route.fullPath).then(function (response) {
             vm.MyScouts = response.data.Scouts;
         });
     },
@@ -76151,11 +76293,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         removeScout: function removeScout(scout) {
 
             var vm = this;
-            axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+            axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout.scout_id).then(function (response) {
 
                 var position = vm.MyScouts.indexOf(scout);
                 vm.MyScouts.splice(position, 1);
             });
+        },
+        ImageExiste: function ImageExiste(scout) {
+
+            if (scout.scout.image === "") {
+
+                return false;
+            }
+            return true;
         }
     }
 });
@@ -76309,7 +76459,43 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm.ImageExiste(scout)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/Scout/" + scout.scout.image,
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/default.png",
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
                   ]
                 ),
                 _vm._v(" "),
@@ -76321,7 +76507,7 @@ var render = function() {
                       staticStyle: { float: "left", color: "green" },
                       attrs: {
                         onclick: "",
-                        to: "/EditScoutInfo/" + scout.scout_id
+                        to: "/EditScoutInfo/" + scout.scout.scout_id
                       }
                     }),
                     _vm._v(" "),
@@ -76356,24 +76542,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "padding-top": "10px" } },
-      [
-        _c("img", {
-          staticClass: "img-rounded",
-          staticStyle: { float: "right" },
-          attrs: { src: "/images/profile.png", width: "80", height: "120" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -76555,30 +76724,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -76591,19 +76736,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var vm = this;
         vm.Title = "قائمة الكشاف المتقدم";
-        axios.get("http://localhost:8000/api" + vm.$route.fullPath, { message: "Advanced_Scout" }).then(function (response) {
+        axios.get("http://localhost:8000/api" + vm.$route.fullPath).then(function (response) {
             vm.MyScouts = response.data.Scouts;
         });
     },
     methods: {
-        removeScout: function removeScout(scout) {
+        removeScout: function removeScout(adv) {
 
             var vm = this;
-            axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+            axios.delete("http://localhost:8000/api/deleteScout/" + adv.scout.scout_id).then(function (response) {
 
-                var position = vm.MyScouts.indexOf(scout);
+                var position = vm.MyScouts.indexOf(adv);
                 vm.MyScouts.splice(position, 1);
             });
+        },
+        ImageExiste: function ImageExiste(adv) {
+
+            console.log(adv);
+            if (adv.scout.image === "") {
+
+                return false;
+            }
+            return true;
         }
     }
 });
@@ -76631,7 +76785,7 @@ var render = function() {
             "router-link",
             {
               staticClass: "btn btn-success",
-              attrs: { to: "/AddNewScout/advanced-scout" }
+              attrs: { to: "/AddNewScout/advancedscout" }
             },
             [_vm._v("اضف كشاف متقدم")]
           )
@@ -76645,7 +76799,7 @@ var render = function() {
         "div",
         { staticClass: "row list-group", attrs: { id: "products" } },
         [
-          _vm._l(_vm.MyScouts, function(scout) {
+          _vm._l(_vm.MyScouts, function(adv) {
             return _c(
               "div",
               {
@@ -76680,7 +76834,7 @@ var render = function() {
                           attrs: { role: "button" },
                           on: {
                             click: function($event) {
-                              _vm.removeScout(scout)
+                              _vm.removeScout(adv)
                             }
                           }
                         })
@@ -76705,9 +76859,7 @@ var render = function() {
                               { staticStyle: { "text-align": "right" } },
                               [
                                 _vm._v(
-                                  "الاسم : " +
-                                    _vm._s(scout.scout.last_name) +
-                                    " "
+                                  "الاسم : " + _vm._s(adv.scout.last_name) + " "
                                 )
                               ]
                             )
@@ -76720,7 +76872,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "اللقب : " +
-                                    _vm._s(scout.scout.first_name) +
+                                    _vm._s(adv.scout.first_name) +
                                     " "
                                 )
                               ]
@@ -76734,7 +76886,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "تاريخ الميلاد" +
-                                    _vm._s(scout.scout.date_of_birth) +
+                                    _vm._s(adv.scout.date_of_birth) +
                                     " "
                                 )
                               ]
@@ -76747,7 +76899,7 @@ var render = function() {
                               { staticStyle: { "text-align": "right" } },
                               [
                                 _vm._v(
-                                  _vm._s(scout.scout.membership_date) +
+                                  _vm._s(adv.scout.membership_date) +
                                     ":تاريخ الانخراط"
                                 )
                               ]
@@ -76757,7 +76909,43 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm.ImageExiste(adv)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/AdvancedScout/" + adv.scout.image,
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/default.png",
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
                   ]
                 ),
                 _vm._v(" "),
@@ -76769,7 +76957,7 @@ var render = function() {
                       staticStyle: { float: "left", color: "green" },
                       attrs: {
                         onclick: "",
-                        to: "/EditScoutInfo/" + scout.scout_id
+                        to: "/EditScoutInfo/" + adv.scout.scout_id
                       }
                     }),
                     _vm._v(" "),
@@ -76804,24 +76992,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "padding-top": "10px" } },
-      [
-        _c("img", {
-          staticClass: "img-rounded",
-          staticStyle: { float: "right" },
-          attrs: { src: "/images/profile.png", width: "80", height: "120" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -77003,30 +77174,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -77039,19 +77186,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var vm = this;
         vm.Title = "قائمة الجوالة";
-        axios.get("http://localhost:8000/api" + vm.$route.fullPath, { message: "Traveler" }).then(function (response) {
+        axios.get("http://localhost:8000/api" + vm.$route.fullPath).then(function (response) {
             vm.MyScouts = response.data.Scouts;
         });
     },
     methods: {
-        removeScout: function removeScout(scout) {
+        removeScout: function removeScout(tvlr) {
 
             var vm = this;
-            axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+            axios.delete("http://localhost:8000/api/deleteScout/" + tvlr.scout.scout_id).then(function (response) {
 
-                var position = vm.MyScouts.indexOf(scout);
+                var position = vm.MyScouts.indexOf(tvlr);
                 vm.MyScouts.splice(position, 1);
             });
+        },
+        ImageExiste: function ImageExiste(tvlr) {
+
+            if (tvlr.scout.image === "") {
+
+                return false;
+            }
+            return true;
         }
     }
 });
@@ -77093,7 +77248,7 @@ var render = function() {
         "div",
         { staticClass: "row list-group", attrs: { id: "products" } },
         [
-          _vm._l(_vm.MyScouts, function(scout) {
+          _vm._l(_vm.MyScouts, function(tvlr) {
             return _c(
               "div",
               {
@@ -77128,7 +77283,7 @@ var render = function() {
                           attrs: { role: "button" },
                           on: {
                             click: function($event) {
-                              _vm.removeScout(scout)
+                              _vm.removeScout(tvlr)
                             }
                           }
                         })
@@ -77154,7 +77309,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "الاسم : " +
-                                    _vm._s(scout.scout.last_name) +
+                                    _vm._s(tvlr.scout.last_name) +
                                     " "
                                 )
                               ]
@@ -77168,7 +77323,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "اللقب : " +
-                                    _vm._s(scout.scout.first_name) +
+                                    _vm._s(tvlr.scout.first_name) +
                                     " "
                                 )
                               ]
@@ -77182,7 +77337,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "تاريخ الميلاد" +
-                                    _vm._s(scout.scout.date_of_birth) +
+                                    _vm._s(tvlr.scout.date_of_birth) +
                                     " "
                                 )
                               ]
@@ -77195,7 +77350,7 @@ var render = function() {
                               { staticStyle: { "text-align": "right" } },
                               [
                                 _vm._v(
-                                  _vm._s(scout.scout.membership_date) +
+                                  _vm._s(tvlr.scout.membership_date) +
                                     ":تاريخ الانخراط"
                                 )
                               ]
@@ -77205,7 +77360,43 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm.ImageExiste(tvlr)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/Traveler/" + tvlr.scout.image,
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/default.png",
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
                   ]
                 ),
                 _vm._v(" "),
@@ -77217,7 +77408,7 @@ var render = function() {
                       staticStyle: { float: "left", color: "green" },
                       attrs: {
                         onclick: "",
-                        to: "/EditScoutInfo/" + scout.scout_id
+                        to: "/EditScoutInfo/" + tvlr.scout.scout_id
                       }
                     }),
                     _vm._v(" "),
@@ -77252,24 +77443,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "padding-top": "10px" } },
-      [
-        _c("img", {
-          staticClass: "img-rounded",
-          staticStyle: { float: "right" },
-          attrs: { src: "/images/profile.png", width: "80", height: "120" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -77454,30 +77628,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -77489,22 +77639,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     created: function created() {
         var vm = this;
-        vm.Title = "قائمة القادة";
-        axios.get("http://localhost:8000/api" + vm.$route.fullPath, { message: "Captain" }).then(function (response) {
 
-            console.log(response);
+        vm.Title = "قائمة القادة";
+        axios.get("http://localhost:8000/api" + vm.$route.fullPath).then(function (response) {
+
             vm.MyScouts = response.data.Scouts;
+            console.log(vm.MyScouts);
         });
     },
     methods: {
-        removeScout: function removeScout(scout) {
+        removeScout: function removeScout(cap) {
 
             var vm = this;
-            axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+            axios.delete("http://localhost:8000/api/deleteScout/" + cap.is_scout.scout_id).then(function (response) {
 
-                var position = vm.MyScouts.indexOf(scout);
+                var position = vm.MyScouts.indexOf(cap);
                 vm.MyScouts.splice(position, 1);
             });
+        },
+        ImageExiste: function ImageExiste(cap) {
+
+            if (cap.is_scout.image === "") {
+
+                return false;
+            }
+            return true;
         }
     }
 });
@@ -77546,7 +77705,7 @@ var render = function() {
         "div",
         { staticClass: "row list-group", attrs: { id: "products" } },
         [
-          _vm._l(_vm.MyScouts, function(scout) {
+          _vm._l(_vm.MyScouts, function(cap) {
             return _c(
               "div",
               {
@@ -77581,7 +77740,7 @@ var render = function() {
                           attrs: { role: "button" },
                           on: {
                             click: function($event) {
-                              _vm.removeScout(scout)
+                              _vm.removeScout(cap)
                             }
                           }
                         })
@@ -77607,7 +77766,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "الاسم : " +
-                                    _vm._s(scout.is_scout.last_name) +
+                                    _vm._s(cap.is_scout.last_name) +
                                     " "
                                 )
                               ]
@@ -77621,7 +77780,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "اللقب : " +
-                                    _vm._s(scout.is_scout.first_name) +
+                                    _vm._s(cap.is_scout.first_name) +
                                     " "
                                 )
                               ]
@@ -77635,7 +77794,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   "تاريخ الميلاد" +
-                                    _vm._s(scout.is_scout.date_of_birth) +
+                                    _vm._s(cap.is_scout.date_of_birth) +
                                     " "
                                 )
                               ]
@@ -77648,7 +77807,7 @@ var render = function() {
                               { staticStyle: { "text-align": "right" } },
                               [
                                 _vm._v(
-                                  _vm._s(scout.is_scout.membership_date) +
+                                  _vm._s(cap.is_scout.membership_date) +
                                     ":تاريخ الانخراط"
                                 )
                               ]
@@ -77659,14 +77818,50 @@ var render = function() {
                             _c(
                               "p",
                               { staticStyle: { "text-align": "right" } },
-                              [_vm._v(_vm._s(scout.role) + ": الدور")]
+                              [_vm._v(_vm._s(cap.role) + ": الدور")]
                             )
                           ])
                         ])
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _vm.ImageExiste(cap)
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/Captain/" + cap.is_scout.image,
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "col-md-3",
+                            staticStyle: { "padding-top": "10px" }
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-rounded",
+                              staticStyle: { float: "right" },
+                              attrs: {
+                                src: "/images/default.png",
+                                width: "80",
+                                height: "120"
+                              }
+                            })
+                          ]
+                        )
                   ]
                 ),
                 _vm._v(" "),
@@ -77678,7 +77873,7 @@ var render = function() {
                       staticStyle: { float: "left", color: "green" },
                       attrs: {
                         onclick: "",
-                        to: "/EditScoutInfo/" + scout.scout_id
+                        to: "/EditScoutInfo/" + cap.scout_id
                       }
                     }),
                     _vm._v(" "),
@@ -77713,24 +77908,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-3", staticStyle: { "padding-top": "10px" } },
-      [
-        _c("img", {
-          staticClass: "img-rounded",
-          staticStyle: { float: "right" },
-          attrs: { src: "/images/profile.png", width: "80", height: "120" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

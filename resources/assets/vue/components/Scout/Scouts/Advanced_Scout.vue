@@ -8,31 +8,36 @@
         </div>
         <hr>
         <div id="products" class="row list-group">
-            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="scout in MyScouts">
+            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="adv in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="padding: 0px;margin-left: 10px;" >
-                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></span>
+                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(adv)" ></span>
 
                     </div>
                     <div class="col-md-7" style="padding-right: 10px;padding-top:10px;margin-right: 20px"
                     >
                         <ul style="float: right;">
                             <li>
-                                <p style="text-align: right">الاسم : {{scout.scout.last_name}} </p>
+                                <p style="text-align: right">الاسم : {{adv.scout.last_name}} </p>
 
                             </li>
                             <li>
-                                <p style="text-align: right">اللقب : {{scout.scout.first_name}} </p>
+                                <p style="text-align: right">اللقب : {{adv.scout.first_name}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">تاريخ الميلاد{{scout.scout.date_of_birth}} </p>
+                                <p style="text-align: right">تاريخ الميلاد{{adv.scout.date_of_birth}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{scout.scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">{{adv.scout.membership_date}}:تاريخ الانخراط</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px" ><img src="/images/profile.png" class="img-rounded" width="80" height="120" style="float: right"></div>
+                    <div class="col-md-3" style="padding-top: 10px" v-if="ImageExiste(adv)">
+                        <img v-bind:src="'/images/AdvancedScout/'+adv.scout.image"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
+                    <div class="col-md-3" style="padding-top: 10px" v-else>
+                        <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
 
 
 
@@ -43,7 +48,7 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+scout.scout_id"></router-link>
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+adv.scout.scout_id"></router-link>
                     <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
                        SF-XX-XXXX
 
@@ -56,36 +61,7 @@
 
 
 
-                <!--
 
-                <div class="thumbnail">
-                    <img class="group list-group-image" src="/images/governor.jpg"  alt=""/>
-                    <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-
-                            Product Title
-                        </h4>
-                        <p>
-                            product description..product description..product description..product description..product description..product description..
-                        </p>
-
-                        <div class="row">
-
-                            <div class="col-xs-12 col-md-6">
-
-                                <p class="lead">
-                                    $21.00
-                                </p>
-                            </div>
-
-                            <div class="col-xs-12 col-md-6">
-
-                                <a class="btn btn-success"> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>-->
 
             </div>
 
@@ -109,7 +85,7 @@
         created: function () {
             var vm=this;
             vm.Title="قائمة الكشاف المتقدم";
-            axios.get("http://localhost:8000/api"+vm.$route.fullPath,{message:"Advanced_Scout"}).then(function(response){
+            axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
                 vm.MyScouts = response.data.Scouts;
             });
 
@@ -120,18 +96,26 @@
         },
         methods:{
 
-            removeScout(scout) {
+            removeScout(adv) {
 
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+                axios.delete("http://localhost:8000/api/deleteScout/" + adv.scout.scout_id).then(function (response) {
 
 
-                    var position = vm.MyScouts.indexOf(scout);
+                    var position = vm.MyScouts.indexOf(adv);
                     vm.MyScouts.splice(position, 1);
                 });
             },
 
+            ImageExiste(adv){
 
+                console.log(adv);
+                if(adv.scout.image===""){
+
+                    return false;
+                }
+                return true;
+            }
         }
     }
 </script>

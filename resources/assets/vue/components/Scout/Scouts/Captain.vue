@@ -8,34 +8,39 @@
         </div>
         <hr>
         <div id="products" class="row list-group">
-            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="scout in MyScouts">
+            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="cap in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="padding: 0px;margin-left: 10px;" >
-                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></span>
+                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(cap)" ></span>
 
                     </div>
                     <div class="col-md-7" style="padding-right: 10px;padding-top:10px;margin-right: 20px"
                     >
                         <ul style="float: right;">
                             <li>
-                                <p style="text-align: right">الاسم : {{scout.is_scout.last_name}} </p>
+                                <p style="text-align: right">الاسم : {{cap.is_scout.last_name}} </p>
 
                             </li>
                             <li>
-                                <p style="text-align: right">اللقب : {{scout.is_scout.first_name}} </p>
+                                <p style="text-align: right">اللقب : {{cap.is_scout.first_name}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">تاريخ الميلاد{{scout.is_scout.date_of_birth}} </p>
+                                <p style="text-align: right">تاريخ الميلاد{{cap.is_scout.date_of_birth}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{scout.is_scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">{{cap.is_scout.membership_date}}:تاريخ الانخراط</p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{scout.role}}: الدور</p>
+                                <p style="text-align: right">{{cap.role}}: الدور</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px" ><img src="/images/profile.png" class="img-rounded" width="80" height="120" style="float: right"></div>
+                    <div class="col-md-3" style="padding-top: 10px" v-if="ImageExiste(cap)">
+                      <img v-bind:src="'/images/Captain/'+cap.is_scout.image"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
+                    <div class="col-md-3" style="padding-top: 10px" v-else>
+                        <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
 
 
 
@@ -46,7 +51,7 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+scout.scout_id"></router-link>
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+cap.scout_id"></router-link>
                     <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
                        SF-XX-XXXX
 
@@ -61,36 +66,7 @@
 
 
 
-                <!--
 
-                <div class="thumbnail">
-                    <img class="group list-group-image" src="/images/governor.jpg"  alt=""/>
-                    <div class="caption">
-                        <h4 class="group inner list-group-item-heading">
-
-                            Product Title
-                        </h4>
-                        <p>
-                            product description..product description..product description..product description..product description..product description..
-                        </p>
-
-                        <div class="row">
-
-                            <div class="col-xs-12 col-md-6">
-
-                                <p class="lead">
-                                    $21.00
-                                </p>
-                            </div>
-
-                            <div class="col-xs-12 col-md-6">
-
-                                <a class="btn btn-success"> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>-->
 
             </div>
             <div v-if="MyScouts.length===0">
@@ -111,11 +87,13 @@
        },
         created: function () {
             var vm=this;
-            vm.Title="قائمة القادة";
-            axios.get("http://localhost:8000/api"+vm.$route.fullPath,{message:"Captain"}).then(function(response){
 
-                console.log(response);
+            vm.Title="قائمة القادة";
+            axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
+
+
             vm.MyScouts = response.data.Scouts;
+                console.log(vm.MyScouts);
             });
 
 
@@ -125,17 +103,24 @@
         },
         methods:{
 
-            removeScout(scout) {
+            removeScout(cap) {
 
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
+                axios.delete("http://localhost:8000/api/deleteScout/" + cap.is_scout.scout_id).then(function (response) {
 
 
-                    var position = vm.MyScouts.indexOf(scout);
+                    var position = vm.MyScouts.indexOf(cap);
                     vm.MyScouts.splice(position, 1);
                 });
             },
+            ImageExiste(cap){
 
+              if(cap.is_scout.image===""){
+
+                    return false;
+                }
+                return true;
+            }
 
         }
     }

@@ -67,9 +67,30 @@
 
                     </li>
 
+                    <li>
+                      <div class="input-group input-group-file"  style="margin-top:15px">
+                            <input type="text"   class="form-control" name="image_name"
+                                   readonly="true"
+                                   placeholder="اختر صورة"
+
+                                   dir="rtl" >
+                            <span class="input-group-btn">
+                                        <span class="btn btn-success btn-file">
+                                            <i class="icon wb-upload" aria-hidden="true"></i>
+                                            <input type="file" name="titleImage" multiple="false"   accept="image/*"
+                                                   @change="getImage($event)"
+
+                                                   id="titleImage"
+                                                   ng-model="titleImage">
+                                        </span>
+                                    </span>
+                        </div>
+
+                    </li>
+
                     <li style="margin-top: 30px">
                         <div >
-                            <button class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="addScout()">
+                            <button class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="addScout($event)">
 
                                 <span class="ladda-spinner"></span>
                                 اضافة
@@ -104,6 +125,7 @@
                        membership_date:'',
                        email:'',
                        phone:'',
+                       image:'',
 
                    }],
                    scout_unit:[{
@@ -167,24 +189,26 @@
 
 
 
-                   if(vm.Scout.scout_unit[0].unit_id.localeCompare('cubs')===0){
-                       console.log(vm.Scout.scout_unit[0].unit_id);
+
+
+                  if(vm.Scout.scout_unit[0].unit_id.localeCompare('cubs')===0){
+
                        vm.$router.push('/scouts/cubs');
                    }else{
                        if (vm.Scout.scout_unit[0].unit_id.localeCompare('sct')===0) {
-                           console.log(vm.Scout.scout_unit[0].unit_id);
-                           vm.$router.push('/scouts/cubs');
+
+                           vm.$router.push('/scouts/scout');
                        }else{
                            if(vm.Scout.scout_unit[0].unit_id.localeCompare('asct')===0){
-                               console.log(vm.Scout.scout_unit[0].unit_id);
-                               vm.$router.push('/scouts/advanced-scout');
+
+                               vm.$router.push('/scouts/advanced_scout');
                            }else{
                                if (vm.Scout.scout_unit[0].unit_id.localeCompare('tvlr')===0) {
-                                   console.log(vm.Scout.scout_unit[0].unit_id);
+
                                    vm.$router.push('/scouts/traveler');
                                }else{
                                    if(vm.Scout.scout_unit[0].unit_id.localeCompare('cap')===0){
-                                       console.log(vm.Scout.scout_unit[0].unit_id);
+
                                        vm.$router.push('/scouts/captain');
                                    }
 
@@ -209,6 +233,15 @@
                     return false;
                 }
 
+            },
+            getImage(e){
+
+                var filereader = new FileReader();
+                filereader.readAsDataURL(e.target.files[0]);
+                filereader.onload =(e)=>{
+                    this.Scout.ScoutInfo[0].image = e.target.result;
+                }
+                console.log(this.Scout.ScoutInfo)
             }
 
         }
