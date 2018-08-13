@@ -12,7 +12,7 @@ class AddImageToUsersAndPosts extends Migration
     public function up()
     {
         Schema::table('scouts',function($table){
-            $table->string('image');
+            $table->text('image');
         });
         Schema::table('posts',function($table){
             $table->string('cover_image');
