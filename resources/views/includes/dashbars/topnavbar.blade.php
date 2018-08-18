@@ -188,7 +188,7 @@
 
                     </div>
                     <div id="friend" class="col-sm-6 center friend-element" onclick="OpenFriendList()"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-user"></i>
-                            <span class="badge" style="color: white !important;margin-top: 20px;background-color: #62a8ea">@{{usersinroom.length-1}}</span>
+                            <span class="badge" style="color: white !important;margin-top: 20px;background-color: #62a8ea">@{{usersinroom.length}}</span>
                         </a></div>
 
 

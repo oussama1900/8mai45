@@ -70134,55 +70134,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             post: {
-                post_title: ''
+                post_title: '',
+                post_date: '',
+                activity_place: '',
+                news_description: '',
+                news_Summary: '',
+                activity_type: '',
+                image: ''
+
             }
         };
     },
@@ -70259,7 +70224,7 @@ var staticRenderFns = [
                                     _vm._v(" "),
                                     _c(
                                       "div",
-                                      { staticClass: "form-group col-sm-12" },
+                                      { staticClass: "form-group col-md-12" },
                                       [
                                         _c(
                                           "h5",
@@ -70284,59 +70249,61 @@ var staticRenderFns = [
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "form-group col-sm-12" },
-                                      [
-                                        _c(
-                                          "h5",
-                                          {
-                                            staticStyle: {
-                                              "text-align": "right"
+                                    _c("div", { staticClass: "row" }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group col-md-6" },
+                                        [
+                                          _c(
+                                            "h5",
+                                            {
+                                              staticStyle: {
+                                                "text-align": "right"
+                                              }
+                                            },
+                                            [_vm._v("مكان النشاط ")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "text",
+                                              dir: "rtl",
+                                              id: "activity_place",
+                                              name: "activity_place",
+                                              placeholder: "مكان النشاط "
                                             }
-                                          },
-                                          [_vm._v("\tتاريخ النشاط ")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "date",
-                                            dir: "rtl",
-                                            id: "post_date",
-                                            name: "post_date",
-                                            placeholder: "تاريخ النشاط "
-                                          }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "form-group col-sm-12" },
-                                      [
-                                        _c(
-                                          "h5",
-                                          {
-                                            staticStyle: {
-                                              "text-align": "right"
+                                          })
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group col-md-6" },
+                                        [
+                                          _c(
+                                            "h5",
+                                            {
+                                              staticStyle: {
+                                                "text-align": "right"
+                                              }
+                                            },
+                                            [_vm._v("\tتاريخ النشاط ")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("input", {
+                                            staticClass: "form-control",
+                                            attrs: {
+                                              type: "date",
+                                              dir: "rtl",
+                                              id: "post_date",
+                                              name: "post_date",
+                                              placeholder: "تاريخ النشاط "
                                             }
-                                          },
-                                          [_vm._v("مكان النشاط ")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          staticClass: "form-control",
-                                          attrs: {
-                                            type: "text",
-                                            dir: "rtl",
-                                            id: "activity_place",
-                                            name: "activity_place",
-                                            placeholder: "مكان النشاط "
-                                          }
-                                        })
-                                      ]
-                                    )
+                                          })
+                                        ]
+                                      )
+                                    ])
                                   ])
                                 ]),
                                 _vm._v(" "),
@@ -85208,7 +85175,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -85261,10 +85228,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         ImageExist: function ImageExist(user) {
 
-            if (user.profile.image.localeCompare("") === 0) {
+            if (user === undefined) {
                 return false;
+            } else {
+
+                if (user.profile.image.localeCompare("") === 0) {
+                    return false;
+                } else {
+                    return true;
+                }
             }
-            return true;
         },
         userstate: function userstate(user_id) {
 

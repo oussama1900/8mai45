@@ -47,10 +47,20 @@
             },
             ImageExist(user){
 
-                if(user.profile.image.localeCompare("")===0){
+                if(user===undefined){
                     return false;
                 }
-                return true;
+                else{
+
+                    if(user.profile.image.localeCompare("")===0 ){
+                        return false;
+                    }else{
+                        return true;
+                    }
+
+                }
+
+
             },
            userstate(user_id){
 

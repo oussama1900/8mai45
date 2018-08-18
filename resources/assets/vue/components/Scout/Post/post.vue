@@ -23,19 +23,25 @@
                                                         <div class="col-sm-12">
                                                             <p class="font-size-20 blue-grey-700">تفاصيل النشاط</p>
                                                         </div>
-
-                                                        <div class="form-group col-sm-12">
+                                                        <div class="form-group col-md-12">
                                                             <h5 style="text-align: right">عنوان النشاط </h5>
                                                             <input type="text"  dir="rtl" class="form-control" id="post_title" name="post_title" placeholder="عنوان النشاط" >
                                                         </div>
-                                                        <div class="form-group col-sm-12">
-                                                            <h5 style="text-align: right">	تاريخ النشاط </h5>
-                                                            <input type="date" dir="rtl" class="form-control" id="post_date" name="post_date" placeholder="تاريخ النشاط " >
+                                                        <div class="row">
+
+                                                            <div class="form-group col-md-6">
+                                                                <h5 style="text-align: right">مكان النشاط </h5>
+                                                                <input type="text" dir="rtl" class="form-control" id="activity_place" name="activity_place" placeholder="مكان النشاط " >
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <h5 style="text-align: right">	تاريخ النشاط </h5>
+                                                                <input type="date" dir="rtl" class="form-control" id="post_date" name="post_date" placeholder="تاريخ النشاط " >
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group col-sm-12">
-                                                            <h5 style="text-align: right">مكان النشاط </h5>
-                                                            <input type="text" dir="rtl" class="form-control" id="activity_place" name="activity_place" placeholder="مكان النشاط " >
-                                                        </div>
+
+
+
+
 
                                                     </div>
                                                 </li>
@@ -116,6 +122,62 @@
     </div>
 </template>
 
+<script>
+
+
+
+
+
+
+
+
+
+    export default{
+
+        data(){
+            return {
+                post:{
+                    post_title:'',
+                    post_date:'',
+                    activity_place:'',
+                    news_description:'',
+                    news_Summary:'',
+                    activity_type:'',
+                    image:''
+
+
+
+                }
+            }
+        },
+        methods:{
+
+        }
+
+    }
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
     #post_title,#post_date,#activity_place{
         border-top: 1px solid #9C9C9C;
@@ -164,32 +226,3 @@
 </style>
 
 
-<script>
-
-
-
-
-
-
-
-
-
-    export default{
-
-        data(){
-            return {
-                post:{
-                    post_title:'',
-                }
-            }
-        },
-        methods:{
-
-        }
-
-    }
-
-
-
-
-</script>
