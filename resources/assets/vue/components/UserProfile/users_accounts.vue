@@ -1,5 +1,5 @@
 <template>
-    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card">
+    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" >
 
         <h2>قائمة حسابات مستخدمي الموقع  </h2>
 
@@ -11,7 +11,7 @@
             <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="users in Users">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="padding: 0px;margin-left: 10px;" >
-                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeaccount(scout)" ></span>
+                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeaccount(users)" ></span>
 
                     </div>
                     <div class="col-md-7" style="padding-right: 10px;padding-top:10px;margin-right: 20px"
@@ -52,10 +52,9 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditAccountInfo/'"></router-link>
-                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
-                       SF-XX-XXXX
-
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditAccountInfo/'+users.profile.scout_id"></router-link>
+                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" v-if="setScoutCode(users)">
+                       {{Scout_code}}
     </span>
 
                 </div>
@@ -84,6 +83,8 @@
        data(){
            return{
                Users:[],
+               Scout_code:'',
+
 
            }
 
@@ -92,9 +93,13 @@
             var vm=this;
 
 
-            axios.get("http://localhost:8000/api/users-accounts").then(function(response){
+            axios.get("/api/users-accounts").then(function(response){
+
+
+
 
                vm.Users = response.data.users;
+
             });
 
 
@@ -112,16 +117,27 @@
 
         },
         methods:{
+            setScoutCode(user){
+                var membershipdate;
+                var vm = this;
 
-            removeScout(scout) {
-            /*    var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + scout.scout_id).then(function (response) {
 
 
-                    var position = vm.MyScouts.indexOf(scout);
+               vm.Scout_code = 'SF-'+  user.profile.membership_date.substr(8,2)+'-'+user.scout_id;
 
-                    vm.MyScouts.splice(position, 1);
-                });*/
+                return true;
+
+            },
+            removeaccount(user) {
+               var vm = this;
+                axios.delete("/api/deleteaccount/"+user.profile.scout_id).then(function (response) {
+
+
+
+                    var position = vm.Users.indexOf(user);
+
+                     vm.Users.splice(position, 1);
+                });
 
 
             },

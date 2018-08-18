@@ -7,14 +7,19 @@
             <div class="card card-user" style="margin-left: 20px">
                 <div class="image">
 
-                    <img src="images/governor.jpg"  width=100% alt="الخلفية">
+
+                    <img src="/images/default.png"  width=100% alt="الخلفية"  v-if="myimage===''">
+                    <img v-bind:src="'/images/Captain/'+myimage"  width=100% alt="الخلفية" v-else>
                     <div class="overlay">
                         <div class="inputWrapper">
                             <i class="glyphicon glyphicon-picture" aria-hidden="true" style=" font-size: 20px;float:right;color:white"></i>
                             <span style="float:right;font-size:medium;padding-right:5px;color:white">حمل صورة</span>
 
 
-                            <input class="fileInput" type="file" name="file1"/>
+                            <input class="fileInput" type="file" name="file1"
+                                   accept="image/*"
+                                   @change="setImage($event)"
+                            />
                         </div>
 
                     </div>
@@ -24,9 +29,10 @@
                 <div class="content">
                     <div class="profile-picture">
 
-                        <img class="avatar border-white" id="avatar" src="images/governor.jpg"  height="100" width="100px" alt="الصورة الشخصية">
+                        <img class="avatar border-white" id="avatar1" src="/images/default.png"   height="100" width="100px" alt="الصورة الشخصية"  v-if="myimage===''">
+                        <img class="avatar border-white" id="avatar" v-bind:src="'/images/Captain/'+myimage"   height="100" width="100px" alt="الصورة الشخصية" v-else>
 
-                        <h4 >مويات براء عبد الاله
+                        <h4 >
                             <br>
 
                             <small>قائد الفوج</small>
@@ -123,6 +129,7 @@
 
 
     export default {
+
         data(){
             return{
                 data:{
@@ -131,10 +138,14 @@
                     cv:false,
                     social_media:false
 
-                }
+                },
+                myimage:'',
+                newimage:'',
             }
         },
-        name: "UserProfile",
+        created :function(){
+            this.getimage();
+        },
 
         methods:{
 
@@ -172,7 +183,41 @@
                 }
 
 
-            }
+            },
+            getimage(){
+                var vm = this;
+                axios.get('/api/getimage').then(function (response) {
+                   vm.myimage=response.data.image;
+
+                });
+
+            },
+            setImage(e){
+                if(e.target.files[0]===undefined ){
+
+                }else{
+                    var filereader = new FileReader();
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
+                        this.newimage = e.target.result;
+                        var vm = this;
+                        axios.post('/api/changmyimage',{image:vm.newimage}).then(function (response) {
+
+                            vm.myimage = response.data.image;
+
+                        });
+
+                    };
+
+
+
+                    }
+                }
+
+
+
+
+
         },
 
     }
@@ -215,7 +260,7 @@
         }
     }
 
-     #avatar{
+     #avatar,#avatar1{
          border:5px solid white;
          margin-top:-45px;
          width: 100px

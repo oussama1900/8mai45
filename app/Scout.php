@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Scout extends Model
@@ -14,7 +15,7 @@ class Scout extends Model
 
     protected $fillable = [
         'first_name', 'last_name', 'assurance_num', 'date_of_birth',
-        'membership_date', 'email', 'phone'
+        'membership_date', 'email', 'phone','image'
     ];
 
     public function __construct(array $attributes = []){
@@ -38,6 +39,9 @@ class Scout extends Model
     public function getFullName(){
         return $this->last_name.' '.$this->first_name;
     }
+    public function  getId(){
+        return $this->scout_id;
+    }
 
     /**
      * Gets the registration number (Matricule) of this scout
@@ -49,6 +53,15 @@ class Scout extends Model
      * @return string registration number
      */
     public function getRegistrationNumber(){
-        return 'SF-'.substr($this->getYear(), 2, 2).$this->scout_id;
+        return 'SF-'.substr($this->getYear(), 2, 2).'-'.$this->scout_id;
+    }
+    public function  getPicture(){
+        if($this->image==""){
+            $image = '/images/default.png';
+        }else{
+            $image = '/images/Captain/'.$this->image;
+        }
+
+        return $image;
     }
 }

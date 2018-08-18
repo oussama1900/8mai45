@@ -1,19 +1,21 @@
 <template>
-    <div class="container  col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 20px;padding-bottom:20px">
-     <header>
-         <h3 >اضافة كشاف جديد</h3>
+    <div class="container  col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px;padding-bottom:20px">
+     <div class="header">
+         <h3 style="color:white" >اضافة كشاف جديد</h3>
 
-     </header>
-        <div class="card-body" style="padding: 0px;">
+     </div>
+        <div class="card-body" style="padding: 0px;padding-right: 20px">
             <div class="card-body">
 
                 <ul>
                     <li>
                     <div class="row">
                         <div class="col-md-6">
+                            <label style="font-size: medium;float: right;">الاسم</label>
                             <input id="first_name" type="text" placeholder="الاسم" dir="rtl" v-model="Scout.ScoutInfo[0].first_name"/>
                         </div>
                         <div class="col-md-6">
+                            <label style="font-size: medium;float: right;">اللقب</label>
                             <input id="last_name"    type="text" placeholder="اللقب" dir="rtl" v-model="Scout.ScoutInfo[0].last_name"/>
                         </div>
                     </div>
@@ -21,11 +23,14 @@
                 </li>
                     <li>
                         <div class="row">
+
                             <div class="col-md-6">
-                                <input id="date_of_birth" class="input-style"  type="date" placeholder="تاريخ الازدياد" dir="rtl" v-model="Scout.ScoutInfo[0].date_of_birth"/>
+                                <label style="font-size: medium;float: right;">تاريخ الانضمام</label>
+                                <input   id="place_of_birth" type="date" placeholder="تاريخ الانضمام" dir="rtl" v-model="Scout.ScoutInfo[0].membership_date"/>
                             </div>
                             <div class="col-md-6">
-                                <input   id="place_of_birth" type="date" placeholder="تاريخ الانضمام" dir="rtl" v-model="Scout.ScoutInfo[0].membership_date"/>
+                                <label style="font-size: medium;float: right;">تاريخ الازدياد</label>
+                                <input id="date_of_birth" class="input-style"  type="date" placeholder="تاريخ الازدياد" dir="rtl" v-model="Scout.ScoutInfo[0].date_of_birth"/>
                             </div>
                         </div>
 
@@ -33,9 +38,11 @@
                     <li>
                         <div class="row">
                             <div class="col-md-6">
+                                <label style="font-size: medium;float: right;">رقم التامين</label>
                                 <input  id="membership_date"  type="text" placeholder=" رقم التامين" dir="rtl" v-model="Scout.ScoutInfo[0].assurance_num"/>
                             </div>
                             <div class="col-md-6">
+                                <label style="font-size: medium;float: right;"> رقم الهاتف</label>
                                 <input  id="phone_number"  type="text" placeholder=" رقم الهاتف" dir="rtl" v-model="Scout.ScoutInfo[0].phone"/>
 
                             </div>
@@ -43,10 +50,11 @@
 
                     </li>
                     <li>
-                        <input  id="email"  type="email" placeholder=" ألايميل" dir="rtl" v-model="Scout.ScoutInfo[0].email"/>
+                        <label style="font-size: medium;float: right;"> البريد الالكتروني</label>
+                        <input  id="email"  type="email" placeholder=" البريد الالكتروني" dir="rtl" v-model="Scout.ScoutInfo[0].email"/>
                     </li>
                     <li  v-if="addCaptain()">
-
+                        <label style="font-size: medium;float: right;">الدور</label>
                         <select id="role" class="form-control" v-model="Scout.role"  >
                             <option>gov</option>
                             <option>vgov</option>
@@ -68,7 +76,11 @@
                     </li>
 
                     <li>
-                      <div class="input-group input-group-file"  style="margin-top:15px">
+                        <div>
+                            <label style="font-size: medium;float: right;">صورة للمستقدم الجديد</label>
+                        </div>
+
+                      <div class="input-group input-group-file"  style="float:right">
                             <input type="text"   class="form-control" name="image_name"
                                    readonly="true"
                                    placeholder="اختر صورة"
@@ -94,7 +106,7 @@
 
                                 <span class="ladda-spinner"></span>
                                 اضافة
-                                <div class="ladda-progress" style="width: 0px;"></div>
+                                <span class="ladda-progress" style="width: 0px;"></span>
                                 <i class="fa fa-save"></i>
 
                             </button>
@@ -184,7 +196,7 @@
                var vm = this;
 
 
-               axios.post("http://localhost:8000/api/AddNewScout/",vm.Scout).then(function(response){
+               axios.post("/api/AddNewScout/",vm.Scout).then(function(response){
 
 
 
@@ -219,8 +231,6 @@
 
                    }
 
-
-
                 });
             },
             addCaptain(){
@@ -240,8 +250,7 @@
                 filereader.readAsDataURL(e.target.files[0]);
                 filereader.onload =(e)=>{
                     this.Scout.ScoutInfo[0].image = e.target.result;
-                }
-                console.log(this.Scout.ScoutInfo)
+                };
             }
 
         }
@@ -291,6 +300,13 @@
     #role{
         border: 1px solid #9C9C9C;
         border-radius: 7px;
+
+    }
+    .header{
+        background-color: rgb(51, 181, 229);
+        backdrop-filter: blur(5px);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
 
     }
   /** .sccout-card{

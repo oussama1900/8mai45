@@ -68,6 +68,7 @@ import Captain from './components/Scout/Scouts/Captain';
 
 
 import NewUser from './components/UserProfile/NewUser';
+import EditAcountInfo from './components/UserProfile/EditAccountInfo';
 
 
 
@@ -163,41 +164,63 @@ const routes = [
     },
     {
         path:"/myprofile",
-        component: UserProfile
+        component: UserProfile,
+
     },
     {
         path:"/users-accounts",
         component: UsersAccounts
     },
     {
-        path:"/EditScoutInfo/:id",
+        path:"/EditScoutInfo/Cub/:id",
+        component:EditScoutInfo
+    },
+    {
+        path:"/EditScoutInfo/Scout/:id",
+        component:EditScoutInfo
+    },
+    {
+        path:"/EditScoutInfo/AdvancedScout/:id",
+        component:EditScoutInfo
+    },
+    {
+        path:"/EditScoutInfo/Traveler/:id",
+        component:EditScoutInfo
+    },
+    {
+        path:"/EditScoutInfo/Captain/:id",
         component:EditScoutInfo
     },
     {
         path:"/AddNewScout/cub",
-        component:AddnewScout
+        component:EditScoutInfo
     },
 
     {
         path:"/AddNewScout/scout",
-        component:AddnewScout
+        component:EditScoutInfo
     },
     {
         path:"/AddNewScout/advancedscout",
-        component:AddnewScout
+        component:EditScoutInfo
     },
     {
         path:"/AddNewScout/traveler",
-        component:AddnewScout
+        component:EditScoutInfo
     },
     {
         path:"/AddNewScout/captain",
-        component:AddnewScout
+        component:EditScoutInfo
     },
     {
         path:"/NewUser",
         component:NewUser
     },
+    {
+        path:"/EditAccountInfo/:id",
+        component:EditAcountInfo
+
+    }
 
 
 
@@ -235,18 +258,19 @@ const app2 = new Vue({
         myaccount:'',
     },
     methods:{
-        addMessage(message){
+        addMessage(message,user){
             this.messages.push(message);
 
 
 
 
-            axios.post('/dashboard/messages',{message: message.message, username:  message.username}).then(response=>{
-
-
+            axios.post('/api/dashboard/messages',{message: message.message, username:  message.username}).then(function (response) {
 
 
             });
+
+
+
 
         },
 
@@ -254,13 +278,16 @@ const app2 = new Vue({
     created(){
 
 
-        axios.get('/dashboard/messages').then(response=>{
+        axios.get('/api/dashboard/messages').then(response=>{
+
+
 
            this.messages=response.data;
 
 
+
         });
-        axios.get('/dashboard/users').then(response=>{
+        axios.get('/api/dashboard/users').then(response=>{
             this.allusers=response.data;
 
         });
@@ -279,9 +306,13 @@ const app2 = new Vue({
             })
             .listen('MessagePosted',(e)=>{
 
-                    this.messages.push({
+                
+                this.messages.push({
                         message: e.message.message,
-                        username: e.message.username
+                        username: e.message.username,
+                        scout:{
+                     image : e.scout.image,
+                       }
                     });
             })
     }

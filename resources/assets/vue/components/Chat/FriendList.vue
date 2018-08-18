@@ -4,7 +4,8 @@
     <div v-for="user in allusers">
         <div  v-if="hide_me(user)" class="row">
             <div class="col-sm-2">
-                <img class="img-circle" src="images/governor.jpg" width="40" height="40" />
+                <img class="img-circle" v-bind:src="'/images/Captain/'+user.profile.image" width="40" height="40" v-if="ImageExist(user)"/>
+                <img class="img-circle" src="/images/default.png" width="40" height="40" v-else/>
             </div>
             <div class="col-sm-8">
                 <p style="color: white"> {{user.profile.last_name}} {{ user.profile.first_name}} </p>
@@ -43,6 +44,13 @@
 
 
 
+            },
+            ImageExist(user){
+
+                if(user.profile.image.localeCompare("")===0){
+                    return false;
+                }
+                return true;
             },
            userstate(user_id){
 

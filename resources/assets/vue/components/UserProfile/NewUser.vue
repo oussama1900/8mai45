@@ -4,27 +4,19 @@
             <h4 class="title">{{users[0].user.title}}</h4>
         </div>
         <div style="padding:20px">
-            <div class="row">
-                <div class="col-md-6">
-                    <fg-input type="text"
-                              label="اللقب"
-                              placeholder="اللقب"
-                              v-model="users[0].user.last_name">
-                    </fg-input>
-                </div>
-                <div class="col-md-6">
-                    <fg-input type="text"
-                              label="الاسم"
-                              placeholder="الاسم"
-                              v-model="users[0].user.first_name"
-                    >
-                    </fg-input>
-                </div>
-            </div>
+           <div class="row">
+               <label style="float:right;font-size:medium">اختر المستخدم الجديد</label>
+               <select class="form-control" v-model="users[0].user.email" style="border: 1px solid #CCC5B9;
+    border-radius: 7px;">
+                   <option v-for="cap in Captain" v-bind:value="cap.is_scout.email">{{cap.is_scout.last_name}} {{cap.is_scout.first_name}}</option>
+               </select>
+
+           </div>
             <div class="row">
                 <fg-input type="email"
-                          label="ايميل"
-                          placeholder="ايميل"
+                          label="البريد الالكتروني"
+                          placeholder="البريد الالكتروني"
+                          :disabled="true"
                           v-model="users[0].user.email"
                 >
                 </fg-input>
@@ -79,26 +71,25 @@
 
                    }
                }],
+               Captain:[],
 
            }
 
        },
         created: function () {
-
+            this.getAllCaptains();
         },
         methods:{
 
             addaccount(scout) {
                 if(this.users[0].user.confirm_passowrd===this.users[0].user.password){
                     var vm = this;
-                    axios.post("http://localhost:8000/api/addnewaccount/" , vm.users[0].user).then(function (response) {
+                    axios.post("/api/addnewaccount/" , vm.users[0].user).then(function (response) {
 
 
-                        console.log(response);
+
                         vm.$router.push('/users-accounts')
-                        /*  var position = vm.MyScouts.indexOf(scout);
 
-                          vm.MyScouts.splice(position, 1);*/
                     });
                 }else{
                     alert("يرجى التاكد من توافق كلمة السر")
@@ -107,6 +98,14 @@
 
 
             },
+            getAllCaptains(){
+                var vm = this;
+                axios.get('/api/getAllCaptains').then(function (response) {
+                   vm.Captain = response.data.captain;
+
+
+                });
+            }
 
 
         }

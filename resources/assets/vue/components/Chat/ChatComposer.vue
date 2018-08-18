@@ -11,7 +11,19 @@
        data(){
            return{
                messageText:'',
+               image:'',
+               fullname :'',
            }
+       },
+        created:function(){
+           var vm = this;
+           axios.get('/api/getsomeinfo').then(function (response) {
+
+
+               vm.image = response.data.image;
+               vm.fullname = response.data.fullname;
+
+            });
        },
         methods:{
            sendMessage(){
@@ -20,7 +32,9 @@
                }else{
                    this.$emit('messagesent',{
                        message:this.messageText,
-                       username:document.getElementById('username').outerText
+                       username:this.fullname,
+                      scout:{image : this.image} ,
+
                    });
                    this.messageText="";
 
@@ -29,7 +43,7 @@
 
                }
 
-           }
+           },
         }
     }
 </script>

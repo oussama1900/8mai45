@@ -21,7 +21,7 @@
             <label  style="float:right;font-size:medium"> كلمة السر الجديدة</label>
             <input id="password" type="password"  style="   border: 1px solid #CCC5B9;
                                                                              border-radius: 7px;
-                                                                             padding: 5px" dir="rtl" placeholder=" كلمة السر الجديدة">
+                                                                             padding: 5px" dir="rtl" placeholder=" كلمة السر الجديدة" v-model="user.newpassword">
           </div>
 
         </div>
@@ -31,7 +31,7 @@
             <label  style="float:right;font-size:medium">أعد كتابة كلمة السر الجديدة</label>
             <input id="confirm_password" type="password" v-on:keyup = "showinputvalue" style="   border: 1px solid #CCC5B9;
                                                                              border-radius: 7px;
-                                                                             padding: 5px" dir="rtl" placeholder="أعد كتابة كلمة السر الجديدة">
+                                                                             padding: 5px" dir="rtl" v-model="user.retype_newpassword" placeholder="أعد كتابة كلمة السر الجديدة">
             <span id='message' style="float: right"></span>
           </div>
 
@@ -44,7 +44,7 @@
 
 
         <div class="text-center">
-          <button type="submit" class="btn btn-info btn-fill btn-wd" @click.prevent="updateProfile">
+          <button type="submit" class="btn btn-info btn-fill btn-wd"  @click="ChangePassword">
             تغيير كلمة السر
           </button>
         </div>
@@ -59,15 +59,9 @@
       return {
         user: {
 
-          usernumber: 'SF-XX-XXX',
-          username: 'مويات براء عبد الاله',
-          email: 'mouyet.19@gmail.com',
-            rank: 'قائد الفوج',
-          lastName: 'براء عبد الاله',
-            place_of_birth: 'Sétif,Algeria',
-            Date_of_Birth: '06/12/1996',
+
             currentpassword:'',
-            newpassword:'showinputvalue',
+            newpassword:'',
             retype_newpassword:'',
 
         }
@@ -77,8 +71,9 @@
         showinputvalue : function(event) {
 
             $('#password, #confirm_password').on('keyup', function () {
-                if(!($('#password').val()=="" && $('#confirm_password').val()=="")){
+                if(!($('#password').val()=="" && $('#confirm_password').val()=="") ){
                     if ($('#password').val() == $('#confirm_password').val()) {
+
                         $('#message').html(' كلمة السر الجديدة  متطابقة').css('color', 'green');
                     } else
                         $('#message').html('يرجى التأكد من كلمة السر الجديدة فهي غير متطابقة').css('color', 'red');
@@ -87,6 +82,34 @@
                 }
 
             });
+        },
+        ChangePassword(){
+
+            if(($('#password').val()=="" || $('#confirm_password').val()=="") || this.user.currentpassword.localeCompare("")===0){
+                $('#message').html('يرجى التاكد من ادخال جميع المعلومات').css('color', 'red');
+
+            }else {
+                if ($('#password').val() == $('#confirm_password').val()){
+                    var vm = this;
+                    axios.put('/api/newpassword',vm.user).then(function (response) {
+
+                        if(!response.data.password){
+                            alert('تم تغير كلمة السر بنجاج لا يمكن استعمال كلمة السر القديمة في تسجيل الدخول القادم');
+
+
+                        }else{
+                            alert('كلمة السر خاطئة يرجى التاكد منها');
+                        }
+
+
+                    });
+
+                }else{
+                    $('#message').html('يرجى التأكد من كلمة السر الجديدة فهي غير متطابقة').css('color', 'red');
+                }
+            }
+
+
         }
     }
   }

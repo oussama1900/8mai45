@@ -3,6 +3,7 @@
 namespace App\Events;
 use App\Message;
 use App\User;
+use App\Scout;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -32,11 +33,24 @@ class MessagePosted implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(Message $message,User $user)
+    /**
+     * @var
+     */
+    public $scout;
+    private $image;
+
+    /**
+     * MessagePosted constructor.
+     * @param $image
+     * @param Message $message
+     */
+    public function __construct(  Message $message,Scout $scout)
     {
         //
         $this->message=$message;
-        $this->user=$user;
+
+      $this->scout=$scout;
+
 
     }
 

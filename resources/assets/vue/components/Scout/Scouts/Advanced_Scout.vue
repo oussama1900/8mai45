@@ -48,9 +48,9 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+adv.scout.scout_id"></router-link>
-                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
-                       SF-XX-XXXX
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/AdvancedScout/'+adv.scout.scout_id"></router-link>
+                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" v-if="setScoutCode(adv)">
+                       {{Scout_code}}
 
     </span>
 
@@ -78,14 +78,15 @@
        data(){
            return{
                MyScouts:[],
-               Title:''
+               Title:'',
+               Scout_code:'',
            }
 
        },
         created: function () {
             var vm=this;
             vm.Title="قائمة الكشاف المتقدم";
-            axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
+            axios.get("/api"+vm.$route.fullPath).then(function(response){
                 vm.MyScouts = response.data.Scouts;
             });
 
@@ -95,11 +96,18 @@
 
         },
         methods:{
+            setScoutCode(adv){
+                var membershipdate =adv.scout.membership_date;
+
+                this.Scout_code = 'SF-'+ membershipdate.substr(8,2)+'-'+adv.scout.scout_id;
+                return true;
+
+            },
 
             removeScout(adv) {
 
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + adv.scout.scout_id).then(function (response) {
+                axios.delete("/api/deleteScout/" + adv.scout.scout_id).then(function (response) {
 
 
                     var position = vm.MyScouts.indexOf(adv);
@@ -109,7 +117,7 @@
 
             ImageExiste(adv){
 
-                console.log(adv);
+
                 if(adv.scout.image===""){
 
                     return false;

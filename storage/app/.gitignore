@@ -1,3 +1,11 @@
-*
-!public/
-!.gitignore
+.idea
+.vscode
+node_modules/.cache
+storage/framework
+.env
+.env.example
+artisan
+composer.lock
+gulpfile.js
+package-lock.json
+phpunit.xml

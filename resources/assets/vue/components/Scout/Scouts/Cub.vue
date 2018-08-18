@@ -47,9 +47,9 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+cub.scout.scout_id"></router-link>
-                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
-                       SF-XX-XXXX
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/Cub/'+cub.scout.scout_id"></router-link>
+                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" v-if="    setScoutCode(cub)">
+                       {{Scout_code}}
 
     </span>
 
@@ -79,18 +79,21 @@
        data(){
            return{
                MyScouts:[],
-               Title:''
+               Title:'',
+               Scout_code:'',
            }
 
        },
         created: function () {
 
+
             var vm=this;
             vm.Title="قائمة الأشبال";
 
-            axios.get("http://localhost:8000/api"+vm.$route.fullPath).then(function(response){
+            axios.get("/api"+vm.$route.fullPath).then(function(response){
 
                 vm.MyScouts = response.data.Scouts;
+
 
 
             });
@@ -110,16 +113,24 @@
 
         },
         methods:{
+            setScoutCode(cub){
+                var membershipdate =cub.scout.membership_date;
+
+                this.Scout_code = 'SF-'+ membershipdate.substr(8,2)+'-'+cub.scout.scout_id;
+                return true;
+
+            },
 
             removeScout(cub) {
                 var vm = this;
-                axios.delete("http://localhost:8000/api/deleteScout/" + cub.scout.scout_id).then(function (response) {
+                axios.delete("/api/deleteScout/" + cub.scout.scout_id).then(function (response) {
 
 
-                    var position = vm.MyScouts.indexOf(cub);
+
+                  var position = vm.MyScouts.indexOf(cub);
 
 
-                    vm.MyScouts.splice(position, 1);
+                   vm.MyScouts.splice(position, 1);
                 });
 
 

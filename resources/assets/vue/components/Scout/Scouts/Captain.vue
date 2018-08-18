@@ -28,7 +28,7 @@
                                 <p style="text-align: right">تاريخ الميلاد{{cap.is_scout.date_of_birth}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{cap.is_scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">تاريخ الانخراط{{cap.is_scout.membership_date}} </p>
                             </li>
                             <li >
                                 <p style="text-align: right">{{cap.role}}: الدور</p>
@@ -51,9 +51,9 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/'+cap.scout_id"></router-link>
-                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px">
-                       SF-XX-XXXX
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditScoutInfo/Captain/'+cap.scout_id"></router-link>
+                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" v-if="setScoutCode(cap)">
+                       {{Scout_code}}
 
     </span>
 
@@ -81,7 +81,8 @@
        data(){
            return{
                MyScouts:[],
-               Title:''
+               Title:'',
+               Scout_code:'',
            }
 
        },
@@ -92,8 +93,10 @@
             axios.get("/api"+vm.$route.fullPath).then(function(response){
 
                 vm.MyScouts = response.data.Scouts;
-                console.log(vm.MyScouts);
+
+
             });
+
 
 
 
@@ -101,6 +104,13 @@
 
         },
         methods:{
+           setScoutCode(cap){
+               var membershipdate =cap.is_scout.membership_date;
+
+               this.Scout_code = 'SF-'+ membershipdate.substr(8,2)+'-'+cap.is_scout.scout_id;
+               return true;
+
+           },
 
             removeScout(cap) {
 

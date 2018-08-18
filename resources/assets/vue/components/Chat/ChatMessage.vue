@@ -3,7 +3,11 @@
 
         <div  class="message">
         <div class="row" >
-            <div class="col-sm-2" style="top: 20%;">  <img class="img-circle" src="images/governor.jpg" width="40" height="40"/></div>
+            <div class="col-sm-2" style="top: 20%;">  <img class="img-circle" v-bind:src="'/images/Captain/'+message.scout.image" width="40" height="40" v-if="ImageExistance()"/>
+                <img class="img-circle" src="/images/default.png" width="40" height="40" v-else/>
+
+
+</div>
             <div class="col-ms-9" style="top: 0px;padding-right: 0px;padding-left: 0px;">
                 <div  class="card" style="  border-radius:15px;margin-right:12px">
                 <p style="color: black;padding-right:5px;padding-left: 5px">{{message.message}}</p>
@@ -24,6 +28,24 @@
 <script>
     export default {
         props:['message'],
+        created:function () {
+
+        },
+methods:{
+    ImageExistance(){
+        if(this.message.scout.image.localeCompare("")===0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+}
+
+
+
+
+
 
 
     }

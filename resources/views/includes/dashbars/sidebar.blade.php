@@ -31,7 +31,8 @@
                       </a>
                       <ul class="site-menu-sub">
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="/myprofile"/>
+
+                              <router-link class="animsition-link" to="/myprofile" />
                               <span class="site-menu-title">{{ trans('app.my_profile')}}</span>
                           </li>
                           <li class="site-menu-item">

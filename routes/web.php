@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\MessagePosted;
+use App\Scout;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,32 +23,12 @@ Route::get('/logout', 'DashboardController@index');
 Route::get('/dashboard', "DashboardController@index");
 
 Auth::routes();
-Route::get('/dashboard/messages', function (){
-    return App\Message::with('user')->get();
-});
-
-Route::post('/dashboard/messages', function () {
-
-    $user = Auth::user();
-    $message= $user->messages()->create([
-
-
-
-        'username'=>request()->get('username'),
-        'message'=>request()->get('message')
 
 
 
 
-    ]);
 
-    broadcast(new MessagePosted($message,$user))->toOthers();
 
-    return ["status","OK"];
-});
-Route::get('/dashboard/users', function (){
-    return App\User::with('Profile')->get();
-});
 
 Route::resource("Scout",'ScoutController@index');
 /* ================================ 

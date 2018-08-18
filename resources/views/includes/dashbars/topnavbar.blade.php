@@ -1,5 +1,7 @@
 <!-- Top Navigation Bar -->
-<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+
+<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation"
+     xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
             <span class="sr-only">Toggle navigation</span>
@@ -12,26 +14,44 @@
 
         <div class=" navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
 
-            <img class="navbar-brand-logo img-circle" src="\images\governor.jpg" title="Profile Picture" style="float:right;margin-right:20px">
+
+            <img class="navbar-brand-logo img-circle" src="{{Auth::user()->profile->getPicture()}}"  title="Profile Picture" style="float:right;margin-right:20px">
 
 
-            <span  class=" navbar-brand-text hidden-xs" style="float: right;line-height: 35px;margin-bottom:3px;padding-top:5px"> <p id="username" style="margin-bottom: 3px ">{{Auth::user()->profile->getFullName()}}</p>
+            <div style="
+    height: 50px;
+">
+                <div style="float:right;height: 60px;">
+
+                    <p style="
+    height: 10px;
+    margin-bottom: 15px;
+
+    margin-top: -15px;
+">
+                        <strong id="username">{{Auth::user()->profile->getFullName()}}</strong>
+
+                    </p>
+                    <p style="
+    height: 30px;
+
+    margin-top: 0px;
+
+    margin-bottom: 0px;
+">
+                        <span style="float:right;height: 30px;font-size:small">قائد الفوج</span>
+
+                    </p>
+                    <div style="text-align:right;height: 0px;font-size:small">
+                        {{Auth::user()->profile->getRegistrationNumber()}}
+
+                    </div>
 
 
-                    <span  class=" navbar-brand-text hidden-xs" style="float: right;line-height: 0px; font-size: small">قائد الفوج</span>
-            </span>
-
-            <br>
-
-            <p  class=" navbar-brand-text hidden-xs" style="float: right;line-height: 10px; font-size: xx-small;margin-top:-7px;margin-right:10px">SF-XX-XXXX</p>
+                </div>
 
 
-
-
-
-
-
-
+            </div>
 
 
 
