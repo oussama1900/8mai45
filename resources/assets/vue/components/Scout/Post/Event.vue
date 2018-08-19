@@ -1,5 +1,5 @@
 <template>
-    <div class="container  col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px">
+  <!--  <div class="container  col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px">
         <div class="card-body">
            <h3 style="text-align: center">الحدث</h3>
             <div class="form-group">
@@ -77,12 +77,183 @@
                 </button>
             </div>
         </div>
+    </div>-->
+
+
+    <div>
+
+
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title">نوع الحدث</h4>
+            </div>
+            <div style="margin: 20px;margin-right: 30px">
+                <div class="row">
+                    <div class="col-md-12" >
+
+                        <label  style="float:right;font-size:medium"> نوع الحدث</label>
+                        <select id="select" class="form-control" dir="rtl" >
+                            <option>	اداري</option>
+                            <option>	اعلامي</option>
+                            <option>	خدمة عامة</option>
+                            <option>	رحلة خلوية</option>
+                            <option>	ندوة</option>
+                            <option>	تربص</option>
+                            <option>مهرجان	</option>
+                            <option>	مخيم</option>
+                            <option>دورة تربوية	</option>
+                            <option>دورة تدريبية	</option>
+                            <option>	اجتماع مكتب</option>
+                            <option>	اجتماع مجلس</option>
+                            <option>	مبيت</option>
+                            <option>	افطار جماعي </option>
+                            <option>	اعتكاف</option>
+                            <option>عملية جمع اللحوم	</option>
+                            <option>	عيد ديني </option>
+                            <option>عيد وطني </option>
+                            <option>رياضة</option>
+
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title">  عنوان الحدث </h4>
+            </div>
+            <div style="margin: 20px;margin-right: 30px">
+                <div class="row">
+                    <div class="col-md-12" >
+
+                        <label  style="float:right;font-size:medium"> عنوان الحدث</label>
+                        <input id="event_title" type="text"  style="   border: 1px solid #CCC5B9;
+                                                                             border-radius: 7px;
+                                                                             padding: 5px" dir="rtl"  placeholder=" عنوان الحدث ">
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title">  مكان الحدث </h4>
+            </div>
+            <div style="margin: 20px;margin-right: 30px">
+                <div class="row">
+                    <div class="col-md-6" >
+
+                        <label  style="float:right;font-size:medium">  مكان الحدث</label>
+                        <input id="event_place" type="text"  style="   border: 1px solid #CCC5B9;
+                                                                             border-radius: 7px;
+                                                                             padding: 5px" dir="rtl"  placeholder=" مكان الحدث ">
+                    </div>
+
+                    <div class="col-md-6" >
+
+                        <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
+                        <input id="event_date" type="date"  style="   border: 1px solid #CCC5B9;
+                                                                             border-radius: 7px;
+                                                                             padding: 5px" dir="rtl"  placeholder=" تاريخ الحدث ">
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title" >وصف الحدث</h4>
+
+            </div>
+            <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <vue-editor v-model="content" :editorToolbar="customToolbar"></vue-editor>
+
+
+                    </div>
+                </div>
+
+                <div class="text-center" style="padding: 10px;">
+                    <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="postEvent()">
+
+                        <span class="ladda-spinner"> نشر</span>
+                        <i class="fa fa-save"></i>
+
+
+
+                    </button>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
     </div>
 </template>
 
 <script>
+    import { VueEditor } from 'vue2-editor'
     export default {
-        name: "Event"
+        components: {
+            VueEditor
+        },
+        data(){
+            return{
+                Event:{
+                  title:'',
+                  desc:'',
+                  type:'',
+                  responible:'',
+                  time:'',
+                  location:'',
+
+                },
+                content:'<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
+                customToolbar: [
+                    ['bold', 'italic', 'underline'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+
+                ],
+            }
+        },
+        methods:{
+            postEvent(){
+                var vm = this;
+                axios.post('/api/postEvent',vm.Event).then(function (response) {
+
+                });
+            }
+    },
     }
 </script>
 
@@ -128,5 +299,15 @@ input[type=text],input[type=date]{
         margin-top: 25%;
         margin-left: 25px;
     }
+}
+.header{
+    background-color: rgb(51, 181, 229);
+    backdrop-filter: blur(5px);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+}
+.header .title{
+    color:white;
 }
 </style>

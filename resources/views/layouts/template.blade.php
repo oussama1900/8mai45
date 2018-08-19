@@ -128,5 +128,7 @@
 <!-- Vue.js -->
 <script src={{ url("/assets/vue/app.js")}} charset="UTF-8"></script>
 <script src="https://unpkg.com/vue-ckeditor2"></script>
+<script src="https://cdn.ckeditor.com/4.6.1/full/ckeditor.js"></script>
+
 </body>
 </html>

@@ -360,7 +360,7 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
                 var vm = this;
 
 
-                axios.post("/api/AddNewScout/",vm.Scout).then(function(response){
+                axios.post("/api/AddNewScout",vm.Scout).then(function(response){
 
 
 

@@ -19,7 +19,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 Vue.use(VueRouter,  Axios,VueCkeditor,vueResource);
-
+import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';
 import NewForm from './components/NewForm';
@@ -100,6 +100,9 @@ Vue.component('chat-message',require('./components/Chat/ChatMessage.vue'));
 Vue.component('chat-log',require('./components/Chat/ChatLog.vue'));
 Vue.component('chat-composer',require('./components/Chat/ChatComposer.vue'));
 Vue.component('friend-list',require('./components/Chat/FriendList.vue'));
+
+
+
 /**
  * Vue Routes thst allow for a SPA feel in the application
  */
