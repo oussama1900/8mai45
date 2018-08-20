@@ -6,7 +6,7 @@
         <div style="padding:20px">
            <div class="row">
                <label style="float:right;font-size:medium">اختر المستخدم الجديد</label>
-               <select class="form-control" v-model="users[0].user.email" style="border: 1px solid #CCC5B9;
+               <select class="form-control" v-model="users[0].user.email"  data-live-search="true" style="border: 1px solid #CCC5B9;
     border-radius: 7px;">
                    <option v-for="cap in Captain" v-bind:value="cap.is_scout.email">{{cap.is_scout.last_name}} {{cap.is_scout.first_name}}</option>
                </select>

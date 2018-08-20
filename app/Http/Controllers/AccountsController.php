@@ -229,4 +229,5 @@ public function getAllCaptains(){
         return response()->json(["captain"=>$captain]);
 }
 
+
 }

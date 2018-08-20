@@ -11,7 +11,7 @@
 
   <title>الموقع الرسمي لفوج الفلاح</title>
 
- 
+
 
   <!-- Include Date Range Picker -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>

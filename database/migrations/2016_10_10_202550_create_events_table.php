@@ -16,12 +16,12 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('event_id');
             $table->string('title', 60);
-            $table->string('desc');
-            $table->string('type', 4);
+            $table->text('description');
+            $table->string('type', 255);
             $table->integer('responsible')->unsigned();
             $table->string('commision', 4);
-            $table->dateTime('time');
-            $table->string('location', 20);
+            $table->dateTime('event_time');
+            $table->string('location', 50);
 
             $table->foreign('responsible')->references('scout_id')->on('users')
                   ->onUpdate('cascade')->onDelete('cascade');
@@ -30,6 +30,8 @@ class CreateEventsTable extends Migration
         Schema::create('concerned', function (Blueprint $table) {
             $table->unsignedInteger('scout_id');
             $table->unsignedInteger('event_id');
+            $table->boolean('presence');
+            $table->text('absence_cause');
             $table->primary(array('scout_id', 'event_id'));
             $table->foreign('scout_id')->references('scout_id')->on('captains')
                     ->onUpdate('cascade')->onDelete('cascade');

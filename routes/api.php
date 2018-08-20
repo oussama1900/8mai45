@@ -119,6 +119,13 @@ Route::get('/getMembershipdate/{scout_id}',[
 Route::get('/getAllCaptains',[
     'uses' =>'AccountsController@getAllCaptains'
 ]);
+Route::get('/getCaptains',[
+    'uses' =>'EventController@getCaptains'
+]);
+Route::post('/postEvent',[
+    'uses' =>'EventController@PostEvent'
+]);
+
 
 
 

@@ -26,4 +26,11 @@ class Captain extends Model
     public function messages(){
         return $this->hasMany(Message::class);
     }
+    public function concerned(){
+        $this->hasMany('App\Concerned','scout_id','scout_id');
+    }
+
+    public  function isResponsible(){
+        return $this->hasMany('App\Event','responsible','scout_id');
+    }
 }
