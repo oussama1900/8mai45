@@ -16,6 +16,7 @@ return array(
     'CreateEventsTable' => $baseDir . '/database/migrations/2016_10_10_202550_create_events_table.php',
     'CreateLanguagesTable' => $baseDir . '/database/migrations/2017_11_12_000000_create_languages_table.php',
     'CreateMessagesTable' => $baseDir . '/database/migrations/2017_11_12_000000_create_messages_table.php',
+    'CreateNotificationsTable' => $baseDir . '/database/migrations/2018_08_25_111329_create_notifications_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2016_10_10_171049_create_posts_table.php',
     'CreateScoutsTable' => $baseDir . '/database/migrations/2015_06_20_101724_create_scouts_table.php',

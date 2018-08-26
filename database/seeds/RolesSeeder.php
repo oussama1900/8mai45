@@ -16,46 +16,46 @@ class RolesSeeder extends Seeder
         Role::create([
             'name' => 'gov',
             'display_name' => 'roles.gov',
-            'description' => '',
+            'description' => 'محافظ الفوج',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'vgov',
             'display_name' => 'roles.vgov',
-            'description' => '',
+            'description' => 'نائب محافظ الفوج و مسؤول الادارة',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'med',
             'display_name' => 'roles.med',
-            'description' => '',
+            'description' => 'مسؤول الاعلام',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'vmed',
             'display_name' => 'roles.vmed',
-            'description' => '',
+            'description' => 'نائب مسؤول الاعلام',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'fin',
             'display_name' => 'roles.fin',
-            'description' => '',
+            'description' => 'مسؤول المالية',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'vfin',
             'display_name' => 'roles.vfin',
-            'description' => '',
+            'description' => 'نائب مسؤول المالية',
             'removable' => false
         ]);
 
-        Role::create([
+/*        Role::create([
             'name' => 'psv',
             'display_name' => 'roles.psv',
             'description' => '',
@@ -67,40 +67,46 @@ class RolesSeeder extends Seeder
             'display_name' => 'roles.vpsv',
             'description' => '',
             'removable' => false
-        ]);
+        ]);*/
 
         Role::create([
             'name' => 'surv',
             'display_name' => 'roles.surv',
-            'description' => '',
+            'description' => 'متابعة البرامج وتنفيذ الخطط',
+            'removable' => false,
+        ]);
+        Role::create([
+            'name' => 'csd',
+            'display_name' => 'roles.csd',
+            'description' => 'خدمة و تنمية المجتمع',
             'removable' => false,
         ]);
 
         Role::create([
             'name' => 'ucap',
             'display_name' => 'roles.ucap',
-            'description' => '',
+            'description' => 'قائد وحدة',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'vucp',
             'display_name' => 'roles.vucp',
-            'description' => '',
+            'description' => 'نائب قائد الوحدة',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'capa',
             'display_name' => 'roles.capa',
-            'description' => '',
+            'description' => 'قائد مساعد',
             'removable' => false
         ]);
 
         Role::create([
             'name' => 'trne',
             'display_name' => 'roles.trne',
-            'description' => '',
+            'description' => 'قائد متربص',
             'removable' => false
         ]);
     }

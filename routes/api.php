@@ -119,13 +119,72 @@ Route::get('/getMembershipdate/{scout_id}',[
 Route::get('/getAllCaptains',[
     'uses' =>'AccountsController@getAllCaptains'
 ]);
+Route::get('/getAllCaptainsNotUser',[
+    'uses' =>'AccountsController@getAllCaptainsNotUser'
+]);
 Route::get('/getCaptains',[
     'uses' =>'EventController@getCaptains'
 ]);
 Route::post('/postEvent',[
     'uses' =>'EventController@PostEvent'
 ]);
+Route::get('/getMyEvents',[
+    'uses' =>'EventController@getMyEvents'
+]);
+Route::get('/getEvent/{event_id}',[
+    'uses' =>'EventController@getEvent'
+]);
 
+Route::post('/UpdateEvent',[
+    'uses' =>'EventController@UpdateEvent'
+]);
+Route::delete('/deleteEvent/{event_id}',[
+    'uses' =>'EventController@deleteEvent'
+]);
+Route::get('/getConcernedEvents',[
+    'uses' =>'EventController@getConcernedEvents'
+]);
+Route::post('/Confirm_presence',[
+    'uses' =>'EventController@Confirm_presence'
+]);
+Route::post('/Confirm_absence',[
+    'uses' =>'EventController@Confirm_absence'
+]);
+Route::get('/getPresenceEvents',[
+    'uses' =>'EventController@getPresenceEvents'
+]);
+Route::get('/getabsenceevents',[
+    'uses' =>'EventController@getabsenceevents'
+]);
+Route::get('/getMyEventsApproved',[
+    'uses' =>'EventController@getMyEventsApproved'
+]);
+Route::get('/getMyUnitEvents',[
+    'uses' =>'EventController@getMyUnitEvents'
+]);
+Route::get('/getEventsNotApproved',[
+    'uses' =>'EventController@getEventsNotApproved'
+]);
+Route::post('/approveEvent',[
+    'uses' =>'EventController@approveEvent'
+]);
+Route::post('/disapproveEvent',[
+    'uses' =>'EventController@disapproveEvent'
+]);
+Route::get('/getEventsApproved',[
+    'uses' =>'EventController@getEventsApproved'
+]);
+Route::get('/getUnitEvents/{unit_number}',[
+    'uses' =>'EventController@getUnitEvents'
+]);
+
+
+Route::post('/marsNotificationAsRead',function(){
+  $user = Auth::user();
+
+$user->unreadNotifications->markAsRead();
+return response()->json(["unreadsnotifications"=>0]);
+});
 
 
 
@@ -183,5 +242,5 @@ Route::get('/getsomeinfo',[
 
 Route::get('/scouts', function (Request $request) {
     $permissions = $request->user()->captain->role->permissions;
-    
+
 })->middleware('auth:api');

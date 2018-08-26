@@ -15,6 +15,7 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('event_id');
+            $table->unsignedInteger('created_by');
             $table->string('title', 60);
             $table->text('description');
             $table->string('type', 255);
@@ -22,9 +23,15 @@ class CreateEventsTable extends Migration
             $table->string('commision', 4);
             $table->dateTime('event_time');
             $table->string('location', 50);
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
+            $table->text('event_image');
+            $table->boolean('approved');
 
             $table->foreign('responsible')->references('scout_id')->on('users')
                   ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('created_by')->references('scout_id')->on('users')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
 
         Schema::create('concerned', function (Blueprint $table) {
@@ -38,6 +45,17 @@ class CreateEventsTable extends Migration
             $table->foreign('event_id')->references('event_id')->on('events')
                     ->onUpdate('cascade')->onDelete('cascade');
         });
+        Schema::create('editedevents', function(Blueprint $table){
+            $table->integer('event_id')->unsigned();
+            $table->integer('editor')->unsigned();
+            $table->primary(array('event_id', 'editor'));
+
+            $table->foreign('event_id')->references('event_id')->on('events')
+                    ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->foreign('editor')->references('scout_id')->on('users')
+                    ->onUpdate('cascade')->onDelete('cascade');
+        });
     }
 
     /**
@@ -46,7 +64,7 @@ class CreateEventsTable extends Migration
      * @return void
      */
     public function down()
-    {   
+    {
         Schema::dropIfExists('activitytags');
         Schema::dropIfExists('concerned');
         Schema::dropIfExists('activities');

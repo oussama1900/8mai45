@@ -67,7 +67,8 @@ class ScoutController extends Controller
         if(Route::currentRouteNamed('getCaptain')){
             $Scout = Scout::find($id);
             $role = Captain::where('scout_id',$id)->value('role');
-            return response()->json(["Scouts"=>[$Scout,$role]]);
+            $unit = Captain::where('scout_id',$id)->value('unit');
+            return response()->json(["Scouts"=>[$Scout,$role,$unit]]);
         }
 
         return response()->json(["Scouts"=>$Scout]);
@@ -186,11 +187,16 @@ class ScoutController extends Controller
             * insert Captain to his Unit (because table captain Separated from UnitScout table)
             */
 
-           if($request->input('role')!="")
-           $role = $request->input('role');
-           $captain->scout_id = $scout_id;
-           $captain->role = $role;
-           $captain->save();
+           if($request->input('role')!=""){
+               $role = $request->input('role');
+               $unit_resp = $request->input('unit_resp');
+               $captain->scout_id = $scout_id;
+               $captain->role = $role;
+               $captain->unit = $unit_resp;
+               $captain->save();
+           }
+
+
        }
 
 
@@ -429,7 +435,8 @@ class ScoutController extends Controller
      if($unitscout->value('scout_id')==null){
          // captain
          $role = $request->input('role');
-         $captain->update(['role' =>$role ]);
+         $unit_resp = $request->input('unit_resp');
+         $captain->update(['role' =>$role ,'unit'=>$unit_resp]);
          if(str_contains($request->input('ScoutInfo.image'), '.png') | str_contains($request->input('ScoutInfo.image'), '.jpeg') ){
              // he's a captain and he want to keep his image
 
@@ -564,9 +571,11 @@ class ScoutController extends Controller
                        $unitscout->delete();
 
                        $role = $request->input('role');
+                       $unit_resp = $request->input('unit_resp');
                        $newcaptain = new Captain;
                        $newcaptain->scout_id = $scout_id;
                        $newcaptain->role =$role;
+                       $newcaptain->unit =$unit_resp;
                        $newcaptain->save();
 
                    }
@@ -576,7 +585,7 @@ class ScoutController extends Controller
            }
 
 
-         return response()->json(["msg" =>"Edited Successfully"]);
+         return response()->json(["msg" =>$unit_resp]);
      }
 
        /**

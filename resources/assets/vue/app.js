@@ -25,6 +25,28 @@ import MyScout from './components/MyScout';
 import NewForm from './components/NewForm';
 import NewRapport from './components/Scout/Add File/NewRapport';
 import Allposts from './components/Scout/Miscellaneous/AllPosts';
+import MyEvents from './components/Scout/Miscellaneous/Event/MyEvents';
+import Concerned_Events from './components/Scout/Miscellaneous/Event/Concerned_Events';
+import MyEvents_Approved from './components/Scout/Miscellaneous/Event/MyEvents_Approved';
+import Events_Presence from './components/Scout/Miscellaneous/Event/Events_Presence';
+import Events_absence from './components/Scout/Miscellaneous/Event/Events_absence';
+import AllEvents from './components/Scout/Miscellaneous/Event/MyUnitEvents';
+import ApproveEvents from './components/Scout/Miscellaneous/Event/ApproveEvents';
+
+
+import notification from './components/Notification/notification';
+import notification_content from './components/Notification/notification_content';
+import Cubs_Events from './components/Scout/Miscellaneous/Event/Units_Events/Cubs_Events';
+import Scout_Events from './components/Scout/Miscellaneous/Event/Units_Events/Scout_Events';
+import AdvancedScout_Events from './components/Scout/Miscellaneous/Event/Units_Events/AdvancedScout_Events';
+import Traveler_Events from './components/Scout/Miscellaneous/Event/Units_Events/Traveler_Events';
+import Media_Events from './components/Scout/Miscellaneous/Event/Units_Events/Media_Events';
+import CSD_Events from './components/Scout/Miscellaneous/Event/Units_Events/CSD_Events';
+import SURV_Events from './components/Scout/Miscellaneous/Event/Units_Events/SURV_Events';
+import Fin_Events from './components/Scout/Miscellaneous/Event/Units_Events/Fin_Events';
+
+import EditEvent from './components/Scout/Miscellaneous/Event/EditEvent';
+import MyEvents_posts from './components/Scout/Miscellaneous/MyEvents-posts';
 import Forum from './components/Scout/Miscellaneous/Forum';
 import Reports_received from './components/Scout/Miscellaneous/Reports_received';
 import Post from './components/Scout/Post/post';
@@ -72,9 +94,13 @@ import EditAcountInfo from './components/UserProfile/EditAccountInfo';
 
 
 
-
-
+Vue.component('notification-content',notification_content);
+Vue.component('Notification',notification);
 Vue.component('reporter-state-scout',state_scout_reporter);
+Vue.component('Allposts',Allposts);
+Vue.component('Concerned_Events',Concerned_Events);
+Vue.component('Events_Presence',Events_Presence);
+Vue.component('MyEvents_Approved',MyEvents_Approved);
 Vue.component('Honorary-meeting',Honorary_meeting);
 Vue.component('Algerian-States',Algerian_states);
 Vue.component('Camping-request',Camping_request);
@@ -122,9 +148,66 @@ const routes = [
         component: NewRapport
     },
     {
-        path:"/myposts",
-        component: Allposts
+        path:"/Events/ApproveEvents",
+        component: ApproveEvents
     },
+    {
+        path:"/Events/MyEvents",
+        component: MyEvents
+    },
+    {
+        path:"/Events/Concerned",
+        component: Concerned_Events
+    },
+    {
+        path:"/Events/Concerned/Presence",
+        component: Events_Presence
+    },
+    {
+        path:"/Events/Concerned/absence",
+        component: Events_absence
+    },
+    {
+        path:"/Events/MyEvents/Approved",
+        component: MyEvents_Approved
+    },
+    {
+        path:"/Events/AllEvents",
+        component: AllEvents
+    },
+    {
+        path:"/Events/cubs",
+        component: Cubs_Events
+    },
+    {
+        path:"/Events/Scout",
+        component: Scout_Events
+    },
+    {
+        path:"/Events/AdvancedScout",
+        component: AdvancedScout_Events
+    },
+    {
+        path:"/Events/Traveler",
+        component: Traveler_Events
+    },
+    {
+        path:"/Events/Media",
+        component: Media_Events
+    },
+    {
+        path:"/Events/CSD",
+        component: CSD_Events
+    },
+    {
+        path:"/Events/Service_Community_development",
+        component: SURV_Events
+    },
+    {
+        path:"/Events/Finance",
+        component: Fin_Events
+    },
+
     {
         path:"/forum",
         component: Forum
@@ -223,6 +306,11 @@ const routes = [
         path:"/EditAccountInfo/:id",
         component:EditAcountInfo
 
+    },
+    {
+        path:"/myposts/event/:id",
+        component:EditEvent
+
     }
 
 
@@ -294,6 +382,7 @@ const app2 = new Vue({
             this.allusers=response.data;
 
         });
+          var audio = new Audio('/uploads/new_message.mp3');
         Echo.join('chatroom')
             .here((users)=>{
                 this.usersinroom = users;
@@ -309,7 +398,7 @@ const app2 = new Vue({
             })
             .listen('MessagePosted',(e)=>{
 
-                
+
                 this.messages.push({
                         message: e.message.message,
                         username: e.message.username,
@@ -317,8 +406,12 @@ const app2 = new Vue({
                      image : e.scout.image,
                        }
                     });
+                    audio.play();
+
             })
     }
 });
 
-
+const not = new Vue({
+    el: '#notification',
+})

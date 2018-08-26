@@ -1,8 +1,18 @@
-<?php 
-return [ 
+<?php
+return [
 "home" =>"الصفحة الرئيسية",
 "login_creds" => "رقم الكشاف أو البريد الالكتروني",
 "units" => "وحدات الفوج",
+"Events" => "الأحداث",
+"MyEvents" => "أحداثي",
+"notification" => "إشعارات",
+"Units_Events" => "أحداث الوحدات",
+"ApproveEvents" => "الموافقة على الأحداث",
+"EventsConcerned" => "الأحداث المعني بها",
+"Events_Presence" => "الأحداث التي سأحضرها",
+"Events_absence" => "الأحداث  التي سأغيب عنها",
+"Events_Approved" => "الأحداث المصادق عليها",
+"MyUnitEvents" => "أحداث وحدتي",
 "users_accounts" => "حسابات المستخدمين",
 "website_accounts" => "حسابات الموقع",
 "users" =>"المستخدمين",
@@ -263,6 +273,9 @@ return [
 "advanced_scout"=>"الكشاف المتقدم",
 "traveler"=>"الجوال",
 "leader"=>"القادة",
+"media"=>"الاعلام",
+"CSD"=>"متابعة البرامج وتنفيذ الخطط",
+"SURV"=>"خدمة وتنمية المجتمع",
 "scouts"=>"الكشافين",
 
 
@@ -270,4 +283,3 @@ return [
 
 
     ];
-

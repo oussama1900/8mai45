@@ -13,7 +13,7 @@
                       {{ trans('app.dashboard')}}
                     </span>
                     <span class="site-menu-arrow"/>
-                  </a>			  
+                  </a>
                   <ul class="site-menu-sub">
                     <li class="site-menu-item">
                         <router-link class="animsition-link" to="/hub"/>
@@ -77,40 +77,123 @@
                           </li>
                       </ul>
                   </li>
-  
+
 
               <!-- posts menu -->
                 <li class="site-menu-item has-sub">
                   <a href="javascript:void(0)">
                     <i class="site-menu-icon wb-quote-right" aria-hidden="true"></i>
-                    <span class="site-menu-title">{{trans('app.Publish')}}</span>
+                    <span class="site-menu-title">{{trans('app.Units_Events')}}</span>
                     <span class="site-menu-arrow"></span>
                   </a>
                   <ul class="site-menu-sub">
-
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/ApproveEvents"/>
+                          <span class="site-menu-title">{{ trans('app.ApproveEvents')}}</span>
+                      </li>
                     <li class="site-menu-item">
-                        <router-link class="animsition-link" to="/post"/>
-                        <span class="site-menu-title">{{trans('app.post')}}</span>
+                        <router-link class="animsition-link" to="/Events/cubs"/>
+                        <span class="site-menu-title">{{trans('app.cub')}}</span>
                       </a>
                     </li>
-                
-                <li class="site-menu-item">
-                        <router-link class="animsition-link" to="/events"/>
-                        <span class="site-menu-title">{{trans('app.event')}}</span>
-                      </a>
-                    </li>
-            
 
-  
+                <li class="site-menu-item">
+                        <router-link class="animsition-link" to="/Events/Scout"/>
+                        <span class="site-menu-title">{{trans('app.scoutboy')}}</span>
+                      </a>
+                    </li>
+
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/AdvancedScout"/>
+                          <span class="site-menu-title">{{trans('app.advanced_scout')}}</span>
+                          </a>
+                      </li>
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/Traveler"/>
+                          <span class="site-menu-title">{{trans('app.traveler')}}</span>
+                          </a>
+                      </li>
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/Media"/>
+                          <span class="site-menu-title">{{trans('app.media')}}</span>
+                          </a>
+                      </li>
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/CSD"/>
+                          <span class="site-menu-title" style="font-size:small">{{trans('app.CSD')}}</span>
+                          </a>
+                      </li>
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/Service_Community_development"/>
+                          <span class="site-menu-title" >{{trans('app.SURV')}}</span>
+                          </a>
+                      </li>
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/Events/Finance"/>
+                          <span class="site-menu-title" >{{trans('app.Finance')}}</span>
+                          </a>
+                      </li>
+
+
                 </ul>
             </li>
-                  <!--the Miscellaneous sidebar item-->
+
+
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.Events')}}</span>
+                          <span class="site-menu-arrow"/>
+
+                      </a>
+
+                      <ul class="site-menu-sub">
+                          <!--recived repoorts sidebar item-->
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/MyEvents"/>
+                              <span class="site-menu-title">{{ trans('app.MyEvents')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/ApproveEvents"/>
+                              <span class="site-menu-title">{{ trans('app.ApproveEvents')}}</span>
+                          </li>
+
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/Concerned"/>
+                              <span class="site-menu-title">{{ trans('app.EventsConcerned')}}</span>
+                              </a>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/Concerned/Presence"/>
+                              <span class="site-menu-title">{{ trans('app.Events_Presence')}}</span>
+                              </a>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/Concerned/absence"/>
+                              <span class="site-menu-title">{{ trans('app.Events_absence')}}</span>
+                              </a>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/MyEvents/Approved"/>
+                              <span class="site-menu-title">{{ trans('app.Events_Approved')}}</span>
+                              </a>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/Events/AllEvents"/>
+                              <span class="site-menu-title">{{ trans('app.MyUnitEvents')}}</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                          <!--the Miscellaneous sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">
                           <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
                           <span class="site-menu-title">{{ trans('app.Miscellaneous')}}</span>
                           <span class="site-menu-arrow"/>
+
                       </a>
+
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/myposts"/>
@@ -132,7 +215,6 @@
                           </li>
                       </ul>
                   </li>
-
                   <!--the finance sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">
@@ -247,8 +329,8 @@
           </div>
         </div>
       </div>
-  
-  
+
+
       <div class="site-menubar-footer">
            <a href="{{URL::to('profileEdit')}}" data-placement="top" data-toggle="tooltip" data-original-title="{{ trans('app.edit_profile')}}">
             <i class="icon wb-pencil" aria-hidden="true"></i>
@@ -266,8 +348,8 @@
            @endif
             <a href="{{ url('/logout') }}"
                        onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();" 
-                 data-placement="top" data-toggle="tooltip" 
+                           document.getElementById('logout-form').submit();"
+                 data-placement="top" data-toggle="tooltip"
                  data-original-title="{{ trans('app.logout')}}">
                        <span class="icon wb-power" aria-hidden="true"></span>
                 </a>

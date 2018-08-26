@@ -1,12 +1,12 @@
 <template>
-    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card " >
+    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card " style="padding-right: 0px;padding-left:0px">
         <div class="header">
             <h4 class="title">{{users[0].user.title}}</h4>
         </div>
-        <div style="padding:20px">
+        <div style="padding:20px;margin-right:20px;margin-left:20px">
            <div class="row">
                <label style="float:right;font-size:medium">اختر المستخدم الجديد</label>
-               <select class="form-control" v-model="users[0].user.email"  data-live-search="true" style="border: 1px solid #CCC5B9;
+               <select class="form-control" v-model="users[0].user.email" dir="rtl"  data-live-search="true" style="border: 1px solid #CCC5B9;
     border-radius: 7px;">
                    <option v-for="cap in Captain" v-bind:value="cap.is_scout.email">{{cap.is_scout.last_name}} {{cap.is_scout.first_name}}</option>
                </select>
@@ -100,8 +100,8 @@
             },
             getAllCaptains(){
                 var vm = this;
-                axios.get('/api/getAllCaptains').then(function (response) {
-                   vm.Captain = response.data.captain;
+                axios.get('/api/getAllCaptainsNotUser').then(function (response) {
+                   vm.Captain = response.data.capwithoutcpt;
 
 
                 });
@@ -149,4 +149,15 @@
         -moz-transform: scale(1.9);
         -o-transform: scale(1.5);
     }**/
+
+    .header{
+        background-color: rgb(51, 181, 229);
+        backdrop-filter: blur(5px);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+
+    }
+    .header .title{
+        color:white;
+    }
 </style>

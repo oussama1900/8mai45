@@ -1,4 +1,83 @@
 <template>
+  <!--  <div class="container  col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px">
+        <div class="card-body">
+           <h3 style="text-align: center">الحدث</h3>
+            <div class="form-group">
+                <label style="float: right;font-size:medium">نوع النشاط </label>
+                <select id="select" class="form-control" dir="rtl" >
+                    <option>	اداري</option>
+                    <option>	اعلامي</option>
+                    <option>	خدمة عامة</option>
+                    <option>	رحلة خلوية</option>
+                    <option>	ندوة</option>
+                    <option>	تربص</option>
+                    <option>مهرجان	</option>
+                    <option>	مخيم</option>
+                    <option>دورة تربوية	</option>
+                    <option>دورة تدريبية	</option>
+                    <option>	اجتماع مكتب</option>
+                    <option>	اجتماع مجلس</option>
+                    <option>	مبيت</option>
+                    <option>	افطار جماعي </option>
+                    <option>	اعتكاف</option>
+                    <option>عملية جمع اللحوم	</option>
+                    <option>	عيد ديني </option>
+                    <option>عيد وطني </option>
+                    <option>رياضة</option>
+
+                </select>
+
+            </div>
+            <div class="form-group col-sm-12">
+                <label style="float: right;font-size:medium">	العنوان </label>
+                <input type="text" dir="rtl" class="form-control" id="event_title" name="activity_place" placeholder="العنوان" >
+            </div>
+            <div class="form-group col-sm-12">
+                <label style="float: right;font-size:medium">  المكان</label>
+                <input type="text" dir="rtl" class="form-control" id="event_place" name="activity_place" placeholder="المكان " >
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label style="float: right;font-size:medium">	الزمان</label>
+                <input type="date" dir="rtl" class="form-control" id="date"   >
+            </div>
+            <div class="form-group col-sm-12">
+                <label style="float: right;font-size:medium">الوحدة او اللجنة</label>
+               <Scout-Function></Scout-Function>
+            </div>
+            <div>
+                <label style="float: right;font-size:medium">	وصف للنشاط</label>
+            <textarea  dir="rtl" name="content" id="resume" maxlength="100" style="height: 7rem">
+                                </textarea>
+        </div>
+
+
+            <div class="form-group col-sm-12">
+                <label style="text-align: center;font-size:medium">المسؤول</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label style="float: right;font-size:medium">الاسم</label>
+                        <input type="text" maxlength="100" dir="rtl" class="form-control"   placeholder="الاسم " >
+                    </div>
+                    <div class="col-md-6">
+                        <label style="float: right;font-size:medium">اللقب</label>
+                        <input type="text" maxlength="100" dir="rtl" class="form-control"   placeholder="اللقب" >
+                    </div>
+                </div>
+
+            </div>
+            <div style="float: left;">
+                <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left">
+
+                    <span class="ladda-spinner"></span>
+                    نشر
+                    <div class="ladda-progress" style="width: 0px;"></div>
+                    <i class="fa fa-save"></i>
+
+                </button>
+            </div>
+        </div>
+    </div>-->
 
 
     <div>
@@ -107,9 +186,9 @@
 
                         <div>
                             <label  style="float:right;font-size:medium">  القادة المعنيون </label>
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="true"  track-by="last_name" :preselect-first="false">
 
-                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)" >❌</span></span></template>
 
                             </multiselect>
 
@@ -143,7 +222,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
-                        <input v-model="Event.time" id="event_date" type="date"  style="   border: 1px solid #CCC5B9;
+                        <input v-model="Event.event_time" id="event_date" type="date"  style="   border: 1px solid #CCC5B9;
                                                                              border-radius: 7px;
                                                                              padding: 5px" dir="rtl"  placeholder=" تاريخ الحدث ">
                     </div>
@@ -165,24 +244,51 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="Event.desc" :editorToolbar="customToolbar"></vue-editor>
+                        <div  class="text-center" style="padding: 10px;" v-if="show_desc">
+                            <div class="btn btn-primary ladda-button"  @click="show_description()">
+
+                                <span class="ladda-spinner">  اظهر النص السابق</span>
+
+
+
+
+                            </div>
+
+                        </div>
+                        <vue-editor   v-model="Event.desc" :editorToolbar="customToolbar"></vue-editor>
 
 
                     </div>
                 </div>
-                <label style="font-size: medium;float: right;">صورة الحدث </label>
+
             </div>
 
-            <div class="input-group input-group-file"  style="float:right">
-                <input   class="form-control" name="image_name"
-                       readonly="true"
-                       placeholder="اختر صورة"
 
-                       dir="rtl" >
+
+
+            </div>
+
+
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title" >رفع صورة للحدث </h4>
+
+            </div>
+
+            <div class="input-group input-group-file"  style="float:right;margin-top:20px">
+
+                <input   class="form-control" name="image_name"
+                         readonly="true"
+                         placeholder="اختر صورة"
+
+                         dir="rtl" >
                 <span class="input-group-btn">
                                         <span class="btn btn-success btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
                                             <input type="file" name="titleImage" multiple="false"   accept="image/*"
+
                                                    @change="setEventImage($event)"
 
                                                    id="titleImage"
@@ -191,21 +297,20 @@
                                     </span>
             </div>
 
-                <div class="text-center" style="padding: 10px;">
-                    <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="postEvent">
+            <div class="text-center" style="padding: 10px;">
+                <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="update_event()">
 
-                        <span class="ladda-spinner"> نشر</span>
-                        <i class="fa fa-save"></i>
+                    <span class="ladda-spinner"> تحديث</span>
+                    <i class="fa fa-save"></i>
 
 
 
-                    </button>
+                </button>
 
-                </div>
             </div>
 
 
-
+        </div>
 
         </div>
 
@@ -234,33 +339,28 @@
             VueEditor
 
         },
-        created:function(){
-            var vm = this;
-          axios.get('/api/getCaptains').then(function (response) {
-
-             vm.Captains = response.data.captain;
-          });
-        },
         data(){
             return{
 
 
-
+                Concerned: [],
                 Captains: [],
 
                 Event:{
                   title:'',
-                  desc:'<h3 style="text-align: right" dir="rtl"> وصف النشاط</h3>',
                   type:'',
+                    desc:'',
                     responsible:{},
-                  time:'',
+                  event_time:'',
                   location:'',
                     image:'',
                     Concerned: [],
 
 
                 },
-                content:'<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
+
+
+                show_desc:true,
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
@@ -270,24 +370,85 @@
 
             }
         },
-        methods:{
-            postEvent(){
-                var vm = this;
-                axios.post('/api/postEvent',vm.Event).then(function (response) {
+        created:function(){
+var vm =this;
+            this.getdata();
 
-                  vm.$router.push('/Events/MyEvents');
-                });
+
+
+        },
+        methods:{
+            deleteitem(props){
+
+              this.Event.Concerned.splice(this.Event.Concerned.indexOf(props),1);
+
             },
             customLabel ({ first_name, last_name }) {
                 return ` ${last_name} ${first_name} `
             },
             setEventImage(e){
-                var filereader = new FileReader();
-                filereader.readAsDataURL(e.target.files[0]);
-                filereader.onload =(e)=>{
-                    this.Event.image= e.target.result;
-                };
-            }
+                if(e.target.files.length===0){
+
+                }else{
+                    var filereader = new FileReader();
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
+
+                        this.Event.image= e.target.result;
+
+
+
+
+                    };
+
+
+                }
+
+            },
+            getCaptains(){
+                var vm = this;
+                axios.get('/api/getCaptains').then(function (response) {
+
+                    vm.Captains = response.data.captain;
+                });
+            },
+            getdata(){
+                var vm =this;
+
+                axios.get('/api/getEvent/'+vm.$route.params.id).then(function (response) {
+
+                    vm.Event = response.data.event[0];
+
+                    vm.Event.Concerned = response.data.event[1];
+                    vm.Concerned = vm.Event.Concerned;
+
+
+
+                    vm.Event.event_time=vm.Event.event_time.slice(0,10);
+
+                    vm.getCaptains();
+                });
+            },
+
+            show_description(){
+                this.Event.desc = this.Event.description;
+                this.show_desc=false;
+
+            },
+            update_event(){
+                var vm = this;
+                this.Event.Concerned = this.Concerned;
+
+                axios.post('/api/UpdateEvent',vm.Event).then(function (response) {
+                    vm.$router.go(-1)
+
+
+
+
+                });
+            },
+
+
 
 
     },

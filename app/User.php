@@ -67,6 +67,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Captain', 'scout_id', 'scout_id');
     }
 
+
     public function assignRole(Role $role){
         $this->captain()->role = $role;
         return $this;

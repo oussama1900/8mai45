@@ -41,7 +41,7 @@ class DashboardController extends Controller
      */
 	
 	public function index(Request $request){
-		if (Auth::user()->hasRole('gov') || Auth::user()->hasRole('Captain')) {
+		if (Auth::user()->hasRole('gov') || Auth::user()->hasRole('Captain') ) {
 			/*===============================================
 				Retrieve basic information about the website
 			================================================*/

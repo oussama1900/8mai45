@@ -63,28 +63,25 @@
                         <div class ="row">
                             <div v-bind:class="rolecontainer"  v-if="Scout.showCaprole" >
                                 <label style="font-size: medium;float: right;">الدور</label>
-                                <select id="role" class="form-control" v-model="Scout.role" >
-                                    <option value="gov">gov</option>
-                                    <option value="vgov">vgov</option>
-                                    <option value="med">med</option>
-                                    <option value="vmed">vmed</option>
-                                    <option value="fin">fin</option>
-                                    <option value="vfin">vfin</option>
-                                    <option value="psv">psv</option>
-                                    <option value="vpsv">vpsv</option>
-                                    <option value="surv">surv</option>
-                                    <option value="surv">surv</option>
-                                    <option value="ucap">ucap</option>
-                                    <option value="vucap">vucap</option>
-                                    <option value="capa">capa</option>
-                                    <option value="trne">trne</option>
+                                <select id="role" class="form-control" v-model="Scout.role" dir="rtl" @change="show_unit_responsible()">
+                                    <option value="gov">محافظ الفوج</option>
+                                    <option value="vgov">نائب محافظ الفوج</option>
+                                    <option value="med">مسؤول الاعلام</option>
+                                    <option value="vmed">نائب مسؤول الاعلام</option>
+                                    <option value="fin">مسؤول المالية</option>
+                                    <option value="vfin">مسؤول العتاد</option>
+                                    <option value="surv">مسؤول متابعة البرامج وتنفيذ الخطط</option>
+                                    <option value="ucap">قائد وحدة</option>
+                                    <option value="vucp">نائب قائد وحدة</option>
+                                    <option value="capa">مساعد نائب قائد وحدة </option>
+                                    <option value="trne">قائد متربص</option>
                                 </select>
 
 
                             </div>
                             <div v-bind:class="unitcontainer"  v-if="Scout.showunit" style="padding:0px">
                                 <label style="font-size: medium;float: right;">الوحدة المنتسب اليها</label>
-                                <select class="form-control" id="scout_unit" v-model="Scout.scout_unit.unit_id"  @change ="showrole">
+                                <select class="form-control" id="scout_unit" v-model="Scout.scout_unit.unit_id"  dir="rtl" @change ="showrole">
                                     <option value="cubs">شبل</option>
                                     <option value="sct">كشاف</option>
                                     <option value="asct">كشاف متقدم</option>
@@ -92,6 +89,15 @@
                                     <option value="cap">قائد </option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="row" v-if="show_unit_reps">
+                            <label style="font-size: medium;float: right;">الوحدة المسؤول عنها</label>
+                            <select id="unit_respon" class="form-control" dir="rtl" v-model="Scout.unit_resp">
+                                <option value="cubs">الأشبال</option>
+                                <option value="sct">الكشاف</option>
+                                <option value="asct">الكشاف المتقدم</option>
+                                <option value="tvlr">الجوالة</option>
+                            </select>
                         </div>
 
                     </li>
@@ -188,16 +194,19 @@
                    unit:'',
                    showCaprole:false,
                    showunit:true,
+                   unit_resp:'',
+
                },
                unitcontainer:'col-md-6',
                rolecontainer:'col-md-6',
                cardTitle:'',
                add:false,
+               show_unit_reps:false,
            }
 
        },
         created: function () {
-console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
+
 
          if(this.$route.path.localeCompare("/AddNewScout/cub")===0 ||
              this.$route.path.localeCompare("/AddNewScout/scout")===0||
@@ -256,10 +265,10 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
              this.cardTitle="تعديل معلومات الكشاف";
              this.add=false;
 
-             console.log(url.localeCompare("/EditScoutInfo/Captain/"+this.$route.params.id)===0);
+
              if(url.localeCompare("/EditScoutInfo/Captain/"+this.$route.params.id)===0){
 
-                 console.log('in captain');
+
                  this.Scout.scout_unit.unit_id = 'cap';
                  this.Scout.showCaprole=true;
                  this.Scout.showunit=false;
@@ -287,23 +296,26 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
 
 
                 if(vm.Scout.scout_unit.unit_id.localeCompare('cap')===0){
-                    console.log('captain');
+
                     axios.get("/api/getScout/captain/"+this.$route.params.id).then(function(response){
 
 
 
-                        console.log(response);
+
                            vm.Scout.ScoutInfo = response.data.Scouts[0];
                            vm.Scout.role=response.data.Scouts[1];
+                           vm.Scout.unit_resp=response.data.Scouts[2];
 
+                           if(vm.Scout.role.localeCompare('ucap')===0 | vm.Scout.role.localeCompare('vucp')===0 |vm.Scout.role.localeCompare('capa')===0 |vm.Scout.role.localeCompare('trne')===0 ){
+                               vm.show_unit_reps=true;
+                           }
 
                     });
                 }else{
-                    console.log('unit');
+
                     axios.get("/api/getScout/"+this.$route.params.id).then(function(response){
 
-                        console.log('unit');
-                        console.log(response);
+
                            vm.Scout.ScoutInfo = response.data.Scouts[0].scout;
                         vm.Scout.scout_unit.unit_id = response.data.Scouts[0].unit_id;
 
@@ -315,6 +327,27 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
 
             },
             UpdateInfo(){
+                if(this.Scout.scout_unit.unit_id.localeCompare('cap')===0){
+                    if(this.Scout.role.localeCompare('med')===0 ){
+                        this.Scout.unit_resp = 'med'
+                    }else{
+                        if(this.Scout.role.localeCompare('vmed')===0  ){
+                            this.Scout.unit_resp = 'med'
+                        }else{
+                            if(this.Scout.role.localeCompare('fin')===0  ){
+                                this.Scout.unit_resp = 'fin'
+                            }else{
+                                if(this.Scout.role.localeCompare('vfin')===0 ){
+                                    this.Scout.unit_resp = 'fin'
+                                }else{
+                                    if(this.Scout.role.localeCompare('surv')===0 ){
+                                        this.Scout.unit_resp = 'surv'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 
                 var vm = this;
 
@@ -323,6 +356,7 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
 
 
 
+                    console.log(response);
 
                     if(vm.Scout.scout_unit.unit_id.localeCompare('cubs')===0){
 
@@ -357,6 +391,31 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
 
             },
             addScout(){
+
+
+             if(this.Scout.scout_unit.unit_id.localeCompare('cap')===0){
+                 if(this.Scout.role.localeCompare('med')===0 ){
+                     this.Scout.unit_resp = 'med'
+                 }else{
+                     if(this.Scout.role.localeCompare('vmed')===0  ){
+                         this.Scout.unit_resp = 'vmed'
+                     }else{
+                         if(this.Scout.role.localeCompare('fin')===0  ){
+                             this.Scout.unit_resp = 'fin'
+                         }else{
+                             if(this.Scout.role.localeCompare('vfin')===0 ){
+                                 this.Scout.unit_resp = 'vfin'
+                             }else{
+                                 if(this.Scout.role.localeCompare('surv')===0 ){
+                                     this.Scout.unit_resp = 'surv'
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+
+
                 var vm = this;
 
 
@@ -422,11 +481,12 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
             },
             showrole(){
 
-                var url = ""+this.$route.fullPath;
-                console.log(this.Scout.scout_unit.unit_id.localeCompare('cap'));
+
+
                 if(this.Scout.scout_unit.unit_id.localeCompare('cap')===0){
 
                    this.Scout.showCaprole=true;
+
                     this.unitcontainer='col-md-6';
                     this.rolecontainer='col-md-6';
                 }else{
@@ -437,6 +497,15 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
 
             },
 
+            show_unit_responsible(){
+
+                if(this.Scout.role.localeCompare('ucap')===0 |this.Scout.role.localeCompare('vucp')===0  |this.Scout.role.localeCompare('capa')===0  | this.Scout.role.localeCompare('trne')===0 ){
+                    this.show_unit_reps=true;
+                }else{
+
+                    this.show_unit_reps=false;
+                }
+            }
 
 
 
@@ -484,7 +553,7 @@ console.log(this.$route.path.localeCompare("/AddNewScout/scout") );
         border-radius: 7px;
         padding: 5px
     }
-    #scout_unit,#role{
+    #scout_unit,#role,#unit_respon{
         border: 1px solid #9C9C9C;
         border-radius: 7px;
 

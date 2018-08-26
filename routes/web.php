@@ -2,6 +2,8 @@
 
 use App\Events\MessagePosted;
 use App\Scout;
+use App\User;
+use App\Notifications\notifyCaptain;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,19 +21,22 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/login', 'DashboardController@index');
-Route::get('/logout', 'DashboardController@index'); 
+Route::get('/logout', 'DashboardController@index');
 Route::get('/dashboard', "DashboardController@index");
 
 Auth::routes();
 
 
+Route::get('/dashboard/oussama' ,function (){
+  User::find(1)->notify(new notifyCaptain);
+
+});
 
 
 
 
 
-Route::resource("Scout",'ScoutController@index');
-/* ================================ 
+/* ================================
     Dashboard Dependent Routes
 =================================== */
 // Route::get('/dashboard/scouts/accounts/register', "UserController@registration");
@@ -52,7 +57,7 @@ Route::post('/importcsv', "UserController@importcsv"); //to be revised
 Route::get('/import', "UserController@importuser"); //to be revised
 Route::get('/profile', "UserController@profile"); //to be revised
 Route::get('/profileEdit', "UserController@profileEdit"); //to be retracked to ScoutsController
-Route::get('/dashboard/scouts/accounts/export', "UserController@xlsexport"); 
+Route::get('/dashboard/scouts/accounts/export', "UserController@xlsexport");
 Route::get('/pdf', "UserController@pdfexport"); //can be handled without a controller
 Route::get('/usersprint', "UserController@userlistprint"); //can be handled without a controller
 
@@ -82,18 +87,18 @@ Route::put('/dashboard/permissions/update/{id}','PermissionController@update');
 Route::post('/dashboard/permissions/attach', 'PermissionController@saveRolePermissions');
 Route::delete('/dashboard/permissions/destroy/{id}', "PermissionController@destroy");
 
-/* User Activity activity */ 
+/* User Activity activity */
 Route::get('/dashboard/activity', "ActivityController@index");
 Route::get('/dashboard/activity/user/{id}', "ActivityController@activity_user");
 
-/* Setting (subject to deletion)*/ 
+/* Setting (subject to deletion)*/
 Route::get('/settings/', "SettingController@index");
 Route::post('/settings/', "SettingController@store");
 Route::post('/SettingController/upload/{id}', "SettingController@upload");
 Route::post('/SettingController/auth_registration', "SettingController@auth_registration");
 Route::get('/dashboard#/SettingController/sidebar', "SettingController@sidebar");
 
-/* Message (TODO)*/ 
+/* Message (TODO)*/
 Route::get('/message/', "MessageController@index");
 Route::get('/SendMessage/', "MessageController@sendmail");
 Route::get('/sendDetails/{id}', "MessageController@sendDetails");

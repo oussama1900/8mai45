@@ -1,52 +1,43 @@
 <template>
-        <div class="container  " style="background-color: transparent">
+    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+        <div class="header">
+
+            <h4 class="title"> الأحداث التي وافقت على حضورها </h4>
+        </div>
+    <div class="container  " style="background-color: transparent">
         <div class="row">
 
-            <div  v-for="item in 10" :key="item.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+            <div  v-for="presence in presenceevents" :key="presence.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
                 <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
-                    <a href="#"><img src="assets/images/my_scout/profile.png" class="icon" ></a>
+
+                    <img :src="'/images/EventImages/'+presence.event_image" class="icon" >
+
                 </div>
                 <div class="card-body" style="height: 50px; background-color: #C8C8C8">
-                    <h6> يمكنك الإطلاع على المستخدمين و كل المعلومات الخاصة بهم يمكنك الإطلاع على المستخدمين </h6>
+                    <h6> {{presence.title}} </h6>
                 </div>
 
 
-                <div class="trigger">
-                    <i class="glyphicon glyphicon-remove" @click="delete_post()"></i>
-                </div>
-                <div class="trigger" style="float: right;left: 237.969px;right: 0px;">
-                    <i class="glyphicon glyphicon-edit"></i>
-                </div>
-                <div class="toolbar">
 
-                    <div class="pseudo-circle">
-                        <div class="dialog" @click="update_post()"></div>
-                    </div>
-                </div>
 
 
                 <!--here you can make confition if scout color to change the background-->
                 <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
                         <div class="col-sm-8" style="height: 100%;padding: 0 0">
-                            <h6 style="margin-top: 5%;margin-right: 0; padding-right: 0">أسامة غجاتي</h6>
-                            <h6 style="margin: 0 0"> نشر ب نوفمبر 11 الساعة 22:53 </h6>
+                            <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{presence.creator.last_name}} {{presence.creator.first_name}}</h6>
+                            <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(presence)}} </span> <span> {{getcurrentmonth(presence)}} </span>   الساعة <span>{{gettime(presence)}}</span> </h6>
                         </div>
                         <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                            <a href="#"><img class="img-circle"src="assets/images/my_scout/profile.png" style="height: 70%; width: 70%;margin:15% 15%"></a>
+                            <a href="#">
+                              <img class="img-circle":src="'/images/Captain/'+presence.creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="presence.creator.image.localeCompare('')!==0">
+  <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else>
+                              </a>
                         </div>
 
 
 
                 </div>
-
-                <div> <button  class=" btn btn-primary ">الموافقة</button></div>
-
-
-
-
-
-
-
 
             </div>
         </div>
@@ -56,11 +47,54 @@
 
 
         </div>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "AllPosts"
+        data(){
+            return{
+                presenceevents:'',
+            }
+        },
+        created:function(){
+            this.getPresence();
+        },
+        methods:{
+            getPresence(){
+                var vm =this;
+                axios.get('/api/getPresenceEvents').then(function (response) {
+
+
+                    vm.presenceevents = response.data.presence_events[0];
+                });
+            },
+            getcurrentmonth(event){
+                var arr = event.created_at.split('-');
+                const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
+                    "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+                ];
+                return monthNames[parseInt(arr[1],10)];
+            },
+            getday(event){
+                var arr = event.created_at.split('-');
+
+
+                return arr[2].toString().slice(0,2);
+            },
+            gettime(event){
+                var arr = event.created_at.split('-');
+                var fulltime = arr[2].toString().slice(2);
+                var time = fulltime.split(':');
+                var hour = time[0];
+                var minute = time[1];
+
+                return hour+':'+minute;
+            },
+
+
+
+        }
     }
     /*the floating button css*/
     $(function() {
@@ -127,6 +161,7 @@
     }
     .trigger {
 
+        cursor:pointer;
         color: #fff;
         line-height: 56px;
         background-color: #009688;
@@ -183,6 +218,15 @@
         outline: none;
     }
 
+    .header{
+        background-color: rgb(51, 181, 229);
+        backdrop-filter: blur(5px);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
 
+    }
+    .header .title{
+        color:white;
+    }
 
 </style>

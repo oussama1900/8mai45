@@ -19,6 +19,7 @@ use File;
 class AccountsController extends Controller
 {
     //
+  
 
     public function  getUsersAccounts(){
         $accounts =   User::with('profile')->get();
@@ -26,6 +27,20 @@ class AccountsController extends Controller
 
 
         return response()->json(["users"=>$accounts]);
+    }
+    public function getAllCaptainsNotUser(){
+
+        $CaptainWithoutCompte=[];
+        $captain = Captain::with('isScout')->get();
+        foreach ($captain as $cap){
+            $user = User::find($cap->scout_id);
+            if($user==null){
+                array_push($CaptainWithoutCompte,$cap);
+
+            }
+
+        }
+        return response()->json(["capwithoutcpt"=>$CaptainWithoutCompte]);
     }
     public function  AddNewAccount(Request $request){
         $email = $request->input('email');

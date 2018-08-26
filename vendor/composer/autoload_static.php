@@ -430,6 +430,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'CreateEventsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_10_202550_create_events_table.php',
         'CreateLanguagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_000000_create_languages_table.php',
         'CreateMessagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_12_000000_create_messages_table.php',
+        'CreateNotificationsTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_25_111329_create_notifications_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePostsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_10_171049_create_posts_table.php',
         'CreateScoutsTable' => __DIR__ . '/../..' . '/database/migrations/2015_06_20_101724_create_scouts_table.php',
