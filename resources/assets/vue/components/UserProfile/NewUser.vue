@@ -84,7 +84,7 @@
             addaccount(scout) {
                 if(this.users[0].user.confirm_passowrd===this.users[0].user.password){
                     var vm = this;
-                    axios.post("/api/addnewaccount/" , vm.users[0].user).then(function (response) {
+                    axios.post("/api/addnewaccount" , vm.users[0].user).then(function (response) {
 
 
 
