@@ -94886,7 +94886,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addaccount: function addaccount(scout) {
             if (this.users[0].user.confirm_passowrd === this.users[0].user.password) {
                 var vm = this;
-                axios.post("/api/addnewaccount/", vm.users[0].user).then(function (response) {
+                axios.post("/api/addnewaccount", vm.users[0].user).then(function (response) {
 
                     vm.$router.push('/users-accounts');
                 });
