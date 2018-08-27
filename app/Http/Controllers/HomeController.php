@@ -6,7 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use View;
 use App\Foo;
-
+use App\Event;
 class HomeController extends Controller
 {
     /**
@@ -29,6 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $events = Event::orderby('created_at','desc')->paginate(3);
+        return view('home')->with('events',$events);
+    }
+
+    public function about()
+    {
+        return view('pages.about');
     }
 }

@@ -89,30 +89,13 @@
                         </table>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <?php echo e(trans('app.languages')); ?><span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <?php ($language = DB::table('languages')->get()); ?>
-                        <?php $__currentLoopData = $language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $viewdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <a class="dropdown-item link linklanguage"  href="<?php echo e(URL::to('/LanguageController/chooser_language/')); ?>/<?php echo e($viewdata->foldername); ?>" role="menuitem">
-                                    <?php if(!empty($viewdata->flag_image)): ?>
-                                        <img src="<?php echo e(URL::to('assets/flags')); ?>/<?php echo e($viewdata->flag_image); ?>"  width="18.66" height="14" />
-                                    <?php endif; ?>
-                                    <?php echo e($viewdata->languagename); ?>
-
-                                </a>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
                     <a class="nav-link" href="#" style="font-size: medium;margin-right: 8px;margin-left: 8px">الأخبار</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the index link -->
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('index') ? 'active' : ''); ?>" href="/" style="font-size: medium">الرئيسية</a>
+                    <a class="nav-link <?php echo e(Route::currentRouteNamed('home') ? 'active' : ''); ?>" href="/" style="font-size: medium">الرئيسية</a>
                 </li>
                 <li class="nav-item" ><a class="nav-link" href="/" style="font-size: medium;margin-right: 8px;margin-left: 8px"><img src="/uploads/1528370100.png" width="35" height="35"></img></a></li>
             </ul>

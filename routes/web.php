@@ -17,8 +17,9 @@ use App\Notifications\notifyCaptain;
 
 
 /* home controller */
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/login', 'DashboardController@index');
 Route::get('/logout', 'DashboardController@index');

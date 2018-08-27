@@ -86,29 +86,13 @@
                         </table>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ trans('app.languages')}}<span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @php($language = DB::table('languages')->get())
-                        @foreach($language as $viewdata)
-                                <a class="dropdown-item link linklanguage"  href="{{URL::to('/LanguageController/chooser_language/')}}/{{$viewdata->foldername}}" role="menuitem">
-                                    @if(!empty($viewdata->flag_image))
-                                        <img src="{{URL::to('assets/flags')}}/{{$viewdata->flag_image}}"  width="18.66" height="14" />
-                                    @endif
-                                    {{$viewdata->languagename}}
-                                </a>
-                        @endforeach
-                    </div>
-                </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
                     <a class="nav-link" href="#" style="font-size: medium;margin-right: 8px;margin-left: 8px">الأخبار</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the index link -->
-                    <a class="nav-link {{ Route::currentRouteNamed('index') ? 'active' : '' }}" href="/" style="font-size: medium">الرئيسية</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}" href="/" style="font-size: medium">الرئيسية</a>
                 </li>
                 <li class="nav-item" ><a class="nav-link" href="/" style="font-size: medium;margin-right: 8px;margin-left: 8px"><img src="/uploads/1528370100.png" width="35" height="35"></img></a></li>
             </ul>

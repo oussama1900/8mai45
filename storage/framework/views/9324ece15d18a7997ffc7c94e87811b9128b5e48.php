@@ -11,13 +11,13 @@
 
   <title>الموقع الرسمي لفوج الفلاح</title>
 
- 
+
 
   <!-- Include Date Range Picker -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 
   <?php echo $__env->make('includes.dashdependencies.predeps', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -128,5 +128,7 @@
 <!-- Vue.js -->
 <script src=<?php echo e(url("/assets/vue/app.js")); ?> charset="UTF-8"></script>
 <script src="https://unpkg.com/vue-ckeditor2"></script>
+<script src="https://cdn.ckeditor.com/4.6.1/full/ckeditor.js"></script>
+
 </body>
 </html>
