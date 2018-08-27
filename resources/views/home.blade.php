@@ -3,12 +3,12 @@
 
 <!-- this is the content of our index page  ,
     all of the page content must be inside the content section -->
-    <div class="container-fluid main">
+
 @section('content')
     <!-- Masthead -->
-
+<div class="container-fluid main">
 <!--carousel-->
-      <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000" style="absolute:absolute;height:550px">
+      <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000" style="height:100%">
           <div class="carousel-inner" role="listbox">
               <!-- background image should be 890x(500-600)-->
               <div class="item active background a" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/35406393_2001873566795487_2274415969004683264_n.jpg?_nc_cat=0&_nc_eui2=AeEC2IH6mFWf6T68R0S32E6eTXhVc9yJ_pbQ0PSGHlQ0CkWM-0Zw1CstcAZbBt3a5CR06qWjRjOtxHW38doNp8VPX-M8zIWtm14fEx1ULPtz7w&oh=ce5090861033105f676f8da1cf9e6582&oe=5BB397C4');">
@@ -27,14 +27,14 @@
           </div>
       </div>
 
-
+    </div>
 
 
 
 
 
     <!-- events Showcases -->
-    <div class="container mt-3 center" style="top:600px">
+    <div class="container mt-3 center" >
         <h3 class="center text-center">آخر اخبارنا</h3>
         <div class="row">
             <div class="col">
@@ -66,4 +66,3 @@
 
 
 @endsection
-      </div>
