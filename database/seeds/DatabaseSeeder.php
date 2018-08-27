@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
          $this->call(PermissionsSeeder::class);
 
          $this->call(ScoutsSeeder::class);
+            $this->call(CaptainSeeder::class);
+               $this->call(UserSeeder::class);
          $this->call(LanguagesSeeder::class);
          $this->call(SettingSeeder::class);
          $this->call(CountrySeeder::class);

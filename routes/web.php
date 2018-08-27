@@ -23,7 +23,7 @@ Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/login', 'DashboardController@index');
 Route::get('/logout', 'DashboardController@index');
-Route::get('/dashboard', "DashboardController@index");
+Route::get('/user', 'ActivityController@index');
 
 Auth::routes();
 

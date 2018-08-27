@@ -15,7 +15,13 @@
 
         <!-- Custom styles for this template -->
         <link href="{{ asset('assets/css/landing-page.min.css')}}" rel="stylesheet">
+        <link rel='stylesheet prefetch' href='/css/bootstrap2.min.css'>
 
+        <link rel="stylesheet" href="css/style.css">
+    	<script src="{{ asset('js/jquery.min.js') }}"></script>
+    
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -31,6 +37,9 @@
             </main>
         </div>
             @include("includes.footer")
+            <script src='/js/jquery2.min.js'></script>
+            <script src='/js/bootstrap2.min.js'></script>
+            <script  src="js/index.js"></script>
         <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     </body>

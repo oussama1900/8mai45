@@ -424,6 +424,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'AddImageToUsersAndPosts' => __DIR__ . '/../..' . '/database/migrations/2018_08_13_175829_add_image_to_users_and_posts.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'CaptainSeeder' => __DIR__ . '/../..' . '/database/seeds/CaptainSeeder.php',
         'CountrySeeder' => __DIR__ . '/../..' . '/database/seeds/CountrySeeder.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CreateCaptainsTable' => __DIR__ . '/../..' . '/database/migrations/2015_07_20_102253_create_captains_table.php',
@@ -1099,6 +1100,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
         'UnitsSeeder' => __DIR__ . '/../..' . '/database/seeds/UnitsSeeder.php',
+        'UserSeeder' => __DIR__ . '/../..' . '/database/seeds/UserSeeder.php',
         'Zizaco\\Entrust\\MigrationCommand' => __DIR__ . '/..' . '/zizaco/entrust/src/commands/MigrationCommand.php',
     );
 

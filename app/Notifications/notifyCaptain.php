@@ -28,6 +28,9 @@ class notifyCaptain extends Notification
         $this->notification_type = $type;
 
     }
+    public  function __construct()
+    {
+    }
 
     /**
      * Get the notification's delivery channels.
@@ -37,9 +40,19 @@ class notifyCaptain extends Notification
      */
     public function via($notifiable)
     {
-        return ['database','broadcast'];
+        return ['database','broadcast','mail'];
     }
 
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toMail($notifiable)
+    {
+      return view(sendemail.blade.php)
+    }
     /**
      * Get the array representation of the notification.
      *

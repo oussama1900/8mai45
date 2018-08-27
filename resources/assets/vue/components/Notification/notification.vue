@@ -1,6 +1,6 @@
 <template>
-<li class="dropdown" style="background-color:white" id="not" >
-    <a class="dropdown-toggle"
+<li class="dropdown pull-right" style="background-color:white;" id="not" >
+    <a class="dropdown-toggle "
        data-toggle="dropdown"
        data-animation="scale-up" aria-expanded="false"
        role="button"
@@ -11,7 +11,7 @@
     <i class="fa fa-bell-o" style="margin-top:5px;color:grey"></i><span class="badge" v-if="unreadsNotification_length !=0">{{unreadsNotification_length}}</span>
 
     </a>
-    <ul class="dropdown-menu" style="margin-top:10px;margin-right:10px;Top:80px ;padding:5px 0 0 0;width:350px;height:350px;" >
+    <ul class="dropdown-menu" style="margin-top:10px;margin-right:-50px;Top:80px ;padding:5px 0 0 0;width:350px;height:350px;">
 
       <li class="header" style="color:black;width:100%;height:40px;margin-top:-10px;text-align: right">
 قائمة التنبيهات للأحداث

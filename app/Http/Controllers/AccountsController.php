@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Scout;
-
+use App\Notifications\SendEmail;
+use Notification;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Sentry;
@@ -19,7 +20,9 @@ use File;
 class AccountsController extends Controller
 {
     //
-  
+
+
+
 
     public function  getUsersAccounts(){
         $accounts =   User::with('profile')->get();
@@ -43,8 +46,15 @@ class AccountsController extends Controller
         return response()->json(["capwithoutcpt"=>$CaptainWithoutCompte]);
     }
     public function  AddNewAccount(Request $request){
+
         $email = $request->input('email');
+
         $scout_id=   DB::table('scouts')->where('email',$email)->value('scout_id');
+        $scout_name = Scout::find($scout_id);
+        $fullname =$scout_name->last_name  .' '.$scout_name->first_name;
+        $governor_id = Captain::where('role','gov')->value('scout_id');
+        $scout = Scout::find($governor_id);
+        $governor = $scout->last_name .' '.$scout->first_name;
 
         if($scout_id){
             $password = $request->input('password');
@@ -54,7 +64,9 @@ class AccountsController extends Controller
 
 
             DB::insert('insert into users(scout_id,email,password,created_at) values(?,?,?,?)',[$scout_id,$email,$password_encrypted,$created_at]);
-            return response()->json(["msg"=>"added Successfully"]);
+  Notification::route('mail', $email)->notify(new SendEmail($fullname,$email,$password,$governor));
+          return response()->json(["msg"=>"added Successfully"]);
+
         }
 
 

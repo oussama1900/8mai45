@@ -10,6 +10,7 @@ return array(
     'AddImageToUsersAndPosts' => $baseDir . '/database/migrations/2018_08_13_175829_add_image_to_users_and_posts.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+    'CaptainSeeder' => $baseDir . '/database/seeds/CaptainSeeder.php',
     'CountrySeeder' => $baseDir . '/database/seeds/CountrySeeder.php',
     'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
     'CreateCaptainsTable' => $baseDir . '/database/migrations/2015_07_20_102253_create_captains_table.php',
@@ -685,5 +686,6 @@ return array(
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
     'TypeError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
     'UnitsSeeder' => $baseDir . '/database/seeds/UnitsSeeder.php',
+    'UserSeeder' => $baseDir . '/database/seeds/UserSeeder.php',
     'Zizaco\\Entrust\\MigrationCommand' => $vendorDir . '/zizaco/entrust/src/commands/MigrationCommand.php',
 );
