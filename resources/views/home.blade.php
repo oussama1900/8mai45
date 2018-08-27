@@ -31,7 +31,7 @@
                                             <h4 class="card-title text-right">{{$event->title}}</h4>
                                             <h6 class="card-subtitle text-muted text-right">{{$event->location}}</h6>
                                         </div>
-                                        <img class="img-fluid hoverZoomLink" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
+                                        <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
                                         <div class="card-body">
                                             <p class="card-text">{!!  $event->description !!}</p>
                                             <a href="#" align="right" class="card-link pink btn btn-outline-primary float-right m-3 text-right">اقرأ اكثر</a>
@@ -44,5 +44,6 @@
                 </div>
             </div>
         </div>
+        <div class="center" style="width: 10%; margin: 10px auto;"  >{{$events->links("pagination::bootstrap-4")}}</div>
     </div>
 @endsection

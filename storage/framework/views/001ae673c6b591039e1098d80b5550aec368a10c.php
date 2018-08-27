@@ -31,7 +31,7 @@
                                             <h4 class="card-title text-right"><?php echo e($event->title); ?></h4>
                                             <h6 class="card-subtitle text-muted text-right"><?php echo e($event->location); ?></h6>
                                         </div>
-                                        <img class="img-fluid hoverZoomLink" src="<?php echo e(asset('images/EventImages/'.$event->event_image)); ?>" alt="<?php echo e($event->title); ?>">
+                                        <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="<?php echo e(asset('images/EventImages/'.$event->event_image)); ?>" alt="<?php echo e($event->title); ?>">
                                         <div class="card-body">
                                             <p class="card-text"><?php echo $event->description; ?></p>
                                             <a href="#" align="right" class="card-link pink btn btn-outline-primary float-right m-3 text-right">اقرأ اكثر</a>
@@ -44,6 +44,7 @@
                 </div>
             </div>
         </div>
+        <div class="center" style="width: 10%; margin: 10px auto;"  ><?php echo e($events->links("pagination::bootstrap-4")); ?></div>
     </div>
 <?php $__env->stopSection(); ?>
 

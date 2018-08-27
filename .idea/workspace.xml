@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="Complete some things stuck and update chat message space + Friend List and completing vice captain space">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/views/001ae673c6b591039e1098d80b5550aec368a10c.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/001ae673c6b591039e1098d80b5550aec368a10c.php" afterDir="false" />
     </list>
@@ -91,10 +92,11 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="36" column="131" selection-start-line="36" selection-start-column="131" selection-end-line="36" selection-end-column="131" />
+            <state relative-caret-position="616">
+              <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
               <folding>
                 <element signature="e#293#342#0#HTML" expanded="true" />
+                <element signature="e#1596#1629#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -609,7 +611,7 @@
       <workItem from="1535063878624" duration="3717000" />
       <workItem from="1535101867109" duration="23763000" />
       <workItem from="1535223235556" duration="6273000" />
-      <workItem from="1535363716339" duration="13989000" />
+      <workItem from="1535363716339" duration="18947000" />
     </task>
     <task id="LOCAL-00001" summary="add rapport space ,Events Space and do some modification to the top navbar">
       <created>1531761718618</created>
@@ -678,7 +680,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="822762000" />
+    <option name="totallyTimeSpent" value="827720000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1048,10 +1050,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="36" column="131" selection-start-line="36" selection-start-column="131" selection-end-line="36" selection-end-column="131" />
+        <state relative-caret-position="616">
+          <caret line="46" column="64" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
           <folding>
             <element signature="e#293#342#0#HTML" expanded="true" />
+            <element signature="e#1596#1629#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
