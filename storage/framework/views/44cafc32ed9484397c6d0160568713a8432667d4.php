@@ -14,8 +14,11 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
-        <link href="<?php echo e(asset('assets/css/landing-page.min.css')); ?>" rel="stylesheet">
-
+        <link href="<?php echo e(asset('assets/css/full-slider.css')); ?>" rel="stylesheet">
+    	<script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+    
+        <script src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -31,7 +34,5 @@
             </main>
         </div>
             <?php echo $__env->make("includes.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-        <script src="<?php echo e(asset('assets/vendor/jquery/jquery.min.js')); ?>"></script>
-        <script src="<?php echo e(asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
     </body>
 </html>

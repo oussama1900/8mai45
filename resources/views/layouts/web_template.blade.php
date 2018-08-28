@@ -14,10 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
-        <link href="{{ asset('assets/css/landing-page.min.css')}}" rel="stylesheet">
-        <link rel='stylesheet prefetch' href='/css/bootstrap2.min.css'>
-
-        <link rel="stylesheet" href="css/style.css">
+        <link href="{{ asset('assets/css/full-slider.css')}}" rel="stylesheet">
     	<script src="{{ asset('js/jquery.min.js') }}"></script>
     
         <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -37,10 +34,5 @@
             </main>
         </div>
             @include("includes.footer")
-            <script src='/js/jquery2.min.js'></script>
-            <script src='/js/bootstrap2.min.js'></script>
-            <script  src="js/index.js"></script>
-        <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
-        <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     </body>
 </html>

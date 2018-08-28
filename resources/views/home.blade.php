@@ -6,32 +6,46 @@
 
 @section('content')
     <!-- Masthead -->
-<div class="container-fluid main">
-<!--carousel-->
-      <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000" style="height:100%">
-          <div class="carousel-inner" role="listbox">
-              <!-- background image should be 890x(500-600)-->
-              <div class="item active background a" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url('https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/35406393_2001873566795487_2274415969004683264_n.jpg?_nc_cat=0&_nc_eui2=AeEC2IH6mFWf6T68R0S32E6eTXhVc9yJ_pbQ0PSGHlQ0CkWM-0Zw1CstcAZbBt3a5CR06qWjRjOtxHW38doNp8VPX-M8zIWtm14fEx1ULPtz7w&oh=ce5090861033105f676f8da1cf9e6582&oe=5BB397C4');">
-                  <div class="covertext">
-                      <div class="col-lg-10" style="float:none; margin:0 auto;">
-                          <h1 class="title">اللقاء التغافري</h1>
-                          <h3 class="subtitle">عيد الفطر</h3>
-                      </div>
-                      <div class="col-xs-12 explore">
-                          <a href="#"><button type="button" class="btn btn-lg explorebtn">اقرا اكثر</button></a>
-                      </div>
-                  </div>
-              </div>
-              <div class="item background b"></div>
-                        <div class="item background c"></div>
-          </div>
-      </div>
-
-    </div>
-
-
-
-
+    <header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('{{asset('images/slide/slide f.jpg')}}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>First Slide</h3>
+                        <p>This is a description for the first slide.</p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 2.jpg')}}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Second Slide</h3>
+                        <p>This is a description for the second slide.</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 3.jpg')}}')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Third Slide</h3>
+                        <p>This is a description for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
 
     <!-- events Showcases -->
     <div class="container mt-3 center" >
@@ -44,9 +58,9 @@
                             @foreach($events as $event)
                                 <div class="card" style="">
                                     <div class="card-content">
-                                        <div class="card-body">
-                                            <h4 class="card-title text-right">{{$event->title}}</h4>
-                                            <h6 class="card-subtitle text-muted text-right">{{$event->location}}</h6>
+                                        <div class="card-header bg-primary ">
+                                            <h4 class="card-title text-right text-white">{{$event->title}}</h4>
+                                            <h6 class="card-subtitle text-right text-white">{{$event->location}}</h6>
                                         </div>
                                         <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
                                         <div class="card-body">
