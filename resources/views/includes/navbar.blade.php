@@ -1,7 +1,7 @@
 <head>
     <style>
         .navbar.solidl {
-            background-color: #395eff;
+            background-color: #6E20A0;
             transition: background-color 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
@@ -16,7 +16,7 @@
         }
 
         #nl,#dropdown04{
-            color: #ffffff;
+            color: white;
             font-weight: bold;
         }
     </style>
@@ -82,7 +82,7 @@
                     <!-- this is the index link -->
                     <a class="nav-link {{ Route::currentRouteNamed('home') ? 'btn btn-outline-light' : '' }}" href="/" style="font-size: medium" id="nl">الرئيسية</a>
                 </li>
-                <li class="nav-item" ><a class="nav-link" href="/" style="font-size: medium;margin-right: 8px;margin-left: 8px"><img src="/uploads/1528370100.png" width="35" height="35"></img></a></li>
+                <li class="nav-item" ><a class="nav-link" href="/" style="font-size: medium;margin-right: 8px;margin-left: 8px;margin-top:-10px"><img src="https://upload.wikimedia.org/wikipedia/ar/2/2d/World_Scout_Emblem_1955.png" width="50" height="50" ></img></a></li>
             </ul>
         </div>
     </div>
@@ -92,7 +92,7 @@
         // Transition effect for navbar
         $(window).scroll(function() {
             // checks if window is scrolled more than 500px, adds/removes solid class
-            if($(this).scrollTop() > 400) {
+            if($(this).scrollTop() > 80) {
                 $('.navbar').addClass('solidl');
             } else {
                 $('.navbar').removeClass('solidl');

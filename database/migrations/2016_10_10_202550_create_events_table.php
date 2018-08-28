@@ -48,7 +48,8 @@ class CreateEventsTable extends Migration
         Schema::create('editedevents', function(Blueprint $table){
             $table->integer('event_id')->unsigned();
             $table->integer('editor')->unsigned();
-            $table->primary(array('event_id', 'editor'));
+            $table->dateTime('updated_at');
+            $table->primary(array('event_id', 'editor','updated_at'));
 
             $table->foreign('event_id')->references('event_id')->on('events')
                     ->onUpdate('cascade')->onDelete('cascade');

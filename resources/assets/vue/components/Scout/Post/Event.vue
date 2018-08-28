@@ -275,7 +275,8 @@
                 var vm = this;
                 axios.post('/api/postEvent',vm.Event).then(function (response) {
 
-                  vm.$router.push('/Events/MyEvents');
+              //    vm.$router.push('/Events/MyEvents');
+          
                 });
             },
             customLabel ({ first_name, last_name }) {

@@ -37,10 +37,46 @@ class EventController extends Controller
         $event_image = $this->insertEventImage($image);
 
 
+        $gov_id = Captain::where('role','gov')->value('scout_id');
+        $med_id = Captain::where('role','med')->value('scout_id');
+        $vmed_id = Captain::where('role','vmed')->value('scout_id');
+
+        $gov_user = User::find($gov_id);
+        $med_user = User::find($med_id);
+        $vmed_user = User::find($vmed_id);
+
+        $current_user = Auth::user();
+        $current_user_fullname=' '.$current_user->profile->last_name .' '.$current_user->profile->first_name.' ';
+
+          $notification_type = '( حدث للموافقة(  '.$type;
 
         if(Auth::user()->captain->role=='trne'){
             $approved = false;
+            $ucap_id = Captain::where('unit',$current_user->captain->unit)->where('role','ucap')->value('scout_id');
+              $vucap_id = Captain::where('unit',$current_user->captain->unit)->where('role','vucap')->value('scout_id');
+                $capa_id = Captain::where('unit',$current_user->captain->unit)->where('role','capa')->value('scout_id');
+
+               $message_forgov="القائد المربص".$current_user_fullname.'قام بوضع حدث جديد منتظرا الموافقة عليه';
+
+              $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+              $med_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+                $ucap_id->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+                  $vucap_id->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+                    $capa_id->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
         }else{
+
+             if(Auth::user()->captain->role!='gov'){
+                  $message_forgov="لقد قام".$current_user_fullname.'بوضع منشور جديد ';
+                    $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+                    if(Auth::user()->captain->role !='med'){
+                      $message_forgov="لقد قام".$current_user_fullname.'بوضع منشور جديد ';
+                        $med_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+                        if(Auth::user()->captain->role !='vmed'){
+                          $vmed_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
+                        }
+                    }
+
+             }
             $approved = true;
         }
 
@@ -70,7 +106,8 @@ class EventController extends Controller
 
 
          $user = User::find($concerned['scout_id']);
-           $user->notify(new notifyCaptain($notification_message,$type,$event_image,$time));
+          $notification_type = '( حدث جديد(  '.$type;
+           $user->notify(new notifyCaptain($notification_message,$notification_type,$event_image,$time));
         }
 
 
@@ -161,21 +198,33 @@ $oldimage = Event::find($event_id)->event_image;
                $notification_image=$event_image;
             $event->event_image = $event_image;
         }
+        $current_user = Auth::user()->profile;
+        $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
+           $message_forgov =" لقد تم تعديل حدث بواسطة".$current_user_fullname;
+           $notification_type = '( تعديل الحدث (  '.$type;
+        $gov_id = Captain::where('role','gov')->value('scout_id');
+        $gov_user = User::find($gov_id);
+          $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$notification_image,$time));
+
+
+          $notification_message =" لقد تم اختيارك من طرف".$current_user_fullname. " الرجاء تأكيد الحضور من عدمه";
+
+           $notification_type = '( تعديل الحدث (  '.$type;
+
         foreach ($Concerned as $con){
             DB::insert('insert into concerned (event_id,scout_id) values(?,?)',[$event_id,$con['scout_id']]);
-            $current_user = Auth::user()->profile;
-            $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
-            $notification_message =" لقد تم اختيارك من طرف".$current_user_fullname. " الرجاء تأكيد الحضور من عدمه";
 
 
             $user = User::find($con['scout_id']);
-              $user->notify(new notifyCaptain($notification_message,$type,$notification_image,$time));
+
+              $user->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$time));
+
         }
 
         $event->save();
 
         $user = Auth::user()->scout_id;
-        $editedevents = DB::insert('insert into editedevents values(?,?)',[$event_id,$user]);
+        $editedevents = DB::insert('insert into editedevents values(?,?,?)',[$event_id,$user,Carbon::now()]);
         return response()->json(["updated"=>"Successfully"]);
     }
     public function deleteOldEventImage($image_name){
@@ -311,6 +360,11 @@ public function getEventsNotApproved(){
 public function approveEvent(Request $request){
         $event_id = $request->input('event_id');
     DB::table('events')->where('event_id',$event_id)->update(['approved'=>true]);
+    $event = Event::find($event_id);
+    $user = Auth::user()->profile;
+    $notification_message ='لقد تم الموافقة على حدث طالبت بنشره من طرق القائد '.$user;
+     $notification_type = '( حدث جديد(  '.$event_type;
+    $event->created_by->notify($notification_message,$notification_type,$event_image,$event_time);
         return response()->json(["approved"=>true]);
 }
 public function disapproveEvent(Request $request){
