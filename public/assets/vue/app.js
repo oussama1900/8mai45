@@ -1,4 +1,4 @@
-﻿/******/ (function(modules) { // webpackBootstrap
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -83193,11 +83193,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Assigning_mission"
 });
-        $.noConflict();
 $(document).ready(function () {
     var date_input = $('input[name="date"]'); //our date input has the name "date"
     var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-  $.noConflict();  date_input.datepicker({
+    date_input.datepicker({
         format: 'mm/dd/yyyy',
         container: container,
         todayHighlight: true,
@@ -85704,6 +85703,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_multiselect_dist_vue_multiselect_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_multiselect_dist_vue_multiselect_min_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_editor__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_editor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_editor__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -85992,11 +85993,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var vm = this;
         axios.get('/api/getCaptains').then(function (response) {
 
-            vm.Captains = response.data.captain;
+            vm.Captains = response.data.captain[0];
+            vm.current_user = response.data.captain[1];
         });
     },
     data: function data() {
-        return {
+        var _ref;
+
+        return _ref = {
+
+            current_user: '',
 
             Captains: [],
 
@@ -86011,12 +86017,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 Concerned: [],
                 unit: ''
 
-            },
-            current_user: '',
-            content: '<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
-            customToolbar: [['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }]]
-
-        };
+            }
+        }, _defineProperty(_ref, 'current_user', ''), _defineProperty(_ref, 'content', '<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>'), _defineProperty(_ref, 'customToolbar', [['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }]]), _ref;
     },
 
     methods: {
@@ -86027,9 +86029,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 vm.$router.push('/Events/MyEvents');
             });
         },
-        customLabel: function customLabel(_ref) {
-            var first_name = _ref.first_name,
-                last_name = _ref.last_name;
+        customLabel: function customLabel(_ref2) {
+            var first_name = _ref2.first_name,
+                last_name = _ref2.last_name;
 
             return ' ' + last_name + ' ' + first_name + ' ';
         },
@@ -86041,8 +86043,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             filereader.onload = function (e) {
                 _this.Event.image = e.target.result;
             };
+        },
+        is_gov: function is_gov() {
+            if (this.current_user.localeCompare('gov') || this.current_user.localeCompare('med') || this.current_user.localeCompare('vmed')) {
+                return true;
+            }
+            return false;
         }
     }
+
 });
 
 /***/ }),
@@ -86596,106 +86605,110 @@ var render = function() {
                 ],
                 1
               )
-            ]),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticStyle: { "font-size": "medium", float: "right" } },
-              [_vm._v("صورة الحدث ")]
-            )
+            ])
           ]
         )
       ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "container   col-md-11 col-sm-11 col-xs-11 text-center card",
-        staticStyle: {
-          margin: "10px",
-          "margin-top": "22px",
-          "border-radius": "5px",
-          "margin-left": "40px",
-          "padding-left": "0px",
-          "padding-right": "0px"
-        }
-      },
-      [
-        _vm._m(6),
-        _vm._v(" "),
-        _c("div", { staticStyle: { margin: "20px", "margin-right": "30px" } }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c(
-                "label",
-                { staticStyle: { float: "right", "font-size": "medium" } },
-                [_vm._v(" الوحدة المقصودة بالحدث")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.Event.unit,
-                      expression: "Event.unit"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "select_unit", dir: "rtl" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.Event,
-                        "unit",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "cubs" } }, [
-                    _vm._v("\tالأشبال")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "sct" } }, [
-                    _vm._v("\tالكشاف")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "asct" } }, [
-                    _vm._v("\tالكشاف المتقدم")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "tvlr" } }, [
-                    _vm._v("\tالجوالة")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "cap" } }, [
-                    _vm._v("\tالقادة")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("وحدة أخرى")])
-                ]
-              )
-            ])
-          ])
-        ])
-      ]
-    ),
+    _vm.is_gov
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "container   col-md-11 col-sm-11 col-xs-11 text-center card",
+            staticStyle: {
+              margin: "10px",
+              "margin-top": "22px",
+              "border-radius": "5px",
+              "margin-left": "40px",
+              "padding-left": "0px",
+              "padding-right": "0px"
+            }
+          },
+          [
+            _vm._m(6),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticStyle: { margin: "20px", "margin-right": "30px" } },
+              [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c(
+                      "label",
+                      {
+                        staticStyle: { float: "right", "font-size": "medium" }
+                      },
+                      [_vm._v(" الوحدة المقصودة بالحدث")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.Event.unit,
+                            expression: "Event.unit"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { id: "select_unit", dir: "rtl" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.Event,
+                              "unit",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "cubs" } }, [
+                          _vm._v("\tالأشبال")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "sct" } }, [
+                          _vm._v("\tالكشاف")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "asct" } }, [
+                          _vm._v("\tالكشاف المتقدم")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "tvlr" } }, [
+                          _vm._v("\tالجوالة")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "cap" } }, [
+                          _vm._v("\tالقادة")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("وحدة أخرى")
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ]
+            )
+          ]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",

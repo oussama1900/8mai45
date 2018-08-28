@@ -178,7 +178,7 @@
             </div>
 
 
-        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" v-if="is_gov">
 
             <div class="header">
 
@@ -288,13 +288,14 @@
             var vm = this;
           axios.get('/api/getCaptains').then(function (response) {
 
-             vm.Captains = response.data.captain;
+             vm.Captains = response.data.captain[0];
+             vm.current_user = response.data.captain[1]
           });
         },
         data(){
             return{
 
-
+                 current_user:'',
 
                 Captains: [],
 
@@ -340,10 +341,16 @@
                 filereader.onload =(e)=>{
                     this.Event.image= e.target.result;
                 };
+            },
+            is_gov(){
+              if(this.current_user.localeCompare('gov') || this.current_user.localeCompare('med') || this.current_user.localeCompare('vmed')){
+                return true;
+              }
+              return false;
             }
 
-
     },
+
     }
 
 </script>
