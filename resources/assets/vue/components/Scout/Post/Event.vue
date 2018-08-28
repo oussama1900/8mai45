@@ -170,16 +170,65 @@
 
                     </div>
                 </div>
-                <label style="font-size: medium;float: right;">صورة الحدث </label>
+
             </div>
 
-            <div class="input-group input-group-file"  style="float:right">
-                <input   class="form-control" name="image_name"
-                       readonly="true"
-                       placeholder="اختر صورة"
 
-                       dir="rtl" >
-                <span class="input-group-btn">
+
+            </div>
+
+
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title"> الوحدة المقصودة بالحدث </h4>
+            </div>
+            <div style="margin: 20px;margin-right: 30px">
+                <div class="row">
+                    <div class="col-md-12" >
+
+                        <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
+                        <select id="select_unit" class="form-control" dir="rtl"  v-model="Event.unit" >
+                            <option value="cubs">	الأشبال</option>
+                            <option value="sct">	الكشاف</option>
+                            <option value="asct">	الكشاف المتقدم</option>
+                            <option value="tvlr">	الجوالة</option>
+                            <option value="cap">	القادة</option>
+                            <option value="">وحدة أخرى</option>
+
+
+                        </select>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        </div>
+
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+            <div class="header">
+
+                <h4 class="title">  اختر صورة الحدث </h4>
+            </div>
+
+            <div style="margin: 20px;margin-right: 30px;">
+                <div class="row">
+                    <div class="col-md-12" style="margin-top:30px">
+
+
+                        <div class="input-group input-group-file"  style="float:right">
+                            <input   class="form-control" name="image_name"
+                                     readonly="true"
+                                     placeholder="اختر صورة"
+
+                                     dir="rtl" >
+                            <span class="input-group-btn">
                                         <span class="btn btn-success btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
                                             <input type="file" name="titleImage" multiple="false"   accept="image/*"
@@ -189,28 +238,29 @@
                                                    ng-model="titleImage">
                                         </span>
                                     </span>
-            </div>
+                        </div>
 
-                <div class="text-center" style="padding: 10px;">
-                    <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="postEvent">
+                    </div>
 
-                        <span class="ladda-spinner"> نشر</span>
-                        <i class="fa fa-save"></i>
-
-
-
-                    </button>
 
                 </div>
+
             </div>
 
+            <div class="text-center" style="padding: 10px;">
+                <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="postEvent">
+
+                    <span class="ladda-spinner"> نشر</span>
+                    <i class="fa fa-save"></i>
 
 
+
+                </button>
+
+            </div>
 
         </div>
-
-
-
+    </div>
 
 
 
@@ -257,9 +307,11 @@
                   location:'',
                     image:'',
                     Concerned: [],
+                    unit:'',
 
 
                 },
+                current_user:'',
                 content:'<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
@@ -275,8 +327,8 @@
                 var vm = this;
                 axios.post('/api/postEvent',vm.Event).then(function (response) {
 
-              //    vm.$router.push('/Events/MyEvents');
-          
+               vm.$router.push('/Events/MyEvents');
+
                 });
             },
             customLabel ({ first_name, last_name }) {
@@ -304,7 +356,7 @@ input[type=text],input[type=date]{
     border-radius: 7px;
     padding:5px
 }
-#select{
+#select,#select_unit{
     border: 1px solid #9C9C9C;
     border-radius: 7px;
 }

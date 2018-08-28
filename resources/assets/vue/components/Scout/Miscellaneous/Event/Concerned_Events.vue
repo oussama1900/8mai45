@@ -19,10 +19,10 @@
                 </div>
 
 
-                <div class="trigger" @click="absence(concern)" title="عدم الحضور">
+                <div class="trigger" :id="'absence'+concern.event_id" @click="absence(concern)" title="عدم الحضور"  v-bind:class="show_presence_button(concern)">
                     <i class="glyphicon glyphicon-remove" ></i>
                 </div>
-                <div class="trigger" style="float: right; right: 0px;" :id="concern.event_id" @click="presence(concern)" title="تأكيد الحضور" >
+                <div class="trigger" style="float: right; right: 0px;" :id="'presence'+concern.event_id" @click="presence(concern)" title="تأكيد الحضور" v-bind:class="show_absence_button(concern)">
                     <i class="glyphicon glyphicon-ok" ></i>
                 </div>
                 <div class="toolbar">
@@ -64,11 +64,15 @@
     export default {
         data(){
             return{
-                concernedevents:'',
+                concernedevents:{
+
+                },
+                user_id:'',
             }
         },
         created:function(){
             this.getConcernedEvents();
+
         },
         methods:{
             getConcernedEvents(){
@@ -79,7 +83,7 @@
 
 
                     vm.concernedevents =response.data.concernedevent[0];
-
+                   vm.user_id = response.data.concernedevent[1];
                 });
             },
             getcurrentmonth(concern){
@@ -105,7 +109,13 @@
                 return hour+':'+minute;
             },
             presence(concern){
+
+                $('#presence'+concern.event_id).hide();
+                $('#absence'+concern.event_id).removeClass("hidden");
+              $('#absence'+concern.event_id).show();
+
                 axios.post('/api/Confirm_presence',concern).then(function (response) {
+
 
 
                 });
@@ -113,13 +123,106 @@
             },
 
             absence(concern){
+              $('#absence'+concern.event_id).hide();
+                $('#presence'+concern.event_id).removeClass("hidden");
+              $('#presence'+concern.event_id).show();
+
                 axios.post('/api/Confirm_absence',concern).then(function (response) {
 
 
                 });
 
-            }
+            },
+            show_presence_button(concern){
 
+
+
+                if(concern.is_concerned.length===1){
+
+                    if(concern.is_concerned[0].presence === 1){
+
+
+                        return 'hidden';
+
+
+                    }else{
+
+                        return '';
+
+                    }
+                }else{
+                    if(concern.is_concerned.length > 1){
+                        for(var i= 0 ;i<concern.is_concerned.length;i++){
+
+                            if(concern.is_concerned[i].scout_id===this.user_id){
+
+                                if(concern.is_concerned[i].presence === 1){
+
+                                    return 'hidden';
+
+
+                                }else{
+
+                                    return '';
+
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+
+
+
+
+            },
+            show_absence_button(concern){
+
+
+
+                if(concern.is_concerned.length===1){
+
+                    if(concern.is_concerned[0].presence === 1){
+
+
+                        return '';
+
+
+                    }else{
+
+                        return 'hidden';
+
+
+                    }
+                }else{
+                    if(concern.is_concerned.length > 1){
+                        for(var i= 0 ;i<concern.is_concerned.length;i++){
+                            if(concern.is_concerned[i].scout_id===this.user_id){
+
+                                if(concern.is_concerned[i].presence === 1){
+
+
+                                    return '';
+
+
+                                }else{
+
+                                    return 'hidden';
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+
+
+
+
+
+            }
 
         }
     }

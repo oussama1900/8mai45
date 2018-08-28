@@ -7,18 +7,18 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <link rel="stylesheet" href="css/app.css"/>
 
+  <link rel="stylesheet" href="css/app.css"/>
   <title>الموقع الرسمي لفوج الفلاح</title>
 
 
 
   <!-- Include Date Range Picker -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
 
   @include('includes.dashdependencies.predeps')
 
@@ -127,6 +127,7 @@
 
 <!-- Vue.js -->
 <script src={{ url("/assets/vue/app.js")}} charset="UTF-8"></script>
+
 <script src="https://unpkg.com/vue-ckeditor2"></script>
 <script src="https://cdn.ckeditor.com/4.6.1/full/ckeditor.js"></script>
 

@@ -7,7 +7,7 @@
 
       <div class="pull-right">
 
-      <img :src="'/images/EventImages/'+ notification.data.data[1]"class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;" v-if="fromDB(notification)">
+      <img :src="'/images/EventImages/'+ notification.data.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;" v-if="fromDB(notification)">
   <img :src="'/images/EventImages/'+ notification.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;" v-else>
       </div>
       <h4 style="text-align:right">

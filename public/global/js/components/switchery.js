@@ -11,7 +11,12 @@ $.components.register("switchery", {
   init: function(context) {
     if (typeof Switchery === "undefined") return;
 
-    var defaults = $.components.getDefaults("switchery");
+    if($.components===undefined){
+
+    }else{
+      var defaults = $.components.getDefaults("switchery");
+    }
+
 
     $('[data-plugin="switchery"]', context).each(function() {
       var options = $.extend({}, defaults, $(this).data());

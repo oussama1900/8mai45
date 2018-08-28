@@ -10,7 +10,10 @@ $.components.register("bootbox", {
   },
   api: function() {
     if (typeof bootbox === "undefined") return;
-    var defaults = $.components.getDefaults("bootbox");
+    if($.components!== undefined){
+      var defaults = $.components.getDefaults("bootbox");
+    }
+
 
     $(document).on('click.site.bootbox', '[data-plugin="bootbox"]', function() {
       var $btn = $(this);

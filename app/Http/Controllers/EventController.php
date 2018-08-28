@@ -34,7 +34,11 @@ class EventController extends Controller
         $image = $request->input('image');
         $created_by = Auth::user()->profile->scout_id;
         $created_at = date('Y-m-d H:i:s');
+        $unit = $request->input('unit');
         $event_image = $this->insertEventImage($image);
+        if($unit==""){
+            $unit = Auth::user()->captain->unit;
+        }
 
 
         $gov_id = Captain::where('role','gov')->value('scout_id');
@@ -92,7 +96,8 @@ class EventController extends Controller
                 'location'=>$location,
                 'created_at'=>$created_at,
                 'event_image'=>$event_image,
-                'approved'=>$approved
+                'approved'=>$approved,
+                'unit'=>$unit,
             ]
         );
 
@@ -107,6 +112,7 @@ class EventController extends Controller
 
          $user = User::find($concerned['scout_id']);
           $notification_type = '( حدث جديد(  '.$type;
+          if($user!=null)
            $user->notify(new notifyCaptain($notification_message,$notification_type,$event_image,$time));
         }
 
@@ -169,11 +175,14 @@ class EventController extends Controller
         $responsible = $request->input('responsible');
         $image = $request->input('image');
         $updated_at = date('Y-m-d H:i:s');
+        $unit = $request->input('unit');
         $event_image="";
         $event = Event::find($event_id);
         $concerned = Concerned::where('event_id',$event_id);
         $concerned->delete();
-
+        if($unit==""){
+            $unit = Auth::user()->captain->unit;
+        }
 
         $event->title =$title;
         $event->description = $desc;
@@ -181,6 +190,7 @@ class EventController extends Controller
         $event->event_time = $time;
         $event->responsible = $responsible;
         $event->location = $location;
+        $event->unit = $unit;
         $event->updated_at = date('Y-m-d H:i:s');
 
 
@@ -204,6 +214,7 @@ $oldimage = Event::find($event_id)->event_image;
            $notification_type = '( تعديل الحدث (  '.$type;
         $gov_id = Captain::where('role','gov')->value('scout_id');
         $gov_user = User::find($gov_id);
+        if($gov_user!=null)
           $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$notification_image,$time));
 
 
@@ -216,7 +227,7 @@ $oldimage = Event::find($event_id)->event_image;
 
 
             $user = User::find($con['scout_id']);
-
+               if($user!=null)
               $user->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$time));
 
         }
@@ -243,14 +254,14 @@ $oldimage = Event::find($event_id)->event_image;
     }
 public function getConcernedEvents(){
         $user_id = Auth::user()->scout_id;
-    $concerned=  DB::select('select Distinct event_id from concerned where scout_id = ?',[$user_id]);
+    $concerned=  DB::select('select  event_id from concerned where scout_id = ?',[$user_id]);
 
         $concerned_event=[];
 
 
 
             foreach ($concerned as $con){
-                $event = Event::with('creator')->where('event_id',$con->event_id)->get();
+                $event = Event::with('creator')->with('is_concerned')->where('event_id',$con->event_id)->get()[0];
                 array_push($concerned_event,$event);
 
             }
@@ -258,7 +269,7 @@ public function getConcernedEvents(){
 
 
 
-    return response()->json(["concernedevent"=>$concerned_event]);
+    return response()->json(["concernedevent"=>[$concerned_event,$user_id]]);
 
 
 }
@@ -266,16 +277,109 @@ public function Confirm_presence(Request $request){
         $user = Auth::user()->scout_id;
         $event_id = $request->input('event_id');
 
+         $event = Event::find($event_id);
+         $concerned = Concerned::where('event_id',$event_id)->where('scout_id','!=',$user);
+        $responsible_id = $event->responsible;
+        $creator_id = $event->created_by;
 
-        DB::update('update concerned set presence = ?,absence_cause = ? where event_id = ? and scout_id = ?',[true,"",$event_id,$user]);
+        $responsible = User::find($responsible_id);
+        $creator = User::find($creator_id);
 
-        return response()->json(["presence"=>true]);
+
+        $current_user = Auth::user()->profile;
+        $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
+        $notification_message = 'القائد'.$current_user_fullname.'أكد حضوره للحدث';
+        $notification_type =   '( تأكيد حضور ('.$event->type;
+        $notification_image = $event->event_image;
+        $notification_time = $event->event_time;
+
+
+
+
+
+
+      DB::update('update concerned set presence = ?  where event_id = ? and scout_id = ?',[0,$event_id,$user]);
+      if($responsible!=null)
+    $re =     $responsible->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$notification_time));
+if($creator!=null)
+  $cr =$creator->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$notification_time));
+
+foreach($concerned as $con){
+    if(Auth::user()->scout_id!=$con['scout_id']){
+      $concerned_cap = User::find($con['scout_id']);
+if($concerned_cap!=null)
+  $concerned_cap->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$notification_time));
+    }
+
+
 }
-public function Confirm_absence(Request $request){
-    $user = Auth::user()->scout_id;
-    $event_id = $request->input('event_id');
+  return response()->json(["presence"=>true]);
+}
+/*public function getConcernedEvents(Request $request){
 
-    DB::update('update concerned set presence = ? where event_id = ? and scout_id = ?',[false,$event_id,$user]);
+
+
+
+
+  $user_id = Auth::user()->scout_id;
+$concerned=  DB::select('select distinct event_id from concerned where scout_id = ?',[$user_id]);
+
+  $concerned_event=[];
+
+
+
+      foreach ($concerned as $con){
+          $event = Event::with('creator')->where('event_id',$con->event_id)->get()[0];
+          array_push($concerned_event,$event);
+
+      }
+
+
+
+
+return response()->json(["concernedevent"=>$concerned_event]);
+}*/
+public function Confirm_absence(Request $request){
+  $user = Auth::user()->scout_id;
+  $event_id = $request->input('event_id');
+
+   $event = Event::find($event_id);
+   $concerned = Concerned::where('event_id',$event_id)->where('scout_id','!=',$user);
+  $responsible_id = $event->responsible;
+  $creator_id = $event->created_by;
+
+  $responsible = User::find($responsible_id);
+  $creator = User::find($creator_id);
+
+
+  $current_user = Auth::user()->profile;
+  $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
+  $notification_message = 'القائد'.$current_user_fullname.'أكد غيابه عن الحدث';
+  $notification_type =   '( تأكيد غياب ('.$event->type;
+  $notification_image = $event->event_image;
+  $notification_time = $event->event_time;
+
+
+
+
+
+
+DB::update('update concerned set presence = ?  where event_id = ? and scout_id = ?',[1,$event_id,$user]);
+if($responsible!=null)
+$re =     $responsible->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$notification_time));
+if($creator!=null)
+$cr =$creator->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$notification_time));
+
+foreach($concerned as $con){
+if(Auth::user()->scout_id!=$con['scout_id']){
+$concerned_cap = User::find($con['scout_id']);
+if($concerned_cap!=null)
+$concerned_cap->notify(new notifyCaptain($notification_message,$notification_type,$notification_image,$notification_time));
+}
+
+
+}
+
     return response()->json(["absence"=>false]);
 }
 public function getPresenceEvents(){
@@ -364,6 +468,7 @@ public function approveEvent(Request $request){
     $user = Auth::user()->profile;
     $notification_message ='لقد تم الموافقة على حدث طالبت بنشره من طرق القائد '.$user;
      $notification_type = '( حدث جديد(  '.$event_type;
+     if($event->created_by!=null)
     $event->created_by->notify($notification_message,$notification_type,$event_image,$event_time);
         return response()->json(["approved"=>true]);
 }

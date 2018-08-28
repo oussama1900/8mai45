@@ -7,6 +7,7 @@ $.components.register("toastr", {
   mode: "api",
   api: function() {
     if (typeof toastr === "undefined") return;
+    if($.components!==undefined)
     var defaults = $.components.getDefaults("toastr");
 
     $(document).on('click.site.toastr', '[data-plugin="toastr"]', function(e) {

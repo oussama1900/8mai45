@@ -1,4 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
+﻿/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -68632,7 +68632,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            concernedevents: ''
+            concernedevents: {},
+            user_id: ''
         };
     },
 
@@ -68645,6 +68646,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/api/getConcernedEvents').then(function (response) {
 
                 vm.concernedevents = response.data.concernedevent[0];
+                vm.user_id = response.data.concernedevent[1];
             });
         },
         getcurrentmonth: function getcurrentmonth(concern) {
@@ -68667,10 +68669,76 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return hour + ':' + minute;
         },
         presence: function presence(concern) {
+
+            $('#presence' + concern.event_id).hide();
+            $('#absence' + concern.event_id).removeClass("hidden");
+            $('#absence' + concern.event_id).show();
+
             axios.post('/api/Confirm_presence', concern).then(function (response) {});
         },
         absence: function absence(concern) {
+            $('#absence' + concern.event_id).hide();
+            $('#presence' + concern.event_id).removeClass("hidden");
+            $('#presence' + concern.event_id).show();
+
             axios.post('/api/Confirm_absence', concern).then(function (response) {});
+        },
+        show_presence_button: function show_presence_button(concern) {
+
+            if (concern.is_concerned.length === 1) {
+
+                if (concern.is_concerned[0].presence === 1) {
+
+                    return 'hidden';
+                } else {
+
+                    return '';
+                }
+            } else {
+                if (concern.is_concerned.length > 1) {
+                    for (var i = 0; i < concern.is_concerned.length; i++) {
+
+                        if (concern.is_concerned[i].scout_id === this.user_id) {
+
+                            if (concern.is_concerned[i].presence === 1) {
+
+                                return 'hidden';
+                            } else {
+
+                                return '';
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        show_absence_button: function show_absence_button(concern) {
+
+            if (concern.is_concerned.length === 1) {
+
+                if (concern.is_concerned[0].presence === 1) {
+
+                    return '';
+                } else {
+
+                    return 'hidden';
+                }
+            } else {
+                if (concern.is_concerned.length > 1) {
+                    for (var i = 0; i < concern.is_concerned.length; i++) {
+                        if (concern.is_concerned[i].scout_id === this.user_id) {
+
+                            if (concern.is_concerned[i].presence === 1) {
+
+                                return '';
+                            } else {
+
+                                return 'hidden';
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     /*the floating button css*/
@@ -68767,7 +68835,11 @@ var render = function() {
                     "div",
                     {
                       staticClass: "trigger",
-                      attrs: { title: "عدم الحضور" },
+                      class: _vm.show_presence_button(concern),
+                      attrs: {
+                        id: "absence" + concern.event_id,
+                        title: "عدم الحضور"
+                      },
                       on: {
                         click: function($event) {
                           _vm.absence(concern)
@@ -68781,8 +68853,12 @@ var render = function() {
                     "div",
                     {
                       staticClass: "trigger",
+                      class: _vm.show_absence_button(concern),
                       staticStyle: { float: "right", right: "0px" },
-                      attrs: { id: concern.event_id, title: "تأكيد الحضور" },
+                      attrs: {
+                        id: "presence" + concern.event_id,
+                        title: "تأكيد الحضور"
+                      },
                       on: {
                         click: function($event) {
                           _vm.presence(concern)
@@ -83117,10 +83193,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Assigning_mission"
 });
+        $.noConflict();
 $(document).ready(function () {
     var date_input = $('input[name="date"]'); //our date input has the name "date"
     var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-    date_input.datepicker({
+  $.noConflict();  date_input.datepicker({
         format: 'mm/dd/yyyy',
         container: container,
         todayHighlight: true,
@@ -85606,7 +85683,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\ninput[type=text][data-v-33191298],input[type=date][data-v-33191298]{\r\n    border-top: 1px solid #9C9C9C;\r\n    border-right: 1px solid #9C9C9C;\r\n    border-left: 1px solid #9C9C9C;\r\n    border-radius: 7px;\r\n    padding:5px\n}\n#select[data-v-33191298]{\r\n    border: 1px solid #9C9C9C;\r\n    border-radius: 7px;\n}\n.card[data-v-33191298]{\r\n    margin-top:6%;\r\n    margin-left: 40px;\n}\r\n/*the small size*/\n@media (max-width: 480px) {\n.icon[data-v-33191298] {\r\n        width: 70px;\r\n        height: 70px;\n}\n.card[data-v-33191298]{\r\n        margin-top: 17%;\r\n        margin-left: 16px;\n}\n}\r\n\r\n/*the medium size*/\n@media (max-width: 720px) {\n.icon[data-v-33191298] {\r\n        width: 70px;\r\n        height: 70px;\n}\n.card[data-v-33191298]{\r\n        margin-top: 25%;\r\n        margin-left: 25px;\n}\n}\n.header[data-v-33191298]{\r\n    background-color: rgb(51, 181, 229);\r\n    backdrop-filter: blur(5px);\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\n}\n.header .title[data-v-33191298]{\r\n    color:white;\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\ninput[type=text][data-v-33191298],input[type=date][data-v-33191298]{\r\n    border-top: 1px solid #9C9C9C;\r\n    border-right: 1px solid #9C9C9C;\r\n    border-left: 1px solid #9C9C9C;\r\n    border-radius: 7px;\r\n    padding:5px\n}\n#select[data-v-33191298],#select_unit[data-v-33191298]{\r\n    border: 1px solid #9C9C9C;\r\n    border-radius: 7px;\n}\n.card[data-v-33191298]{\r\n    margin-top:6%;\r\n    margin-left: 40px;\n}\r\n/*the small size*/\n@media (max-width: 480px) {\n.icon[data-v-33191298] {\r\n        width: 70px;\r\n        height: 70px;\n}\n.card[data-v-33191298]{\r\n        margin-top: 17%;\r\n        margin-left: 16px;\n}\n}\r\n\r\n/*the medium size*/\n@media (max-width: 720px) {\n.icon[data-v-33191298] {\r\n        width: 70px;\r\n        height: 70px;\n}\n.card[data-v-33191298]{\r\n        margin-top: 25%;\r\n        margin-left: 25px;\n}\n}\n.header[data-v-33191298]{\r\n    background-color: rgb(51, 181, 229);\r\n    backdrop-filter: blur(5px);\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\n}\n.header .title[data-v-33191298]{\r\n    color:white;\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -85627,6 +85704,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_multiselect_dist_vue_multiselect_min_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_multiselect_dist_vue_multiselect_min_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_editor__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_editor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_editor__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -85881,9 +86008,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 time: '',
                 location: '',
                 image: '',
-                Concerned: []
+                Concerned: [],
+                unit: ''
 
             },
+            current_user: '',
             content: '<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
             customToolbar: [['bold', 'italic', 'underline'], [{ 'list': 'ordered' }, { 'list': 'bullet' }]]
 
@@ -85895,8 +86024,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var vm = this;
             axios.post('/api/postEvent', vm.Event).then(function (response) {
 
-                //    vm.$router.push('/Events/MyEvents');
-
+                vm.$router.push('/Events/MyEvents');
             });
         },
         customLabel: function customLabel(_ref) {
@@ -86476,51 +86604,172 @@ var render = function() {
               [_vm._v("صورة الحدث ")]
             )
           ]
-        ),
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "container   col-md-11 col-sm-11 col-xs-11 text-center card",
+        staticStyle: {
+          margin: "10px",
+          "margin-top": "22px",
+          "border-radius": "5px",
+          "margin-left": "40px",
+          "padding-left": "0px",
+          "padding-right": "0px"
+        }
+      },
+      [
+        _vm._m(6),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "input-group input-group-file",
-            staticStyle: { float: "right" }
-          },
-          [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                name: "image_name",
-                readonly: "true",
-                placeholder: "اختر صورة",
-                dir: "rtl"
-              }
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "input-group-btn" }, [
-              _c("span", { staticClass: "btn btn-success btn-file" }, [
-                _c("i", {
-                  staticClass: "icon wb-upload",
-                  attrs: { "aria-hidden": "true" }
-                }),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: {
-                    type: "file",
-                    name: "titleImage",
-                    multiple: "false",
-                    accept: "image/*",
-                    id: "titleImage",
-                    "ng-model": "titleImage"
-                  },
+        _c("div", { staticStyle: { margin: "20px", "margin-right": "30px" } }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c(
+                "label",
+                { staticStyle: { float: "right", "font-size": "medium" } },
+                [_vm._v(" الوحدة المقصودة بالحدث")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.Event.unit,
+                      expression: "Event.unit"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "select_unit", dir: "rtl" },
                   on: {
                     change: function($event) {
-                      _vm.setEventImage($event)
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.Event,
+                        "unit",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
                     }
                   }
-                })
-              ])
+                },
+                [
+                  _c("option", { attrs: { value: "cubs" } }, [
+                    _vm._v("\tالأشبال")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "sct" } }, [
+                    _vm._v("\tالكشاف")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "asct" } }, [
+                    _vm._v("\tالكشاف المتقدم")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "tvlr" } }, [
+                    _vm._v("\tالجوالة")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "cap" } }, [
+                    _vm._v("\tالقادة")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "" } }, [_vm._v("وحدة أخرى")])
+                ]
+              )
             ])
-          ]
-        ),
+          ])
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "container   col-md-11 col-sm-11 col-xs-11 text-center card",
+        staticStyle: {
+          margin: "10px",
+          "margin-top": "22px",
+          "border-radius": "5px",
+          "margin-left": "40px",
+          "padding-left": "0px",
+          "padding-right": "0px"
+        }
+      },
+      [
+        _vm._m(7),
+        _vm._v(" "),
+        _c("div", { staticStyle: { margin: "20px", "margin-right": "30px" } }, [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-md-12",
+                staticStyle: { "margin-top": "30px" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "input-group input-group-file",
+                    staticStyle: { float: "right" }
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "image_name",
+                        readonly: "true",
+                        placeholder: "اختر صورة",
+                        dir: "rtl"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "input-group-btn" }, [
+                      _c("span", { staticClass: "btn btn-success btn-file" }, [
+                        _c("i", {
+                          staticClass: "icon wb-upload",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: {
+                            type: "file",
+                            name: "titleImage",
+                            multiple: "false",
+                            accept: "image/*",
+                            id: "titleImage",
+                            "ng-model": "titleImage"
+                          },
+                          on: {
+                            change: function($event) {
+                              _vm.setEventImage($event)
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -86597,6 +86846,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "header" }, [
       _c("h4", { staticClass: "title" }, [_vm._v("وصف الحدث")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "header" }, [
+      _c("h4", { staticClass: "title" }, [_vm._v(" الوحدة المقصودة بالحدث ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "header" }, [
+      _c("h4", { staticClass: "title" }, [_vm._v("  اختر صورة الحدث ")])
     ])
   }
 ]
@@ -96391,7 +96656,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96444,7 +96709,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         ImageExist: function ImageExist(user) {
 
-            if (user === undefined) {
+            if (user === undefined || user.profile.image === undefined) {
                 return false;
             } else {
 
@@ -96457,18 +96722,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         userstate: function userstate(user_id) {
 
-            if (this.check_existence(this.usersinroom, user_id)) {
+            if (user_id !== undefined) {
+                if (this.check_existence(this.usersinroom, user_id)) {
 
-                document.getElementById(user_id.toString()).style.color = "green";
+                    document.getElementById(user_id.toString()).style.color = "green";
 
-                return true;
-            } else {
-                if (document.getElementById(user_id.toString()) == null) {} else {
+                    return true;
+                } else {
+                    if (document.getElementById(user_id.toString()) == null) {} else {
 
-                    document.getElementById(user_id.toString()).style.color = "#bbbaba";
+                        document.getElementById(user_id.toString()).style.color = "#bbbaba";
+                    }
+
+                    return false;
                 }
-
-                return false;
             }
         },
         check_existence: function check_existence(online_users, user_id) {

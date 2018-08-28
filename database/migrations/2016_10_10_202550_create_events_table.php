@@ -27,6 +27,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('updated_at');
             $table->text('event_image');
             $table->boolean('approved');
+            $table->string('unit',10);
 
             $table->foreign('responsible')->references('scout_id')->on('users')
                   ->onUpdate('cascade')->onDelete('cascade');

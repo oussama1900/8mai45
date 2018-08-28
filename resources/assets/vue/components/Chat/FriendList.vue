@@ -47,7 +47,7 @@
             },
             ImageExist(user){
 
-                if(user===undefined){
+                if(user===undefined || user.profile.image=== undefined){
                     return false;
                 }
                 else{
@@ -65,27 +65,30 @@
            userstate(user_id){
 
 
-
-         if(this.check_existence(this.usersinroom,user_id)){
-
-
-
-             document.getElementById(user_id.toString()).style.color="green";
-
-                return true;
-            }else{
-             if( document.getElementById(user_id.toString())==null) {
-             }else{
+                if(user_id !== undefined){
+                    if(this.check_existence(this.usersinroom,user_id)){
 
 
 
-                 document.getElementById(user_id.toString()).style.color="#bbbaba";
-             }
+                        document.getElementById(user_id.toString()).style.color="green";
+
+                        return true;
+                    }else{
+                        if( document.getElementById(user_id.toString())==null) {
+                        }else{
 
 
 
-                return false;
-            }
+                            document.getElementById(user_id.toString()).style.color="#bbbaba";
+                        }
+
+
+
+                        return false;
+                    }
+                }
+
+
            },
             check_existence(online_users,user_id){
 
