@@ -70,6 +70,18 @@
         }
     </style>
 </head>
+<?php
+    if (Route::currentRouteNamed('home') || Route::currentRouteNamed('about') || Route::currentRouteNamed('captains') || Route::currentRouteNamed('news')){
+        $nav_color = 'lp';
+        $nav_logo = '/images/logonav.png';
+        $solid_color = 'solidl';
+    }
+    if (Route::currentRouteNamed('cubs')){
+        $nav_color = 'cp';
+        $nav_logo = '/images/cubslogo.jpg';
+        $solid_color = 'solidc';
+    }
+?>
 
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
     <div   style="width: 100%" >
@@ -81,40 +93,40 @@
             <ul class="navbar-nav ml-auto"  >
                 <li class="nav-item">
                     <!-- this is the about link -->
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> <?php echo e(Route::currentRouteNamed('about') ? 'activenav' : ''); ?>" href="/about" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف علينا</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('about') ? 'activenav' : ''); ?>" href="/about" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف علينا</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> <?php echo e(Route::currentRouteNamed('captains') ? 'activenav' : ''); ?>" href="/captains" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('captains') ? 'activenav' : ''); ?>" href="/captains" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
                 </li>
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> <?php echo e(Route::currentRouteNamed('cubs') ? 'activenav' : ''); ?> dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px">الأفواج</a>
-                    <div class="dropdown-menu <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('cubs') ? 'activenav' : ''); ?> dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px">الأفواج</a>
+                    <div class="dropdown-menu <?php echo e($nav_color); ?> align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
 
-                                    <a class="dropdown-item <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> <?php echo e(Route::currentRouteNamed('cubs') ? 'activenav' : ''); ?>" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الكشاف</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('cubs') ? 'activenav' : ''); ?>" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الكشاف</a>
 
-                                    <a class="dropdown-item <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="#">الأشبال</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="#">الأشبال</a>
 
-                                    <a class="dropdown-item <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">الجوالة</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">الجوالة</a>
 
-                                    <a class="dropdown-item <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="#">المتقدم</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="#">المتقدم</a>
 
-                                    <a class="dropdown-item <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
 
                     </div>
                 </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> <?php echo e(Route::currentRouteNamed('news') ? 'activenav' : ''); ?>" href="#" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('news') ? 'activenav' : ''); ?>" href="#" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the index link -->
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?> <?php echo e(Route::currentRouteNamed('home') ? 'activenav' : ''); ?>" href="/" style="font-size: medium" id="nl">الرئيسية</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('home') ? 'activenav' : ''); ?>" href="/" style="font-size: medium" id="nl">الرئيسية</a>
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link <?php echo e(Route::currentRouteNamed('cubs') ? 'cp' : 'lp'); ?>" href="/" style="font-size: medium;margin-right: 8px;margin-left: 8px;margin-top:-10px">
-                        <img src="<?php echo e(Route::currentRouteNamed('cubs') ? '/images/cubslogo.jpg' : '/images/logonav.png'); ?>" width="50" height="50" >
+                    <a class="nav-link <?php echo e($nav_color); ?>" href="/" style="font-size: medium;margin-right: 8px;margin-left: 8px;margin-top:-10px">
+                        <img src="<?php echo e($nav_logo); ?>" width="50" height="50" >
                     </a>
                 </li>
             </ul>
@@ -127,9 +139,9 @@
         $(window).scroll(function() {
             // checks if window is scrolled more than 500px, adds/removes solid class
             if($(this).scrollTop() > 80) {
-                $('.navbar').addClass('<?php echo e(Route::currentRouteNamed('cubs') ? 'solidc' : 'solidl'); ?>');
+                $('.navbar').addClass('<?php echo e($solid_color); ?>');
             } else {
-                $('.navbar').removeClass('<?php echo e(Route::currentRouteNamed('cubs') ? 'solidc' : 'solidl'); ?>');
+                $('.navbar').removeClass('<?php echo e($solid_color); ?>');
             }
         });
     });
