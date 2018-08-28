@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function cubs()
     {
-        $events = Event::orderby('created_at','desc')->paginate(3);
+        $events = Event::where('unit','cubs')->orderby('created_at','desc')->paginate(3);
         return view('pages.units.cubs')->with('events',$events);
     }
 
