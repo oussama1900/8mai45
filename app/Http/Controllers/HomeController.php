@@ -33,6 +33,12 @@ class HomeController extends Controller
         return view('home')->with('events',$events);
     }
 
+    public function cubs()
+    {
+        $events = Event::orderby('created_at','desc')->paginate(3);
+        return view('pages.units.cubs')->with('events',$events);
+    }
+
     public function about()
     {
         return view('pages.about');

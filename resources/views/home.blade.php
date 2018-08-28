@@ -1,9 +1,44 @@
 <!-- this is used to extend from the app layout -->
 @extends('layouts.web_template')
+<head>
+    <style>
+        .btn-outline-primary.btn-custom {
+            color: #6E20A0;
+            background-color: transparent;
+            background-image: none;
+            border-color: #6E20A0;
+        }
 
+        .btn-outline-primary.btn-custom:hover {
+            color: #fff;
+            background-color: #6E20A0;
+            border-color: #6E20A0;
+        }
+
+        .btn-outline-primary.btn-custom:focus, .btn-outline-primary.btn-custom.focus {
+            box-shadow: 0 0 0 0.2rem rgba(149, 43, 217, 0.5);
+        }
+
+        .btn-outline-primary.btn-custom.disabled, .btn-outline-primary.btn-custom:disabled {
+            color: #6E20A0;
+            background-color: transparent;
+        }
+
+        .btn-outline-primary.btn-custom:not(:disabled):not(.disabled):active, .btn-outline-primary.btn-custom:not(:disabled):not(.disabled).active,
+        .show > .btn-outline-primary.btn-custom.dropdown-toggle {
+            color: #fff;
+            background-color: #6E20A0;
+            border-color: #6E20A0;
+        }
+
+        .btn-outline-primary.btn-custom:not(:disabled):not(.disabled):active:focus, .btn-outline-primary.btn-custom:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-outline-primary.btn-custom.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(149, 43, 217, 0.5);
+        }
+    </style>
+</head>
 <!-- this is the content of our index page  ,
     all of the page content must be inside the content section -->
-
 @section('content')
     <!-- Masthead -->
     <header>
@@ -58,14 +93,14 @@
                             @foreach($events as $event)
                                 <div class="card" style="">
                                     <div class="card-content">
-                                        <div class="card-header bg-primary ">
+                                        <div class="card-header" style="background-color: #6E20A0;">
                                             <h4 class="card-title text-right text-white">{{$event->title}}</h4>
                                             <h6 class="card-subtitle text-right text-white">{{$event->location}}</h6>
                                         </div>
                                         <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
                                         <div class="card-body">
                                             <p class="card-text">{!!  $event->description !!}</p>
-                                            <a href="#" align="right" class="card-link pink btn btn-outline-primary float-right m-3 text-right">اقرأ اكثر</a>
+                                            <a href="#" align="right" class="card-link btn btn-outline-primary btn-custom float-right m-3 text-right">اقرأ اكثر</a>
                                         </div>
                                     </div>
                                 </div>

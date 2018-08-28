@@ -31,8 +31,9 @@
             @include("includes.navbar")
             <main>
                 @yield('content')
+
             </main>
         </div>
-            @include("includes.footer")
     </body>
+    @include("includes.footer")
 </html>
