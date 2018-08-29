@@ -27,7 +27,7 @@
         }
 
         .dropdown-menu.lp{
-            background-color:#2b53ce;
+            background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);
             border: 1px solid #ffffff;
             border-radius: 5px;
         }
@@ -62,7 +62,7 @@
         }
 
         .dropdown-menu.cp{
-            background-color:#ffd700;
+            background-image: linear-gradient(to bottom right, #FDEB71, #F8D800);
             border: 1px solid #ffffff;
             border-radius: 5px;
         }
@@ -97,7 +97,7 @@
         }
 
         .dropdown-menu.sp{
-            background-color:#00cc00;
+            background-image: linear-gradient(to bottom right, #FFF720, #3CD500);
             border: 1px solid #ffffff;
             border-radius: 5px;
         }
@@ -132,7 +132,7 @@
         }
 
         .dropdown-menu.asp{
-            background-color:#701700;
+            background-image: linear-gradient(to bottom right, #F05F57, #360940);
             border: 1px solid #ffffff;
             border-radius: 5px;
         }
@@ -167,7 +167,7 @@
         }
 
         .dropdown-menu.tp{
-            background-color:#ee2c2c ;
+            background-image: linear-gradient(to bottom right, #FEB692, #EA5455);
             border: 1px solid #ffffff;
             border-radius: 5px;
         }
