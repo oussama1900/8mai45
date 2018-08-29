@@ -2,8 +2,8 @@
     /* Landing page navbar color styling */
 
         .navbar.solidl {
-            background-color: #2b53ce;
-            transition: background-color 1s ease 0s;
+            background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);
+            transition: all 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
 
@@ -48,7 +48,7 @@
         }
 
         .navbar.solidc {
-            background-color: #ffd700;
+            background-image: linear-gradient(to bottom right, #FDEB71, #F8D800);
             transition: background-color 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
@@ -83,7 +83,7 @@
         }
 
         .navbar.solids {
-            background-color: #00cc00;
+            background-image: linear-gradient(to bottom right, #FFF720, #3CD500);
             transition: background-color 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
@@ -118,7 +118,7 @@
         }
 
         .navbar.solidas {
-            background-color: #701700;
+            background-image: linear-gradient(to bottom right, #F05F57, #360940);
             transition: background-color 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
@@ -153,7 +153,7 @@
         }
 
         .navbar.solidt {
-            background-color: #ee2c2c ;
+            background-image: linear-gradient(to bottom right, #FEB692, #EA5455);
             transition: background-color 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }

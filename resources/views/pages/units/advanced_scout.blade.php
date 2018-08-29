@@ -16,11 +16,11 @@
         }
 
         .btn-outline-primary.btn-custom:focus, .btn-outline-primary.btn-custom.focus {
-            box-shadow: 0 0 0 0.2rem rgba(255, 51, 0, 0.39);
+            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
         }
 
         .btn-outline-primary.btn-custom.disabled, .btn-outline-primary.btn-custom:disabled {
-            color: #701700;
+            color: #fff;
             background-color: transparent;
         }
 
@@ -33,7 +33,28 @@
 
         .btn-outline-primary.btn-custom:not(:disabled):not(.disabled):active:focus, .btn-outline-primary.btn-custom:not(:disabled):not(.disabled).active:focus,
         .show > .btn-outline-primary.btn-custom.dropdown-toggle:focus {
-            box-shadow: 0 0 0 0.2rem rgba(255, 51, 0, 0.39);
+            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.1);
+        }
+
+        .card-img span {
+            position: absolute;
+            top: 5%;
+            background: #701700;
+            padding: 6px;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -o-border-radius: 4px;
+
+        }
+        .card-img span h4{
+            font-size: 12px;
+            margin:0;
+            padding:10px 5px;
+            line-height: 0;
         }
     </style>
 </head>
@@ -82,34 +103,5 @@
         </div>
     </header>
 
-    <!-- events Showcases -->
-    <div class="container mt-3 center" >
-        <h3 class="center text-center">آخر اخبارنا</h3>
-        <div class="row">
-            <div class="col">
-                <div class="card-deck-wrapper">
-                    <div class="card-deck">
-                        @if($events->count()>0)
-                            @foreach($events as $event)
-                                <div class="card" style="">
-                                    <div class="card-content">
-                                        <div class="card-header" style="background-color: #701700;">
-                                            <h4 class="card-title text-right text-white">{{$event->title}}</h4>
-                                            <h6 class="card-subtitle text-right text-white">{{$event->location}}</h6>
-                                        </div>
-                                        <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
-                                        <div class="card-body">
-                                            <p class="card-text">{!!  $event->description !!}</p>
-                                            <a href="#" align="right" class="card-link btn btn-outline-primary btn-custom float-right m-3 text-right">اقرأ اكثر</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="center" style="width: 10%; margin: 10px auto;"  >{{$events->links("pagination::bootstrap-4")}}</div>
-    </div>
+    @include('includes.news')
 @endsection
