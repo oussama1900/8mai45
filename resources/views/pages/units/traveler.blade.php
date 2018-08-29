@@ -12,6 +12,7 @@
         .btn-outline-primary.btn-custom:hover {
             color: #fff;
             background-image: linear-gradient(to bottom right, #FEB692, #EA5455);
+            background-color: #EA5455;
             border-color: #ffffff;
         }
 
