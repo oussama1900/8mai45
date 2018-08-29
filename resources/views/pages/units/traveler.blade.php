@@ -11,8 +11,8 @@
 
         .btn-outline-primary.btn-custom:hover {
             color: #fff;
-            background-color: #ee2c2c;
-            border-color: #ee2c2c;
+            background-image: linear-gradient(to bottom right, #FEB692, #EA5455);
+            border-color: #ffffff;
         }
 
         .btn-outline-primary.btn-custom:focus, .btn-outline-primary.btn-custom.focus {

@@ -67,7 +67,7 @@
                                                     }
                                                 @endphp
 
-                                                <h6 class="card-subtitle text-right" style="color: grey">{{$unit_name}}</h6>
+                                                <small class="card-subtitle text-right float-right" style="color: grey">{{$unit_name}}</small>
                                                 <a href="#" class="btn btn-outline-primary btn-custom btn-block mt-3">اقرأ اكثر</a>
                                             </div>
                                         </div>
