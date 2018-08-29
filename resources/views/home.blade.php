@@ -3,37 +3,37 @@
 <head>
     <style>
         .btn-outline-primary.btn-custom {
-            color: #6E20A0;
+            color: #2b53ce;
             background-color: transparent;
             background-image: none;
-            border-color: #6E20A0;
+            border-color: #2b53ce;
         }
 
         .btn-outline-primary.btn-custom:hover {
             color: #fff;
-            background-color: #6E20A0;
-            border-color: #6E20A0;
+            background-color: #2b53ce;
+            border-color: #2b53ce;
         }
 
         .btn-outline-primary.btn-custom:focus, .btn-outline-primary.btn-custom.focus {
-            box-shadow: 0 0 0 0.2rem rgba(149, 43, 217, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(54, 101, 255, 0.27);
         }
 
         .btn-outline-primary.btn-custom.disabled, .btn-outline-primary.btn-custom:disabled {
-            color: #6E20A0;
+            color: #2b53ce;
             background-color: transparent;
         }
 
         .btn-outline-primary.btn-custom:not(:disabled):not(.disabled):active, .btn-outline-primary.btn-custom:not(:disabled):not(.disabled).active,
         .show > .btn-outline-primary.btn-custom.dropdown-toggle {
             color: #fff;
-            background-color: #6E20A0;
-            border-color: #6E20A0;
+            background-color: #2b53ce;
+            border-color: #2b53ce;
         }
 
         .btn-outline-primary.btn-custom:not(:disabled):not(.disabled):active:focus, .btn-outline-primary.btn-custom:not(:disabled):not(.disabled).active:focus,
         .show > .btn-outline-primary.btn-custom.dropdown-toggle:focus {
-            box-shadow: 0 0 0 0.2rem rgba(149, 43, 217, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(54, 101, 255, 0.27);
         }
     </style>
 </head>
@@ -93,7 +93,7 @@
                             @foreach($events as $event)
                                 <div class="card" style="">
                                     <div class="card-content">
-                                        <div class="card-header" style="background-color: #6E20A0;">
+                                        <div class="card-header" style="background-color: #2b53ce;">
                                             <h4 class="card-title text-right text-white">{{$event->title}}</h4>
                                             <h6 class="card-subtitle text-right text-white">{{$event->location}}</h6>
                                         </div>

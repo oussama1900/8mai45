@@ -20,6 +20,9 @@ use App\Notifications\notifyCaptain;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/cubs', 'HomeController@cubs')->name('cubs');
+Route::get('/scout', 'HomeController@scout')->name('scout');
+Route::get('/advanced_scout', 'HomeController@advanced_scout')->name('advanced_scout');
+Route::get('/traveler', 'HomeController@traveler')->name('traveler');
 Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/login', 'DashboardController@index');

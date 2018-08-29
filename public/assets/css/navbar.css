@@ -1,0 +1,193 @@
+
+    /* Landing page navbar color styling */
+
+        .navbar.solidl {
+            background-color: #2b53ce;
+            transition: background-color 1s ease 0s;
+            box-shadow: 0 0 4px grey;
+        }
+
+        .navbar.solidl .navbar-brand {
+            color: #ffffff;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidl .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 1s ease 0s;
+        }
+
+        .nav-link.lp:hover,.dropdown-item.lp:hover{
+            background-color: #2b53ce;
+            color: #FFFFFF;
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu.lp{
+            background-color:#2b53ce;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+    /* end of Landing page navbar color styling */
+
+    /* cubs page navbar color styling */
+
+        .navbar.solidc .navbar-brand {
+            color: #ffffff;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidc .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidc {
+            background-color: #ffd700;
+            transition: background-color 1s ease 0s;
+            box-shadow: 0 0 4px grey;
+        }
+
+        .nav-link.cp:hover,.dropdown-item.cp:hover{
+            background-color: #ffd700;
+            color: #FFFFFF;
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu.cp{
+            background-color:#ffd700;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+    /* end of cubs page navbar color styling */
+
+    /* scout page navbar color styling */
+
+        .navbar.solids .navbar-brand {
+            color: #ffffff;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solids .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solids {
+            background-color: #00cc00;
+            transition: background-color 1s ease 0s;
+            box-shadow: 0 0 4px grey;
+        }
+
+        .nav-link.sp:hover,.dropdown-item.sp:hover{
+            background-color: #00cc00;
+            color: #FFFFFF;
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu.sp{
+            background-color:#00cc00;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+    /* end of scout page navbar color styling */
+
+    /* advanced scout page navbar color styling */
+
+        .navbar.solidas .navbar-brand {
+            color: #ffffff;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidas .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidas {
+            background-color: #701700;
+            transition: background-color 1s ease 0s;
+            box-shadow: 0 0 4px grey;
+        }
+
+        .nav-link.asp:hover,.dropdown-item.asp:hover{
+            background-color: #701700;
+            color: #FFFFFF;
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu.asp{
+            background-color:#701700;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+    /* end of advanced scout page navbar color styling */
+
+    /* traveler page navbar color styling */
+
+        .navbar.solidt .navbar-brand {
+            color: #ffffff;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidt .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 1s ease 0s;
+        }
+
+        .navbar.solidt {
+            background-color: #ee2c2c ;
+            transition: background-color 1s ease 0s;
+            box-shadow: 0 0 4px grey;
+        }
+
+        .nav-link.tp:hover,.dropdown-item.tp:hover{
+            background-color: #ee2c2c ;
+            color: #FFFFFF;
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu.tp{
+            background-color:#ee2c2c ;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+    /* end of traveler page navbar color styling */
+
+    /* navbar font */
+
+        #nl,#dropdown04{
+            color: white;
+            font-weight: bold;
+        }
+
+    /* end of navbar font */
+
+    /* active navbar elment styling */
+
+        .activenav{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+        }
+
+    /* end of active navbar elment styling */

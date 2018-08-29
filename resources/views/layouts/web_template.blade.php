@@ -7,9 +7,15 @@
 
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom css -->
+        <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
+
+        <!-- Website icon -->
         <link rel="icon"
               type="image/png"
               href="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Algerian_Muslim_Scouts.svg/1200px-Algerian_Muslim_Scouts.svg.png">
+
         <!-- Custom fonts for this template -->
         <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/vendor/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet" type="text/css">

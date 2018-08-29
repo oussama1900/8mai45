@@ -39,6 +39,24 @@ class HomeController extends Controller
         return view('pages.units.cubs')->with('events',$events);
     }
 
+    public function scout()
+    {
+        $events = Event::where('unit','sct')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.scout')->with('events',$events);
+    }
+
+    public function advanced_scout()
+    {
+        $events = Event::where('unit','asct')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.advanced_scout')->with('events',$events);
+    }
+
+    public function traveler()
+    {
+        $events = Event::where('unit','tvlr')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.traveler')->with('events',$events);
+    }
+
     public function about()
     {
         return view('pages.about');

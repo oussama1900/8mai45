@@ -1,85 +1,43 @@
-<head>
-    <style>
-        .navbar.solidl {
-            background-color: #6E20A0;
-            transition: background-color 1s ease 0s;
-            box-shadow: 0 0 4px grey;
-        }
-
-        .navbar.solidl .navbar-brand {
-            color: #ffffff;
-            transition: color 1s ease 0s;
-        }
-        .navbar.solidl .navbar-nav > li > a {
-            color: #ffffff;
-            font-weight: bold;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidc .navbar-brand {
-            color: #ffffff;
-            transition: color 1s ease 0s;
-        }
-        .navbar.solidc .navbar-nav > li > a {
-            color: #ffffff;
-            font-weight: bold;
-            transition: color 1s ease 0s;
-        }
-        .navbar.solidc {
-            background-color: #105528;
-            transition: background-color 1s ease 0s;
-            box-shadow: 0 0 4px grey;
-        }
-
-        #nl,#dropdown04{
-            color: white;
-            font-weight: bold;
-        }
-
-        .activenav{
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-        .nav-link.lp:hover,.dropdown-item.lp:hover{
-            background-color: #6E20A0;
-            color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-        .nav-link.cp:hover,.dropdown-item.cp:hover{
-            background-color: #105528;
-            color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-        .dropdown-menu.lp{
-            background-color:#6E20A0;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-        .dropdown-menu.cp{
-            background-color:#105528;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-    </style>
-</head>
 <?php
-    if (Route::currentRouteNamed('home') || Route::currentRouteNamed('about') || Route::currentRouteNamed('captains') || Route::currentRouteNamed('news')){
+
         $nav_color = 'lp';
-        $nav_logo = '/images/logonav.png';
+        $nav_logo = '/images/landing_page_Logo.png';
         $solid_color = 'solidl';
-    }
+        $activenavu = '';
+        $activenavc = '';
+        $activenavs = '';
+        $activenavas = '';
+        $activenavt = '';
+
     if (Route::currentRouteNamed('cubs')){
         $nav_color = 'cp';
-        $nav_logo = '/images/cubslogo.jpg';
+        $nav_logo = '/images/cubs_logo.jpg';
         $solid_color = 'solidc';
+        $activenavu = 'activenav';
+        $activenavc = 'activenav';
+    }
+    if (Route::currentRouteNamed('scout')){
+        $nav_color = 'sp';
+        $nav_logo = '/images/scout_logo.jpg';
+        $solid_color = 'solids';
+        $activenavu = 'activenav';
+        $activenavs = 'activenav';
+    }
+
+    if (Route::currentRouteNamed('advanced_scout')){
+        $nav_color = 'asp';
+        $nav_logo = '/images/advanced_scout_logo.jpg';
+        $solid_color = 'solidas';
+        $activenavu = 'activenav';
+        $activenavas = 'activenav';
+    }
+
+    if (Route::currentRouteNamed('traveler')){
+        $nav_color = 'tp';
+        $nav_logo = '/images/traveler_logo.png';
+        $solid_color = 'solidt';
+        $activenavu = 'activenav';
+        $activenavt = 'activenav';
     }
 ?>
 
@@ -101,16 +59,16 @@
                 </li>
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('cubs') ? 'activenav' : ''); ?> dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px">الأفواج</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e($activenavu); ?> dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px">الأفواج</a>
                     <div class="dropdown-menu <?php echo e($nav_color); ?> align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
 
-                                    <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('cubs') ? 'activenav' : ''); ?>" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الكشاف</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavc); ?>" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a>
 
-                                    <a class="dropdown-item <?php echo e($nav_color); ?> align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="#">الأشبال</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavs); ?> align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a>
 
-                                    <a class="dropdown-item <?php echo e($nav_color); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">الجوالة</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavas); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a>
 
-                                    <a class="dropdown-item <?php echo e($nav_color); ?> align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="#">المتقدم</a>
+                                    <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavt); ?> align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a>
 
                                     <a class="dropdown-item <?php echo e($nav_color); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
 
