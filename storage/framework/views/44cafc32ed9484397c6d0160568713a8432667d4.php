@@ -10,6 +10,8 @@
 
         <!-- Custom css -->
         <link href="<?php echo e(asset('assets/css/navbar.css')); ?>" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/owl.carousel.css')); ?>" />
+        <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/owl.theme.default.css')); ?>" />
 
         <!-- Website icon -->
         <link rel="icon"
@@ -22,11 +24,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
+
         <link href="<?php echo e(asset('assets/css/full-slider.css')); ?>" rel="stylesheet">
     	<script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
-
         <script src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
         <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/js/filter-gallery.js')); ?>"></script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
@@ -42,6 +45,9 @@
 
             </main>
         </div>
+        <?php echo $__env->make("includes.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <script src="<?php echo e(asset('assets/js/owl.carousel.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/js/main.js')); ?>"></script>
     </body>
-    <?php echo $__env->make("includes.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 </html>

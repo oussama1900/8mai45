@@ -10,6 +10,8 @@
 
         <!-- Custom css -->
         <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}" />
+        <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.css') }}" />
 
         <!-- Website icon -->
         <link rel="icon"
@@ -22,11 +24,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
+
         <link href="{{ asset('assets/css/full-slider.css')}}" rel="stylesheet">
     	<script src="{{ asset('js/jquery.min.js') }}"></script>
-
         <script src="{{ asset('js/popper.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/filter-gallery.js') }}"></script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -42,6 +45,9 @@
 
             </main>
         </div>
+        @include("includes.footer")
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
     </body>
-    @include("includes.footer")
+
 </html>

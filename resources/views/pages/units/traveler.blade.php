@@ -40,6 +40,7 @@
         .card-img span {
             position: absolute;
             top: 5%;
+            right: 0%;
             background: #ee2c2c;
             padding: 6px;
             color: #fff;

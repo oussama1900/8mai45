@@ -23,6 +23,7 @@ Route::get('/cubs', 'HomeController@cubs')->name('cubs');
 Route::get('/scout', 'HomeController@scout')->name('scout');
 Route::get('/advanced_scout', 'HomeController@advanced_scout')->name('advanced_scout');
 Route::get('/traveler', 'HomeController@traveler')->name('traveler');
+Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/login', 'DashboardController@index');

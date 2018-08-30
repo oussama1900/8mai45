@@ -57,6 +57,12 @@ class HomeController extends Controller
         return view('pages.units.traveler')->with('events',$events);
     }
 
+    public function news()
+    {
+        $events = Event::orderby('created_at','desc')->get();
+        return view('pages.news')->with('events',$events);
+    }
+
     public function about()
     {
         return view('pages.about');

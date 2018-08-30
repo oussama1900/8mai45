@@ -36,8 +36,9 @@
         }
 
         .card-img span {
-            position: absolute;
+            position:absolute;
             top: 5%;
+            right: 0%;
             background: #2b53ce;
             padding: 6px;
             color: #fff;

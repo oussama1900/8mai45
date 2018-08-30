@@ -74,7 +74,7 @@
                 </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
-                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('news') ? 'activenav' : ''); ?>" href="#" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('news') ? 'activenav' : ''); ?>" href="/news" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the index link -->
