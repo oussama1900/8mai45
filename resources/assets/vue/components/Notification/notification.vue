@@ -11,9 +11,9 @@
     <i class="fa fa-bell-o" style="margin-top:5px;color:grey"></i><span class="badge" v-if="unreadsNotification_length !=0">{{unreadsNotification_length}}</span>
 
     </a>
-    <ul class="dropdown-menu" style="margin-top:10px;margin-right:-50px;Top:80px ;padding:5px 0 0 0;width:350px;height:350px;">
+    <ul class="dropdown-menu" style="margin-top: 12px;margin-right: -50px;padding: 0px 0px 0px !important;width: 350px;height: 350px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
 
-      <li class="header" style="color:black;width:100%;height:40px;margin-top:-10px;text-align: right">
+      <li class="header" style="color: white;width: 100%;margin-top: 0px;text-align: right;background-color: rgb(51, 181, 229);border-top-left-radius: 10px;border-top-right-radius: 10px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;padding-top: 0px;">
 قائمة التنبيهات للأحداث
 
       </li>
@@ -22,7 +22,7 @@
                 <ul class="menu" >
                   <!--start-->
 
-                  <notification-content v-for="notification in Notification " :notification="notification" :unreads="unreadsNotifications"></notification-content>
+                  <notification-content v-for="(notification,index) in Notification " :notification="notification" :index="index" :unreads="unreadsNotifications"></notification-content>
 
 
 

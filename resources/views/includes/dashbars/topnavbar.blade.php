@@ -27,7 +27,7 @@
 
     margin-top: -15px;
 ">
-                        <strong id="username">{{Auth::user()->profile->getFullName()}}</strong>
+                        <strong id="username" style="float:right;height: 20px;">{{Auth::user()->profile->getFullName()}}</strong>
 
                     </p>
                     <p style="
@@ -37,7 +37,7 @@
 
     margin-bottom: 0px;
 ">
-                        <span style="float:right;height: 30px;font-size:small">قائد الفوج</span>
+                        <span style="float:right;height: 30px;font-size:12px">{{Auth::user()->captain->assignedRole->getRole()}}  <small>{{Auth::user()->captain->assignedRole->getUnit()}}</small></span>
 
                     </p>
                     <div style="text-align:right;height: 0px;font-size:small">
@@ -100,14 +100,14 @@
 
 
 
-                @if (Auth::user()->hasRole('gov'))
+              
                     <li >
                         <a onclick="Navigate()">
                         <i id="chatro" class="icon fa fa-comment-o"  aria-hidden="true"></i>
                         </a>
 
                     </li>
-                @endif
+
             </ul><!-- End Navbar Toolbar Right -->
             <div  id="mySidenav" class="slidePanel slidePanel-right site-sidebar slidePanel-show" style="transform: translate3d(0%, 0px, 0px);width: 0px">
                 <div id="chatvue" style="height:100%;">

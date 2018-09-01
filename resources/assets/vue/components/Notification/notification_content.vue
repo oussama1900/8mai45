@@ -2,7 +2,7 @@
 
 
   <li style="width:100%;color:black;margin-right:0px;padding-top:10px;padding-bottom:10px" ><!-- start message -->
-      <hr style="margin: 0px;">
+      <hr style="margin: 0px;" v-if="index!=0">
          <a  style="background-color: white;text-decoration:none;padding-right:5px;padding-left:5px">
 
       <div class="pull-right">
@@ -54,7 +54,7 @@ background-color:white
 
 <script>
 export default{
-props:['notification'],
+props:['notification','index'],
 
 data(){
 return{

@@ -14,22 +14,22 @@ class UnitsSeeder extends Seeder
     {
         Unit::create([
             'unit_id'   => 'cubs',
-            'unit_name' => 'units.cubs'
+            'unit_name' => ' الأشبال'
         ]);
 
         Unit::create([
             'unit_id'   => 'sct',
-            'unit_name' => 'units.sct'
+            'unit_name' => ' الكشاف'
         ]);
 
         Unit::create([
             'unit_id'   => 'asct',
-            'unit_name' => 'units.asct'
+            'unit_name' => ' الكشاف المتقدم'
         ]);
 
         Unit::create([
             'unit_id'   => 'tvlr',
-            'unit_name' => 'units.tvlr'
+            'unit_name' => ' الجوالة'
         ]);
     }
 }

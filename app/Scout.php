@@ -64,4 +64,5 @@ class Scout extends Model
 
         return $image;
     }
+
 }

@@ -16,7 +16,7 @@
                   </a>
                   <ul class="site-menu-sub">
                     <li class="site-menu-item">
-                        <router-link class="animsition-link" to="/hub"/>
+                        <router-link class="animsition-link" to="/"/>
                         <span class="site-menu-title">{{ trans('app.home')}}</span>
                     </li>
                   </ul>

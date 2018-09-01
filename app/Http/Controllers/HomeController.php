@@ -16,11 +16,11 @@ class HomeController extends Controller
      */
     protected $foo;
 	public function __construct(Foo $foo)
-	{		 
+	{
 	   $this->foo = $foo;
-	   
+
     }
-	
+
 
     /**
      * Show the application dashboard.

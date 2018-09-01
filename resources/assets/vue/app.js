@@ -135,7 +135,7 @@ Vue.component('friend-list',require('./components/Chat/FriendList.vue'));
 
 const routes = [
     {
-        path: "/hub",
+        path: "/",
         component: Hub
     },
 
@@ -330,6 +330,7 @@ const router = new VueRouter({routes});
 
 const app = new Vue({
     el: '#app',
+
     router,
 
 

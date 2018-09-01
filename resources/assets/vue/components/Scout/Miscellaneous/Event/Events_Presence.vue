@@ -66,7 +66,8 @@
                 axios.get('/api/getPresenceEvents').then(function (response) {
 
 
-                    vm.presenceevents = response.data.presence_events[0];
+
+                    vm.presenceevents = response.data.presence_events;
                 });
             },
             getcurrentmonth(event){

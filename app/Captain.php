@@ -33,4 +33,8 @@ class Captain extends Model
     public  function isResponsible(){
         return $this->hasMany('App\Event','responsible','scout_id');
     }
+    public function unit_name(){
+        return $this->belongsTo('App\Unit','unit','unit_id');
+    }
+
 }

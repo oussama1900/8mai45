@@ -139,7 +139,7 @@
 
                 if(concern.is_concerned.length===1){
 
-                    if(concern.is_concerned[0].presence === 1){
+                    if(concern.is_concerned[0].presence === 0){
 
 
                         return 'hidden';
@@ -156,7 +156,7 @@
 
                             if(concern.is_concerned[i].scout_id===this.user_id){
 
-                                if(concern.is_concerned[i].presence === 1){
+                                if(concern.is_concerned[i].presence === 0){
 
                                     return 'hidden';
 
@@ -183,7 +183,7 @@
 
                 if(concern.is_concerned.length===1){
 
-                    if(concern.is_concerned[0].presence === 1){
+                    if(concern.is_concerned[0].presence === 0){
 
 
                         return '';
@@ -200,7 +200,7 @@
                         for(var i= 0 ;i<concern.is_concerned.length;i++){
                             if(concern.is_concerned[i].scout_id===this.user_id){
 
-                                if(concern.is_concerned[i].presence === 1){
+                                if(concern.is_concerned[i].presence === 0){
 
 
                                     return '';
