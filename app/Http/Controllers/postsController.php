@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\PostImage;
+use Auth;
+use DB;
+use Carbon\Carbon;
 
 class postsController extends Controller
 {
@@ -25,11 +29,85 @@ class postsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createNewPost(Request $request)
     {
-        return view('post.writePost');
+
+        $post_title = $request->input('post_title');
+        $post_date = $request->input('post_date');
+        $location = $request->input('location');
+        $description = $request->input('description');
+        $post_summary = $request->input('post_summary');
+        $post_type = $request->input('post_type');
+        $cover_image = $request->input('cover_image');
+        $repo ='PostCover';
+        $cover_image = $this->insertImage($cover_image,$repo,$repo);
+        $user = Auth::user();
+        $user_unit = $user ->captain->unit;
+
+        if($user_unit==""){
+            $user_unit = $user->captain->role;
+
+        }
+
+        $post_id = DB::table('posts')->insertGetId(
+
+
+             [
+                 'post_title'=>$post_title,
+                 'posted_by'=>$user->scout_id,
+                 'linked_unit'=>$user_unit,
+                 'post_date'=>$post_date,
+                 'location'=>$location,
+                 'description'=>$description,
+                 'post_summary'=>$post_summary,
+                 'post_type'=>$post_type,
+                 'cover_image'=>$cover_image,
+
+             ]
+        );
+
+
+        $images = $request->input('post_images');
+        $title ="post_images";
+        $repo = 'Postimages';
+        for($i=0;$i<count($images);$i++){
+
+            $post_image[$i] = $this->insertImage($images[$i],$title,$repo);
+            DB::insert('insert into postimages(post_id,image) values (?,?)',[ $post_id,$post_image[$i]]);
+
+        }
+
+        return response()->json(["message"=>"created Successfully"]);
     }
 
+    /**
+     * @param $image
+     * @return string
+     */
+    public function insertImage($image,$title,$repo){
+
+        if($image==""){
+            $filename="";
+        }else{
+            $expl = explode(',',$image);
+            $decode = base64_decode($expl[1]);
+            if(str_contains($expl[0],'png')){
+                $exte= 'png';
+
+            }else{
+                $exte= 'jpeg';
+            }
+
+            $filename = $title.'-'. date('YmdHis',time()).mt_rand().'.'.$exte;
+            $filepath = public_path().'/images/'.$repo.'/'.$filename;
+
+
+            file_put_contents($filepath,$decode);
+
+        }
+        return $filename;
+
+    }
     /**
      * Store a newly created resource in storage.
      *

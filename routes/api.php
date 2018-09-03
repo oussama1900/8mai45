@@ -16,9 +16,7 @@ use App\Events\MessagePosted;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth.basic');
-Route::get('/getCalenderEvents',
-[  'uses' =>'EventController@getCalenderEvents']
-);
+Route::get('/getCalenderEvents',[  'uses' =>'EventController@getCalenderEvents']);
 Route::get('/scouts/cubs',[
 
     'uses' =>'ScoutController@getScouts'
@@ -179,6 +177,11 @@ Route::get('/getEventsApproved',[
 Route::get('/getUnitEvents/{unit_number}',[
     'uses' =>'EventController@getUnitEvents'
 ]);
+Route::post('/newpost',[
+    'uses' =>'postsController@createNewPost'
+]);
+
+
 
 
 Route::post('/marsNotificationAsRead',function(){
