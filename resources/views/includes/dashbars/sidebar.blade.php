@@ -185,6 +185,30 @@
                           </li>
                       </ul>
                   </li>
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.Posts')}}</span>
+                          <span class="site-menu-arrow"/>
+
+                      </a>
+
+                      <ul class="site-menu-sub">
+                          <!--recived repoorts sidebar item-->
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/myposts"/>
+                              <span class="site-menu-title">{{ trans('app.MyPosts')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/myunitposts"/>
+                              <span class="site-menu-title">{{ trans('app.MyUnitPosts')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/approveposts"/>
+                              <span class="site-menu-title">{{ trans('app.ApprovePosts')}}</span>
+                          </li>
+                      </ul>
+                  </li>
                           <!--the Miscellaneous sidebar item-->
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">

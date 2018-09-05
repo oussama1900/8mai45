@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->text('post_summary');
             $table->string('post_type');
+            $table->boolean('approved');
             $table->timestamps();
             $table->foreign('posted_by')->references('scout_id')->on('users');
             $table->foreign('linked_unit')->references('unit_id')->on('units');
@@ -40,7 +41,7 @@ class CreatePostsTable extends Migration
             $table->integer('post_id')->unsigned();
             $table->integer('editor')->unsigned();
             $table->dateTime('updated_at');
-            $table->primary(array('post_id', 'editor'));
+            $table->primary(array('post_id', 'editor','updated_at'));
 
             $table->foreign('post_id')->references('post_id')->on('posts')
                     ->onUpdate('cascade')->onDelete('cascade');

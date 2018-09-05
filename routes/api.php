@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Events\MessagePosted;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -180,6 +181,38 @@ Route::get('/getUnitEvents/{unit_number}',[
 Route::post('/newpost',[
     'uses' =>'postsController@createNewPost'
 ]);
+
+Route::get('/getMyPosts',[
+    'uses' =>'postsController@getMyPosts'
+]);
+
+Route::get('/getMyUnitPosts',[
+    'uses' =>'postsController@getMyUnitPosts'
+]);
+Route::get('/getPostsNotApproved',[
+    'uses' =>'postsController@getPostsNotApproved'
+]);
+Route::get('/getPostsApproved',[
+    'uses' =>'postsController@getPostsApproved'
+]);
+Route::delete('/deletepost/{post_id}',[
+    'uses' =>'postsController@DeletePost'
+]);
+Route::post('/approvePost/{post_id}',[
+    'uses' =>'postsController@ApprovePost'
+]);
+Route::post('/disapprovePost/{post_id}',[
+    'uses' =>'postsController@DisapprovePost'
+]);
+Route::get('/getPost/{post_id}',[
+    'uses' =>'postsController@getPost'
+]);
+Route::post('/EditPost/{post_id}',[
+    'uses' =>'postsController@EditPost'
+]);
+Route::get('/current_user',function (){
+    return response()->json(["current_user"=>Auth::user()->captain->role]);
+});
 
 
 

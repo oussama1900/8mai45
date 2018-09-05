@@ -32,6 +32,10 @@ import Events_Presence from './components/Scout/Miscellaneous/Event/Events_Prese
 import Events_absence from './components/Scout/Miscellaneous/Event/Events_absence';
 import AllEvents from './components/Scout/Miscellaneous/Event/MyUnitEvents';
 import ApproveEvents from './components/Scout/Miscellaneous/Event/ApproveEvents';
+import MyPosts from './components/Scout/Miscellaneous/Post/MyPosts';
+import MyUnitPosts from './components/Scout/Miscellaneous/Post/MyUnitPosts';
+import ApprovedPosts from './components/Scout/Miscellaneous/Post/ApprovePosts';
+import EditPost from './components/Scout/Miscellaneous/Post/EditPost';
 
 
 import notification from './components/Notification/notification';
@@ -310,6 +314,26 @@ const routes = [
     {
         path:"/myposts/event/:id",
         component:EditEvent
+
+    },
+    {
+        path:"/posts/myposts",
+        component:MyPosts
+
+    },
+    {
+        path:"/posts/myunitposts",
+        component:MyUnitPosts
+
+    },
+    {
+        path:"/posts/approveposts",
+        component:ApprovedPosts
+
+    },
+    {
+        path:"/post/EditPost/:id",
+        component:EditPost
 
     }
 

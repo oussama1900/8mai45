@@ -67,6 +67,17 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
+                        <div  class="text-center" style="padding: 10px;" v-if="show_summ">
+                            <div class="btn btn-primary ladda-button"  @click="show_summary()">
+
+                                <span class="ladda-spinner">  اظهر النص السابق</span>
+
+
+
+
+                            </div>
+
+                        </div>
                         <vue-editor v-model="post.post_summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
 
                     </div>
@@ -92,6 +103,17 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
+                        <div  class="text-center" style="padding: 10px;" v-if="show_desc">
+                            <div class="btn btn-primary ladda-button"  @click="show_description()">
+
+                                <span class="ladda-spinner">  اظهر النص السابق</span>
+
+
+
+
+                            </div>
+
+                        </div>
                         <vue-editor v-model="post.description" :editorToolbar="customToolbar"></vue-editor>
 
 
@@ -102,71 +124,6 @@
             </div>
 
 
-
-
-        </div>
-        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" v-if="is_gov()">
-
-            <div class="header">
-
-                <h4 class="title"> الوحدة المقصودة  </h4>
-            </div>
-            <div style="margin: 20px;margin-right: 30px">
-                <div class="row">
-                    <div class="col-md-12" >
-
-                        <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <select id="select_unit" class="form-control" dir="rtl"  v-model="post.linked_unit" >
-                            <option value="cubs">	الأشبال</option>
-                            <option value="sct">	الكشاف</option>
-                            <option value="asct">	الكشاف المتقدم</option>
-                            <option value="tvlr">	الجوالة</option>
-                            <option value="cap">	القادة</option>
-                            <option value="">وحدة أخرى</option>
-
-
-                        </select>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-        </div>
-        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" v-if="is_med()">
-
-            <div class="header">
-
-                <h4 class="title"> الوحدة المقصودة  </h4>
-            </div>
-            <div style="margin: 20px;margin-right: 30px">
-                <div class="row">
-                    <div class="col-md-12" >
-
-                        <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <select id="select_unit_med" class="form-control" dir="rtl"  v-model="post.linked_unit" >
-                            <option value="med">	الاعلام</option>
-                            <option value="cubs">	الأشبال</option>
-                            <option value="sct">	الكشاف</option>
-                            <option value="asct">	الكشاف المتقدم</option>
-                            <option value="tvlr">	الجوالة</option>
-                            <option value="cap">	القادة</option>
-                            <option value="fin">المالية</option>
-                            <option value="surv">متابعة البرامج وتنفيذ الخطط</option>
-                            <option value="csd">خدمة و تنمية المجتمع</option>
-
-
-                        </select>
-
-                    </div>
-
-
-                </div>
-
-            </div>
 
 
         </div>
@@ -202,7 +159,6 @@
         </div>
 
 
-
         <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
 
             <div class="header">
@@ -214,6 +170,13 @@
 
                     <div class="col-md-12" >
 
+                        <div id="cover_image_container" v-if="post.cover_image.length!==0">
+
+                            <img :src="'/images/PostCover/'+post.cover_image"  style="width:100%;" v-if="post.cover_image.includes('PostCover')">
+                            <img :src="post.cover_image"  style="width:100%;" v-else>
+
+
+                        </div>
                         <div class="input-group input-group-file" style="margin-top:15px">
                             <input type="text"  class="form-control" name="image_name" readonly="true" placeholder="اختر صورة" dir="rtl" >
                             <span class="input-group-btn">
@@ -225,23 +188,7 @@
 
                                         </span>
                                     </span>
-
                         </div>
-                        <div id="cover_image_container" v-if="post.cover_image.localeCompare('')!==0">
-                            <img :src="post.cover_image"  style="width:100%;">
-
-                        </div>
-                        <sweet-modal  style="padding:0px" ref="cover" >
-
-                            <div id="cover_image_container_model" v-if="post.cover_image.localeCompare('')!==0">
-                                <img :src="post.cover_image"  style="width:100%;">
-
-                            </div>
-
-
-                        </sweet-modal>
-
-
 
                     </div>
 
@@ -277,31 +224,20 @@
                                         </span>
                                     </span>
                         </div>
-                        <div class="row" id="post_images_container" v-if="post.post_images.length!==0">
-                            <div v-for="image in post.post_images" class="col-md-4" >
-                                <a>
-                                    <img  :src="image" style="height: 100px;width:100%;margin-bottom:10px" >
-                                    <span id="delete_image" class="fa fa-remove" style=" line-height: 18px;" @click="remove_image(image)"></span>
-                                </a>
-                            </div>
 
-
+                    </div>
+                    <div class="row" id="post_images_container" v-if="post_images.length!==0" style="margin:20px">
+                        <div v-for="post_image in post_images" class="col-md-4" >
+                            <a v-if="post_image.image !==undefined">
+                                <img  :src=" '/images/Postimages/'+ post_image.image" style="height: 100px;width:100%;margin-bottom:10px" >
+                                <span id="delete_image" class="fa fa-remove" style=" line-height: 18px;" @click="remove_image(post_image)"></span>
+                            </a>
+                            <a v-else>
+                                <img  :src="post_image" style="height: 100px;width:100%;margin-bottom:10px" >
+                                <span id="delete_image2" class="fa fa-remove" style=" line-height: 18px;" @click="remove_image(post_image)"></span>
+                            </a>
                         </div>
-                        <sweet-modal  style="padding:0px" ref="images" >
 
-                            <div class="row" id="post_images_container_model" v-if="post.post_images.length!==0">
-                                <div v-for="image in post.post_images" class="col-md-4" >
-                                    <a>
-                                    <img  :src="image" style="height: 100px;width:100%;margin-bottom:10px" >
-                                    <span id="delete_image_model" class="fa fa-remove" style=" line-height: 18px;" @click="remove_image(image)"></span>
-                                    </a>
-                                </div>
-
-
-                            </div>
-
-
-                        </sweet-modal>
 
                     </div>
 
@@ -312,7 +248,7 @@
 
 
             <div class="text-center" style="padding: 10px;">
-                <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="postNews()">
+                <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="EditPost()">
 
                     <span class="ladda-spinner"> نشر</span>
                     <i class="fa fa-save"></i>
@@ -337,7 +273,7 @@
 
 
 
-    import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
+
 
 
     import { VueEditor } from 'vue2-editor'
@@ -347,10 +283,7 @@
 
     export default{
         components: {
-            VueEditor,
-            SweetModal,
-            SweetModalTab,
-
+            VueEditor
         },
         data(){
             return {
@@ -359,17 +292,26 @@
                     post_title:'',
                     post_date:'',
                     location:'',
-                    description:'<h5 style="text-align: right" dir="rtl"> الخبر</h5>',
-                    post_summary:'<h5 style="text-align: right" dir="rtl">ملخص الخبر</h5>',
+                    description:'',
+                    post_summary:'',
                     post_type:'',
                     cover_image:'',
-                    post_images:[],
-                    linked_unit:''
+
+
+
+
 
 
 
                 },
-                current_user:'',
+                post_images_deleted:[],
+                post_images:[],
+                new_post_images:[],
+                description:'',
+                summary:'',
+                show_desc:true,
+                show_summ:true,
+
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
@@ -379,22 +321,29 @@
             }
         },
         created:function(){
-            var vm = this;
-           axios.get('/api/current_user').then(function (response) {
-               vm.current_user = response.data.current_user;
-
-           })
+          this.getData();
         },
         methods:{
-            postNews(){
-              var vm = this;
-              axios.post('/api/newpost',vm.post).then(function (response) {
+            getData(){
+                var vm = this;
+                var post_id = this.$route.params.id;
+                axios.get('/api/getPost/'+post_id).then(function (response) {
+                    vm.post = response.data.post[0];
+                    vm.post_images =response.data.post[1];
+                     vm.description = vm.post.description;
+                     vm.summary = vm.post.post_summary;
+                });
+            },
 
-                 vm.$router.push('/posts/myposts');
+            EditPost(){
+              var vm = this;
+              var post_id = this.$route.params.id;
+              axios.post('/api/EditPost/'+post_id,{post:vm.post,new_post_images:vm.new_post_images,post_images_deleted:vm.post_images_deleted}).then(function (response) {
+
+                 vm.$router.go(-1);
               });
             },
             setPostCover(e){
-                this.$refs.cover.open();
                 var filereader = new FileReader();
                 filereader.readAsDataURL(e.target.files[0]);
                 filereader.onload =(e)=>{
@@ -403,7 +352,6 @@
 
             },
             setPostImages(e){
-                this.$refs.images.open();
                 var  image_count=  e.target.files.length;
                 var filereader = new Array();
 
@@ -412,31 +360,37 @@
 
                     filereader[i].readAsDataURL(e.target.files[i]);
                     filereader[i].onload =(e)=>{
-                        this.post.post_images.push(e.target.result);
+                        this.post_images.push(e.target.result);
+                        this.new_post_images.push(e.target.result);
                     };
-
                 }
 
 
 
 
             },
-            remove_image(image){
-                var image_postion = this.post.post_images.indexOf(image);
-                this.post.post_images.splice(image_postion,1);
+            show_summary(){
+                this.post.post_summary = this.summary;
+                this.show_summ = false;
             },
-            is_gov(){
+            show_description(){
+                this.post.description = this.description;
+                this.show_desc = false;
+            },
+            remove_image(post_image){
+                if(post_image.image ===undefined){
+                    var image_postion = this.post_images.indexOf(post_image);
+                    var new_image_pos = this.post_images.indexOf(post_image);
+                    this.post_images.splice(image_postion,1);
+                    this.new_post_images.splice(new_image_pos,1);
 
-                if(this.current_user.localeCompare('gov')===0  ){
-                    return true;
+                }else{
+
+                    this.post_images_deleted.push(post_image);
+                    var position = this.post_images.indexOf(post_image);
+                    this.post_images.splice(position,1);
                 }
-                return false;
-            },
-            is_med(){
-                if(this.current_user.localeCompare('med')===0  || this.current_user.localeCompare('vmed')===0  ){
-                    return true;
-                }
-                return false;
+
             }
 
         },
@@ -467,7 +421,7 @@
 
 
 <style>
-    #delete_image,#delete_image_model{
+    #delete_image,#delete_image2{
         position: absolute;
         top: 10%;
         right: 3%;
@@ -488,7 +442,7 @@
 
 
     }
-    #delete_image:hover ,#delete_image_model:hover{
+    #delete_image:hover ,#delete_image2:hover{
         color:black;
         background-color:#C8C8C8;
     }
@@ -499,22 +453,7 @@
 
 
     }
-    #cover_image_agree{
-        position: absolute;
-        top: 90%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        color: white;
-        background-color: #039BE5;
-        font-size: 16px;
-        padding: 12px 24px;
-        border: none;
-        cursor: pointer;
-        border-radius: 50px;
-    }
-
-    #select,#select_unit_med,#select_unit_gov{
+    #select{
         border: 1px solid #9C9C9C;
         border-radius: 7px;
     }

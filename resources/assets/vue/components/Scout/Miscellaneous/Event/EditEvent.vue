@@ -199,6 +199,17 @@
 
             </div>
 
+            <div id="cover_image_container_model" v-if="image.localeCompare('')!==0">
+                <div v-if="image.includes('Event')">
+
+                <img :src="'/images/EventImages/'+image"  style="width:100%;">
+                </div>
+                <div v-else>
+
+                    <img :src="image"  style="width:100%;">
+                </div>
+
+            </div>
             <div class="input-group input-group-file"  style="float:right;margin-top:20px">
 
                 <input   class="form-control" name="image_name"
@@ -275,11 +286,12 @@
                     responsible:{},
                   event_time:'',
                   location:'',
-                    image:'',
+
                     Concerned: [],
 
 
                 },
+                image:'',
 
 
                 show_desc:true,
@@ -316,7 +328,7 @@ var vm =this;
                     filereader.readAsDataURL(e.target.files[0]);
                     filereader.onload =(e)=>{
 
-                        this.Event.image= e.target.result;
+                        this.image= e.target.result;
 
 
 
@@ -340,6 +352,7 @@ var vm =this;
                 axios.get('/api/getEvent/'+vm.$route.params.id).then(function (response) {
 
                     vm.Event = response.data.event[0];
+                    vm.image = vm.Event.event_image;
 
                     vm.Event.Concerned = response.data.event[1];
                     vm.Concerned = vm.Event.Concerned;

@@ -37,9 +37,15 @@ class EventController extends Controller
         $created_at = date('Y-m-d H:i:s');
         $unit = $request->input('unit');
         $event_image = $this->insertEventImage($image);
-        if($unit==""){
+        if(Auth::user()->captain->role=='gov'){
+            if($unit!="")
             $unit = Auth::user()->captain->unit;
+            else
+                $unit ="gov";
         }
+         if(Auth::user()->captain->role !='gov' && Auth::user()->captain->role!='med' && Auth::user()->captain->role!='vmed'){
+            $unit = Auth::user()->captain->unit;
+         }
         if(Auth::user()->captain->role=='trne'){
           $approved = false;
 

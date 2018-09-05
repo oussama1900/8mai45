@@ -178,7 +178,7 @@
             </div>
 
 
-        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" v-if="is_gov">
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" v-if="is_gov()">
 
             <div class="header">
 
@@ -209,6 +209,40 @@
 
 
         </div>
+        <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" v-if="is_med()">
+
+            <div class="header">
+
+                <h4 class="title"> الوحدة المقصودة بالحدث </h4>
+            </div>
+            <div style="margin: 20px;margin-right: 30px">
+                <div class="row">
+                    <div class="col-md-12" >
+
+                        <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
+                        <select id="select_unit_med" class="form-control" dir="rtl"  v-model="Event.unit" >
+                            <option value="med">	الاعلام</option>
+                            <option value="cubs">	الأشبال</option>
+                            <option value="sct">	الكشاف</option>
+                            <option value="asct">	الكشاف المتقدم</option>
+                            <option value="tvlr">	الجوالة</option>
+                            <option value="cap">	القادة</option>
+                            <option value="fin">المالية</option>
+                            <option value="surv">متابعة البرامج وتنفيذ الخطط</option>
+                            <option value="csd">خدمة و تنمية المجتمع</option>
+
+
+                        </select>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        </div>
 
         <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
 
@@ -221,7 +255,11 @@
                 <div class="row">
                     <div class="col-md-12" style="margin-top:30px">
 
+                        <div  v-if="Event.image.localeCompare('')!==0">
 
+                            <img :src="Event.image"  style="width:100%;">
+
+                        </div>
                         <div class="input-group input-group-file"  style="float:right">
                             <input   class="form-control" name="image_name"
                                      readonly="true"
@@ -312,7 +350,7 @@
 
 
                 },
-                current_user:'',
+
                 content:'<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
@@ -343,10 +381,17 @@
                 };
             },
             is_gov(){
-              if(this.current_user.localeCompare('gov') || this.current_user.localeCompare('med') || this.current_user.localeCompare('vmed')){
+
+              if(this.current_user.localeCompare('gov')===0 ){
                 return true;
               }
               return false;
+            },
+            is_med(){
+                if(this.current_user.localeCompare('med')===0 || this.current_user.localeCompare('vmed')===0 ){
+                    return true;
+                }
+                return false;
             }
 
     },
@@ -363,7 +408,7 @@ input[type=text],input[type=date]{
     border-radius: 7px;
     padding:5px
 }
-#select,#select_unit{
+#select,#select_unit,#select_unit_med{
     border: 1px solid #9C9C9C;
     border-radius: 7px;
 }
