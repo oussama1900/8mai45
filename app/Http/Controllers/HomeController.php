@@ -8,6 +8,7 @@ use View;
 use App\Foo;
 use App\Event;
 use App\Post;
+use App\PostImage;
 class HomeController extends Controller
 {
     /**
@@ -66,8 +67,10 @@ class HomeController extends Controller
 
     public function viewPost($id){
         $posts = Post::orderby('created_at','desc')->paginate(3);
-        $currentPost = Post::find($id)->get();
-        return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost);
+        $allPosts = Post::inRandomOrder()->get();
+        $currentPost = Post::find($id);
+        $currentPostImages = PostImage::where('post_id',$id)->get();
+        return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost)->with('allPosts',$allPosts)->with('currentPostImages',$currentPostImages);
     }
 
     public function about()

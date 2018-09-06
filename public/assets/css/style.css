@@ -66,12 +66,12 @@ h5 {
 
 a {
 	font-weight:400;
-	color: #ffffff;
+	color: #07090c;
 }
 
 a:hover,
 a:focus{
-	color: #130CB7;
+	color: #EF233C;
     text-decoration: none;
     outline: none;
 }
@@ -101,7 +101,7 @@ textarea.input {
 	display: inline-block;
 	padding: 12px 30px;
 	color: #FFF;
-	background-color: #130CB7;
+	background-color: #EF233C;
 	border: none;
 	text-transform: uppercase;
 	opacity: 1;
@@ -141,14 +141,14 @@ textarea.input {
 	padding: 0px 10px;
 	height: 30px;
 	line-height: 30px;
-	color: #ffffff;
+	color: #222;
 	font-size: 12.5px;
 	text-align: center;
 	text-transform: uppercase;
 }
 
 .header-links ul li a:hover  {
-	color:#130CB7;
+	color:#EF233C;
 }
 
 .header-social {
