@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="Complete some things stuck and update chat message space + Friend List and completing vice captain space">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/postsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/postsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/postPage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/467a259b505045c46e238ee37619434c2f2c7e07.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/467a259b505045c46e238ee37619434c2f2c7e07.php" afterDir="false" />
     </list>
     <ignored path="D:\Website\dash\Scout-Project\.idea\shelf/" />
     <ignored path="D:\Website\dash2\Scout-Project\.idea\shelf/" />
@@ -56,91 +63,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyUnitPosts.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue">
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postsController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="281">
+              <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
               <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
+                <element signature="e#40#62#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue">
+      <file leaf-file-name="postPage.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/postPage.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2278">
-              <caret line="501" column="23" lean-forward="true" selection-start-line="501" selection-start-column="23" selection-end-line="501" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="366">
+              <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <file leaf-file-name="navbar.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/includes/navbar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
-              <folding>
-                <element signature="e#7#35#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApprovePosts.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyPosts.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="224">
+              <caret line="63" column="170" lean-forward="true" selection-start-line="63" selection-start-column="170" selection-end-line="63" selection-end-column="170" />
+              <caret line="65" column="189" lean-forward="true" selection-start-line="65" selection-start-column="189" selection-end-line="65" selection-end-column="189" />
+              <caret line="67" column="181" lean-forward="true" selection-start-line="67" selection-start-column="181" selection-end-line="67" selection-end-column="181" />
+              <caret line="69" column="192" lean-forward="true" selection-start-line="69" selection-start-column="192" selection-end-line="69" selection-end-column="192" />
+              <caret line="71" column="148" lean-forward="true" selection-start-line="71" selection-start-column="148" selection-end-line="71" selection-end-column="148" />
             </state>
           </provider>
         </entry>
@@ -219,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/CSD_Events.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/AdvancedScout_Events.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue" />
         <option value="$PROJECT_DIR$/database/migrations/2015_06_24_080704_entrust_setup_tables.php" />
@@ -235,8 +186,6 @@
         <option value="$PROJECT_DIR$/resources/views/includes/loginWindow.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/about.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/navbar.css" />
-        <option value="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/footer.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/landing-page.css" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
@@ -244,13 +193,10 @@
         <option value="$PROJECT_DIR$/resources/views/pages/units/advanced_scout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/units/cubs.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/units/scout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/news.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/owl.theme.default.css" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/resources/views/Layouts/web_template.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/filter-gallery.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/news.blade.php" />
         <option value="$PROJECT_DIR$/app/PostImage.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/card_style.scss" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue" />
@@ -259,7 +205,6 @@
         <option value="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/ar/app.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/app.js" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/EditPost.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue" />
         <option value="$PROJECT_DIR$/routes/api.php" />
@@ -270,6 +215,13 @@
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/postsController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/news.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/news.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/postPage.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" />
       </list>
     </option>
   </component>
@@ -396,10 +348,10 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-3" />
-    <option name="width" value="1378" />
-    <option name="height" value="728" />
+    <option name="width" value="1379" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -409,163 +361,95 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="EventImages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scout" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scout" type="462c0819:PsiDirectoryNode" />
-              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scout" type="462c0819:PsiDirectoryNode" />
-              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
-              <item name="Event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scout" type="462c0819:PsiDirectoryNode" />
-              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
-              <item name="Post" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scout" type="462c0819:PsiDirectoryNode" />
-              <item name="Post" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Scout" type="462c0819:PsiDirectoryNode" />
-              <item name="Scouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Scout-Project-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -795,7 +679,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="960505000" />
+    <option name="totallyTimeSpent" value="962631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -807,7 +691,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1378" height="728" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="697" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -818,7 +702,7 @@
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33915022" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3325527" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -826,42 +710,56 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33915022" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
+      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5030257" side_tool="true" weight="0.32673267" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.32673267" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
+      <window_info id="Favorites" order="3" side_tool="true" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33055976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4977307" weight="0.32673267" />
+      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
-      <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50378215" side_tool="true" weight="0.34653464" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="8" />
+      <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -903,27 +801,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="6505" column="30" selection-start-line="6505" selection-start-column="26" selection-end-line="6505" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/mdb.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -933,13 +810,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/full-slider.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/navbar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-872">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/units/traveler.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -995,39 +865,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="35" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/filter-gallery.js" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/news.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/news.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="162" column="51" selection-start-line="162" selection-start-column="51" selection-end-line="162" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1143,13 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="43" column="65" selection-start-line="43" selection-start-column="65" selection-end-line="43" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1168,9 +1003,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1178,20 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2278">
           <caret line="501" column="23" lean-forward="true" selection-start-line="501" selection-start-column="23" selection-end-line="501" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
-          <folding>
-            <element signature="e#7#35#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1199,20 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1220,6 +1024,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/console.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1142">
+          <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
+          <folding>
+            <element signature="e#7#35#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1881">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/news.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="198" column="86" selection-start-line="198" selection-start-column="86" selection-end-line="198" selection-end-column="86" />
+          <folding>
+            <element signature="e#4095#4274#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/news.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="70" column="57" selection-start-line="70" selection-start-column="57" selection-end-line="70" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="62" column="19" lean-forward="true" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+          <folding>
+            <element signature="e#40#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="27" column="78" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/postPage.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="59" column="7" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/navbar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="63" column="170" lean-forward="true" selection-start-line="63" selection-start-column="170" selection-end-line="63" selection-end-column="170" />
+          <caret line="65" column="189" lean-forward="true" selection-start-line="65" selection-start-column="189" selection-end-line="65" selection-end-column="189" />
+          <caret line="67" column="181" lean-forward="true" selection-start-line="67" selection-start-column="181" selection-end-line="67" selection-end-column="181" />
+          <caret line="69" column="192" lean-forward="true" selection-start-line="69" selection-start-column="192" selection-end-line="69" selection-end-column="192" />
+          <caret line="71" column="148" lean-forward="true" selection-start-line="71" selection-start-column="148" selection-end-line="71" selection-end-column="148" />
         </state>
       </provider>
     </entry>

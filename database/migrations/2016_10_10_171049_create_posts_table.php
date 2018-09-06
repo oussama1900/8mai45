@@ -26,7 +26,6 @@ class CreatePostsTable extends Migration
             $table->boolean('approved');
             $table->timestamps();
             $table->foreign('posted_by')->references('scout_id')->on('users');
-            $table->foreign('linked_unit')->references('unit_id')->on('units');
         });
 
         Schema::create('postimages', function(Blueprint $table){

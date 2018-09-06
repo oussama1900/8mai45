@@ -32,43 +32,43 @@
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="card-deck">
-                        @if($events->count()>0)
-                            @foreach($events as $event)
+                        @if($posts->count()>0)
+                            @foreach($posts as $post)
                                 <div class="col-auto mb-3 mt-3">
                                     <div class="card shadow" style="width: 20rem;">
                                         <div class="card-content">
                                             <div class="card-img">
-                                                <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
-                                                <span {!! $news_style !!}><h4>{{ $event->type }}</h4></span>
+                                                <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/PostCover/'.$post->cover_image)}}" alt="{{$post->post_title}}">
+                                                <span {!! $news_style !!}><h4>{{ $post->post_type }}</h4></span>
                                             </div>
 
                                             <div class="card-body" >
                                                 <div class="row">
-                                                    <h6 class="text-black col-5 mt-2"><i class="fa fa-clock-o" style="color: {{ $card_color }}"></i> <small>{{substr($event->event_time, 0, 10)}}</small></h6>
-                                                    <h5 class="text-right text-black col-7">{{$event->title}}</h5>
+                                                    <h6 class="text-black col-5 mt-2"><i class="fa fa-clock-o" style="color: {{ $card_color }}"></i> <small>{{substr($post->post_date, 0, 10)}}</small></h6>
+                                                    <h5 class="text-right text-black col-7">{{$post->post_title}}</h5>
                                                 </div>
 
                                                 @php
                                                     $unit_name = '';
-                                                    if($event->unit == "cubs"){
+                                                    if($post->linked_unit == "cubs"){
                                                         $unit_name = 'وحدة الاشبال';
                                                     }
-                                                    if($event->unit == "sct"){
+                                                    if($post->linked_unit == "sct"){
                                                         $unit_name = 'وحدة الكشاف';
                                                     }
-                                                    if($event->unit == "asct"){
+                                                    if($post->linked_unit == "asct"){
                                                         $unit_name = 'وحدة الكشاف المتقدم';
                                                     }
-                                                    if($event->unit == "tvlr"){
+                                                    if($post->linked_unit == "tvlr"){
                                                         $unit_name = 'وحدة الجوالة';
                                                     }
-                                                    if($event->unit == "cap"){
+                                                    if($post->linked_unit == "cap"){
                                                         $unit_name = 'وحدة القادة';
                                                     }
                                                 @endphp
 
                                                 <small class="card-subtitle text-right float-right" style="color: grey">{{$unit_name}}</small>
-                                                <a href="#" class="btn btn-outline-primary btn-custom btn-block mt-3">اقرأ اكثر</a>
+                                                <a href="/posts/{{$post->post_id}}" class="btn btn-outline-primary btn-custom btn-block mt-3">اقرأ اكثر</a>
                                             </div>
                                         </div>
                                     </div>
@@ -79,6 +79,6 @@
                 </div>
             </div>
         </div>
-        <div class="center" style="width: 10%; margin: 10px auto;"  >{{$events->links("pagination::bootstrap-4")}}</div>
+        <div class="center" style="width: 10%; margin: 10px auto;"  >{{$posts->links("pagination::bootstrap-4")}}</div>
     </div>
 </div>

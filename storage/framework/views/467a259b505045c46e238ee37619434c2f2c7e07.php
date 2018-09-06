@@ -60,21 +60,21 @@
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown">
                     <a class="nav-link <?php echo e($nav_color); ?> <?php echo e($activenavu); ?> dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px; ">الأفواج</a>
-                    <div class="dropdown-menu <?php echo e($nav_color); ?> align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
-                            <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavc); ?>" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a>
+                    <ul class="dropdown-menu <?php echo e($nav_color); ?> align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
+                        <li><a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavc); ?>" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a></li>
 
-                            <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavs); ?> align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a>
+                        <li><a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavs); ?> align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a></li>
 
-                            <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavas); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a>
+                        <li><a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavas); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a></li>
 
-                            <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavt); ?> align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a>
+                        <li><a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavt); ?> align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a></li>
 
-                            <a class="dropdown-item  <?php echo e($nav_color); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
-                    </div>
+                        <li><a class="dropdown-item  <?php echo e($nav_color); ?>" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
-                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('news') ? 'activenav' : ''); ?>" href="/news" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('news') ? 'activenav' : ''); ?> <?php echo e(Route::currentRouteNamed('readPost') ? 'activenav' : ''); ?>" href="/news" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the index link -->

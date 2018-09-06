@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use View;
 use App\Foo;
 use App\Event;
+use App\Post;
 class HomeController extends Controller
 {
     /**
@@ -29,38 +30,44 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = Event::orderby('created_at','desc')->paginate(3);
-        return view('home')->with('events',$events);
+        $posts = Post::orderby('created_at','desc')->paginate(3);
+        return view('home')->with('posts',$posts);
     }
 
     public function cubs()
     {
-        $events = Event::where('unit','cubs')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.cubs')->with('events',$events);
+        $posts = Post::where('linked_unit','cubs')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.cubs')->with('posts',$posts);
     }
 
     public function scout()
     {
-        $events = Event::where('unit','sct')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.scout')->with('events',$events);
+        $posts = Post::where('linked_unit','sct')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.scout')->with('posts',$posts);
     }
 
     public function advanced_scout()
     {
-        $events = Event::where('unit','asct')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.advanced_scout')->with('events',$events);
+        $posts = Post::where('linked_unit','asct')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.advanced_scout')->with('posts',$posts);
     }
 
     public function traveler()
     {
-        $events = Event::where('unit','tvlr')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.traveler')->with('events',$events);
+        $posts = Post::where('linked_unit','tvlr')->orderby('created_at','desc')->paginate(3);
+        return view('pages.units.traveler')->with('posts',$posts);
     }
 
     public function news()
     {
-        $events = Event::orderby('created_at','desc')->get();
-        return view('pages.news')->with('events',$events);
+        $posts = Post::orderby('created_at','desc')->get();
+        return view('pages.news')->with('posts',$posts);
+    }
+
+    public function viewPost($id){
+        $posts = Post::orderby('created_at','desc')->paginate(3);
+        $currentPost = Post::find($id)->get();
+        return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost);
     }
 
     public function about()

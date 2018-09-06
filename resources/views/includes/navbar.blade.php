@@ -61,20 +61,20 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link {{ $nav_color  }} {{ $activenavu }} dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px; ">الأفواج</a>
                     <div class="dropdown-menu {{ $nav_color }} align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
-                            <a class="dropdown-item {{ $nav_color }} {{ $activenavc }}" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a>
+                        <a class="dropdown-item {{ $nav_color }} {{ $activenavc }}" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a>
 
-                            <a class="dropdown-item {{ $nav_color }} {{ $activenavs }} align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a>
+                        <a class="dropdown-item {{ $nav_color }} {{ $activenavs }} align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a>
 
-                            <a class="dropdown-item {{ $nav_color }} {{ $activenavas }}" style="text-align:center ;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a>
+                        <a class="dropdown-item {{ $nav_color }} {{ $activenavas }}" style="text-align:center ;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a>
 
-                            <a class="dropdown-item {{ $nav_color }} {{ $activenavt }} align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a>
+                        <a class="dropdown-item {{ $nav_color }} {{ $activenavt }} align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a>
 
-                            <a class="dropdown-item  {{ $nav_color }}" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
+                        <a class="dropdown-item  {{ $nav_color }}" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
-                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('news') ? 'activenav' : '' }}" href="/news" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
+                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('news') ? 'activenav' : '' }} {{ Route::currentRouteNamed('readPost') ? 'activenav' : '' }}" href="/news" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the index link -->
