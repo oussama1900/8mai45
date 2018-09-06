@@ -2,54 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="Complete some things stuck and update chat message space + Friend List and completing vice captain space">
-      <change afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/EditPost.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/postsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/postsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/vue/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/AdvancedScout/1535387914.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1534636020.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535313773.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535320449.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535373695.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535386798.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535450798.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535457534.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/Captain/1535459811.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535313625.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535375843.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535375943.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535376007.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535381026.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535381369.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535381555.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535402091.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535454019.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535455764.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535495629.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535496282.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535496359.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535497214.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535546011.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535546050.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535546082.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/EventImages/Event1535551740.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/ApproveEvents.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/ApproveEvents.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <ignored path="D:\Website\dash\Scout-Project\.idea\shelf/" />
     <ignored path="D:\Website\dash2\Scout-Project\.idea\shelf/" />
@@ -107,10 +61,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -118,8 +68,8 @@
       <file leaf-file-name="postsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+            <state relative-caret-position="170">
+              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -130,15 +80,23 @@
       <file leaf-file-name="post.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="494" column="32" selection-start-line="494" selection-start-column="5" selection-end-line="494" selection-end-column="32" />
+            <state relative-caret-position="2278">
+              <caret line="501" column="23" lean-forward="true" selection-start-line="501" selection-start-column="23" selection-end-line="501" selection-end-column="23" />
               <folding>
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
+              <folding>
+                <element signature="e#7#35#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,13 +105,9 @@
       <file leaf-file-name="Event.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
+            <state relative-caret-position="17">
               <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
               <folding>
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
               </folding>
@@ -161,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EventController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="47" selection-end-column="10" />
+            <state relative-caret-position="119">
+              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -174,23 +128,18 @@
         <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
-              </folding>
+              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyPosts.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyPosts.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -315,12 +264,12 @@
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/postsController.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/postsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
       </list>
     </option>
   </component>
@@ -447,7 +396,7 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-3" />
     <option name="width" value="1378" />
     <option name="height" value="728" />
@@ -460,7 +409,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -617,6 +565,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -777,6 +726,7 @@
       <workItem from="1536051095237" duration="16717000" />
       <workItem from="1536086512105" duration="12085000" />
       <workItem from="1536143502916" duration="21671000" />
+      <workItem from="1536227533475" duration="1451000" />
     </task>
     <task id="LOCAL-00001" summary="add rapport space ,Events Space and do some modification to the top navbar">
       <created>1531761718618</created>
@@ -845,7 +795,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="959054000" />
+    <option name="totallyTimeSpent" value="960505000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -858,6 +808,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1378" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5030257" side_tool="true" weight="0.32673267" />
@@ -867,7 +818,7 @@
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33383915" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33915022" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -886,31 +837,31 @@
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.32673267" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33055976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4977307" weight="0.32673267" />
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
-      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50378215" side_tool="true" weight="0.34653464" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1140,10 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="295" column="33" selection-start-line="295" selection-start-column="33" selection-end-line="295" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1168,25 +1115,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
-          <folding>
-            <element signature="e#7#35#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2908">
           <caret line="322" column="29" lean-forward="true" selection-start-line="322" selection-start-column="29" selection-end-line="322" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1194,16 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="172" column="85" selection-start-line="172" selection-start-column="79" selection-end-line="172" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1211,11 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1233,61 +1150,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="494" column="32" selection-start-line="494" selection-start-column="5" selection-end-line="494" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="47" selection-end-column="10" />
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1295,10 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1308,8 +1170,56 @@
           <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#template#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="501" column="23" lean-forward="true" selection-start-line="501" selection-start-column="23" selection-end-line="501" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
+          <folding>
+            <element signature="e#7#35#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="257" column="29" selection-start-line="257" selection-start-column="29" selection-end-line="257" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
         </state>
       </provider>
     </entry>

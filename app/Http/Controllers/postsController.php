@@ -47,10 +47,10 @@ class postsController extends Controller
         $user_unit = $user ->captain->unit;
 
         if($user->captain->role=='gov'){
-            if($linked_unit!="")
-                $linked_unit = Auth::user()->captain->unit;
-            else
+            if($linked_unit=="")
                 $linked_unit ="gov";
+
+
         }
         if($user->captain->role !='gov' && Auth::user()->captain->role!='med' && $user->captain->role!='vmed'){
             $linked_unit = $user_unit;

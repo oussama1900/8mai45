@@ -38,10 +38,10 @@ class EventController extends Controller
         $unit = $request->input('unit');
         $event_image = $this->insertEventImage($image);
         if(Auth::user()->captain->role=='gov'){
-            if($unit!="")
-            $unit = Auth::user()->captain->unit;
-            else
+            if($unit=="")
                 $unit ="gov";
+
+
         }
          if(Auth::user()->captain->role !='gov' && Auth::user()->captain->role!='med' && Auth::user()->captain->role!='vmed'){
             $unit = Auth::user()->captain->unit;
