@@ -58,19 +58,23 @@
                     <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('captains') ? 'activenav' : '' }}" href="/captains" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
                 </li>
                 <!-- this is the groups dropdown button -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link {{ $nav_color  }} {{ $activenavu }} dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px; ">الأفواج</a>
-                    <div class="dropdown-menu {{ $nav_color }} align-items-baseline dropdown-menu-right" aria-labelledby="dropdown04">
-                        <a class="dropdown-item {{ $nav_color }} {{ $activenavc }}" style="text-align:center ;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a>
+                <li class="nav-item dropdown" style="position:static" id="dropdownbutton">
+                    <a class="nav-link {{ $nav_color  }} {{ $activenavu }} dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px; ">الوحدات</a>
+                    <ul class="dropdown-menu {{ $nav_color }}  " role="menu" aria-labelledby="dropdown04" style="width:100%;margin-top:0px">
 
-                        <a class="dropdown-item {{ $nav_color }} {{ $activenavs }} align-items-center" style="text-align:center ;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a>
 
-                        <a class="dropdown-item {{ $nav_color }} {{ $activenavas }}" style="text-align:center ;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a>
+                         <li class="dropdown-menu-item">   <a  class="dropdown-item {{ $nav_color }} {{ $activenavc }}" style="text-align: center;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a></li>
 
-                        <a class="dropdown-item {{ $nav_color }} {{ $activenavt }} align-items-center" style="text-align:center ;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a>
+                         <li class="dropdown-menu-item">   <a class="dropdown-item {{ $nav_color }} {{ $activenavs }} " style="text-align: center;font-size: large ; color: #ffffff;" href="/scout">الكشاف</a></li>
 
-                        <a class="dropdown-item  {{ $nav_color }}" style="text-align:center ;font-size: large; color: #ffffff;"  href="#">القادة</a>
-                    </div>
+                         <li class="dropdown-menu-item">  <a  class="dropdown-item {{ $nav_color }} {{ $activenavas }}" style="text-align: center;font-size: large; color: #ffffff;"  href="/advanced_scout">المتقدم</a></li>
+
+                         <li class="dropdown-menu-item">   <a class="dropdown-item {{ $nav_color }} {{ $activenavt }} " style=" text-align: center;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a></li>
+
+                         <li class="dropdown-menu-item">   <a class="dropdown-item  {{ $nav_color }} {{ $activenavt }}" style=" text-align: center;font-size: large; color: #ffffff;"  href="/Captains">القادة</a></li>
+
+                     </ul>
+
                 </li>
                 <li class="nav-item">
                     <!-- this is the news link -->
@@ -102,3 +106,25 @@
         });
     });
 </script>
+<style>
+    li.nav-item.dropdown.open{
+        position:static
+    }
+    li.nav-item.dropdown.open .dropdown-menu{
+        display:table;
+        width: 100%;
+        text-align: center;
+        left:0;
+        right:0;
+    }
+
+    @media only screen  and (min-width: 450px){
+
+        li.dropdown-menu-item{
+            display: table-cell;
+            width:5%
+        }
+
+    }
+
+</style>
