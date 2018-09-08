@@ -12,7 +12,7 @@
         <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.css') }}" />
-
+        <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/flipclock.css') }}" />
         <!-- Website icon -->
         <link rel="icon"
               type="image/png"
@@ -48,6 +48,7 @@
         @include("includes.footer")
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="{{ asset('assets/js/flipclock.min.js') }}"></script>
     </body>
 
 </html>

@@ -12,7 +12,7 @@
         <link href="<?php echo e(asset('assets/css/navbar.css')); ?>" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/owl.carousel.css')); ?>" />
         <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/owl.theme.default.css')); ?>" />
-
+        <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/flipclock.css')); ?>" />
         <!-- Website icon -->
         <link rel="icon"
               type="image/png"
@@ -48,6 +48,7 @@
         <?php echo $__env->make("includes.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <script src="<?php echo e(asset('assets/js/owl.carousel.min.js')); ?>"></script>
         <script src="<?php echo e(asset('assets/js/main.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/js/flipclock.min.js')); ?>"></script>
     </body>
 
 </html>

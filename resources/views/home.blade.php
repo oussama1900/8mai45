@@ -71,21 +71,21 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('{{asset('images/slide/slide f.jpg')}}')">
+                <div class="carousel-item active" style="background-image: url('{{asset('images/slide/slide f.jpeg')}}')">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>First Slide</h3>
                         <p>This is a description for the first slide.</p>
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 2.jpg')}}')">
+                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 2.jpeg')}}')">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Second Slide</h3>
                         <p>This is a description for the second slide.</p>
                     </div>
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 3.jpg')}}')">
+                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 3.jpeg')}}')">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Third Slide</h3>
                         <p>This is a description for the third slide.</p>
@@ -103,4 +103,5 @@
         </div>
     </header>
     @include('includes.news')
+    @include('includes.events')
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use View;
 use App\Foo;
+use Carbon\Carbon;
 use App\Event;
 use App\Post;
 use App\PostImage;
@@ -32,7 +33,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderby('created_at','desc')->paginate(3);
-        return view('home')->with('posts',$posts);
+        $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('created_at','desc')->take(3)->get();
+        return view('home')->with('posts',$posts)->with('events',$events);
     }
 
     public function cubs()

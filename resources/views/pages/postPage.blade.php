@@ -222,10 +222,13 @@
                                     <div class="column">
                                         <img class="demo cursor" src="{{asset('images/PostCover/'.$currentPost->cover_image)}}" style="width:100%" onclick="currentSlide(1)" alt="{{ $currentPost->post_title }}">
                                     </div>
+                                    @php
+                                        $i = 2;
+                                    @endphp
                                     @if($currentPostImages->count() > 0)
                                         @foreach($currentPostImages as $currentPostImage)
                                             <div class="column">
-                                                <img class="demo cursor" src="{{asset('images/Postimages/'.$currentPostImage->image)}}" style="width:100%" onclick="currentSlide(2)" alt="{{ $currentPost->post_title }}">
+                                                <img class="demo cursor" src="{{asset('images/Postimages/'.$currentPostImage->image)}}" style="width:100%" onclick="currentSlide({{ $i++ }})" alt="{{ $currentPost->post_title }}">
                                             </div>
                                         @endforeach
                                     @endif
@@ -411,6 +414,8 @@
             dots[slideIndex-1].className += " active";
             captionText.innerHTML = dots[slideIndex-1].alt;
         }
+
+        setInterval(function(){plusSlides(1);}, 2000);
     </script>
     <script src="{{ asset('assets/js/ekko-lightbox.js') }}"></script>
 @endsection

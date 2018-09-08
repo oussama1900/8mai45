@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="Complete some things stuck and update chat message space + Friend List and completing vice captain space">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/gallery.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/includes/events.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/postPage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/postPage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/467a259b505045c46e238ee37619434c2f2c7e07.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/467a259b505045c46e238ee37619434c2f2c7e07.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/001ae673c6b591039e1098d80b5550aec368a10c.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/001ae673c6b591039e1098d80b5550aec368a10c.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/44cafc32ed9484397c6d0160568713a8432667d4.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/44cafc32ed9484397c6d0160568713a8432667d4.php" afterDir="false" />
     </list>
     <ignored path="D:\Website\dash\Scout-Project\.idea\shelf/" />
     <ignored path="D:\Website\dash2\Scout-Project\.idea\shelf/" />
@@ -60,24 +61,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="postPage.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="postPage.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/postPage.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="105" column="64" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="64" />
+            <state relative-caret-position="386">
+              <caret line="419" column="59" selection-start-line="419" selection-start-column="12" selection-end-line="419" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
               <folding>
-                <element signature="e#2071#2162#0#HTML" expanded="true" />
-                <element signature="e#3576#3693#0#HTML" expanded="true" />
-                <element signature="e#3719#3807#0#HTML" expanded="true" />
-                <element signature="e#3486#3511#0#HTML" expanded="true" />
-                <element signature="e#3517#3542#0#HTML" expanded="true" />
-                <element signature="e#3554#3591#0#HTML" expanded="true" />
-                <element signature="e#3649#3674#0#HTML" expanded="true" />
-                <element signature="e#4185#4210#0#HTML" expanded="true" />
-                <element signature="e#7550#7575#0#HTML" expanded="true" />
-                <element signature="e#7704#7729#0#HTML" expanded="true" />
-                <element signature="e#8631#8656#0#HTML" expanded="true" />
-                <element signature="e#8971#8996#0#HTML" expanded="true" />
+                <element signature="e#2833#2903#0#HTML" expanded="true" />
+                <element signature="e#3281#3351#0#HTML" expanded="true" />
+                <element signature="e#3733#3803#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/includes/events.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="48" column="111" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+              <folding>
+                <element signature="e#40#62#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,8 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>check</find>
-      <find>Auth::</find>
       <find>absolute</find>
       <find>about</find>
       <find>span</find>
@@ -124,6 +144,8 @@
       <find>is_gov</find>
       <find>is_med</find>
       <find>dropdown</find>
+      <find>$posts</find>
+      <find>$post</find>
     </findStrings>
     <replaceStrings>
       <replace>class=&quot;column6&quot;</replace>
@@ -142,6 +164,8 @@
       <replace>approvePost</replace>
       <replace>getPostsNotApproved</replace>
       <replace>$post</replace>
+      <replace>$events</replace>
+      <replace>$event</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue" />
         <option value="$PROJECT_DIR$/database/migrations/2015_06_24_080704_entrust_setup_tables.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/EditScoutInfo.vue" />
@@ -175,7 +198,6 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/footer.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/landing-page.css" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/units/traveler.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/units/advanced_scout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/units/cubs.blade.php" />
@@ -183,7 +205,6 @@
         <option value="$PROJECT_DIR$/resources/views/includes/news.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/owl.theme.default.css" />
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/Layouts/web_template.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/filter-gallery.js" />
         <option value="$PROJECT_DIR$/resources/views/pages/news.blade.php" />
         <option value="$PROJECT_DIR$/app/PostImage.php" />
@@ -207,8 +228,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/gallery.css" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/postPage.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/Layouts/web_template.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/events.blade.php" />
       </list>
     </option>
   </component>
@@ -335,9 +359,9 @@
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-3" />
-    <option name="width" value="1379" />
+    <option name="width" value="1380" />
     <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -348,7 +372,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -433,6 +456,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -594,6 +618,9 @@
       <workItem from="1536086512105" duration="12085000" />
       <workItem from="1536143502916" duration="21671000" />
       <workItem from="1536227533475" duration="9455000" />
+      <workItem from="1536320733095" duration="1440000" />
+      <workItem from="1536327652493" duration="1763000" />
+      <workItem from="1536421004488" duration="7450000" />
     </task>
     <task id="LOCAL-00001" summary="add rapport space ,Events Space and do some modification to the top navbar">
       <created>1531761718618</created>
@@ -662,7 +689,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="973880000" />
+    <option name="totallyTimeSpent" value="985095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -674,7 +701,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="697" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="697" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -685,7 +712,7 @@
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3325527" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1811085" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -693,51 +720,37 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
+      <window_info anchor="bottom" id="Messages" order="8" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.32673267" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50378215" side_tool="true" weight="0.34653464" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
+      <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33915022" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
-      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
-      <window_info anchor="bottom" id="Messages" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5030257" side_tool="true" weight="0.32673267" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
-      <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.32673267" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info id="npm" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33055976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4977307" weight="0.32673267" />
-      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" weight="0.22087745" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50378215" side_tool="true" weight="0.34653464" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -784,20 +797,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/css/site.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="6505" column="30" selection-start-line="6505" selection-start-column="26" selection-end-line="6505" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/mdb.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="1448" column="9" selection-start-line="1448" selection-start-column="1" selection-end-line="1448" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/full-slider.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -848,25 +847,11 @@
     <entry file="file://$PROJECT_DIR$/public/assets/css/style.css" />
     <entry file="file://$PROJECT_DIR$/public/assets/css/owl.carousel.css" />
     <entry file="file://$PROJECT_DIR$/public/assets/css/owl.theme.default.css" />
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="35" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/filter-gallery.js" />
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/news.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="29" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1066,41 +1051,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/news.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="40" column="62" selection-end-line="83" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/postPage.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="419" column="59" selection-start-line="419" selection-start-column="12" selection-end-line="419" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+          <folding>
+            <element signature="e#2833#2903#0#HTML" expanded="true" />
+            <element signature="e#3281#3351#0#HTML" expanded="true" />
+            <element signature="e#3733#3803#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/lodash/lodash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="14768" column="13" selection-start-line="14768" selection-start-column="13" selection-end-line="14768" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/Layouts/web_template.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="49" column="64" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="64" />
+        <state relative-caret-position="107">
+          <caret line="14" column="83" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
+        <state relative-caret-position="247">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
           <folding>
             <element signature="e#40#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/postPage.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/events.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="105" column="64" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="64" />
-          <folding>
-            <element signature="e#2071#2162#0#HTML" expanded="true" />
-            <element signature="e#3576#3693#0#HTML" expanded="true" />
-            <element signature="e#3719#3807#0#HTML" expanded="true" />
-            <element signature="e#3486#3511#0#HTML" expanded="true" />
-            <element signature="e#3517#3542#0#HTML" expanded="true" />
-            <element signature="e#3554#3591#0#HTML" expanded="true" />
-            <element signature="e#3649#3674#0#HTML" expanded="true" />
-            <element signature="e#4185#4210#0#HTML" expanded="true" />
-            <element signature="e#7550#7575#0#HTML" expanded="true" />
-            <element signature="e#7704#7729#0#HTML" expanded="true" />
-            <element signature="e#8631#8656#0#HTML" expanded="true" />
-            <element signature="e#8971#8996#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="178">
+          <caret line="48" column="111" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
         </state>
       </provider>
     </entry>
