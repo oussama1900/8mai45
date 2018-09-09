@@ -8,7 +8,7 @@
         <div class="container  " style="background-color: transparent">
         <div class="row">
 
-            <div  v-for="events in AllEvents" :key="events.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+            <div  v-for="events in AllEvents" :key="events.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                 <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                     <img :src="'/images/EventImages/'+events.event_image" class="icon" >
@@ -30,13 +30,13 @@
                     </div>
                 </div>
                 <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                    <div class="col-sm-8" style="height: 100%;padding: 0 0">
+                    <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                         <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{events.creator.last_name}} {{events.creator.first_name}}</h6>
-                        <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
+                        <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
                     </div>
-                    <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                        <a href="#"><img class="img-circle":src="'/images/Captain/'+events.creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
-              <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
+                    <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
+                        <a href="#"><img class="img-circle" :src="'/images/Captain/'+events.creator.image"  style="height: 70%; max-width: 70%;margin:15% 15%"  v-if="events.creator.image.localeCompare('')!==0">
+              <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%"  v-else></a>
                     </div>
 
 
@@ -170,7 +170,7 @@
         height: 50px;
         border-radius: 50%;
         position: absolute;
-        margin-top: 59%;
+        margin-top: 51%;
         margin-left: 3% ;
         /*right: 100px;*/
         /*bottom: 10px;*/
@@ -195,7 +195,7 @@
        /*bottom: 50px;*/
         /*position: fixed;*/
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.24);
-        z-index: 99999;
+        z-index: 1;
     }
     .pseudo-circle.open {
         transition-delay: .15s;
@@ -251,7 +251,16 @@
     .header .title{
         color:white;
     }
-
+    @media (max-width: 767px){
+        .card-width{
+            width:100%;
+        }
+    }
+    @media (min-width: 768px){
+        .card-width{
+            width:30%;
+        }
+    }
 
 
 </style>

@@ -8,36 +8,39 @@
         </div>
         <hr>
         <div id="products" class="row list-group">
-            <div class="item col-xs-5 col-md-5 card" style="padding:0px;margin-left:40px;margin-right:40px" v-for="cub in MyScouts">
+            <div class="container   col-md-11 col-sm-11 col-xs-11">
+            <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12 card" style="padding:0px;padding-right:20px; " v-for="cub in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
-                    <div class="col-md-1" style="padding: 0px;margin-left: 10px;" >
+
+                    <div class="col-md-1"  style="float:left;padding: 0px;margin-left: 10px;" >
                         <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(cub)" ></span>
 
                     </div>
-                    <div class="col-md-7" style="padding-right: 10px;padding-top:10px;margin-right: 20px"
-                    >
+                    <div class=" pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-if="ImageExiste(cub)">
+                        <img v-bind:src="'/images/Cubs/'+cub.scout.image"  class="img-rounded" width="80" height="120" style="float: right">
+                    </div>
+                    <div class=" pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-else>
+                        <img src="/images/default.png"  class="img-rounded" width="80" height="120"  style="float: right">
+                    </div>
+                    <div class="col-md-7" style="padding-top:10px;float:right;padding-right:0px;">
                         <ul style="float: right;">
+                          <li>
+                              <p style="text-align: right">   اللقب : {{cub.scout.last_name}}  </p>
+                          </li>
                             <li>
-                                <p style="text-align: right">الاسم : {{cub.scout.last_name}} </p>
+                                <p style="text-align: right">   الاسم  : {{cub.scout.first_name}} </p>
 
                             </li>
-                            <li>
-                                <p style="text-align: right">اللقب : {{cub.scout.first_name}} </p>
+
+                            <li >
+                                <p style="text-align: right"> {{cub.scout.date_of_birth}}  : تاريخ الميلاد </p>
                             </li>
                             <li >
-                                <p style="text-align: right">تاريخ الميلاد{{cub.scout.date_of_birth}} </p>
-                            </li>
-                            <li >
-                                <p style="text-align: right">{{cub.scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">{{cub.scout.membership_date}}  : تاريخ الانخراط</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px" v-if="ImageExiste(cub)">
-                        <img v-bind:src="'/images/Cubs/'+cub.scout.image"  class="img-rounded" width="80" height="120" style="float: right">
-                    </div>
-                    <div class="col-md-3" style="padding-top: 10px" v-else>
-                        <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
-                    </div>
+
 
 
 
@@ -64,6 +67,7 @@
 
             </div>
 
+            </div>
             <div v-if="MyScouts.length===0">
                 <h1>لا يوجد اي شبل  في الفوج حتى الآن</h1>
             </div>
@@ -179,6 +183,11 @@
         .card{
             margin-top: 25%;
             margin-left: 25px;
+        }
+    }
+    @media (max-width: 450px){
+        .pic{
+            padding-top:40px !important;
         }
     }
   /** .sccout-card{

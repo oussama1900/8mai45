@@ -120,12 +120,12 @@
                       </li>
                       <li class="site-menu-item">
                           <router-link class="animsition-link" to="/Events/CSD"/>
-                          <span class="site-menu-title" style="font-size:small">{{trans('app.CSD')}}</span>
+                          <span class="site-menu-title" >{{trans('app.CSD')}}</span>
                           </a>
                       </li>
                       <li class="site-menu-item">
-                          <router-link class="animsition-link" to="/Events/Service_Community_development"/>
-                          <span class="site-menu-title" >{{trans('app.SURV')}}</span>
+                          <router-link class="animsition-link" to="/Events/SURV"/>
+                          <span class="site-menu-title"  style="font-size:small">{{trans('app.SURV')}}</span>
                           </a>
                       </li>
                       <li class="site-menu-item">
@@ -185,6 +185,60 @@
                           </li>
                       </ul>
                   </li>
+
+
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.Units_Posts')}}</span>
+                          <span class="site-menu-arrow"/>
+
+                      </a>
+
+                      <ul class="site-menu-sub">
+                          <!--recived repoorts sidebar item-->
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/Approve_Posts"/>
+                              <span class="site-menu-title">{{ trans('app.ApprovePosts')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/cub/post"/>
+                              <span class="site-menu-title">{{ trans('app.cub')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/scout/post"/>
+                              <span class="site-menu-title">{{ trans('app.scoutboy')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/advanced-scout/post"/>
+                              <span class="site-menu-title">{{ trans('app.advanced_scout')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/traveler/post"/>
+                              <span class="site-menu-title">{{ trans('app.traveler')}}</span>
+                          </li>
+                            <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/captain/post"/>
+                              <span class="site-menu-title">{{ trans('app.leader')}}</span>
+                          </li>
+                            <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/media/post"/>
+                              <span class="site-menu-title">{{ trans('app.media')}}</span>
+                          </li>
+                            <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/csd/post"/>
+                              <span class="site-menu-title" >{{ trans('app.CSD')}}</span>
+                          </li>
+                            <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/surv/post"/>
+                              <span class="site-menu-title" style="font-size:small">{{ trans('app.SURV')}}</span>
+                          </li>
+
+                      </ul>
+                  </li>
+
+
+
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">
                           <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
@@ -276,36 +330,36 @@
                           <span class="site-menu-title">{{ trans('app.scouts')}}</span>
                           <span class="site-menu-arrow"/>
                       </a>
-                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
 
+                      <ul class="site-menu-sub">
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/scouts/cubs"/>
                                   <span class="site-menu-title">{{ trans('app.cub')}}</span>
                               </a>
                           </li>
-                      </ul>
-                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+
+
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/scouts/scout"/>
                                   <span class="site-menu-title">{{ trans('app.scoutboy')}}</span>
                               </a>
                           </li>
-                      </ul>
-                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+
+
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/scouts/advanced_scout"/>
                                   <span class="site-menu-title">{{ trans('app.advanced_scout')}}</span>
                               </a>
                           </li>
-                      </ul>
-                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+
+
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/scouts/traveler"/>
                                   <span class="site-menu-title">{{ trans('app.traveler')}}</span>
                               </a>
                           </li>
-                      </ul>
-                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+
+
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/scouts/captain"/>
                                   <span class="site-menu-title">{{ trans('app.leader')}}</span>

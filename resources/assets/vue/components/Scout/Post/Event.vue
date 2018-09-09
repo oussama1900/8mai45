@@ -15,32 +15,18 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> نوع الحدث</label>
-                        <select id="select" class="form-control" dir="rtl"  v-model="Event.type" >
-                            <option value="اداري">	اداري</option>
-                            <option value="اعلامي">	اعلامي</option>
-                            <option value="خدمة عامة">	خدمة عامة</option>
-                            <option value="رحلة خلوية">	رحلة خلوية</option>
-                            <option value="ندوة">	ندوة</option>
-                            <option value="تربص">	تربص</option>
-                            <option value="مهرجان">مهرجان	</option>
-                            <option value="مخيم">	مخيم</option>
-                            <option value="دورة تربوية">دورة تربوية	</option>
-                            <option value="دورة تدريبية">دورة تدريبية	</option>
-                            <option value="اجتماع مكتب">	اجتماع مكتب</option>
-                            <option value="اجتماع مجلس">	اجتماع مجلس</option>
-                            <option value="مبيت">	مبيت</option>
-                            <option value="افطار جماعي">	افطار جماعي </option>
-                            <option value="اعتكاف">	اعتكاف</option>
-                            <option value="عملية جمع اللحوم">عملية جمع اللحوم	</option>
-                            <option value="عيد ديني ">	عيد ديني </option>
-                            <option value="عيد وطني">عيد وطني </option>
-                            <option value="رياضة">رياضة</option>
 
-                        </select>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
+
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                        </multiselect>
+
                     </div>
+
                 </div>
 
-
+                <span id="event_type" style="float: right"></span>
             </div>
 
         </div>
@@ -51,18 +37,16 @@
                 <h4 class="title">  عنوان الحدث </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
-                <div class="row">
+                <div class="row" style="margin-bottom: 0px;">
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> عنوان الحدث</label>
-                        <input id="event_title" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
+                        <input type="text"  dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
                     </div>
 
 
                 </div>
-
+                <span id="event_title" style="float: right"></span>
 
             </div>
 
@@ -79,13 +63,17 @@
 
                         <div>
                             <label  style="float:right;font-size:medium">  القائد المسؤول </label>
-                            <select style="border: 1px solid #9C9C9C;border-radius: 7px;" class="form-control" v-model="Event.responsible">
-                                <option v-for="captain in Captains" :value="captain.scout_id">{{captain.last_name}} {{captain.first_name}} </option>
 
-                            </select>
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                            </multiselect>
+
+
 
                         </div>
-
+                        <span id="responsible" style="float: right"></span>
                     </div>
 
 
@@ -135,17 +123,15 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  مكان الحدث</label>
-                        <input v-model="Event.location" id="event_place" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder=" مكان الحدث ">
+                        <input v-model="Event.location" id="event_place" type="text"  dir="rtl"  placeholder=" مكان الحدث ">
+                        <span id="location" style="float: right"></span>
                     </div>
 
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
-                        <input v-model="Event.time" id="event_date" type="date"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder=" تاريخ الحدث ">
+                    <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="Event.time" format="yyyy-MM-dd HH:mm"></datetime>
+                        <span id="event_time" style="float: right"></span>
                     </div>
                 </div>
 
@@ -169,6 +155,7 @@
 
 
                     </div>
+                    <span id="desc" style="float: right"></span>
                 </div>
 
             </div>
@@ -189,21 +176,19 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
-                        <select id="select_unit" class="form-control" dir="rtl"  v-model="Event.unit" >
-                            <option value="cubs">	الأشبال</option>
-                            <option value="sct">	الكشاف</option>
-                            <option value="asct">	الكشاف المتقدم</option>
-                            <option value="tvlr">	الجوالة</option>
-                            <option value="cap">	القادة</option>
-                            <option value="">وحدة أخرى</option>
 
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                        </select>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                        </multiselect>
+
 
                 </div>
 
 
             </div>
+                <span id="unit_for_governor" style="float: right"></span>
 
         </div>
 
@@ -220,24 +205,19 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
-                        <select id="select_unit_med" class="form-control" dir="rtl"  v-model="Event.unit" >
-                            <option value="med">	الاعلام</option>
-                            <option value="cubs">	الأشبال</option>
-                            <option value="sct">	الكشاف</option>
-                            <option value="asct">	الكشاف المتقدم</option>
-                            <option value="tvlr">	الجوالة</option>
-                            <option value="cap">	القادة</option>
-                            <option value="fin">المالية</option>
-                            <option value="surv">متابعة البرامج وتنفيذ الخطط</option>
-                            <option value="csd">خدمة و تنمية المجتمع</option>
 
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                        </select>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                        </multiselect>
+
 
                 </div>
 
 
             </div>
+                <span id="unit_for_media" style="float: right"></span>
 
         </div>
 
@@ -277,6 +257,7 @@
                                         </span>
                                     </span>
                         </div>
+                        <span id="image" style="float: right"></span>
 
                     </div>
 
@@ -298,6 +279,24 @@
             </div>
 
         </div>
+        <sweet-modal ref="valide" icon="warning">
+            <h3>لم يتم ادخال كل المعلومات اللازمة لنشر الحدث </h3>
+            <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
+        </sweet-modal>
+        <sweet-modal ref="success" icon="success">
+            <h3>تم انشاء هذا الحدث بنجاح </h3>
+
+        </sweet-modal>
+        <sweet-modal ref="success_trne" icon="success">
+            <h3>تم انشاء هذا الحدث بنجاح </h3>
+            <h3> ملاحظة : لن يتم نشر هذا الحدث حتى تتم الموافقة عليه  </h3>
+
+        </sweet-modal>
+        <sweet-modal ref="image_size" icon="warning">
+            <h3>يجب أن تكون دقة الصورة اكثر من   </h3>  <h3> 1280 X 750  </h3>
+
+
+        </sweet-modal>
     </div>
 
 
@@ -308,18 +307,24 @@
 <script>
 
     import Multiselect from 'vue-multiselect';
-    import vueMultiSelect from 'vue-multi-select';
+
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
+    import { Datetime } from 'vue-datetime';
+        import 'vue-datetime/dist/vue-datetime.css'
+    import { VueEditor } from 'vue2-editor';
 
-    import { VueEditor } from 'vue2-editor'
+    import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
     export default {
 
 
 
         components: {
             Multiselect,
-            VueEditor
+            VueEditor,
+            Datetime,
+        SweetModal,
+        SweetModalTab,
 
         },
         created:function(){
@@ -332,16 +337,58 @@
         },
         data(){
             return{
+placeholder:"تاريخ الحدث",
+direction:'rtl',
+value:"UTC+2",
 
+            unit_for_gov:[
+                "الأشبال",
+                "الكشاف",
+                "الكشاف المتقدم",
+                "الجوالة",
+                "القادة",
+                "وحدة أخرى",
+            ],
+
+                unit_for_med:[
+                    "الاعلام",
+                    "الأشبال",
+                    "الكشاف",
+                    "الكشاف المتقدم",
+                    "الجوالة",
+                    "القادة",
+                    "المالية",
+                    "متابعة البرامج وتنفيذ الخطط",
+                    "خدمة و تنمية المجتمع",
+                ],
+            EventType:[
+                   "اداري",
+                   "اعلامي",
+                   "خدمة عامة",
+                   "رحلة خلوية",
+                   "ندوة",
+                   "تربص",
+                   "دورة تربوية",
+                   "دورة تدريبية ",
+                   "اجتماع مكتب",
+                   "اجتماع مجلس",
+                   "مبيت",
+                   "افطار جماعي",
+                   "عملية جمع اللحوم",
+                   "عيد ديني ",
+                   "عيد وطني ",
+                   "رياضة ",
+                   "نشاط أسبوعي ",
+                ],
                  current_user:'',
 
                 Captains: [],
 
                 Event:{
                   title:'',
-                  desc:'<h3 style="text-align: right" dir="rtl"> وصف النشاط</h3>',
+                  desc:'<h3 style="text-align: right" dir="rtl"> وصف الحدث</h3>',
                   type:'',
-                    responsible:{},
+                    responsible:'',
                   time:'',
                   location:'',
                     image:'',
@@ -351,7 +398,7 @@
 
                 },
 
-                content:'<h5 style="text-align: right" dir="rtl"> وصف النشاط</h5>',
+                content:'<h5 style="text-align: right" dir="rtl"> وصف الحدث</h5>',
                 customToolbar: [
                     ['bold', 'italic', 'underline'],
                     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
@@ -362,22 +409,266 @@
             }
         },
         methods:{
+
+            validate(){
+                if(this.is_gov()){
+                    if(this.Event.unit.length===0  ||
+                        this.Event.type.length===0 ||
+                        this.Event.responsible.length===0 ||
+                        this.Event.title.localeCompare("")===0 ||
+                        this.Event.time.localeCompare("")===0 ||
+                        this.Event.location.localeCompare("")===0 ||
+                        this.Event.image.localeCompare("")===0 ||
+                        this.Event.desc.localeCompare("")===0
+                    ){
+                        this.$refs.valide.open();
+                        if(this.Event.unit.length===0 ){
+                            $('#unit_for_governor').html('يجب تحديد الوحدة').css('color', 'red');
+
+                        }else{
+                            $('#unit_for_governor').html('');
+                        }
+                        if(this.Event.type.length===0 ){
+                            $('#event_type').html(' اختر نوع الحدث').css('color', 'red');
+
+                        }else{
+                            $('#event_type').html('');
+                        }
+
+                        if(this.Event.title.localeCompare("")===0){
+                            $('#event_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                        }else{
+                            $('#event_title').html('');
+                        }
+                        if(  this.Event.responsible.length===0){
+                            $('#responsible').html(' اختر المسؤول').css('color', 'red');
+
+                        }else{
+                            $('#responsible').html('');
+                        }
+
+                        if(this.Event.time.localeCompare("")===0){
+                            $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
+
+                        }else{
+                            $('#event_time').html('');
+                        }
+                        if(this.Event.location.localeCompare("")===0){
+                            $('#location').html('حدد مكان الحدث').css('color', 'red');
+
+                        }else{
+                            $('#location').html('');
+                        }
+
+                        if(this.Event.image.localeCompare("")===0){
+                            $('#image').html('صورة الحدث اجبارية').css('color', 'red');
+
+                        } else{
+                            $('#image').html('');
+                        }
+                        if(this.Event.desc.localeCompare("")===0){
+                            $('#desc').html('مضمون الحدث لا يمكن ان يكون فارغا').css('color', 'red');
+
+                        }else{
+                            $('#desc').html('');
+                        }
+                        return false;
+                    }
+                }else{
+                    if(this.is_med()){
+                        if(this.Event.unit.length===0  ||
+                            this.Event.title.localeCompare("")===0 ||
+                            this.Event.responsible.length===0 ||
+                            this.Event.type.length===0  ||
+                            this.Event.time.localeCompare("")===0 ||
+                            this.Event.location.localeCompare("")===0 ||
+                            this.Event.image.localeCompare("")===0 ||
+                            this.Event.desc.localeCompare("")===0
+                        ){
+                            this.$refs.valide.open();
+                            if(this.Event.unit.length===0 ){
+                                $('#unit_for_media').html('يجب تحديد الوحدة').css('color', 'red');
+
+                            }else{
+                                $('#unit_for_media').html('');
+                            }
+                            if(this.Event.type.length===0 ){
+                                $('#event_type').html(' اختر نوع الحدث').css('color', 'red');
+
+                            }else{
+                                $('#event_type').html('');
+                            }
+
+                            if(this.Event.title.localeCompare("")===0){
+                                $('#event_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#event_title').html('');
+                            }
+                            if(  this.Event.responsible.length===0){
+                                $('#responsible').html(' اختر المسؤول').css('color', 'red');
+
+                            }else{
+                                $('#responsible').html('');
+                            }
+
+                            if(this.Event.time.localeCompare("")===0){
+                                $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
+
+                            }else{
+                                $('#event_time').html('');
+                            }
+                            if(this.Event.location.localeCompare("")===0){
+                                $('#location').html('حدد مكان الحدث').css('color', 'red');
+
+                            }else{
+                                $('#location').html('');
+                            }
+
+                            if(this.Event.image.localeCompare("")===0){
+                                $('#image').html('صورة الحدث اجبارية').css('color', 'red');
+
+                            } else{
+                                $('#image').html('');
+                            }
+                            if(this.Event.desc.localeCompare("")===0){
+                                $('#desc').html('مضمون الحدث لا يمكن ان يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#desc').html('');
+                            }
+                            return false;
+                        }
+                    }else{
+                        if(this.Event.type.length===0  ||
+                            this.Event.title.localeCompare("")===0 ||
+                            this.Event.responsible.length===0 ||
+
+                            this.Event.time.localeCompare("")===0 ||
+                            this.Event.location.localeCompare("")===0 ||
+                            this.Event.image.localeCompare("")===0 ||
+                            this.Event.desc.localeCompare("")===0
+                        ){
+                            this.$refs.valide.open();
+                            if(this.Event.type.length===0 ){
+                                $('#event_type').html(' اختر نوع الحدث').css('color', 'red');
+
+                            }else{
+                                $('#event_type').html('');
+                            }
+
+                            if(this.Event.title.localeCompare("")===0){
+                                $('#event_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#event_title').html('');
+                            }
+                            if(  this.Event.responsible.length===0){
+                                $('#responsible').html(' اختر المسؤول').css('color', 'red');
+
+                            }else{
+                                $('#responsible').html('');
+                            }
+
+                            if(this.Event.time.localeCompare("")===0){
+                                $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
+
+                            }else{
+                                $('#event_time').html('');
+                            }
+                            if(this.Event.location.localeCompare("")===0){
+                                $('#location').html('حدد مكان الحدث').css('color', 'red');
+
+                            }else{
+                                $('#location').html('');
+                            }
+
+                            if(this.Event.image.localeCompare("")===0){
+                                $('#image').html('صورة الحدث اجبارية').css('color', 'red');
+
+                            } else{
+                                $('#image').html('');
+                            }
+                            if(this.Event.desc.localeCompare("")===0){
+                                $('#desc').html('مضمون الحدث لا يمكن ان يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#desc').html('');
+                            }
+                            return false;
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+           /* if(this.is_med()){
+                if(this.Event.unit.localeCompare("")===0){
+                    $('#unit').html('اختر الوحدة المقصودة بالحدث').css('color', 'red');
+                    return false;
+                }
+            }*/
+                return true;
+
+
+            },
+          dateformat(){
+            var datetime = this.Event.time;
+            var dateArray = datetime.split("T");
+             var date = dateArray[0];
+             var time = dateArray[1].split(".")[0];
+             this.Event.time = date.concat(" "+time);
+          },
             postEvent(){
-                var vm = this;
-                axios.post('/api/postEvent',vm.Event).then(function (response) {
 
-               vm.$router.push('/Events/MyEvents');
+              if(this.validate()){
+                  this.dateformat();
 
-                });
+                  var vm = this;
+                  axios.post('/api/postEvent',vm.Event).then(function (response) {
+                      if(vm.current_user.localeCompare("trne")===0)
+                      vm.$refs.success_trne.open();
+                      else
+                          vm.$refs.success.open();
+                      setTimeout(function () {
+                          vm.$router.push('/Events/MyEvents');
+                      },2000);
+
+                  });
+              }
+
+
             },
             customLabel ({ first_name, last_name }) {
                 return ` ${last_name} ${first_name} `
             },
             setEventImage(e){
+                var vm = this;
                 var filereader = new FileReader();
+                var img = new Image();
                 filereader.readAsDataURL(e.target.files[0]);
                 filereader.onload =(e)=>{
-                    this.Event.image= e.target.result;
+
+
+
+                 img.src = e.target.result;
+                    img.onload = function() {
+
+                         if(img.width>=1500 && img.height>=750){
+
+                             vm.Event.image= e.target.result;
+                         }else{
+                             vm.$refs.image_size.open();
+                         }
+
+                    };
+
                 };
             },
             is_gov(){
@@ -456,7 +747,13 @@ input[type=text],input[type=date]{
 
 
 
+@media (max-width: 440px){
 
+    .container{
+        margin-left: 20px !important;
+    }
+
+}
 
 
 

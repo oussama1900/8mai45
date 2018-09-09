@@ -26,11 +26,13 @@
 
                             <div class="col-md-6">
                                 <label style="font-size: medium;float: right;">تاريخ الانضمام</label>
-                                <input   id="place_of_birth" type="date" placeholder="تاريخ الانضمام" dir="rtl" v-model="Scout.ScoutInfo[0].membership_date"/>
+
+                                  <datetime type="datetime" v-model="Scout.ScoutInfo[0].membership_date" format="yyyy-MM-dd" :placeholder="placeholder_member" :dir="direction"></datetime>
                             </div>
                             <div class="col-md-6">
                                 <label style="font-size: medium;float: right;">تاريخ الازدياد</label>
-                                <input id="date_of_birth" class="input-style"  type="date" placeholder="تاريخ الازدياد" dir="rtl" v-model="Scout.ScoutInfo[0].date_of_birth"/>
+                                <datetime type="datetime" v-model="Scout.ScoutInfo[0].date_of_birth" format="yyyy-MM-dd" :placeholder="placeholder_birth" :dir="direction"></datetime>
+
                             </div>
                         </div>
 
@@ -127,6 +129,9 @@
     export default {
        data(){
            return{
+            placeholder_birth:"تاريخ الازدياد",
+            placeholder_member:"تاريخ الانضمام",
+            direction:"rtl",
 
                Scout:{
                    ScoutInfo:[{

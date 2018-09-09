@@ -7,16 +7,14 @@
 
             <div class="header">
 
-                <h4 class="title">عنوان النشاط</h4>
+                <h4 class="title">عنوان الخبر</h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> عنوان النشاط</label>
-                        <input id="post_title" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder="عنوان النشاط" v-model="post.post_title">
+                        <input id="post_title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title">
                     </div>
                 </div>
 
@@ -28,24 +26,20 @@
 
             <div class="header">
 
-                <h4 class="title">تاريخ و مكان النشاط</h4>
+                <h4 class="title">التاريخ و المكان </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
 
                     <div class="col-md-6" >
 
-                        <label  style="float:right;font-size:medium">مكان النشاط </label>
-                        <input id="activity_place" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder="مكان النشاط " v-model="post.location">
+                        <label  style="float:right;font-size:medium">المكان </label>
+                        <input id="activity_place" type="text"   dir="rtl"  placeholder=" المكان " v-model="post.location">
                     </div>
                     <div class="col-md-6" >
 
-                        <label  style="float:right;font-size:medium">تاريخ النشاط </label>
-                        <input id="activity_date" type="date"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder="تاريخ النشاط  " v-model="post.post_date">
+                        <label  style="float:right;font-size:medium">التاريخ </label>
+                      <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
                     </div>
 
                 </div>
@@ -78,7 +72,7 @@
                             </div>
 
                         </div>
-                        <vue-editor v-model="post.post_summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
+                        <vue-editor v-model="summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
 
                     </div>
                 </div>
@@ -114,7 +108,7 @@
                             </div>
 
                         </div>
-                        <vue-editor v-model="post.description" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor v-model="description" :editorToolbar="customToolbar"></vue-editor>
 
 
                     </div>
@@ -132,7 +126,7 @@
 
             <div class="header">
 
-                <h4 class="title"> نوع النشاط </h4>
+                <h4 class="title"> نوع الخبر </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
@@ -140,15 +134,12 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium">نوع النشاط </label>
-                        <select id="select" class="form-control" dir="rtl" v-model="post.post_type">
-                            <option value="نشاط اسبوعي">	نشاط اسبوعي</option>
-                            <option value="رياضة اسبوعية">	رياضة اسبوعية</option>
-                            <option value="اجتماع مجلس الشرف">	اجتماع مجلس الشرف</option>
-                            <option value="نشاط ولائي">	نشاط ولائي</option>
-                            <option value="نشاط بلدي">	نشاط بلدي</option>
-                            <option value="نشاط وطني">	نشاط وطني</option>
-                            <option value="نشاط دولي">	نشاط دولي</option>
-                        </select>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
+
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                        </multiselect>
+
                     </div>
 
                 </div>
@@ -163,7 +154,7 @@
 
             <div class="header">
 
-                <h4 class="title"> صورة النشاط </h4>
+                <h4 class="title"> الصورة الرئيسية للخبر </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
@@ -205,7 +196,7 @@
 
             <div class="header">
 
-                <h4 class="title"> صورة النشاط </h4>
+                <h4 class="title"> صور الخبر </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
@@ -274,7 +265,10 @@
 
 
 
+    import Multiselect from 'vue-multiselect';
 
+    import 'vue-multiselect/dist/vue-multiselect.min.css';
+    import 'vue-multiselect/dist/vue-multiselect.min.js';
 
     import { VueEditor } from 'vue2-editor'
 
@@ -283,11 +277,23 @@
 
     export default{
         components: {
+            Multiselect,
             VueEditor
         },
         data(){
             return {
-
+              placeholder:"التاريخ",
+              direction:'rtl',
+              value:"UTC+2",
+                news_type:[
+                    "نشاط اسبوعي ",
+                    "رياضةاسبوعية ",
+                    "اجتماع مجلس الشرف ",
+                    "نشاط ولائي",
+                    "نشاط بلدي",
+                    "نشاط وطني",
+                    "نشاط دولي",
+                ],
                 post:{
                     post_title:'',
                     post_date:'',
@@ -330,12 +336,26 @@
                 axios.get('/api/getPost/'+post_id).then(function (response) {
                     vm.post = response.data.post[0];
                     vm.post_images =response.data.post[1];
-                     vm.description = vm.post.description;
-                     vm.summary = vm.post.post_summary;
+
+
+                     var datetime = vm.post.post_date.split(" ");
+                     var date = datetime[0];
+                     var time = datetime[1];
+                   vm.post.post_date   =  date+"T"+time;
                 });
+            },
+            dateformat(){
+              var datetime = this.post.post_date;
+              var dateArray = datetime.split("T");
+               var date = dateArray[0];
+               var time = dateArray[1].split(".")[0];
+               this.post.post_date = date.concat(" "+time);
             },
 
             EditPost(){
+              this.dateformat();
+              this.post.description = this.description;
+              this.post.post_summary = this.summary;
               var vm = this;
               var post_id = this.$route.params.id;
               axios.post('/api/EditPost/'+post_id,{post:vm.post,new_post_images:vm.new_post_images,post_images_deleted:vm.post_images_deleted}).then(function (response) {
@@ -370,11 +390,11 @@
 
             },
             show_summary(){
-                this.post.post_summary = this.summary;
+                 this.summary = this.post.post_summary ;
                 this.show_summ = false;
             },
             show_description(){
-                this.post.description = this.description;
+              this.description =  this.post.description ;
                 this.show_desc = false;
             },
             remove_image(post_image){
@@ -421,6 +441,13 @@
 
 
 <style>
+#post_title,#activity_place{
+    border-top: 1px solid #9C9C9C;
+    border-right: 1px solid #9C9C9C;
+    border-left: 1px solid #9C9C9C;
+    border-radius: 7px;
+    padding:5px
+}
     #delete_image,#delete_image2{
         position: absolute;
         top: 10%;
@@ -500,5 +527,3 @@
         color:white;
     }
 </style>
-
-

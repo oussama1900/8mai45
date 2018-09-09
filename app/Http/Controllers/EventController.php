@@ -28,18 +28,57 @@ class EventController extends Controller
         $title = $request->input('title');
         $desc = $request->input('desc');
         $type = $request->input('type');
+        $type = $type['0'];
         $time = $request->input('time');
         $location = $request->input('location');
         $Concerned = $request->input('Concerned');
-        $responsible = $request->input('responsible');
+        $responsible = $request->input('responsible.0.scout_id');
         $image = $request->input('image');
-        $created_by = Auth::user()->profile->scout_id;
+      $created_by = Auth::user()->profile->scout_id;
         $created_at = date('Y-m-d H:i:s');
-        $unit = $request->input('unit');
+        $unit = $request->input("unit");
+
         $event_image = $this->insertEventImage($image);
         if(Auth::user()->captain->role=='gov'){
-            if($unit=="")
+            $unit =$unit['0'];
+            if($unit == "الأشبال")
+                $unit ="cubs";
+            if($unit == "الكشاف")
+                $unit ="sct";
+            if($unit == "الكشاف المتقدم")
+                $unit ="asct";
+            if($unit == "الجوالة")
+                $unit ="tvlr";
+            if($unit == "القادة")
+                $unit ="cap";
+            if($unit=="وحدة أخرى")
                 $unit ="gov";
+
+
+        }
+        if(Auth::user()->captain->role=='med' ||Auth::user()->captain->role=='vmed' ){
+            $unit =$unit['0'];
+            if($unit == "الأشبال")
+                $unit ="cubs";
+            if($unit == "الكشاف")
+                $unit ="sct";
+            if($unit == "الكشاف المتقدم")
+                $unit ="asct";
+            if($unit == "الجوالة")
+                $unit ="tvlr";
+            if($unit == "القادة")
+                $unit ="cap";
+            if($unit=="الاعلام")
+                $unit ="med";
+
+            if($unit=="المالية")
+                $unit ="fin";
+            if($unit=="متابعة البرامج وتنفيذ الخطط")
+                $unit ="surv";
+            if($unit=="خدمة و تنمية المجتمع")
+                $unit ="csd";
+
+
 
 
         }
@@ -151,7 +190,7 @@ class EventController extends Controller
 
 
 
-        return response()->json(["event"=>$type]);
+        return response()->json(["event"=>"created Successfully"]);
 
     }
     public function getMyEvents(){
@@ -187,6 +226,7 @@ class EventController extends Controller
     }
     public function getEvent($event_id){
         $event = Event::find($event_id);
+        $responsible = Scout::find($event->responsible);
 
         $concerned = Concerned::where('event_id',$event_id)->get();
         $concerned_id=[];
@@ -194,7 +234,8 @@ class EventController extends Controller
             $scout = Scout::find($con->scout_id);
             array_push($concerned_id,$scout);
         }
-        return response()->json(["event"=>[$event,$concerned_id]]);
+
+        return response()->json(["event"=>[$event,$concerned_id,$responsible]]);
 
     }
     public function UpdateEvent(Request $request)
@@ -206,7 +247,7 @@ class EventController extends Controller
         $time = $request->input('event_time');
         $location = $request->input('location');
         $Concerned = $request->input('Concerned');
-        $responsible = $request->input('responsible');
+        $responsible = $request->input('responsible.0.scout_id');
         $image = $request->input('image');
         $updated_at = date('Y-m-d H:i:s');
         $unit = $request->input('unit');
@@ -1677,7 +1718,7 @@ class EventController extends Controller
             $event->save();
 
             $user = Auth::user()->scout_id;
-            $editedevents = DB::insert('insert into editedevents values(?,?,?)', [$event_id, $user_id, Carbon::now()]);
+            $editedevents = DB::insert('insert into editedevents values(?,?,?)', [$event_id, $user, Carbon::now()]);
             return response()->json(["updated" => "Successfully"]);
 
     }
@@ -1704,7 +1745,10 @@ class EventController extends Controller
 
 
             foreach ($concerned as $con){
-                $event = Event::with('creator')->with('is_concerned')->where('event_id',$con->event_id)->get()[0];
+                $event = Event::with('creator')
+                    ->with('is_concerned')
+                    ->where('event_id',$con->event_id)
+                    ->get()[0];
                 array_push($concerned_event,$event);
 
             }

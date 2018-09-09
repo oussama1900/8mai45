@@ -8,7 +8,7 @@
     <div class="container  " style="background-color: transparent">
         <div class="row">
 
-            <div  v-for="presence in presenceevents" :key="presence.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+            <div  v-for="presence in presenceevents" :key="presence.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px; padding: 0 0 ">
                 <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                     <img :src="'/images/EventImages/'+presence.event_image" class="icon" >
@@ -24,14 +24,14 @@
 
                 <!--here you can make confition if scout color to change the background-->
                 <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                        <div class="col-sm-8" style="height: 100%;padding: 0 0">
-                            <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{presence.creator.last_name}} {{presence.creator.first_name}}</h6>
-                            <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(presence)}} </span> <span> {{getcurrentmonth(presence)}} </span>   الساعة <span>{{gettime(presence)}}</span> </h6>
+                    <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
+                        <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{presence.creator.last_name}} {{presence.creator.first_name}}</h6>
+                        <h6 style="text-align:right;margin: 0 0">  <span>نشر بتاريخ</span><span> {{getday(presence)}} </span> <span> {{getcurrentmonth(presence)}} </span>   الساعة <span>{{gettime(presence)}}</span> </h6>
                         </div>
-                        <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
+                    <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
                             <a href="#">
-                              <img class="img-circle":src="'/images/Captain/'+presence.creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="presence.creator.image.localeCompare('')!==0">
-  <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else>
+                              <img class="img-circle" :src="'/images/Captain/'+presence.creator.image"  style="height: 70%; max-width: 70%;margin:15% 15%" v-if="presence.creator.image.localeCompare('')!==0">
+  <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%" v-else>
                               </a>
                         </div>
 
@@ -229,5 +229,14 @@
     .header .title{
         color:white;
     }
-
+    @media (max-width: 767px){
+        .card-width{
+            width:100%;
+        }
+    }
+    @media (min-width: 768px){
+        .card-width{
+            width:30%;
+        }
+    }
 </style>

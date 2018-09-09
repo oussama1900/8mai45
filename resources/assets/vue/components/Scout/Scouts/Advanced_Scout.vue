@@ -9,19 +9,19 @@
         <hr>
         <div id="products" class="row list-group">
           <div class="container col-md-11 col-sm-11 col-xs-11">
-            <div class="item col-lg-5 col-md-6  col-sm-12 col-xs-12 card" style="padding:0px;margin-right:20px" v-for="adv in MyScouts">
+            <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12 card" style="padding:0px;margin-right:20px" v-for="adv in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="float:left;padding: 0px;margin-left: 10px;" >
                         <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(adv)" ></span>
 
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px;float:right" v-if="ImageExiste(adv)">
+                    <div class="col-md-2" style="padding-top: 10px;padding-right:30px;float:right" v-if="ImageExiste(adv)">
                         <img v-bind:src="'/images/AdvancedScout/'+adv.scout.image"  class="img-rounded" width="80" height="120" style="float: right">
                     </div>
-                    <div class="col-md-3" style="padding-top: 10px;float:right" v-else>
+                    <div class="col-md-2" style="padding-top: 10px;padding-right:30px;float:right" v-else>
                         <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
                     </div>
-                    <div class="col-md-7" style="padding-right: 10px;padding-top:10px;margin-right: 20px"
+                    <div class="col-md-7" style="padding-top:10px;float:right;padding-right:0px;"
                     >
                         <ul style="float: right;">
                             <li>
@@ -32,10 +32,10 @@
                                 <p style="text-align: right">اللقب : {{adv.scout.first_name}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">تاريخ الميلاد{{adv.scout.date_of_birth}} </p>
+                                <p style="text-align: right">تاريخ الميلاد : {{adv.scout.date_of_birth}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{adv.scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">{{adv.scout.membership_date}} : تاريخ الانخراط</p>
                             </li>
                         </ul>
                     </div>

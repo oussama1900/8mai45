@@ -38,20 +38,68 @@ class postsController extends Controller
         $location = $request->input('location');
         $description = $request->input('description');
         $post_summary = $request->input('post_summary');
-        $post_type = $request->input('post_type');
+        $post_type = $request->input("post_type");
+        $post_type = $post_type['0'];
         $cover_image = $request->input('cover_image');
-        $linked_unit = $request->input('linked_unit');
+        $linked_unit = $request->input("linked_unit");
+
         $repo ='PostCover';
         $cover_image = $this->insertImage($cover_image,$repo,$repo);
         $user = Auth::user();
         $user_unit = $user ->captain->unit;
 
-        if($user->captain->role=='gov'){
-            if($linked_unit=="")
+
+
+
+        if(Auth::user()->captain->role=='gov'){
+            $linked_unit = $linked_unit['0'];
+            if($linked_unit == "الأشبال")
+                $linked_unit ="cubs";
+            if($linked_unit == "الكشاف")
+                $linked_unit ="sct";
+            if($linked_unit == "الكشاف المتقدم")
+                $linked_unit ="asct";
+            if($linked_unit == "الجوالة")
+                $linked_unit ="tvlr";
+            if($linked_unit == "القادة")
+                $linked_unit ="cap";
+            if($linked_unit=="وحدة أخرى")
                 $linked_unit ="gov";
 
 
         }
+        if(Auth::user()->captain->role=='med' ||Auth::user()->captain->role=='vmed' ){
+            $linked_unit = $linked_unit['0'];
+            if($linked_unit == "الأشبال")
+                $linked_unit ="cubs";
+            if($linked_unit == "الكشاف")
+                $linked_unit ="sct";
+            if($linked_unit == "الكشاف المتقدم")
+                $linked_unit ="asct";
+            if($linked_unit == "الجوالة")
+                $linked_unit ="tvlr";
+            if($linked_unit == "القادة")
+                $linked_unit ="cap";
+            if($linked_unit=="الاعلام")
+                $linked_unit ="med";
+            if($linked_unit=="الاعلام")
+                $linked_unit ="med";
+
+            if($linked_unit=="المالية")
+                $linked_unit ="fin";
+            if($linked_unit=="متابعة البرامج وتنفيذ الخطط")
+                $linked_unit ="surv";
+            if($linked_unit=="خدمة و تنمية المجتمع")
+                $linked_unit ="csd";
+
+
+
+
+        }
+
+
+
+
         if($user->captain->role !='gov' && Auth::user()->captain->role!='med' && $user->captain->role!='vmed'){
             $linked_unit = $user_unit;
         }
@@ -197,6 +245,7 @@ public function EditPost($post_id, Request $request){
         $description = $request->input('post.description');
         $post_summary = $request->input('post.post_summary');
         $post_type = $request->input('post.post_type');
+        $post_type = $post_type['0'];
         $cover_image = $request->input('post.cover_image');
 
         // first we need to insert the new post

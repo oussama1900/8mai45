@@ -7,7 +7,7 @@
         </div>
 
 <div class="row" style="padding-right:10px;padding-left: 10px">
-        <div  v-for="post in MyUnitPosts" :key="post.id" class="col-xs-11 col-sm-5 col-md-4    hoverable card" style="margin: 10px 10px;padding: 0 0 ">
+        <div  v-for="post in MyUnitPosts" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
             <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                 <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
@@ -31,8 +31,8 @@
 
                 <div class=" col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0" >
                     <a href="#">
-                        <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="max-height: 70%; max-width: 70%;margin:auto;border-radius: 50%;" v-if="post.post_creator.image.localeCompare('')!==0">
-                        <img class="img-circle" src="/images/default.png"  style="max-height: 70%; max-width: 70%;margin:auto" v-else></a>
+                        <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; max-width: 70%;margin:auto;border-radius: 50%;" v-if="post.post_creator.image.localeCompare('')!==0">
+                        <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:auto" v-else></a>
                 </div>
 
 
@@ -140,7 +140,7 @@
         height: 50px;
         border-radius: 50%;
         position: absolute;
-        margin-top: 52%;
+        margin-top: 51%;
         margin-left: 3% ;
         /*right: 100px;*/
         /*bottom: 10px;*/
@@ -222,5 +222,17 @@
     .header .title{
         color:white;
     }
-
+    @media (max-width: 767px){
+        .container{
+            margin-left:15px !important;
+        }
+        .card-width{
+            width:95%;
+        }
+    }
+    @media (min-width: 768px){
+        .card-width{
+            width:30%;
+        }
+    }
 </style>

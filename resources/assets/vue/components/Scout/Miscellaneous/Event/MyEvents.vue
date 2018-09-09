@@ -8,9 +8,11 @@
         </div>
         <div>
             <div class="container  " style="background-color: transparent">
-                <div class="row">
+                <div class="row ">
 
-                    <div  v-for="events in myevents" :key="events.id" class="col-xs-11 col-sm-5 col-md-4  hoverable card" style="margin: 10px 10px;padding: 0 0 ">
+                    <div  v-for="(events, index) in myevents" :key="events.id" class=" col-sm-3 col-md-3  hoverable card card-width"  style="margin: 10px 10px;padding: 0 0 "
+
+                    >
                         <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                             <img :src="'/images/EventImages/'+events.event_image" class="icon" >
@@ -43,9 +45,9 @@
                             </div>
                             <div  class=" col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
                                 <a href="#">
-                                  <img class="img-circle" :src="'/images/Captain/'+myinfo.image"  style="max-height: 70%; max-width: 70%;margin:15% 15%" v-if="myinfo.image.localeCompare('')!==0">
+                                  <img class="img-circle" :src="'/images/Captain/'+myinfo.image"  style="height: 70%; max-width: 70%;margin:15% 15%" v-if="myinfo.image.localeCompare('')!==0">
 
-                               <img class="img-circle" src="/images/default.png"  style="max-height: 70%; max-width: 70%;margin:15% 15%" v-else>
+                               <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%" v-else>
                                 </a>
                             </div>
 
@@ -72,6 +74,7 @@
             return{
                 myevents:'',
                 myinfo:'',
+                float:''
             }
         },
         created:function(){
@@ -92,7 +95,7 @@
                 const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
                     "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
                 ];
-                return monthNames[parseInt(arr[1],10)];
+                return monthNames[parseInt(arr[1],10)-1];
             },
             getday(event){
                 var arr = event.created_at.split('-');
@@ -118,6 +121,13 @@
 
                });
             },
+            floating(index){
+               if(index%2===1) this.float='float-right';
+               else
+                   this.float='';
+
+                return true;
+            }
 
         }
     }
@@ -171,7 +181,7 @@
         height: 50px;
         border-radius: 50%;
         position: absolute;
-        margin-top: 52%;
+        margin-top: 51%;
         margin-left: 3% ;
         /*right: 100px;*/
         /*bottom: 10px;*/
@@ -196,7 +206,7 @@
        /*bottom: 50px;*/
         /*position: fixed;*/
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.24);
-        z-index: 99999;
+        z-index: 1;
     }
     .pseudo-circle.open {
         transition-delay: .15s;
@@ -253,5 +263,17 @@
     .header .title{
         color:white;
     }
-
+    .float-right{
+        float:right;
+    }
+    @media (max-width: 767px){
+        .card-width{
+            width:100%;
+        }
+    }
+    @media (min-width: 768px){
+        .card-width{
+            width:30%;
+        }
+    }
 </style>

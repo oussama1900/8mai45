@@ -9,7 +9,7 @@
         <div class="container  " style="background-color: transparent">
         <div class="row">
 
-            <div  v-for="events in NotApproved" :key="events.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+            <div  v-for="events in NotApproved" :key="events.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                 <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                     <img :src="'/images/EventImages/'+events.event_image" class="icon" >
@@ -25,13 +25,13 @@
                     <i class="glyphicon glyphicon-edit" ></i>
                 </router-link>
                 <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                    <div class="col-sm-8" style="height: 100%;padding: 0 0">
+                    <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                         <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{events.creator.last_name}} {{events.creator.first_name}}</h6>
                         <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
                     </div>
-                    <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                        <a href="#"><img class="img-circle":src="'/images/Captain/'+events.creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
-  <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
+                    <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
+                        <a href="#"><img class="img-circle" :src="'/images/Captain/'+events.creator.image"   style="height: 70%; max-width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
+  <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%" v-else></a>
                     </div>
 
 
@@ -75,7 +75,7 @@
         <div class="container  " style="background-color: transparent">
             <div class="row">
 
-                <div  v-for="events in AllEventsApproved" :key="events.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+                <div  v-for="events in AllEventsApproved" :key="events.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                     <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                         <img :src="'/images/EventImages/'+events.event_image" class="icon" >
@@ -87,16 +87,19 @@
                     <div class="trigger" @click="delete_event(events)">
                         <i class="glyphicon glyphicon-remove" ></i>
                     </div>
-                    <router-link class="trigger" style="float: right;left: 237.969px;right: 0px;" :to="'/myposts/event/'+events.event_id">
+                    <router-link class="trigger" style="float: right;right: 0px;" :to="'/myposts/event/'+events.event_id">
                         <i class="glyphicon glyphicon-edit" ></i>
                     </router-link>
                     <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                        <div class="col-sm-8" style="height: 100%;padding: 0 0">
+                        <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                             <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{events.creator.last_name}} {{events.creator.first_name}}</h6>
                             <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
                         </div>
-                        <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                            <a href="#"><img class="img-circle":src="'/images/Captain/'+events.creator.image"  style="height: 70%; width: 70%;margin:15% 15%"></a>
+                        <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
+                            <a href="#">
+                                <img class="img-circle" :src="'/images/Captain/'+events.creator.image"  style="height: 70%; max-width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
+                                <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%" v-else>
+                            </a>
                         </div>
 
 
@@ -120,6 +123,14 @@
 
 
             </div>
+            <sweet-modal ref="approve_event" icon="success">
+                <h3>تمت الموافقة على هذا الحدث و بالتلي سيتم نشره </h3>
+
+            </sweet-modal>
+            <sweet-modal ref="disapprove_event" icon="error">
+                <h3>تم رفض هذا الحدث وبالتالي سيبقى مع الأحداث المرفوضة حتى تتم عملية ازالته نهائيا</h3>
+
+            </sweet-modal>
         </div>
 
 
@@ -135,7 +146,13 @@
 </template>
 
 <script>
+    import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
     export default {
+        components: {
+            SweetModal,
+            SweetModalTab,
+
+        },
         data(){
             return{
                 NotApproved:'',
@@ -191,7 +208,7 @@
             EventsApproved(){
                 var vm =this;
                 axios.get('/api/getEventsApproved',event).then(function (response) {
-                    console.log(response);
+
                     vm.AllEventsApproved = response.data.eventsapproved;
 
 
@@ -201,8 +218,9 @@
             approveEvent(event){
 
                 var vm =this;
+                vm.$refs.approve_event.open();
                 axios.post('/api/approveEvent',event).then(function (response) {
-                    alert("تمت الموافقة على هذا الحدث وبالتالي سيتم نشره");
+
                     var position = vm.NotApproved.indexOf(event);
                     vm.NotApproved.splice(position,1);
 
@@ -213,9 +231,10 @@
             },
             disapproveEvent(event){
                 var vm =this;
+                vm.$refs.disapprove_event.open();
                 axios.post('/api/disapproveEvent',event).then(function (response) {
-                    alert("تم رفض هذا الحدث وبالتالي سيبقى مع الأحداث المرفوضة حتى تتم عملية ازالته نهائيا  ");
-                    var position = vm.AllEventsApproved.indexOf(event);
+
+                      var position = vm.AllEventsApproved.indexOf(event);
                     vm.AllEventsApproved.splice(position,1);
                     vm.getApprovedEvents();
                 });
@@ -275,7 +294,7 @@
         height: 50px;
         border-radius: 50%;
         position: absolute;
-        margin-top: 59%;
+        margin-top: 51%;
         margin-left: 3% ;
         /*right: 100px;*/
         /*bottom: 10px;*/
@@ -300,7 +319,7 @@
        /*bottom: 50px;*/
         /*position: fixed;*/
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.24);
-        z-index: 99999;
+        z-index: 1;
     }
     .pseudo-circle.open {
         transition-delay: .15s;
@@ -357,6 +376,15 @@
         color:white;
     }
 
-
+    @media (max-width: 767px){
+        .card-width{
+            width:100%;
+        }
+    }
+    @media (min-width: 768px){
+        .card-width{
+            width:30%;
+        }
+    }
 
 </style>

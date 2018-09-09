@@ -9,16 +9,20 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import vueResource from 'vue-resource';
 
-
+import {Datetime} from 'vue-datetime'
 
 import Axios from 'axios';
 import Datepicker from 'vuejs-datepicker';
 import VueCkeditor from 'vue-ckeditor2';
+import { Settings } from 'luxon';
+
+
 require('./bootstrap');
+import 'vue-datetime/dist/vue-datetime.css'
 
 window.Vue = require('vue');
 
-Vue.use(VueRouter,  Axios,VueCkeditor,vueResource);
+Vue.use(VueRouter,  Axios,VueCkeditor,vueResource,Datetime);
 import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';
@@ -75,11 +79,11 @@ import UserCard from './components/UserProfile/UserCard';
 import MembersCard from './components/UserProfile/MembersCard';
 import EditProfileForm from './components/UserProfile/EditProfileForm';
 import formGroupInput from './components/UserProfile/formGroupInput';
-import Settings from './components/UserProfile/Settings';
+import ProfileSettings from './components/UserProfile/Settings';
 import CV from './components/UserProfile/UpdateCurriculumvitae';
 import SocialMedia from './components/UserProfile/SocialMedia';
 import EditScoutInfo from './components/Scout/Scouts/EditScoutInfo';
-import AddnewScout from './components/Scout/Scouts/AddnewScout';
+
 
 
 
@@ -97,7 +101,7 @@ import NewUser from './components/UserProfile/NewUser';
 import EditAcountInfo from './components/UserProfile/EditAccountInfo';
 
 
-
+Vue.component('datetime', Datetime);
 Vue.component('notification-content',notification_content);
 Vue.component('Notification',notification);
 Vue.component('reporter-state-scout',state_scout_reporter);
@@ -120,11 +124,11 @@ Vue.component('fg-input',formGroupInput);
 Vue.component('user-card',UserCard);
 Vue.component('members-card',MembersCard);
 Vue.component('edit-profile-form',EditProfileForm);
-Vue.component('Settings',Settings);
+Vue.component('Settings',ProfileSettings);
 Vue.component('Curriculum-vitae',CV);
 Vue.component('Social-media',SocialMedia);
 Vue.component('Edit-Scout-Info',EditScoutInfo);
-Vue.component('Add-newScout',AddnewScout);
+
 
 Vue.component('chat-message',require('./components/Chat/ChatMessage.vue'));
 Vue.component('chat-log',require('./components/Chat/ChatLog.vue'));
@@ -204,7 +208,7 @@ const routes = [
         component: CSD_Events
     },
     {
-        path:"/Events/Service_Community_development",
+        path:"/Events/SURV",
         component: SURV_Events
     },
     {
@@ -356,6 +360,9 @@ const app = new Vue({
     el: '#app',
 
     router,
+    created:function(){
+      Settings.defaultLocale = "us"
+    }
 
 
 });

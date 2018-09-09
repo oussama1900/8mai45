@@ -9,7 +9,7 @@
         <div class="container  " style="background-color: transparent">
         <div class="row" >
 
-            <div  v-for="post in NotApproved" :key="post.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+            <div  v-for="post in NotApproved" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                 <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                     <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
@@ -25,13 +25,14 @@
                     <i class="glyphicon glyphicon-edit" ></i>
                 </router-link>
                 <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                    <div class="col-sm-8" style="height: 100%;padding: 0 0">
+                    <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                         <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{post.post_creator.last_name}} {{post.post_creator.first_name}}</h6>
                         <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(post)}} </span> <span> {{getcurrentmonth(post)}} </span>   الساعة <span>{{gettime(post)}}</span> </h6>
                     </div>
-                    <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                        <a href="#"><img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="post.post_creator.image.localeCompare('')!==0">
-  <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
+                    <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
+                        <a href="#">
+                            <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="post.post_creator.image.localeCompare('')!==0">
+                           <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
                     </div>
 
 
@@ -75,7 +76,7 @@
         <div class="container  " style="background-color: transparent">
             <div class="row">
 
-                <div  v-for="post in AllPostsApproved" :key="post.id" class="col-sm-3 hoverable card" style="margin: 10px 10px; width:30%;padding: 0 0 ">
+                <div  v-for="post in AllPostsApproved" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                     <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                         <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
@@ -91,12 +92,14 @@
                         <i class="glyphicon glyphicon-edit" ></i>
                     </router-link>
                     <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                        <div class="col-sm-8" style="height: 100%;padding: 0 0">
+                        <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                             <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{post.post_creator.last_name}} {{post.post_creator.first_name}}</h6>
                             <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(post)}} </span> <span> {{getcurrentmonth(post)}} </span>   الساعة <span>{{gettime(post)}}</span> </h6>
                         </div>
-                        <div class="col-sm-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                            <a href="#"><img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; width: 70%;margin:15% 15%"></a>
+                        <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
+                            <a href="#">
+                                <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="post.post_creator.image.localeCompare('')===0">
+                            <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
                         </div>
 
 
@@ -276,7 +279,7 @@
         height: 50px;
         border-radius: 50%;
         position: absolute;
-        margin-top: 59%;
+        margin-top: 51%;
         margin-left: 3% ;
         /*right: 100px;*/
         /*bottom: 10px;*/
@@ -302,7 +305,7 @@
        /*bottom: 50px;*/
         /*position: fixed;*/
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.24);
-        z-index: 99999;
+        z-index: 1;
     }
     .pseudo-circle.open {
         transition-delay: .15s;
@@ -334,7 +337,7 @@
     }
     .toolbar button {
         position: absolute;
-        z-index: 999999;
+        z-index: 1;
         border: 0;
         background: transparent;
         font-size: 16px;
@@ -359,6 +362,18 @@
         color:white;
     }
 
-
+    @media (max-width: 767px){
+        .container{
+            margin-left:15px !important;
+        }
+        .card-width{
+            width:95%;
+        }
+    }
+    @media (min-width: 768px){
+        .card-width{
+            width:30%;
+        }
+    }
 
 </style>

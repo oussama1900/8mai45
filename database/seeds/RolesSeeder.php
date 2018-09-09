@@ -51,7 +51,7 @@ class RolesSeeder extends Seeder
         Role::create([
             'name' => 'vfin',
             'display_name' => 'roles.vfin',
-            'description' => 'نائب مسؤول المالية',
+            'description' => 'مسؤول العتاد',
             'removable' => false
         ]);
 

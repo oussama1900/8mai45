@@ -16,31 +16,15 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> نوع الحدث</label>
-                        <select id="select" class="form-control" dir="rtl"  v-model="Event.type" >
-                            <option value="اداري">	اداري</option>
-                            <option value="اعلامي">	اعلامي</option>
-                            <option value="خدمة عامة">	خدمة عامة</option>
-                            <option value="رحلة خلوية">	رحلة خلوية</option>
-                            <option value="ندوة">	ندوة</option>
-                            <option value="تربص">	تربص</option>
-                            <option value="مهرجان">مهرجان	</option>
-                            <option value="مخيم">	مخيم</option>
-                            <option value="دورة تربوية">دورة تربوية	</option>
-                            <option value="دورة تدريبية">دورة تدريبية	</option>
-                            <option value="اجتماع مكتب">	اجتماع مكتب</option>
-                            <option value="اجتماع مجلس">	اجتماع مجلس</option>
-                            <option value="مبيت">	مبيت</option>
-                            <option value="افطار جماعي">	افطار جماعي </option>
-                            <option value="اعتكاف">	اعتكاف</option>
-                            <option value="عملية جمع اللحوم">عملية جمع اللحوم	</option>
-                            <option value="عيد ديني ">	عيد ديني </option>
-                            <option value="عيد وطني">عيد وطني </option>
-                            <option value="رياضة">رياضة</option>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
 
-                        </select>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                        </multiselect>
+
                     </div>
                 </div>
-
+                <span id="event_type" style="float: right"></span>
 
             </div>
 
@@ -56,14 +40,12 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> عنوان الحدث</label>
-                        <input id="event_title" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
+                        <input  type="text"   dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
                     </div>
 
 
                 </div>
-
+                <span id="event_title" style="float: right"></span>
 
             </div>
 
@@ -80,10 +62,13 @@
 
                         <div>
                             <label  style="float:right;font-size:medium">  القائد المسؤول </label>
-                            <select style="border: 1px solid #9C9C9C;border-radius: 7px;" class="form-control" v-model="Event.responsible">
-                                <option v-for="captain in Captains" :value="captain.scout_id">{{captain.last_name}} {{captain.first_name}} </option>
 
-                            </select>
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                            </multiselect>
+
 
                         </div>
 
@@ -91,7 +76,7 @@
 
 
                 </div>
-
+                <span id="responsible" style="float: right"></span>
 
             </div>
 
@@ -136,17 +121,15 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  مكان الحدث</label>
-                        <input v-model="Event.location" id="event_place" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder=" مكان الحدث ">
+                        <input v-model="Event.location" id="event_place" type="text"   dir="rtl"  placeholder=" مكان الحدث ">
+                        <span id="location" style="float: right"></span>
                     </div>
 
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
-                        <input v-model="Event.event_time" id="event_date" type="date"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder=" تاريخ الحدث ">
+                        <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="Event.event_time" format="yyyy-MM-dd HH:mm"></datetime>
+                        <span id="event_time" style="float: right"></span>
                     </div>
                 </div>
 
@@ -177,10 +160,11 @@
                             </div>
 
                         </div>
-                        <vue-editor   v-model="Event.desc" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor   v-model="Event.description" :editorToolbar="customToolbar"></vue-editor>
 
 
                     </div>
+                    <span id="desc" style="float: right"></span>
                 </div>
 
             </div>
@@ -199,7 +183,7 @@
 
             </div>
 
-            <div id="cover_image_container_model" v-if="image.localeCompare('')!==0">
+            <div  v-if="image.localeCompare('')!==0">
                 <div v-if="image.includes('Event')">
 
                 <img :src="'/images/EventImages/'+image"  style="width:100%;">
@@ -229,6 +213,7 @@
                                         </span>
                                     </span>
             </div>
+            <span id="image" style="float: right"></span>
 
             <div class="text-center" style="padding: 10px;">
                 <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="update_event()">
@@ -244,6 +229,14 @@
 
 
         </div>
+        <sweet-modal ref="EditedSuccessfully" icon="success">
+            <h3>تم التعديل بنجاح </h3>
+
+        </sweet-modal>
+        <sweet-modal ref="valide" icon="warning">
+            <h3>لم يتم ادخال كل المعلومات اللازمة لنشر الحدث </h3>
+            <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
+        </sweet-modal>
 
         </div>
 
@@ -258,24 +251,51 @@
 <script>
 
     import Multiselect from 'vue-multiselect';
-    import vueMultiSelect from 'vue-multi-select';
+
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
-
+    import { Datetime } from 'vue-datetime';
+        import 'vue-datetime/dist/vue-datetime.css'
     import { VueEditor } from 'vue2-editor'
+    import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
     export default {
 
-
+      placeholder:"تاريخ الحدث",
+      direction:'rtl',
+      value:"UTC+2",
 
         components: {
             Multiselect,
-            VueEditor
+            VueEditor,
+            SweetModal,
+
 
         },
         data(){
             return{
 
-
+              placeholder:"تاريخ الحدث",
+              direction:'rtl',
+              value:"UTC+2",
+                EventType:[
+                    "اداري",
+                    "اعلامي",
+                    "خدمة عامة",
+                    "رحلة خلوية",
+                    "ندوة",
+                    "تربص",
+                    "دورة تربوية",
+                    "دورة تدريبية ",
+                    "اجتماع مكتب",
+                    "اجتماع مجلس",
+                    "مبيت",
+                    "افطار جماعي",
+                    "عملية جمع اللحوم",
+                    "عيد ديني ",
+                    "عيد وطني ",
+                    "رياضة ",
+                    "نشاط أسبوعي ",
+                ],
                 Concerned: [],
                 Captains: [],
 
@@ -312,6 +332,80 @@ var vm =this;
 
         },
         methods:{
+            validate(){
+                if(this.Event.type.length===0  ||
+                    this.Event.title.localeCompare("")===0 ||
+                    this.Event.responsible.length===0 ||
+
+                    this.Event.event_time.localeCompare("")===0 ||
+                    this.Event.location.localeCompare("")===0 ||
+                    this.image.localeCompare("")===0 ||
+                    this.Event.description.localeCompare("")===0
+                ){
+                    this.$refs.valide.open();
+                    if(this.Event.type.length===0 ){
+                        $('#event_type').html(' اختر نوع الحدث').css('color', 'red');
+
+                    }else{
+                        $('#event_type').html('');
+                    }
+
+                    if(this.Event.title.localeCompare("")===0){
+                        $('#event_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                    }else{
+                        $('#event_title').html('');
+                    }
+                    if(  this.Event.responsible.length===0){
+                        $('#responsible').html(' اختر المسؤول').css('color', 'red');
+
+                    }else{
+                        $('#responsible').html('');
+                    }
+
+                    if(this.Event.event_time.localeCompare("")===0){
+                        $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
+
+                    }else{
+                        $('#event_time').html('');
+                    }
+                    if(this.Event.location.localeCompare("")===0){
+                        $('#location').html('حدد مكان الحدث').css('color', 'red');
+
+                    }else{
+                        $('#location').html('');
+                    }
+
+                    if(this.image.localeCompare("")===0){
+                        $('#image').html('صورة الحدث اجبارية').css('color', 'red');
+
+                    } else{
+                        $('#image').html('');
+                    }
+                    if(this.Event.description.localeCompare("")===0){
+                        $('#desc').html('مضمون الحدث لا يمكن ان يكون فارغا').css('color', 'red');
+
+                    }else{
+                        $('#desc').html('');
+                    }
+                    return false;
+                }
+
+
+
+
+
+
+                /* if(this.is_med()){
+                     if(this.Event.unit.localeCompare("")===0){
+                         $('#unit').html('اختر الوحدة المقصودة بالحدث').css('color', 'red');
+                         return false;
+                     }
+                 }*/
+                return true;
+
+
+            },
             deleteitem(props){
 
               this.Event.Concerned.splice(this.Event.Concerned.indexOf(props),1);
@@ -353,14 +447,18 @@ var vm =this;
 
                     vm.Event = response.data.event[0];
                     vm.image = vm.Event.event_image;
+                    vm.Event.responsible = response.data.event[2];
 
                     vm.Event.Concerned = response.data.event[1];
                     vm.Concerned = vm.Event.Concerned;
 
 
 
-                    vm.Event.event_time=vm.Event.event_time.slice(0,10);
 
+                      var datetime = vm.Event.event_time.split(" ");
+                      var date = datetime[0];
+                      var time = datetime[1];
+                    vm.Event.event_time   =  date+"T"+time;
                     vm.getCaptains();
                 });
             },
@@ -371,19 +469,33 @@ var vm =this;
 
             },
             update_event(){
-                var vm = this;
-                this.Event.Concerned = this.Concerned;
+                if(this.validate()) {
+                    this.dateformat();
+                    var vm = this;
+                    this.Event.Concerned = this.Concerned;
 
-                axios.post('/api/UpdateEvent',vm.Event).then(function (response) {
-                    vm.$router.go(-1)
+                    axios.post('/api/UpdateEvent',vm.Event).then(function (response) {
+                        vm.$refs.EditedSuccessfully.open();
+                        setTimeout(function () {
+                            vm.$router.go(-1);
+                        },2000);
 
 
 
 
-                });
+
+                    });
+                }
+
             },
 
-
+            dateformat(){
+              var datetime = this.Event.event_time;
+              var dateArray = datetime.split("T");
+               var date = dateArray[0];
+               var time = dateArray[1].split(".")[0];
+               this.Event.event_time = date.concat(" "+time);
+            },
 
 
     },

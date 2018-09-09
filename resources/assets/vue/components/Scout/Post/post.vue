@@ -7,20 +7,18 @@
 
             <div class="header">
 
-                <h4 class="title">عنوان النشاط</h4>
+                <h4 class="title">عنوان الخبر</h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
                     <div class="col-md-12" >
 
-                        <label  style="float:right;font-size:medium"> عنوان النشاط</label>
-                        <input id="post_title" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder="عنوان النشاط" v-model="post.post_title">
+                        <label  style="float:right;font-size:medium"> عنوان الخبر</label>
+                        <input id="title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title">
                     </div>
                 </div>
 
-
+                <span id="post_title" style="float: right"></span>
             </div>
 
         </div>
@@ -28,24 +26,22 @@
 
             <div class="header">
 
-                <h4 class="title">تاريخ و مكان النشاط</h4>
+                <h4 class="title">التاريخ و المكان</h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
 
                     <div class="col-md-6" >
 
-                        <label  style="float:right;font-size:medium">مكان النشاط </label>
-                        <input id="activity_place" type="text"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder="مكان النشاط " v-model="post.location">
+                        <label  style="float:right;font-size:medium">المكان  </label>
+                        <input id="activity_place" type="text" dir="rtl"  placeholder="المكان" v-model="post.location">
+                        <span id="location" style="float: right"></span>
                     </div>
                     <div class="col-md-6" >
 
-                        <label  style="float:right;font-size:medium">تاريخ النشاط </label>
-                        <input id="activity_date" type="date"  style="   border: 1px solid #CCC5B9;
-                                                                             border-radius: 7px;
-                                                                             padding: 5px" dir="rtl"  placeholder="تاريخ النشاط  " v-model="post.post_date">
+                        <label  style="float:right;font-size:medium">التاريخ</label>
+                          <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                        <span id="post_time" style="float: right"></span>
                     </div>
 
                 </div>
@@ -70,8 +66,9 @@
                         <vue-editor v-model="post.post_summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
 
                     </div>
-                </div>
 
+                </div>
+                <span id="post_summary" style="float: right"></span>
 
             </div>
 
@@ -96,9 +93,10 @@
 
 
                     </div>
+
                 </div>
 
-
+                <span id="post_desc" style="float: right"></span>
             </div>
 
 
@@ -116,21 +114,18 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <select id="select_unit" class="form-control" dir="rtl"  v-model="post.linked_unit" >
-                            <option value="cubs">	الأشبال</option>
-                            <option value="sct">	الكشاف</option>
-                            <option value="asct">	الكشاف المتقدم</option>
-                            <option value="tvlr">	الجوالة</option>
-                            <option value="cap">	القادة</option>
-                            <option value="">وحدة أخرى</option>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.linked_unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
-                        </select>
+                        </multiselect>
+
 
                     </div>
 
 
                 </div>
+                <span id="concerned_unit" style="float:right"></span>
 
             </div>
 
@@ -147,24 +142,18 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <select id="select_unit_med" class="form-control" dir="rtl"  v-model="post.linked_unit" >
-                            <option value="med">	الاعلام</option>
-                            <option value="cubs">	الأشبال</option>
-                            <option value="sct">	الكشاف</option>
-                            <option value="asct">	الكشاف المتقدم</option>
-                            <option value="tvlr">	الجوالة</option>
-                            <option value="cap">	القادة</option>
-                            <option value="fin">المالية</option>
-                            <option value="surv">متابعة البرامج وتنفيذ الخطط</option>
-                            <option value="csd">خدمة و تنمية المجتمع</option>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.linked_unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
-                        </select>
+                        </multiselect>
+
 
                     </div>
 
 
                 </div>
+                <span id="concerned_unit_med" style="float:right"></span>
 
             </div>
 
@@ -175,27 +164,26 @@
 
             <div class="header">
 
-                <h4 class="title"> نوع النشاط </h4>
+                <h4 class="title">نوع الخبر </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
 
                     <div class="col-md-12" >
 
-                        <label  style="float:right;font-size:medium">نوع النشاط </label>
-                        <select id="select" class="form-control" dir="rtl" v-model="post.post_type">
-                            <option value="نشاط اسبوعي">	نشاط اسبوعي</option>
-                            <option value="رياضة اسبوعية">	رياضة اسبوعية</option>
-                            <option value="اجتماع مجلس الشرف">	اجتماع مجلس الشرف</option>
-                            <option value="نشاط ولائي">	نشاط ولائي</option>
-                            <option value="نشاط بلدي">	نشاط بلدي</option>
-                            <option value="نشاط وطني">	نشاط وطني</option>
-                            <option value="نشاط دولي">	نشاط دولي</option>
-                        </select>
+                        <label  style="float:right;font-size:medium">نوع الخبر </label>
+
+
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
+
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+                        </multiselect>
+
                     </div>
 
                 </div>
-
+                <span id="post_type" style="float: right"></span>
 
             </div>
 
@@ -207,7 +195,7 @@
 
             <div class="header">
 
-                <h4 class="title"> صورة النشاط </h4>
+                <h4 class="title"> الصورة الرئيسية للخبر</h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
@@ -227,25 +215,19 @@
                                     </span>
 
                         </div>
+
                         <div id="cover_image_container" v-if="post.cover_image.localeCompare('')!==0">
                             <img :src="post.cover_image"  style="width:100%;">
 
                         </div>
-                        <sweet-modal  style="padding:0px" ref="cover" >
 
-                            <div id="cover_image_container_model" v-if="post.cover_image.localeCompare('')!==0">
-                                <img :src="post.cover_image"  style="width:100%;">
-
-                            </div>
-
-
-                        </sweet-modal>
 
 
 
                     </div>
 
                 </div>
+                <span id="cover_image" style="float: right"></span>
 
 
             </div>
@@ -258,7 +240,7 @@
 
             <div class="header">
 
-                <h4 class="title"> صورة النشاط </h4>
+                <h4 class="title"> صور الخبر </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
@@ -287,21 +269,7 @@
 
 
                         </div>
-                        <sweet-modal  style="padding:0px" ref="images" >
 
-                            <div class="row" id="post_images_container_model" v-if="post.post_images.length!==0">
-                                <div v-for="image in post.post_images" class="col-md-4" >
-                                    <a>
-                                    <img  :src="image" style="height: 100px;width:100%;margin-bottom:10px" >
-                                    <span id="delete_image_model" class="fa fa-remove" style=" line-height: 18px;" @click="remove_image(image)"></span>
-                                    </a>
-                                </div>
-
-
-                            </div>
-
-
-                        </sweet-modal>
 
                     </div>
 
@@ -321,6 +289,25 @@
 
                 </button>
             </div>
+            <sweet-modal ref="valide" icon="warning">
+                <h3>لم يتم ادخال كل المعلومات اللازمة لنشر الخبر </h3>
+                <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
+            </sweet-modal>
+
+            <sweet-modal ref="success" icon="success">
+                <h3>تم انشاء هذا الخبر بنجاح </h3>
+
+            </sweet-modal>
+            <sweet-modal ref="success_trne" icon="success">
+                <h3>تم انشاء هذا الخبر بنجاح </h3>
+                <h3>  ملاحظة : لن يتم نشر هذا الخبر حتى تتم الموافقة عليه </h3>
+
+            </sweet-modal>
+            <sweet-modal ref="image_size" icon="warning">
+                <h3>يجب أن تكون دقة الصورة اكثر من   </h3>  <h3> 1280 X 750  </h3>
+
+
+            </sweet-modal>
         </div>
 
     </div>
@@ -335,7 +322,10 @@
 <script>
 
 
+    import Multiselect from 'vue-multiselect';
 
+    import 'vue-multiselect/dist/vue-multiselect.min.css';
+    import 'vue-multiselect/dist/vue-multiselect.min.js';
 
     import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
 
@@ -347,6 +337,7 @@
 
     export default{
         components: {
+            Multiselect,
             VueEditor,
             SweetModal,
             SweetModalTab,
@@ -355,6 +346,39 @@
         data(){
             return {
 
+              placeholder:"التاريخ",
+              direction:'rtl',
+              value:"UTC+2",
+                unit_for_gov:[
+                    "الأشبال",
+                    "الكشاف",
+                    "الكشاف المتقدم",
+                    "الجوالة",
+                    "القادة",
+                    "وحدة أخرى",
+                ],
+
+                unit_for_med:[
+                    "الاعلام",
+                    "الأشبال",
+                    "الكشاف",
+                    "الكشاف المتقدم",
+                    "الجوالة",
+                    "القادة",
+                    "المالية",
+                    "متابعة البرامج وتنفيذ الخطط",
+                    "خدمة و تنمية المجتمع",
+                ],
+
+                news_type:[
+                    "نشاط اسبوعي ",
+                    "رياضةاسبوعية ",
+                    "اجتماع مجلس الشرف ",
+                    "نشاط ولائي",
+                    "نشاط بلدي",
+                    "نشاط وطني",
+                    "نشاط دولي",
+                ],
                 post:{
                     post_title:'',
                     post_date:'',
@@ -386,24 +410,258 @@
            })
         },
         methods:{
-            postNews(){
-              var vm = this;
-              axios.post('/api/newpost',vm.post).then(function (response) {
+            validate(){
+                if(this.is_gov()){
+                    if(this.post.post_type.length===0  ||
+                        this.post.post_title.localeCompare("")===0 ||
+                        this.post.post_summary.localeCompare("")===0||
 
-                 vm.$router.push('/posts/myposts');
-              });
+                        this.post.post_date.localeCompare("")===0 ||
+                        this.post.location.localeCompare("")===0 ||
+                        this.post.cover_image.localeCompare("")===0 ||
+                        this.post.description.localeCompare("")===0  ||
+                        this.post.linked_unit.length===0
+                    ){
+                        this.$refs.valide.open();
+                        if(this.post.linked_unit.length===0 ){
+                            $('#concerned_unit').html('يجب تحديد الوحدة').css('color', 'red');
+
+                        }else{
+                            $('#concerned_unit').html('');
+                        }
+                        if(this.post.post_type.length===0 ){
+                            $('#post_type').html(' اختر نوع الخبر').css('color', 'red');
+
+                        }else{
+                            $('#post_type').html('');
+                        }
+
+                        if(this.post.post_title.localeCompare("")===0){
+                            $('#post_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                        }else{
+                            $('#post_title').html('');
+                        }
+                        if(  this.post.location.localeCompare("")===0){
+                            $('#location').html('حدد المكان ').css('color', 'red');
+
+                        }else{
+                            $('#location').html('');
+                        }
+
+                        if(this.post.post_date.localeCompare("")===0){
+                            $('#post_time').html(' حدد التاريخ ').css('color', 'red');
+
+                        }else{
+                            $('#post_time').html('');
+                        }
+                        if(this.post.post_summary.localeCompare("")===0){
+                            $('#post_summary').html('الملخص لا يمكن أن يكون فارغا').css('color', 'red');
+
+                        }else{
+                            $('#post_summary').html('');
+                        }
+
+                        if(this.post.description.localeCompare("")===0){
+                            $('#post_desc').html('محتوى لا يمكن أن يكون فارغا').css('color', 'red');
+
+                        } else{
+                            $('#post_desc').html('');
+                        }
+                        if(this.post.cover_image.localeCompare("")===0){
+                            $('#cover_image').html('الصورة الرئيسية اجبارية').css('color', 'red');
+
+                        }else{
+                            $('#cover_image').html('');
+                        }
+                        return false;
+                    }
+                }else{
+                    if(this.is_med()){
+                        if(this.post.linked_unit.length===0  ||
+                            this.post.post_title.localeCompare("")===0 ||
+                            this.post.post_summary.localeCompare("")===0||
+                            this.post.post_type.length===0  ||
+                            this.post.post_date.localeCompare("")===0 ||
+                            this.post.location.localeCompare("")===0 ||
+                            this.post.cover_image.localeCompare("")===0 ||
+                            this.post.description.localeCompare("")===0
+                        ){
+                            this.$refs.valide.open();
+                            if(this.post.post_type.length===0 ){
+                                $('#post_type').html(' اختر نوع الخبر').css('color', 'red');
+
+                            }else{
+                                $('#post_type').html('');
+                            }
+                            if(this.post.linked_unit.length===0 ){
+                                $('#concerned_unit_med').html('يجب تحديد الوحدة').css('color', 'red');
+
+                            }else{
+                                $('#concerned_unit_med').html('');
+                            }
+
+                            if(this.post.post_title.localeCompare("")===0){
+                                $('#post_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#post_title').html('');
+                            }
+                            if(  this.post.location.localeCompare("")===0){
+                                $('#location').html('حدد المكان ').css('color', 'red');
+
+                            }else{
+                                $('#location').html('');
+                            }
+
+                            if(this.post.post_date.localeCompare("")===0){
+                                $('#post_time').html(' حدد التاريخ ').css('color', 'red');
+
+                            }else{
+                                $('#post_time').html('');
+                            }
+                            if(this.post.post_summary.localeCompare("")===0){
+                                $('#post_summary').html('الملخص لا يمكن أن يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#post_summary').html('');
+                            }
+
+                            if(this.post.description.localeCompare("")===0){
+                                $('#post_desc').html('محتوى لا يمكن أن يكون فارغا').css('color', 'red');
+
+                            } else{
+                                $('#post_desc').html('');
+                            }
+                            if(this.post.cover_image.localeCompare("")===0){
+                                $('#cover_image').html('الصورة الرئيسية اجبارية').css('color', 'red');
+
+                            }else{
+                                $('#cover_image').html('');
+                            }
+                            return false;
+                        }
+                    }else{
+                        if(
+                            this.post.post_title.localeCompare("")===0 ||
+                            this.post.post_summary.localeCompare("")===0||
+                            this.post.post_type.length===0  ||
+                            this.post.post_date.localeCompare("")===0 ||
+                            this.post.location.localeCompare("")===0 ||
+                            this.post.cover_image.localeCompare("")===0 ||
+                            this.post.description.localeCompare("")===0
+                        ){
+                            this.$refs.valide.open();
+                            if(this.post.post_type.length===0 ){
+                                $('#post_type').html(' اختر نوع الخبر').css('color', 'red');
+
+                            }else{
+                                $('#post_type').html('');
+                            }
+
+
+                            if(this.post.post_title.localeCompare("")===0){
+                                $('#post_title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#post_title').html('');
+                            }
+                            if(  this.post.location.localeCompare("")===0){
+                                $('#location').html('حدد المكان ').css('color', 'red');
+
+                            }else{
+                                $('#location').html('');
+                            }
+
+                            if(this.post.post_date.localeCompare("")===0){
+                                $('#post_time').html(' حدد التاريخ ').css('color', 'red');
+
+                            }else{
+                                $('#post_time').html('');
+                            }
+                            if(this.post.post_summary.localeCompare("")===0){
+                                $('#post_summary').html('الملخص لا يمكن أن يكون فارغا').css('color', 'red');
+
+                            }else{
+                                $('#post_summary').html('');
+                            }
+
+                            if(this.post.description.localeCompare("")===0){
+                                $('#post_desc').html('محتوى لا يمكن أن يكون فارغا').css('color', 'red');
+
+                            } else{
+                                $('#post_desc').html('');
+                            }
+                            if(this.post.cover_image.localeCompare("")===0){
+                                $('#cover_image').html('الصورة الرئيسية اجبارية').css('color', 'red');
+
+                            }else{
+                                $('#cover_image').html('');
+                            }
+                            return false;
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+                return true;
+
+
+            },
+          dateformat(){
+            var datetime = this.post.post_date;
+            var dateArray = datetime.split("T");
+             var date = dateArray[0];
+             var time = dateArray[1].split(".")[0];
+             this.post.post_date = date.concat(" "+time);
+          },
+            postNews(){
+                if(this.validate()){
+                    this.dateformat();
+                    var vm = this;
+                    axios.post('/api/newpost',vm.post).then(function (response) {
+                        if(vm.current_user.localeCompare("trne")===0)
+                            vm.$refs.success_trne.open();
+                        else
+                            vm.$refs.success.open();
+                        setTimeout(function () {
+                            vm.$router.push('/posts/myposts');
+                        },2000);
+
+                    });
+                }
+
             },
             setPostCover(e){
-                this.$refs.cover.open();
+               var vm = this;
                 var filereader = new FileReader();
+                var img = new Image();
                 filereader.readAsDataURL(e.target.files[0]);
                 filereader.onload =(e)=>{
-                    this.post.cover_image =  e.target.result;
+                    img.src = e.target.result;
+                    img.onload = function() {
+
+                        if(img.width>=1280 && img.height>=720){
+
+                            vm.post.cover_image =  e.target.result;
+                        }else{
+                            vm.$refs.image_size.open();
+                        }
+
+                    };
+
                 };
 
             },
             setPostImages(e){
-                this.$refs.images.open();
+
                 var  image_count=  e.target.files.length;
                 var filereader = new Array();
 
@@ -467,6 +725,13 @@
 
 
 <style>
+#activity_place,#title{
+    border-top: 1px solid #9C9C9C;
+    border-right: 1px solid #9C9C9C;
+    border-left: 1px solid #9C9C9C;
+    border-radius: 7px;
+    padding:5px
+}
     #delete_image,#delete_image_model{
         position: absolute;
         top: 10%;
@@ -560,6 +825,11 @@
     .header .title{
         color:white;
     }
+    @media (max-width: 440px){
+
+        .container{
+            margin-left: 20px !important;
+        }
+
+    }
 </style>
-
-

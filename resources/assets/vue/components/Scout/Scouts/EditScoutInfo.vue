@@ -23,13 +23,17 @@
                 </li>
                     <li>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="padding-right: 0px;padding-left: 25px;">
                                 <label style="font-size: medium;float: right;">تاريخ الازدياد</label>
-                                <input id="date_of_birth" class="input-style"  type="date" placeholder="تاريخ الازدياد" dir="rtl" v-model="Scout.ScoutInfo.date_of_birth"/>
+
+                                <datetime type="date" v-model="Scout.ScoutInfo.date_of_birth" format="yyyy-MM-dd" :placeholder="placeholder_birth" :dir="direction"></datetime>
+
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="padding-right: 0px;padding-left: 30px;">
                                 <label style="font-size: medium;float: right;">تاريخ الانضمام</label>
-                                <input  id="membership_date"  type="date" placeholder="تاريخ الانضمام" dir="rtl" v-model="Scout.ScoutInfo.membership_date"/>
+
+                                <datetime type="date" v-model="Scout.ScoutInfo.membership_date" format="yyyy-MM-dd" :placeholder="placeholder_member" :dir="direction"></datetime>
+
                             </div>
 
                         </div>
@@ -174,6 +178,9 @@
     export default {
        data(){
            return{
+             placeholder_birth:"تاريخ الازدياد",
+             placeholder_member:"تاريخ الانضمام",
+             direction:"rtl",
                Scout:{
                    ScoutInfo:{
                        assurance_num:'',
@@ -544,6 +551,13 @@
             margin-top: 25%;
             margin-left: 25px;
         }
+    }
+    @media (max-width: 440px){
+
+        .container{
+            margin-left: 20px !important;
+        }
+
     }
 
     #first_name,#last_name,#date_of_birth,#phone,#membership_date,#email,#assurance_num{

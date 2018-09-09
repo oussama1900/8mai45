@@ -63,7 +63,7 @@
             </fg-input>
           </div>
           <div class="col-md-6" >
-            <fg-input type="date"
+            <fg-input type="text"
                       label="تاريخ الميلاد"
                       placeholder="تاريخ الميلاد"
                       :disabled="true"
@@ -179,7 +179,47 @@
                vm.MyInfo.scout_code = response.data.users[2];
                if(response.data.users[3]===null){
                    vm.MyInfo.unit="القادة";
-                   vm.MyInfo.role = response.data.users[4].role;
+                  response.data.users[4].role;
+                  switch (response.data.users[4].role) {
+                    case "gov":
+                       vm.MyInfo.role = "محافظ الفوج";
+                      break;
+                      case "vgov":
+                         vm.MyInfo.role = "نائب محافظ الفوج";
+                        break;
+                        case "med":
+                           vm.MyInfo.role = "مسؤول المالية";
+                          break;
+                          case "vmed":
+                             vm.MyInfo.role = "نائب مسؤول المالية";
+                            break;
+                            case "ucap":
+                               vm.MyInfo.role = "قائد وحدة";
+                              break;
+                              case "vucp":
+                                 vm.MyInfo.role = "نائب قائد وحدة";
+                                break;
+                                case "capa":
+                                   vm.MyInfo.role = "قائد مساعد";
+                                  break;
+                                  case "trne":
+                                     vm.MyInfo.role = "قائد متربص";
+                                    break;
+                                    case "fin":
+                                       vm.MyInfo.role = "مسؤول المالية";
+                                      break;
+                                      case "vfin":
+                                         vm.MyInfo.role = "مسؤول العتاد";
+                                        break;
+                                        case "surv":
+                                           vm.MyInfo.role = "متابعة البرامج وتنفيذ الخطط";
+                                          break;
+                                          case "csd":
+                                             vm.MyInfo.role = "خدمة و تنمية المجتمع";
+                                            break;
+
+                  }
+
                }else{
                    vm.MyInfo.unit=response.data.users[3];
                    vm.MyInfo.unit="لا شيئ";

@@ -585,7 +585,7 @@ class ScoutController extends Controller
            }
 
 
-         return response()->json(["msg" =>$unit_resp]);
+      
      }
 
        /**
