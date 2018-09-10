@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderby('created_at','desc')->paginate(3);
-        $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('created_at','desc')->take(3)->get();
+        $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         return view('home')->with('posts',$posts)->with('events',$events);
     }
 

@@ -21,6 +21,15 @@
        $news_style = 'style="background-image: linear-gradient(to bottom right, #FEB692, #EA5455); radius: 5px;"';
    }
 @endphp
+<head>
+    <style>
+        .flip-clock-label {
+            font-size: 40px !important;
+            color: white !important;
+            text-shadow: 3px 2px black !important;
+        }
+    </style>
+</head>
 
 <!-- events Showcases -->
 <div class="container mt-3 center" >
@@ -46,7 +55,7 @@
                                                 <div class="row">
                                                     <h6 class="text-black col-5 mt-2"><i class="fa fa-clock-o" style="color: {{ $card_color }}"></i> <small>{{substr($event->event_time, 0, 10)}}</small></h6>
                                                     <h5 class="text-right text-black col-7">{{$event->title}}</h5>
-                                                    <div class="clock{{ $event->event_id }}" style="width: auto;zoom: 0.3;position: absolute;left: 200px;top: 500px"></div>
+                                                    <div class="clock{{ $event->event_id }}" style="width: auto;zoom: 0.4;position: absolute;left: 75px;top: 500px"></div>
                                                     <script type="text/javascript">
                                                         var clock;
 
@@ -56,7 +65,7 @@
                                                             var currentDate = new Date();
 
                                                             // Set some date in the future. In this case, it's always Jan 1
-                                                            var futureDate  = new Date({{substr($event->event_time, 0, 4)}}, {{substr($event->event_time, 5, 2)}}-1, {{substr($event->event_time, 8, 2)}});
+                                                            var futureDate  = new Date({{substr($event->event_time, 0, 4)}}, {{substr($event->event_time, 5, 2)}}-1, {{substr($event->event_time, 8, 2)}}, {{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
 
                                                             // Calculate the difference in seconds between the future and current date
                                                             var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
@@ -65,6 +74,7 @@
                                                             clock = $('.clock{{ $event->event_id }}').FlipClock(diff, {
                                                                 clockFace: 'dailyCounter',
                                                                 countdown: true,
+                                                                language:'ar-ar',
 
                                                             });
                                                         });
