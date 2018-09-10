@@ -43,8 +43,13 @@
                 </div>
                 </div>
 
+            <sweet-modal ref="confirmation" icon="warning">
+                <h3>هل أنت متأكد من حذف هذا الحدث</h3>
+                <h4> ملاحظة : هذه العملية غير رجعية</h4>
+                <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+                <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
-                <!--here you can make confition if scout color to change the background-->
+            </sweet-modal>
 
 
 
@@ -106,12 +111,18 @@
 
             },
             delete_event(event){
+                this.$refs.confirmation.open();
                 var vm = this;
-                axios.delete('/api/deleteEvent/'+event.event_id).then(function (response) {
-                    var position = vm.AllEvents.indexOf(event);
-                    vm.AllEvents.splice(position,1);
-                    console.log(response);
+                $("#confirmation_button").unbind().click(function () {
+                    axios.delete('/api/deleteEvent/'+event.event_id).then(function (response) {
+                        var position = vm.AllEvents.indexOf(event);
+                        vm.AllEvents.splice(position,1);
+                        vm.$refs.confirmation.close();
 
+                    });
+                });
+                $("#cancel_button").unbind().click(function () {
+                    vm.$refs.confirmation.close();
                 });
             },
             is_trainee(){

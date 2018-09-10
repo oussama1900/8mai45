@@ -1733,8 +1733,10 @@ class EventController extends Controller
         $concerned->delete();
 
         $event = Event::find($event_id);
+        $evnet_id =$event->event_image;
+        File::delete( public_path().'/images/EventImages/'.$event->event_image);
         $event->delete();
-
+      return response()->json(["event"=>$evnet_id]);
     }
     public function getConcernedEvents(){
         $user_id = Auth::user()->scout_id;

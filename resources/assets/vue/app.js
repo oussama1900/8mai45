@@ -8,7 +8,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import vueResource from 'vue-resource';
-
+import SweetModal from 'sweet-modal-vue/src/plugin.js'
 import {Datetime} from 'vue-datetime'
 
 import Axios from 'axios';
@@ -22,7 +22,8 @@ import 'vue-datetime/dist/vue-datetime.css'
 
 window.Vue = require('vue');
 
-Vue.use(VueRouter,  Axios,VueCkeditor,vueResource,Datetime);
+Vue.use(VueRouter,  Axios,VueCkeditor,vueResource,Datetime,SweetModal);
+Vue.use(SweetModal);
 import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';

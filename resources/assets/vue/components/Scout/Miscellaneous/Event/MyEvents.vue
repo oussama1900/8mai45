@@ -56,6 +56,13 @@
                         </div>
 
                     </div>
+                    <sweet-modal ref="confirmation" icon="warning">
+                        <h3>هل أنت متأكد من حذف هذا الحدث</h3>
+                        <h4> ملاحظة : هذه العملية غير رجعية</h4>
+                        <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+                         <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
+
+                    </sweet-modal>
                 </div>
 
 
@@ -69,7 +76,12 @@
 </template>
 
 <script>
+    import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
+
     export default {
+        components:{
+            SweetModal,
+        },
         data(){
             return{
                 myevents:'',
@@ -113,13 +125,25 @@
                 return hour+':'+minute;
             },
             delete_event(event){
+                this.$refs.confirmation.open();
                 var vm = this;
-               axios.delete('/api/deleteEvent/'+event.event_id).then(function (response) {
-                   var position = vm.myevents.indexOf(event);
-                   vm.myevents.splice(position,1);
-                   console.log(response);
+                $("#confirmation_button").unbind().click(function () {
 
-               });
+
+                    axios.delete('/api/deleteEvent/' + event.event_id).then(function (response) {
+                        var position = vm.myevents.indexOf(event);
+                        vm.myevents.splice(position, 1);
+                        vm.$refs.confirmation.close();
+
+
+                    });
+                });
+                    $("#cancel_button").unbind().click(function () {
+
+                        vm.$refs.confirmation.close();
+
+                    });
+
             },
             floating(index){
                if(index%2===1) this.float='float-right';

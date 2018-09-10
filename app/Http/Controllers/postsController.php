@@ -8,6 +8,7 @@ use App\PostImage;
 use App\Captain;
 use Auth;
 use DB;
+use File;
 use Carbon\Carbon;
 
 class postsController extends Controller
@@ -212,7 +213,13 @@ class postsController extends Controller
    }
    public function DeletePost($post_id){
         $post = Post::find($post_id);
+        $post_images = PostImage::where('post_id',$post_id)->get();
+        foreach ($post_images as $image){
+            File::delete(public_path().'/images/Postimages/'.$image->image);
+            DB::delete('delete from postimages where post_id = ?',[$image->post_id]);
+       }
         if($post!=null){
+            File::delete(public_path().'/images/PostCover/'.$post->cover_image);
             $post->delete();
         }
       return response()->json(["deletepost"=>"deleted Successfully"]);

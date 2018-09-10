@@ -203,13 +203,12 @@
                     <div class="col-md-12" >
 
                         <div class="input-group input-group-file" style="margin-top:15px">
-                            <input type="text"  class="form-control" name="image_name" readonly="true" placeholder="اختر صورة" dir="rtl" >
+                            <input type="text"  class="form-control" name="image_name" readonly="true" style="z-index:0" placeholder="اختر صورة" dir="rtl" >
                             <span class="input-group-btn">
-                                        <span class="btn btn-success btn-file">
+                                        <span class="btn btn-success btn-file" style="z-index:0">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
                                             <input type="file" name="titleImage" accept="image/*"
-                                                   @change="setPostCover($event)"
-                                            >
+                                                   @change="setPostCover($event)">
 
                                         </span>
                                     </span>
@@ -248,7 +247,7 @@
                     <div class="col-md-12" >
 
                         <div class="input-group input-group-file" style="margin-top:15px">
-                            <input type="text"  class="form-control" name="image_name" readonly="true" placeholder="اختر صورة" dir="rtl" >
+                            <input type="text"  class="form-control" name="image_name" readonly="true"  placeholder="اختر صورة" dir="rtl" >
                             <span class="input-group-btn">
                                         <span class="btn btn-success btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>

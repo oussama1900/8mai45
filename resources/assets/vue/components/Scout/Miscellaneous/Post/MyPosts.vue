@@ -7,22 +7,24 @@
         </div>
        <div class="row" style="padding-right:10px;padding-left: 10px">
 
-        <div  v-for="post in MyPosts" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
-            <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
+        <div  v-for="post in MyPosts" :id="post.post_id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 " >
+
+
+             <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
                 <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
 
             </div>
-            <div class="card-body" style="height: 50px; background-color: #C8C8C8">
+             <div class="card-body" style="height: 50px; background-color: #C8C8C8">
                 <h6> {{post.post_title}} </h6>
             </div>
-            <div class="trigger" @click="delete_post(post)">
+             <div class="trigger" @click="delete_post(post)">
                 <i class="glyphicon glyphicon-remove" ></i>
             </div>
-            <router-link class="trigger" style="float: right; right: 0px;" :to="'/post/EditPost/'+post.post_id">
+             <router-link class="trigger" style="float: right; right: 0px;cursor: pointer" :to="'/post/EditPost/'+post.post_id" >
                 <i class="glyphicon glyphicon-edit" ></i>
             </router-link>
-            <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
+             <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
                 <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                     <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{MyInfo.last_name}} {{MyInfo.first_name}}</h6>
                     <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(post)}} </span> <span> {{getcurrentmonth(post)}} </span>   الساعة <span>{{gettime(post)}}</span> </h6>
@@ -36,9 +38,19 @@
                 </div>
 
 
-            </div>
+               </div>
+
+
 
         </div>
+           <sweet-modal ref="confirmation" icon="warning">
+               <h3>هل أنت متأكد من حذف هذا الخبر</h3>
+               <h4> ملاحظة : هذه العملية غير رجعية</h4>
+               <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+               <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
+
+           </sweet-modal>
+
        </div>
         <div v-if="MyPosts.length===0">
             <h4 style="text-align: center">ليس لديك اي منشورات </h4>
@@ -86,15 +98,26 @@
                 return hour+':'+minute;
             },
             delete_post(post){
+                this.$refs.confirmation.open();
                 var vm = this;
-                axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
-                    var position = vm.MyPosts.indexOf(post);
-                    vm.MyPosts.splice(position,1);
+
+                $("#confirmation_button").unbind().click(function (event) {
 
 
+                    axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
+                        var position = vm.MyPosts.indexOf(post);
+                        vm.MyPosts.splice(position,1);
+                        vm.$refs.confirmation.close();
+
+
+                    });
                 });
 
+                $("#cancel_button").unbind().click(function () {
+                    vm.$refs.confirmation.close();
+                });
             },
+
         }
     }
     $(function() {
@@ -110,6 +133,7 @@
 </script>
 
 <style scoped>
+
     .icon{
         max-width: 100%;
         width: 100%;
@@ -221,6 +245,9 @@
     .header .title{
         color:white;
     }
+
+
+
     @media (max-width: 767px){
         .container{
             margin-left:15px !important;
