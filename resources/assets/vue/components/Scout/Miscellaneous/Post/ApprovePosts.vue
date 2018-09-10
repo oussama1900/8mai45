@@ -155,7 +155,7 @@
                 const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
                     "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
                 ];
-                return monthNames[parseInt(arr[1],10)];
+                return monthNames[parseInt(arr[1],10)-1];
             },
             getday(post){
                 var arr = post.created_at.split('-');

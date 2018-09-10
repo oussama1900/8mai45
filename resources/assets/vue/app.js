@@ -41,6 +41,17 @@ import MyPosts from './components/Scout/Miscellaneous/Post/MyPosts';
 import MyUnitPosts from './components/Scout/Miscellaneous/Post/MyUnitPosts';
 import ApprovedPosts from './components/Scout/Miscellaneous/Post/ApprovePosts';
 import EditPost from './components/Scout/Miscellaneous/Post/EditPost';
+import ApproveUnitPosts from './components/Scout/Miscellaneous/Post/Units_Posts/ApprovePosts';
+import Cubs_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Cubs_Posts';
+import Scout_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Scout_Posts';
+import Advanced_Scout_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Advanced_Scout_Posts';
+import Traveler_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Traveler_Posts';
+import Captain_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Captain_Posts';
+import Media_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Media_Posts';
+import Finance_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/Finance_Posts';
+import CSD_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/CSD_Posts';
+import SURV_Posts from './components/Scout/Miscellaneous/Post/Units_Posts/SURV_Posts';
+import MyApprovedPosts from './components/Scout/Miscellaneous/Post/MyApprovedPosts';
 
 
 import notification from './components/Notification/notification';
@@ -340,7 +351,62 @@ const routes = [
         path:"/post/EditPost/:id",
         component:EditPost
 
-    }
+    },
+    {
+        path:"/posts/Approve_Posts",
+        component:ApproveUnitPosts
+
+    },
+    {
+        path:"/posts/cub/post",
+        component:Cubs_Posts
+
+    },
+    {
+        path:"/posts/scout/post",
+        component:Scout_Posts
+
+    },
+    {
+        path:"/posts/advanced-scout/post",
+        component:Advanced_Scout_Posts
+
+    },
+    {
+        path:"/posts/traveler/post",
+        component:Traveler_Posts
+
+    },
+    {
+        path:"/posts/captain/post",
+        component:Captain_Posts
+
+    },
+    {
+        path:"/posts/media/post",
+        component:Media_Posts
+
+    },
+    {
+        path:"/posts/csd/post",
+        component:CSD_Posts
+
+    },
+    {
+        path:"/posts/surv/post",
+        component:SURV_Posts
+
+    },
+    {
+        path:"/posts/finance/post",
+        component:Finance_Posts
+
+    },
+    {
+        path:"/posts/MyApprovedPosts",
+        component:MyApprovedPosts
+
+    },
 
 
 

@@ -185,7 +185,12 @@ class postsController extends Controller
 
 
 
-
+  public function getUnitPostsNotApproved(){
+      $post_not_approved = Post::with('post_creator')
+          ->where('approved',false)
+          ->get();
+      return response()->json(["post_not_approved"=>$post_not_approved]);
+  }
    public function getPostsNotApproved(){
         $user = Auth::user();
         $user_unit = $user->captain->unit;
@@ -196,6 +201,14 @@ class postsController extends Controller
                                      ->get();
         }
         return response()->json(["post_not_approved"=>$post_not_approved]);
+   }
+   public function getUnitPostsApproved(){
+       $publisher_id = Captain::where('role','trne')->value('scout_id');
+       $post_approved = Post::with('post_creator')
+           ->where('approved',true)
+           ->where('posted_by',$publisher_id)
+           ->get();
+       return response()->json(["post_approved"=>$post_approved]);
    }
    public function getPostsApproved(){
        $user = Auth::user();
@@ -298,10 +311,56 @@ public function EditPost($post_id, Request $request){
 }
 
 
+   public function getUnitPosts($unit_id){
+        switch($unit_id){
+            case 1:{
+                $post = Post::with('post_creator')->where('linked_unit','cubs')->get();
+                break;
+            }
+            case 2:{
+                $post = Post::with('post_creator')->where('linked_unit','sct')->get();
+                break;
+            }
+         case 3:{
+                $post = Post::with('post_creator')->where('linked_unit','asct')->get();
+                break;
+            }
+         case 4:{
+                $post = Post::with('post_creator')->where('linked_unit','tvlr')->get();
+                break;
+            }
+         case 5:{
+                $post = Post::with('post_creator')->where('linked_unit','cap')->get();
+                break;
+            }
+         case 6:{
+                $post = Post::with('post_creator')->where('linked_unit','med')->get();
+                break;
+            }
+         case 7:{
+                $post = Post::with('post_creator')->where('linked_unit','fin')->get();
+                break;
+            }
+         case 8:{
+                $post = Post::with('post_creator')->where('linked_unit','csd')->get();
+                break;
+            }
+         case 9:{
+                $post = Post::with('post_creator')->where('linked_unit','surv')->get();
+                break;
+            }
+        }
+        return response()->json(["post"=>$post]);
+
+   }
 
 
-
-
+public function getMyApprovedPosts(){
+    $user = Auth::user();
+    $myposts = Post::where('posted_by',$user->scout_id)->where('approved',true)->get();
+    $myinfo = $user->profile;
+    return response()->json(["MyPosts"=>[$myposts,$myinfo]]);
+}
 
 
 

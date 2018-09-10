@@ -4,34 +4,35 @@
 
         <div class="header">
 
-            <h4 class="title"> الأحداث التي تحتاج المصادقة عليها  </h4>
+            <h4 class="title"> المنشورات التي تحتاج المصادقة عليها  </h4>
         </div>
         <div class="container  " style="background-color: transparent">
-        <div class="row">
+        <div class="row" >
 
-            <div  v-for="events in NotApproved" :key="events.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
+            <div  v-for="post in NotApproved" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                 <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
-                    <img :src="'/images/EventImages/'+events.event_image" class="icon" >
+                    <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
 
                 </div>
                 <div class="card-body" style="height: 50px; background-color: #C8C8C8">
-                    <h6> {{events.title}} </h6>
+                    <h6> {{post.post_title}} </h6>
                 </div>
-                <div class="trigger" @click="delete_event(events)">
+                <div class="trigger" @click="delete_post(post)">
                     <i class="glyphicon glyphicon-remove" ></i>
                 </div>
-                <router-link class="trigger" style="float: right; right: 0px;" :to="'/myposts/event/'+events.event_id">
+                <router-link class="trigger" style="float: right; right: 0px;" :to="'/myposts/event/'+post.post_id">
                     <i class="glyphicon glyphicon-edit" ></i>
                 </router-link>
                 <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
                     <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
-                        <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{events.creator.last_name}} {{events.creator.first_name}}</h6>
-                        <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
+                        <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{post.post_creator.last_name}} {{post.post_creator.first_name}}</h6>
+                        <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(post)}} </span> <span> {{getcurrentmonth(post)}} </span>   الساعة <span>{{gettime(post)}}</span> </h6>
                     </div>
                     <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                        <a href="#"><img class="img-circle" :src="'/images/Captain/'+events.creator.image"   style="height: 70%; max-width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
-  <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%" v-else></a>
+                        <a href="#">
+                            <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="post.post_creator.image.localeCompare('')!==0">
+                           <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
                     </div>
 
 
@@ -40,7 +41,7 @@
                 <div style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
 
                     <div class="text-center" style="height: 100%;padding: 0 0">
-                        <div class="btn btn-primary" style="background-color:#00c7b5" @click="approveEvent(events)">الموافقة</div>
+                        <div class="btn btn-primary"  style=" background-color: #17b9f5;"  @click="approvePost(post)">الموافقة</div>
                     </div>
 
 
@@ -61,7 +62,7 @@
 
 
         <div v-if="NotApproved.length===0">
-            <p style="font-size: large">لا توجد احداث تحتاج المصادقة </p>
+            <p style="font-size: large">لا توجد منشورات تحتاج المصادقة </p>
         </div>
 
         </div>
@@ -70,36 +71,35 @@
 
         <div class="header">
 
-            <h4 class="title"> الأحداث  المصادق عليها  </h4>
+            <h4 class="title"> المنشورات  المصادق عليها  </h4>
         </div>
         <div class="container  " style="background-color: transparent">
             <div class="row">
 
-                <div  v-for="events in AllEventsApproved" :key="events.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
+                <div  v-for="post in AllPostsApproved" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
                     <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
-                        <img :src="'/images/EventImages/'+events.event_image" class="icon" >
+                        <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
 
                     </div>
                     <div class="card-body" style="height: 50px; background-color: #C8C8C8">
-                        <h6> {{events.title}} </h6>
+                        <h6> {{post.post_title}} </h6>
                     </div>
-                    <div class="trigger" @click="delete_event(events)">
+                    <div class="trigger" @click="delete_post(post)">
                         <i class="glyphicon glyphicon-remove" ></i>
                     </div>
-                    <router-link class="trigger" style="float: right;right: 0px;" :to="'/myposts/event/'+events.event_id">
+                    <router-link class="trigger" style="float: right;left: 237.969px;right: 0px;" :to="'/post/EditPost/'+post.post_id">
                         <i class="glyphicon glyphicon-edit" ></i>
                     </router-link>
                     <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
                         <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
-                            <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{events.creator.last_name}} {{events.creator.first_name}}</h6>
-                            <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
+                            <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{post.post_creator.last_name}} {{post.post_creator.first_name}}</h6>
+                            <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(post)}} </span> <span> {{getcurrentmonth(post)}} </span>   الساعة <span>{{gettime(post)}}</span> </h6>
                         </div>
                         <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
                             <a href="#">
-                                <img class="img-circle" :src="'/images/Captain/'+events.creator.image"  style="height: 70%; max-width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
-                                <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:15% 15%" v-else>
-                            </a>
+                                <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; width: 70%;margin:15% 15%" v-if="post.post_creator.image.localeCompare('')===0">
+                            <img class="img-circle" src="/images/default.png"  style="height: 70%; width: 70%;margin:15% 15%" v-else></a>
                         </div>
 
 
@@ -107,7 +107,7 @@
                     </div>
                     <div style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
                         <div class="text-center" style="height: 100%; margin: 0 0; padding: 0 0">
-                            <div class="btn btn-primary" style="background-color:#00c7b5"   @click="disapproveEvent(events)">عدم الموافقة</div>
+                            <div class="btn btn-primary" style=" background-color: #17b9f5;"  @click="disapprovePost(post)">عدم الموافقة</div>
                         </div>
 
 
@@ -116,28 +116,27 @@
 
                     </div>
                 </div>
+                <sweet-modal ref="approve" icon="success">
+                    <h3>تمت الموافقة على هذا الخبر وبالتالي سيتم نشره</h3>
 
+                </sweet-modal>
 
+                <sweet-modal ref="disapprove" icon="success">
+                    <h3>تم رفض هذا الحدث وبالتالي سيبقى مع الأخبار المرفوضة حتى تتم عملية ازالته نهائيا</h3>
+
+                </sweet-modal>
                 <!--here you can make confition if scout color to change the background-->
 
 
 
             </div>
-            <sweet-modal ref="approve_event" icon="success">
-                <h3>تمت الموافقة على هذا الحدث و بالتلي سيتم نشره </h3>
-
-            </sweet-modal>
-            <sweet-modal ref="disapprove_event" icon="error">
-                <h3>تم رفض هذا الحدث وبالتالي سيبقى مع الأحداث المرفوضة حتى تتم عملية ازالته نهائيا</h3>
-
-            </sweet-modal>
         </div>
 
 
 
 
-        <div v-if="AllEventsApproved.length===0">
-            <p style="font-size: large">لا توجد احداث مصادق عليها  </p>
+        <div v-if="AllPostsApproved.length===0">
+            <p style="font-size: large">لا توجد منشورات مصادق عليها  </p>
         </div>
 
     </div>
@@ -146,39 +145,33 @@
 </template>
 
 <script>
-    import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
     export default {
-        components: {
-            SweetModal,
-            SweetModalTab,
-
-        },
         data(){
             return{
                 NotApproved:'',
-                AllEventsApproved:'',
+                AllPostsApproved:'',
             }
         },
         created:function(){
-          this.getApprovedEvents();
-          this.EventsApproved();
+          this.getPostsNotApproved();
+          this.PostsApproved();
         },
         methods:{
-            getcurrentmonth(event){
-                var arr = event.created_at.split('-');
+            getcurrentmonth(post){
+                var arr = post.created_at.split('-');
                 const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
                     "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
                 ];
                 return monthNames[parseInt(arr[1],10)-1];
             },
-            getday(event){
-                var arr = event.created_at.split('-');
+            getday(post){
+                var arr = post.created_at.split('-');
 
 
                 return arr[2].toString().slice(0,2);
             },
-            gettime(event){
-                var arr = event.created_at.split('-');
+            gettime(post){
+                var arr = post.created_at.split('-');
                 var fulltime = arr[2].toString().slice(2);
                 var time = fulltime.split(':');
                 var hour = time[0];
@@ -186,57 +179,64 @@
 
                 return hour+':'+minute;
             },
-             getApprovedEvents(){
+             getPostsNotApproved(){
                 var vm = this;
-                axios.get('/api/getEventsNotApproved').then(function (response) {
+                axios.get('/api/getUnitPostsNotApproved').then(function (response) {
 
 
-                    vm.NotApproved = response.data.notApproved;
+                    vm.NotApproved = response.data.post_not_approved;
+
                 });
 
             },
-            delete_event(event){
+            delete_post(post){
                 var vm = this;
-                axios.delete('/api/deleteEvent/'+event.event_id).then(function (response) {
-                    var position = vm.NotApproved.indexOf(event);
+                axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
+                    var position = vm.NotApproved.indexOf(post);
                     vm.NotApproved.splice(position,1);
 
 
                 });
 
             },
-            EventsApproved(){
+            PostsApproved(){
                 var vm =this;
-                axios.get('/api/getEventsApproved',event).then(function (response) {
+                axios.get('/api/getUnitPostsApproved').then(function (response) {
 
-                    vm.AllEventsApproved = response.data.eventsapproved;
+                    vm.AllPostsApproved = response.data.post_approved;
 
 
                 });
 
             },
-            approveEvent(event){
+            approvePost(post){
 
                 var vm =this;
-                vm.$refs.approve_event.open();
-                axios.post('/api/approveEvent',event).then(function (response) {
+                axios.post('/api/approvePost/'+post.post_id).then(function (response) {
+                    vm.$refs.approve.open();
+                    setTimeout(function () {
+                        vm.$refs.approve.close();
+                    },3000);
 
-                    var position = vm.NotApproved.indexOf(event);
+                    var position = vm.NotApproved.indexOf(post);
                     vm.NotApproved.splice(position,1);
 
-                    vm.EventsApproved();
+                    vm.PostsApproved();
 
                 });
 
             },
-            disapproveEvent(event){
+            disapprovePost(post){
                 var vm =this;
-                vm.$refs.disapprove_event.open();
-                axios.post('/api/disapproveEvent',event).then(function (response) {
+                axios.post('/api/disapprovePost/'+post.post_id).then(function (response) {
+                    vm.$refs.disapprove.open();
+                    setTimeout(function () {
+                        vm.$refs.disapprove.close();
+                    },3000);
 
-                      var position = vm.AllEventsApproved.indexOf(event);
-                    vm.AllEventsApproved.splice(position,1);
-                    vm.getApprovedEvents();
+                    var position = vm.AllPostsApproved.indexOf(post);
+                    vm.AllPostsApproved.splice(position,1);
+                    vm.getPostsNotApproved();
                 });
 
             },
@@ -312,7 +312,8 @@
         cursor:pointer;
         color: #fff;
         line-height: 56px;
-        background-color: #00c7b5;
+        background-color: #17b9f5;
+        backdrop-filter: blur(5px);
         transition: transform 0.15s cubic-bezier(0.4, 0.0, 1, 1), opacity 0.1s 0.1s, box-shadow 0.3s;
         opacity: 1;
         /*right: 50px;*/
@@ -351,7 +352,7 @@
     }
     .toolbar button {
         position: absolute;
-        z-index: 999999;
+        z-index: 1;
         border: 0;
         background: transparent;
         font-size: 16px;
@@ -377,8 +378,11 @@
     }
 
     @media (max-width: 767px){
+        .container{
+            margin-left:15px !important;
+        }
         .card-width{
-            width:100%;
+            width:95%;
         }
     }
     @media (min-width: 768px){

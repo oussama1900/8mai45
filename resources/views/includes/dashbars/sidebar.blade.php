@@ -225,6 +225,10 @@
                               <router-link class="animsition-link" to="/posts/media/post"/>
                               <span class="site-menu-title">{{ trans('app.media')}}</span>
                           </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/finance/post"/>
+                              <span class="site-menu-title">{{ trans('app.Finance')}}</span>
+                          </li>
                             <li class="site-menu-item">
                               <router-link class="animsition-link" to="/posts/csd/post"/>
                               <span class="site-menu-title" >{{ trans('app.CSD')}}</span>
@@ -260,6 +264,10 @@
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/posts/approveposts"/>
                               <span class="site-menu-title">{{ trans('app.ApprovePosts')}}</span>
+                          </li>
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/posts/MyApprovedPosts"/>
+                              <span class="site-menu-title">{{ trans('app.MyApprovedPosts')}}</span>
                           </li>
                       </ul>
                   </li>

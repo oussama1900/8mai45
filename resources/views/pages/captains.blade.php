@@ -105,11 +105,11 @@
         <div class="row active-with-click">
             @foreach($captains as $captain)
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <article class="material-card Indigo">
+                    <article class="material-card Light-Blue">
                         <h2>
                             <span style="text-align: right">{{ $captain->profile->getFullName() }}</span>
                             <strong style="text-align: right">
-                                {{ $captain->role }}
+                                {{ $captain->assignedRole->getRole() }}
                                 <i class="fa fa-fw fa-star"></i>
                             </strong>
                         </h2>
@@ -133,8 +133,8 @@
                                 {{ $captain->profile->phone }} : {{ $phone }}
                             </div>
                         </div>
-                        <a class="mc-btn-action">
-                            <i class="fa fa-bars"></i>
+                        <a class="mc-btn-action" style="color: #fff;">
+                            <i class="fa fa-bars" style="color:white"></i>
                         </a>
                         <div class="mc-footer">
                             <h4 class="pull-right"  dir="rtl" style="text-align: right;position: absolute;right: 50%">

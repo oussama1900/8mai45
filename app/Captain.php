@@ -16,6 +16,7 @@ class Captain extends Model
     public function assignedRole(){
         return $this->hasOne('App\Role', 'name', 'role');
     }
+
     public function isScout(){
         return $this->belongsTo('App\Scout', 'scout_id', 'scout_id');
     }

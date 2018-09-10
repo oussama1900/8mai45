@@ -1,3 +1,6 @@
+
+
+
 @import "https://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700";
 .fa-spin-fast {
     -webkit-animation: fa-spin-fast 0.2s infinite linear;
@@ -47,10 +50,12 @@
     transition: all 0.3s;
 }
 .material-card h2 span {
+  margin-top:-12px;
     display: block;
 }
 .material-card h2 strong {
     font-weight: 400;
+    margin-top:-5px;
     display: block;
     font-size: 0.8em;
 }
@@ -80,7 +85,7 @@
 }
 .material-card.mc-active h2 {
     top: 0;
-    padding: 10px 16px 10px 90px;
+    padding: 10px 16px 30px 90px;
 }
 .material-card.mc-active h2:before {
     top: 0;
@@ -614,6 +619,7 @@
 }
 .material-card.Light-Blue h2 {
     background-color: #03A9F4;
+    padding: 10px 16px 25px 90px;
 }
 .material-card.Light-Blue h2:after {
     border-top-color: #03A9F4;

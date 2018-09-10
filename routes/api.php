@@ -192,8 +192,15 @@ Route::get('/getMyUnitPosts',[
 Route::get('/getPostsNotApproved',[
     'uses' =>'postsController@getPostsNotApproved'
 ]);
+
 Route::get('/getPostsApproved',[
     'uses' =>'postsController@getPostsApproved'
+]);
+Route::get('/getUnitPostsNotApproved',[
+    'uses' =>'postsController@getUnitPostsNotApproved'
+]);
+Route::get('/getUnitPostsApproved',[
+    'uses' =>'postsController@getUnitPostsApproved'
 ]);
 Route::delete('/deletepost/{post_id}',[
     'uses' =>'postsController@DeletePost'
@@ -213,6 +220,12 @@ Route::post('/EditPost/{post_id}',[
 Route::get('/current_user',function (){
     return response()->json(["current_user"=>Auth::user()->captain->role]);
 });
+Route::get('/getUnitPosts/{unit_id}',[
+    'uses' =>'postsController@getUnitPosts'
+]);
+Route::get('/getMyApprovedPosts',[
+    'uses' =>'postsController@getMyApprovedPosts'
+]);
 
 
 

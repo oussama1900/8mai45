@@ -1,84 +1,93 @@
 <template>
+
     <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="margin:10px;margin-top: 22px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+        <div class="header" >
 
-        <div class="header">
-
-            <h4 class="title"> الأحداث التي تمت المصادقة عليها  </h4>
+            <h4 class="title">منشورات وحدة متابعة البرامج وتنفيذ الخطط</h4>
         </div>
-        <div class="container  " style="background-color: transparent">
-        <div class="row">
 
-            <div  v-for="events in AllEvents" :key="events.id" class="col-sm-3 hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
-                <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
+<div class="row" style="padding-right:10px;padding-left: 10px">
+        <div  v-for="post in UnitPosts" :key="post.id" class="col-sm-3 col-md-3  hoverable card card-width" style="margin: 10px 10px;padding: 0 0 ">
+            <div class="card-img-top" style="background-color: #0b96e5;height: 150px;">
 
-                    <img :src="'/images/EventImages/'+events.event_image" class="icon" >
+                <img :src="'/images/PostCover/'+post.cover_image" class="icon" >
 
-                </div>
-                <div class="card-body" style="height: 50px; background-color: #C8C8C8">
-                    <h6> {{events.title}} </h6>
-                </div>
-                <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
-                    <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
-                        <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{events.creator.last_name}} {{events.creator.first_name}}</h6>
-                        <h6 style="text-align:right;margin: 0 0">     <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
-                    </div>
-                    <div class="col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0">
-                        <a href="#">
-                          <img class="img-circle":src="'/images/Captain/'+events.creator.image"   style="height: 70%; max-width: 70%;margin:15% 15%" v-if="events.creator.image.localeCompare('')!==0">
-                            <img class="img-circle" src="/images/default.png"   style="height: 70%; max-width: 70%;margin:15% 15%" v-else>
-                          </a>
-                    </div>
-
-
+            </div>
+            <div class="card-body" style="height: 50px; background-color: #C8C8C8">
+                <h6> {{post.post_title}} </h6>
+            </div>
+            <div class="trigger" @click="delete_post(post)">
+                <i class="glyphicon glyphicon-remove" ></i>
+            </div>
+            <router-link class="trigger" style="float: right; right: 0px;" :to="'/post/EditPost/'+post.post_id">
+                <i class="glyphicon glyphicon-edit" ></i>
+            </router-link>
+            <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
+                <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
+                    <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{post.post_creator.last_name}} {{post.post_creator.first_name}}</h6>
+                    <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(post)}} </span> <span> {{getcurrentmonth(post)}} </span>   الساعة <span>{{gettime(post)}}</span> </h6>
 
                 </div>
+
+                <div class=" col-sm-2 col-xs-2" style="height: 100%; margin: 0 0; padding: 0 0" >
+                    <a href="#">
+                        <img class="img-circle":src="'/images/Captain/'+post.post_creator.image"  style="height: 70%; max-width: 70%;margin:auto;border-radius: 50%;" v-if="post.post_creator.image.localeCompare('')!==0">
+                        <img class="img-circle" src="/images/default.png"  style="height: 70%; max-width: 70%;margin:auto" v-else></a>
                 </div>
-
-
-                <!--here you can make confition if scout color to change the background-->
-
 
 
             </div>
-        </div>
-
-
-
-
-        <div v-if="AllEvents.length===0">
-            <p style="font-size: large">لا توجد احداث مصادق عليها حتى الآن</p>
-        </div>
 
         </div>
-
+</div>
+        <div v-if="UnitPosts.length===0">
+            <h4 style="text-align: center">لا توجد منشورات </h4>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
         data(){
             return{
-                AllEvents:'',
+                UnitPosts:'',
+
+
             }
         },
         created:function(){
-          this.getApprovedEvents();
+
+
+
+
+
+
+
+
+            var vm =this;
+            axios.get('/api/getUnitPosts/9').then(function (response) {
+
+
+                vm.UnitPosts = response.data.post;
+
+            });
         },
         methods:{
-            getcurrentmonth(event){
-                var arr = event.created_at.split('-');
+            getcurrentmonth(post){
+                var arr = post.created_at.split('-');
                 const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
                     "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
                 ];
                 return monthNames[parseInt(arr[1],10)-1];
             },
-            getday(event){
-                var arr = event.created_at.split('-');
+            getday(post){
+                var arr = post.created_at.split('-');
 
 
                 return arr[2].toString().slice(0,2);
             },
-            gettime(event){
-                var arr = event.created_at.split('-');
+            gettime(post){
+                var arr = post.created_at.split('-');
                 var fulltime = arr[2].toString().slice(2);
                 var time = fulltime.split(':');
                 var hour = time[0];
@@ -86,18 +95,18 @@
 
                 return hour+':'+minute;
             },
-             getApprovedEvents(){
+            delete_post(post){
                 var vm = this;
-                axios.get('/api/getMyEventsApproved').then(function (response) {
+                axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
+                    var position = vm.UnitPosts.indexOf(post);
+                    vm.UnitPosts.splice(position,1);
 
-                    vm.AllEvents = response.data.approved;
+
                 });
 
             },
-
         }
     }
-    /*the floating button css*/
     $(function() {
         $('.trigger').click(function() {
             $(this).addClass('open');
@@ -108,11 +117,9 @@
             $('.pseudo-circle').removeClass('open');
         })
     })
-
 </script>
 
 <style scoped>
-
     .icon{
         max-width: 100%;
         width: 100%;
@@ -121,12 +128,7 @@
 
     }
 
-    .card{
-        margin-top:7%;
-        margin-left: 65px;
-        background-color: white;
 
-    }
 
     h3, h5, h6{
         margin: 0 0;
@@ -147,7 +149,7 @@
         height: 50px;
         border-radius: 50%;
         position: absolute;
-        margin-top: 59%;
+        margin-top: 51%;
         margin-left: 3% ;
         /*right: 100px;*/
         /*bottom: 10px;*/
@@ -165,14 +167,15 @@
         cursor:pointer;
         color: #fff;
         line-height: 56px;
-        background-color: #009688;
+        background-color: #17b9f5;
+        backdrop-filter: blur(5px);
         transition: transform 0.15s cubic-bezier(0.4, 0.0, 1, 1), opacity 0.1s 0.1s, box-shadow 0.3s;
         opacity: 1;
         /*right: 50px;*/
-       /*bottom: 50px;*/
+        /*bottom: 50px;*/
         /*position: fixed;*/
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.24);
-        z-index: 99999;
+        z-index: 1;
     }
     .pseudo-circle.open {
         transition-delay: .15s;
@@ -229,8 +232,11 @@
         color:white;
     }
     @media (max-width: 767px){
+        .container{
+            margin-left:15px !important;
+        }
         .card-width{
-            width:100%;
+            width:95%;
         }
     }
     @media (min-width: 768px){
@@ -238,5 +244,4 @@
             width:30%;
         }
     }
-
 </style>
