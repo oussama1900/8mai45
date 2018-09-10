@@ -25,6 +25,9 @@ Route::get('/advanced_scout', 'HomeController@advanced_scout')->name('advanced_s
 Route::get('/traveler', 'HomeController@traveler')->name('traveler');
 Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/posts/{id}', 'HomeController@viewPost')->name('readPost');
+Route::get('/events', 'HomeController@events')->name('events');
+Route::get('/events/{id}', 'HomeController@viewEvent')->name('readEvent');
+Route::get('/captains', 'HomeController@captains')->name('captains');
 Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/login', 'DashboardController@index');

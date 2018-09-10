@@ -49,6 +49,7 @@
         <script src="<?php echo e(asset('assets/js/owl.carousel.min.js')); ?>"></script>
         <script src="<?php echo e(asset('assets/js/main.js')); ?>"></script>
         <script src="<?php echo e(asset('assets/js/flipclock.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/js/capJs.js')); ?>"></script>
     </body>
 
 </html>

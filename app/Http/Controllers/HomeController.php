@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use App\Event;
 use App\Post;
 use App\PostImage;
+use App\Captain;
+
 class HomeController extends Controller
 {
     /**
@@ -40,25 +42,29 @@ class HomeController extends Controller
     public function cubs()
     {
         $posts = Post::where('linked_unit','cubs')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.cubs')->with('posts',$posts);
+        $events = Event::where('unit','cubs')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        return view('pages.units.cubs')->with('posts',$posts)->with('events',$events);
     }
 
     public function scout()
     {
         $posts = Post::where('linked_unit','sct')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.scout')->with('posts',$posts);
+        $events = Event::where('unit','sct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        return view('pages.units.scout')->with('posts',$posts)->with('events',$events);
     }
 
     public function advanced_scout()
     {
         $posts = Post::where('linked_unit','asct')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.advanced_scout')->with('posts',$posts);
+        $events = Event::where('unit','asct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        return view('pages.units.advanced_scout')->with('posts',$posts)->with('events',$events);
     }
 
     public function traveler()
     {
         $posts = Post::where('linked_unit','tvlr')->orderby('created_at','desc')->paginate(3);
-        return view('pages.units.traveler')->with('posts',$posts);
+        $events = Event::where('unit','tvlr')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        return view('pages.units.traveler')->with('posts',$posts)->with('events',$events);
     }
 
     public function news()
@@ -73,6 +79,23 @@ class HomeController extends Controller
         $currentPost = Post::find($id);
         $currentPostImages = PostImage::where('post_id',$id)->get();
         return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost)->with('allPosts',$allPosts)->with('currentPostImages',$currentPostImages);
+    }
+
+    public function events()
+    {
+        $events = Event::orderby('event_time','asc')->get();
+        return view('pages.events')->with('events',$events);
+    }
+
+    public function viewEvent($id){
+        $events = Event::orderby('event_time','asc')->paginate(3);
+        $currentEvent = Post::find($id);
+        return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
+    }
+
+    public function captains(){
+        $captains = Captain::all();
+        return view('pages.captains')->with('captains',$captains);
     }
 
     public function about()

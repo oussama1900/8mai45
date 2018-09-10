@@ -106,6 +106,7 @@
     </header>
 
     @include('includes.news')
+    @include('includes.events')
 
 
 @endsection

@@ -65,7 +65,7 @@
                                                             var currentDate = new Date();
 
                                                             // Set some date in the future. In this case, it's always Jan 1
-                                                            var futureDate  = new Date({{substr($event->event_time, 0, 4)}}, {{substr($event->event_time, 5, 2)}}-1, {{substr($event->event_time, 8, 2)}}, {{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
+                                                            var futureDate  = new Date({{substr($event->event_time, 0, 4)}}, {{substr($event->event_time, 5, 2)}}, {{substr($event->event_time, 8, 2)}}, {{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
 
                                                             // Calculate the difference in seconds between the future and current date
                                                             var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;

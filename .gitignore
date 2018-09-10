@@ -9,3 +9,4 @@ composer.lock
 gulpfile.js
 package-lock.json
 phpunit.xml
+.idea/workspace.xml

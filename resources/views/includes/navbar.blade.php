@@ -77,6 +77,10 @@
 
                 </li>
                 <li class="nav-item">
+                    <!-- this is the events link -->
+                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('events') ? 'activenav' : '' }} {{ Route::currentRouteNamed('readEvent') ? 'activenav' : '' }}" href="/events" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">النشاطات</a>
+                </li>
+                <li class="nav-item">
                     <!-- this is the news link -->
                     <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('news') ? 'activenav' : '' }} {{ Route::currentRouteNamed('readPost') ? 'activenav' : '' }}" href="/news" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">الأخبار</a>
                 </li>

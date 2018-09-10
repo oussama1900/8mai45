@@ -107,7 +107,7 @@
                         <li class="article-type" ><i class="fa fa-camera"></i></li>
                         <li class="article-category" ><a style="background-image: linear-gradient(to bottom right, #52E5E7, #130CB7); radius: 5px;" href="#">{{ $post->post_type }}</a></li>
                     </ul>
-                    <h2 class="article-title"><a href="#">{{$post->post_title}}</a></h2>
+                    <h2 class="article-title"><a href="/posts/{{$post->post_id}}">{{$post->post_title}}</a></h2>
                     <ul class="article-meta">
                         <li>{{substr($post->post_date, 0, 10)}} <i class="fa fa-clock-o"></i></li>
                     </ul>
