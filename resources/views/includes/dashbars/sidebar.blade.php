@@ -317,9 +317,9 @@
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
                           <li class="site-menu-item">
-                              <a class="animsition-link" href="{{URL::to('/#')}}">
-                                  <span class="site-menu-title">{{ trans('app.money mangment')}}</span>
-                              </a>
+														<router-link class="animsition-link" to="/finance/Financial_management">
+																<span class="site-menu-title">{{ trans('app.money mangment')}}</span>
+														</router-link>
                           </li>
                       </ul>
                       <ul class="site-menu-sub">  <!--forum sidebar item-->

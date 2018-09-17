@@ -160,7 +160,7 @@
                             </div>
 
                         </div>
-                        <vue-editor   v-model="Event.description" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor   v-model="desc" :editorToolbar="customToolbar"></vue-editor>
 
 
                     </div>
@@ -302,8 +302,8 @@
                 Event:{
                   title:'',
                   type:'',
-                    desc:'',
-                    responsible:{},
+
+                    responsible:'',
                   event_time:'',
                   location:'',
 
@@ -312,7 +312,7 @@
 
                 },
                 image:'',
-
+                desc:'',
 
                 show_desc:true,
                 customToolbar: [
@@ -340,7 +340,7 @@ var vm =this;
                     this.Event.event_time.localeCompare("")===0 ||
                     this.Event.location.localeCompare("")===0 ||
                     this.image.localeCompare("")===0 ||
-                    this.Event.description.localeCompare("")===0
+                    this.desc.localeCompare("")===0
                 ){
                     this.$refs.valide.open();
                     if(this.Event.type.length===0 ){
@@ -382,7 +382,7 @@ var vm =this;
                     } else{
                         $('#image').html('');
                     }
-                    if(this.Event.description.localeCompare("")===0){
+                    if(this.desc.localeCompare("")===0){
                         $('#desc').html('مضمون الحدث لا يمكن ان يكون فارغا').css('color', 'red');
 
                     }else{
@@ -464,21 +464,19 @@ var vm =this;
             },
 
             show_description(){
-                this.Event.desc = this.Event.description;
+                this.desc = this.Event.description;
                 this.show_desc=false;
 
             },
             update_event(){
+                this.Event.description = this.desc;
                 if(this.validate()) {
                     this.dateformat();
                     var vm = this;
                     this.Event.Concerned = this.Concerned;
 
                     axios.post('/api/UpdateEvent',vm.Event).then(function (response) {
-                        vm.$refs.EditedSuccessfully.open();
-                        setTimeout(function () {
-                            vm.$router.go(-1);
-                        },2000);
+                        vm.$router.go(-1);
 
 
 

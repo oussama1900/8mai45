@@ -15,6 +15,7 @@ return array(
     'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
     'CreateCaptainsTable' => $baseDir . '/database/migrations/2015_07_20_102253_create_captains_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2016_10_10_202550_create_events_table.php',
+    'CreateFinancesTable' => $baseDir . '/database/migrations/2018_09_11_125420_create_finances_table.php',
     'CreateLanguagesTable' => $baseDir . '/database/migrations/2017_11_12_000000_create_languages_table.php',
     'CreateMessagesTable' => $baseDir . '/database/migrations/2017_11_12_000000_create_messages_table.php',
     'CreateNotificationsTable' => $baseDir . '/database/migrations/2018_08_25_111329_create_notifications_table.php',

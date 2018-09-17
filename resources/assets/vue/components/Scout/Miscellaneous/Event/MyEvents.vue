@@ -89,7 +89,9 @@
                 float:''
             }
         },
+
         created:function(){
+
             this.getMyEvents();
         },
         methods:{

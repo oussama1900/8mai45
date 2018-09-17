@@ -632,13 +632,7 @@ value:"UTC+2",
 
                   var vm = this;
                   axios.post('/api/postEvent',vm.Event).then(function (response) {
-                      if(vm.current_user.localeCompare("trne")===0)
-                      vm.$refs.success_trne.open();
-                      else
-                          vm.$refs.success.open();
-                      setTimeout(function () {
-                          vm.$router.push('/Events/MyEvents');
-                      },2000);
+                      vm.$router.push('/Events/MyEvents');
 
                   });
               }

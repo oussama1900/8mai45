@@ -9,7 +9,7 @@
         "laravel/framework": "5.5.*",
 		"laravelcollective/html": "5.5.*",
 		"maatwebsite/excel": "~2.1.0",
-		"barryvdh/laravel-dompdf": "0.8.*",		
+		"barryvdh/laravel-dompdf": "^0.8.3",		
 		"zizaco/entrust": "5.2.x-dev",
 		 "laravel/socialite": "^3.0",
 		 "nesbot/carbon": "^1.21",

@@ -227,6 +227,28 @@ Route::get('/getMyApprovedPosts',[
     'uses' =>'postsController@getMyApprovedPosts'
 ]);
 
+Route::post('/update_money',
+[  'uses' =>'FinanceController@update_money']
+);
+Route::get('/getmoney_values',
+[  'uses' =>'FinanceController@getmoney_values']
+);
+Route::get('/getyearly_money',
+[  'uses' =>'FinanceController@getyearly_money']
+);
+Route::get('/getGovernor',
+[  'uses' =>'FormsController@getGovernor']
+);
+Route::post('/previewHonorary_pdf', 'FormsController@previewHonorary'
+);
+Route::post('/downloadHonoraryPDF', 'FormsController@downloadHonoraryPDF'
+);
+Route::post('/previewReporte_Scout_state_gov', 'FormsController@previewReporte_Scout_state_gov'
+);
+Route::post('/downloadReporte_Scout_state_gov', 'FormsController@downloadReporte_Scout_state_gov'
+);
+
+
 
 
 

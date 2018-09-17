@@ -21,7 +21,7 @@
              <div class="trigger" @click="delete_post(post)">
                 <i class="glyphicon glyphicon-remove" ></i>
             </div>
-             <router-link class="trigger" style="float: right; right: 0px;cursor: pointer" :to="'/post/EditPost/'+post.post_id" >
+             <router-link class="trigger" style="float: right; right: 0px;cursor: pointer" :to="'/post/EditPost/' + post.post_id" >
                 <i class="glyphicon glyphicon-edit" ></i>
             </router-link>
              <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
@@ -51,6 +51,7 @@
 
            </sweet-modal>
 
+
        </div>
         <div v-if="MyPosts.length===0">
             <h4 style="text-align: center">ليس لديك اي منشورات </h4>
@@ -60,53 +61,54 @@
 
 <script>
     export default {
-        data(){
-            return{
-                MyPosts:'',
-                MyInfo:'',
+        data() {
+            return {
+                MyPosts: '',
+                MyInfo: '',
             }
         },
-        created:function(){
-            var vm =this;
+        created: function () {
+
+            var vm = this;
             axios.get('/api/getMyPosts').then(function (response) {
 
                 vm.MyPosts = response.data.MyPosts[0];
                 vm.MyInfo = response.data.MyPosts[1];
             });
         },
-        methods:{
-            getcurrentmonth(post){
+        methods: {
+            getcurrentmonth(post) {
                 var arr = post.created_at.split('-');
                 const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
                     "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
                 ];
-                return monthNames[parseInt(arr[1],10)];
+                return monthNames[parseInt(arr[1], 10)];
             },
-            getday(post){
+            getday(post) {
                 var arr = post.created_at.split('-');
 
 
-                return arr[2].toString().slice(0,2);
+                return arr[2].toString().slice(0, 2);
             },
-            gettime(post){
+            gettime(post) {
                 var arr = post.created_at.split('-');
                 var fulltime = arr[2].toString().slice(2);
                 var time = fulltime.split(':');
                 var hour = time[0];
                 var minute = time[1];
 
-                return hour+':'+minute;
+                return hour + ':' + minute;
             },
-            delete_post(post){
+            delete_post(post) {
                 this.$refs.confirmation.open();
                 var vm = this;
 
                 $("#confirmation_button").unbind().click(function (event) {
 
 
-                    axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
+                    axios.delete('/api/deletepost/' + post.post_id).then(function (response) {
                         var position = vm.MyPosts.indexOf(post);
-                        vm.MyPosts.splice(position,1);
+                        vm.MyPosts.splice(position, 1);
                         vm.$refs.confirmation.close();
 
 
@@ -118,7 +120,7 @@
                 });
             },
 
-        }
+        },
     }
     $(function() {
         $('.trigger').click(function() {

@@ -19,6 +19,11 @@ use App\Http\Requests;
 
 class ScoutController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
     /**
      * @param Request $request
      * Retrieve All Scouts in Table scouts

@@ -18,6 +18,11 @@ use Carbon\Carbon;
 class EventController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
     public function getCaptains(){
 
         $captain =DB::select('select * from scouts where scout_id in ( select scout_id from captains)');
@@ -242,12 +247,17 @@ class EventController extends Controller
     {
         $event_id = $request->input('event_id');
         $title = $request->input('title');
-        $desc = $request->input('desc');
+        $desc = $request->input('description');
         $type = $request->input('type');
         $time = $request->input('event_time');
         $location = $request->input('location');
         $Concerned = $request->input('Concerned');
-        $responsible = $request->input('responsible.0.scout_id');
+        if(is_array($request->input('responsible.0.scout_id'))){
+            $responsible = $request->input('responsible.0.scout_id');
+        }else{
+            $responsible = $request->input('responsible.scout_id');
+        }
+
         $image = $request->input('image');
         $updated_at = date('Y-m-d H:i:s');
         $unit = $request->input('unit');

@@ -16,6 +16,7 @@
                         <label  style="float:right;font-size:medium"> عنوان الخبر</label>
                         <input id="title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title">
                     </div>
+
                 </div>
 
                 <span id="post_title" style="float: right"></span>
@@ -293,15 +294,7 @@
                 <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
             </sweet-modal>
 
-            <sweet-modal ref="success" icon="success">
-                <h3>تم انشاء هذا الخبر بنجاح </h3>
 
-            </sweet-modal>
-            <sweet-modal ref="success_trne" icon="success">
-                <h3>تم انشاء هذا الخبر بنجاح </h3>
-                <h3>  ملاحظة : لن يتم نشر هذا الخبر حتى تتم الموافقة عليه </h3>
-
-            </sweet-modal>
             <sweet-modal ref="image_size" icon="warning">
                 <h3>يجب أن تكون دقة الصورة اكثر من   </h3>  <h3> 1280 X 750  </h3>
 
@@ -626,13 +619,7 @@
                     this.dateformat();
                     var vm = this;
                     axios.post('/api/newpost',vm.post).then(function (response) {
-                        if(vm.current_user.localeCompare("trne")===0)
-                            vm.$refs.success_trne.open();
-                        else
-                            vm.$refs.success.open();
-                        setTimeout(function () {
-                            vm.$router.push('/posts/myposts');
-                        },2000);
+                        vm.$router.push('/posts/myposts');
 
                     });
                 }

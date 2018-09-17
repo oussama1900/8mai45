@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\notifyCaptain;
 use Illuminate\Http\Request;
 use App\Post;
 use App\PostImage;
 use App\Captain;
+use App\User;
 use Auth;
 use DB;
 use File;
@@ -13,6 +15,11 @@ use Carbon\Carbon;
 
 class postsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +30,7 @@ class postsController extends Controller
         $posts=Post::orderBy('title','desc')->paginate(5);
         return view('post.view')->with("posts",$posts);
 
-        
+
     }
 
     /**
@@ -69,7 +76,7 @@ class postsController extends Controller
 
 
         }
-        if(Auth::user()->captain->role=='med' ||Auth::user()->captain->role=='vmed' ){
+        if(Auth::user()->captain->role =='med' || Auth::user()->captain->role =='vmed' ){
             $linked_unit = $linked_unit['0'];
             if($linked_unit == "الأشبال")
                 $linked_unit ="cubs";
@@ -134,6 +141,146 @@ class postsController extends Controller
             DB::insert('insert into postimages(post_id,image) values (?,?)',[ $post_id,$post_image[$i]]);
 
         }
+
+        if($user->captain->role =='med' || $user->captain->role =='vmed'){
+            if($user->captain->role =='med' ){
+
+                    $cap = User::find(Captain::where('role','gov')->value('scout_id'));
+                $notification_message ="قام مسؤول الاعلام بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($cap!=null)
+                $cap->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            }
+            if($user->captain->role =='vmed'){
+                $cap = User::find(Captain::where('role','gov')->value('scout_id'));
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $notification_message ="قام نائب مسؤول الاعلام بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($cap!=null)
+                $cap->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+
+            }
+        }
+        if(Auth::user()->captain->role =="ucap" ||
+				 Auth::user()->captain->role=="vucp"    ||
+				 Auth::user()->captain->role == "capa"  ||
+				 Auth::user()->captain->role == "trne"
+			 ){
+            if($user->captain->role =="ucap"){
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $unit = $user->captain->assignedRole->getUnit();
+                $notification_message ="قام قائد وحدة ".$unit." بنشر خبر جديد  ";
+                $notification_type = $post_type;
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            }
+            if(Auth::user()->captain->role == "vucp"){
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $ucap = User::find(Captain::where('role','ucap')->where('unit',$user->captain->unit)->value('scout_id'));
+                $unit = $user->captain->assignedRole->getUnit();
+                $notification_message ="قام نائب قائد وحدة ".$unit."بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($ucap!=null)
+                $ucap->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            }
+            if($user->captain->role == "capa"){
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $ucap = User::find(Captain::where('role','ucap')->where('unit',$user->captain->unit)->value('scout_id'));
+                $vucp = User::find(Captain::where('role','vucp')->where('unit',$user->captain->unit)->value('scout_id'));
+                $unit = $user->captain->assignedRole->getUnit();
+                $notification_message ="قام القائد المساعد لوحدة ".$unit."بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($ucap!=null)
+                $ucap->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vucp!=null)
+                $vucp->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            }
+            if(Auth::user()->captain->role == "trne"){
+                $gov = User::find(Captain::where('role','gov')->value('scout_id'));
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $ucap = User::find(Captain::where('role','ucap')->where('unit',$user->captain->unit)->value('scout_id'));
+                $vucp = User::find(Captain::where('role','vucp')->where('unit',$user->captain->unit)->value('scout_id'));
+                $capa = User::find(Captain::where('role','capa')->where('unit',$user->captain->unit)->value('scout_id'));
+                $unit = $user->captain->assignedRole->getUnit();
+                $notification_message ="قام القائد المتربص لوحدة ".$unit." بنشر خبر جديد منتظرا الموافقة عليه ";
+                $notification_type = $post_type;
+                if($gov!=null)
+                $gov->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($ucap!=null)
+                $ucap->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vucp!=null)
+                $vucp->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($capa!=null)
+                $capa->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+
+            }
+
+
+					}
+            if($user->captain->role=="fin"){
+                $gov = User::find(Captain::where('role','gov')->value('scout_id'));
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $notification_message ="قام مسؤول المالية  بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($gov!=null)
+                $gov->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+
+            }
+            if($user->captain->role=="surv"){
+                $gov = User::find(Captain::where('role','gov')->value('scout_id'));
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $notification_message ="قام مسؤول متابعة البرامج وتنفيذ الخطط بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($gov!=null)
+                $gov->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+
+            }
+            if($user->captain->role=="csd"){
+                $gov = User::find(Captain::where('role','gov')->value('scout_id'));
+                $med = User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+                $notification_message ="قام مسؤول خدمة و تنمية المجتمع بنشر خبر جديد ";
+                $notification_type = $post_type;
+                if($gov!=null)
+                $gov->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+
+            }
+
+
 
         return response()->json(["message"=>"created Successfully"]);
     }
@@ -260,12 +407,15 @@ public function getPost($post_id){
 public function EditPost($post_id, Request $request){
         $post = Post::find($post_id);
         $post_title = $request->input('post.post_title');
-        $post_date = $request->input('post.post_date');
+        $post_date = $request->input('post.date');
         $location = $request->input('post.location');
         $description = $request->input('post.description');
         $post_summary = $request->input('post.post_summary');
         $post_type = $request->input('post.post_type');
-        $post_type = $post_type['0'];
+        if(is_array($post_type)){
+            $post_type = $post_type['0'];
+        }
+
         $cover_image = $request->input('post.cover_image');
 
         // first we need to insert the new post
@@ -277,6 +427,53 @@ public function EditPost($post_id, Request $request){
         $post->post_type =$post_type;
         $post->cover_image =$cover_image;
         $post->save();
+        if($post->posted_by != Auth::user()->scout_id){
+            $user = Auth::user()->profile;
+            $full_name = $user->last_name.' '.$user->first_name;
+            $notification_message ="قام القائد  ".$full_name."بتعديل خبر قمت بنشره";
+            $notification_type = $post_type;
+            $creator = User::find($post->posted_by);
+            if($creator!=null)
+                $creator->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+        }else{
+            if(Auth::user()->captain->role!='trne'){
+                $user = Auth::user()->profile;
+                $full_name = $user->last_name.' '.$user->first_name;
+                $notification_message ="قام القائد  ".$full_name." بتعديل خبر قام بنشره مسبقا ";
+                $notification_type = $post_type;
+                $med= User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed= User::find(Captain::where('role','vmed')->value('scout_id'));
+                if($med!=null)
+                    $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                    $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            }else{
+                $user = Auth::user()->profile;
+                $full_name = $user->last_name.' '.$user->first_name;
+                $notification_message ="قام القائد المتربص لوحدة  ".Auth::user()->captain->assignedRole->getUnit() ." ".$full_name." بتعديل خبر قام بنشره مسبقا ";
+                $notification_type = $post_type;
+								$gov =User::find(Captain::where('role','gov')->value('scout_id'));
+                $med= User::find(Captain::where('role','med')->value('scout_id'));
+                $vmed= User::find(Captain::where('role','vmed')->where('unit',Auth::user()->captain->unit)->value('scout_id'));
+                $ucap = User::find(Captain::where('role','ucap')->where('unit',Auth::user()->captain->unit)->value('scout_id'));
+                $vucp = User::find(Captain::where('role','vucp')->where('unit',Auth::user()->captain->unit)->value('scout_id'));
+                $capa  =User::find(Captain::where('role','capa')->where('unit',Auth::user()->captain->unit)->value('scout_id'));
+								if($gov!=null)
+										$gov->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($med!=null)
+                    $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vmed!=null)
+                    $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($ucap!=null)
+                    $ucap->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+                if($vucp!=null)
+                    $vucp->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+
+                if($capa!=null)
+                    $capa->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            }
+
+        }
 
         // delete the old images
 

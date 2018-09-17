@@ -3,24 +3,18 @@
     <div id = "app" class="container col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left: 0px;padding-right: 0px">
 <div class="card-body">
 
-    <div class="stepwizard">
+
+   <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
-            <div class="stepwizard-step col-xs-3">
-                <a href="#step-1" type="button" class="btn btn-success btn-circle" >1</a>
+            <div class="stepwizard-step col-xs-3 col-md-6">
+                <a href="#step-1"  class="btn btn-success btn-circle"  >1</a>
                 <p><small>نوع الاستمارة</small></p>
             </div>
-            <div class="stepwizard-step col-xs-3">
-                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <div class="stepwizard-step col-xs-3 col-md-6">
+                <a href="#step-2"  class="btn btn-default btn-circle" disabled="true">2</a>
                 <p><small>ملء الاستمارة</small></p>
             </div>
-            <div class="stepwizard-step col-xs-3">
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                <p><small>التحقق من المعلومات</small></p>
-            </div>
-            <div class="stepwizard-step col-xs-3">
-                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
-                <p><small>حفظ الاستمارة</small></p>
-            </div>
+
         </div>
     </div>
 
@@ -49,7 +43,7 @@
 
                 </div>
 
-                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                <button class="btn btn-primary nextBtn pull-right" type="button">التالي</button>
             </div>
         </div>
 
@@ -86,49 +80,13 @@
                 <div id="Outgoing_mail">
                     <Outgoing-mail></Outgoing-mail>
                 </div>
-                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+
             </div>
         </div>
 
-        <div class="panel panel-primary setup-content" id="step-3">
-            <div class="panel-heading">
-                <h3 class="panel-title">التحقق من المعلومات</h3>
-            </div>
-            <div class="panel-body">
-                <div>
-                    <div class="form-group">
-                        <label class="control-label">Company Name</label>
-                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Company Address</label>
-                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
-                    </div>
-                </div>
 
-                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
-            </div>
-        </div>
 
-        <div class="panel panel-primary setup-content" id="step-4">
-            <div class="panel-heading">
-                <h3 class="panel-title">حفظ الاستمارة</h3>
-            </div>
-            <div class="panel-body">
-                <div>
-                    <div class="form-group">
-                        <label class="control-label">Company Name</label>
-                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Company Address</label>
-                        <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
-                    </div>
-                </div>
 
-                <button class="btn btn-success pull-right" type="submit">Finish!</button>
-            </div>
-        </div>
     </form>
 </div>
     </div>
@@ -136,169 +94,131 @@
 
 <script>
     import Camping_request from "./forms/Camping_request";
-    var forms;
-    $(document).ready(function () {
 
-        var navListItems = $('div.setup-panel div a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn');
 
-        allWells.hide();
-
-        navListItems.click(function (e) {
-            e.preventDefault();
-            var $target = $($(this).attr('href')),
-                $item = $(this);
-
-            if (!$item.hasClass('disabled')) {
-                navListItems.removeClass('btn-success').addClass('btn-default');
-                $item.addClass('btn-success');
-                allWells.hide();
-                $target.show();
-                $target.find('input:eq(0)').focus();
-            }
-        });
-
-        allNextBtn.click(function () {
-             forms=document.getElementById('forms').value;
-
-            var curStep = $(this).closest(".setup-content"),
-                curStepBtn = curStep.attr("id"),
-                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                curInputs = curStep.find("input[type='text'],input[type='url']"),
-                isValid = true;
-                 if(curStepBtn="step-1"){
-                     showforms(forms);
-                 }
-
-            $(".form-group").removeClass("has-error");
-            for (var i = 0; i < curInputs.length; i++) {
-                if (!curInputs[i].validity.valid) {
-                    isValid = false;
-                    $(curInputs[i]).closest(".form-group").addClass("has-error");
-                }
-            }
-
-            if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
-        });
-
-        $('div.setup-panel div a.btn-success').trigger('click');
-    });
 
 
 function showforms(form){
     switch (form){
         case 'مراسلة المحافظ الولائي':{
-            document.getElementById('Reporter-state-scout').style.display="inline";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Reporter-state-scout').show();
+            $('#Honorary-meeting').hide();
+            $('#Camping_request').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
             break;
         }
 
 
         case 'الاجتماع الشرفي':{
-            document.getElementById('Honorary-meeting').style.display="inline";
-            document.getElementById('Reporter-state-scout').style.display="none";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Honorary-meeting').show();
+            $('#Reporter-state-scout').hide();
+            $('#Camping_request').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
+
             break;
         }
         case 'التخييم':{
-            document.getElementById('Camping_request').style.display="inline";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Reporter-state-scout').style.display="none";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Camping_request').show();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
+
             break;
         }
         case 'التكليف بمهمة':{
-            document.getElementById('Assigning_mission').style.display="inline";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Reporter-state-scout').style.display="none";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Camping_request').hide();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').show();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
+
             break;
         }
         case 'التكليف بمهمة(رحلة)':{
-            document.getElementById('Assigning_mission_travel').style.display="inline";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Reporter-state-scout').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Camping_request').hide();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').show();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
+
             break;
         }
         case 'مراسلة الامن':{
-            document.getElementById('Security_reporter').style.display="inline";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Reporter-state-scout').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Camping_request').hide();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').show();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
+
             break;
         }
         case 'محضر تنصيب':{
-        document.getElementById('Inauguration').style.display="inline";
-        document.getElementById('Security_reporter').style.display="none";
-        document.getElementById('Assigning_mission_travel').style.display="none";
-        document.getElementById('Assigning_mission').style.display="none";
-        document.getElementById('Camping_request').style.display="none";
-        document.getElementById('Honorary-meeting').style.display="none";
-        document.getElementById('Reporter-state-scout').style.display="none";
-        document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Camping_request').hide();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').show();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').hide();
+
 
         break;
     }
         case 'مراسلة المؤسسات التربوية':{
-            document.getElementById('Educational_Institutions').style.display="inline";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Reporter-state-scout').style.display="none";
-            document.getElementById('Outgoing_mail').style.display="none";
+            $('#Camping_request').hide();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').show();
+            $('#Outgoing_mail').hide();
+
 
 
             break;
         }
         case 'مراسلة البريد الصادر':{
-            document.getElementById('Outgoing_mail').style.display="inline";
-            document.getElementById('Educational_Institutions').style.display="none";
-            document.getElementById('Inauguration').style.display="none";
-            document.getElementById('Security_reporter').style.display="none";
-            document.getElementById('Assigning_mission_travel').style.display="none";
-            document.getElementById('Assigning_mission').style.display="none";
-            document.getElementById('Camping_request').style.display="none";
-            document.getElementById('Honorary-meeting').style.display="none";
-            document.getElementById('Reporter-state-scout').style.display="none";
+            $('#Camping_request').hide();
+            $('#Reporter-state-scout').hide();
+            $('#Honorary-meeting').hide();
+            $('#Assigning_mission').hide();
+            $('#Assigning_mission_travel').hide();
+            $('#Security_reporter').hide();
+            $('#Inauguration').hide();
+            $('#Educational_Institutions').hide();
+            $('#Outgoing_mail').show();
+
 
 
 
@@ -307,8 +227,51 @@ function showforms(form){
 
     }
 }
+
     export default {
         components: {Camping_request},
+        created:function(){
+            var forms;
+            $(document).ready(function () {
+
+                var navListItems = $('div.setup-panel div a'),
+                    allWells = $('.setup-content'),
+                    allNextBtn = $('.nextBtn');
+
+                allWells.hide();
+
+                navListItems.click(function (e) {
+                    e.preventDefault();
+                    var $target = $($(this).attr('href')),
+                        $item = $(this);
+
+                    if (!$item.hasClass('disabled')) {
+                        navListItems.removeClass('btn-success').addClass('btn-default');
+                        $item.addClass('btn-success');
+                        allWells.hide();
+                        $target.show();
+                        $target.find('input:eq(0)').focus();
+                    }
+                });
+
+                allNextBtn.click(function () {
+                    forms=$('#forms').val();
+                    var curStep = $(this).closest(".setup-content"),
+                        curStepBtn = curStep.attr("id"),
+                        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                        curInputs = curStep.find("input[type='text'],input[type='url']"),
+                        isValid = true;
+                      if(curStepBtn.localeCompare('step-1')===0){
+                          showforms(forms)
+                      }
+
+
+                    if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+                });
+
+                $('div.setup-panel div a.btn-success').trigger('click');
+            });
+        },
         methods:{
 
         }
@@ -316,6 +279,15 @@ function showforms(form){
 </script>
 
 <style>
+    .btn-circle{
+        width: 30px !important;
+        height: 30px !important;
+        text-align: center !important;
+        padding: 6px 0 !important;
+        font-size: 12px !important;
+        line-height: 1.428571429 !important;
+        border-radius: 15px !important;
+    }
     .card{
         margin-top:6%;
         margin-left: 40px;
@@ -399,5 +371,10 @@ function showforms(form){
     form{
         border:1px solid #428BCA;
         border-radius:10px;
+    }
+    #forms{
+        border: 1px solid #9C9C9C;
+        border-radius: 7px;
+
     }
 </style>

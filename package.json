@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "bootstrap-select": "^1.13.1",
+        "chart.js": "^2.7.2",
         "eslint": "^4.19.1",
         "gulp": "^4.0.0",
         "laravel-echo": "^1.4.0",
@@ -31,6 +32,7 @@
         "quill-image-drop-module": "^1.0.3",
         "quill-image-resize-module": "^3.0.0",
         "sweet-modal-vue": "^2.0.0",
+        "vue-chartjs": "^3.4.0",
         "vue-ckeditor2": "^2.0.7",
         "vue-datetime": "^1.0.0-beta.6",
         "vue-multi-select": "^3.7.1",

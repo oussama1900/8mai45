@@ -16,8 +16,9 @@
                         <label  style="float:right;font-size:medium"> عنوان النشاط</label>
                         <input id="post_title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title">
                     </div>
-                </div>
 
+                </div>
+                <span id="title" style="float: right"></span>
 
             </div>
 
@@ -35,11 +36,14 @@
 
                         <label  style="float:right;font-size:medium">المكان </label>
                         <input id="activity_place" type="text"   dir="rtl"  placeholder=" المكان " v-model="post.location">
+                        <span id="location" style="float: right"></span>
+
                     </div>
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">التاريخ </label>
                       <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                        <span id="post_time" style="float: right"></span>
                     </div>
 
                 </div>
@@ -75,6 +79,7 @@
                         <vue-editor v-model="summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
 
                     </div>
+                    <span id="post_summary" style="float: right"></span>
                 </div>
 
 
@@ -112,6 +117,7 @@
 
 
                     </div>
+                    <span id="post_desc" style="float: right"></span>
                 </div>
 
 
@@ -143,7 +149,7 @@
                     </div>
 
                 </div>
-
+                <span id="post_type" style="float: right"></span>
 
             </div>
 
@@ -185,7 +191,7 @@
 
                 </div>
 
-
+                <span id="cover_image" style="float: right"></span>
             </div>
 
 
@@ -249,7 +255,17 @@
                 </button>
             </div>
         </div>
+        <sweet-modal ref="valide" icon="warning">
+            <h3>لم يتم ادخال كل المعلومات اللازمة لنشر الخبر </h3>
+            <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
+        </sweet-modal>
 
+
+        <sweet-modal ref="image_size" icon="warning">
+            <h3>يجب أن تكون دقة الصورة اكثر من   </h3>  <h3> 1280 X 750  </h3>
+
+
+        </sweet-modal>
     </div>
 
 
@@ -302,7 +318,7 @@
                     post_summary:'',
                     post_type:'',
                     cover_image:'',
-
+                    date:''
 
 
 
@@ -330,6 +346,78 @@
           this.getData();
         },
         methods:{
+            validate(){
+                if(
+                    this.post.post_title.localeCompare("")===0 ||
+                    this.summary.localeCompare("")===0||
+                    this.post.post_type.length===0  ||
+                    this.post.post_date.localeCompare("")===0 ||
+                    this.post.location.localeCompare("")===0 ||
+                    this.post.cover_image.localeCompare("")===0 ||
+                    this.description.localeCompare("")===0
+                ){
+                    this.$refs.valide.open();
+                    if(this.post.post_type.length===0 ){
+                        $('#post_type').html(' اختر نوع الخبر').css('color', 'red');
+
+                    }else{
+                        $('#post_type').html('');
+                    }
+
+
+                    if(this.post.post_title.localeCompare("")===0){
+                        $('#title').html(' العنوان لا يمكن ان يكون فارغا').css('color', 'red');
+
+                    }else{
+                        $('#title').html('');
+                    }
+                    if(  this.post.location.localeCompare("")===0){
+                        $('#location').html('حدد المكان ').css('color', 'red');
+
+                    }else{
+                        $('#location').html('');
+                    }
+
+                    if(this.post.post_date.localeCompare("")===0){
+                        $('#post_time').html(' حدد التاريخ ').css('color', 'red');
+
+                    }else{
+                        $('#post_time').html('');
+                    }
+                    if(this.summary.localeCompare("")===0){
+                        $('#post_summary').html('الملخص لا يمكن أن يكون فارغا').css('color', 'red');
+
+                    }else{
+                        $('#post_summary').html('');
+                    }
+
+                    if(this.description.localeCompare("")===0){
+                        $('#post_desc').html('محتوى لا يمكن أن يكون فارغا').css('color', 'red');
+
+                    } else{
+                        $('#post_desc').html('');
+                    }
+                    if(this.post.cover_image.localeCompare("")===0){
+                        $('#cover_image').html('الصورة الرئيسية اجبارية').css('color', 'red');
+
+                    }else{
+                        $('#cover_image').html('');
+                    }
+                    return false;
+                }
+
+
+
+
+
+
+
+
+
+                return true;
+
+
+            },
             getData(){
                 var vm = this;
                 var post_id = this.$route.params.id;
@@ -349,19 +437,22 @@
               var dateArray = datetime.split("T");
                var date = dateArray[0];
                var time = dateArray[1].split(".")[0];
-               this.post.post_date = date.concat(" "+time);
+               this.post.date = date.concat(" "+time);
             },
 
             EditPost(){
-              this.dateformat();
-              this.post.description = this.description;
-              this.post.post_summary = this.summary;
-              var vm = this;
-              var post_id = this.$route.params.id;
-              axios.post('/api/EditPost/'+post_id,{post:vm.post,new_post_images:vm.new_post_images,post_images_deleted:vm.post_images_deleted}).then(function (response) {
+                if(this.validate()){
+                    this.dateformat();
+                    this.post.description = this.description;
+                    this.post.post_summary = this.summary;
+                    var vm = this;
+                    var post_id = this.$route.params.id;
+                    axios.post('/api/EditPost/'+post_id,{post:vm.post,new_post_images:vm.new_post_images,post_images_deleted:vm.post_images_deleted}).then(function (response) {
 
-                 vm.$router.go(-1);
-              });
+                        vm.$router.go(-1);
+                    });
+                }
+
             },
             setPostCover(e){
                 var filereader = new FileReader();

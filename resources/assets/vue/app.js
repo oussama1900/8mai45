@@ -96,7 +96,7 @@ import CV from './components/UserProfile/UpdateCurriculumvitae';
 import SocialMedia from './components/UserProfile/SocialMedia';
 import EditScoutInfo from './components/Scout/Scouts/EditScoutInfo';
 
-
+import Financial_management from './components/Scout/Finance/Financial_management';
 
 
 
@@ -111,6 +111,171 @@ import Captain from './components/Scout/Scouts/Captain';
 
 import NewUser from './components/UserProfile/NewUser';
 import EditAcountInfo from './components/UserProfile/EditAccountInfo';
+
+import VueChartJs from "vue-chartjs";
+Vue.component('monthly-line-chart', {
+  extends: VueChartJs.Line,
+  mounted () {
+		var vm = this;
+
+		 var money="";
+		 var current_month_days="";
+		 var money_data=[];
+		  var transaction_date=[];
+      var transaction_description=[];
+      var transaction_money=[];
+		axios.get('/api/getmoney_values').then(function(response){
+				 money = response.data.money_values[0];
+				 transaction_date = response.data.money_values[1];
+				 current_month_days = response.data.money_values[2];
+                 transaction_description=response.data.money_values[3];
+                 transaction_money = response.data.money_values[4];
+
+
+
+					 var money_index=1;
+					 for(var i = 0;i<transaction_date.length;i++){
+						 money_data.push({x:parseInt(transaction_date[i].slice(8, 10)),y:money[i]})
+					 }
+
+
+
+
+
+				 vm.renderChart({
+		       labels: current_month_days,
+		       datasets: [
+		         {
+		           label: 'كمية الأموال',
+		           borderColor:"#33b5e5" ,
+		           data:money_data
+		         }
+		       ]
+		     },
+                     {
+                     scales: {
+                         yAxes: [{
+                             ticks: {
+                                 beginAtZero:true
+                             }
+                         }]
+                     },
+
+                     legend: {
+                         display: false,
+                     },
+                     tooltips: {
+                         callbacks:{
+                             label: function(tooltipItem) {
+                                 return "كمية الأموال : " +tooltipItem.yLabel +" دج";
+                             },
+                             title:function (tooltipItem) {
+                                     var trans_money = transaction_money[tooltipItem[0].index].toString();
+                                     if(trans_money.includes('-')){
+
+                                         trans_money = trans_money.slice(1);
+
+                                     }
+
+
+                                 return transaction_description[tooltipItem[0].index]+" " +" ( "+trans_money+" ) " +" دج  " ;
+
+                             }
+
+                         }
+                     },
+                     responsive: true,
+                     maintainAspectRatio: false,
+
+
+                 },
+
+		 	)
+		});
+
+  }
+});
+
+
+Vue.component('year-line-chart', {
+  extends: VueChartJs.Line,
+  mounted () {
+		var vm = this;
+
+		 var money="";
+		 var months="";
+		 var money_data=[];
+		  var transaction_date=[];
+		  var transaction_description=[];
+		  var transaction_money=[];
+		axios.get('/api/getyearly_money').then(function(response){
+				 money = response.data.money_values[0];
+				 transaction_date = response.data.money_values[1];
+                  months = response.data.money_values[2];
+                 transaction_description=response.data.money_values[3];
+            transaction_money = response.data.money_values[4];
+
+
+					 var money_index=1;
+					 for(var i = 0;i<transaction_date.length;i++){
+						 money_data.push({x:transaction_date[i],y:money[i]})
+					 }
+
+
+
+
+
+				 vm.renderChart({
+		       labels: months,
+		       datasets: [
+		         {
+		           label: 'كمية الأموال',
+		           borderColor:"#33b5e5" ,
+		           data:money_data
+		         }
+		       ],
+
+
+		     },
+
+                     {
+                         scales: {
+                             yAxes: [{
+                                 ticks: {
+                                     beginAtZero:true
+                                 }
+                             }]
+                         },
+
+                             legend: {
+                                 display: false,
+                             },
+                             tooltips: {
+                                 callbacks:{
+                                     label: function(tooltipItem) {
+                                         return "كمية الأموال : " +tooltipItem.yLabel +" دج";
+                                     },
+                                     title:function (tooltipItem) {
+
+                                         return transaction_description[tooltipItem[0].index]+" " +"( "+transaction_money[tooltipItem[0].index]+" )" +" دج  " ;
+
+                                     }
+
+                                 }
+                             },
+                             responsive: true,
+                             maintainAspectRatio: false,
+
+
+                     },
+
+
+		 	)
+		});
+
+  }
+});
+
 
 
 Vue.component('datetime', Datetime);
@@ -407,8 +572,11 @@ const routes = [
         component:MyApprovedPosts
 
     },
+		{
+        path:"/finance/Financial_management",
+        component:Financial_management
 
-
+    }
 
 
 ];
