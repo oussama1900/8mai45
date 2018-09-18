@@ -127,11 +127,17 @@
                     @if($diff == 0)
                         <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;">سيتم هاذا النشاط اليوم</h1>
                     @endif
-                    @if($diff > 0 && $diff <= 10)
-                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;"> بقيت  {{ $diff }} ايام </h1>
+                    @if($diff == 1)
+                        <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;"> سيتم هاذا النشاط غدا </h1>
+                    @endif
+                    @if($diff == 2)
+                        <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;"> سيتم هاذا النشاط بعد يومين </h1>
+                    @endif
+                    @if($diff > 2 && $diff <= 10)
+                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;"> سيتم هاذا النشاط بعد  {{ $diff }} ايام </h1>
                     @endif
                     @if($diff > 10)
-                        <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;"> بقي  {{ $diff }} يوم </h1>
+                        <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;"> سيتم هاذا النشاط بعد  {{ $diff }} يوم </h1>
                     @endif
                 </div>
             </article>
