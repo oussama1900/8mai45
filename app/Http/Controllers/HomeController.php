@@ -89,7 +89,7 @@ class HomeController extends Controller
 
     public function viewEvent($id){
         $events = Event::orderby('event_time','asc')->paginate(3);
-        $currentEvent = Post::find($id);
+        $currentEvent = Event::find($id);
         return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
     }
 
