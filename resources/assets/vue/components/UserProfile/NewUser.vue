@@ -88,7 +88,7 @@
 
 
 
-                        vm.$router.push('/users-accounts')
+                        vm.$router.push('/dashboard/users-accounts')
 
                     });
                 }else{

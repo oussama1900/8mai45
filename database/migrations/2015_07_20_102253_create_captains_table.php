@@ -17,6 +17,9 @@ class CreateCaptainsTable extends Migration
             $table->unsignedInteger('scout_id')->unique();
             $table->string('role', 4);
             $table->string('unit', 4)->nullable()->default(NULL);
+            $table->string('facebook',255);
+            $table->string('instagram',255);
+            $table->string('twitter',255);
             $table->timestamps();
 
             $table->foreign('scout_id')->references('scout_id')->on('scouts')

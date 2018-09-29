@@ -26,7 +26,7 @@
                         <div class="trigger" @click="delete_event(events)">
                             <i class="glyphicon glyphicon-remove" ></i>
                         </div>
-                        <router-link class="trigger" style="float: right; right: 0px;" :to="'/myposts/event/'+events.event_id">
+                        <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/myposts/event/'+events.event_id">
                             <i class="glyphicon glyphicon-edit" ></i>
                         </router-link>
                         <div class="toolbar">

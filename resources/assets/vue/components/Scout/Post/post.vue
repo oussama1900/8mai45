@@ -619,7 +619,7 @@
                     this.dateformat();
                     var vm = this;
                     axios.post('/api/newpost',vm.post).then(function (response) {
-                        vm.$router.push('/posts/myposts');
+                        vm.$router.push('/dashboard/posts/myposts');
 
                     });
                 }

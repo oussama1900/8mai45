@@ -64,9 +64,9 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-   
+
     'locale' => "ar",
-	
+
 
     /*
     |--------------------------------------------------------------------------
@@ -149,12 +149,12 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
-		Barryvdh\DomPDF\ServiceProvider::class,
+
 	    Zizaco\Entrust\EntrustServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
 		Illuminate\Notifications\NotificationServiceProvider::class,
 		Laravel\Tinker\TinkerServiceProvider::class,
-		
+
 
         /*
          * Application Service Providers...
@@ -216,7 +216,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-		'PDF' => Barryvdh\DomPDF\Facade::class,
+		
 		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 		'Notification' => Illuminate\Support\Facades\Notification::class,

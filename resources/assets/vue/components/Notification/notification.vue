@@ -14,7 +14,7 @@
     <ul class="dropdown-menu" style="margin-top: 12px;margin-right: -50px;padding: 0px 0px 0px !important;width: 350px;height: 350px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
 
       <li class="header" style="color: white;width: 100%;margin-top: 0px;text-align: right;background-color: rgb(51, 181, 229);border-top-left-radius: 10px;border-top-right-radius: 10px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;padding-top: 0px;">
-قائمة التنبيهات للأحداث
+ التنبيهات
 
       </li>
       <li style="width:350px;height:280px;overflow-y:auto;overflow-x:hidden">
@@ -71,7 +71,7 @@
 
 
 
-        <li class="header" style="width: 100%;"><a href="#" style="text-align: center">رؤية جميع الاشعارات</a></li>
+
 
   </ul>
 
@@ -120,7 +120,7 @@ return{
 }
 },
 mounted:function(){
-console.log(this.userid);
+
  var audio = new Audio('/uploads/Notify.mp3');
 Echo.private('App.User.' + this.userid)
     .notification((notification) => {

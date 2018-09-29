@@ -19,7 +19,7 @@
             <div class="trigger" @click="delete_post(post)">
                 <i class="glyphicon glyphicon-remove" ></i>
             </div>
-            <router-link class="trigger" style="float: right; right: 0px;" :to="'/post/EditPost/'+post.post_id">
+            <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/post/EditPost/'+post.post_id">
                 <i class="glyphicon glyphicon-edit" ></i>
             </router-link>
             <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
@@ -37,7 +37,13 @@
 
 
             </div>
+            <sweet-modal ref="confirmation" icon="warning">
+                <h3>هل أنت متأكد من حذف هذا الخبر</h3>
+                <h4> ملاحظة : هذه العملية غير رجعية</h4>
+                <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+                <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
+            </sweet-modal>
         </div>
 </div>
         <div v-if="UnitPosts.length===0">
@@ -101,13 +107,21 @@
                 return hour+':'+minute;
             },
             delete_post(post){
+                this.$refs.confirmation.open();
                 var vm = this;
-                axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
-                    var position = vm.UnitPosts.indexOf(post);
-                    vm.UnitPosts.splice(position,1);
 
+                $("#confirmation_button").unbind().click(function (event) {
+                    axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
+                        var position = vm.UnitPosts.indexOf(post);
+                        vm.UnitPosts.splice(position,1);
+                        vm.$refs.confirmation.close();
 
+                    });
                 });
+                $("#cancel_button").unbind().click(function () {
+                    vm.$refs.confirmation.close();
+                });
+
 
             },
         }

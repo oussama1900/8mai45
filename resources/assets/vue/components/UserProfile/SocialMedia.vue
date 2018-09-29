@@ -12,6 +12,7 @@
             <fg-input type="text"
                       label="فايسبوك"
                       placeholder="رابط الحساب"
+                      v-model="social_media.facebook"
                      >
             </fg-input>
           </div>
@@ -21,6 +22,7 @@
             <fg-input type="text"
                       label="انستغرام"
                       placeholder="رابط الحساب"
+                      v-model="social_media.instagram"
                      >
             </fg-input>
           </div>
@@ -30,6 +32,7 @@
             <fg-input type="text"
                       label="تويتر"
                       placeholder="رابط الحساب"
+                      v-model="social_media.twitter"
                       >
             </fg-input>
           </div>
@@ -43,20 +46,23 @@
 
 
         <div class="text-center">
-          <button type="submit" class="btn btn-info btn-fill btn-wd" @click.prevent="updateProfile">
+          <button type="button" class="btn btn-info btn-fill btn-wd" @click.prevent="updateProfile">
             حفظ
           </button>
         </div>
         <div class="clearfix"></div>
       </form>
     </div>
+    <sweet-modal ref="success" icon="success">
+      <h3>تمت العملية بنجاح</h3>
+    </sweet-modal>
   </div>
 </template>
 <script>
   export default {
     data () {
       return {
-        user: {
+        social_media: {
           facebook: '',
           twitter: '',
           instagram: '',
@@ -65,9 +71,20 @@
         }
       }
     },
+      created:function(){
+        var vm = this;
+          axios.get('/api/getsocial_media_accounts').then(function (response) {
+             vm.social_media.facebook = response.data.facebook;
+             vm.social_media.instagram = response.data.instagram;
+             vm.social_media.twitter = response.data.twitter;
+          })
+      },
     methods: {
       updateProfile () {
-        alert('Your data: ' + JSON.stringify(this.user))
+          var vm = this;
+       axios.post('/api/social_media_accounts',vm.social_media).then(function (response) {
+           vm.$refs.success.open();
+       })
       },
 
     }

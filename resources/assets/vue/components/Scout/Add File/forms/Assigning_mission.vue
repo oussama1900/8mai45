@@ -1,96 +1,185 @@
 <template>
     <div style="margin:20px">
 
-        <div class=" form-group" style="margin-bottom: 10px;margin-top: 10px">
+        <div  style="padding-bottom: 10px;padding-top: 10px">
+            <label style="font-size: medium;float:right">رقــم  </label>
+            <input id="input1" maxlength="200" type="text" required="required"  placeholder="رقــم " onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" dir="rtl" v-model="outing_mail" />
+        </div>
+        <div  style="padding-bottom: 10px;padding-top: 10px">
+            <label style="font-size: medium;float:right">التاريخ  </label>
+            <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd" style="margin-right:-10px;margin-left:10px"></datetime>
+        </div>
+        <div  style="margin-bottom: 10px;margin-top: 10px">
             <label style="font-size: medium;text-align: center">أنا الممضي أسفله السيد</label>
-            <div class="row">
-                <div class="col-sm-6">
-                    <input id="input1" maxlength="200" type="text" required="required"  placeholder="الاسم" dir="rtl" />
-                </div>
-                <div class="col-sm-6">
-                    <input id="input2" maxlength="200" type="text" required="required"  placeholder="اللقب  " dir="rtl" />
-                </div>
+            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="fullname" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="أنا الممضي أسفله السيد" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
+
+                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+            </multiselect>
             </div>
 
-        </div>
-        <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">الوظيفة الكشفية</label>
-            <input id="input3" maxlength="200" type="text" required="required"  placeholder="الوظيفة الكشفية" dir="rtl" />
-        </div>
 
-        <div class=" form-group" style="margin-bottom: 10px;margin-top: 10px">
+
+
+        <div  style="margin-bottom: 10px;margin-top: 10px">
             <label style="font-size: medium;text-align: center">أكلف السيد</label>
-            <div class="row">
-                <div class="col-sm-6">
-                    <input id="input4" maxlength="200" type="text" required="required"  placeholder="الاسم" dir="rtl" />
-                </div>
-                <div class="col-sm-6">
-                    <input id="input5" maxlength="200" type="text" required="required"  placeholder="اللقب  " dir="rtl" />
-                </div>
-            </div>
+            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="charged" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="أكلف السيد" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
+
+                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+
+            </multiselect>
 
         </div>
 
-
-        <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">الوظيفة الكشفية</label>
-            <input id="input6" maxlength="200" type="text" required="required"  placeholder="الوظيفة الكشفية" dir="rtl" />
-        </div>
-        <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">تاريخ الازدياد</label>
-            <input  id="input7" class="form-control"  name="date" placeholder="MM/DD/YYY" type="text" dir="rtl" />
-
-        </div>
-        <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">مكان الازدياد</label>
-            <input id="input8" maxlength="200" type="text" required="required"  placeholder="مكان الازدياد "   dir="rtl" />
-        </div>
-
-
-        <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
+        <div  style="padding-bottom: 10px;padding-top: 10px">
             <label style="font-size: medium;float:right">المهمـة الموكلــة </label>
 
-            <input id="input9" maxlength="200" type="text" required="required"  placeholder="المهمـة الموكلــة" dir="rtl" />
+            <input id="input9" maxlength="200" type="text" required="required"  placeholder="المهمـة الموكلــة" dir="rtl" v-model="mission"/>
         </div>
-        <div class="form-group" style="margin-bottom: 10px;margin-top: 10px">
+        <div  style="margin-bottom: 10px;margin-top: 10px">
             <label style="font-size: medium;float:right">الجهة المنظمة</label>
-            <input id="input10" maxlength="200" type="text" required="required"  placeholder="الجهة المنظمة" dir="rtl" />
+            <input id="input10" maxlength="200" type="text" required="required"  placeholder="الجهة المنظمة" dir="rtl"  v-model="organiser"/>
         </div>
-        <div class="form-group" style="margin-bottom: 10px;margin-top: 10px">
+        <div style="margin-bottom: 10px;margin-top: 10px">
             <label style="font-size: medium;float:right">الجهة المؤطرة</label>
-            <input id="input11" maxlength="200" type="text" required="required"  placeholder="الجهة المؤطرة" dir="rtl" />
+            <input id="input11" maxlength="200" type="text" required="required"  placeholder="الجهة المؤطرة" dir="rtl" v-model="framed" />
         </div>
-        <div class="form-group" style="margin-bottom: 10px;margin-top: 10px">
+        <div style="margin-bottom: 10px;margin-top: 10px">
             <div>
                 <label style="font-size: medium;float:right">المكان</label>
-                <input id="input12" maxlength="200" type="text" required="required"  placeholder="المكان" dir="rtl" />
+                <input id="input12" maxlength="200" type="text" required="required"  placeholder="المكان" dir="rtl" v-model="location"/>
             </div>
            <div>
 
                <label style="font-size: medium;float:right">من</label>
-               <input id="input13" class="form-control"  name="date" placeholder="MM/DD/YYY" type="text" dir="rtl" />
+               <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="from" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                <label style="font-size: medium;float:right">الى</label>
 
-               <input id="input14" class="form-control"  name="date" placeholder="MM/DD/YYY" type="text" dir="rtl" />
+               <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="to" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
            </div>
         </div>
+        <button class="btn btn-primary" style="text-align: center;margin-top: 20px" type="button" @click="download">تحميل</button>
+        <sweet-modal icon="warning" ref="warn">
+            <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
+        </sweet-modal>
     </div>
 </template>
 
 <script>
+    import Multiselect from 'vue-multiselect';
+
+    import 'vue-multiselect/dist/vue-multiselect.min.css';
+    import 'vue-multiselect/dist/vue-multiselect.min.js';
     export default {
-        name: "Assigning_mission"
+        name: "Assigning_mission",
+        data(){
+            return{
+                placeholder:"التاريخ ",
+                direction:'rtl',
+                value:"UTC+2",
+               Captains:[],
+               fullname:[],
+                charged:[],
+                from:'',
+                to:'',
+                framed:'',
+                location:'',
+                organiser:'',
+                mission:'',
+                outing_mail:'',
+                date:'',
+                date_temp:'',
+                from_temp:'',
+                to_temp:'',
+            }
+        },
+        components:{
+            Multiselect
+        },
+        created:function(){
+            var vm = this;
+            axios.get('/api/getCaptains').then(function (response) {
+
+                vm.Captains = response.data.captain[0];
+            });
+        },
+        methods: {
+            customLabel({first_name, last_name}) {
+                return `${last_name} ${first_name}`
+            },
+            download(){
+                if(this.from.localeCompare("")===0 ||
+                    this.location.localeCompare("")===0 ||
+                    this.charged.length===0 ||
+                    this.fullname.length===0 ||
+                    this.to.localeCompare("")===0||
+                    this.framed.localeCompare("")===0||
+                    this.date.localeCompare("")===0||
+                    this.outing_mail.localeCompare("")===0||
+                    this.mission.localeCompare("")===0||
+                    this.organiser.localeCompare("")===0 ){
+                    this.$refs.warn.open();
+
+
+                }else{
+
+
+
+
+                    var temp_date = this.from.slice(0,10),
+                        cut_date = temp_date.split("-");
+                    this.from_temp  = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
+
+
+                    var temp_date2 = this.to.slice(0,10),
+                        cut_date2 = temp_date2.split("-");
+                    this.to_temp  = cut_date2[0]+"/"+cut_date2[1]+"/"+cut_date2[2];
+
+                    var temp_date3 = this.date.slice(0,10),
+                        cut_date3 = temp_date3.split("-");
+                    this.date_temp  = cut_date3[0]+"/"+cut_date3[1]+"/"+cut_date3[2];
+                }
+
+
+                    var vm  =this;
+                    axios({
+                        url:  '/api/downloadAssigning_missionPDF',
+                        method: 'Post',
+                        responseType: 'blob',
+                        data:{
+                            fullname:vm.fullname,
+                            charged :vm.charged,
+                            location : vm.location,
+                            from_temp:vm.from,
+                            to_temp:vm.to,
+                            framed:vm.framed,
+                            organiser:vm.organiser,
+                            mission : vm.mission,
+                            outing_mail : vm.outing_mail,
+                            date_temp : vm.date,
+                        }
+
+
+                    }).then(function (response) {
+
+                        let blob = new Blob([response.data], { type:  'application/pdf' } );
+
+                        let link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = 'تكليف بمهمة.pdf';
+                        link.click();
+
+
+
+
+
+
+
+                    });
+            }
+        }
     }
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
+
 </script>
 
 <style scoped>

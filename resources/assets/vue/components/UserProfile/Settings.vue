@@ -44,13 +44,20 @@
 
 
         <div class="text-center">
-          <button type="submit" class="btn btn-info btn-fill btn-wd"  @click="ChangePassword">
+          <button type="button" class="btn btn-info btn-fill btn-wd"  @click="ChangePassword">
             تغيير كلمة السر
           </button>
         </div>
 
       </form>
     </div>
+    <sweet-modal icon="error" ref="password_error">
+      <h3>كلمة السر خاطئة</h3>
+    </sweet-modal>
+    <sweet-modal icon="success" ref="success">
+      <h3>تم تغيير كلمة السر  بنجاح</h3>
+      <h4 style="text-align: right">ملاحظة : تسجيل الدخول القادم لا يمكن أن يتم بكلمة السر  القديمة</h4>
+    </sweet-modal>
   </div>
 </template>
 <script>
@@ -94,11 +101,12 @@
                     axios.put('/api/newpassword',vm.user).then(function (response) {
 
                         if(!response.data.password){
-                            alert('تم تغير كلمة السر بنجاج لا يمكن استعمال كلمة السر القديمة في تسجيل الدخول القادم');
+                            vm.$refs.password_error.open();
 
 
                         }else{
-                            alert('كلمة السر خاطئة يرجى التاكد منها');
+                            vm.$refs.success.open();
+
                         }
 
 

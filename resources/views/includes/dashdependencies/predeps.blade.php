@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
 
-{{Html::style('global/css/bootstrap.min.css')}}  
+{{Html::style('global/css/bootstrap.min.css')}}
 {{Html::style('global/css/bootstrap-extend.min.css')}}
 <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
 {{Html::style('assets/css/site.min.css')}}
@@ -18,11 +18,11 @@
  {{Html::style('global/vendor/jvectormap/jquery-jvectormap.css')}}
  {{Html::style('assets/examples/css/dashboard/v1.css')}}
  {{Html::style('assets/examples/css/dashboard/analytics.css')}}
- 
+
 
 <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/buttons.css">
 <link rel="stylesheet" href="{{URL::to('/')}}/assets/examples/css/uikit/dropdowns.css">
- 
+
 <!-- Fonts -->
 {{Html::style('global/fonts/font-awesome/font-awesome.css')}}
 {{Html::style('global/fonts/weather-icons/weather-icons.css')}}
@@ -40,7 +40,7 @@
 {{ Html::script('global/vendor/breakpoints/breakpoints.js') }}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 {{Html::style('assets/css/loaders.css')}}
-{{Html::style('assets/css/loaders.min.css')}} 
+{{Html::style('assets/css/loaders.min.css')}}
 
 
 <script>

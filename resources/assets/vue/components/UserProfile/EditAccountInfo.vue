@@ -79,6 +79,26 @@
 
             </div>
         </div>
+				<sweet-modal ref="email_success" icon="success">
+					<h3>تم تغيير البريد الالكتروني بنجاح </h3>
+					<h3 style="text-align:right">ملاحظة : لايمكن استخدام البريد الإلكتروني القديم في تسجيل الدخول</h3>
+
+
+				</sweet-modal>
+				<sweet-modal ref="email_error" icon="error">
+					<h3>البريد الإلكتروني موجود مسبقا</h3>
+
+				</sweet-modal>
+				<sweet-modal ref="password_success" icon="success">
+					<h3>تم تغير كلمة السر بنجاج</h3>
+					<h3 style="text-align:right">ملاحظة : لا يمكن استعمال كلمة السر القديمة في تسجيل الدخول القادم </h3>
+
+				</sweet-modal>
+				<sweet-modal ref="password_error" icon="error">
+					<h3>كلمة السر ليست متطابقة</h3>
+
+				</sweet-modal>
+
     </div>
 </template>
 
@@ -130,36 +150,45 @@
 
 
                         if(response.data.emailchanged){
-                            alert('تم تغيير البريد الالكتروني بنجاح\n ملاحظة: تسجيل الدخول القادم لا يمكن ان يتم الا بالبريد الالكتروني الجديد' )
+                          vm.$refs.email_success.open();
 
                         }else{
-                            alert('حصل عطل تقني الرجاء التواصل مع معالجي الموقع')
+
+
+                          vm.$refs.email_error.open();
+                            $('#emailmessage').html('هذا البريد الإلكتروني موجود مسبقا').css('color','red');
+                            $('#email').keyup(function (event) {
+                                $('#emailmessage').html('');
+                            });
                         }
                     });
                 }
 
             },
             changepassword() {
+							var vm = this;
                 if (($('#newpassword').val() == "" || $('#confirm_newpassword').val() == "") ) {
                     $('#message').html('يرجى التاكد من ادخال جميع المعلومات').css('color', 'red');
 
                 } else {
                     if ($('#newpassword').val() == $('#confirm_newpassword').val()) {
-                        var vm = this;
+                        
                         axios.put('/api/changepassword/' + this.$route.params.id, vm.User).then(function (response) {
 
                             if (response.data.password) {
-                                alert('تم تغير كلمة السر بنجاج\n لا يمكن استعمال كلمة السر القديمة في تسجيل الدخول القادم');
+                              vm.$refs.password_success.open();
 
 
                             } else {
-                                alert('كلمة السر خاطئة يرجى التاكد منها');
+
                             }
 
 
                         });
 
-                    }
+                    }else{
+											  vm.$refs.password_error.open();
+										}
                 }
             },
             matchpassword : function(event) {

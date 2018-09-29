@@ -12,13 +12,14 @@ import SweetModal from 'sweet-modal-vue/src/plugin.js'
 import {Datetime} from 'vue-datetime'
 
 import Axios from 'axios';
-import Datepicker from 'vuejs-datepicker';
+
 import VueCkeditor from 'vue-ckeditor2';
 import { Settings } from 'luxon';
-
-
+var current_user ;
 require('./bootstrap');
+
 import 'vue-datetime/dist/vue-datetime.css'
+Vue.config.productionTip = false;
 
 window.Vue = require('vue');
 
@@ -28,7 +29,7 @@ import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';
 import NewForm from './components/NewForm';
-import NewRapport from './components/Scout/Add File/NewRapport';
+import NewRapport from './components/Scout/Add File/Reports/NewRapport';
 import Allposts from './components/Scout/Miscellaneous/AllPosts';
 import MyEvents from './components/Scout/Miscellaneous/Event/MyEvents';
 import Concerned_Events from './components/Scout/Miscellaneous/Event/Concerned_Events';
@@ -69,9 +70,11 @@ import EditEvent from './components/Scout/Miscellaneous/Event/EditEvent';
 import MyEvents_posts from './components/Scout/Miscellaneous/MyEvents-posts';
 import Forum from './components/Scout/Miscellaneous/Forum';
 import Reports_received from './components/Scout/Miscellaneous/Reports_received';
+import Finance_Report from './components/Scout/Finance/Finance_Report';
 import Post from './components/Scout/Post/post';
 
 import New_Form from './components/Scout/Add File/Form';
+import activityPaper from './components/Scout/Add File/ActivityPaper';
 import state_scout_reporter from './components/Scout/Add File/forms/Reporter_state_scout_governor';
 import Honorary_meeting from './components/Scout/Add File/forms/Honorary_meeting';
 import Camping_request from './components/Scout/Add File/forms/Camping_request';
@@ -320,268 +323,983 @@ Vue.component('friend-list',require('./components/Chat/FriendList.vue'));
 
 const routes = [
     {
-        path: "/",
+
+        path: "/dashboard",
+
         component: Hub
+
     },
 
     {
-        path: "/my_scout",
-        component: MyScout
+        path: "/dashboard/my_scout",
+        component: MyScout,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0||current_user.localeCompare('vucp')===0|| current_user.localeCompare('capa')===0|| current_user.localeCompare('trne')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
     },
     {
-        path:"/reports/create",
-        component: NewRapport
+        path:"/dashboard/reports/create",
+        component: NewRapport,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/ApproveEvents",
-        component: ApproveEvents
+        path:"/dashboard/Events/ApproveEvents",
+        component: ApproveEvents,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0||current_user.localeCompare('vucp')===0|| current_user.localeCompare('capa')===0|| current_user.localeCompare('gov')===0|| current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
     },
     {
-        path:"/Events/MyEvents",
+        path:"/dashboard/Events/MyEvents",
         component: MyEvents
     },
     {
-        path:"/Events/Concerned",
+        path:"/dashboard/Events/Concerned",
         component: Concerned_Events
     },
     {
-        path:"/Events/Concerned/Presence",
+        path:"/dashboard/Events/Concerned/Presence",
         component: Events_Presence
     },
     {
-        path:"/Events/Concerned/absence",
+        path:"/dashboard/Events/Concerned/absence",
         component: Events_absence
     },
     {
-        path:"/Events/MyEvents/Approved",
-        component: MyEvents_Approved
+        path:"/dashboard/Events/MyEvents/Approved",
+        component: MyEvents_Approved,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('trne')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/AllEvents",
-        component: AllEvents
+        path:"/dashboard/Events/AllEvents",
+        component: AllEvents,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0||current_user.localeCompare('vucp')===0|| current_user.localeCompare('capa')===0|| current_user.localeCompare('trne')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
     },
     {
-        path:"/Events/cubs",
-        component: Cubs_Events
+        path:"/dashboard/Events/cubs",
+        component: Cubs_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/Scout",
-        component: Scout_Events
+        path:"/dashboard/Events/Scout",
+        component: Scout_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/AdvancedScout",
-        component: AdvancedScout_Events
+        path:"/dashboard/Events/AdvancedScout",
+        component: AdvancedScout_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/Traveler",
-        component: Traveler_Events
+        path:"/dashboard/Events/Traveler",
+        component: Traveler_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/Media",
-        component: Media_Events
+        path:"/dashboard/Events/Media",
+        component: Media_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/CSD",
-        component: CSD_Events
+        path:"/dashboard/Events/CSD",
+        component: CSD_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/SURV",
-        component: SURV_Events
+        path:"/dashboard/Events/SURV",
+        component: SURV_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/Events/Finance",
-        component: Fin_Events
+        path:"/dashboard/Events/Finance",
+        component: Fin_Events,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
 
     {
-        path:"/forum",
-        component: Forum
+        path:"/dashboard/forum",
+        component: Forum,
+        beforeEnter: (to, from, next) => {
+
+            next(false);
+
+        }
     },
     {
-        path:"/posts/new",
-        component: Post
+        path:"/dashboard/posts/new",
+        component: Post,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 ||
+                    current_user.localeCompare('med')===0 ||
+                    current_user.localeCompare('vmed')===0 ||
+                    current_user.localeCompare('ucap')===0 ||
+                    current_user.localeCompare('vucp')===0 ||
+                    current_user.localeCompare('capa')===0 ||
+                    current_user.localeCompare('trne')===0 ||
+                    current_user.localeCompare('surv')===0  ||
+                    current_user.localeCompare('csd')===0
+
+                )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/events/new",
+        path:"/dashboard/events/new",
         component: Event
     },
     {
-        path:"/reports/recieved",
-        component: Reports_received
+        path:"/dashboard/reports/received",
+        component: Reports_received,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('vogv')===0 || current_user.localeCompare('surv')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/scouts/cubs",
-        component: Cub
+        path:"/dashboard/scouts/cubs",
+        component: Cub,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/scouts/scout",
-        component: Scout
+        path:"/dashboard/scouts/scout",
+        component: Scout,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/scouts/advanced_scout",
-        component: Advanced_Scout
+        path:"/dashboard/scouts/advanced_scout",
+        component: Advanced_Scout,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/scouts/traveler",
-        component: Traveler
+        path:"/dashboard/scouts/traveler",
+        component: Traveler,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/scouts/captain",
-        component: Captain
+        path:"/dashboard/scouts/captain",
+        component: Captain,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/form",
-        component: New_Form
+        path:"/dashboard/form",
+        component: New_Form,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/myprofile",
+        path:"/dashboard/myprofile",
         component: UserProfile,
 
     },
     {
-        path:"/users-accounts",
-        component: UsersAccounts
+        path:"/dashboard/users-accounts",
+        component: UsersAccounts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0  )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/EditScoutInfo/Cub/:id",
-        component:EditScoutInfo
+        path:"/dashboard/EditScoutInfo/Cub/:id",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/EditScoutInfo/Scout/:id",
-        component:EditScoutInfo
+        path:"/dashboard/EditScoutInfo/Scout/:id",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/EditScoutInfo/AdvancedScout/:id",
-        component:EditScoutInfo
+        path:"/dashboard/EditScoutInfo/AdvancedScout/:id",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/EditScoutInfo/Traveler/:id",
-        component:EditScoutInfo
+        path:"/dashboard/EditScoutInfo/Traveler/:id",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/EditScoutInfo/Captain/:id",
-        component:EditScoutInfo
+        path:"/dashboard/EditScoutInfo/Captain/:id",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/AddNewScout/cub",
-        component:EditScoutInfo
+        path:"/dashboard/AddNewScout/cub",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
 
     {
-        path:"/AddNewScout/scout",
-        component:EditScoutInfo
+        path:"/dashboard/AddNewScout/scout",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/AddNewScout/advancedscout",
-        component:EditScoutInfo
+        path:"/dashboard/AddNewScout/advancedscout",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/AddNewScout/traveler",
-        component:EditScoutInfo
+        path:"/dashboard/AddNewScout/traveler",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/AddNewScout/captain",
-        component:EditScoutInfo
+        path:"/dashboard/AddNewScout/captain",
+        component:EditScoutInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/NewUser",
-        component:NewUser
+        path:"/dashboard/NewUser",
+        component:NewUser,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
     },
     {
-        path:"/EditAccountInfo/:id",
-        component:EditAcountInfo
+        path:"/dashboard/EditAccountInfo/:id",
+        component:EditAcountInfo,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
 
     },
     {
-        path:"/myposts/event/:id",
+        path:"/dashboard/myposts/event/:id",
         component:EditEvent
 
     },
     {
-        path:"/posts/myposts",
-        component:MyPosts
+        path:"/dashboard/posts/myposts",
+        component:MyPosts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('med')===0)
+                     next(false);
+                else
+                    next();
+            });
+
+        }
 
     },
     {
-        path:"/posts/myunitposts",
-        component:MyUnitPosts
+        path:"/dashboard/posts/myunitposts",
+        component:MyUnitPosts ,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0||current_user.localeCompare('vucp')===0|| current_user.localeCompare('capa')===0|| current_user.localeCompare('trne')===0)
+                    next();
+                else
+                next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/approveposts",
-        component:ApprovedPosts
+        path:"/dashboard/posts/approveposts",
+        component:ApprovedPosts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0||current_user.localeCompare('vucp')===0|| current_user.localeCompare('capa')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/post/EditPost/:id",
+        path:"/dashboard/post/EditPost/:id",
         component:EditPost
 
     },
     {
-        path:"/posts/Approve_Posts",
-        component:ApproveUnitPosts
+        path:"/dashboard/posts/Approve_Posts",
+        component:ApproveUnitPosts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('capa')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/cub/post",
-        component:Cubs_Posts
+        path:"/dashboard/posts/cub/post",
+        component:Cubs_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/scout/post",
-        component:Scout_Posts
+        path:"/dashboard/posts/scout/post",
+        component:Scout_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/advanced-scout/post",
-        component:Advanced_Scout_Posts
+        path:"/dashboard/posts/advanced-scout/post",
+        component:Advanced_Scout_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/traveler/post",
-        component:Traveler_Posts
+        path:"/dashboard/posts/traveler/post",
+        component:Traveler_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/captain/post",
-        component:Captain_Posts
+        path:"/dashboard/posts/captain/post",
+        component:Captain_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/media/post",
-        component:Media_Posts
+        path:"/dashboard/posts/media/post",
+        component:Media_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/csd/post",
-        component:CSD_Posts
+        path:"/dashboard/posts/csd/post",
+        component:CSD_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/surv/post",
-        component:SURV_Posts
+        path:"/dashboard/posts/surv/post",
+        component:SURV_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/finance/post",
-        component:Finance_Posts
+        path:"/dashboard/posts/finance/post",
+        component:Finance_Posts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
     {
-        path:"/posts/MyApprovedPosts",
-        component:MyApprovedPosts
+        path:"/dashboard/posts/MyApprovedPosts",
+        component:MyApprovedPosts,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('trne')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
-		{
-        path:"/finance/Financial_management",
-        component:Financial_management
+    {
+        path:"/dashboard/finance/Financial_management",
+        component:Financial_management,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('fin')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+        path:"/dashboard/activityPaper",
+        component:activityPaper,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0||current_user.localeCompare('vucp')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+        path:"/dashboard/Finance/Repport",
+        component:Finance_Report,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('fin')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     }
 
 
 ];
 
-const router = new VueRouter({routes});
+const router = new VueRouter({
+mode:'history',
+	routes,
+
+});
 
 
 
@@ -593,9 +1311,13 @@ const router = new VueRouter({routes});
 
 const app = new Vue({
     el: '#app',
-
     router,
     created:function(){
+
+
+
+
+
       Settings.defaultLocale = "us"
     }
 

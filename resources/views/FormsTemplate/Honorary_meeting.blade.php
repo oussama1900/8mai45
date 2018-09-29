@@ -15,42 +15,44 @@
     <style>
       *{font-size: 14px}
         .text-align-right{
-            margin-right:-45px
+            margin-right:0px
         }
     </style>
 </head>
 <body>
-<div style="margin-right:-50px ;margin-top: -45px">
+<div style="margin-right:-60px ;margin-top: -100px;padding-top:-60px">
 
-   <img src= {{ public_path("/images/page_header.jpg") }} width="100%" height="150px"/>
+    <img src= src="{{ public_path() .'/images/page_header.jpg' }}" width="100%" height="150px" />
 
 </div>
-<div class="text-align-right">
+<div class="text-align-right" style="margin-top:20px">
 
-    <p style="text-align: right;margin-right:-10px"><span>/   م و س 2018 / <span> رقــم البريــد الصادر: {{$data['outing_mail_number']}}</span> </span></p>
-    <p style="text-align: right;"> {{$data['date']}}    <span> :</span><span>التاريخ</span> </p>
+    <p style="text-align: right;margin-right:-25px"><span>  رقــم البريــد الصادر :</span><span> {{$data['outing_mail_number']}} / م و س/ 2018  </span></p>
+    <p style="text-align: right;margin-right:-25px"> {{$data['date']}}   <span> :</span><span>التاريخ</span> </p>
 </div>
 <div style="margin-left: 110px">
     <p > الى الكشاف المحترم: {{$data['toscout']}} </p>
 </div>
-<div style=" margin-right:-70px">
-    <p style="text-align: right;font-size:16px;"> الموضوع:ف/ي دعوة لحضور اجتماع الشرفي </p>
+<div style="margin-right:-25px;margin-bottom:30px">
+    <h3 style="text-align: right;">  الموضوع : ف/ي دعوة لحضور اجتماع الشرفي  </h3>
 </div>
-<div class="text-align-right">
-    <div>
+<div>
+
+    <div style="text-align:right;margin-right:-25px;">
         {!! $data['content'] !!}
     </div>
+    <div style="text-align:center">
+        وفي الأخير تقبلوا مني قائدي أسمى عبارات الاحترام والتقدير
+    </div>
+
 </div>
-<div style="text-align: center;margin-right:-180px">
-    <p >وفي الاخير تقبلوا مني قائدي أسمى عبارات االحترام والتقدير </p>
-</div>
-<div style="margin-left: 80px">
+<div style="margin-left: 80px;margin-top:30px">
     <p> محـــافظ الفوج</p>
     <p>{{$data['gov']}}</p>
 </div>
 
-<footer style="position: absolute;bottom:0px;margin-bottom: -45px;margin-left:-50px">
-    <img src= {{ public_path("/images/page_footer.jpg") }} width="100%" height="150px"/>
+<footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">
+    <img src= src="{{ public_path() .'/images/page_footer.jpg' }}" width="100%" height="150px" />
 </footer>
 
 <div>

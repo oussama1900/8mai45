@@ -33,20 +33,20 @@
                   <ul  style="margin-bottom: 0px">
                       <li  style="background: grey;">
                           <span style="text-align: center;padding-right:10px;color:white;margin-top:5px" >المعلومات الشخصية</span>
-                          <span class ="  icon-container glyphicon glyphicon-user btn btn-grey" style="float: right;height:35px"></span>
+                          <span class =" icon-container glyphicon glyphicon-user btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                       </li>
                       <li  style="background: grey;">
                           <span style="text-align: center;padding-right:10px;color:white">الاعدادات</span>
-                          <span class ="  icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right;height:35px"></span>
+                          <span class ="icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                       </li>
                       <li  style="background: grey;">
                           <span style="text-align: center;padding-right:10px;color:white">تعديل السيرة الذاتية</span>
-                          <span class ="  icon-container glyphicon glyphicon-file btn btn-grey" style="float: right;height:35px"></span>
+                          <span class ="icon-container glyphicon glyphicon-file btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                       </li>
                       <li  style="background: grey;">
 
                           <span style="text-align: center;padding-right:10px;color:white">ربط الحساب</span>
-                          <span class ="  icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right;height:35px"></span>
+                          <span class ="icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                       </li>
 
 

@@ -49,7 +49,7 @@
                 direction:'rtl',
                 value:"UTC+2",
                 date:'',
-                content:"<h3 style='text-align:right' dir='rtl'>  تحية كشفية و بعد  : </h3>",
+                content:"<p dir=\"RTL\" style=\"text-align:right\">تحية كشفية وبعد:</p><p dir=\"RTL\" style=\"text-align:justify\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; يسرني أخي الكشاف أن أدعوكم لحضور الاجتماع الشرفي الذي سيعقد يوم السبت&nbsp; 10 مارس 2018 على الساعة العاشرة صباحا بمقر المحافظة الولائية وذلك من أجل تقييم المرحة السابقة والتباحث في ما هو قادم وعليه فإن حضوركم ضروري ومهم.</p><p dir=\"RTL\" style=\"text-align:right\">ملحوظة: -&nbsp; الحضور بالزي الكشفي ضروري.</p><p dir=\"rtl\" style=\"text-align: right;\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- احضار سجل اجتماعات مجلس الشرف.</p>",
                 governor :'',
                 outing_mail:'',
                 toscout:'',
@@ -90,6 +90,10 @@
 
             },
             preview(){
+                if(this.outing_mail<10){
+                    if(!this.outing_mail.includes('0'))
+                    this.outing_mail = "0"+this.outing_mail;
+                }
 
                     var temp_date = this.date.slice(0,10),
                         cut_date = temp_date.split("-"),
@@ -135,6 +139,10 @@
 
             },
             download(){
+                if(this.outing_mail<10){
+                    if(!this.outing_mail.includes('0'))
+                    this.outing_mail = "0"+this.outing_mail;
+                }
 
                     var temp_date = this.date.slice(0,10),
                         cut_date = temp_date.split("-"),

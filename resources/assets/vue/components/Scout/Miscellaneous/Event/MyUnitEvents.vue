@@ -18,10 +18,10 @@
                     <h6> {{events.title}} </h6>
                 </div>
 
-                <div class="trigger" @click="delete_event(events)" v-if="is_trainee()">
+                <div class="trigger" @click="delete_event(events)" v-if="licence(events)">
                     <i class="glyphicon glyphicon-remove" ></i>
                 </div>
-                <router-link class="trigger" style="float: right; right: 0px;" :to="'/myposts/event/'+events.event_id" v-if="is_trainee()">
+                <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/myposts/event/'+events.event_id" v-if="licence(events)">
                     <i class="glyphicon glyphicon-edit" ></i>
                 </router-link>
 
@@ -125,12 +125,35 @@
                     vm.$refs.confirmation.close();
                 });
             },
-            is_trainee(){
-                if(this.user.role==='trne' ){
-                    return false;
+            licence(events){
+                if(this.user.role.localeCompare('ucap')===0 ){
+                    return true;
+                }else{
+                    if(this.user.role.localeCompare('vucp')===0 ) {
+                        if(events.is_captain.role.localeCompare('ucap')===0)
+                            return false;
+                        else{
+                            return true;
+                        }
+                    }else{
+                        if(this.user.role.localeCompare('capa')===0 ){
+                            if(events.is_captain.role.localeCompare('ucap')===0 || events.is_captain.role.localeCompare('vucp')===0)
+                               return false;
+                            else
+                                return true;
+                        }else{
+                            if(this.user.role.localeCompare('trne')===0){
+                                if(events.is_captain.role.localeCompare('trne')===0)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        }
+
+                    }
                 }
 
-                    return true;
+
 
             }
 

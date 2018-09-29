@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -15,6 +16,12 @@ use Carbon\Carbon;
 use Session;
 use App\Foo;
 use View;
+use App\Event;
+use App\Post;
+use App\Scout;
+use App\UnitsReport;
+use App\Visitor;
+use App\Captain;
 
 
 
@@ -107,6 +114,283 @@ class DashboardController extends Controller
     }
 
     /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getNbr_of_Events(){
+        $nbr_of_events = Event::count();
+        return response()->json(["nbr_of_events"=>$nbr_of_events]);
+    }
+    public function getNbr_of_Posts(){
+        $nbr_of_posts = Post::count();
+        return response()->json(["nbr_of_posts"=>$nbr_of_posts]);
+    }
+    public function getAccount_Nbr(){
+        $account_nbr = User::count();
+        return response()->json(["account_nbr"=>$account_nbr]);
+    }
+    public function getHubInfo_forGOv(){
+        $nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+        $nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
+        $account_nbr = User::count();
+        $all_money = DB::table('finances')->select('money_total')->orderBy('id', 'desc')->first();
+        if($all_money!=null)
+            $all_money = $all_money->money_total;
+        else
+            $all_money = "00";
+        $nbr_of_scouts = Scout::count();
+        $all_posts = Post::count();
+        $all_events = Event::count();
+				  $today_visitors = count(Visitor::where('visit_date',Carbon::now()->format('Y-m-d'))->get());
+
+      return  response()->json(["all_money"=>$all_money,
+                          "account_nbr"=>$account_nbr,
+                          "nbr_of_events"=>$nbr_of_events,
+                          "nbr_of_posts"=>$nbr_of_posts,
+                          "nbr_of_scouts"=>$nbr_of_scouts,
+                          "all_posts"=>$all_posts,
+                          "all_events"=>$all_events,
+													  "today_visitors"=>$today_visitors,
+                      ]);
+    }
+    public function getHubInfo_forFin(){
+        $all_money = DB::table('finances')->select('money_total')->orderBy('id', 'desc')->first();
+        if($all_money!=null)
+            $all_money = $all_money->money_total;
+        else
+            $all_money = "00";
+
+        $fromDate = Carbon::now()->subDay()->startOfWeek()->toDateString();
+        $tillDate = Carbon::now()->subDay()->toDateString();
+        $this_week_money = DB::table("finances")
+            ->select(DB::raw('SUM(transaction_money) as this_week_money'))
+            ->whereBetween(DB::raw('date(transaction_date)'),[$fromDate, $tillDate])
+            ->get();
+        $current_month = Carbon::now()->format('m');
+        $this_month_money =DB::table("finances")
+            ->select(DB::raw('SUM(transaction_money) as this_month_money'))
+
+            ->whereRaw('MONTH(transaction_date) = ?',[$current_month])
+
+            ->get();
+        if($this_month_money == null)
+            $this_month_money = "00";
+        if($this_week_money == null)
+            $this_week_money = "00";
+        $nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+
+
+        return  response()->json(["nbr_of_events"=>$nbr_of_events,
+                                 "all_money"=>$all_money,
+                                 "this_week_money"=>$this_week_money,
+                                 "this_month_money"=>$this_month_money]);
+    }
+    public function getHubInfo_forVgov(){
+        $nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+        $nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
+        $nbr_of_reports =count(UnitsReport::where(DB::raw('MONTH(month)',Carbon::now()->format('m')))
+            ->whereYear('created_at', date('Y'))
+            ->get());
+        $nbr_of_scouts = Scout::count();
+        return  response()->json(["nbr_of_events"=>$nbr_of_events,
+                                  "nbr_of_posts"=>$nbr_of_posts,
+                                  "nbr_of_reports"=>$nbr_of_reports,
+                                  "nbr_of_scouts"=>$nbr_of_scouts]);
+    }
+	public function	getHubInfo_forSurv(){
+		$nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+		$nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
+		$nbr_of_reports =count(UnitsReport::where(DB::raw('MONTH(month)',Carbon::now()->format('m')))
+				->whereYear('created_at', date('Y'))
+				->where('unit','!=','المالية')
+				->get());
+
+		return  response()->json(["nbr_of_events"=>$nbr_of_events,
+															"nbr_of_posts"=>$nbr_of_posts,
+															"nbr_of_reports"=>$nbr_of_reports,
+													    ]);
+	}
+	public function	getHubInfo_forCsd(){
+		$nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+		$nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
+		return  response()->json(["nbr_of_events"=>$nbr_of_events,
+															"nbr_of_posts"=>$nbr_of_posts,
+
+													    ]);
+	}
+    public function getHubInfo_forMed(){
+        $nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+        $nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
+        $this_month_visitors= count(Visitor::where(DB::raw('MONTH(visit_date)',Carbon::now()->format('m')))->get());
+        $this_month_posts =count(Post::where(DB::raw('MONTH(created_at)',Carbon::now()->format('m')))->get());
+        $today_posts = count(Post::whereBetween('created_at',[date("Y-m-d")."00:00:00",date("Y-m-d")."23.59.59"])->get());
+        $today_visitors = count(Visitor::where('visit_date',Carbon::now()->format('Y-m-d'))->get());
+
+        $fromDate = Carbon::now()->subDay()->startOfWeek()->toDateString();
+        $tillDate = Carbon::now()->subDay()->toDateString();
+
+
+       $this_week_post =count(Post::whereBetween( DB::raw('date(created_at)'), [$fromDate, $tillDate] )->get()) ;
+        $this_week_visitors=count(Visitor::whereBetween( DB::raw('date(visit_date)'), [$fromDate, $tillDate] )->get());
+
+
+
+
+
+        return  response()->json([  "nbr_of_events"=>$nbr_of_events,
+                                    "nbr_of_posts"=>$nbr_of_posts,
+                                    "this_month_visitors"=>$this_month_visitors,
+                                    "this_month_posts"=>$this_month_posts,
+                                    "this_week_post"=>$this_week_post,
+                                    "this_week_visitors"=>$this_week_visitors,
+                                    "today_posts"=>$today_posts,
+                                    "today_visitors"=>$today_visitors,
+        ]);
+    }
+		public function getHubInfo_forUnit(){
+			$nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
+			$nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
+			$my_unit_post = $this->my_unit_post();
+			$my_unit_scouts =$this->getnbr_of_scout();
+			$unit_fullname = Auth::user()->captain->unit_name->unit_name;
+			if(Auth::user()->captain->unit=="cubs"){
+				$single = "شبل";
+
+			}
+			if(Auth::user()->captain->unit=="sct"){
+				$single = "كشاف";
+			}
+			if(Auth::user()->captain->unit=="asct"){
+				$single = "كشاف متقدم";
+			}
+			if(Auth::user()->captain->unit=="tvlr"){
+				$single = "جوال";
+			}
+         return response()->json([ "nbr_of_events"=>$nbr_of_events,
+					                        "nbr_of_posts"=>$nbr_of_posts,
+																	"my_unit_post"=>$my_unit_post,
+																	"my_unit_scouts"=>$my_unit_scouts,
+																	"unit_fullname"=>$unit_fullname,
+																	"single"=>$single,
+				 ]);
+		}
+		public function getMyTeam(){
+		        $user_unit = Auth::user()->captain->unit;
+
+		        $user_role =Auth::user()->captain->role;
+		        if($user_role=="ucap"){
+		            $vucp = Scout::find(Captain::where('unit',$user_unit)->where('role','vucp')->value('scout_id'));
+		            $vucp_role = Captain::find($vucp->scout_id)->assignedRole->getRole();
+		            $vucp_event_number = DB::table('events')->select(DB::raw('count(event_id) as vucp_event_number'))->where('created_by',$vucp->scout_id)->get();
+		            $vucp_post_number = DB::table('posts')->select(DB::raw('count(post_id) as vucp_post_number'))->where('posted_by',$vucp->scout_id)->get();
+
+		            $capa = Scout::find(Captain::where('unit',$user_unit)->where('role','capa')->value('scout_id'));
+		            $capa_role = Captain::find($capa->scout_id)->assignedRole->getRole();
+		            $capa_event_number = DB::table('events')->select(DB::raw('count(event_id) as capa_event_number'))->where('created_by',$capa->scout_id)->get();
+		            $capa_post_number = DB::table('posts')->select(DB::raw('count(post_id) as capa_post_number'))->where('posted_by',$capa->scout_id)->get();
+
+		            $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
+		            $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
+		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
+		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
+		            return response()->json(["first"=>[$vucp,$vucp_role,$vucp_event_number[0]->vucp_event_number,$vucp_post_number[0]->vucp_post_number],
+		                                     "second"=>[$capa,$capa_role,$capa_event_number[0]->capa_event_number,$capa_post_number[0]->capa_post_number],
+		                                     "third"=>[$trne,$trne_role,$trne_event_number[0]->trne_event_number,$trne_post_number[0]->trne_post_number]]);
+
+		        }
+		        if($user_role=="vucp"){
+		            $ucap = Scout::find(Captain::where('unit',$user_unit)->where('role','ucap')->value('scout_id'));
+		            $ucap_role = Captain::find($ucap->scout_id)->assignedRole->getRole();
+		            $ucap_event_number = DB::table('events')->select(DB::raw('count(event_id) as ucap_event_number'))->where('created_by',$ucap->scout_id)->get();
+		            $ucap_post_number = DB::table('posts')->select(DB::raw('count(post_id) as ucap_post_number'))->where('posted_by',$ucap->scout_id)->get();
+
+		            $capa = Scout::find(Captain::where('unit',$user_unit)->where('role','capa')->value('scout_id'));
+		            $capa_role = Captain::find($capa->scout_id)->assignedRole->getRole();
+		            $capa_event_number = DB::table('events')->select(DB::raw('count(event_id) as capa_event_number'))->where('created_by',$capa->scout_id)->get();
+		            $capa_post_number = DB::table('posts')->select(DB::raw('count(post_id) as capa_post_number'))->where('posted_by',$capa->scout_id)->get();
+
+		            $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
+		            $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
+		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
+		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
+
+		            return response()->json(["first"=>[$ucap,$ucap_role,$ucap_event_number[0]->ucap_event_number,$ucap_post_number[0]->ucap_post_number],
+		                                    "second"=>[$capa,$capa_role,$capa_event_number[0]->capa_event_number,$capa_post_number[0]->capa_post_number],
+		                                    "third"=>[$trne,$trne_role,$trne_event_number[0]->trne_event_number,$trne_post_number[0]->trne_post_number]]);
+
+
+
+		        }
+		    if($user_role=="capa"){
+		        $vucp = Scout::find(Captain::where('unit',$user_unit)->where('role','vucp')->value('scout_id'));
+		        $vucp_role = Captain::find($vucp->scout_id)->assignedRole->getRole();
+		        $vucp_event_number = DB::table('events')->select(DB::raw('count(event_id) as vucp_event_number'))->where('created_by',$vucp->scout_id)->get();
+		        $vucp_post_number = DB::table('posts')->select(DB::raw('count(post_id) as vucp_post_number'))->where('posted_by',$vucp->scout_id)->get();
+		        $ucap = Scout::find(Captain::where('unit',$user_unit)->where('role','ucap')->value('scout_id'));
+		        $ucap_role = Captain::find($ucap->scout_id)->assignedRole->getRole();
+		        $ucap_event_number = DB::table('events')->select(DB::raw('count(event_id) as ucap_event_number'))->where('created_by',$ucap->scout_id)->get();
+		        $ucap_post_number = DB::table('posts')->select(DB::raw('count(post_id) as ucap_post_number'))->where('posted_by',$ucap->scout_id)->get();
+		        $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
+		        $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
+		        $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
+		        $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
+
+		        return response()->json(["first"=>[$ucap,$ucap_role,$ucap_event_number[0]->ucap_event_number,$ucap_post_number[0]->ucap_post_number],
+		                                 "second"=>[$vucp,$vucp_role,$vucp_event_number[0]->vucp_event_number,$vucp_post_number[0]->ucap_post_number],
+		                                 "third"=>[$trne,$trne_role,$trne_event_number[0]->trne_event_number,$trne_post_number[0]->trne_post_number]]);
+
+
+		    }
+		    if($user_role=="trne"){
+		        $vucp = Scout::find(Captain::where('unit',$user_unit)->where('role','vucp')->value('scout_id'));
+		        $vucp_role = Captain::find($vucp->scout_id)->assignedRole->getRole();
+		        $vucp_event_number = DB::table('events')->select(DB::raw('count(event_id) as vucp_event_number'))->where('created_by',$vucp->scout_id)->get();
+		        $vucp_post_number = DB::table('posts')->select(DB::raw('count(post_id) as vucp_post_number'))->where('posted_by',$vucp->scout_id)->get();
+		        $ucap = Scout::find(Captain::where('unit',$user_unit)->where('role','ucap')->value('scout_id'));
+		        $ucap_role = Captain::find($ucap->scout_id)->assignedRole->getRole();
+		        $ucap_event_number = DB::table('events')->select(DB::raw('count(event_id) as ucap_event_number'))->where('created_by',$ucap->scout_id)->get();
+		        $ucap_post_number = DB::table('posts')->select(DB::raw('count(post_id) as ucap_post_number'))->where('posted_by',$ucap->scout_id)->get();
+		        $capa = Scout::find(Captain::where('unit',$user_unit)->where('role','capa')->value('scout_id'));
+		        $capa_role = Captain::find($capa->scout_id)->assignedRole->getRole();
+		        $capa_event_number = DB::table('events')->select(DB::raw('count(event_id) as capa_event_number'))->where('created_by',$capa->scout_id)->get();
+		        $capa_post_number = DB::table('posts')->select(DB::raw('count(post_id) as capa_post_number'))->where('posted_by',$capa->scout_id)->get();
+		        return response()->json(["first"=>[$ucap,$ucap_role,$ucap_event_number[0]->ucap_event_number,$ucap_post_number[0]->ucap_post_number],
+		                                "second"=>[$vucp,$vucp_role,$vucp_event_number[0]->vucp_event_number,$vucp_post_number[0]->vucp_post_number],
+		                                "third"=>[$capa,$capa_role,$capa_event_number[0]->capa_event_number,$capa_post_number[0]->capa_post_number]]);
+
+
+
+		    }
+			}
+		public function my_unit_post(){
+			$user_unit = Auth::user()->captain->unit;
+
+			$myteam = DB::table('scouts')
+			          ->select('scout_id')
+								->get();
+		$myteam_array =[];
+		foreach ($myteam as $key ) {
+			array_push($myteam_array,$key->scout_id);
+			// code...
+		}
+		array_push($myteam_array,Auth::user()->scout_id);
+			$unit_post = DB::table('posts')
+		                    ->whereIn('posted_by',$myteam_array)
+			                   ->where('approved',0)
+												 ->get();
+		   $count_unit_post = count($unit_post);
+			return $count_unit_post;
+		}
+		public function getnbr_of_scout(){
+			$user_unit = Auth::user()->captain->unit;
+
+			$nbr_of_scout = DB::table('unitscouts')
+			                      ->where('unit_id',$user_unit)
+														->get();
+		  $count_nbr_of_scout = count($nbr_of_scout);
+			  return $count_nbr_of_scout ;
+		}
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -115,6 +399,7 @@ class DashboardController extends Controller
     {
         //
     }
+
 
 
 

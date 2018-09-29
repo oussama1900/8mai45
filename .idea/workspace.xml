@@ -2,13 +2,746 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf6c2894-b6e5-40ab-a472-102ede7388e9" name="Default" comment="Complete some things stuck and update chat message space + Friend List and completing vice captain space">
+      <change afterPath="$PROJECT_DIR$/public/images/Report.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/pdf_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/Reports/NewRapport.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/ActivityPaper.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Assigning_mission.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Captain_List.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Educational_Institutions.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Educational_Institutionshh.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/NewRapport.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Outing_mail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Scout_List.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Security_Reporter.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Users_List.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/inauguration.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Scout-Project-dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scout-Project-dashboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Event.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FinanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinanceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FormsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FormsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/postsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/postsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Scout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Scout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2015_07_20_102253_create_captains_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2015_07_20_102253_create_captains_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CaptainSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CaptainSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/RolesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RolesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ScoutsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ScoutsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/vue/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Chat/ChatComposer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Chat/ChatComposer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Chat/ChatMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Chat/ChatMessage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/MyScout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/MyScout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Notification/notification.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Notification/notification.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Notification/notification_content.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Notification/notification_content.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/Form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/Form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/NewRapport.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/ActivityPaper.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Assigning_mission.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Assigning_mission.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Camping_request.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Camping_request.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Educational_institutions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Educational_institutions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Honorary_meeting.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Honorary_meeting.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Outgoing_mail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Outgoing_mail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Reporter_state_scout_governor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/Reporter_state_scout_governor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/inauguration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/inauguration.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/security_reporter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/forms/security_reporter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Finance/Financial_management.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Finance/Financial_management.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Home/Hub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Home/Hub.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/ApproveEvents.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/ApproveEvents.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/AdvancedScout_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/AdvancedScout_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/CSD_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/CSD_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Cubs_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Cubs_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Fin_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Fin_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Media_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Media_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/SURV_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/SURV_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Scout_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Scout_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Traveler_Events.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Traveler_Events.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyApprovedPosts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyApprovedPosts.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Advanced_Scout_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Advanced_Scout_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/ApprovePosts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/ApprovePosts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/CSD_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/CSD_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Captain_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Captain_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Cubs_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Cubs_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Finance_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Finance_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Media_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Media_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/MyPostsApproved.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/MyPostsApproved.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/SURV_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/SURV_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Scout_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Scout_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Traveler_Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/Units_Posts/Traveler_Posts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Reports_received.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Reports_received.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/EditScoutInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/EditScoutInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditAccountInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditAccountInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditProfileForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditProfileForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/NewUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/NewUser.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/Settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/SocialMedia.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/SocialMedia.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UpdateCurriculumvitae.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UpdateCurriculumvitae.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserProfile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/FormsTemplate/Honorary_meeting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Honorary_meeting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/FormsTemplate/Reporter_state_scout_governor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/FormsTemplate/Reporter_state_scout_governor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashbars/topnavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashbars/topnavbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/dashdependencies/predeps.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/dashdependencies/predeps.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/config/dompdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/Facade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/PDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/ServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/AutoSummarize.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Changes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/CharsetD.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/CompressStr.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ArabicException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_AutoSummarize.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_CharsetD.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_CompressStr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Date.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Gender.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Glyphs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Hiero.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Identifier.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_KeySwap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Mktime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Normalise.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Numbers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Query.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Salat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Soundex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Standard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Stemmer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_StrToTime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_Transliteration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/I18N_Arabic_WordTag.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---AutoSummarize.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---CharsetD.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---CompressStr.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Date.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Gender.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Glyphs.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Hiero.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Identifier.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---KeySwap.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Mktime.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Normalise.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Numbers.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Query.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Salat.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Soundex.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Standard.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Stemmer.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---StrToTime.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---Transliteration.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic---WordTag.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/_Arabic.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%-13^%%-135052920^header.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%-14^%%-1407541581^method.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%-17^%%-1740578653^global.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%-20^%%-2040098360^filesource.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%-65^%%-658603405^page.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%105^%%1054503566^define.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%146^%%146134639^function.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%165^%%1653142046^class.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%176^%%1767056382^include.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%239^%%239105369^footer.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%422^%%422353953^errors.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/I18N_Arabic/ef5c44d9d41e3bbc1de21d34a38d3879/%%972^%%972954595^docblock.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/ef5c44d9d41e3bbc1de21d34a38d3879/%%-13^%%-135052920^header.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/ef5c44d9d41e3bbc1de21d34a38d3879/%%-14^%%-1407541581^method.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/ef5c44d9d41e3bbc1de21d34a38d3879/%%-20^%%-2040098360^filesource.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/ef5c44d9d41e3bbc1de21d34a38d3879/%%165^%%1653142046^class.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/ef5c44d9d41e3bbc1de21d34a38d3879/%%239^%%239105369^footer.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/ef5c44d9d41e3bbc1de21d34a38d3879/%%972^%%972954595^docblock.tpl.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__Arabic.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicAutoSummarize.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicCharsetD.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicCompressStr.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicDate.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicGender.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicGlyphs.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicHiero.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicIdentifier.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicKeySwap.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicMktime.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicNormalise.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicNumbers.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicQuery.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicSalat.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicSoundex.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicStandard.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicStemmer.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicStrToTime.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicTransliteration.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/__filesource/fsource_I18N_Arabic__ArabicWordTag.php.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/classtrees_I18N_Arabic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/elementindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/elementindex_I18N_Arabic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/li_I18N_Arabic.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/media/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/media/empty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Docs/media/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/ArQuery_DB/ArQuery.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/ArTransliteration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/AutoSummarize.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/CharsetD.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/City.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Compress/ar_example.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/CompressStr.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/EnTransliteration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/GD/ae_AlHor.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/GD/bg.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Gender.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Glyphs_GD.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Glyphs_PDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Glyphs_SWF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Glyphs_VRML.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Hiero.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Identifier.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Info.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/KeySwap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Mktime.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Moon.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Normalise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Numbers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/PDF/font/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/PDF/font/ae_AlHor.ctg.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/PDF/font/ae_AlHor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/PDF/font/ae_AlHor.z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/PDF/fpdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/PDF/ufpdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Phoenician.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Qibla.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Query.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/SafeUploadTransliteration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Salat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Soundex.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Standard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/Stemmer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/StrToTime.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/ceiling.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/dceiling.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/ddoor.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/dfloor.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/droom.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/dungeon.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/dwall.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/dwall2.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/floor.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/panel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/torch1.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/torch2.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/torch3.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/torches.wrl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/wall1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/VRML/wall2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/WordTag.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/images/Compass.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/images/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Examples/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/GPL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Gender.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Glyphs.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Hiero.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Identifier.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/KeySwap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/LGPL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Mktime.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Normalise.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Numbers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Query.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Salat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Soundex.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Standard.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Stemmer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/StrToTime.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/Transliteration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/WordTag.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArDate.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArKeySwap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArNumbers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArQuery.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArSort.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArSoundex.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ArStrToTime.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/Transliteration.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ar-extra-stopwords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ar-logodd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/ar-stopwords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/arab_countries.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/charset/ArUnicode.constants.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/charset/arabizi.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/charset/charset.src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/cities.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/en-logodd.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/en-stopwords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/female.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/important-words.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/data/um_alqoura.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Algeria.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Bahrain.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Djibouti.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Egypt.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Iraq.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Jordan.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Kuwait.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Lebanon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Libya.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Mauritania.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Morocco.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Oman.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Palestine.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Qatar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Saudi Arabia.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Somalia.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Sudan.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Syria.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Tunisia.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/United Arab Emirates.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/flags/Yemen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/a.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/ain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/alef.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/b.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/b2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/beh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/c.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/d.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/dad.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/dal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/e.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/f.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/feh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/g.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/ghain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/h.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/h2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/hah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/heh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/i.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/j.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/jeem.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/k.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/kaf.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/khah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/l.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/lam.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/m.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/meem.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/n.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/n2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/noon.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/o.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/p.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/q.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/qaf.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/r.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/reh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/s.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/sad.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/seen.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/sheen.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/t.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/t2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/tah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/teh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/thal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/theh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/u.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/v.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/w.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/waw.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/x.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/y.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/yeh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/z.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/zah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/hiero/zain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/moon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/ain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/alef.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/beh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/dad.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/dal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/feh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/ghain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/hah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/heh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/jeem.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/kaf.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/khah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/lam.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/meem.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/noon.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/qaf.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/reh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/sad.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/seen.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/sheen.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/tah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/teh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/thal.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/theh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/waw.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/yeh.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/zah.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/I18N/Arabic/images/phoenician/zain.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/LICENSE.LGPL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/VERSION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/Cpdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Courier-Bold.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Courier-BoldOblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Courier-Oblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Courier.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Bold.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans-BoldOblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans-BoldOblique.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Oblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans-Oblique.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSans.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono-Bold.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono-BoldOblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono-BoldOblique.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono-Oblique.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono-Oblique.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSansMono.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif-Bold.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif-BoldItalic.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif-Italic.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/DejaVuSerif.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Helvetica-Bold.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Helvetica-BoldOblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Helvetica-Oblique.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Helvetica.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Symbol.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Times-Bold.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Times-BoldItalic.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Times-Italic.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Times-Roman.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/Times-Roman.afm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/ZapfDingbats.afm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/dompdf_font_family_cache.dist.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/fonts/mustRead.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/html5lib/Data.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/html5lib/InputStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/html5lib/Parser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/html5lib/Tokenizer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/html5lib/TreeBuilder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/html5lib/named-character-references.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/res/broken_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/lib/res/html.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/phpcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Adapter/CPDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Adapter/GD.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Adapter/PDFLib.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Autoloader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Canvas.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/CanvasFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Cellmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Css/AttributeTranslator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Css/Color.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Css/Style.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Css/Stylesheet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Dompdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Exception.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Exception/ImageException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FontMetrics.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame/Factory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame/FrameList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame/FrameListIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame/FrameTree.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame/FrameTreeIterator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Frame/FrameTreeList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/Block.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/Image.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/Inline.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/ListBullet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/ListBulletImage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/NullFrameDecorator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/Page.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/Table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/TableCell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/TableRow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/TableRowGroup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameDecorator/Text.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/AbstractFrameReflower.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/Block.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/Image.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/Inline.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/ListBullet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/NullFrameReflower.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/Page.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/Table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/TableRow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/TableRowGroup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/FrameReflower/Text.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Helpers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Image/Cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/JavascriptEmbedder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/LineBox.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Options.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/PhpEvaluator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/Absolute.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/AbstractPositioner.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/Block.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/Fixed.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/Inline.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/ListBullet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/NullPositioner.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/TableCell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Positioner/TableRow.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/Block.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/Image.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/Inline.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/ListBullet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/TableCell.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/TableRowGroup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/dompdf/dompdf/src/Renderer/Text.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/adobe-standard-encoding.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1250.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1251.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1252.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1253.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1254.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1255.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1257.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp1258.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/cp874.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-1.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-11.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-15.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-16.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-2.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-4.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-5.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-7.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/iso-8859-9.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/koi8-r.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/maps/koi8-u.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/phpunit.xml.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/sample-fonts/IntelClear-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/sample-fonts/NotoSansShavian-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/AdobeFontMetrics.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Autoloader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/BinaryStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/EOT/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/EOT/Header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/EncodingMap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Exception/FontNotFoundException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Font.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Glyph/Outline.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Glyph/OutlineComponent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Glyph/OutlineComposite.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Glyph/OutlineSimple.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/OpenType/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/OpenType/TableDirectoryEntry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/DirectoryEntry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/cmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/glyf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/head.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/hhea.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/hmtx.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/kern.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/loca.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/maxp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/name.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/nameRecord.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/os2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/Table/Type/post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/TrueType/Collection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/TrueType/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/TrueType/Header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/TrueType/TableDirectoryEntry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/WOFF/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/WOFF/Header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/src/FontLib/WOFF/TableDirectoryEntry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-font-lib/tests/FontLib/FontTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/DefaultStyle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Document.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Gradient/Stop.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Style.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Surface/CPdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Surface/SurfaceCpdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Surface/SurfaceGmagick.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Surface/SurfaceInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Surface/SurfacePDFLib.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/AbstractTag.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Anchor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Circle.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/ClipPath.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Ellipse.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Group.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Image.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Line.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/LinearGradient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Path.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Polygon.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Polyline.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/RadialGradient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Rect.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Shape.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Stop.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/StyleTag.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/Text.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/Svg/Tag/UseTag.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/src/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/phenx/php-svg-lib/tests/Svg/StyleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/Doxyfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/AtRuleBlockList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/CSSBlockList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/CSSList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/Document.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/CSSList/KeyFrame.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Comment/Comment.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Comment/Commentable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/OutputFormat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Parser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Parsing/OutputException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Parsing/SourceException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Parsing/UnexpectedTokenException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Property/AtRule.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Property/CSSNamespace.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Property/Charset.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Property/Import.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Property/Selector.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Renderable.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Rule/Rule.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/RuleSet/AtRuleSet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/RuleSet/DeclarationBlock.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/RuleSet/RuleSet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Settings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/CSSFunction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/CSSString.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/Color.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/PrimitiveValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/RuleValueList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/Size.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/URL.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/Value.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/ValueList.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/Sabberworm/CSS/CSSList/AtRuleBlockListTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/Sabberworm/CSS/CSSList/DocumentTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/Sabberworm/CSS/OutputFormatTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/Sabberworm/CSS/ParserTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/Sabberworm/CSS/RuleSet/DeclarationBlockTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/Sabberworm/CSS/RuleSet/LenientParsingTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/bootstrap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-charset-after-rule.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-charset-in-block.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-empty.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-end-token-2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-end-token.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-fault-tolerance.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/-tobedone.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/1readme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/2readme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/atrules.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/case-insensitivity.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/colortest.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/comments.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/create-shorthands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/docuwiki.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/expand-shorthands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/functions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/ie-hacks.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/ie.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/important.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/inner-color.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/line-numbers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/namespaces.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/nested.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/slashed.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/specificity.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/unicode.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/url.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/values.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/webkit.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/files/whitespace.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/sabberworm/php-css-parser/tests/quickdump.php" beforeDir="false" />
     </list>
     <ignored path="D:\Website\dash\Scout-Project\.idea\shelf/" />
     <ignored path="D:\Website\dash2\Scout-Project\.idea\shelf/" />
@@ -61,16 +794,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyEvents.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue">
+      <file leaf-file-name="MyUnitEvents.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
+            <state relative-caret-position="142">
+              <caret line="127" column="10" lean-forward="true" selection-start-line="127" selection-start-column="10" selection-end-line="157" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyUnitPosts.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4346">
+              <caret line="1036" column="177" selection-start-line="1036" selection-start-column="177" selection-end-line="1036" selection-end-column="177" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="postsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="134" selection-start-line="134" selection-end-line="134" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-629">
+              <caret line="133" column="56" lean-forward="true" selection-start-line="133" selection-start-column="56" selection-end-line="133" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notification.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Notification/notification.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-425">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notification_content.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Notification/notification_content.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-867" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="404" column="53" selection-start-line="404" selection-start-column="53" selection-end-line="404" selection-end-column="53" />
               <folding>
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#sweet-modal#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#sweet-modal#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#router-link#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,36 +898,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>presence</find>
-      <find>النشاط</find>
-      <find>س</find>
-      <find>split</find>
-      <find>getEvent</find>
-      <find>open</find>
-      <find>event_image</find>
-      <find>im</find>
-      <find>Edit</find>
-      <find>post_date</find>
-      <find>post_type</find>
-      <find>valide</find>
-      <find>unit_for_gov</find>
+      <find>changemail</find>
+      <find>changeemail</find>
+      <find>ChangeUserEmail</find>
+      <find>adds</find>
+      <find>myprofile</find>
+      <find>UpdateMyInfo</find>
+      <find>getimage</find>
+      <find>getMyImage</find>
+      <find>captins</find>
+      <find>getMyScout</find>
+      <find>ScoutController</find>
+      <find>ExportScoutList</find>
+      <find>hasro</find>
+      <find>cap</find>
+      <find>unit_fullname</find>
+      <find>replace</find>
+      <find>updata</find>
+      <find>EditScoutInfo</find>
       <find>current</find>
-      <find>unit_for_med</find>
-      <find>Cubs</find>
-      <find>z-index</find>
-      <find>max-height</find>
-      <find>Posts</find>
-      <find>الاشبال</find>
-      <find>ApprovePosts</find>
-      <find>/posts/cub/posts</find>
-      <find>/posts/cub/post&quot;</find>
-      <find>delete_post</find>
-      <find>File</find>
-      <find>File::del</find>
-      <find>confirmation</find>
-      <find>flip</find>
-      <find>delete</find>
-      <find>deleteEve</find>
+      <find>getcurrentuser</find>
+      <find>getScout</find>
+      <find>Update</find>
+      <find>getMyUnitEvents</find>
+      <find>getMyUnitPosts</find>
+      <find>getMyU</find>
+      <find>Edit</find>
+      <find>myprofi</find>
+      <find>wb-file</find>
+      <find>bill</find>
+      <find>/dashboard/posts/myunitposts</find>
     </findStrings>
     <replaceStrings>
       <replace>class=&quot;column6&quot;</replace>
@@ -138,6 +949,8 @@
       <replace>height</replace>
       <replace>الخبر</replace>
       <replace>الحدث</replace>
+      <replace />
+      <replace>scout</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -154,57 +967,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/pages/units/advanced_scout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/units/cubs.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/units/scout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/news.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/owl.theme.default.css" />
-        <option value="$PROJECT_DIR$/public/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/Layouts/web_template.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/filter-gallery.js" />
-        <option value="$PROJECT_DIR$/resources/views/pages/news.blade.php" />
-        <option value="$PROJECT_DIR$/app/PostImage.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/card_style.scss" />
-        <option value="$PROJECT_DIR$/app/Post.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/navbar.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/css/gallery.css" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/postPage.blade.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" />
+        <option value="$PROJECT_DIR$/resources/views/FormsTemplate/Captain_List.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/NewRapport.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/Reports/Reports_Received.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/Reports/NewRapport.vue" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_09_25_113200_create_units_reports_table.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Reports_received.vue" />
+        <option value="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FormsController.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Notification/notification_content.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Home/Hub.vue" />
+        <option value="$PROJECT_DIR$/node_modules/sweet-modal-vue/conf/webpack.js" />
         <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/AdvancedScout_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Concerned_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Traveler_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/SURV_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Media_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Fin_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/CSD_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Cubs_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Scout_Events.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/ApproveEvents.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Events_Presence.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Events_absence.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents_Approved.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/EditPost.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditAccountInfo.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditProfileForm.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/Settings.vue" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UpdateCurriculumvitae.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/SocialMedia.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserCard.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AccountsController.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserProfile.vue" />
         <option value="$PROJECT_DIR$/resources/lang/ar/app.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/MyScout.vue" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Scout.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ScoutsSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/CaptainSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/UserSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_09_26_155411_create_visitors_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/RolesSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_07_20_102253_create_captains_table.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/EditScoutInfo.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ScoutController.php" />
+        <option value="$PROJECT_DIR$/app/Event.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue" />
+        <option value="$PROJECT_DIR$/app/Post.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/postsController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
+        <option value="$PROJECT_DIR$/resources/assets/vue/components/Notification/notification.vue" />
         <option value="$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/vue/app.js" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/postsController.php" />
-        <option value="$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
       </list>
     </option>
   </component>
@@ -329,11 +1142,15 @@
       <path value="$PROJECT_DIR$/vendor/mariuzzo/laravel-js-localization" />
       <path value="$PROJECT_DIR$/vendor/tedivm/jshrink" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/vendor/niklasravnsborg/laravel-pdf" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-3" />
-    <option name="width" value="1379" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1378" />
     <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -373,6 +1190,11 @@
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -384,13 +1206,8 @@
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -417,6 +1234,15 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Notification" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -467,7 +1293,76 @@
               <item name="vue" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Scout" type="462c0819:PsiDirectoryNode" />
-              <item name="Post" type="462c0819:PsiDirectoryNode" />
+              <item name="Scouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="UserProfile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="ar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="FormsTemplate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+              <item name="dashbars" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scout-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scout-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -476,30 +1371,30 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="font&#9;FILE&#9;file://C:/xampp/htdocs/AlFalah/public/global/fonts/font-awesome/font-awesome.css&#10;ladda.css&#9;FILE&#9;file://C:/xampp/htdocs/AlFalah/public/global/vendor/ladda-bootstrap/ladda.css&#10;Authoriza&#9;null&#9;null&#10;Entrust&#9;FILE&#9;file://C:/xampp/htdocs/AlFalah/vendor/zizaco/entrust/src/Entrust/Traits/EntrustUserTrait.php&#10;EntrustUser&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="process.env.NODE_ENV&#9;null&#9;null&#10;ProviderRe&#9;FILE&#9;file://D:/Website/dash2/Scout-Project/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php&#10;font&#9;FILE&#9;file://C:/xampp/htdocs/AlFalah/public/global/fonts/font-awesome/font-awesome.css&#10;ladda.css&#9;FILE&#9;file://C:/xampp/htdocs/AlFalah/public/global/vendor/ladda-bootstrap/ladda.css&#10;Authoriza&#9;null&#9;null&#10;Entrust&#9;FILE&#9;file://C:/xampp/htdocs/AlFalah/vendor/zizaco/entrust/src/Entrust/Traits/EntrustUserTrait.php&#10;EntrustUser&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dash/Scout-Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Website\dash2\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous\Post" />
-      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous\Event\Units_Events" />
-      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous\Event" />
-      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous" />
-      <recent name="D:\Website\dash\Scout-Project\public\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Add File\Reports" />
       <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous\Event" />
       <recent name="D:\Website\dash\Scout-Project\public\images\Cubs" />
       <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Scouts" />
       <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Chat" />
-      <recent name="F:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Website\dash\Scout-Project\public\images" />
+      <recent name="D:\Website\dash\Scout-Project\resources\views\FormsTemplate" />
+      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Add File" />
+      <recent name="D:\Website\dash2\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous\Post" />
+      <recent name="D:\Website\dash\Scout-Project\resources\assets\vue\components\Scout\Miscellaneous\Event\Units_Events" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -638,6 +1533,23 @@
       <workItem from="1536421786130" duration="18281000" />
       <workItem from="1536485289162" duration="29313000" />
       <workItem from="1536571527898" duration="10612000" />
+      <workItem from="1537283324008" duration="12707000" />
+      <workItem from="1537314748697" duration="178000" />
+      <workItem from="1537383648289" duration="18236000" />
+      <workItem from="1537440889375" duration="23943000" />
+      <workItem from="1537468848362" duration="3619000" />
+      <workItem from="1537473665762" duration="18813000" />
+      <workItem from="1537495019564" duration="369000" />
+      <workItem from="1537537668701" duration="14865000" />
+      <workItem from="1537553869754" duration="6793000" />
+      <workItem from="1537566093451" duration="6124000" />
+      <workItem from="1537616394964" duration="10302000" />
+      <workItem from="1537726464169" duration="90570000" />
+      <workItem from="1537962738759" duration="9903000" />
+      <workItem from="1538050203897" duration="7493000" />
+      <workItem from="1538141600854" duration="38982000" />
+      <workItem from="1538230260181" duration="2018000" />
+      <workItem from="1538237812313" duration="5916000" />
     </task>
     <task id="LOCAL-00001" summary="add rapport space ,Events Space and do some modification to the top navbar">
       <created>1531761718618</created>
@@ -706,7 +1618,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1040716000" />
+    <option name="totallyTimeSpent" value="1311604000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -718,7 +1630,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1378" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
@@ -727,9 +1639,9 @@
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.31188118" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35854766" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37556905" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" side_tool="true" weight="0.22087745" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -748,29 +1660,29 @@
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.32673267" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35930407" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36384267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4969743" weight="0.32673267" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
-      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
       <window_info anchor="right" id="Database" order="4" sideWeight="0.4987715" side_tool="true" weight="0.22087745" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.32838285" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5030257" side_tool="true" weight="0.32673267" />
+      <window_info anchor="right" x="0" y="0" width="295" height="544" id="Documentation" order="0" sideWeight="0.5012285" side_tool="true" weight="0.22087745" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4977307" weight="0.31188118" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5030257" side_tool="true" visible="true" weight="0.32673267" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49621785" weight="0.32838285" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="13" sideWeight="0.49926794" weight="0.3290938" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="8" />
       <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
@@ -804,479 +1716,372 @@
           <url>file://$PROJECT_DIR$/vendor/zizaco/entrust/src/Entrust/Traits/EntrustUserTrait.php</url>
           <line>10</line>
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/ScoutController.php</url>
-          <line>390</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="30" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/sweet-modal-vue/src/components/SweetModal.vue">
+    <entry file="file://$PROJECT_DIR$/node_modules/vue-multi-select/build/dev-server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="710" column="29" selection-start-line="710" selection-start-column="29" selection-end-line="710" selection-end-column="29" />
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/sweet-modal-vue/docs/components/Button.vue">
+    <entry file="file://$PROJECT_DIR$/node_modules/sweet-modal-vue/conf/webpack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="1445">
+          <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Home/Hub.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="212" column="10" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
+        <state relative-caret-position="-16025">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/navbar.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/NewUser.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditAccountInfo.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="120" column="45" selection-start-line="120" selection-start-column="45" selection-end-line="120" selection-end-column="45" />
+        <state relative-caret-position="194">
+          <caret line="148" column="47" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/PostImage.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/EditProfileForm.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="218">
+          <caret line="138" column="3" selection-start-line="138" selection-start-column="3" selection-end-line="144" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/news.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserCard.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="99" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/gallery.css" />
-    <entry file="file://$PROJECT_DIR$/resources/views/Layouts/web_template.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="49" column="64" lean-forward="true" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/postPage.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="37" column="91" selection-start-line="37" selection-start-column="91" selection-end-line="37" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207">
-          <caret line="24" column="97" selection-start-line="24" selection-start-column="97" selection-end-line="24" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="172" selection-start-line="172" selection-end-line="172" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="177" column="26" selection-start-line="177" selection-start-column="26" selection-end-line="177" selection-end-column="26" />
+        <state relative-caret-position="221">
+          <caret line="35" column="163" lean-forward="true" selection-start-line="35" selection-start-column="95" selection-end-line="35" selection-end-column="163" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/users_accounts.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2720">
-          <caret line="197" column="5" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="5" />
+        <state relative-caret-position="17">
+          <caret line="156" column="18" lean-forward="true" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/SocialMedia.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="71" column="7" lean-forward="true" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UpdateCurriculumvitae.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="82" column="24" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/Settings.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="40" column="27" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/UserProfile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/ar/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="273" column="10" selection-start-line="273" selection-start-column="1" selection-end-line="273" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Add File/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="113" column="43" lean-forward="true" selection-start-line="113" selection-start-column="43" selection-end-line="113" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FormsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="224" column="17" selection-start-line="224" selection-start-column="8" selection-end-line="224" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Cub.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="56" column="119" selection-start-line="56" selection-start-column="119" selection-end-line="56" selection-end-column="119" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Scout.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="162" column="3" selection-start-line="162" selection-start-column="3" selection-end-line="166" selection-end-column="5" />
+          <caret line="113" column="33" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/NewUser.vue">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Traveler.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/UserProfile/Settings.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="76" column="96" lean-forward="true" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="96" />
+        <state relative-caret-position="153">
+          <caret line="120" column="33" selection-start-line="120" selection-start-column="33" selection-end-line="120" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/AdvancedScout_Events.vue">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Advanced_Scout.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="43" column="60" lean-forward="true" selection-start-line="43" selection-start-column="60" selection-end-line="43" selection-end-column="60" />
+        <state relative-caret-position="1037">
+          <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Unit.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_06_20_101724_create_scouts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Scout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="95" selection-start-line="17" selection-start-column="95" selection-end-line="17" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ScoutsSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/MyScout.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="133" selection-start-line="133" selection-end-line="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/FormsTemplate/Scout_List.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/CaptainSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UserSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_09_26_155411_create_visitors_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_07_20_102253_create_captains_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1547">
+          <caret line="92" column="27" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="44" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#39#55#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/CSD_Events.vue">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/Captain.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="137" column="12" selection-start-line="137" selection-start-column="12" selection-end-line="137" selection-end-column="12" />
+        <state relative-caret-position="2601">
+          <caret line="153" column="68" selection-start-line="153" selection-start-column="68" selection-end-line="153" selection-end-column="68" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Cubs_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="38" column="95" selection-start-line="38" selection-start-column="95" selection-end-line="38" selection-end-column="95" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Fin_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="262" column="5" selection-start-line="262" selection-start-column="5" selection-end-line="262" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Media_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="252" column="16" selection-start-line="252" selection-start-column="12" selection-end-line="252" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Scout_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="38" column="82" selection-start-line="38" selection-start-column="82" selection-end-line="38" selection-end-column="82" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/SURV_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="32" column="51" lean-forward="true" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Units_Events/Traveler_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="138" column="12" selection-start-line="138" selection-start-column="8" selection-end-line="138" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Concerned_Events.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Events_absence.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/Events_Presence.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/UnitsSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Role.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/EditEvent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="335" column="40" lean-forward="true" selection-start-line="335" selection-start-column="40" selection-end-line="335" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/Event.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="493" column="50" selection-start-line="493" selection-start-column="50" selection-end-line="493" selection-end-column="50" />
-          <folding>
+            <element signature="n#style#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#multiselect#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#13583#13625#0" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents_Approved.vue">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Scouts/EditScoutInfo.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="33" column="105" selection-start-line="33" selection-start-column="105" selection-end-line="33" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/EditPost.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="140" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/ApprovePosts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4845">
-          <caret line="285" column="17" selection-start-line="285" selection-start-column="10" selection-end-line="285" selection-end-column="17" />
+        <state relative-caret-position="5695">
+          <caret line="335" selection-start-line="335" selection-end-line="337" selection-end-column="3" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/RolesSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="78" column="26" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/ar/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4743">
-          <caret line="279" column="19" selection-start-line="279" selection-start-column="19" selection-end-line="279" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="232" column="87" selection-start-line="232" selection-start-column="87" selection-end-line="232" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#250#272#0" expanded="true" />
-            <element signature="e#696#732#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Post/post.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6087">
-          <caret line="207" column="96" selection-start-line="207" selection-start-column="96" selection-end-line="207" selection-end-column="96" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#5;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h5#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="123" column="44" selection-start-line="123" selection-start-column="44" selection-end-line="123" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#sweet-modal#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#sweet-modal#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/ApproveEvents.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="151" column="11" lean-forward="true" selection-start-line="151" selection-start-column="11" selection-end-line="151" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#router-link#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h6#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_10_202550_create_events_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="37" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_10_171049_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyPosts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="150" selection-start-line="9" selection-start-column="150" selection-end-line="9" selection-end-column="150" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#router-link#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#sweet-modal#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#sweet-modal#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="221" column="78" selection-start-line="221" selection-start-column="78" selection-end-line="221" selection-end-column="78" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="1564">
+          <caret line="94" column="46" selection-start-line="94" selection-start-column="46" selection-end-line="94" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ScoutController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="222" column="35" lean-forward="true" selection-start-line="222" selection-start-column="35" selection-end-line="222" selection-end-column="50" />
-          <folding>
-            <element signature="e#40#77#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="156" column="76" selection-start-line="156" selection-start-column="76" selection-end-line="156" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Captain.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyUnitEvents.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="127" column="10" lean-forward="true" selection-start-line="127" selection-start-column="10" selection-end-line="157" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Post/MyUnitPosts.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/postsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="1736" column="22" selection-start-line="1736" selection-start-column="22" selection-end-line="1736" selection-end-column="36" />
+        <state relative-caret-position="-629">
+          <caret line="133" column="56" lean-forward="true" selection-start-line="133" selection-start-column="56" selection-end-line="133" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Notification/notification.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Notification/notification_content.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-867" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/dashbars/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="404" column="53" selection-start-line="404" selection-start-column="53" selection-end-line="404" selection-end-column="53" />
           <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#router-link#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/vue/components/Scout/Miscellaneous/Event/MyEvents.vue">
+    <entry file="file://$PROJECT_DIR$/resources/assets/vue/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#a#0;n#div#1;n#div#4;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#sweet-modal#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#sweet-modal#0;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-4346">
+          <caret line="1036" column="177" selection-start-line="1036" selection-start-column="177" selection-end-line="1036" selection-end-column="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
         </state>
       </provider>
     </entry>

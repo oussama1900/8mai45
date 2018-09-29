@@ -14,4 +14,9 @@ class Post extends Model
              return $this->belongsTo('App\Scout','posted_by','scout_id');
 
      }
+    public function is_captain(){
+
+        return $this->belongsTo('App\Captain','posted_by','scout_id');
+
+    }
 }

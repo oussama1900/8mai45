@@ -114,11 +114,11 @@
 
 
                 <div class=" row control-sidebar-tabs"  >
-                    <div id="chat" class="col-sm-6 center chat-element" onclick="OpenChatRoom()"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-comments"></i> </a>
+                    <div id="chat" class="col-sm-6 col-xs-6 center chat-element" onclick="OpenChatRoom()"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-comments"></i> </a>
 
-                        <span class="badge" style="color:white !important;margin-top: 20px;background-color: #62a8ea">@{{messages.length}}</span>
+
                     </div>
-                    <div id="friend" class="col-sm-6 center friend-element" onclick="OpenFriendList()"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-user"></i>
+                    <div id="friend" class="col-sm-6 col-xs-6 center friend-element" onclick="OpenFriendList()"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-user"></i>
                             <span class="badge" style="color: white !important;margin-top: 20px;background-color: #62a8ea">@{{usersinroom.length-1}}</span>
                         </a></div>
 
@@ -129,7 +129,7 @@
                 <div class="sidebar-body">
                     <div id="chat-room" class="chat-room" style="height: 100%">
 
-                            <div class="card  card-default" style="background-color:#222d32 ;margin-bottom: 0;margin-top: 0;height:80%" >
+                            <div class="card  card-default" style="background-color:#222d32 ;margin-bottom: 0;margin-top: 0;height:100%" >
 
                                 <div  class="card-body" style="padding: 0px;height:100%">
                                     <div id="chatbody" style="overflow-y:auto;overflow-x:hidden;height:100%">
@@ -144,7 +144,7 @@
 
                             </div>
 
-                        <chat-composer  v-on:messagesent="addMessage" style="height: 10%"></chat-composer>
+                        <chat-composer  v-on:messagesent="addMessage" style="position:absolute;bottom:0px"></chat-composer>
 
                         </div>
                     <div id="friend-list" class="friend-list">

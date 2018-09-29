@@ -21,7 +21,7 @@
              <div class="trigger" @click="delete_post(post)">
                 <i class="glyphicon glyphicon-remove" ></i>
             </div>
-             <router-link class="trigger" style="float: right; right: 0px;cursor: pointer" :to="'/post/EditPost/'+post.post_id" >
+             <router-link class="trigger" style="float: right; right: 0px;cursor: pointer" :to="'/dashboard/post/EditPost/'+post.post_id" >
                 <i class="glyphicon glyphicon-edit" ></i>
             </router-link>
              <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
@@ -55,6 +55,7 @@
         <div v-if="MyPosts.length===0">
             <h4 style="text-align: center">ليس لديك اي منشورات </h4>
         </div>
+
     </div>
 </template>
 

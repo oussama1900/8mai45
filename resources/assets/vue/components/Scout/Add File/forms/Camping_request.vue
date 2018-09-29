@@ -3,7 +3,7 @@
         <div class="form-group" style="margin-top: 10px">
 
            <label style="font-size: medium;float:right">طلب التخييم بولاية </label>
-            <Algerian-States></Algerian-States>
+            <Algerian-States ></Algerian-States>
 
 
         </div>

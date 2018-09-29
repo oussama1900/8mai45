@@ -11,9 +11,10 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Auth;
 use File;
 use Carbon\Carbon;
- use Illuminate\Support\Facades\Auth;
+
 
 class EventController extends Controller
 {
@@ -162,11 +163,11 @@ class EventController extends Controller
                 }else{
 
                      if(Auth::user()->captain->role!='gov'){
-                          $message_forgov="لقد قام".$current_user_fullname.'بوضع منشور جديد ';
+                          $message_forgov=" قام القائد ".$current_user_fullname.'بوضع حدث جديد ';
                          if($gov_user!=null)
                             $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                             if(Auth::user()->captain->role !='med'){
-                              $message_forgov="لقد قام".$current_user_fullname.'بوضع منشور جديد ';
+                              $message_forgov=" قام القائد".$current_user_fullname.'بوضع حدث جديد ';
                                 if($med_user!=null)
                                 $med_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                                 if(Auth::user()->captain->role !='vmed'){
@@ -1995,7 +1996,7 @@ $concerned_cap->notify(new notifyCaptain($notification_message,$notification_typ
 }
     public function getMyUnitEvents(){
 
-    $all_events = Event::with('creator')->where('approved',true)->get();
+    $all_events = Event::with(['creator','is_captain'])->where('approved',true)->get();
     $MyUnitEvents = [];
     $user_cap =Auth::user()->captain;
     foreach ($all_events as $event){
@@ -2016,10 +2017,10 @@ $concerned_cap->notify(new notifyCaptain($notification_message,$notification_typ
     }else{
         if($user->role =='ucap' | $user->role =='vucap' | $user->role =='capa'){
             foreach($notApproved as $sameunit){
-                $creator = $notApproved->created_by;
+                $creator = $sameunit->created_by;
                 $captain = Captain::where('scout_id',$creator)->get();
 
-                $captain_unit = $captain->unit;
+                $captain_unit = $captain[0]->unit;
                 if($user->unit==$captain_unit){
                     array_push($notApprovedSameunit,$sameunit);
 
@@ -2238,4 +2239,5 @@ public function serach($con,$allevents){
   }
 
 }
+
 }

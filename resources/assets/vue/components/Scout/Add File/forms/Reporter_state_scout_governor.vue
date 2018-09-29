@@ -47,7 +47,7 @@
                 value:"UTC+2",
                 date:'',
                 subject:'',
-                content:"<h3 style='text-align:right' dir='rtl'>  تحية كشفية و بعد  : </h3>",
+                content:"<p dir=\"RTL\" style=\"text-align:right\">تحية كشفية وبعد:</p><p dir=\"RTL\" style=\"text-align:justify\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; يسرني قائدي الكريم أن ارفع إلى سمو مقامكم كتابي هذا المتمثل في تقرير أدبي للثلاثي الأول لما يقوم به الفوج من أنشطة نوعية وتربوية هادفة قصد تقيمكم لنا بعد اعلانكم عن انطلاق مسابقة أحسن فوج على المستوى الولائي، كما أدعوكم قائدي الكريم على لعمل زيارة ميدانية لفوجنا قصد الوقوف على حالته وكذا اطلاعكم على بعض الصعوبات التي تواجه قادة الفوج وتشجيعهم على المضي قدما في سبيل العمل الكشفي.</p><p dir=\"RTL\" style=\"text-align:justify\">&nbsp;</p><p dir=\"RTL\" style=\"text-align:center\">&nbsp;وفي انتظار ردكم الإيجابي تقبلوا مني قائدي أسمى عبارات الاحترام والتقدير  </p>",
                 governor :'',
                 outing_mail:'',
                 state_scout_gov:'',
@@ -88,7 +88,10 @@
 
             },
             preview(){
-
+                if(this.outing_mail<10){
+                    if(!this.outing_mail.includes('0'))
+                    this.outing_mail = "0"+this.outing_mail;
+                }
                 var temp_date = this.date.slice(0,10),
                     cut_date = temp_date.split("-"),
                     full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
@@ -120,7 +123,10 @@
 
             },
             download(){
-
+                if(this.outing_mail<10){
+                    if(!this.outing_mail.includes('0'))
+                    this.outing_mail = "0"+this.outing_mail;
+                }
                 var temp_date = this.date.slice(0,10),
                     cut_date = temp_date.split("-"),
                     full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];

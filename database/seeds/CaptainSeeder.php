@@ -15,7 +15,7 @@ class CaptainSeeder extends Seeder
     Captain::create([
         'scout_id'   => '1',
         'role' => 'gov',
-        'unit' => 'cubs',
+        'unit' => '',
     ]);
   }
 }

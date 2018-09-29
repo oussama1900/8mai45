@@ -18,24 +18,24 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth.basic');
 Route::get('/getCalenderEvents',[  'uses' =>'EventController@getCalenderEvents']);
-Route::get('/scouts/cubs',[
+Route::get('/dashboard/scouts/cubs',[
 
     'uses' =>'ScoutController@getScouts'
 ])->name('cubs');
-Route::get('/scouts/scout',[
+Route::get('/dashboard/scouts/scout',[
 
     'uses' =>'ScoutController@getScouts'
 ])->name('scout');
-Route::get('/scouts/advanced_scout',[
+Route::get('/dashboard/scouts/advanced_scout',[
 
     'uses' =>'ScoutController@getScouts'
 ])->name('advanced_scouts');
-Route::get('/scouts/traveler',[
+Route::get('/dashboard/scouts/traveler',[
 
     'uses' =>'ScoutController@getScouts'
 ])->name('traveler');
 
-Route::get('/scouts/captain',[
+Route::get('/dashboard/scouts/captain',[
 
     'uses' =>'ScoutController@getScouts'
 ])->name('captain');
@@ -89,10 +89,27 @@ Route::post('/addnewaccount',[
 Route::get('/getUser',[
     'uses' =>'AccountsController@getUser'
 ]);
+
+Route::get('/getcurrentuser',[
+    'uses' =>'AccountsController@getcurrentuser'
+]);
 Route::post('/UpdateMyInfo',[
     'uses' =>'AccountsController@UpdateMyInfo'
 
-]);Route::put('/newpassword',[
+]);
+Route::post('/UpdateCurriculumVitae','ScoutController@UpdateCurriculumVitae'
+
+);
+Route::get('/getCurriculumVitae','ScoutController@getCurriculumVitae'
+
+);
+Route::post('/social_media_accounts','ScoutController@social_media_accounts'
+
+);
+Route::get('/getsocial_media_accounts','ScoutController@getsocial_media_accounts'
+
+);
+Route::put('/newpassword',[
     'uses' =>'AccountsController@ChangePassword'
 ]);
 Route::delete('/deleteaccount/{scout_id}',[
@@ -217,9 +234,7 @@ Route::get('/getPost/{post_id}',[
 Route::post('/EditPost/{post_id}',[
     'uses' =>'postsController@EditPost'
 ]);
-Route::get('/current_user',function (){
-    return response()->json(["current_user"=>Auth::user()->captain->role]);
-});
+Route::get('/current_user','AccountsController@current_user');
 Route::get('/getUnitPosts/{unit_id}',[
     'uses' =>'postsController@getUnitPosts'
 ]);
@@ -247,10 +262,68 @@ Route::post('/previewReporte_Scout_state_gov', 'FormsController@previewReporte_S
 );
 Route::post('/downloadReporte_Scout_state_gov', 'FormsController@downloadReporte_Scout_state_gov'
 );
+Route::post('/PreviewSecurity_ReporterPDF', 'FormsController@PreviewSecurity_ReporterPDF'
+);
+Route::post('/downloadSecurity_ReporterPDF', 'FormsController@downloadSecurity_ReporterPDF'
+);
+Route::post('/previewEducational_Institutions', 'FormsController@previewEducational_Institutions'
+);
+Route::post('/downloadEducational_Institutions', 'FormsController@downloadEducational_Institutions'
+);
+
+Route::post('/previewOuting_mailPDF', 'FormsController@previewOuting_mailPDF'
+);
+
+Route::post('/downloadOuting_mailPDF', 'FormsController@downloadOuting_mailPDF'
+);
+Route::post('/downloadInaugurationPDF', 'FormsController@downloadInaugurationPDF'
+);
+Route::post('/downloadAssigning_missionPDF', 'FormsController@downloadAssigning_missionPDF'
+);
+Route::get('/getMyScout', 'FormsController@getMyScout'
+);
+Route::post('/downloadActivityPaperPDF', 'FormsController@downloadActivityPaperPDF'
+);
+Route::put('/manageMonthlyRapportPDF', 'FormsController@manageMonthlyRapportPDF'
+);
+Route::get('/getNbr_of_Events', 'DashboardController@getNbr_of_Events'
+);
+Route::get('/getNbr_of_Posts', 'DashboardController@getNbr_of_Posts'
+);
+
+Route::get('/getAccount_Nbr', 'DashboardController@getAccount_Nbr'
+);
 
 
+Route::get('/getMyTeam', 'DashboardController@getMyTeam'
+);
+Route::get('/ExportUsersList', 'AccountsController@ExportUsersList'
+);
+Route::put('/ExportScoutList', 'ScoutController@ExportScoutList'
+);
+Route::get('/getHubInfo_forGOv', 'DashboardController@getHubInfo_forGOv'
+);
+Route::get('/getHubInfo_forFin', 'DashboardController@getHubInfo_forFin'
+);
+Route::get('/getHubInfo_forVgov', 'DashboardController@getHubInfo_forVgov'
+);
+Route::get('/getHubInfo_forMed', 'DashboardController@getHubInfo_forMed'
+);
+Route::get('/GetMonthlyReport', 'FormsController@GetMonthlyReport'
+);
+Route::get('/getHubInfo_forUnit', 'DashboardController@getHubInfo_forUnit'
+);
+Route::get('/getHubInfo_forSurv', 'DashboardController@getHubInfo_forSurv'
+);
+Route::get('/getHubInfo_forCsd', 'DashboardController@getHubInfo_forCsd'
+);
 
-
+Route::get('/this_month_money_report', 'FinanceController@this_month_money_report'
+);
+Route::get('/DownloadFinanceReport', 'FinanceController@DownloadFinanceReport'
+);
+Route::get('/SendFinanceReport', 'FinanceController@SendFinanceReport'
+);
 
 Route::post('/marsNotificationAsRead',function(){
   $user = Auth::user();

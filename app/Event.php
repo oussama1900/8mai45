@@ -17,6 +17,9 @@ class Event extends Model
     public function creator(){
         return $this->belongsTo('App\Scout','created_by','scout_id');
     }
+    public function is_captain(){
+        return $this->belongsTo('App\Captain','created_by','scout_id');
+    }
     public function is_concerned(){
         return $this->hasMany('App\Concerned','event_id','event_id');
     }

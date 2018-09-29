@@ -113,6 +113,10 @@ class postsController extends Controller
         }
 
 
+        if(Auth::user()->captain->role=="trne")
+            $approved=false;
+        else
+            $approved=true;
         $post_id = DB::table('posts')->insertGetId(
 
 
@@ -125,6 +129,7 @@ class postsController extends Controller
                  'description'=>$description,
                  'post_summary'=>$post_summary,
                  'post_type'=>$post_type,
+                 'approved'=>$approved,
                  'cover_image'=>$cover_image,
                  'created_at'=>Carbon::now(),
 
@@ -280,7 +285,20 @@ class postsController extends Controller
 
             }
 
+        if($user->captain->role=="vgov"){
+            $gov = User::find(Captain::where('role','gov')->value('scout_id'));
+            $med = User::find(Captain::where('role','med')->value('scout_id'));
+            $vmed = User::find(Captain::where('role','vmed')->value('scout_id'));
+            $notification_message ="قام نائب المحافظ  بنشر خبر جديد ";
+            $notification_type = $post_type;
+            if($gov!=null)
+                $gov->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            if($med!=null)
+                $med->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
+            if($vmed!=null)
+                $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
 
+        }
 
         return response()->json(["message"=>"created Successfully"]);
     }
@@ -325,8 +343,9 @@ class postsController extends Controller
         $user = Auth::user();
         $user_unit = $user->captain->unit;
 
-        $unitposts = Post::with('post_creator')->where('linked_unit',$user_unit)->get();
-        return response()->json(["myunitPosts"=>$unitposts]);
+        $unitposts = Post::with(['post_creator','is_captain'])->where('linked_unit',$user_unit)->where('approved',true)->get();
+         $user_role = Auth::user()->captain->role;
+        return response()->json(["myunitPosts"=>$unitposts,"user"=>$user_role]);
 
     }
 

@@ -29,9 +29,7 @@
                    <div style="margin :20px">
                     <select id="forms" class="form-control" dir="rtl" >
                         <option>	الاجتماع الشرفي</option>
-                        <option>	التخييم</option>
-                        <option>	التكليف بمهمة</option>
-                        <option>	التكليف بمهمة(رحلة)</option>
+                        <option>	تكليف بمهمة</option>
                         <option>	 محضر تنصيب </option>
                         <option>	مراسلة الامن</option>
                         <option>	مراسلة المؤسسات التربوية</option>
@@ -53,31 +51,27 @@
             </div>
             <div  class="panel-body">
 
-                <div id="Reporter-state-scout">
-                    <reporter-state-scout></reporter-state-scout>
+                <div id="Reporter-state-scout" v-if="Reporter_state_scout">
+                    <reporter-state-scout ></reporter-state-scout>
                 </div>
-                <div id="Honorary-meeting">
+                <div id="Honorary-meeting" v-if="Honorary_meeting">
                     <Honorary-meeting></Honorary-meeting>
                 </div>
-                <div id="Camping_request">
-                    <Camping-request></Camping-request>
-                </div>
-                <div id="Assigning_mission">
+
+                <div id="Assigning_mission" v-model="Assigning_mission">
                     <Assigning-mission></Assigning-mission>
                 </div>
-                <div id="Assigning_mission_travel">
-                    <Assigning-mission-travel></Assigning-mission-travel>
-                </div>
-                <div id="Security_reporter">
+
+                <div id="Security_reporter" v-if="Security_reporter">
                     <Security-reporter></Security-reporter>
                 </div>
-                <div id="Inauguration">
+                <div id="Inauguration" v-if="Inauguration">
                     <Inauguration></Inauguration>
                 </div>
-                <div id="Educational_Institutions">
+                <div id="Educational_Institutions" v-if="Educational_Institutions">
                     <Educational-Institutions></Educational-Institutions>
                 </div>
-                <div id="Outgoing_mail">
+                <div id="Outgoing_mail" v-if="Outgoing_mail">
                     <Outgoing-mail></Outgoing-mail>
                 </div>
 
@@ -98,139 +92,24 @@
 
 
 
-function showforms(form){
-    switch (form){
-        case 'مراسلة المحافظ الولائي':{
-            $('#Reporter-state-scout').show();
-            $('#Honorary-meeting').hide();
-            $('#Camping_request').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-            break;
-        }
 
-
-        case 'الاجتماع الشرفي':{
-            $('#Honorary-meeting').show();
-            $('#Reporter-state-scout').hide();
-            $('#Camping_request').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-
-            break;
-        }
-        case 'التخييم':{
-            $('#Camping_request').show();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-
-            break;
-        }
-        case 'التكليف بمهمة':{
-            $('#Camping_request').hide();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').show();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-
-            break;
-        }
-        case 'التكليف بمهمة(رحلة)':{
-            $('#Camping_request').hide();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').show();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-
-            break;
-        }
-        case 'مراسلة الامن':{
-            $('#Camping_request').hide();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').show();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-
-            break;
-        }
-        case 'محضر تنصيب':{
-            $('#Camping_request').hide();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').show();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').hide();
-
-
-        break;
-    }
-        case 'مراسلة المؤسسات التربوية':{
-            $('#Camping_request').hide();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').show();
-            $('#Outgoing_mail').hide();
-
-
-
-            break;
-        }
-        case 'مراسلة البريد الصادر':{
-            $('#Camping_request').hide();
-            $('#Reporter-state-scout').hide();
-            $('#Honorary-meeting').hide();
-            $('#Assigning_mission').hide();
-            $('#Assigning_mission_travel').hide();
-            $('#Security_reporter').hide();
-            $('#Inauguration').hide();
-            $('#Educational_Institutions').hide();
-            $('#Outgoing_mail').show();
-
-
-
-
-            break;
-        }
-
-    }
-}
 
     export default {
         components: {Camping_request},
+        data(){
+          return{
+              Reporter_state_scout:false,
+              Honorary_meeting:false,
+              Assigning_mission:false,
+              Security_reporter:false,
+              Inauguration:false,
+              Educational_Institutions:false,
+              Outgoing_mail:false,
+
+          }
+        },
         created:function(){
+            var vm = this;
             var forms;
             $(document).ready(function () {
 
@@ -262,7 +141,7 @@ function showforms(form){
                         curInputs = curStep.find("input[type='text'],input[type='url']"),
                         isValid = true;
                       if(curStepBtn.localeCompare('step-1')===0){
-                          showforms(forms)
+                          vm.showforms(forms)
                       }
 
 
@@ -273,7 +152,98 @@ function showforms(form){
             });
         },
         methods:{
+            showforms(form){
+        switch (form){
+            case 'مراسلة المحافظ الولائي':{
+                this.Reporter_state_scout=true;
+                this.Honorary_meeting=false;
+                this.Assigning_mission=false;
+                this.Security_reporter=false;
+                this.Inauguration=false;
+                this.Educational_Institutions=false;
+                this.Outgoing_mail=false;
+                break;
+            }
 
+
+            case 'الاجتماع الشرفي':{
+                this.Reporter_state_scout=false;
+                this.Honorary_meeting=true;
+                this.Assigning_mission=false;
+                this.Security_reporter=false;
+                this.Inauguration=false;
+                this.Educational_Institutions=false;
+                this.Outgoing_mail=false;
+
+                break;
+            }
+
+            case 'التكليف بمهمة':{
+                this.Reporter_state_scout=false;
+                this.Honorary_meeting=false;
+                this.Assigning_mission=true;
+                this.Security_reporter=false;
+                this.Inauguration=false;
+                this.Educational_Institutions=false;
+                this.Outgoing_mail=false;
+
+
+                break;
+            }
+
+            case 'مراسلة الامن':{
+                this.Reporter_state_scout=false;
+                this.Honorary_meeting=false;
+                this.Assigning_mission=false;
+                this.Security_reporter=true;
+                this.Inauguration=false;
+                this.Educational_Institutions=false;
+                this.Outgoing_mail=false;
+
+                break;
+            }
+            case 'محضر تنصيب':{
+                this.Reporter_state_scout=true;
+                this.Honorary_meeting=false;
+                this.Assigning_mission=false;
+                this.Security_reporter=false;
+                this.Inauguration=false;
+                this.Educational_Institutions=false;
+                this.Outgoing_mail=false;
+
+
+                break;
+            }
+            case 'مراسلة المؤسسات التربوية':{
+                this.Reporter_state_scout=false;
+                this.Honorary_meeting=false;
+                this.Assigning_mission=false;
+                this.Security_reporter=false;
+                this.Inauguration=false;
+                this.Educational_Institutions=true;
+                this.Outgoing_mail=false;
+
+
+
+                break;
+            }
+            case 'مراسلة البريد الصادر':{
+                this.Reporter_state_scout=false;
+                this.Honorary_meeting=false;
+                this.Assigning_mission=false;
+                this.Security_reporter=false;
+                this.Inauguration=false;
+                this.Educational_Institutions=false;
+                this.Outgoing_mail=true;
+
+
+
+
+                break;
+            }
+
+        }
+    }
         }
     }
 </script>

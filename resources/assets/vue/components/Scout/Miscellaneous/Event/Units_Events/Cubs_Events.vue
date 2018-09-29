@@ -20,7 +20,7 @@
                 <div class="trigger" @click="delete_event(events)">
                     <i class="glyphicon glyphicon-remove" ></i>
                 </div>
-                <router-link class="trigger" style="float: right; right: 0px;" :to="'/myposts/event/'+events.event_id">
+                <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/myposts/event/'+events.event_id">
                     <i class="glyphicon glyphicon-edit" ></i>
                 </router-link>
                 <div class="toolbar">
@@ -58,7 +58,13 @@
         <div v-if="AllEvents.length===0">
             <p style="font-size: large">لا توجد احداث </p>
         </div>
+        <sweet-modal ref="confirmation" icon="warning">
+            <h3>هل أنت متأكد من حذف هذا الحدث</h3>
+            <h4> ملاحظة : هذه العملية غير رجعية</h4>
+            <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+            <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
+        </sweet-modal>
         </div>
 
 </template>
@@ -106,13 +112,22 @@
                 return hour+':'+minute;
             },
             delete_event(event){
+                this.$refs.confirmation.open();
                 var vm = this;
-               axios.delete('/api/deleteEvent/'+event.event_id).then(function (response) {
-                   var position = vm.AllEvents.indexOf(event);
-                   vm.AllEvents.splice(position,1);
+                $("#confirmation_button").unbind().click(function () {
+                    axios.delete('/api/deleteEvent/'+event.event_id).then(function (response) {
+                        var position = vm.AllEvents.indexOf(event);
+                        vm.AllEvents.splice(position,1);
+                        vm.$refs.confirmation.close();
 
+                    });
+                });
 
-               });
+                ("#cancel_button").unbind().click(function () {
+
+                    vm.$refs.confirmation.close();
+
+                });
             },
 
         }

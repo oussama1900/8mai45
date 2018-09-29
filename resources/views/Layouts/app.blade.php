@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
    <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="author" content="">
-  <title> Login Management</title>  
+  <title> تسجيل الدخول</title>
   <link rel="stylesheet" href="{{URL::to('/')}}/global/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/global/css/bootstrap-extend.min.css">
   <link rel="stylesheet" href="{{URL::to('/')}}/assets/css/site.min.css">

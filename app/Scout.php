@@ -15,18 +15,12 @@ class Scout extends Model
 
     protected $fillable = [
         'first_name', 'last_name', 'assurance_num', 'date_of_birth',
-        'membership_date', 'email', 'phone','image'
+        'membership_date', 'email', 'phone','image','scout_info','personal_info','family_status'
     ];
 
-    public function __construct(array $attributes = []){
-        parent::__construct($attributes);
+    public function __construct(){
 
-        do{
-            $id = mt_rand(10000, 99999);
-            $query = DB::select('SELECT * FROM Scouts WHERE scout_id = ?', [$id]);
-        }while(count($query) !== 0);
 
-        $this->scout_id = $id;
     }
 
     private function getYear(){

@@ -1,7 +1,7 @@
 <template>
     <div class="chat-composer">
-        <input type="text" placeholder="Start typing your message.."  v-model="messageText" style="color: black;background-color: white" @keyup.enter="sendMessage"/>
-        <a class="btn btn-primary" @click="sendMessage"><i class="fa fa-send-o"></i></a>
+        <input type="text" placeholder="Start typing your message.."  v-model="messageText" style="color: black;background-color: white;height:31px;" @keyup.enter="sendMessage"/>
+        <a class="btn btn-primary" @click="sendMessage" style="height:58px;border-radius: 0px"><i class="fa fa-send-o"></i></a>
 
     </div>
 </template>

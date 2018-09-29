@@ -107,8 +107,10 @@
               label="البريد الإلكتروني"
               placeholder="البريد الإلكتروني"
               v-model="MyInfo.email"
+              id="email"
               >
     </fg-input>
+    <span id="email_error" style="float:right"></span>
   </div>
   <div class="col-md-6" >
     <fg-input type="text"
@@ -126,7 +128,7 @@
 
 
         <div class="text-center">
-          <button type="submit" class="btn btn-info btn-fill btn-wd"  @click="UpdateMyInfo">
+          <button type="button" class="btn btn-info btn-fill btn-wd"  @click="UpdateMyInfo">
 
             حفظ
           </button>
@@ -134,6 +136,13 @@
 
       </form>
     </div>
+    <sweet-modal icon="error" ref="email_error">
+      <h3>البريد الإلكتروني ملك لقائد آخر</h3>
+    </sweet-modal>
+    <sweet-modal icon="success" ref="success">
+      <h3>تم تغيير البريد الإلكتروني بنجاح</h3>
+      <h4 style="text-align: right">ملاحظة : تسجيل الدخول القادم لا يمكن أن يتم بالبريد القديم</h4>
+    </sweet-modal>
   </div>
 </template>
 <script>
@@ -179,7 +188,7 @@
                vm.MyInfo.scout_code = response.data.users[2];
                if(response.data.users[3]===null){
                    vm.MyInfo.unit="القادة";
-                  response.data.users[4].role;
+
                   switch (response.data.users[4].role) {
                     case "gov":
                        vm.MyInfo.role = "محافظ الفوج";
@@ -233,8 +242,17 @@
         UpdateMyInfo(){
              var vm = this;
              axios.post('/api/UpdateMyInfo',vm.MyInfo).then(function (response) {
+                 if(response.data.msg){
+                     vm.$refs.success.open();
+                 }else{
+                     vm.$refs.email_error.open();
+                     $('#email_error').html('هذا البريد ملك لقائد آخر ').css('color','red');
+                     $('#email').keyup(function (event) {
+                         $('#email_error').html('');
+                     });
+                 }
 
-                 alert('تم التعديل بنجاح تام');
+
 
              });
         }

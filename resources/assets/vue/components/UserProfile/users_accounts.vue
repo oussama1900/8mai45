@@ -1,13 +1,18 @@
 <template>
-    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" >
+    <div class="container   col-md-11 col-sm-11 col-xs-11 text-center card" style="padding-left:0px;padding-right:0px">
+<div class="header">
+    <h2 class="title">قائمة حسابات مستخدمي الموقع  </h2>
+</div>
 
-        <h2>قائمة حسابات مستخدمي الموقع  </h2>
 
-        <div>
-            <router-link class="btn btn-success"   :to="'/NewUser'" >اضف مستخدم جديد</router-link>
+        <div style="margin-top: 10px;float:left;padding-right:10px;padding-left:10px">
+            <button class="btn btn-primary"    style="float:left" @click="export_user_list">استخراج قائمة المستخدمين</button>
+            <router-link class="btn btn-primary"   :to="'/dashboard/NewUser'"  style="float:right">اضف مستخدم جديد</router-link>
         </div>
-        <hr>
-        <div id="products" class="row list-group">
+
+
+
+        <div id="products" class="row list-group" style="padding-right:15px;padding-left:15px">
             <div class="container   col-md-11 col-sm-11 col-xs-11">
             <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12 card" style="padding:0px;padding-right:20px; " v-for="users in Users">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
@@ -57,9 +62,9 @@
                 </div>
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/EditAccountInfo/'+users.profile.scout_id"></router-link>
-                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" v-if="setScoutCode(users)">
-                       {{Scout_code}}
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/dashboard/EditAccountInfo/'+users.profile.scout_id"></router-link>
+                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" >
+                        {{setScoutCode(users)}}
     </span>
 
                 </div>
@@ -73,10 +78,15 @@
 
             </div>
             </div>
-    
+
 
         </div>
+        <sweet-modal ref="confirmation" icon="warning">
+            <h3>هل أنت متأكد من حذف هذا الحساب</h3>
+            <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+            <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
+        </sweet-modal>
     </div>
 
 </template>
@@ -127,19 +137,28 @@
 
 
                vm.Scout_code = 'SF-'+  user.profile.membership_date.substr(8,2)+'-'+user.scout_id;
-
-                return true;
+   var scout_code =  'SF-'+  user.profile.membership_date.substr(8,2)+'-'+user.scout_id;
+                return scout_code;
 
             },
             removeaccount(user) {
-               var vm = this;
-                axios.delete("/api/deleteaccount/"+user.profile.scout_id).then(function (response) {
+                this.$refs.confirmation.open();
+                var vm = this;
+                $("#confirmation_button").unbind().click(function () {
+
+                    axios.delete("/api/deleteaccount/"+user.profile.scout_id).then(function (response) {
 
 
 
-                    var position = vm.Users.indexOf(user);
+                        var position = vm.Users.indexOf(user);
 
-                     vm.Users.splice(position, 1);
+                        vm.Users.splice(position, 1);
+                    });
+                });
+                $("#cancel_button").unbind().click(function () {
+
+                    vm.$refs.confirmation.close();
+
                 });
 
 
@@ -151,6 +170,28 @@
                     return false;
                 }
                 return true;
+            },
+            export_user_list(){
+                axios({
+                    url:  '/api/ExportUsersList',
+                    method: 'GET',
+                    responseType: 'blob',
+                }).then(function (response) {
+
+                    let blob = new Blob([response.data], { type:  'application/pdf' } );
+
+                    let link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'قائمة مستخدمي الموقع الإلكتروني.pdf';
+                    link.click();
+
+
+
+
+
+
+
+                });
             }
 
         }
@@ -193,6 +234,16 @@
         .pic{
             padding-top:40px !important;
         }
+    }
+    .header{
+        background-color: rgb(51, 181, 229);
+        backdrop-filter: blur(5px);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+
+    }
+    .header .title{
+        color:white;
     }
   /** .sccout-card{
         -webkit-transform: scale(1.2);

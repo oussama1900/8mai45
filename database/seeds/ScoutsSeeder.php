@@ -19,10 +19,11 @@ class ScoutsSeeder extends Seeder
           'first_name' => 'براء عبد الاله',
           'last_name' => 'مويات',
           'date_of_birth' => '24-12-1996',
-          'membership_date' => 'مويات',
+          'membership_date' => '24-12-1996',
           'email' => 'baraa@gmail.com',
           'phone' => '0022266',
-          'image'=>''
+          'image'=>'',
+
       ]);
     }
 }

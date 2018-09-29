@@ -32,10 +32,12 @@
                         <img class="avatar border-white" id="avatar1" src="/images/default.png"   height="100" width="100px" alt="الصورة الشخصية"  v-if="myimage===''">
                         <img class="avatar border-white" id="avatar" v-bind:src="'/images/Captain/'+myimage"   height="100" width="100px" alt="الصورة الشخصية" v-else>
 
-                        <h4 >
-                            <br>
+                        <h4 style="color: #949494;">
+                           <p style="margin-bottom: 0px"> {{fullname}}</p>
 
-                            <small>قائد الفوج</small>
+
+
+                            <small>{{role}}</small>
 
                         </h4>
                     </div>
@@ -44,23 +46,23 @@
                             <ul  style="margin-bottom: 0px">
                                 <li  style="background: grey; " id="first"  v-on:click="ProfileCTRL('personal-info')">
                                     <div >
-                                        <span style="text-align: center;padding-right:10px;color:white;margin-top:5px" >المعلومات الشخصية</span>
-                                        <span class ="  icon-container glyphicon glyphicon-user btn btn-grey" style="float: right;height:35px"></span>
+                                        <span style="text-align: center;padding-right:10px;color:white;margin-top:5px;font-size:17px;" >المعلومات الشخصية</span>
+                                        <span class ="  icon-container glyphicon glyphicon-user btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                                     </div>
 
                                 </li>
                                 <li  style="background: grey;"  v-on:click="ProfileCTRL('settings')">
-                                    <span style="text-align: center;padding-right:10px;color:white"  >الاعدادات</span>
-                                    <span class ="  icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right;height:35px"></span>
+                                    <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px">تغيير كلمة السر</span>
+                                    <span class ="  icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                                 </li>
                                 <li  style="background: grey;"  v-on:click="ProfileCTRL('cv')">
-                                    <span style="text-align: center;padding-right:10px;color:white"  >تعديل السيرة الذاتية</span>
-                                    <span class ="  icon-container glyphicon glyphicon-file btn btn-grey" style="float: right;height:35px"></span>
+                                    <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px"  >تعديل السيرة الذاتية</span>
+                                    <span class ="  icon-container glyphicon glyphicon-file btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                                 </li>
                                 <li  style="background: grey;"  v-on:click="ProfileCTRL('social-media')">
 
-                                    <span style="text-align: center;padding-right:10px;color:white" >ربط الحساب</span>
-                                    <span class ="  icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right;height:35px"></span>
+                                    <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px" >وسائل التواصل الإجتماعية</span>
+                                    <span class ="  icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
                                 </li>
 
 
@@ -77,21 +79,21 @@
     list-style-type:none;">
                         <li>
                             <div >
-                                <a href="#" class="fa fa-facebook"></a>
+                                <a :href="facebook" class="fa fa-facebook"></a>
 
 
                             </div>
                         </li>
                         <li>
                             <div >
-                                <a href="#" class="fa fa-instagram"></a>
+                                <a :href="instagram" class="fa fa-instagram"></a>
 
 
                             </div>
                         </li>
                         <li>
                             <div >
-                                <a href="#" class="fa fa-twitter"></a>
+                                <a :href="twitter" class="fa fa-twitter"></a>
 
 
                             </div>
@@ -141,6 +143,11 @@
                 },
                 myimage:'',
                 newimage:'',
+                fullname:"",
+                role:'',
+                facebook:'',
+                instagram:'',
+                twitter:'',
             }
         },
         created :function(){
@@ -188,6 +195,11 @@
                 var vm = this;
                 axios.get('/api/getimage').then(function (response) {
                    vm.myimage=response.data.image;
+                   vm.fullname=response.data.fullname;
+                   vm.role=response.data.role;
+                   vm.facebook=response.data.facebook;
+                   vm.instagram=response.data.instagram;
+                   vm.twitter=response.data.twitter;
 
                 });
 
@@ -278,7 +290,7 @@
 
         cursor: pointer;
 
-        font-size:16px;
+        font-size:18px;
     }
     .icon-container{
 

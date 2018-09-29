@@ -270,8 +270,8 @@ return [
 "Financial report"=>"التقرير المالي",
 "money mangment"=>"الإدارة المالية",
 "Equipment"=>"العتاد",
-"my scout"=>"كشافتي",
-"captins"=>"القادة",
+
+"my_scouts"=>"كشافي الوحدة",
 "Received repports"=>"التقارير الواردة",
 "cub"=>"الاشبال",
 "scoutboy"=>"الكشاف",
@@ -282,7 +282,8 @@ return [
 "SURV"=>"متابعة البرامج وتنفيذ الخطط",
 "CSD"=>"خدمة وتنمية المجتمع",
 "scouts"=>"الكشافين",
-"MyApprovedPosts"=>"المنشورات المصادق عليها "
+"MyApprovedPosts"=>"المنشورات المصادق عليها ",
+"activityPaper"=>"ورقة النشاط ",
 
 
 

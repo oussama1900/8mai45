@@ -8,11 +8,13 @@
       <div class="pull-right">
 <div v-if="fromDB(notification)" >
       <img :src="'/images/EventImages/'+ notification.data.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;"  v-if="is_Event(notification)">
-  <img :src="'/images/PostCover/'+ notification.data.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;" v-else>
+  <img :src="'/images/PostCover/'+ notification.data.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الخبر" style="margin-left:5px;" v-else-if="notification.data.data[1].includes('PostCover')">
+    <img :src="notification.data.data[1]" class="img-circle"  width="50px" height="50px"  style="margin-left:5px;" v-else/>
 </div>
 <div v-else>
       <img :src="'/images/EventImages/'+ notification.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;"  v-if="is_Event(notification)">
-  <img :src="'/images/PostCover/'+ notification.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;" v-else>
+  <img :src="'/images/PostCover/'+ notification.data[1]" class="img-circle" width="50px" height="50px"alt="صورة الحدث" style="margin-left:5px;" v-else-if="notification.data[1].includes('PostCover')">
+    <img :src="notification.data[1]" class="img-circle"  width="50px" height="50px"  style="margin-left:5px;" v-else/>
 </div>
 	    </div>
       <h4 style="text-align:right">
@@ -84,13 +86,13 @@ methods:{
 },
 is_Event(notification){
 	if(this.notification.data[0]===undefined){
-		if(this.notification.data.data[1].includes('PostCover')){
+		if(this.notification.data.data[1].includes('PostCover') || this.notification.data.data[1].includes('Report')){
 			
 			return false;
 		}
 		return true;
 	}else{
-		if(this.notification.data[1].includes('PostCover')){
+		if(this.notification.data[1].includes('PostCover') || this.notification.data[1].includes('Report')){
 			return false;
 		}
 		return true;

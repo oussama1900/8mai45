@@ -38,13 +38,13 @@
         <div class="row">
           <div class="col-md-12" >
           
-            <vue-editor v-model="Personnal_info"></vue-editor>
+            <vue-editor v-model="Personal_info"></vue-editor>
           </div>
         </div>
 
 
       </form>
-    </div>
+   </div>
   </div>
 
 
@@ -54,10 +54,15 @@
 
 
   <div class="text-center">
-    <button type="submit" class="btn btn-info btn-fill btn-wd" @click.prevent="updateProfile">
+    <button type="butto," class="btn btn-info btn-fill btn-wd" @click="updateProfile">
       تحديث السيرة الذاتية
     </button>
   </div>
+    <sweet-modal ref="success" icon="success">
+      <h3>
+        تم تحديث السيرة الذاتية بنجاح تام
+      </h3>
+    </sweet-modal>
 </div>
 </template>
 <script>
@@ -71,12 +76,22 @@ import { VueEditor } from 'vue2-editor'
       return {
 
         Scout_info:'',
-        Personnal_info:'',
+        Personal_info:'',
       }
     },
+      created:function(){
+          var vm = this;
+      axios.get('/api/getCurriculumVitae').then(function (response) {
+          vm.Scout_info = response.data.scout_info;
+          vm.Personal_info = response.data.personal_info
+      });
+},
     methods: {
       updateProfile () {
-        alert('Your data: ' + JSON.stringify(this.user))
+          var vm = this;
+       axios.post('/api/UpdateCurriculumVitae',{scout_info:vm.Scout_info,personal_info:vm.Personal_info}).then(function(response){
+         vm.$refs.success.open();
+       });
       }
     }
   }

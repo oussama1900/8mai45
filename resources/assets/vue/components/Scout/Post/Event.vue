@@ -632,7 +632,7 @@ value:"UTC+2",
 
                   var vm = this;
                   axios.post('/api/postEvent',vm.Event).then(function (response) {
-                      vm.$router.push('/Events/MyEvents');
+                      vm.$router.push('/dashboard/Events/MyEvents');
 
                   });
               }

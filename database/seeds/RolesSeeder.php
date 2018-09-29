@@ -23,7 +23,7 @@ class RolesSeeder extends Seeder
         Role::create([
             'name' => 'vgov',
             'display_name' => 'roles.vgov',
-            'description' => 'نائب محافظ الفوج و مسؤول الادارة',
+            'description' => 'نائب محافظ الفوج',
             'removable' => false
         ]);
 
@@ -92,7 +92,7 @@ class RolesSeeder extends Seeder
         Role::create([
             'name' => 'vucp',
             'display_name' => 'roles.vucp',
-            'description' => 'نائب قائد الوحدة',
+            'description' => 'نائب قائد وحدة',
             'removable' => false
         ]);
 

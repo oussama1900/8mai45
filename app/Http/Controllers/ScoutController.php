@@ -12,8 +12,11 @@ use App\User;
 use App\Unit;
 use App\UnitScout;
 use DB;
+use Auth;
 use Illuminate\Support\Facades\Storage;
 use File;
+use PDF;
+
 
 use App\Http\Requests;
 
@@ -49,7 +52,10 @@ class ScoutController extends Controller
                 $Scout = UnitScout::with('scout')->where('unit_id','tvlr')->get();
             }
             if(Route::currentRouteNamed('captain')){
+                if(Auth::user()->captain->role=="gov")
                 $Scout = Captain::with('isScout')->get();
+                else
+                    $Scout = Captain::with('isScout')->where('role','!=','gov')->get();
             }
 
 
@@ -88,7 +94,7 @@ class ScoutController extends Controller
     public function insertImage( $image,$unit_id){
         $filename="";
         $filepath="";
-        if($image==""){
+        if($image=="/images/default.png"){
             $filename="";
         }else{
             $expl = explode(',',$image);
@@ -100,25 +106,30 @@ class ScoutController extends Controller
                 $exte= 'jpeg';
             }
             $currenttime = Carbon::now()->timestamp;
-            $filename = $currenttime.'.'.$exte;
+
             switch ($unit_id){
                 case 'cubs':{
+                    $filename = 'Cubs-'.$currenttime.'.'.$exte;
                     $filepath = public_path().'/images/Cubs/'.$filename;
                     break;
                 }
                 case 'sct':{
+                    $filename = 'Scout-'.$currenttime.'.'.$exte;
                     $filepath = public_path().'/images/Scout/'.$filename;
                     break;
                 }
                 case 'asct':{
+                    $filename = 'AdvancedScout-'.$currenttime.'.'.$exte;
                     $filepath = public_path().'/images/AdvancedScout/'.$filename;
                     break;
                 }
                 case 'tvlr':{
+                    $filename = 'Traveler-'.$currenttime.'.'.$exte;
                     $filepath = public_path().'/images/Traveler/'.$filename;
                     break;
                 }
                 default:{
+                    $filename = 'Captain-'.$currenttime.'.'.$exte;
                     $filepath = public_path().'/images/Captain/'.$filename;
                 }
             }
@@ -140,6 +151,17 @@ class ScoutController extends Controller
         /**
          * get our unit and make the photo ready to save it in the database
          */
+        $scout_email =  $request->input('ScoutInfo.email');
+        $role =  $request->input('role');
+        $unit_resp = $request->input('unit_resp');
+        $role_exist = Captain::where('role',$role)->where('unit',$unit_resp)->get();
+        if(count($role_exist)==1){
+            return response()->json(["msg"=>"role already exists"]);
+        }
+        $email_existe = Scout::where('email',$scout_email)->get();
+        if(count($email_existe)==1){
+            return response()->json(["msg"=>"email already exists"]);
+        }
         $unit_id = $request->input('scout_unit.unit_id');
         $newimage = $request->input('ScoutInfo.image');
         $filename =  $this->insertImage($newimage,$unit_id);
@@ -158,23 +180,41 @@ class ScoutController extends Controller
         /**
          * insert our data to the data base then save it
          */
+				 $scout_id = DB::table('scouts')->insertGetId(
+					 [
+						 'assurance_num'=>(int)$request->input('ScoutInfo.assurance_num'),
+						 'first_name'=>$request->input('ScoutInfo.first_name'),
+						 'last_name'=>$request->input('ScoutInfo.last_name'),
+						 'date_of_birth'=>$request->input('ScoutInfo.date_of_birth'),
+						 'membership_date'=>$request->input('ScoutInfo.membership_date'),
+						  'email'=>$request->input('ScoutInfo.email'),
+						 'phone'=>$request->input('ScoutInfo.phone'),
+						 'place_of_birth'=>$request->input('ScoutInfo.place_of_birth'),
+						 'family_status'=>$request->input('ScoutInfo.family_status'),
+						 'address'=>$request->input('ScoutInfo.address'),
+							'image'=>$filename,
+					 ]
+				 );
 
-       $scouts->assurance_num = (int)$request->input('ScoutInfo.assurance_num');
+  /*     $scouts->assurance_num = (int)$request->input('ScoutInfo.assurance_num');
        $scouts->first_name = $request->input('ScoutInfo.first_name');
        $scouts->last_name = $request->input('ScoutInfo.last_name');
        $scouts->date_of_birth = $request->input('ScoutInfo.date_of_birth');
        $scouts->membership_date = $request->input('ScoutInfo.membership_date');
        $scouts->phone = $request->input('ScoutInfo.phone');
-       $scouts->email = $request->input('ScoutInfo.email');
+
+       $scouts->place_of_birth = $request->input('ScoutInfo.place_of_birth');
+       $scouts->family_status = $request->input('ScoutInfo.family_status');
+       $scouts->address = $request->input('ScoutInfo.address');
        $scouts->image = $filename;
-       $scouts->save();
+       $scouts->save();*/
 
         /**
          * get the new record scout_id inserted to add it to the UnitScout table
          */
 
 
-        $scout_id = Scout::where('assurance_num','=',(int)$request->input('ScoutInfo.assurance_num'))->select('scout_id')->value('scout_id');
+        //$scout_id = Scout::where('assurance_num','=',(int)$request->input('ScoutInfo.assurance_num'))->select('scout_id')->value('scout_id');
 
 
         /**
@@ -194,11 +234,15 @@ class ScoutController extends Controller
 
            if($request->input('role')!=""){
                $role = $request->input('role');
-               $unit_resp = $request->input('unit_resp');
-               $captain->scout_id = $scout_id;
-               $captain->role = $role;
-               $captain->unit = $unit_resp;
-               $captain->save();
+
+
+                   $unit_resp = $request->input('unit_resp');
+                $captain->scout_id = $scout_id;
+                   $captain->role = $role;
+                   $captain->unit = $unit_resp;
+                   $captain->save();
+
+
            }
 
 
@@ -394,6 +438,12 @@ class ScoutController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
   public function  EditScoutInfo(Request $request,$scout_id){
+      $unitscout= UnitScout::where('scout_id', '=',$scout_id);
+      if($unitscout->value('scout_id')==null){
+          $role = $request->input('role');
+          $role_exist = Captain::where('role',$role)->get();
+
+      }
       $imageold="";
       $insidecap="";
       /**
@@ -402,13 +452,13 @@ class ScoutController extends Controller
         $scout = Scout::find($scout_id);
 
 
-
+$scout_image = $request->input('ScoutInfo.image');
      $user = User::find($scout_id);
 
 
 
       $oldunit= UnitScout::where('scout_id', '=',$scout_id)->value('unit_id');
-      $unitscout= UnitScout::where('scout_id', '=',$scout_id);
+
       $scoutunit = UnitScout::with('scout')->where('scout_id',$scout_id)->get();
 
 
@@ -424,24 +474,55 @@ class ScoutController extends Controller
             * update the data and save it to database
             */
 
-    $scout->assurance_num = $request->input('ScoutInfo.assurance_num');
+           $scout->assurance_num = $request->input('ScoutInfo.assurance_num');
            $scout->first_name= $request->input('ScoutInfo.first_name');
            $scout->last_name= $request->input('ScoutInfo.last_name');
            $scout->date_of_birth= $request->input('ScoutInfo.date_of_birth');
            $scout->membership_date= $request->input('ScoutInfo.membership_date');
            $scout->phone = $request->input('ScoutInfo.phone');
            $scout->email = $request->input('ScoutInfo.email');
+           $scout->place_of_birth = $request->input('ScoutInfo.place_of_birth');
+           $scout->family_status = $request->input('ScoutInfo.family_status');
+           $scout->address = $request->input('ScoutInfo.address');
 
            if($user){
                $user->email = $request->input('ScoutInfo.email');
                $user->save();
            }
-
+      $role = $request->input('role');
+      $unit_resp = $request->input('unit_resp');
      if($unitscout->value('scout_id')==null){
          // captain
-         $role = $request->input('role');
-         $unit_resp = $request->input('unit_resp');
-         $captain->update(['role' =>$role ,'unit'=>$unit_resp]);
+
+         $role_exist = Captain::where('role',$role)->where('unit',$unit_resp)->get();
+
+         if(count($role_exist)==1){
+             $old_captain_id = $role_exist[0]->scout_id;
+             $old_captain_role_owner = $role_exist[0]->role;
+             $old_captain_unit = $role_exist[0]->unit;
+             if($old_captain_id == $scout_id){
+
+                 $captain->update(['role' =>$role ,'unit'=>$unit_resp]);
+             }else{
+
+
+
+                 $old_captain = Captain::find($old_captain_id);
+
+                 $current_captain = Captain::find($scout_id);
+                 $current_captain_old_role = $current_captain->role;
+                 $current_captain_old_unit = $current_captain->unit;
+
+                 $old_captain->update(['role'=>$current_captain_old_role,'unit'=>$current_captain_old_unit]);
+                 $current_captain->update(['role'=>$role,'unit'=>$unit_resp]);
+             }
+
+
+
+         }else{
+             $captain->update(['role' =>$role ,'unit'=>$unit_resp]);
+         }
+
          if(str_contains($request->input('ScoutInfo.image'), '.png') | str_contains($request->input('ScoutInfo.image'), '.jpeg') ){
              // he's a captain and he want to keep his image
 
@@ -514,16 +595,16 @@ class ScoutController extends Controller
          }else{
              // so his unit is changed it
 
-             if(str_contains($request->input('ScoutInfo.image'), '.png') | str_contains($request->input('ScoutInfo.image'), '.jpeg')){
+             if((str_contains($request->input('ScoutInfo.image'), '.png') || str_contains($request->input('ScoutInfo.image'), '.jpeg')  ) && (!str_contains($request->input('ScoutInfo.image'),'/images/default.png'))){
                  // he don't want to change his picture
                  // but we need to replace his image to his new unit
 
                  $this->reaplaceimage($scout,$oldunit,$newunit);
 
              }else{
-                 if($request->input('ScoutInfo.image')==""){
+                 if($scout_image == '/images/default.png'){
 
-                     // he don't have a picture (so it's his first time)
+
                  }else{
 
                      // he want to change his picture
@@ -590,7 +671,7 @@ class ScoutController extends Controller
            }
 
 
-      
+
      }
 
        /**
@@ -655,4 +736,82 @@ class ScoutController extends Controller
 
 
 
+
+
+public function ExportScoutList(Request $request){
+    $unit = $request->input('unit');
+    $unit_name = $request->input('unit_name');
+    $unit_fullname = ["unit"=>$unit_name];
+    if($unit==""){
+        $unit = Auth::user()->captain->unit;
+        $unit_fullname =['unit'=>Auth::user()->captain->unit_name->unit_name];
+        $scout_id = UnitScout::select('scout_id')->where('unit_id',$unit)->get();
+        $scout_array=[];
+        foreach($scout_id as $key){
+            array_push($scout_array,$key->scout_id);
+        }
+        $scout = Scout::whereIn('scout_id',$scout_array)->get();
+
+        $pdf = PDF::loadView('FormsTemplate.Scout_List',compact('scout','unit_fullname'));
+    }else{
+        if($unit=="cap"){
+            $scout = Captain::with(['isScout','assignedRole'])->get();
+
+            $pdf = PDF::loadView('FormsTemplate.Captain_List',compact('scout','unit_fullname'));
+
+        }else{
+
+
+            $scout_id = UnitScout::select('scout_id')->where('unit_id',$unit)->get();
+            $scout_array=[];
+            foreach($scout_id as $key){
+                array_push($scout_array,$key->scout_id);
+            }
+    }
+
+
+
+            $scout = Scout::whereIn('scout_id',$scout_array)->get();
+
+            $pdf = PDF::loadView('FormsTemplate.Scout_List',compact('scout','unit_fullname'));
+        }
+
+    return $pdf->download('example.pdf');
+}
+public function UpdateCurriculumVitae(Request $request){
+
+        $user = Auth::user()->scout_id;
+        $captain = Scout::find($user);
+        $captain->scout_info = $request->input('scout_info');
+        $captain->personal_info = $request->input('personal_info');
+        $captain->save();
+}
+public function getCurriculumVitae(){
+    $user = Auth::user()->profile;
+    $personal_info = $user->personal_info;
+    $scout_info = $user->scout_info;
+    return response()->json(["scout_info"=>$scout_info,"personal_info"=>$personal_info]);
+}
+    public function social_media_accounts(Request $request){
+        $facebook = $request->input('facebook') ;
+        $instagram = $request->input('instagram') ;
+        $twitter = $request->input('twitter') ;
+
+        $user = Auth::user()->scout_id;
+        $captain = Captain::find($user);
+        $captain->facebook =$facebook;
+        $captain->instagram =$instagram;
+        $captain->twitter =$twitter;
+        $captain->save();
+    }
+public function getsocial_media_accounts(){
+    $user = Auth::user()->captain;
+
+        $facebook = $user->facebook;
+        $instagram = $user->instagram;
+        $twitter = $user->twitter;
+
+
+    return response()->json(["facebook"=>$facebook,"instagram"=>$instagram,"twitter"=>$twitter]);
+}
 }

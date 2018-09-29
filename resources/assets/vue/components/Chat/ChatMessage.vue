@@ -3,12 +3,12 @@
 
         <div  class="message">
         <div class="row" >
-            <div class="col-sm-2" style="top: 20%;">  <img class="img-circle" v-bind:src="'/images/Captain/'+message.scout.image" width="40" height="40" v-if="ImageExistance()"/>
+            <div class="col-sm-2 col-md-2 col-xs-2" style="top: 20%;">  <img class="img-circle" v-bind:src="'/images/Captain/'+message.scout.image" width="40" height="40" v-if="ImageExistance()"/>
                 <img class="img-circle" src="/images/default.png" width="40" height="40" v-else/>
 
 
 </div>
-            <div class="col-ms-9" style="top: 0px;padding-right: 0px;padding-left: 0px;">
+            <div class="col-sm-10  col-md-10 col-xs-10" style="top: 0px;padding-right: 0px;padding-left: 0px;">
                 <div  class="card" style="  border-radius:15px;margin-right:12px">
                 <p style="color: black;padding-right:5px;padding-left: 5px">{{message.message}}</p>
             </div>

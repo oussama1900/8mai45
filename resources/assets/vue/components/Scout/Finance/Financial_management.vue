@@ -131,7 +131,7 @@
 			 const monthNames = ["جانفي", "فيفري", "مارس", "أفريل", "ماي", "جوان",
 					 "جويلية", "أوت", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
 			 ];
-			 return monthNames[date.getMonth()-1];
+			 return monthNames[date.getMonth()];
 
 		 },
 		 getCurrent_year(){

@@ -19,7 +19,7 @@
             <div class="trigger" @click="delete_post(post)">
                 <i class="glyphicon glyphicon-remove" ></i>
             </div>
-            <router-link class="trigger" style="float: right; right: 0px;" :to="'/post/EditPost/'+post.post_id">
+            <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/post/EditPost/'+post.post_id">
                 <i class="glyphicon glyphicon-edit" ></i>
             </router-link>
             <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
@@ -43,6 +43,13 @@
         <div v-if="MyUnitPosts.length===0">
             <h4 style="text-align: center">لا توجد منشورات </h4>
         </div>
+        <sweet-modal ref="confirmation" icon="warning">
+            <h3>هل أنت متأكد من حذف هذا الخبر</h3>
+            <h4> ملاحظة : هذه العملية غير رجعية</h4>
+            <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+            <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
+
+        </sweet-modal>
     </div>
 </template>
 
@@ -51,6 +58,7 @@
         data(){
             return{
                 MyUnitPosts:'',
+                user:'',
 
             }
         },
@@ -60,6 +68,7 @@
 
 
                 vm.MyUnitPosts = response.data.myunitPosts;
+                vm.user = response.data.user;
 
             });
         },
@@ -87,15 +96,58 @@
                 return hour+':'+minute;
             },
             delete_post(post){
+
+
+                this.$refs.confirmation.open();
                 var vm = this;
-                axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
-                    var position = vm.MyUnitPosts.indexOf(post);
-                    vm.MyUnitPosts.splice(position,1);
+
+                $("#confirmation_button").unbind().click(function (event) {
+
+                    axios.delete('/api/deletepost/'+post.post_id).then(function (response) {
+                        var position = vm.MyUnitPosts.indexOf(post);
+                        vm.MyUnitPosts.splice(position,1);
+                        vm.$refs.confirmation.close();
 
 
+                    });
+                });
+                $("#cancel_button").unbind().click(function () {
+                    vm.$refs.confirmation.close();
                 });
 
+
             },
+            licence(post){
+                if(this.user.localeCompare('ucap')===0 ){
+                    return true;
+                }else{
+                    if(this.user.localeCompare('vucp')===0 ) {
+                        if(post.is_captain.role.localeCompare('ucap')===0)
+                            return false;
+                        else{
+                            return true;
+                        }
+                    }else{
+                        if(this.user.localeCompare('capa')===0 ){
+                            if(post.is_captain.role.localeCompare('ucap')===0 || post.is_captain.role.localeCompare('vucp')===0)
+                                return false;
+                            else
+                                return true;
+                        }else{
+                            if(this.user.localeCompare('trne')===0){
+                                if(post.is_captain.role.localeCompare('trne')===0)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        }
+
+                    }
+                }
+
+
+
+            }
         }
     }
     $(function() {

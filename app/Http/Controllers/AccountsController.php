@@ -17,16 +17,20 @@ use Sentry;
 use App\Foo;
 use Illuminate\Console\Scheduling\Event;
 use File;
+use PDF;
 class AccountsController extends Controller
 {
     //
     public function __construct()
     {
-        $this->middleware('auth');
+      //  $this->middleware('auth');
 
     }
 
-
+    public function getcurrentuser(){
+     $user = Auth::user()->captain->role;
+		 return response()->json(["user_role"=>$user]);
+		}
 
     public function  getUsersAccounts(){
         $accounts =   User::with('profile')->get();
@@ -107,6 +111,8 @@ class AccountsController extends Controller
         $scout_id = $request->input('scout_id');
 
         $newemail  = $request->input('email');
+        if(count(Scout::where('email',$newemail)->where('scout_id','!=',$scout_id)->get())==1)
+            return response()->json(["msg"=>false]);
         $newphone  = $request->input('phone');
         $user = User::find($scout_id);
         $scout = Scout::find($scout_id);
@@ -120,7 +126,7 @@ class AccountsController extends Controller
 
         $user->save();
         $scout->save();
-        return  response()->json(["newdara"=>  "Change it Successfully"]);
+        return  response()->json(["msg"=>true]);
 
     }
     public function  ChangePassword(Request $request){
@@ -165,6 +171,9 @@ class AccountsController extends Controller
 
         $user = User::find($scout_id);
         if($user){
+            if(count(Scout::where('email',$request->input('email'))->where('scout_id','!=',$user->scout_id)->get())==1){
+                return response()->json(["emailchanged"=> false]);
+            }
             $user->email = $request->input('email');
             $updated_at = Carbon::now();
             $user->updated_at = $updated_at;
@@ -194,8 +203,21 @@ class AccountsController extends Controller
 
     }
     public function getMyImage(){
-        $myimage = Auth::user()->profile->image;
-        return response()->json(["image"=>$myimage]);
+         $user = Auth::user()->profile;
+         $fullname = $user->last_name." ".$user->first_name;
+         $role = Auth::user()->captain->assignedRole->getRole();
+        $myimage=$user->image;
+        $captain = Auth::user()->captain;
+        $facebook=$captain->facebook;
+        $instagram=$captain->instagram;
+        $twitter=$captain->twitter;
+        return response()->json([    "image"=>$myimage,
+                                     "fullname"=>$fullname,
+                                     "role"=>$role,
+                                     "facebook"=>$facebook,
+                                     "instagram"=>$instagram,
+                                     "twitter"=>$twitter
+        ]);
     }
     public function ChangMyImage(Request $request){
         $user = Auth::user();
@@ -260,5 +282,14 @@ public function getAllCaptains(){
         return response()->json(["captain"=>$captain]);
 }
 
+public function ExportUsersList(){
+        $users = User::with(['captain','profile'])->get();
+    $pdf = PDF::loadView('FormsTemplate.Users_List',compact('users'));
 
+    return $pdf->download('example.pdf');
+
+}
+public function current_user(){
+    return response()->json(["current_user"=>Auth::user()->captain->role]);
+}
 }
