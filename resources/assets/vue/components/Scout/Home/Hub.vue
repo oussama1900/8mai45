@@ -374,7 +374,7 @@ white-space: nowrap;" >{{account_nbr}}</p>
 
 						<div class="row" style="margin-top:-10px">
 							<p class="text-center" style="font-size: 40px; margin-bottom: 0px;overflow:hidden;text-overflow: ellipsis;
-white-space: nowrap;" >306445</p>
+white-space: nowrap;" >{{nbr_of_scouts}}</p>
 							<p class="text-center" >كشاف</p>
 						</div>
 					</div>
