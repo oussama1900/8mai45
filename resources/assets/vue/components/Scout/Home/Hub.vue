@@ -388,7 +388,7 @@ white-space: nowrap;" >{{nbr_of_scouts}}</p>
 <div class="row">
 	<div class="col-md-6 card" style="margin-left:10px;padding-right: 0px;padding-left: 0px;margin-left: 0px;margin-top: 25px;">
 
-		<Calendar startDate="2018-08-01" :dateData="data">
+		<Calendar :startDate="current_date" :dateData="data">
 
 
 		  <div
@@ -965,10 +965,12 @@ import 'vue2-event-calendar/default.css';
 				    first:'',
 					second:'',
 					third:''
-				}
+				},
+				current_date:'',
 			}
 		},
 created:function(){
+   this.current_date = new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-01";
 	var vm =this;
 axios.get('/api/getCalenderEvents').then(function(response){
 
@@ -1202,7 +1204,7 @@ methods: {
         this.$router.push('/dashboard/scouts/scout');
 	},
 	adv_scout(){
-        this.$router.push('/scouts/advanced_scout');
+        this.$router.push('/dashboard/scouts/advanced_scout');
 	},
 	traveler(){
         this.$router.push('/dashboard/scouts/traveler');

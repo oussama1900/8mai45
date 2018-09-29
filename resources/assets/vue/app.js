@@ -621,7 +621,7 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('vogv')===0 || current_user.localeCompare('surv')===0 )
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 || current_user.localeCompare('surv')===0 )
                     next();
                 else
                     next(false);
