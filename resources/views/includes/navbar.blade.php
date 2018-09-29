@@ -51,6 +51,10 @@
             <ul class="navbar-nav ml-auto"  >
                 <li class="nav-item">
                     <!-- this is the about link -->
+                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('contact') ? 'activenav' : '' }}" href="/contact" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تواصل معنا</a>
+                </li>
+                <li class="nav-item">
+                    <!-- this is the about link -->
                     <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('about') ? 'activenav' : '' }}" href="/about" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف علينا</a>
                 </li>
                 <li class="nav-item">

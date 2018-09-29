@@ -28,11 +28,15 @@ Route::get('/posts/{id}', 'HomeController@viewPost')->name('readPost');
 Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/events/{id}', 'HomeController@viewEvent')->name('readEvent');
 Route::get('/captains', 'HomeController@captains')->name('captains');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/login', 'DashboardController@index');
 Route::get('/logout', 'DashboardController@index');
 Route::get('/user', 'ActivityController@index');
+
+Route::get('/dashboard', 'DashboardController@index');
+Route::any('/dashboard/{query}', 'DashboardController@index')->where('query', '.*');
 
 Auth::routes();
 
@@ -122,3 +126,4 @@ Route::post('/dashboard/posts/upload', "postsController@upload");
 Route::post('/dashboard/posts/', "postsController@store");
 Route::get('/dashboard/posts/create', "postsController@create");
 Route::get('/dashboard/posts/{id}', "postsController@show");
+

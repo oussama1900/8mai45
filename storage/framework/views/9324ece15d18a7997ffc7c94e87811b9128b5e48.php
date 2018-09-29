@@ -7,16 +7,18 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
-  <link rel="stylesheet" href="css/app.css"/>
 
+  <link rel="stylesheet" href="/css/app.css"/>
   <title>الموقع الرسمي لفوج الفلاح</title>
 
 
 
   <!-- Include Date Range Picker -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
+
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 
@@ -113,6 +115,7 @@
 </head>
 
 <body class="dashboard app-mailbox">
+
 <?php echo $__env->make('includes.dashbars.topnavbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div id="app">
 <?php echo $__env->make('includes.dashbars.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -127,8 +130,13 @@
 
 <!-- Vue.js -->
 <script src=<?php echo e(url("/assets/vue/app.js")); ?> charset="UTF-8"></script>
+
 <script src="https://unpkg.com/vue-ckeditor2"></script>
 <script src="https://cdn.ckeditor.com/4.6.1/full/ckeditor.js"></script>
+  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
 
 </body>
 </html>

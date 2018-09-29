@@ -153,7 +153,7 @@
     <!-- /Owl Carousel 1 -->
     <div class="card shadow m-lg-5">
         <div class="card-header" {!! $news_style !!}>
-            <h3 class="center text-center" style="color: #ffffff;">آخر اخبارنا</h3>
+            <h3 class="center text-center" style="color: #ffffff;">نشاطاتنا القادمة</h3>
         </div>
         <div class="container-fluid border" align="right">
             <div class="btn-group-toggle btn-group-block" data-toggle="buttons">
