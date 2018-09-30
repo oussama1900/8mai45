@@ -97,7 +97,7 @@
             }
         </style>
     </head>
-    <div style="height: 150px;background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);">
+                <div style="height: 150px;background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);">
 
     </div>
 

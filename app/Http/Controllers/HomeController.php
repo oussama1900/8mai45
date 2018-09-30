@@ -60,6 +60,7 @@ class HomeController extends Controller
     {
         $posts = Post::where('linked_unit','asct')->orderby('created_at','desc')->paginate(3);
         $events = Event::where('unit','asct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.advanced_scout')->with('posts',$posts)->with('events',$events);
     }
 
