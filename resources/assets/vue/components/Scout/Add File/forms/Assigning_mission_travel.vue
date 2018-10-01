@@ -45,23 +45,28 @@
                <input id="input12" class="form-control"  name="date" placeholder="MM/DD/YYY" type="text" dir="rtl" />
            </div>
         </div>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
-        name: "Assigning_mission"
+        components:{
+            loading
+        },
+        name: "Assigning_mission",
+        data(){
+            return{
+                show: false,
+                label: '....الرجاء الإنتظار',
+            }
+        }
     }
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
+
 </script>
 
 <style scoped>

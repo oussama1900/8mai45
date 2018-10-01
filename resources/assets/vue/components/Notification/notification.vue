@@ -11,7 +11,7 @@
     <i class="fa fa-bell-o" style="margin-top:5px;color:grey"></i><span class="badge" v-if="unreadsNotification_length !=0">{{unreadsNotification_length}}</span>
 
     </a>
-    <ul class="dropdown-menu" style="margin-top: 12px;margin-right: -50px;padding: 0px 0px 0px !important;width: 350px;height: 350px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+    <ul class="dropdown-menu" style="margin-top: 12px;margin-left: -200px;padding: 0px 0px 0px !important;width: 350px;height: 350px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
 
       <li class="header" style="color: white;width: 100%;margin-top: 0px;text-align: right;background-color: rgb(51, 181, 229);border-top-left-radius: 10px;border-top-right-radius: 10px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;padding-top: 0px;">
  التنبيهات

@@ -72,7 +72,14 @@
 		  <h3>لم تقم بملئ جميع المعلومات اللازمة   </h3>  <h3> الرجاء التأكد من المعلومات التي قمت بادخالها  </h3>
 
 
+	  </sweet-modal >
+	  <sweet-modal icon="success" ref="success">
+		  <h3>تمت العملية بنجاح</h3>
 	  </sweet-modal>
+	  <loading
+			  :show="show"
+			  :label="label">
+	  </loading>
 </div>
 
 </template>
@@ -80,12 +87,18 @@
 
     import { Datetime } from 'vue-datetime';
     import 'vue-datetime/dist/vue-datetime.css'
+    import loading from 'vue-full-loading';
   export default {
+      components:{
+          loading
+	  },
     data(){
 			return{
+                show: false,
+                label: '....الرجاء الإنتظار',
 			    direction:"rtl",
 				placeholder:"تاريخ المعاملة",
-
+                 clicked:false,
 				money:'',
 				description:'',
 				date:'',
@@ -95,7 +108,7 @@
 		},
 		methods:{
         validate(){
-          if(this.money.localeCompare("")===0 || this.description.localeCompare("")===0 || this.date.localeCompare("")===0){
+          if(this.money.localeCompare("")===0 || this.description.localeCompare("")===0 || this.date.localeCompare("")===0 || this.clicked===false){
              this.$refs.not_valid.open();
               if(this.money.localeCompare("")===0 ){
                   $('#money_quantity').html('كمية الأموال اجبارية').css('color', 'red');
@@ -119,8 +132,17 @@
 			update_money(){
             if(this.validate()){
                 var vm =this;
+                this.show =true;
+                this.clicked = false;
                 axios.post('/api/update_money',{money:vm.money,description:vm.description,date:vm.date,money_state:vm.money_state}).then(function(response){
-                    location.reload();
+                    $('#money_enter').removeClass('btn-success');
+                    $('#money_out').removeClass('btn-success');
+                    vm.money ="";
+                    vm.description="";
+                    vm.date="";
+                    vm.show = false;
+
+                  vm.$refs.success.open();
                 });
 			}
 
@@ -140,6 +162,7 @@
 			  return date.getFullYear();
 		 },
             money_type(state){
+                this.clicked = true;
                if(state.localeCompare("money_in")===0){
                    $('#money_out').removeClass('btn-success');
                $('#money_enter').toggleClass('btn-success');

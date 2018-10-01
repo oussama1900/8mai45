@@ -30,14 +30,25 @@
             <label style="font-size: medium;float:right">رقم الحساب الجاري: القرض الشعبي البلدي cpa</label>
             <input id="input6"  maxlength="200" type="text" required="required" class=" input-style" placeholder="رقم الحساب الجاري" dir="rtl" />
         </div>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     import AlgerianStates from "./AlgerianStates";
     export default {
         name: "Camping_request",
-        components: {AlgerianStates}
+        components: {AlgerianStates,loading},
+        data(){
+            return{
+                show: false,
+                label: '....الرجاء الإنتظار',
+            }
+        }
     }
 </script>
 

@@ -42,24 +42,33 @@
             </div>
 
         </div>
-        <button class="btn btn-primary nextBtn pull-right" type="button" @click="save()" v-if="saveit">حفظ</button>
-        <button class="btn btn-primary nextBtn pull-right" type="button" @click="preview()" v-if="preview_button">معاينة</button>
-        <button class="btn btn-primary nextBtn pull-left" type="button" @click="download()" v-if="download_button">تحميل</button>
+
+
+        <button class="btn btn-primary nextBtn pull-left" type="button" style="text-align: center" @click="download()" >تحميل</button>
         <sweet-modal icon="warning" ref="warn">
             <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     import { VueEditor } from 'vue2-editor'
+
     export default {
         components:{
-            VueEditor
+            VueEditor,
+            loading
         },
 
         data(){
             return{
+                show: false,
+                label: '....الرجاء الإنتظار',
                 placeholder:"تاريخ الحدث",
                 direction:'rtl',
                 value:"UTC+2",
@@ -95,16 +104,7 @@
             });
         },
         methods:{
-            save(){
-                if(this.date.localeCompare("")===0 || this.outing_mail.localeCompare("")===0 || this.urban_security_center_president.localeCompare("")===0 || this.content.localeCompare("")===0){
-                    this.$refs.warn.open();
-                }else{
-                    this.saveit =false;
-                    this.preview_button=true;
-                    this.download_button=true;
-                }
 
-            },
             preview(){
                 if(this.outing_mail<10){
                     if(!this.outing_mail.includes('0'))
@@ -156,6 +156,7 @@
 
             },
             download(){
+                this.show = true;
                 if(this.outing_mail<10){
                     if(!this.outing_mail.includes('0'))
                         this.outing_mail = "0"+this.outing_mail;
@@ -167,7 +168,7 @@
                 var vm  =this;
                 axios({
                     url:  '/api/downloadSecurity_ReporterPDF',
-                    method: 'Post',
+                    method: 'put',
                     responseType: 'blob',
                     data:{
                         content:vm.content,
@@ -187,7 +188,7 @@
                     link.href = window.URL.createObjectURL(blob);
                     link.download = 'مراسلة الأمن.pdf';
                     link.click();
-
+                    vm.show = false;
 
 
 

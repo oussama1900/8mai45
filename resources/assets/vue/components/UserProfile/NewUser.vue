@@ -8,7 +8,7 @@
                <label style="float:right;font-size:medium">اختر المستخدم الجديد</label>
                <select class="form-control" v-model="users[0].user.email" dir="rtl"  data-live-search="true" style="border: 1px solid #CCC5B9;
     border-radius: 7px;">
-                   <option v-for="cap in Captain" v-bind:value="cap.is_scout.email">{{cap.is_scout.last_name}} {{cap.is_scout.first_name}}</option>
+                   <option v-for="cap in Captain"  v-bind:value="cap.is_scout.email">{{cap.is_scout.last_name}} {{cap.is_scout.first_name}}</option>
                </select>
 
            </div>
@@ -43,16 +43,31 @@
                 </button>
             </div>
         </div>
-
+        <sweet-modal icon="warning" ref="password_warning">
+            <h3>كلمة السر غير متوافقة</h3>
+        </sweet-modal>
+        <sweet-modal icon="warning" ref="not_valid">
+            <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
+        </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
 
     </div>
 
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
+        components:{
+            loading
+        },
        data(){
            return{
+               show: false,
+               label: '....الرجاء الإنتظار',
                users:[{
                    user: {
                        title:'اضافة مستخدم جديد',
@@ -82,18 +97,24 @@
         methods:{
 
             addaccount(scout) {
-                if(this.users[0].user.confirm_passowrd===this.users[0].user.password){
-                    var vm = this;
-                    axios.post("/api/addnewaccount" , vm.users[0].user).then(function (response) {
-
-
-
-                        vm.$router.push('/dashboard/users-accounts')
-
-                    });
+                if( this.users[0].user.email.localeCompare('')===0 ||  this.users[0].user.password.localeCompare('')===0 ||  this.users[0].user.confirm_passowrd.localeCompare('')===0 ){
+                    this.$refs.not_valid.open();
                 }else{
-                    alert("يرجى التاكد من توافق كلمة السر")
+                    if(this.users[0].user.confirm_passowrd===this.users[0].user.password){
+                        var vm = this;
+                        this.show=true;
+                        axios.post("/api/addnewaccount" , vm.users[0].user).then(function (response) {
+                            vm.show=false;
+
+
+                            vm.$router.push('/dashboard/users-accounts')
+
+                        });
+                    }else{
+                        this.$refs.password_warning.open();
+                    }
                 }
+
 
 
 

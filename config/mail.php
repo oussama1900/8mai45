@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'md.jewelfarazi@gmail.com', 'name' => 'Jewel Farazi'],
+    'from' => ['address' => 'md.jewelfarazi@gmail.com', 'name' => 'فوج الفلاح'],
 
     /*
     |--------------------------------------------------------------------------

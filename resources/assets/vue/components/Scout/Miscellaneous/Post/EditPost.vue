@@ -266,6 +266,10 @@
 
 
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 
 
@@ -281,8 +285,8 @@
 
 
 
+    import loading from 'vue-full-loading';
     import Multiselect from 'vue-multiselect';
-
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
 
@@ -294,10 +298,13 @@
     export default{
         components: {
             Multiselect,
-            VueEditor
+            VueEditor,
+            loading
         },
         data(){
             return {
+                show: false,
+                label: '....الرجاء الإنتظار',
               placeholder:"التاريخ",
               direction:'rtl',
               value:"UTC+2",
@@ -442,13 +449,14 @@
 
             EditPost(){
                 if(this.validate()){
+                    this.show=true;
                     this.dateformat();
                     this.post.description = this.description;
                     this.post.post_summary = this.summary;
                     var vm = this;
                     var post_id = this.$route.params.id;
                     axios.post('/api/EditPost/'+post_id,{post:vm.post,new_post_images:vm.new_post_images,post_images_deleted:vm.post_images_deleted}).then(function (response) {
-
+                        vm.show=false;
                         vm.$router.go(-1);
                     });
                 }

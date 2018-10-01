@@ -272,7 +272,8 @@ return [
 "Equipment"=>"العتاد",
 
 "my_scouts"=>"كشافي الوحدة",
-"Received repports"=>"التقارير الواردة",
+"Received repports"=>"التقارير الشهرية",
+"activity_paper"=>"اوراق النشاطات",
 "cub"=>"الاشبال",
 "scoutboy"=>"الكشاف",
 "advanced_scout"=>"الكشاف المتقدم",

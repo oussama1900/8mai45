@@ -161,7 +161,19 @@
                     <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 
                 </button>
+                <button  class="btn btn-primary a-btn-slide-text" style="text-align: center" @click="send">
+                    <span>ارسال</span>
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+
+                </button>
             </div>
+            <sweet-modal icon="success" ref="send_successfully">
+                <h3>تم ارسال ورقة النشاط بنجاح تام</h3>
+            </sweet-modal>
+            <loading
+                    :show="show"
+                    :label="label">
+            </loading>
         </div>
 
     </template>
@@ -170,15 +182,18 @@
         var     EDsubject=1,
                 note=1;
         import Multiselect from 'vue-multiselect';
-
+        import loading from 'vue-full-loading';
         import 'vue-multiselect/dist/vue-multiselect.min.css';
         import 'vue-multiselect/dist/vue-multiselect.min.js';
         export default {
             components: {
                 Multiselect,
+                loading
             },
             data(){
                 return{
+                    show: false,
+                    label: '....الرجاء الإنتظار',
                     placeholder:"التاريخ ",
                     placeholder2:"اختتم النشاط على الساعة  ",
                     direction:'rtl',
@@ -275,6 +290,7 @@
                     element.appendChild(input);
                 },
                 download(){
+                    this.show = true;
                     if(this.activity_number.localeCompare("")===1){
 
                         if(this.activity_number<10)
@@ -342,6 +358,80 @@
                         link.href = window.URL.createObjectURL(blob);
                         link.download = 'ورقة النشاط.pdf';
                         link.click();
+                        vm.show = false;
+
+
+
+
+
+
+                    });
+                },
+                send(){
+                    this.show = true;
+                    if(this.activity_number.localeCompare("")===1){
+
+                        if(this.activity_number<10)
+                            if(this.activity_number>0)
+                                if(!this.activity_number.includes("0"))
+                                    this.activity_number = "0"+this.activity_number;
+
+                    }
+                    var vm = this;
+                    if(this.date.localeCompare("")===1){
+                        var temp_date = this.date.slice(0,10),
+                            cut_date = temp_date.split("-");
+                        this.time =this.date.slice(11,16);
+                        this.date_temp  = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
+                    }
+
+
+
+
+                    this.end_time_temp = this.end_time.slice(11,16);
+                    for(var i =1;i<=EDsubject;i++){
+                        this.goals[i-1] = $('#EDsubject'+i).val();
+
+                    }
+                    for(var j =1;j<=note;j++){
+                        this.notes[j-1]= $('#note'+j).val();
+                    }
+                    for(var x =0;x<this.presence.length;x++){
+                        this.cap_presence[x]= this.presence[x].last_name +" "+ this.presence[x].first_name ;
+                    }
+                    for(var y =0;y<this.scout_presence.length;y++){
+                        this.scout_presence_temp[y]= this.scout_presence[y].last_name +" "+ this.scout_presence[y].first_name ;
+                    }
+                    for(var z =0;z<this.scout_absence.length;z++){
+                        this.scout_absence_temp[z]= this.scout_absence[z].last_name +" "+ this.scout_absence[z].first_name ;
+                    }
+                    for(var u =0;u<this.scout_absence_cause.length;u++){
+                        this.scout_absence_cause_temp[u]= this.scout_absence_cause[u].last_name +" "+ this.scout_absence_cause[u].first_name ;
+                    }
+                    axios({
+                        url:  '/api/SendActivityPaperPDF',
+                        method: 'Post',
+                        responseType: 'blob',
+                        data:{
+                            date:vm.date_temp,
+                            time : vm.time,
+                            location : vm.location,
+                            activity_number:vm.activity_number,
+                            goals :vm.goals,
+                            cap_presence:vm.cap_presence,
+                            scout_presence:vm.scout_presence_temp,
+                            scout_absence:vm.scout_absence_temp,
+                            scout_absence_cause : vm.scout_absence_cause_temp,
+                            notes : vm.notes,
+                            end_time : vm.end_time_temp,
+
+                        }
+
+
+                    }).then(function (response) {
+
+                       vm.$refs.send_successfully.open();
+                       vm.show =false;
 
 
 

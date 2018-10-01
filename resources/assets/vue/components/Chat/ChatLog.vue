@@ -3,7 +3,7 @@
         <chat-message v-for="message in messages" :message="message"></chat-message>
         <div class="empty" v-if="messages.length === 0">
             <p>لا توجد اي محادثة بعد</p>
-            <p>ابدأ واحدة</p>
+            <p>كن أول من يبدأ المحادثة</p>
 
         </div>
     </div>

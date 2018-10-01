@@ -20,11 +20,12 @@ require('./bootstrap');
 
 import 'vue-datetime/dist/vue-datetime.css'
 Vue.config.productionTip = false;
-
+import loading from 'vue-full-loading';
 window.Vue = require('vue');
 
 Vue.use(VueRouter,  Axios,VueCkeditor,vueResource,Datetime,SweetModal);
 Vue.use(SweetModal);
+Vue.use(loading);
 import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';
@@ -69,7 +70,7 @@ import Fin_Events from './components/Scout/Miscellaneous/Event/Units_Events/Fin_
 import EditEvent from './components/Scout/Miscellaneous/Event/EditEvent';
 import MyEvents_posts from './components/Scout/Miscellaneous/MyEvents-posts';
 import Forum from './components/Scout/Miscellaneous/Forum';
-import Reports_received from './components/Scout/Miscellaneous/Reports_received';
+import Reports_received from './components/Scout/Add File/Reports/Reports_received';
 import Finance_Report from './components/Scout/Finance/Finance_Report';
 import Post from './components/Scout/Post/post';
 
@@ -100,6 +101,7 @@ import SocialMedia from './components/UserProfile/SocialMedia';
 import EditScoutInfo from './components/Scout/Scouts/EditScoutInfo';
 
 import Financial_management from './components/Scout/Finance/Financial_management';
+import Activity_paper_Received from './components/Scout/Add File/Activity_paper_Received';
 
 
 
@@ -1281,7 +1283,26 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('gov')===0||current_user.localeCompare('fin')===0)
+                if(current_user.localeCompare('fin')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+        path:"/dashboard/reports/Activity",
+        component:Activity_paper_Received,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('surv')===0)
                     next();
                 else
                     next(false);

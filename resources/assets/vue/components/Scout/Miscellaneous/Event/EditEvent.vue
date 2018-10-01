@@ -237,7 +237,10 @@
             <h3>لم يتم ادخال كل المعلومات اللازمة لنشر الحدث </h3>
             <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
         </sweet-modal>
-
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
         </div>
 
 
@@ -251,7 +254,7 @@
 <script>
 
     import Multiselect from 'vue-multiselect';
-
+    import loading from 'vue-full-loading';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
     import { Datetime } from 'vue-datetime';
@@ -260,20 +263,20 @@
     import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
     export default {
 
-      placeholder:"تاريخ الحدث",
-      direction:'rtl',
-      value:"UTC+2",
+
 
         components: {
             Multiselect,
             VueEditor,
             SweetModal,
-
+            loading
 
         },
         data(){
             return{
 
+                show: false,
+                label: '....الرجاء الإنتظار',
               placeholder:"تاريخ الحدث",
               direction:'rtl',
               value:"UTC+2",
@@ -471,11 +474,13 @@ var vm =this;
             update_event(){
                 this.Event.description = this.desc;
                 if(this.validate()) {
+                    this.show=true;
                     this.dateformat();
                     var vm = this;
                     this.Event.Concerned = this.Concerned;
 
                     axios.post('/api/UpdateEvent',vm.Event).then(function (response) {
+                        vm.show = false;
                         vm.$router.go(-1);
 
 

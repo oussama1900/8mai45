@@ -43,19 +43,26 @@
         <sweet-modal icon="warning" ref="warn">
             <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
-
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     import { VueEditor } from 'vue2-editor'
     export default {
 
         components:{
-            VueEditor
+            VueEditor,
+            loading
         },
         data(){
             return{
+                show: false,
+                label: '....الرجاء الإنتظار',
                 placeholder:"تاريخ الحدث",
                 direction:'rtl',
                 value:"UTC+2",
@@ -137,6 +144,7 @@
 
             },
             download(){
+                this.show =true;
                 if(this.outing_mail<10){
                     if(!this.outing_mail.includes('0'))
                         this.outing_mail = "0"+this.outing_mail;
@@ -147,7 +155,7 @@
                 var vm  =this;
                 axios({
                     url:  '/api/downloadEducational_Institutions',
-                    method: 'Post',
+                    method: 'put',
                     responseType: 'blob',
                     data:{
                         content:vm.content,
@@ -167,7 +175,7 @@
                     link.href = window.URL.createObjectURL(blob);
                     link.download = 'مراسلة '+vm.toperson+'.pdf';
                     link.click();
-
+                    vm.show =false;
                 });
 
 

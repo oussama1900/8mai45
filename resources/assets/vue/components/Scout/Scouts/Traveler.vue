@@ -88,13 +88,23 @@
             <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
+        components: {
+            loading
+        },
        data(){
            return{
+               show: false,
+               label: '....الرجاء الإنتظار',
                MyScouts:[],
                Title:'',
                Scout_code:'',
@@ -149,6 +159,8 @@
                 return true;
             },
             export_traveler_list(){
+                var vm =this;
+                this.show = true;
                 axios({
                     url:  '/api/ExportScoutList',
                     method: 'PUT',
@@ -165,6 +177,7 @@
                     link.href = window.URL.createObjectURL(blob);
                     link.download = 'قائمة الجوالة.pdf';
                     link.click();
+                    vm.show = false;
                 });
             }
 

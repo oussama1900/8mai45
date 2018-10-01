@@ -300,6 +300,10 @@
 
 
             </sweet-modal>
+            <loading
+                    :show="show"
+                    :label="label">
+            </loading>
         </div>
 
     </div>
@@ -315,7 +319,7 @@
 
 
     import Multiselect from 'vue-multiselect';
-
+    import loading from 'vue-full-loading';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
 
@@ -333,11 +337,12 @@
             VueEditor,
             SweetModal,
             SweetModalTab,
-
+            loading
         },
         data(){
             return {
-
+                show: false,
+                label: '....الرجاء الإنتظار',
               placeholder:"التاريخ",
               direction:'rtl',
               value:"UTC+2",
@@ -616,9 +621,11 @@
           },
             postNews(){
                 if(this.validate()){
+                    this.show=true;
                     this.dateformat();
                     var vm = this;
                     axios.post('/api/newpost',vm.post).then(function (response) {
+                        vm.show=true;
                         vm.$router.push('/dashboard/posts/myposts');
 
                     });

@@ -11,7 +11,7 @@
 
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <title>تقرير شهري</title>
+    <title>التقرير  الشهري لوحدة {{$data['unit']}}</title>
     <style>
         *{font-size: 14px}
         .text-align-right{
@@ -436,7 +436,27 @@
     <table style="border: 0px solid white;margin-bottom: 50px" width="100%">
         <tr style="border: 0px solid white">
             <td width="50%"  style="border: 0px solid white;text-align: center">قائد الوحدة</td>
-            <td  width="50%" style="border: 0px solid white;text-align: center">الرائد  الأكبر</td>
+            @if($data['unit']=="الأشبال")
+            <td  width="50%" style="border: 0px solid white;text-align: center">
+                <p> السدوس  الأكبر</p>
+                <p>{{$data['last_name']}} {{$data['first_name']}}</p>
+            </td>
+            @endif
+            @if($data['unit']=="الكشاف" || $data['unit']=="الكشاف المتقدم")
+                    <td  width="50%" style="border: 0px solid white;text-align: center">
+                        <p>العريف  الأكبر</p>
+                        <p>{{$data['last_name']}} {{$data['first_name']}}</p>
+                    </td>
+                @endif
+                @if($data['unit']=="الجوالة")
+                        <td  width="50%" style="border: 0px solid white;text-align: center">
+                         <p> الرائد  الأكبر</p>
+                            <p>{{$data['last_name']}} {{$data['first_name']}}</p>
+
+
+                        </td>
+                @endif
+
 
         </tr>
     </table>

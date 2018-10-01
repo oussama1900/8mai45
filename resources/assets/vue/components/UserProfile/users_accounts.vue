@@ -87,14 +87,24 @@
             <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
+        components: {
+            loading
+        },
        data(){
            return{
+               show: false,
+               label: '....الرجاء الإنتظار',
                Users:[],
                Scout_code:'',
 
@@ -153,6 +163,7 @@
                         var position = vm.Users.indexOf(user);
 
                         vm.Users.splice(position, 1);
+                        vm.$refs.confirmation.close();
                     });
                 });
                 $("#cancel_button").unbind().click(function () {
@@ -172,6 +183,8 @@
                 return true;
             },
             export_user_list(){
+                this.show = true;
+                var vm  =this;
                 axios({
                     url:  '/api/ExportUsersList',
                     method: 'GET',
@@ -184,6 +197,7 @@
                     link.href = window.URL.createObjectURL(blob);
                     link.download = 'قائمة مستخدمي الموقع الإلكتروني.pdf';
                     link.click();
+                    vm.show = false;
 
 
 

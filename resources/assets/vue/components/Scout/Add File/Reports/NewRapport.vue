@@ -456,6 +456,23 @@
                             </button>
                         </div>
                     </div>
+                    <div>
+                        <div class="col-md-6">
+                            <label style="float:right;font-size: medium">
+                                اسم {{young_leader}}
+                            </label>
+                            <input  id="last_name" maxlength="200" type="text"   placeholder="الاسم" dir="rtl" v-model="last_name"/>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label style="float:right;font-size: medium">
+                                لقب {{young_leader}}
+                            </label>
+                            <input  id="first_name" maxlength="200" type="text"   placeholder="اللقب" dir="rtl"  v-model="first_name"/>
+
+                        </div>
+
+                    </div>
 
                 </div>
                 <button  class="btn btn-primary a-btn-slide-text" style="text-align: center" @click="downloadReport('send')">
@@ -470,13 +487,20 @@
             </button>
 
             </div>
+            <sweet-modal icon="success" ref="send_successfully">
+                <h3>تم ارسال التقرير بنجاح تام</h3>
+            </sweet-modal>
+            <loading
+                    :show="show"
+                    :label="label">
+            </loading>
         </div>
 
     </template>
 
     <script>
         import Multiselect from 'vue-multiselect';
-
+        import loading from 'vue-full-loading';
         import 'vue-multiselect/dist/vue-multiselect.min.css';
         import 'vue-multiselect/dist/vue-multiselect.min.js';
         var     EDsubject=1,EDgoal=1,
@@ -495,6 +519,7 @@
             name: "NewRapport",
             components: {
                 Multiselect,
+                loading
             },
             created:function(){
 
@@ -503,7 +528,17 @@
                 axios.get('/api/getCaptains').then(function (response) {
 
                     vm.Captains = response.data.captain[0];
-
+                    vm.current_user_unit = response.data.captain[2];
+                    if(vm.current_user_unit.localeCompare('cubs')===0)
+                        vm.young_leader = "السدوس الأكبر";
+                    else{
+                        if(vm.current_user_unit.localeCompare('sct')===0 || vm.current_user_unit.localeCompare('asct')===0)
+                            vm.young_leader = "العريف الأكبر";
+                        else{
+                            if(vm.current_user_unit.localeCompare('tvlr')===0)
+                                vm.young_leader = "الرائد الأكبر";
+                                }
+                    }
 
                 });
 
@@ -511,6 +546,8 @@
             },
             data(){
                 return{
+                    show: false,
+                    label: '....الرجاء الإنتظار',
                     EDsubject :1,
                     placeholder:"التاريخ ",
                     direction:'rtl',
@@ -562,6 +599,10 @@
                     Shortages:[],
                     Positives:[],
                     Proposales:[],
+                    first_name:'',
+                    last_name:'',
+                    current_user_unit:'',
+                    young_leader:''
 
                 }
 
@@ -784,6 +825,7 @@
                     element.appendChild(input);
                 },
                 downloadReport(msg){
+                    this.show = true;
                     var vm = this;
                     this.insertData();
                     var date ="",
@@ -949,6 +991,8 @@
                                 min_cap_pres:vm.min_cap_pres,
                                 total_monthly_expenses : vm.total_monthly_expenses,
                                 unit_fin_pos : vm.unit_fin_pos,
+                                first_name:vm.first_name,
+                                last_name : vm.last_name,
                                 operation_type:'download'
                             }
 
@@ -961,7 +1005,7 @@
                             link.href = window.URL.createObjectURL(blob);
                             link.download = 'تقرير شهري.pdf';
                             link.click();
-
+                            vm.show = false;
 
 
 
@@ -1020,13 +1064,16 @@
                                 min_cap_pres:vm.min_cap_pres,
                                 total_monthly_expenses : vm.total_monthly_expenses,
                                 unit_fin_pos : vm.unit_fin_pos,
+                                first_name:vm.first_name,
+                                last_name : vm.last_name,
                                 operation_type:'send'
                             }
 
 
                         }).then(function (response) {
 
-
+                            vm.show = false;
+                            vm.$refs.send_successfully.open();
                         });
                     }
 

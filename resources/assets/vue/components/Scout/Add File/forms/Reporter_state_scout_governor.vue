@@ -24,24 +24,31 @@
             <label style="font-size: medium;float:right">محـــافظ الفوج </label>
             <input id="input5"  maxlength="200" type="text" required="required" class=" input-style" placeholder="محـــافظ الفوج  " dir="rtl" v-model="governor" disabled="true" />
         </div>
-        <button class="btn btn-primary nextBtn pull-right" type="button" @click="save()" v-if="saveit">حفظ</button>
-        <button class="btn btn-primary nextBtn pull-right" type="button" @click="preview()" v-if="preview_button">معاينة</button>
-        <button class="btn btn-primary nextBtn pull-left" type="button" @click="download()" v-if="download_button">تحميل</button>
+
+        <button class="btn btn-primary nextBtn pull-left" style="text-align: center" type="button" @click="download()" >تحميل</button>
         <sweet-modal icon="warning" ref="warn">
             <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     import { VueEditor } from 'vue2-editor'
     export default {
         name: "Reporter_state_scout_governor",
         components:{
-            VueEditor
+            VueEditor,
+            loading
         },
         data(){
             return{
+                show: false,
+                label: '....الرجاء الإنتظار',
                 placeholder:"تاريخ الحدث",
                 direction:'rtl',
                 value:"UTC+2",
@@ -77,16 +84,7 @@
             });
         },
         methods:{
-            save(){
-                if(this.date.localeCompare("")===0 || this.outing_mail.localeCompare("")===0 || this.state_scout_gov.localeCompare("")===0 || this.content.localeCompare("")===0 || this.subject.localeCompare("")===0){
-                    this.$refs.warn.open();
-                }else{
-                    this.saveit =false;
-                    this.preview_button=true;
-                    this.download_button=true;
-                }
 
-            },
             preview(){
                 if(this.outing_mail<10){
                     if(!this.outing_mail.includes('0'))
@@ -123,6 +121,7 @@
 
             },
             download(){
+                this.show = true;
                 if(this.outing_mail<10){
                     if(!this.outing_mail.includes('0'))
                     this.outing_mail = "0"+this.outing_mail;
@@ -133,7 +132,7 @@
                 var vm  =this;
                 axios({
                     url:  '/api/downloadReporte_Scout_state_gov',
-                    method: 'Post',
+                    method: 'put',
                     responseType: 'blob',
                     data:{
                         content:vm.content,
@@ -153,6 +152,7 @@
                     link.href = window.URL.createObjectURL(blob);
                     link.download = 'مراسلة المحافظ الولائي.pdf';
                     link.click();
+                    vm.show = false;
 
                 });
 

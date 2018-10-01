@@ -62,18 +62,25 @@
         <sweet-modal icon="warning" ref="warn">
             <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
     import Multiselect from 'vue-multiselect';
-
+    import loading from 'vue-full-loading';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
     export default {
         name: "Assigning_mission",
+
         data(){
             return{
+                show: false,
+                label: '....الرجاء الإنتظار',
                 placeholder:"التاريخ ",
                 direction:'rtl',
                 value:"UTC+2",
@@ -94,7 +101,8 @@
             }
         },
         components:{
-            Multiselect
+            Multiselect,
+            loading
         },
         created:function(){
             var vm = this;
@@ -124,7 +132,7 @@
                 }else{
 
 
-
+                    this.show =true;
 
                     var temp_date = this.from.slice(0,10),
                         cut_date = temp_date.split("-");
@@ -144,7 +152,7 @@
                     var vm  =this;
                     axios({
                         url:  '/api/downloadAssigning_missionPDF',
-                        method: 'Post',
+                        method: 'put',
                         responseType: 'blob',
                         data:{
                             fullname:vm.fullname,
@@ -169,7 +177,7 @@
                         link.download = 'تكليف بمهمة.pdf';
                         link.click();
 
-
+                        vm.show =false;
 
 
 

@@ -256,29 +256,29 @@ Route::get('/getGovernor',
 );
 Route::post('/previewHonorary_pdf', 'FormsController@previewHonorary'
 );
-Route::post('/downloadHonoraryPDF', 'FormsController@downloadHonoraryPDF'
+Route::put('/downloadHonoraryPDF', 'FormsController@downloadHonoraryPDF'
 );
 Route::post('/previewReporte_Scout_state_gov', 'FormsController@previewReporte_Scout_state_gov'
 );
-Route::post('/downloadReporte_Scout_state_gov', 'FormsController@downloadReporte_Scout_state_gov'
+Route::put('/downloadReporte_Scout_state_gov', 'FormsController@downloadReporte_Scout_state_gov'
 );
 Route::post('/PreviewSecurity_ReporterPDF', 'FormsController@PreviewSecurity_ReporterPDF'
 );
-Route::post('/downloadSecurity_ReporterPDF', 'FormsController@downloadSecurity_ReporterPDF'
+Route::put('/downloadSecurity_ReporterPDF', 'FormsController@downloadSecurity_ReporterPDF'
 );
 Route::post('/previewEducational_Institutions', 'FormsController@previewEducational_Institutions'
 );
-Route::post('/downloadEducational_Institutions', 'FormsController@downloadEducational_Institutions'
+Route::put('/downloadEducational_Institutions', 'FormsController@downloadEducational_Institutions'
 );
 
 Route::post('/previewOuting_mailPDF', 'FormsController@previewOuting_mailPDF'
 );
 
-Route::post('/downloadOuting_mailPDF', 'FormsController@downloadOuting_mailPDF'
+Route::put('/downloadOuting_mailPDF', 'FormsController@downloadOuting_mailPDF'
 );
-Route::post('/downloadInaugurationPDF', 'FormsController@downloadInaugurationPDF'
+Route::put('/downloadInaugurationPDF', 'FormsController@downloadInaugurationPDF'
 );
-Route::post('/downloadAssigning_missionPDF', 'FormsController@downloadAssigning_missionPDF'
+Route::put('/downloadAssigning_missionPDF', 'FormsController@downloadAssigning_missionPDF'
 );
 Route::get('/getMyScout', 'FormsController@getMyScout'
 );
@@ -311,6 +311,10 @@ Route::get('/getHubInfo_forMed', 'DashboardController@getHubInfo_forMed'
 );
 Route::get('/GetMonthlyReport', 'FormsController@GetMonthlyReport'
 );
+Route::put('/GetReport', 'FormsController@GetReport'
+);
+Route::put('/GetActivity_Paper_Report', 'FormsController@GetActivity_Paper_Report'
+);
 Route::get('/getHubInfo_forUnit', 'DashboardController@getHubInfo_forUnit'
 );
 Route::get('/getHubInfo_forSurv', 'DashboardController@getHubInfo_forSurv'
@@ -323,6 +327,8 @@ Route::get('/this_month_money_report', 'FinanceController@this_month_money_repor
 Route::get('/DownloadFinanceReport', 'FinanceController@DownloadFinanceReport'
 );
 Route::get('/SendFinanceReport', 'FinanceController@SendFinanceReport'
+);
+Route::get('/SendActivityPaperPDF', 'FormsController@SendActivityPaperPDF'
 );
 
 Route::post('/marsNotificationAsRead',function(){

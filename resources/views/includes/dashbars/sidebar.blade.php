@@ -16,8 +16,9 @@
                   </a>
                   <ul class="site-menu-sub">
                     <li class="site-menu-item">
-                        <router-link class="animsition-link" to="/dashboard"/>
+                        <router-link class="animsition-link" to="/dashboard">
                         <span class="site-menu-title">{{ trans('app.home')}}</span>
+                        </router-link>
                     </li>
                   </ul>
                        </li>
@@ -393,6 +394,13 @@
                                   <span class="site-menu-title">{{ trans('app.Received repports')}}</span>
                               </a>
                           </li>
+                          @if(Auth::user()->hasRole('gov') ||Auth::user()->hasRole('surv'))
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/dashboard/reports/Activity"/>
+                                  <span class="site-menu-title">{{ trans('app.activity_paper')}}</span>
+                              </a>
+                          </li>
+                          @endif
                       </ul>
                   </li>
 
@@ -406,13 +414,17 @@
                           <span class="site-menu-title">{{ trans('app.Finance')}}</span>
                           <span class="site-menu-arrow"/>
                       </a>
+                      @if(Auth::user()->hasRole('fin'))
                       <ul class="site-menu-sub">  <!--my posts sidebar item-->
+
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/dashboard/Finance/Repport">
                                   <span class="site-menu-title">{{ trans('app.Financial report')}}</span>
                               </router-link>
                           </li>
+
                       </ul>
+                      @endif
                       <ul class="site-menu-sub">  <!--forum sidebar item-->
                           <li class="site-menu-item">
 														<router-link class="animsition-link" to="/dashboard/finance/Financial_management">
@@ -471,7 +483,7 @@
       </div>
 
 
-      <div class="site-menubar-footer">
+      <div class="site-menubar-footer" >
           <router-link  style="width:50%" class="animsition-link" to="/dashboard/myprofile" data-placement="top" data-toggle="tooltip" data-original-title="{{ trans('app.edit_profile')}}">
             <i class="icon wb-pencil" aria-hidden="true"></i>
           </router-link>
@@ -498,9 +510,5 @@
                 </form>
       </div>
 
-    <li class="site-menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
-        <a class="animsition-link" href="{{URL::to('/dashboard')}}">
-            <span class="site-menu-title">{{ trans('app.home')}}</span>
-        </a>
-    </li>
+
     </div> <!--End of Sidebar -->

@@ -258,9 +258,83 @@ class FormsController extends Controller
 
         return $pdf->download('example.pdf');
     }
+    public function SendActivityPaperPDF(Request $request){
+        $date = $request->input('date');
+        $time = $request->input('time');
+        $location = $request->input('location');
+        $activity_number = $request->input('activity_number');
+        $goals = $request->input('goals');
+        $cap_presence= $request->input('cap_presence');
+        $scout_presence= $request->input('scout_presence');
+        $scout_absence= $request->input('scout_absence');
+        $scout_absence_cause= $request->input('scout_absence_cause');
+        $notes= $request->input('notes');
+        $end_time= $request->input('end_time');
+
+
+        $data =["date"=>$date,
+                "time"=>$time,
+                "location"=>$location,
+                "activity_number"=>$activity_number,
+                "cap_presence"=>$cap_presence,
+                "scout_presence"=>$scout_presence,
+                "scout_absence"=>$scout_absence,
+                "scout_absence_cause"=>$scout_absence_cause,
+                "notes"=>$notes,
+                "end_time"=>$end_time,
+               ];
+        $pdf = PDF::loadView('FormsTemplate.ActivityPaper',compact('data','goals','cap_presence','scout_presence','scout_absence','scout_absence_cause','notes'));
+        $pdf_string = $pdf->output();
+
+        $current_year_month = date('m-Y');
+        $filename =date('YmdHis',time()).mt_rand().'.pdf';
+        $unit = Auth::user()->captain->unit_name->unit_name;
+        $old_report_id = UnitsReport::select('id')
+            ->where('unit',$unit)
+            ->where('month',Carbon::now()->month)
+            ->where('type','activity_paper')
+            ->whereYear('created_at', date('Y'))
+            ->get();
+        if(count($old_report_id)==1) {
+            $old_report = UnitsReport::find($old_report_id[0]->id);
+            $filename = $old_report->file_name;
+            $old_report->delete();
+        }
+        $pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
+
+
+        file_put_contents($pdfroot, $pdf_string);
+
+       $description ="ورقة نشاط وحدة".$unit." ".$current_year_month;
+        $report = new UnitsReport;
+
+        $report->file_name = $filename;
+        $report->month = Carbon::now()->month;
+        $report->report_date = $date;
+        $report->unit = $unit;
+        $report->type = 'activity_paper';
+        $report->description = $description;
+        $report->created_at = Carbon::now();
+        $report->save();
+
+
+
+
+
+
+        $surv = User::find(Captain::where('role','surv')->value('scout_id'));
+        $notification_message = "تم ارسال ورقة نشاط  لوحدة ". $unit.' '.$current_year_month;
+        $notification_type = "تقرير جديد";
+        $image = "/images/Report.png";
+        if($surv!=null)
+            $surv->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
+        return;
+    }
     public function manageMonthlyRapportPDF(Request $request){
        $date = $request->input('date');
        $month = $request->input('month');
+       $first_name = $request->input('first_name');
+       $last_name = $request->input('last_name');
           $first_activity = $request->input('first_activity');
         $second_activity = $request->input('second_activity');
         $third_activity = $request->input('third_activity');
@@ -311,6 +385,8 @@ class FormsController extends Controller
         $data=["date"=>$date,
                "unit"=>$unit,
                "month"=>$month,
+               "first_name"=>$first_name,
+               "last_name"=>$last_name,
                "first_activity_date"=>$first_activity,
                "second_activity_date"=>$second_activity,
                "third_activity_date"=>$third_activity,
@@ -361,6 +437,7 @@ class FormsController extends Controller
             $old_report_id = UnitsReport::select('id')
 						                        ->where('unit',$unit)
                                     ->where('month',Carbon::now()->month)
+                                    ->where('type','report')
                                     ->whereYear('created_at', date('Y'))
                                     ->get();
             if(count($old_report_id)==1) {
@@ -374,6 +451,7 @@ class FormsController extends Controller
                 $report->month = Carbon::now()->month;
                 $report->report_date = $date;
                 $report->unit = $unit;
+                $report->type = "report";
                 $report->description = $description;
                 $report->created_at = Carbon::now();
                 $report->save();
@@ -397,14 +475,53 @@ class FormsController extends Controller
 				$monthly_reports = UnitsReport::select('file_name','unit','description')
 																				->where(DB::raw('MONTH(month)',Carbon::now()->format('m')))
 																				->where('unit','!=','المالية')
+																				->where('type','report')
 																				->whereYear('created_at', date('Y'))
 																				->get();
 			}else{
 				$monthly_reports = UnitsReport::select('file_name','unit','description')
 																				->where(DB::raw('MONTH(month)',Carbon::now()->format('m')))
+                                                                               ->where('type','report')
 																				->whereYear('created_at', date('Y'))
 																				->get();
 			}
+
+        $public_path = url('/uploads/Units_Report/');
+        return response()->json(["reports"=>$monthly_reports,"public_path"=>$public_path]);
+    }
+    public function GetReport(Request $request){
+        $month = $request->input('month');
+        $year = $request->input('year');
+        if(Auth::user()->captain->role == "surv"){
+            $monthly_reports = UnitsReport::select('file_name','unit','description')
+                ->where('month',$month)
+                ->where('unit','!=','المالية')
+                ->where('type','report')
+                ->whereYear('created_at', $year)
+                ->get();
+        }else{
+            $monthly_reports = UnitsReport::select('file_name','unit','description')
+                ->where('month',$month)
+                ->where('type','report')
+                ->whereYear('created_at', $year)
+                ->get();
+        }
+
+        $public_path = url('/uploads/Units_Report/');
+        return response()->json(["reports"=>$monthly_reports,"public_path"=>$public_path]);
+    }
+    public function GetActivity_Paper_Report(Request $request){
+        $month = $request->input('month');
+        $year = $request->input('year');
+
+            $monthly_reports = UnitsReport::select('file_name','unit','description')
+                ->where('month',$month)
+                ->where('unit','!=','المالية')
+                ->where('type','activity_paper')
+                ->whereYear('created_at', $year)
+                ->get();
+
+
 
         $public_path = url('/uploads/Units_Report/');
         return response()->json(["reports"=>$monthly_reports,"public_path"=>$public_path]);

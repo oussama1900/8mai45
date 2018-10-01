@@ -58,7 +58,7 @@
                     <Honorary-meeting></Honorary-meeting>
                 </div>
 
-                <div id="Assigning_mission" v-model="Assigning_mission">
+                <div id="Assigning_mission" v-if="Assigning_mission">
                     <Assigning-mission></Assigning-mission>
                 </div>
 
@@ -108,7 +108,7 @@
 
           }
         },
-        created:function(){
+        mounted:function(){
             var vm = this;
             var forms;
             $(document).ready(function () {
@@ -141,7 +141,7 @@
                         curInputs = curStep.find("input[type='text'],input[type='url']"),
                         isValid = true;
                       if(curStepBtn.localeCompare('step-1')===0){
-                          vm.showforms(forms)
+                         vm.showforms(forms)
                       }
 
 

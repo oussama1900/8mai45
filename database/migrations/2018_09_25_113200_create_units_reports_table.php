@@ -20,6 +20,7 @@ class CreateUnitsReportsTable extends Migration
             $table->date('report_date');
             $table->string('description');
             $table->string('unit');
+            $table->string('type');
             $table->timestamps();
         });
     }

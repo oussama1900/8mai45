@@ -212,13 +212,23 @@
         <sweet-modal icon="error" ref="role_exist">
             <h3>الدور محجوز مسبقا </h3>
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div><!-- end container -->
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
+        components: {
+            loading
+        },
        data(){
            return{
+               show: false,
+               label: '....الرجاء الإنتظار',
              placeholder_birth:"تاريخ الازدياد",
              placeholder_member:"تاريخ الانضمام",
              direction:"rtl",
@@ -391,6 +401,7 @@ axios.get('/api/getcurrentuser').then(function (response) {
                 ) {
                     this.$refs.warn.open();
                 } else {
+                    this.show = true;
                     if (this.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
                         if (this.Scout.role.localeCompare('med') === 0) {
                             this.Scout.unit_resp = 'med'
@@ -418,10 +429,10 @@ axios.get('/api/getcurrentuser').then(function (response) {
 
                     axios.put("/api/EditScoutInfo/" + this.$route.params.id, vm.Scout).then(function (response) {
 
+                        vm.show = false;
 
-                        console.log(response);
-
-                        if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
+                        vm.$router.go(-1);
+                     /*   if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
 
                             vm.$router.push('/dashboard/scouts/cubs');
                         } else {
@@ -447,7 +458,7 @@ axios.get('/api/getcurrentuser').then(function (response) {
                                 }
                             }
 
-                        }
+                        }*/
 
 
                     });
@@ -469,6 +480,7 @@ axios.get('/api/getcurrentuser').then(function (response) {
                 ) {
                     this.$refs.warn.open();
                 } else {
+                    this.show = true;
 
                     if (this.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
                         if (this.Scout.role.localeCompare('med') === 0) {
@@ -498,9 +510,11 @@ axios.get('/api/getcurrentuser').then(function (response) {
 
                     axios.post("/api/AddNewScout", vm.Scout).then(function (response) {
                         if(response.data.msg.localeCompare('added Successfully')===0){
+                            vm.show = false;
                             vm.$router.go(-1);
                         }else{
                             if(response.data.msg.localeCompare('email already exists')===0){
+                                vm.show = false;
                                 vm.$refs.email_exist.open();
                                 $('#email_error').html('عنوان البريد الإالكتروني موجود مسبقا').css('color','red');
                                 $('#email').keyup(function (event) {
@@ -508,6 +522,7 @@ axios.get('/api/getcurrentuser').then(function (response) {
                                 });
                             }
                                 if(response.data.msg.localeCompare('role already exists')===0){
+                                    vm.show = false;
                                     vm.$refs.role_exist.open();
                                     $('#role_exist').html(' هذا الدور محجوز مسبقا ').css('color','red');
                                     $('#role').change(function (event) {

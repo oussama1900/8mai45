@@ -767,13 +767,15 @@ public function ExportScoutList(Request $request){
             foreach($scout_id as $key){
                 array_push($scout_array,$key->scout_id);
             }
+            $scout = Scout::whereIn('scout_id',$scout_array)->get();
+            $pdf = PDF::loadView('FormsTemplate.Scout_List',compact('scout','unit_fullname'));
     }
 
 
 
-            $scout = Scout::whereIn('scout_id',$scout_array)->get();
 
-            $pdf = PDF::loadView('FormsTemplate.Scout_List',compact('scout','unit_fullname'));
+
+
         }
 
     return $pdf->download('example.pdf');

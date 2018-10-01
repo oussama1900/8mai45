@@ -130,7 +130,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
-                    <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="Event.time" format="yyyy-MM-dd HH:mm"></datetime>
+                    <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="time" format="yyyy-MM-dd HH:mm"></datetime>
                         <span id="event_time" style="float: right"></span>
                     </div>
                 </div>
@@ -297,6 +297,10 @@
 
 
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 
 
@@ -307,7 +311,7 @@
 <script>
 
     import Multiselect from 'vue-multiselect';
-
+    import loading from 'vue-full-loading';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
     import { Datetime } from 'vue-datetime';
@@ -325,7 +329,7 @@
             Datetime,
         SweetModal,
         SweetModalTab,
-
+            loading
         },
         created:function(){
             var vm = this;
@@ -340,7 +344,9 @@
 placeholder:"تاريخ الحدث",
 direction:'rtl',
 value:"UTC+2",
-
+                time:'',
+                show: false,
+                label: '....الرجاء الإنتظار',
             unit_for_gov:[
                 "الأشبال",
                 "الكشاف",
@@ -416,7 +422,7 @@ value:"UTC+2",
                         this.Event.type.length===0 ||
                         this.Event.responsible.length===0 ||
                         this.Event.title.localeCompare("")===0 ||
-                        this.Event.time.localeCompare("")===0 ||
+                        this.time.localeCompare("")===0 ||
                         this.Event.location.localeCompare("")===0 ||
                         this.Event.image.localeCompare("")===0 ||
                         this.Event.desc.localeCompare("")===0
@@ -448,7 +454,7 @@ value:"UTC+2",
                             $('#responsible').html('');
                         }
 
-                        if(this.Event.time.localeCompare("")===0){
+                        if(this.time.localeCompare("")===0){
                             $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
 
                         }else{
@@ -481,7 +487,7 @@ value:"UTC+2",
                             this.Event.title.localeCompare("")===0 ||
                             this.Event.responsible.length===0 ||
                             this.Event.type.length===0  ||
-                            this.Event.time.localeCompare("")===0 ||
+                            this.time.localeCompare("")===0 ||
                             this.Event.location.localeCompare("")===0 ||
                             this.Event.image.localeCompare("")===0 ||
                             this.Event.desc.localeCompare("")===0
@@ -513,7 +519,7 @@ value:"UTC+2",
                                 $('#responsible').html('');
                             }
 
-                            if(this.Event.time.localeCompare("")===0){
+                            if(this.time.localeCompare("")===0){
                                 $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
 
                             }else{
@@ -545,7 +551,7 @@ value:"UTC+2",
                             this.Event.title.localeCompare("")===0 ||
                             this.Event.responsible.length===0 ||
 
-                            this.Event.time.localeCompare("")===0 ||
+                            this.time.localeCompare("")===0 ||
                             this.Event.location.localeCompare("")===0 ||
                             this.Event.image.localeCompare("")===0 ||
                             this.Event.desc.localeCompare("")===0
@@ -571,7 +577,7 @@ value:"UTC+2",
                                 $('#responsible').html('');
                             }
 
-                            if(this.Event.time.localeCompare("")===0){
+                            if(this.time.localeCompare("")===0){
                                 $('#event_time').html(' حدد تاريخ الحدث').css('color', 'red');
 
                             }else{
@@ -619,19 +625,20 @@ value:"UTC+2",
 
             },
           dateformat(){
-            var datetime = this.Event.time;
+            var datetime = this.time;
             var dateArray = datetime.split("T");
              var date = dateArray[0];
              var time = dateArray[1].split(".")[0];
              this.Event.time = date.concat(" "+time);
           },
             postEvent(){
-
+                this.show=true;
               if(this.validate()){
                   this.dateformat();
 
                   var vm = this;
                   axios.post('/api/postEvent',vm.Event).then(function (response) {
+                      vm.show=true;
                       vm.$router.push('/dashboard/Events/MyEvents');
 
                   });

@@ -61,7 +61,7 @@
                                                                   <tr>
                                                                      <td align="center" width="100%" style="padding: 0 15px;text-align: justify;color: rgb(76, 76, 76);font-size: 12px;line-height: 18px;">
                                                                         <h2 style="font-weight: 600; padding: 0px; margin: 0px;  line-height: 24px; text-align: center;" class="title-color">مرحبا {{$fullname}}</h2>
-                                                                      <h3>  <p style="margin: 20px 0 30px 0;text-align: center;line-height: 35px;font-family:Droid Naskh">  ألف مبروك لقد تم ترقيتك لتكون ضمن اسرة الطاقم القيادي لفوج الفلاح العريق وبهذا الصدد نتشرف بمنحك حساب الكتروني في الموق الالكتروني الخاص بنا  <b> <a href="http://www.faleh.com" style="text-decoration:none">فوج الفلاح</a>  </b></p></h3>
+                                                                      <h3>  <p style="margin: 20px 0 30px 0;text-align: center;line-height: 35px;font-family:Droid Naskh">  ألف مبروك لقد تم ترقيتك لتكون ضمن اسرة الطاقم القيادي لفوج الفلاح العريق وبهذا الصدد نتشرف بمنحك حساب الكتروني في الموقع الالكتروني الخاص بنا  <b> <a href="http://www.faleh.com" style="text-decoration:none">فوج الفلاح</a>  </b></p></h3>
                                                                         <p style="text-align:center;font-size:large"> <b>معلومات الحساب</b></p>
                                                                           <div dir="rtl">
                                                                             <p style="text-align:right">  البريد الالكتروني :<span> {{$email}} </span> </p>

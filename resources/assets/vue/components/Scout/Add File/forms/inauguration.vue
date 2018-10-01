@@ -37,17 +37,22 @@
         <sweet-modal icon="warning" ref="warn">
             <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
+        <loading
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 </template>
 
 <script>
     import Multiselect from 'vue-multiselect';
-
+    import loading from 'vue-full-loading';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
     export default {
         components:{
-            Multiselect
+            Multiselect,
+            loading
         },
         created:function(){
             var vm = this;
@@ -58,6 +63,8 @@
         },
        data(){
            return{
+               show: false,
+               label: '....الرجاء الإنتظار',
                placeholder:"التاريخ و الوقت",
                direction:'rtl',
                value:"UTC+2",
@@ -93,6 +100,7 @@
 
 
                 }else{
+                    this.show = true;
                     var datetime = this.date;
                   datetime =  datetime.split('T');
 
@@ -106,7 +114,7 @@
                     var vm  =this;
                    axios({
                         url:  '/api/downloadInaugurationPDF',
-                        method: 'Post',
+                        method: 'put',
                         responseType: 'blob',
                         data:{
                             date:vm.date,
@@ -126,7 +134,7 @@
                         link.href = window.URL.createObjectURL(blob);
                         link.download = 'محضر تنصيب.pdf';
                         link.click();
-
+                       vm.show = false;
 
 
 

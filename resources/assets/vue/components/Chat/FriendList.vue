@@ -3,11 +3,11 @@
     <div>
     <div v-for="user in allusers">
         <div  v-if="hide_me(user)" class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
                 <img class="img-circle" v-bind:src="'/images/Captain/'+user.profile.image" width="40" height="40" v-if="ImageExist(user)"/>
                 <img class="img-circle" src="/images/default.png" width="40" height="40" v-else/>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-9 col-xs-9">
                 <p style="color: white"> {{user.profile.last_name}} {{ user.profile.first_name}} </p>
             </div>
 

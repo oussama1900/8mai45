@@ -9,7 +9,7 @@
 
 </div>
             <div class="col-sm-10  col-md-10 col-xs-10" style="top: 0px;padding-right: 0px;padding-left: 0px;">
-                <div  class="card" style="  border-radius:15px;margin-right:12px">
+                <div  class="card" style="  border-radius:15px;margin:0px;margin-right:12px">
                 <p style="color: black;padding-right:5px;padding-left: 5px">{{message.message}}</p>
             </div>
             </div>

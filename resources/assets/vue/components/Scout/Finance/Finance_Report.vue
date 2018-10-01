@@ -37,13 +37,26 @@
 					</div>
 
         </div>
+		<sweet-modal icon="success" ref="send_successfully">
+			<h3>تم ارسال التقرير بنجاح تام</h3>
+		</sweet-modal>
+		<loading
+				:show="show"
+				:label="label">
+		</loading>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
+        components:{
+            loading
+		},
 			data(){
 				return{
+                    show: false,
+                    label: '....الرجاء الإنتظار',
 					money_data:'',
 				}
 			},
@@ -67,6 +80,9 @@
 
 				},
 				downloadReport(){
+
+                    var vm =this;
+				    this.show =true;
 					axios({
 							url:  '/api/DownloadFinanceReport',
 							method: 'get',
@@ -78,14 +94,18 @@
 							link.href = window.URL.createObjectURL(blob);
 							link.download = 'تقرير المالية.pdf';
 							link.click();
+                        vm.show =false;
 						});
 				},
 				sendReport(){
+                    var vm =this;
+                    this.show =true;
 					axios({
 							url:  '/api/SendFinanceReport',
 							method: 'GET',
 						}).then(function(){
-
+                        vm.show =false;
+                        vm.$refs.send_successfully.open();
 						});
 				}
 			}
