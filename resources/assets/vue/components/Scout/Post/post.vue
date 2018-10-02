@@ -41,7 +41,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">التاريخ</label>
-                          <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                          <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
                         <span id="post_time" style="float: right"></span>
                     </div>
 
@@ -64,7 +64,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="post.post_summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
+                        <vue-editor v-model="post.post_summary" :editorToolbar="customToolbar" class="label_title" lang="20"></vue-editor>
 
                     </div>
 
@@ -90,7 +90,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="post.description" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor v-model="post.description" :editorToolbar="customToolbar" class="label_title"></vue-editor>
 
 
                     </div>
@@ -115,9 +115,9 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.linked_unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.linked_unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -142,10 +142,10 @@
                 <div class="row">
                     <div class="col-md-12" >
 
-                        <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.linked_unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <label  style="float:right;font-size:medium" > الوحدة المقصودة </label>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.linked_unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -175,9 +175,9 @@
                         <label  style="float:right;font-size:medium">نوع الخبر </label>
 
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -620,12 +620,13 @@
              this.post.post_date = date.concat(" "+time);
           },
             postNews(){
-                if(this.validate()){
+                if(this.validate()===true){
+                  
                     this.show=true;
                     this.dateformat();
                     var vm = this;
                     axios.post('/api/newpost',vm.post).then(function (response) {
-                        vm.show=true;
+                        vm.show=false;
                         vm.$router.push('/dashboard/posts/myposts');
 
                     });
@@ -825,4 +826,12 @@
         }
 
     }
+.label_title{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+}
+label,h3,h4,span,input{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+}
 </style>

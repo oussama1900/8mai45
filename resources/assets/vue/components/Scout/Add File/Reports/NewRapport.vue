@@ -9,54 +9,54 @@
 
 
             <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                <label style="font-size: medium;float:right">التاريخ  </label>
-                <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                <label style="font-size: medium;float:right" class="label_title">التاريخ  </label>
+                <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
             </div>
             <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                <label style="font-size: medium;float:right">تقرير شهر    </label>
-								<select id="month" class="form-control" dir="rtl" v-model="month">
-									<option value="جانفي">جانفي</option>
-									<option value="فيفري">فيفري</option>
-									<option value="مارس">مارس</option>
-									<option value="أفريل">أفريل</option>
-									<option value="ماي">ماي</option>
-									<option value="جوان">جوان</option>
-									<option value="جويلية">جويلية</option>
-									<option value="أوت">أوت</option>
-									<option value="سبتمبر">سبتمبر</option>
-									<option value="أكتوبر">أكتوبر</option>
-									<option value="نوفمبر">نوفمبر</option>
-									<option value="ديسمبر">ديسمبر</option>
+                <label style="font-size: medium;float:right" class="label_title">تقرير شهر    </label>
+								<select id="month" class="form-control label_title" dir="rtl" v-model="month">
+									<option value="جانفي" class="label_title">جانفي</option>
+									<option value="فيفري" class="label_title">فيفري</option>
+									<option value="مارس" class="label_title">مارس</option>
+									<option value="أفريل" class="label_title">أفريل</option>
+									<option value="ماي" class="label_title">ماي</option>
+									<option value="جوان" class="label_title">جوان</option>
+									<option value="جويلية" class="label_title">جويلية</option>
+									<option value="أوت" class="label_title">أوت</option>
+									<option value="سبتمبر" class="label_title">سبتمبر</option>
+									<option value="أكتوبر" class="label_title">أكتوبر</option>
+									<option value="نوفمبر" class="label_title">نوفمبر</option>
+									<option value="ديسمبر" class="label_title">ديسمبر</option>
 								</select>
 
             </div>
                 <div class="table" style="padding-bottom: 10px;padding-top: 10px">
                     <div>
-                        <label style="font-size: medium;text-align: center">الجانب التربوي  </label>
+                        <label style="font-size: medium;text-align: center" class="label_title">الجانب التربوي  </label>
                         <div class="row">
                             <div class="col-md-6" >
-                                <label style="font-size: medium;float:right">الأهــــــــداف المحققة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">الأهــــــــداف المحققة  </label>
                                 <div id="Educationalgoals">
-                                    <input id="EDgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف  " dir="rtl" />
+                                    <input class="label_title" id="EDgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف  " dir="rtl" />
 
                                 </div>
 
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('Educationalgoals','الهــــــــدف')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('Educationalgoals','الهــــــــدف')">
+                                    <span class="glyphicon glyphicon-plus label_title"  aria-hidden="true"></span>
 
                                 </button>
 
                             </div>
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">المواضيع المقدمة  </label>
                                 <div id="EducationalSubjects">
-                                    <input id="EDsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
+                                    <input class="label_title" id="EDsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
 
                                 </div>
 
-                                <button  class="btn btn-primary a-btn-slide-text" v-on:click="add('EducationalSubjects','الموضوع')">
+                                <button  class="btn btn-primary a-btn-slide-text label_title"   v-on:click="add('EducationalSubjects','الموضوع')">
 
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
@@ -66,28 +66,28 @@
 
                     </div>
                     <div>
-                        <label style="font-size: medium;text-align: center">الجانب الكشفي  </label>
+                        <label style="font-size: medium;text-align: center" class="label_title">الجانب الكشفي  </label>
                         <div class="row">
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">الأهــــــــداف المحققة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">الأهــــــــداف المحققة  </label>
                                 <div id="ScoutingSide-goals">
 
-                                    <input id="SCgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف  " dir="rtl" />
+                                    <input class="label_title" id="SCgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('ScoutingSide-goals','الهــــــــدف')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"   v-on:click="add('ScoutingSide-goals','الهــــــــدف')">
+                                    <span class="glyphicon glyphicon-plus label_title"  aria-hidden="true"></span>
 
                                 </button>
                             </div>
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">المواضيع المقدمة  </label>
                                 <div id="ScoutingSide-subject">
-                                    <input  id="SCsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع" dir="rtl" />
+                                    <input  class="label_title" id="SCsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع" dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('ScoutingSide-subject','الموضوع')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title" v-on:click="add('ScoutingSide-subject','الموضوع')">
+                                    <span class="glyphicon glyphicon-plus label_title"   aria-hidden="true"></span>
 
                                 </button>
 
@@ -99,27 +99,27 @@
 
                     </div>
                     <div>
-                        <label style="font-size: medium;text-align: center">الجانب الثقافي  </label>
+                        <label style="font-size: medium;text-align: center" class="label_title">الجانب الثقافي  </label>
                         <div class="row">
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">الأهــــــــداف المحققة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">الأهــــــــداف المحققة  </label>
                                 <div id="Culturalside-subjects">
-                                    <input id="CULgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف" dir="rtl" />
+                                    <input class="label_title" id="CULgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف" dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('Culturalside-subjects','الهــــــــدف')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('Culturalside-subjects','الهــــــــدف')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">المواضيع المقدمة  </label>
                                 <div id="Culturalside-goals">
-                                    <input id="CULsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع" dir="rtl" />
+                                    <input class="label_title" id="CULsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع" dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('Culturalside-goals','الموضوع')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('Culturalside-goals','الموضوع')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
 
@@ -127,28 +127,28 @@
 
                     </div>
                     </div>
-                    <div><label style="font-size: medium;text-align: center">الجانب المهاراتي</label>
+                    <div><label style="font-size: medium;text-align: center" class="label_title">الجانب المهاراتي</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">الأهــــــــداف المحققة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">الأهــــــــداف المحققة  </label>
                                 <div id="SkillsSide-goals">
-                                    <input id="SKLgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف " dir="rtl" />
+                                    <input class="label_title" id="SKLgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('SkillsSide-goals','الهــــــــدف')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('SkillsSide-goals','الهــــــــدف')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
 
                             </div>
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">المواضيع المقدمة  </label>
                                 <div id="SkillsSide-Subjects">
-                                    <input id="SKLsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
+                                    <input class="label_title" id="SKLsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('SkillsSide-Subjects','الموضوع')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('SkillsSide-Subjects','الموضوع')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
 
@@ -156,27 +156,27 @@
 
                         </div></div>
                     <div>
-                        <label style="font-size: medium;text-align: center">الأناشيد</label>
+                        <label style="font-size: medium;text-align: center" class="label_title">الأناشيد</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">الأهــــــــداف المحققة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">الأهــــــــداف المحققة  </label>
                                 <div id="songs-goals">
-                                    <input id="SONGgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف " dir="rtl" />
+                                    <input class="label_title" id="SONGgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('songs-goals','الهــــــــدف')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('songs-goals','الهــــــــدف')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">المواضيع المقدمة  </label>
                                 <div id="songs-subjects">
-                                    <input id="SONGsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
+                                    <input class="label_title" id="SONGsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('songs-subjects','الموضوع')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('songs-subjects','الموضوع')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
 
@@ -185,27 +185,27 @@
                         </div>
                     </div>
                     <div>
-                        <label style="font-size: medium;text-align: center">الألعـــاب</label>
+                        <label style="font-size: medium;text-align: center" class="label_title">الألعـــاب</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">الأهــــــــداف المحققة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">الأهــــــــداف المحققة  </label>
                                 <div id="games-goals">
-                                    <input  id="GAMEgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف  " dir="rtl" />
+                                    <input class="label_title" id="GAMEgoal1" maxlength="200" type="text" required="required"  placeholder="الهــــــــدف  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('games-goals','الهــــــــدف')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('games-goals','الهــــــــدف')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
                             <div class="col-md-6">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right" class="label_title">المواضيع المقدمة  </label>
                                 <div id="games-subjects">
-                                    <input id="GAMEsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
+                                    <input class="label_title" id="GAMEsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('games-subjects','الموضوع')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('games-subjects','الموضوع')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
 
@@ -216,71 +216,71 @@
 
                 </div>
                 <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                    <label style="font-size: medium;text-align: center">احصائيات عامة  </label>
+                    <label style="font-size: medium;text-align: center" class="label_title">احصائيات عامة  </label>
                     <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">نسبة تطبيق البرنامج العربي  </label>
-                        <input  maxlength="3" type="text" required="required"  onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="نسبة تطبيق البرنامج العربي " dir="rtl" v-model="arprog_perc"/>
+                        <label style="font-size: medium;text-align: right" class="label_title">نسبة تطبيق البرنامج العربي  </label>
+                        <input class="label_title" maxlength="3" type="text" required="required"  onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="نسبة تطبيق البرنامج العربي " dir="rtl" v-model="arprog_perc"/>
                     </div>
                     <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">أكثر عدد حضور كشافين </label>
-                        <input  maxlength="3" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="أكثر عدد حضور كشافين " dir="rtl" v-model="max_scout_pres"/>
+                        <label style="font-size: medium;text-align: right" class="label_title">أكثر عدد حضور كشافين </label>
+                        <input  class="label_title" maxlength="3" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="أكثر عدد حضور كشافين " dir="rtl" v-model="max_scout_pres"/>
                     </div>
 
                     <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">أضعف عدد حضور كشافين  </label>
-                        <input  maxlength="200" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"  placeholder="أضعف عدد حضور كشافين" dir="rtl" v-model="min_scout_pres"/>
-                    </div>
-
-
-                    <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">أكثر عدد حضور قادة </label>
-                        <input  maxlength="200" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="أكثر عدد حضور قادة " dir="rtl" v-model="max_cap_pres"/>
+                        <label style="font-size: medium;text-align: right" class="label_title">أضعف عدد حضور كشافين  </label>
+                        <input class="label_title" maxlength="200" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"  placeholder="أضعف عدد حضور كشافين" dir="rtl" v-model="min_scout_pres"/>
                     </div>
 
 
                     <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">أضعف عدد حضور قادة  </label>
-                        <input  maxlength="200" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="أضعف عدد حضور قادة " dir="rtl" v-model="min_scout_pres"/>
+                        <label style="font-size: medium;text-align: right" class="label_title">أكثر عدد حضور قادة </label>
+                        <input  class="label_title" maxlength="200" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="أكثر عدد حضور قادة " dir="rtl" v-model="max_cap_pres"/>
                     </div>
 
 
                     <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">مجموع مصاريف الشهر  </label>
-                        <input  maxlength="200" type="text" required="required"  placeholder="مجموع مصاريف الشهر " dir="rtl" v-model="total_monthly_expenses"/>
+                        <label style="font-size: medium;text-align: right" class="label_title">أضعف عدد حضور قادة  </label>
+                        <input class="label_title" maxlength="200" type="text" required="required" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" placeholder="أضعف عدد حضور قادة " dir="rtl" v-model="min_scout_pres"/>
                     </div>
 
 
                     <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: right">وضعية مالية الوحدة  </label>
-                        <input  maxlength="200" type="text" required="required"  placeholder="وضعية مالية الوحدة " dir="rtl" v-model="unit_fin_pos"/>
+                        <label style="font-size: medium;text-align: right" class="label_title">مجموع مصاريف الشهر  </label>
+                        <input class="label_title"  maxlength="200" type="text" required="required"  placeholder="مجموع مصاريف الشهر " dir="rtl" v-model="total_monthly_expenses"/>
+                    </div>
+
+
+                    <div  class="form-group" style="padding-bottom: 10px;padding-top: 10px">
+                        <label style="font-size: medium;text-align: right" class="label_title">وضعية مالية الوحدة  </label>
+                        <input class="label_title" maxlength="200" type="text" required="required"  placeholder="وضعية مالية الوحدة " dir="rtl" v-model="unit_fin_pos"/>
                     </div>
 
                 </div>
                 <div class="table" style="padding-bottom: 10px;padding-top: 10px" >
-                    <label style="font-size: medium;text-align: center">تقييم العمل  </label>
+                    <label style="font-size: medium;text-align: center" class="label_title">تقييم العمل  </label>
                     <div class="row">
                         <div class="col-md-6">
-                            <label style="font-size: medium;float:right">نقائص   </label>
+                            <label style="font-size: medium;float:right" class="label_title">نقائص   </label>
                             <div>
                                 <div id="Shortages">
-                                    <input id="shortage1" maxlength="200" type="text" required="required"  placeholder="نقائص  " dir="rtl" />
+                                    <input class="label_title" id="shortage1" maxlength="200" type="text" required="required"  placeholder="نقائص  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('Shortages','نقائص')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('Shortages','نقائص')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label style="font-size: medium;float:right">إيجابيات   </label>
+                            <label style="font-size: medium;float:right"  class="label_title">إيجابيات   </label>
                             <div>
                                 <div id="Positives">
-                                    <input id="positive1" maxlength="200" type="text" required="required"  placeholder="إيجابيات  " dir="rtl" />
+                                    <input class="label_title" id="positive1" maxlength="200" type="text" required="required"  placeholder="إيجابيات  " dir="rtl" />
 
                                 </div>
-                                <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('Positives','إيجابيات')">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <button  class="btn btn-primary a-btn-slide-textlabel_title "  v-on:click="add('Positives','إيجابيات')">
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
@@ -289,30 +289,30 @@
                     </div>
                 </div>
                 <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                    <label style="font-size: medium;text-align: center">مداومة قادة الوحدة   </label>
+                    <label style="font-size: medium;text-align: center" class="label_title">مداومة قادة الوحدة   </label>
                     <div>
                         <div class="row" style="padding-bottom: 10px;padding-top: 10px">
 
                             <div class="col-md-6">
                                 <div >
-                                    <label style="font-size: medium;text-align: right">الرياضة الأولى </label>
-                                    <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="first_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                    <label style="font-size: medium;text-align: right" class="label_title">الرياضة الأولى </label>
+                                    <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="first_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 </div>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="first_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="first_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
                             </div>
                             <div  class="col-md-6" >
-                                <label style="font-size: medium;text-align: right">النشاط الأول  </label>
-                                <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="first_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                <label style="font-size: medium;text-align: right" class="label_title">النشاط الأول  </label>
+                                <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="first_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="first_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title"  v-model="first_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
@@ -324,24 +324,24 @@
 
                             <div class="col-md-6">
                                 <div >
-                                    <label style="font-size: medium;text-align: right">الرياضة الثانية </label>
-                                    <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="second_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                    <label style="font-size: medium;text-align: right" class="label_title">الرياضة الثانية </label>
+                                    <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="second_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 </div>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="second_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="second_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
                             </div>
                             <div  class="col-md-6" >
-                                <label style="font-size: medium;text-align: right">النشاط الثاني  </label>
-                                <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="second_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                <label style="font-size: medium;text-align: right" class="label_title">النشاط الثاني  </label>
+                                <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="second_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="second_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;"class="label_title" v-model="second_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
@@ -353,24 +353,24 @@
 
                             <div class="col-md-6">
                                 <div >
-                                    <label style="font-size: medium;text-align: right">الرياضة الثالثة </label>
-                                    <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="third_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                    <label style="font-size: medium;text-align: right" class="label_title">الرياضة الثالثة </label>
+                                    <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="third_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 </div>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="third_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="third_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
                             </div>
                             <div  class="col-md-6" >
-                                <label style="font-size: medium;text-align: right">النشاط الثالث  </label>
-                                <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="third_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                <label style="font-size: medium;text-align: right" class="label_title">النشاط الثالث  </label>
+                                <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="third_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="third_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="third_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
@@ -382,24 +382,24 @@
 
                             <div class="col-md-6">
                                 <div >
-                                    <label style="font-size: medium;text-align: right">الرياضة الرابعة </label>
-                                    <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="fourth_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                    <label style="font-size: medium;text-align: right" class="label_title">الرياضة الرابعة </label>
+                                    <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="fourth_sport" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 </div>
                                 <div  >
                                     <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="fourth_sport_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
                             </div>
                             <div  class="col-md-6" >
-                                <label style="font-size: medium;text-align: right">النشاط الرابع  </label>
-                                <datetime type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="fourth_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+                                <label style="font-size: medium;text-align: right" class="label_title">النشاط الرابع  </label>
+                                <datetime class="label_title" type="date" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="fourth_activity" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
                                 <div  >
-                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="fourth_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                    <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="fourth_activ_cap_pres" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" القادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                        <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                     </multiselect>
                                 </div>
@@ -444,31 +444,31 @@
 
 
                     <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                        <label style="font-size: medium;text-align: center">بعض المقترحات للشهر القادم الى إدارة الفوج  </label>
+                        <label style="font-size: medium;text-align: center" class="label_title">بعض المقترحات للشهر القادم الى إدارة الفوج  </label>
                         <div style="padding-bottom: 10px;padding-top: 10px">
                             <div id="few-proposals">
-                                <input  id="proposal1" maxlength="200" type="text" required="required"  placeholder="مقترح" dir="rtl" />
+                                <input  class="label_title" id="proposal1" maxlength="200" type="text" required="required"  placeholder="مقترح" dir="rtl" />
 
                             </div>
-                            <button  class="btn btn-primary a-btn-slide-text"  v-on:click="add('few-proposals','مقترح')">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            <button  class="btn btn-primary a-btn-slide-text label_title"  v-on:click="add('few-proposals','مقترح')">
+                                <span class="glyphicon glyphicon-plus label_title"  aria-hidden="true"></span>
 
                             </button>
                         </div>
                     </div>
                     <div>
                         <div class="col-md-6">
-                            <label style="float:right;font-size: medium">
+                            <label style="float:right;font-size: medium" class="label_title">
                                 اسم {{young_leader}}
                             </label>
-                            <input  id="last_name" maxlength="200" type="text"   placeholder="الاسم" dir="rtl" v-model="last_name"/>
+                            <input class="label_title" id="last_name" maxlength="200" type="text"   placeholder="الاسم" dir="rtl" v-model="last_name"/>
 
                         </div>
                         <div class="col-md-6">
-                            <label style="float:right;font-size: medium">
+                            <label style="float:right;font-size: medium" class="label_title">
                                 لقب {{young_leader}}
                             </label>
-                            <input  id="first_name" maxlength="200" type="text"   placeholder="اللقب" dir="rtl"  v-model="first_name"/>
+                            <input class="label_title" id="first_name" maxlength="200" type="text"   placeholder="اللقب" dir="rtl"  v-model="first_name"/>
 
                         </div>
 
@@ -476,21 +476,22 @@
 
                 </div>
                 <button  class="btn btn-primary a-btn-slide-text" style="text-align: center" @click="downloadReport('send')">
-                    <span>ارسال التقرير</span>
-                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                    <span class="label_title">ارسال التقرير</span>
+                    <span class="glyphicon glyphicon-send "  aria-hidden="true"></span>
 
                 </button>
                 <button  class="btn btn-primary a-btn-slide-text" style="text-align: center" @click="downloadReport('download')">
-                <span>تحميل</span>
-                <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                <span class="label_title">تحميل</span>
+                <span class="glyphicon glyphicon-save " aria-hidden="true"></span>
 
             </button>
 
             </div>
             <sweet-modal icon="success" ref="send_successfully">
-                <h3>تم ارسال التقرير بنجاح تام</h3>
+                <h3 class="label_title">تم ارسال التقرير بنجاح تام</h3>
             </sweet-modal>
             <loading
+                    class="label_title"
                     :show="show"
                     :label="label">
             </loading>
@@ -822,6 +823,7 @@
 
 
                      element = document.getElementById(inputtype);
+                    element.classList.add("label_title");
                     element.appendChild(input);
                 },
                 downloadReport(msg){
@@ -1199,5 +1201,12 @@
     }
     .header .title{
         color:white;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
     }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
+
+
 </style>

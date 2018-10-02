@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-12" >
 
-                        <label  style="float:right;font-size:medium"> عنوان النشاط</label>
+                        <label  style="float:right;font-size:medium" > عنوان النشاط</label>
                         <input id="post_title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title">
                     </div>
 
@@ -42,7 +42,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">التاريخ </label>
-                      <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                      <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
                         <span id="post_time" style="float: right"></span>
                     </div>
 
@@ -113,7 +113,7 @@
                             </div>
 
                         </div>
-                        <vue-editor v-model="description" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor v-model="description" :editorToolbar="customToolbar" class="label_title"></vue-editor>
 
 
                     </div>
@@ -140,9 +140,9 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium">نوع النشاط </label>
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -267,6 +267,7 @@
 
         </sweet-modal>
         <loading
+                class="label_title"
                 :show="show"
                 :label="label">
         </loading>
@@ -624,5 +625,14 @@
     }
     .header .title{
         color:white;
+    }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
+
+    h4,span,input,h3,label{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
     }
 </style>

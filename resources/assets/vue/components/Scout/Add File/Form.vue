@@ -7,12 +7,12 @@
    <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step col-xs-3 col-md-6">
-                <a href="#step-1"  class="btn btn-success btn-circle"  >1</a>
-                <p><small>نوع الاستمارة</small></p>
+                <a href="#step-1"  class="btn btn-success btn-circle header-title"  >1</a>
+                <p><small class="header-title">نوع الاستمارة</small></p>
             </div>
             <div class="stepwizard-step col-xs-3 col-md-6">
-                <a href="#step-2"  class="btn btn-default btn-circle" disabled="true">2</a>
-                <p><small>ملء الاستمارة</small></p>
+                <a href="#step-2"  class="btn btn-default btn-circle header-title" disabled="true">2</a>
+                <p><small class="header-title">ملء الاستمارة</small></p>
             </div>
 
         </div>
@@ -21,33 +21,33 @@
     <form role="form">
         <div class="panel panel-primary setup-content" id="step-1">
             <div class="panel-heading" style="    border-top-left-radius:7px ;    border-top-right-radius:7px">
-                <h3 class="panel-title">نوع الاستمارة</h3>
+                <h3 class="panel-title header-title" >نوع الاستمارة</h3>
             </div>
             <div class="panel-body">
                 <div class="form-group">
 
                    <div style="margin :20px">
-                    <select id="forms" class="form-control" dir="rtl" >
-                        <option>	الاجتماع الشرفي</option>
-                        <option>	تكليف بمهمة</option>
-                        <option>	 محضر تنصيب </option>
-                        <option>	مراسلة الامن</option>
-                        <option>	مراسلة المؤسسات التربوية</option>
-                        <option>	مراسلة البريد الصادر</option>
-                        <option>	مراسلة المحافظ الولائي</option>
-                        <option>	نموذج التأمين </option>
+                    <select  id="forms" class="form-control header-title" dir="rtl" >
+                        <option class="header-title">	الاجتماع الشرفي</option>
+                        <option class="header-title">	تكليف بمهمة</option>
+                        <option class="header-title">	 محضر تنصيب </option>
+                        <option class="header-title">	مراسلة الامن</option>
+                        <option class="header-title">	مراسلة المؤسسات التربوية</option>
+                        <option class="header-title">	مراسلة البريد الصادر</option>
+                        <option class="header-title">	مراسلة المحافظ الولائي</option>
+                        <option class="header-title">	نموذج التأمين </option>
                     </select>
                 </div>
 
                 </div>
 
-                <button class="btn btn-primary nextBtn pull-right" type="button">التالي</button>
+                <button class="btn btn-primary nextBtn pull-right header-title" type="button">التالي</button>
             </div>
         </div>
 
         <div class="panel panel-primary setup-content" id="step-2" >
             <div class="panel-heading">
-                <h3 class="panel-title">ملء الاستمارة</h3>
+                <h3 class="panel-title header-title" >ملء الاستمارة</h3>
             </div>
             <div  class="panel-body">
 
@@ -178,7 +178,7 @@
                 break;
             }
 
-            case 'التكليف بمهمة':{
+            case 'تكليف بمهمة':{
                 this.Reporter_state_scout=false;
                 this.Honorary_meeting=false;
                 this.Assigning_mission=true;
@@ -345,6 +345,10 @@
     #forms{
         border: 1px solid #9C9C9C;
         border-radius: 7px;
+
+    }
+    .header-title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
     }
 </style>

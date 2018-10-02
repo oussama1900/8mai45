@@ -26,7 +26,7 @@
                             <div class="col-md-6" style="padding-right: 0px;padding-left: 25px;">
                                 <label style="font-size: medium;float: right;">تاريخ الازدياد</label>
 
-                                <datetime type="date" v-model="Scout.ScoutInfo.date_of_birth" format="yyyy-MM-dd" :placeholder="placeholder_birth" :dir="direction"></datetime>
+                                <datetime class="label_title" type="date" v-model="Scout.ScoutInfo.date_of_birth" format="yyyy-MM-dd" :placeholder="placeholder_birth" :dir="direction"></datetime>
 
                             </div>
                             <div class="col-md-6">
@@ -44,7 +44,7 @@
                             <div class="col-md-6" style="padding-right: 0px;padding-left: 30px;">
                                 <label style="font-size: medium;float: right;">تاريخ الانضمام</label>
 
-                                <datetime type="date" v-model="Scout.ScoutInfo.membership_date" format="yyyy-MM-dd" :placeholder="placeholder_member" :dir="direction"></datetime>
+                                <datetime class="label_title" type="date" v-model="Scout.ScoutInfo.membership_date" format="yyyy-MM-dd" :placeholder="placeholder_member" :dir="direction"></datetime>
 
                             </div>
                             <div class="col-md-6">
@@ -58,7 +58,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label style="font-size: medium;float: right;">رقم التامين </label>
-                                <input   id="assurance_num" type="text" placeholder="رقم التامين " dir="rtl" v-model="Scout.ScoutInfo.assurance_num"/>
+                                <input   id="assurance_num" type="text" placeholder="رقم التامين " dir="rtl" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" v-model="Scout.ScoutInfo.assurance_num"/>
                             </div>
                             <div class="col-md-6">
                                 <label style="font-size: medium;float: right;">رقم الهاتف </label>
@@ -713,4 +713,12 @@ axios.get('/api/getcurrentuser').then(function (response) {
         -moz-transform: scale(1.9);
         -o-transform: scale(1.5);
     }**/
+    h3,h4,span,label,button,input,select,option{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
 </style>

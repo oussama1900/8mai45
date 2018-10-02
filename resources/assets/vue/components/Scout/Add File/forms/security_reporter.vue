@@ -1,21 +1,21 @@
 <template>
     <div style="margin: 20px">
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">رقــم البريــد الصادر </label>
+            <label style="font-size: medium;float:right" class="label_title">رقــم البريــد الصادر </label>
             <input id="input1" maxlength="200" type="text" required="required"  placeholder="رقــم البريــد الصادر"  onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" dir="rtl" v-model="outing_mail"/>
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">التاريخ </label>
-            <datetime :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+            <label style="font-size: medium;float:right" class="label_title">التاريخ </label>
+            <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">الى السيد  المحترم</label>
+            <label style="font-size: medium;float:right" class="label_title" >الى السيد  المحترم</label>
             <select class="form-control"  dir="rtl" id="input3" v-model="urban_security_center_president">
-                <option value="رئيس مركز الأمن الحضري الثالث">رئيس مركز الأمن الحضري الثالث</option>
-                <option value="رئيس مركز الأمن الحضري التاسع"> رئيس مركز الأمن الحضري التاسع</option>
-                <option value="رئيس مركز الأمن الحضري الحادي عشر">رئيس مركز الأمن الحضري الحادي عشر </option>
-                <option value="رئيس مركز الأمن الحضري الثاني عشر">رئيس مركز الأمن الحضري الثاني عشر </option>
-                <option value="رئيس مركز الأمن الحضري الرابع عشر">رئيس مركز الأمن الحضري الرابع عشر </option>
+                <option value="رئيس مركز الأمن الحضري الثالث" class="label_title">رئيس مركز الأمن الحضري الثالث</option>
+                <option value="رئيس مركز الأمن الحضري التاسع" class="label_title"> رئيس مركز الأمن الحضري التاسع</option>
+                <option value="رئيس مركز الأمن الحضري الحادي عشر" class="label_title">رئيس مركز الأمن الحضري الحادي عشر </option>
+                <option value="رئيس مركز الأمن الحضري الثاني عشر" class="label_title">رئيس مركز الأمن الحضري الثاني عشر </option>
+                <option value="رئيس مركز الأمن الحضري الرابع عشر" class="label_title">رئيس مركز الأمن الحضري الرابع عشر </option>
 
 
 
@@ -23,17 +23,17 @@
             </select>
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right"> الموضوع</label>
+            <label style="font-size: medium;float:right" class="label_title"> الموضوع</label>
             <input id="input4" maxlength="200" type="text" required="required"  placeholder="الموضوع "   dir="rtl" v-model="subject" />
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
 
-            <vue-editor   v-model="content" :toolbar="toolbar" ></vue-editor>
+            <vue-editor   v-model="content" :toolbar="toolbar" class="label_title"></vue-editor>
         </div>
 
 
         <div class=" form-group" style="margin-bottom: 10px;margin-top: 10px">
-            <label style="font-size: medium;text-align: center">محـــافظ الفوج </label>
+            <label style="font-size: medium;text-align: center" class="label_title">محـــافظ الفوج </label>
             <div class="row">
                 <div class="col-sm-12">
                     <input id="input6" maxlength="200" type="text" required="required"   dir="rtl" v-model="governor" disabled="true"/>
@@ -44,11 +44,12 @@
         </div>
 
 
-        <button class="btn btn-primary nextBtn pull-left" type="button" style="text-align: center" @click="download()" >تحميل</button>
+        <button class="btn btn-primary nextBtn pull-left label_title"  type="button" style="text-align: center" @click="download()" >تحميل</button>
         <sweet-modal icon="warning" ref="warn">
-            <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
+            <h3 class="label_title">لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
         <loading
+                class="label_title"
                 :show="show"
                 :label="label">
         </loading>
@@ -210,19 +211,24 @@
         border-right: 1px solid #9C9C9C;
         border-left: 1px solid #9C9C9C;
         border-radius: 7px;
-        padding: 5px
+        padding: 5px;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
     #champ5{
         border-top: 1px solid #9C9C9C;
         border-right: 1px solid #9C9C9C;
         border-left: 1px solid #9C9C9C;
         border-radius: 7px;
-
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
     }
     #input3{
         border: 1px solid #9C9C9C;
         border-radius: 7px;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+    }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
 </style>

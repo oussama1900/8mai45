@@ -8,39 +8,40 @@
 					<table dir="rtl">
 						<tr>
 
-					        <td>رقم المعاملة</td>
-					        <td>الأموال الواردة</td>
-					        <td>الأموال المسحوبة</td>
-					        <td>تاريخ العملية</td>
-					        <td> التعليل</td>
+					        <td class="label_title">رقم المعاملة</td>
+					        <td class="label_title">الأموال الواردة</td>
+					        <td class="label_title">الأموال المسحوبة</td>
+					        <td class="label_title">تاريخ العملية</td>
+					        <td class="label_title"> التعليل</td>
 						</tr>
 						<tr v-for="money in money_data">
-							<td>{{money.id}}</td>
+							<td class="label_title">{{money.id}}</td>
 							<td v-if="money.transaction_money<0"></td>
-								<td v-if="money.transaction_money<0">  {{money.transaction_money.toString().split('-')[1]}} دج</td>
-									<td v-else>{{money.transaction_money}} دج</td>
-									<td v-if="money.transaction_money>=0"></td>
-										<td>{{money.transaction_date}}</td>
-											<td>{{money.transaction_description}}</td>
+								<td v-if="money.transaction_money<0" class="label_title">  {{money.transaction_money.toString().split('-')[1]}} دج</td>
+									<td v-else class="label_title">{{money.transaction_money}} دج</td>
+									<td v-if="money.transaction_money>=0" class="label_title"></td>
+										<td class="label_title">{{money.transaction_date}}</td>
+											<td class="label_title">{{money.transaction_description}}</td>
 						</tr>
 
 
 					</table>
 					<div style="text-align:center;margin-top:35px">
 						<button class="btn btn-primary" style="border-radius:4px"  v-if="lastday" @click="sendReport">
-							<span>ارسال التقرير</span><i class="fa fa-send"></i>
+							<span class="label_title">ارسال التقرير</span><i class="fa fa-send"></i>
 						</button>
 						<button class="btn btn-primary" style="border-radius:4px" @click="downloadReport">
-                 <span>تحميل</span><i class="fa fa-download"></i>
+                 <span class="label_title">تحميل</span><i class="fa fa-download"></i>
 						</button>
 
 					</div>
 
         </div>
 		<sweet-modal icon="success" ref="send_successfully">
-			<h3>تم ارسال التقرير بنجاح تام</h3>
+			<h3 class="label_title">تم ارسال التقرير بنجاح تام</h3>
 		</sweet-modal>
 		<loading
+				class="label_title"
 				:show="show"
 				:label="label">
 		</loading>
@@ -122,7 +123,9 @@
     }
     .header .title{
         color:white;
-    }
+		font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+	}
 		table, th, td {
 
 				border: 1px solid #cecece;
@@ -132,4 +135,9 @@
 		td{
 				padding:5px;
 		}
+	.label_title{
+		font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+	}
+
 </style>

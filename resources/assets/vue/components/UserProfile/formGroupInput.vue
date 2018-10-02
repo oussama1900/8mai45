@@ -28,6 +28,9 @@
 
 </script>
 <style>
+input,label{
+  font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+}
 
 </style>

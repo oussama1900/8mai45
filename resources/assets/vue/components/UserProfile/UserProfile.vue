@@ -376,6 +376,9 @@
         filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
     }
 
+input,span,small,p{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+}
 
 </style>

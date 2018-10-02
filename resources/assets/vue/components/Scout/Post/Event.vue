@@ -16,9 +16,9 @@
 
                         <label  style="float:right;font-size:medium"> نوع الحدث</label>
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -64,9 +64,9 @@
                         <div>
                             <label  style="float:right;font-size:medium">  القائد المسؤول </label>
 
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                             </multiselect>
 
@@ -95,9 +95,9 @@
 
                         <div>
                             <label  style="float:right;font-size:medium">  القادة المعنيون </label>
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                             </multiselect>
 
@@ -130,7 +130,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
-                    <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="time" format="yyyy-MM-dd HH:mm"></datetime>
+                    <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="time" format="yyyy-MM-dd HH:mm"></datetime>
                         <span id="event_time" style="float: right"></span>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="Event.desc" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor v-model="Event.desc" :editorToolbar="customToolbar" class="label_title"></vue-editor>
 
 
                     </div>
@@ -177,9 +177,9 @@
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;"class="label_title" v-model="Event.unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -206,9 +206,9 @@
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                         </multiselect>
 
@@ -298,6 +298,7 @@
 
         </sweet-modal>
         <loading
+                class="label_title"
                 :show="show"
                 :label="label">
         </loading>
@@ -632,8 +633,9 @@ value:"UTC+2",
              this.Event.time = date.concat(" "+time);
           },
             postEvent(){
-                this.show=true;
+
               if(this.validate()){
+                  this.show=true;
                   this.dateformat();
 
                   var vm = this;
@@ -758,7 +760,14 @@ input[type=text],input[type=date]{
 
 
 
+.label_title{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+}
+    label,h3,h4,span,input{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
 
 
 

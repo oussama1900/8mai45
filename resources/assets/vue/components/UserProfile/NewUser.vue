@@ -180,5 +180,11 @@
     }
     .header .title{
         color:white;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
+    label,select,option,h3,button,fg-input{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
     }
 </style>

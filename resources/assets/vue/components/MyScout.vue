@@ -14,11 +14,11 @@
                 <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12  card" style="padding:0px;padding-right:20px; " v-for="scout in MyScouts">
                     <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
 
-                        <div class=" pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-if="ImageExiste(scout)">
-                            <img v-bind:src="'/images/Cubs/'+scout.image"  class="img-rounded" width="80" height="120" style="float: right" v-if="scout.image.includes('Cubs')">
-                            <img v-bind:src="'/images/Scout/'+scout.image"  class="img-rounded" width="80" height="120" style="float: right" v-if="scout.image.includes('Scout')">
-                            <img v-bind:src="'/images/AdvancedScout/'+scout.image"  class="img-rounded" width="80" height="120" style="float: right" v-if="scout.image.includes('AdvancedScout')">
-                            <img v-bind:src="'/images/Traveler/'+scout.image"  class="img-rounded" width="80" height="120" style="float: right" v-if="scout.image.includes('Traveler')">
+                        <div class=" pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-if="ImageExiste(scout)">
+                            <img v-bind:src="'/images/Cubs/'+scout.image"  class="img-rounded" width="80" height="165" style="float: right" v-if="scout.image.includes('Cubs')">
+                            <img v-bind:src="'/images/Scout/'+scout.image"  class="img-rounded" width="80" height="165" style="float: right" v-if="scout.image.includes('Scout')">
+                            <img v-bind:src="'/images/AdvancedScout/'+scout.image"  class="img-rounded" width="80" height="165" style="float: right" v-if="scout.image.includes('AdvancedScout')">
+                            <img v-bind:src="'/images/Traveler/'+scout.image"  class="img-rounded" width="80" height="165" style="float: right" v-if="scout.image.includes('Traveler')">
 
                         </div>
                         <div class="pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-else>
@@ -28,10 +28,10 @@
                         >
                             <ul style="float: right;">
                                 <li>
-                                    <p style="text-align: right">اللقب :  {{scout.last_name}}   </p>
+                                    <p style="text-align: right" dir="rtl"> <span dir="rtl">اللقب :</span> <span>{{scout.last_name}}</span>    </p>
                                 </li>
                                 <li>
-                                    <p style="text-align: right">الاسم : {{scout.first_name}} </p>
+                                    <p style="text-align: right" dir="rtl"> <span dir="rtl">الاسم :</span><span>{{scout.first_name}}</span>  </p>
 
                                 </li>
 
@@ -182,6 +182,8 @@
         color:white;
     }
 
-
+    p,span,h2,h3,h4,button{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
 
 </style>

@@ -14,7 +14,7 @@
     <ul class="dropdown-menu" style="margin-top: 12px;margin-left: -200px;padding: 0px 0px 0px !important;width: 350px;height: 350px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
 
       <li class="header" style="color: white;width: 100%;margin-top: 0px;text-align: right;background-color: rgb(51, 181, 229);border-top-left-radius: 10px;border-top-right-radius: 10px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;padding-top: 0px;">
- التنبيهات
+   التنبيهات   <i class="fa fa-bill"></i>
 
       </li>
       <li style="width:350px;height:280px;overflow-y:auto;overflow-x:hidden">
@@ -92,6 +92,9 @@
 #not:hover{
 background-color:white
 }
+    .header{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
 </style>
 
 

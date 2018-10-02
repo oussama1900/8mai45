@@ -22,7 +22,7 @@ return [
 "website_accounts" => "حسابات الموقع",
 "users" =>"المستخدمين",
 "registration_number" => 'رقم الكشاف',
-"scoutspace" => 'ساحة الكشاف',
+"scoutspace" => 'قمرة القيادة',
 "add_user" =>"إضافة مستخدم",
 "activity_log" =>"سجل النشاطات",
 "languages" =>"اللغات",

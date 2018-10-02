@@ -15,16 +15,16 @@
                 <div class="row">
                     <div class="col-md-12" >
 
-                        <label  style="float:right;font-size:medium"> نوع الحدث</label>
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
+                        <label  style="float:right;font-size:medium" class="label_title"> نوع الحدث</label>
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
 
-                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                            <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)" >❌</span></span></template>
 
                         </multiselect>
 
                     </div>
                 </div>
-                <span id="event_type" style="float: right"></span>
+                <span id="event_type" style="float: right" class="label_title"></span>
 
             </div>
 
@@ -33,19 +33,19 @@
 
             <div class="header">
 
-                <h4 class="title">  عنوان الحدث </h4>
+                <h4 class="title" >  عنوان الحدث </h4>
             </div>
             <div style="margin: 20px;margin-right: 30px">
                 <div class="row">
                     <div class="col-md-12" >
 
-                        <label  style="float:right;font-size:medium"> عنوان الحدث</label>
-                        <input  type="text"   dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
+                        <label  style="float:right;font-size:medium" class="label_title"> عنوان الحدث</label>
+                        <input class="label_title" type="text"   dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
                     </div>
 
 
                 </div>
-                <span id="event_title" style="float: right"></span>
+                <span id="event_title" style="float: right" class="label_title"></span>
 
             </div>
 
@@ -61,11 +61,11 @@
                     <div class="col-md-12" >
 
                         <div>
-                            <label  style="float:right;font-size:medium">  القائد المسؤول </label>
+                            <label  style="float:right;font-size:medium" class="label_title">  القائد المسؤول </label>
 
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                             </multiselect>
 
@@ -76,7 +76,7 @@
 
 
                 </div>
-                <span id="responsible" style="float: right"></span>
+                <span id="responsible" style="float: right" class="label_title"></span>
 
             </div>
 
@@ -92,10 +92,10 @@
                     <div class="col-md-12" >
 
                         <div>
-                            <label  style="float:right;font-size:medium">  القادة المعنيون </label>
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="true"  track-by="last_name" :preselect-first="false">
+                            <label  style="float:right;font-size:medium" class="label_title">  القادة المعنيون </label>
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;"  class="label_title" v-model="Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="true"  track-by="last_name" :preselect-first="false">
 
-                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)" >❌</span></span></template>
+                                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)" >❌</span></span></template>
 
                             </multiselect>
 
@@ -120,16 +120,16 @@
                 <div class="row">
                     <div class="col-md-6" >
 
-                        <label  style="float:right;font-size:medium">  مكان الحدث</label>
-                        <input v-model="Event.location" id="event_place" type="text"   dir="rtl"  placeholder=" مكان الحدث ">
-                        <span id="location" style="float: right"></span>
+                        <label  style="float:right;font-size:medium" class="label_title">  مكان الحدث</label>
+                        <input class="label_title" v-model="Event.location" id="event_place" type="text"   dir="rtl"  placeholder=" مكان الحدث ">
+                        <span id="location" style="float: right" class="label_title"></span>
                     </div>
 
                     <div class="col-md-6" >
 
-                        <label  style="float:right;font-size:medium">  تاريخ الحدث</label>
-                        <datetime :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="Event.event_time" format="yyyy-MM-dd HH:mm"></datetime>
-                        <span id="event_time" style="float: right"></span>
+                        <label  style="float:right;font-size:medium" class="label_title">  تاريخ الحدث</label>
+                        <datetime  class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="Event.event_time" format="yyyy-MM-dd HH:mm"></datetime>
+                        <span id="event_time" style="float: right" class="label_title"></span>
                     </div>
                 </div>
 
@@ -152,7 +152,7 @@
                         <div  class="text-center" style="padding: 10px;" v-if="show_desc">
                             <div class="btn btn-primary ladda-button"  @click="show_description()">
 
-                                <span class="ladda-spinner">  اظهر النص السابق</span>
+                                <span class="ladda-spinner label_title" >  اظهر النص السابق</span>
 
 
 
@@ -160,11 +160,11 @@
                             </div>
 
                         </div>
-                        <vue-editor   v-model="desc" :editorToolbar="customToolbar"></vue-editor>
+                        <vue-editor   v-model="desc" :editorToolbar="customToolbar" class="label_title"></vue-editor>
 
 
                     </div>
-                    <span id="desc" style="float: right"></span>
+                    <span id="desc" style="float: right" class="label_title"></span>
                 </div>
 
             </div>
@@ -196,7 +196,7 @@
             </div>
             <div class="input-group input-group-file"  style="float:right;margin-top:20px">
 
-                <input   class="form-control" name="image_name"
+                <input   class="form-control label_title" name="image_name"
                          readonly="true"
                          placeholder="اختر صورة"
 
@@ -218,7 +218,7 @@
             <div class="text-center" style="padding: 10px;">
                 <button type="submit" ng-disabled="postForm.$invalid" class="btn btn-primary ladda-button" data-plugin="ladda" data-style="expand-left" @click="update_event()">
 
-                    <span class="ladda-spinner"> تحديث</span>
+                    <span class="ladda-spinner label_title"   > تحديث</span>
                     <i class="fa fa-save"></i>
 
 
@@ -230,14 +230,15 @@
 
         </div>
         <sweet-modal ref="EditedSuccessfully" icon="success">
-            <h3>تم التعديل بنجاح </h3>
+            <h3 class="label_title">تم التعديل بنجاح </h3>
 
         </sweet-modal>
         <sweet-modal ref="valide" icon="warning">
-            <h3>لم يتم ادخال كل المعلومات اللازمة لنشر الحدث </h3>
-            <h3>الرجاء التأكد من ادخالك لجميع المعومات </h3>
+            <h3 class="label_title">لم يتم ادخال كل المعلومات اللازمة لنشر الحدث </h3>
+            <h3 class="label_title">الرجاء التأكد من ادخالك لجميع المعومات </h3>
         </sweet-modal>
         <loading
+                class="label_title"
                 :show="show"
                 :label="label">
         </loading>
@@ -558,9 +559,15 @@ input[type=text],input[type=date]{
 }
 .header .title{
     color:white;
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
 }
 
 
+.label_title{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+}
 
 
 

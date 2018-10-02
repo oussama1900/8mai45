@@ -238,5 +238,8 @@
             width:30%;
         }
     }
+    h6,h3,h4,span,p,button {
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+    }
 </style>

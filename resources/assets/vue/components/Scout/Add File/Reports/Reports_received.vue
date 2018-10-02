@@ -7,49 +7,49 @@
         <div  class="card-body" style="margin:10px;">
             <div class="row form-group">
                 <div class="col-md-3" style="float:right">
-                    <label style="float:right;font-size: medium">الشهر</label>
-                    <select class="form-control" id="select_month" dir="rtl" v-model="month">
-                        <option value="1">جانفي</option>
-                        <option value="2">فيفري</option>
-                        <option value="3">مارس</option>
-                        <option value="4"> أفريل</option>
-                        <option value="5">ماي</option>
-                        <option value="6">جوان</option>
-                        <option value="7">جويلية</option>
-                        <option value="8">أوت</option>
-                        <option value="9">سبتمبر</option>
-                        <option value="10">أكتوبر</option>
-                        <option value="11">نوفمبر</option>
-                        <option value="12">ديسمبر</option>
+                    <label style="float:right;font-size: medium" class="label_title">الشهر</label>
+                    <select class="form-control label_title"  id="select_month" dir="rtl" v-model="month">
+                        <option value="1" class="label_title">جانفي</option>
+                        <option value="2" class="label_title">فيفري</option>
+                        <option value="3" class="label_title">مارس</option>
+                        <option value="4" class="label_title"> أفريل</option>
+                        <option value="5" class="label_title">ماي</option>
+                        <option value="6" class="label_title">جوان</option>
+                        <option value="7" class="label_title">جويلية</option>
+                        <option value="8" class="label_title">أوت</option>
+                        <option value="9" class="label_title">سبتمبر</option>
+                        <option value="10" class="label_title">أكتوبر</option>
+                        <option value="11" class="label_title">نوفمبر</option>
+                        <option value="12" class="label_title">ديسمبر</option>
                     </select>
                 </div>
                 <div class="col-md-3" style="float:right">
                     <label style="float:right;font-size: medium">السنة</label>
-                    <select class="form-control" id="select_year" dir="rtl" v-model="year">
-                        <option :value="2000">2000</option>
-                        <option :value="2001">2001</option>
-                        <option :value="2002">2002</option>
-                        <option :value="2003">2003</option>
-                        <option :value="2004">2004</option>
-                        <option :value="2005">2005</option>
-                        <option :value="2006">2006</option>
-                        <option :value="2007">2007</option>
-                        <option :value="2008">2008</option>
-                        <option :value="2009">2009</option>
-                        <option :value="2010">2010</option>
-                        <option :value="2011">2011</option>
-                        <option :value="2012">2012</option>
-                        <option :value="2013">2013</option>
-                        <option :value="2014">2014</option>
-                        <option :value="2015">2015</option>
-                        <option :value="2016">2016</option>
-                        <option :value="2017">2017</option>
-                        <option :value="2018">2018</option>
+                    <select class="form-control label_title" id="select_year" dir="rtl" v-model="year">
+                        <option :value="2000" class="label_title">2000</option>
+                        <option :value="2001" class="label_title">2001</option>
+                        <option :value="2002" class="label_title">2002</option>
+                        <option :value="2003" class="label_title">2003</option>
+                        <option :value="2004" class="label_title">2004</option>
+                        <option :value="2005" class="label_title">2005</option>
+                        <option :value="2006" class="label_title">2006</option>
+                        <option :value="2007" class="label_title">2007</option>
+                        <option :value="2008" class="label_title">2008</option>
+                        <option :value="2009" class="label_title">2009</option>
+                        <option :value="2010" class="label_title">2010</option>
+                        <option :value="2011" class="label_title">2011</option>
+                        <option :value="2012" class="label_title">2012</option>
+                        <option :value="2013" class="label_title">2013</option>
+                        <option :value="2014" class="label_title">2014</option>
+                        <option :value="2015" class="label_title">2015</option>
+                        <option :value="2016" class="label_title">2016</option>
+                        <option :value="2017" class="label_title">2017</option>
+                        <option :value="2018" class="label_title">2018</option>
                     </select>
                 </div>
                 <div class="col-md-1" style="float:right;margin-top:25px">
                     <button type="button" class="btn btn-primary btn-fill btn-wd" @click="search()">
-                       بحث
+                       <span class="label_title" >بحث</span>
                         <i class="fa fa-search"></i>
                     </button>
 
@@ -66,21 +66,21 @@
                     <div class="card-footer">
 
                            <p style="text-align: right;margin-top:0px;margin-bottom:0px">
-                              <span style="font-size: 17px">  {{report.description.split('.')[0]}} </span>
+                              <span style="font-size: 17px" class="label_title" >  {{report.description.split('.')[0]}} </span>
                                <a :href="'/uploads/Units_Report/'+report.file_name" class="btn btn-primary btn-circle btn-lg" style="padding-left: 7px;padding-top:7px" download>
                                    <span class="glyphicon glyphicon-download" aria-hidden="true" ></span>
                                </a>
 
 
                            </p>
-                        <p style="text-align: left;margin-top:0px;margin-bottom: 0px;color:	#B9B9B9"><strong>وحدة {{report.unit}} </strong></p>
+                        <p style="text-align: left;margin-top:0px;margin-bottom: 0px;color:	#B9B9B9"><strong class="label_title" >وحدة {{report.unit}} </strong></p>
 
 
                     </div>
 
                 </div >
 <div v-if="Reports.length===0">
-    <h3> لا يوجد تقارير </h3>
+    <h3 class="label_title" > لا يوجد تقارير </h3>
 </div>
             </div>
             <sweet-modal ref="pdfviewer">
@@ -231,6 +231,14 @@
         font-size: 18px;
         line-height: 1.33;
         border-radius: 25px;
+    }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
+    .title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
     }
 
 

@@ -18,25 +18,25 @@
 </div>
 	    </div>
       <h4 style="text-align:right">
-         <span style="font-size:medium" v-if="fromDB(notification)">{{notification.data.type}}</span>
-                                     <span style="font-size:medium" v-else>{{notification.notificationtype}}</span>
+         <span style="font-size:medium" v-if="fromDB(notification)" class="notification_title">{{notification.data.type}}</span>
+                                     <span style="font-size:medium" v-else class="notification_title">{{notification.notificationtype}}</span>
            <small  class="pull-left" style="text-align:right;height:40px;margin-top: -20px;margin-right:0px"  v-if="fromDB(notification)">
                <i class="fa fa-clock-o"></i>
-							 <small v-if="is_Event()">    {{notification.data.data[2]}}</small>
- 							<small v-else>    {{notification.data.data[2].date.slice(0, 19)}}</small>
+							 <small v-if="is_Event()" class="notification_title">    {{notification.data.data[2]}}</small>
+ 							<small v-else class="notification_title">    {{notification.data.data[2].date.slice(0, 19)}}</small>
 
              </small>
              <small  class="pull-left" style="text-align:right;height:40px;margin-top: -20px;margin-right:0px"  v-else>
                  <i class="fa fa-clock-o"></i>
-              <small v-if="is_Event()">    {{notification.data[2]}}</small>
-							<small v-else>    {{notification.data[2].date.slice(0, 19)}}</small>
+              <small v-if="is_Event()" class="notification_title">    {{notification.data[2]}}</small>
+							<small v-else class="notification_title">    {{notification.data[2].date.slice(0, 19)}}</small>
                </small>
 
           <p v-if="fromDB(notification)">
-              <small style="text-align:right">{{notification.data.data[0]}}</small>
+              <small style="text-align:right" class="notification_title">{{notification.data.data[0]}}</small>
           </p>
           <p v-else>
-              <small style="text-align:right">{{notification.data[0]}}  </small>
+              <small style="text-align:right" class="notification_title">{{notification.data[0]}}  </small>
           </p>
              </h4>
 
@@ -59,6 +59,9 @@
 #not:hover{
 background-color:white
 }
+    .notification_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
 </style>
 
 

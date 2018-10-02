@@ -6,9 +6,13 @@
 
 {{Html::style('global/css/bootstrap.min.css')}}
 {{Html::style('global/css/bootstrap-extend.min.css')}}
-<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
 {{Html::style('assets/css/site.min.css')}}
-
+<style>
+ @font-face {
+  font-family: "Alarabiya Font";
+  src: url("/Alarabiya-Font.ttf");
+ }
+</style>
 <!-- Plugins -->
  {{Html::style('global/vendor/animsition/animsition.css')}}
  {{Html::style('global/vendor/asscrollable/asScrollable.css')}}
@@ -28,7 +32,8 @@
 {{Html::style('global/fonts/weather-icons/weather-icons.css')}}
 {{Html::style('global/fonts/web-icons/web-icons.min.css')}}
 {{Html::style('global/fonts/brand-icons/brand-icons.min.css')}}
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+
 
 <!------------------------new mail css-------------------->
 <link rel="stylesheet" href="{{URL::to('/')}}/global/vendor/bootstrap-markdown/bootstrap-markdown.css">

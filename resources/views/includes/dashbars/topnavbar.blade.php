@@ -139,12 +139,11 @@
 
 
 
-
                                 </div>
 
                             </div>
 
-                        <chat-composer  v-on:messagesent="addMessage" style="position:absolute;bottom:0px"></chat-composer>
+                        <chat-composer  v-on:messagesent="addMessage" style="position:absolute;bottom:0px;width: 100%;"></chat-composer>
 
                         </div>
                     <div id="friend-list" class="friend-list">

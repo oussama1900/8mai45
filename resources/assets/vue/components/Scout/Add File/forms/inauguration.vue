@@ -1,43 +1,44 @@
 <template>
     <div style="margin:20px">
         <div  style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">انعقد مجلس فوج الفلاح بتاريخ </label>
-            <datetime type="datetime" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd HH:mm" style="margin-right:-10px;margin-left:10px"></datetime>
+            <label style="font-size: medium;float:right" class="label_title">انعقد مجلس فوج الفلاح بتاريخ </label>
+            <datetime type="datetime" class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd HH:mm" style="margin-right:-10px;margin-left:10px"></datetime>
         </div>
 
         <div style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right"> المكان </label>
+            <label style="font-size: medium;float:right" class="label_title"> المكان </label>
             <input id="input3" maxlength="200" type="text"   placeholder="المكان" dir="rtl" v-model="location"/>
         </div>
 
         <div  style="margin-bottom: 10px;margin-top: 10px">
-            <label style="font-size: medium;text-align: center">تم انتخاب السيد</label>
-            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="elected" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="اختر الشخص المنتخب" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
+            <label style="font-size: medium;text-align: center" class="label_title">تم انتخاب السيد</label>
+            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="elected" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="اختر الشخص المنتخب" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
 
-                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
             </multiselect>
             <div  style="padding-bottom: 10px;padding-top: 10px">
-                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="role" :options="roles" :multiple="true"  placeholder="الدور" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"    :show-labels="false"  :max="1" :preselect-first="false">
+                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="role" :options="roles" :multiple="true"  placeholder="الدور" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"    :show-labels="false"  :max="1" :preselect-first="false">
 
-                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option}}   </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}   </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                 </multiselect>
 
             </div>
         </div>
         <div  style="margin-bottom: 10px;margin-top: 10px">
-            <label style="font-size: medium;text-align: center">بحضور</label>
+            <label style="font-size: medium;text-align: center" class="label_title">بحضور</label>
             <input id="input7" maxlength="200" type="text"   placeholder="بحضور  " dir="rtl" v-model="presence"/>
 
 
 
         </div>
-            <button class="btn btn-primary" style="text-align: center;margin-top: 20px" type="button" @click="download">تحميل</button>
+            <button class="btn btn-primary label_title"   style="text-align: center;margin-top: 20px" type="button" @click="download">تحميل</button>
         <sweet-modal icon="warning" ref="warn">
-            <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
+            <h3 class="label_title">لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
         <loading
+                class="label_title"
                 :show="show"
                 :label="label">
         </loading>
@@ -161,12 +162,17 @@
         border-right: 1px solid #9C9C9C;
         border-left: 1px solid #9C9C9C;
         border-radius: 7px;
-        padding: 5px
+        padding: 5px;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
     #select{
         border:1px solid #9C9C9C;
         border-radius: 7px;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+    }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
 
 </style>

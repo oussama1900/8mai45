@@ -969,19 +969,7 @@ const routes = [
     {
         path:"/dashboard/posts/myposts",
         component:MyPosts,
-        beforeEnter: (to, from, next) => {
 
-
-            axios.get('/api/current_user').then(function(response){
-                current_user = response.data.current_user;
-
-                if(current_user.localeCompare('med')===0)
-                     next(false);
-                else
-                    next();
-            });
-
-        }
 
     },
     {

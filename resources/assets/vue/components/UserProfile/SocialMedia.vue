@@ -92,4 +92,8 @@
 
 </script>
 <style>
+  h4,h3,fg-input,button{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+  }
 </style>

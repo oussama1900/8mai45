@@ -3,7 +3,7 @@
     <div class="container col-md-7 col-sm-11 col-xs-11 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
 
 			<div class="header" style="margin-bottom:10px">
-				<h4 style="text-align:center;	color:#fff;">
+				<h4 style="text-align:center;	color:#fff;" class="label_title">
 		حالة الصندوق لشهر 	{{getCurrent_month()}}
 				</h4>
 			</div>
@@ -12,21 +12,21 @@
 </div>
 <div class="col-md-4 card" style="margin:10px;margin-top: 80px;border-radius: 5px;padding:0px">
   <div class="header" style="margin-bottom:10px">
-    <h4 style="text-align:center;	color:#fff;">
+    <h4 style="text-align:center;	color:#fff;" class="label_title">
     ادارة الأموال
     </h4>
   </div>
 	<ul style="padding:10px;margin-bottom:10px;padding-right:15px;padding-left:15px" >
 		<li>
-			<label style="float:right;font-size:medium">كمية الأموال</label>
-			<input type="text" id="money_in" placeholder="كمية الأموال" dir="rtl" style="padding-top:5px;padding-bottom:5px" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" v-model="money">
-			<span id="money_quantity" ></span>
+			<label style="float:right;font-size:medium" class="label_title">كمية الأموال</label>
+			<input class="label_title" type="text" id="money_in" placeholder="كمية الأموال" dir="rtl" style="padding-top:5px;padding-bottom:5px" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" v-model="money">
+			<span id="money_quantity" class="label_title"></span>
 			<span></span>
 		</li>
 		<li>
-			<div style="text-align:center">
-				<button id="money_enter" class="btn btn-default" style="border-radius: 5px" @click="money_type('money_in')">أموال داخلة</button>
-				<button id="money_out"  class="btn btn-default" style="border-radius: 5px" @click="money_type('money_out')">أموال خارجة</button>
+			<div style="text-align:center" class="label_title">
+				<button id="money_enter" class="btn btn-default label_title" style="border-radius: 5px" @click="money_type('money_in')" >أموال داخلة</button>
+				<button id="money_out"  class="btn btn-default label_title" style="border-radius: 5px" @click="money_type('money_out')">أموال خارجة</button>
 			</div>
 
 
@@ -36,30 +36,30 @@
 
 		</li>
 		<li>
-			<label style="float:right;font-size:medium">تاريخ المعاملة</label>
+			<label style="float:right;font-size:medium" class="label_title">تاريخ المعاملة</label>
 
-			<datetime type="date" v-model="date" format="yyyy-MM-dd" :placeholder="placeholder" :dir="direction" style="margin-right:-10px"></datetime>
-			<span id="transaction_date" ></span>
+			<datetime class="label_title" type="date" v-model="date" format="yyyy-MM-dd" :placeholder="placeholder" :dir="direction" style="margin-right:-10px"></datetime>
+			<span id="transaction_date" class="label_title"></span>
 			<span></span>
 		</li>
 		<li>
-			<label style="float:right;font-size:medium">توضيحات</label>
+			<label style="float:right;font-size:medium" class="label_title">توضيحات</label>
 
-			<input type="text" id="description" placeholder="توضيحات" dir="rtl" style="padding-top:5px;padding-bottom:5px" v-model="description">
-			<span id="transaction_description" ></span>
+			<input class="label_title" type="text" id="description" placeholder="توضيحات" dir="rtl" style="padding-top:5px;padding-bottom:5px" v-model="description">
+			<span id="transaction_description" class="label_title"></span>
 			<span></span>
 		</li>
 
 	<li style="text-align:center">
    <button class="btn btn-primary" @click="update_money()">
-		 حفظ
+		<span class="label_title">حفظ</span>
 	 </button>
  </li>
 </ul>
 </div>
 <div class="container col-md-11 col-sm-11 col-xs-11 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
 	<div class="header" style="margin-bottom:10px">
-		<h4 style="text-align:center;	color:#fff;">
+		<h4 style="text-align:center;	color:#fff;" class="label_title">
 	{{getCurrent_year()}}		حالة الصندوق لعام
 		</h4>
 	</div>
@@ -69,14 +69,15 @@
 </div>
 
 	  <sweet-modal ref="not_valid" icon="warning">
-		  <h3>لم تقم بملئ جميع المعلومات اللازمة   </h3>  <h3> الرجاء التأكد من المعلومات التي قمت بادخالها  </h3>
+		  <h3 class="label_title">لم تقم بملئ جميع المعلومات اللازمة   </h3>  <h3 class="label_title"> الرجاء التأكد من المعلومات التي قمت بادخالها  </h3>
 
 
 	  </sweet-modal >
 	  <sweet-modal icon="success" ref="success">
-		  <h3>تمت العملية بنجاح</h3>
+		  <h3 class="label_title">تمت العملية بنجاح</h3>
 	  </sweet-modal>
 	  <loading
+			  class="label_title"
 			  :show="show"
 			  :label="label">
 	  </loading>
@@ -214,4 +215,12 @@
 
 
 }
+.title{
+	font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+}
+	.label_title{
+		font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+	}
 </style>

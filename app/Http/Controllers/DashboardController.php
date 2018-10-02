@@ -220,17 +220,16 @@ class DashboardController extends Controller
     public function getHubInfo_forMed(){
         $nbr_of_events = count(Event::where('created_by',Auth::user()->scout_id)->get()) ;
         $nbr_of_posts = count(Post::where('posted_by',Auth::user()->scout_id)->get());
-        $this_month_visitors= count(Visitor::where(DB::raw('MONTH(visit_date)',Carbon::now()->format('m')))->get());
-        $this_month_posts =count(Post::where(DB::raw('MONTH(created_at)',Carbon::now()->format('m')))->get());
-        $today_posts = count(Post::whereBetween('created_at',[date("Y-m-d")."00:00:00",date("Y-m-d")."23.59.59"])->get());
+        $this_month_visitors= count(Visitor::whereRaw('MONTH(visit_date) = ?',[Carbon::now()->format('m')])->get());
+        $this_month_posts =count(Post::whereRaw('MONTH(created_at) = ?',[Carbon::now()->format('m')])->get());
+        $today_posts = count(Post::whereBetween('created_at',[date("Y-m-d")." 00:00:00",date("Y-m-d")." 23:59:59"])->get());
         $today_visitors = count(Visitor::where('visit_date',Carbon::now()->format('Y-m-d'))->get());
 
-        $fromDate = Carbon::now()->subDay()->startOfWeek()->toDateString();
-        $tillDate = Carbon::now()->subDay()->toDateString();
 
 
-       $this_week_post =count(Post::whereBetween( DB::raw('date(created_at)'), [$fromDate, $tillDate] )->get()) ;
-        $this_week_visitors=count(Visitor::whereBetween( DB::raw('date(visit_date)'), [$fromDate, $tillDate] )->get());
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+       $this_week_post =count(Post::whereBetween( 'created_at',  [Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()] )->get()) ;
+        $this_week_visitors=count(Visitor::whereBetween( 'visit_date', [Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->get());
 
 
 

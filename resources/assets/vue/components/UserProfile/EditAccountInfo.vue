@@ -223,4 +223,8 @@
     .text-center > button {
         background-color: rgb(51, 181, 229);
     }
+    h4,h3,label,input,span,button{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
 </style>

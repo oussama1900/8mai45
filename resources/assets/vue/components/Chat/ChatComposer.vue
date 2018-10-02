@@ -1,6 +1,6 @@
 <template>
-    <div class="chat-composer">
-        <input type="text" placeholder="Start typing your message.."  v-model="messageText" style="color: black;background-color: white;height:31px;" @keyup.enter="sendMessage"/>
+    <div class="chat-composer" style="width: 100%;">
+        <input type="text" id="inputtext" placeholder="اكتب رسالة...."  v-model="messageText" style="color: black;background-color: white;height:31px;" @keyup.enter="sendMessage"/>
         <a class="btn btn-primary" @click="sendMessage" style="height:58px;border-radius: 0px"><i class="fa fa-send-o"></i></a>
 
     </div>
@@ -72,6 +72,9 @@
 
         margin:15px;
         height:32px;
+    }
+    #inputtext{
+      font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
 
 </style>

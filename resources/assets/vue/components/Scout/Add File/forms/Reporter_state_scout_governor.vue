@@ -1,33 +1,33 @@
 <template>
     <div style="margin: 20px">
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">رقــم البريــد الصادر</label>
+            <label style="font-size: medium;float:right" class="label_title">رقــم البريــد الصادر</label>
             <input id="input1"  maxlength="200" type="text" required="required" class=" input-style" placeholder="رقــم البريــد الصادر"  onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" dir="rtl" v-model="outing_mail"/>
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">التاريخ </label>
-            <datetime :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
+            <label style="font-size: medium;float:right" class="label_title">التاريخ </label>
+            <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">المحافظ الولائي</label>
+            <label style="font-size: medium;float:right" class="label_title">المحافظ الولائي</label>
             <input id="input3"  maxlength="200" type="text" required="required" class=" input-style" placeholder="المحافظ الولائي " dir="rtl" v-model="state_scout_gov"/>
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right">الموضوع </label>
+            <label style="font-size: medium;float:right " class="label_title">الموضوع </label>
             <input id="input4"  maxlength="200" type="text" required="required" class=" input-style" placeholder="الموضوع " dir="rtl" v-model="subject" />
         </div>
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
             <label style="font-size: medium;float:right"> </label>
-            <vue-editor   v-model="content" :toolbar="toolbar" ></vue-editor>
+            <vue-editor   v-model="content" :toolbar="toolbar" class="label_title"></vue-editor>
         </div>
         <div class="form-group" style="margin-bottom: 10px;margin-top: 10px">
-            <label style="font-size: medium;float:right">محـــافظ الفوج </label>
+            <label style="font-size: medium;float:right" class="label_title">محـــافظ الفوج </label>
             <input id="input5"  maxlength="200" type="text" required="required" class=" input-style" placeholder="محـــافظ الفوج  " dir="rtl" v-model="governor" disabled="true" />
         </div>
 
-        <button class="btn btn-primary nextBtn pull-left" style="text-align: center" type="button" @click="download()" >تحميل</button>
+        <button class="btn btn-primary nextBtn pull-left label_title"  style="text-align: center" type="button" @click="download()" >تحميل</button>
         <sweet-modal icon="warning" ref="warn">
-            <h3>لم يتم ادخال جميع المعلومات اللازمة</h3>
+            <h3 class="label_title">لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
         <loading
                 :show="show"
@@ -169,6 +169,10 @@
       border-right: 1px solid #9C9C9C;
       border-left: 1px solid #9C9C9C;
       border-radius: 7px;
-      padding: 5px
+      padding: 5px;
+      font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
   }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
 </style>

@@ -7,16 +7,16 @@
             <div  class="card-body" style="margin:10px;" >
 
                 <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                    <label style="font-size: medium;float:right">التاريخ  </label>
-                    <datetime type="datetime" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd HH:mm" style="margin-right:-10px;margin-left:10px"></datetime>
+                    <label style="font-size: medium;float:right" class="label_title">التاريخ  </label>
+                    <datetime  class="label_title" type="datetime" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd HH:mm" style="margin-right:-10px;margin-left:10px"></datetime>
                 </div>
                 <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                    <label style="font-size: medium;float:right">المكان  </label>
-                    <input id="location" maxlength="200" type="text" required="required"  dir="rtl" placeholder="المكان " v-model="location"/>
+                    <label style="font-size: medium;float:right"  class="label_title">المكان  </label>
+                    <input  class="label_title" id="location" maxlength="200" type="text" required="required"  dir="rtl" placeholder="المكان " v-model="location"/>
                 </div>
                 <div  style="padding-bottom: 10px;padding-top: 10px">
-                    <label style="font-size: medium;float:right">رقــم النشاط </label>
-                    <input id="input1" maxlength="200" type="text" required="required"  placeholder="رقــم النشاط " onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" dir="rtl" v-model="activity_number" />
+                    <label  class="label_title" style="font-size: medium;float:right">رقــم النشاط </label>
+                    <input  class="label_title" id="input1" maxlength="200" type="text" required="required"  placeholder="رقــم النشاط " onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" dir="rtl" v-model="activity_number" />
                 </div>
 
                 <div class="table" style="padding-bottom: 10px;padding-top: 10px">
@@ -25,15 +25,15 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <label style="font-size: medium;float:right">المواضيع المقدمة  </label>
+                                <label style="font-size: medium;float:right"  class="label_title">المواضيع المقدمة  </label>
                                 <div id="EducationalSubjects">
-                                    <input id="EDsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
+                                    <input  class="label_title" id="EDsubject1" maxlength="200" type="text" required="required"  placeholder="الموضوع  " dir="rtl" />
 
                                 </div>
 
-                                <button  class="btn btn-primary a-btn-slide-text"  @click="add('EducationalSubjects','الموضوع')">
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  @click="add('EducationalSubjects','الموضوع')">
 
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
@@ -52,9 +52,9 @@
 
                             <div>
 
-                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="presence" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="القــادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;"  class="label_title"  v-model="presence" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="القــادة الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;"  class="label_title" >{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"    style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                 </multiselect>
 
@@ -73,9 +73,9 @@
 
                             <div>
 
-                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="scout_presence" :options="MyScout" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="الكشـــافون الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="scout_presence" :options="MyScout" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="الكشـــافون الحاضرون" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                 </multiselect>
 
@@ -95,9 +95,9 @@
 
                             <div>
 
-                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="scout_absence_cause" :options="MyScout" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="الغياب بعذر " :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title"  v-model="scout_absence_cause" :options="MyScout" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="الغياب بعذر " :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title" >{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                 </multiselect>
 
@@ -110,9 +110,9 @@
 
                             <div>
 
-                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" v-model="scout_absence" :options="MyScout" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" الغياب بغير عذر" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                                <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="scout_absence" :options="MyScout" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder=" الغياب بغير عذر" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
-                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
+                                    <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
                                 </multiselect>
 
@@ -129,15 +129,15 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <label style="font-size: medium;float:right">ملاحظات  </label>
+                                <label style="font-size: medium;float:right"  class="label_title">ملاحظات  </label>
                                 <div id="Notes">
-                                    <input id="note1" maxlength="200" type="text" required="required"  placeholder="ملاحظة  " dir="rtl" />
+                                    <input  class="label_title" id="note1" maxlength="200" type="text" required="required"  placeholder="ملاحظة  " dir="rtl" />
 
                                 </div>
 
-                                <button  class="btn btn-primary a-btn-slide-text"  @click="add('Notes','ملاحظة')">
+                                <button  class="btn btn-primary a-btn-slide-text label_title"  @click="add('Notes','ملاحظة')">
 
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-plus label_title" aria-hidden="true"></span>
 
                                 </button>
                             </div>
@@ -151,26 +151,27 @@
 
                 </div>
                 <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-                    <label style="font-size: medium;float:right">اختتم النشاط على الساعة   </label>
-                    <datetime  type="datetime" :dir="direction" :placeholder="placeholder2" :value-zone="value"  v-model="end_time" format="HH:mm"
+                    <label style="font-size: medium;float:right" class="label_title" >اختتم النشاط على الساعة   </label>
+                    <datetime class="label_title"   type="datetime" :dir="direction" :placeholder="placeholder2" :value-zone="value"  v-model="end_time" format="HH:mm"
                                  style="margin-right:-10px;margin-left:10px"></datetime>
                 </div>
 
                 <button  class="btn btn-primary a-btn-slide-text" style="text-align: center" @click="download">
-                    <span>تحميل</span>
+                    <span class="label_title" >تحميل</span>
                     <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 
                 </button>
                 <button  class="btn btn-primary a-btn-slide-text" style="text-align: center" @click="send">
-                    <span>ارسال</span>
+                    <span class="label_title" >ارسال</span>
                     <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 
                 </button>
             </div>
             <sweet-modal icon="success" ref="send_successfully">
-                <h3>تم ارسال ورقة النشاط بنجاح تام</h3>
+                <h3 class="label_title" >تم ارسال ورقة النشاط بنجاح تام</h3>
             </sweet-modal>
             <loading
+                    class="label_title"
                     :show="show"
                     :label="label">
             </loading>
@@ -287,6 +288,7 @@
 
 
                      element = document.getElementById(inputtype);
+                    element.classList.add("label_title");
                     element.appendChild(input);
                 },
                 download(){
@@ -498,6 +500,12 @@
     }
     .header .title{
         color:white;
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
+    .label_title{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
     }
 
 </style>

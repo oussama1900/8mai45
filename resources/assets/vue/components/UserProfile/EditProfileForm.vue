@@ -272,5 +272,11 @@
   }
   .header .title{
     color:white;
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+  }
+  fg-input,button{
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
   }
 </style>

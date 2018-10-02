@@ -6,7 +6,7 @@
 
         <div style="margin-top: 10px;float:left;padding-right:10px;padding-left:10px">
             <button class="btn btn-primary"    style="float:left" @click="export_scout_list">استخراج قائمة الكشاف</button>
-            <router-link class="btn btn-primary"   :to="'/dashboard/AddNewScout/scout'" style="float:right">اضف كشاف</router-link>
+            <router-link class="btn btn-primary"   :to="'/dashboard/AddNewScout/scout'" style="float:right"><span>اضف كشاف</span></router-link>
         </div>
 
         <div id="products" class="row list-group">
@@ -14,24 +14,24 @@
                 <div class="item  col-lg-5 col-md-11  col-sm-12 col-xs-12  card" style="padding:0px;padding-right:20px; " v-for="scout in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px;">
                     <div class=" col-md-1" style="float:left;padding: 0px;margin-left: 10px;" >
-                        <span role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></span>
+                        <i role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></i>
 
                     </div>
 
-                    <div class="pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-if="ImageExiste(scout)">
-                        <img v-bind:src="'/images/Scout/'+scout.scout.image"  class="  img-rounded" width="80" height="120" style="float: right">
+                    <div class="pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-if="ImageExiste(scout)">
+                        <img v-bind:src="'/images/Scout/'+scout.scout.image"  class="  img-rounded" width="80" height="165" style="float: right;">
                     </div>
-                    <div class=" pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-else>
-                        <img src="/images/default.png"  class=" img-rounded" width="80" height="120" style="float: right">
+                    <div class=" pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-else>
+                        <img src="/images/default.png"  class=" img-rounded" width="80" height="165" style="float: right;">
                     </div>
                     <div class="  col-md-7 " style="padding-top:10px;float:right;padding-right:0px;">
                         <ul style="float: right;">
                             <li>
-                                <p style="text-align: right"> اللقب: {{scout.scout.last_name}} </p>
+                                <p style="text-align: right" dir="rtl"> <span>{{scout.scout.last_name}}</span> <span  dir="rtl">اللقب:</span> </p>
 
                             </li>
                             <li>
-                                <p style="text-align: right">الاسم : {{scout.scout.first_name}} </p>
+                                <p style="text-align: right "  dir="rtl"> <span  dir="rtl">الاسم :</span> <span>{{scout.scout.first_name}}</span> </p>
                             </li>
                             <li >
                                 <p style="text-align: right">تاريخ الميلاد{{scout.scout.date_of_birth}} </p>
@@ -233,4 +233,7 @@
         -moz-transform: scale(1.9);
         -o-transform: scale(1.5);
     }**/
+    p,span,h2,h3,h4,button{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
 </style>
