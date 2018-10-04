@@ -26,7 +26,9 @@
 
   <style>
 
-
+     .site-menu-title{
+          font-size:18px !important;
+      }
 
     .dashboard{
       background-color: #e6f2ff;

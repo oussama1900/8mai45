@@ -34,7 +34,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title> فوج الفلاح  </title>
+        <title>الموقع الرسمي لفوج الفلاح  </title>
 
     </head>
     <body>

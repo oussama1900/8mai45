@@ -29,6 +29,95 @@
     <head>
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css')}}"/>
         <style>
+            #style-1{
+
+
+
+
+                overflow-y: scroll;
+
+
+            }
+            #style-1::-webkit-scrollbar-track
+            {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                border-radius: 10px;
+                background-color: #F5F5F5;
+            }
+
+
+            #style-1::-webkit-scrollbar
+            {
+                width: 12px;
+                background-color: #F5F5F5;
+            }
+
+            #style-1::-webkit-scrollbar-thumb
+            {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: #555;
+            }
+            .btn-light{
+                position: absolute;
+                bottom:0px;
+                left:10%;
+                background: #f2f2f2;
+                border-radius: 4px;
+                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+
+                font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+            }
+            .post-description-container{
+                text-align: right;
+            }
+            .post-content{
+                padding-top:35px !important;
+            }
+            .post-header>h5>span:first-child{
+                padding: 5px;
+                border-radius: 4px;
+                color:white;
+                font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+            }
+            .post-header>h5>span:nth-child(2){
+                padding: 5px;
+                margin-right: 5px;
+                color:grey;
+                font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+            }
+            .post-image{
+                width: 100%;
+                height: 270px;
+                margin-top: 25px;
+                border-radius: 4px;
+            }
+            .post-title>h2{
+                margin-top:20px;
+                margin-bottom:20px;
+                font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+            }
+            .post-summary{
+                margin-top:10px;
+                margin-bottom:10px;
+                font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+            }
+            .post-summary>p{
+                color: #444444;
+                font-weight: 400;
+                text-align: right;
+                font-size: 12pt;
+                margin: 0;
+                margin-bottom: 15px;
+                line-height: 29px;
+                height: 87px;
+                overflow: hidden;
+            }
             .btn-outline-primary.btn-custom {
                 color: #2b53ce !important;
                 background-color: transparent;
@@ -151,7 +240,7 @@
         @endforeach
     </div>
     <!-- /Owl Carousel 1 -->
-    <div class="card shadow m-lg-5">
+    <div class="card shadow m-lg-5" id="style-1" >
         <div class="card-header" {!! $news_style !!}>
             <h3 class="center text-center" style="color: #ffffff;">نشاطاتنا القادمة</h3>
         </div>
@@ -190,7 +279,113 @@
                         <div class="card-deck">
                             @if($events->count()>0)
                                 @foreach($events as $event)
-                                    <div class="col-auto mb-3 mt-3 allu {{ $event->unit }}">
+
+
+
+
+
+                                    <div class="col-md-12 allu {{ $event->unit }}">
+                                        <div class="row" dir="rtl">
+
+                                            <div class="col-md-6">
+                                                <div class="post-thumbnail">
+                                                    <img class="post-image" src="{{asset('images/EventImages/')}}{{"/".$event->cover_image}}"  width="100%" height="100%" alt="{{$event->post_title}}">
+                                                </div>
+                                                <div class="clock{{ $event->event_id }}" style="width: auto;zoom: 0.35;position: absolute;left: 30%;top: 500px"></div>
+                                                <script type="text/javascript">
+                                                    var clock;
+
+                                                    $(document).ready(function() {
+
+                                                        // Grab the current date
+                                                        var currentDate = new Date();
+
+
+                                                        // Set some date in the future. In this case, it's always Jan 1
+                                                        var futureDate  = new Date({{substr($event->event_time, 0, 4)}},({{substr($event->event_time, 5, 2)}}),{{substr($event->event_time, 8, 2)}},{{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
+
+                                                        // Calculate the difference in seconds between the future and current date
+                                                        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+                                                        // Instantiate a coutdown FlipClock
+                                                        clock = $('.clock{{ $event->event_id }}').FlipClock(futureDate, {
+                                                            clockFace: 'dailyCounter',
+                                                            countdown: true,
+                                                            language:'ar-ar',
+                                                            autoStart: true
+                                                        });
+                                                    });
+                                                </script>
+                                            </div>
+                                            <div class=" post-content col-md-6">
+                                                <div class="post-description-container">
+                                                    <div class="post-header">
+                                                        <h5>
+                                                                     <span style="background: #7d7d8e;">
+                                                                    {{ $event->type }}
+                                                                  </span>
+                                                            <span dir="rtl">
+                                                        <i class="fa fa-clock-o"></i>
+                                                                {{substr($event->event_time, 0, 10)}}
+                                                              </span>
+                                                        </h5>
+
+                                                    </div>
+                                                    <div>
+                                                        <div class="post-title">
+                                                            <h2>
+                                                                {{$event->title}}
+                                                            </h2>
+                                                        </div>
+                                                        <div class="post-summary">
+                                                            {!! $event->post_summary !!}
+                                                        </div>
+                                                        @php
+                                                            $unit_name = '';
+                                                            if($event->unit == "cubs"){
+                                                                $unit_name = 'وحدة الاشبال';
+                                                            }
+                                                            if($event->unit == "sct"){
+                                                                $unit_name = 'وحدة الكشاف';
+                                                            }
+                                                            if($event->unit == "asct"){
+                                                                $unit_name = 'وحدة الكشاف المتقدم';
+                                                            }
+                                                            if($event->unit == "tvlr"){
+                                                                $unit_name = 'وحدة الجوالة';
+                                                            }
+                                                            if($event->unit == "cap"){
+                                                                $unit_name= 'وحدة القادة';
+                                                            }
+                                                        @endphp
+                                                        <small class="card-subtitle text-right float-right" style="color: grey">{{$unit_name}}</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="btn btn-light " style="float:left;margin-top: 15px">
+                                                        <a href="/events/{{$event->event_id}}" target="_blank" style="text-decoration: none">اقرأ المزيد</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   <!-- <div class="col-auto mb-3 mt-3 allu {{ $event->unit }}">
                                         <div class="card shadow " style="width: 18rem;">
                                             <div class="card-content">
                                                 <div class="card-img">
@@ -211,18 +406,19 @@
                                                                 // Grab the current date
                                                                 var currentDate = new Date();
 
+
                                                                 // Set some date in the future. In this case, it's always Jan 1
-                                                                var futureDate  = new Date({{substr($event->event_time, 0, 4)}}, {{substr($event->event_time, 5, 2)}}-1, {{substr($event->event_time, 8, 2)}}, {{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
+                                                                var futureDate  = new Date({{substr($event->event_time, 0, 4)}},({{substr($event->event_time, 5, 2)}}),{{substr($event->event_time, 8, 2)}},{{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
 
                                                                 // Calculate the difference in seconds between the future and current date
                                                                 var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
 
                                                                 // Instantiate a coutdown FlipClock
-                                                                clock = $('.clock{{ $event->event_id }}').FlipClock(diff, {
+                                                                clock = $('.clock{{ $event->event_id }}').FlipClock(futureDate, {
                                                                     clockFace: 'dailyCounter',
                                                                     countdown: true,
                                                                     language:'ar-ar',
-
+                                                                    autoStart: true
                                                                 });
                                                             });
                                                         </script>
@@ -252,7 +448,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 @endforeach
                             @endif
                         </div>

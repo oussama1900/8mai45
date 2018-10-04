@@ -17,7 +17,7 @@
 		 
 		<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 					
-						<input id="email" type="text" class="form-control" placeholder="{{ trans('app.login_creds')}}" name="email" value="{{ old('email') }}" required>
+						<input  style="    font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;" id="email" type="text" class="form-control" placeholder="{{ trans('app.login_creds')}}" name="email" value="{{ old('email') }}" required>
 
 						@if ($errors->has('email'))
 							<span class="help-block">
@@ -27,7 +27,7 @@
 				</div>
 			
 		 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">			
-				<input id="password" type="password" required class="form-control" name="password" placeholder="{{ trans('app.password')}}">
+				<input id="password"  style="    font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;" type="password" required class="form-control" name="password" placeholder="{{ trans('app.password')}}">
 
 				@if ($errors->has('password'))
 					<span class="help-block">
@@ -38,13 +38,16 @@
 		
           <div class="form-group clearfix">
 		 
-            <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+            <div class="checkbox-custom checkbox-inline checkbox-primary pull-right">
+
+
               <input type="checkbox" id="remember" name="checkbox" title="remember">
-              <label for="inputCheckbox">{{ trans('app.remember_me')}}</label>
+				<label ></label>
             </div>
-			
-			  
-				<a class="pull-right" href="{{ url('/password/reset') }}">{{ trans('app.forget_password')}} </a>
+			  <span class="pull-right" style="margin-right:5px;margin-top:5px">{{ trans('app.remember_me')}}<span style="font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;">{{trans('app.question_mark')}}</span></span>
+
+
+			  <a class="pull-left" style="margin-top:5px" href="{{ url('/password/reset') }}">{{ trans('app.forget_password')}} <span style="font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;">{{trans('app.question_mark')}}</span></a>
 			  
 			
 		  </div>

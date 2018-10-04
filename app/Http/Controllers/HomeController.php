@@ -36,6 +36,7 @@ class HomeController extends Controller
     {
         $posts = Post::orderby('created_at','desc')->paginate(3);
         $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $events = Event::all();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('home')->with('posts',$posts)->with('events',$events);
     }
@@ -76,7 +77,7 @@ class HomeController extends Controller
     {
         $posts = Post::orderby('created_at','desc')->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
-        return view('pages.news')->with('posts',$posts);
+        return view('pages.news_test')->with('posts',$posts);
     }
 
     public function viewPost($id){

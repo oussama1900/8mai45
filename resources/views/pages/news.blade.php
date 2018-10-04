@@ -29,6 +29,35 @@
     <head>
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css')}}"/>
         <style>
+            #style-1{
+
+
+
+
+                overflow-y: scroll;
+
+
+            }
+            #style-1::-webkit-scrollbar-track
+            {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                border-radius: 10px;
+                background-color: #F5F5F5;
+            }
+
+
+            #style-1::-webkit-scrollbar
+            {
+                width: 12px;
+                background-color: #F5F5F5;
+            }
+
+            #style-1::-webkit-scrollbar-thumb
+            {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: #555;
+            }
             .btn-outline-primary.btn-custom {
                 color: #2b53ce !important;
                 background-color: transparent;
@@ -123,7 +152,7 @@
         @endforeach
     </div>
     <!-- /Owl Carousel 1 -->
-    <div class="card shadow m-lg-5">
+    <div class="card shadow m-lg-5" id="style-1" >
         <div class="card-header" {!! $news_style !!}>
             <h3 class="center text-center" style="color: #ffffff;">نشاطاتنا القادمة</h3>
         </div>

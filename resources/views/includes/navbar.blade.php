@@ -8,6 +8,7 @@
         $activenavs = '';
         $activenavas = '';
         $activenavt = '';
+        $solid_number = "0";
 
     if (Route::currentRouteNamed('cubs')){
         $nav_color = 'cp';
@@ -15,6 +16,13 @@
         $solid_color = 'solidc';
         $activenavu = 'activenav';
         $activenavc = 'activenav';
+    }
+    if (Route::currentRouteNamed('readPost')){
+        $nav_color = 'spost';
+        $nav_logo = '/images/landing_page_Logo.png';
+        $solid_color = 'solidpost';
+        $solid_number = 1;
+
     }
     if (Route::currentRouteNamed('scout')){
         $nav_color = 'sp';
@@ -39,9 +47,18 @@
         $activenavu = 'activenav';
         $activenavt = 'activenav';
     }
+     if (Route::currentRouteNamed('captains')){
+        $nav_color = 'spost';
+        $nav_logo = '/images/landing_page_Logo.png';
+        $solid_color = 'solidpost';
+        $solid_number = 1;
+    }
 @endphp
-
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
+@if($solid_color=="solidpost")
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top {{$solid_color}}" style="margin-bottom: 0px" >
+    @else
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
+        @endif
     <div   style="width: 100%" >
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"> </span>
@@ -106,11 +123,18 @@
         // Transition effect for navbar
         $(window).scroll(function() {
             // checks if window is scrolled more than 500px, adds/removes solid class
-            if($(this).scrollTop() > 80) {
-                $('.navbar').addClass('{{ $solid_color }}');
-            } else {
-                $('.navbar').removeClass('{{ $solid_color }}');
+
+               var number  = {{$solid_number}} ;
+            if(number== 1 ){
+
+            }else{
+                if($(this).scrollTop() > 80) {
+                    $('.navbar').addClass('{{ $solid_color }}');
+                } else {
+                    $('.navbar').removeClass('{{ $solid_color }}');
+                }
             }
+
         });
     });
 </script>

@@ -64,7 +64,8 @@ return [
 "user_activity_last_3_weeks" =>"نشاط المستخدم آخر 3 اسابيع",
 "sign_up" =>"سجل",
 "login" =>"تسجيل الدخول",
-"forget_password" =>"هل نسيت كلمة المرور؟",
+"forget_password" =>"هل نسيت كلمة المرور ",
+"question_mark"=>" ؟",
 "sing_into_your_pages_account" =>"قم بتسجيل الدخول إلى حساب صفحاتك",
 "sign_in" =>"تسجيل الدخول",
 "register" =>"تسجيل",
@@ -73,7 +74,7 @@ return [
 "have_account_already_lease_go_to" =>"هل لديك حساب بالفعل؟ الرجاء الذهاب إلى",
 "email_or_username" =>"البريد الإلكتروني أو اسم المستخدم",
 "password" =>"كلمه السر",
-"remember_me" =>"تذكرنى؟",
+"remember_me" =>" تذكرنى ",
 "dont_have_an_account" =>"ليس لديك حساب؟",
 "email" =>"البريد الإلكتروني",
 "your_email" =>"بريدك الالكتروني",
@@ -84,7 +85,8 @@ return [
 "new_password" =>"كلمة السر الجديدة",
 "confirm_new_password" =>"تأكيد كلمة المرور الجديدة",
 "update_password" =>"تطوير كلمة السر",
-"forgot_your_password" =>"نسيت كلمة السر؟",
+"forgot_your_password" =>" نسيت كلمة السر",
+"input_your_data"=>"أدخل بريدك الإلكتروني المسجل لإعادة تعيين كلمة المرور الخاصة بك",
 "profile_details" =>"تفاصيل الملف الشخصي",
 "activities" =>"أنشطة",
 "profile" =>"الملف الشخصي",
@@ -285,7 +287,7 @@ return [
 "scouts"=>"الكشافين",
 "MyApprovedPosts"=>"المنشورات المصادق عليها ",
 "activityPaper"=>"ورقة النشاط ",
-
+"Go_back_for_login"=>"العودة لصفحة "
 
 
     ];

@@ -6,11 +6,12 @@
     @php
         $card_color = '#2b53ce';
         $news_style = 'style="background-image: linear-gradient(to bottom right, #52E5E7, #130CB7); radius: 5px;"';
-
+        $number = 0;
        if (Route::currentRouteNamed('cubs')){
            $card_color = '#ffd700';
            $news_style = 'style="background-image: linear-gradient(to bottom right, #FDEB71, #F8D800); radius: 5px;"';
        }
+
        if (Route::currentRouteNamed('scout')){
            $card_color = '#00cc00';
            $news_style = 'style="background-image: linear-gradient(to bottom right, #FFF720, #3CD500); radius: 5px;"';
@@ -97,7 +98,7 @@
             }
         </style>
     </head>
-                <div style="height: 150px;background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);">
+                <div style="height: 100px;">
 
     </div>
 
@@ -115,7 +116,7 @@
                         </h2>
                         <div class="mc-content">
                             <div class="img-container">
-                                <img class="img-fluid" src="{{ $captain->profile->getPicture() }}">
+                                <img class="img-fluid" style="width:100% !important" src="{{ $captain->profile->getPicture() }}">
                             </div>
                             @php
                                 $birth_date = "تاريخ الميلاد";

@@ -2,34 +2,35 @@
     /* Landing page navbar color styling */
 
         .navbar.solidl {
-            background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);
+            background-color:#ffffff;
+            color:#343842;
             transition: all 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
 
         .navbar.solidl .navbar-brand {
-            color: #ffffff;
+            color: #343842;
             transition: color 1s ease 0s;
         }
 
         .navbar.solidl .navbar-nav > li > a {
-            color: #ffffff;
+            color: #343842  !important;
             font-weight: bold;
             transition: color 1s ease 0s;
         }
 
         .nav-link.lp:hover,.dropdown-item.lp:hover{
-            background-color: #2b53ce;
-            color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
+
+            color: #343842 !important;
+
         }
 
         .dropdown-menu.lp{
-            background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);
-            border: 1px solid #ffffff;
-            border-radius: 5px;
+            background-color: #ffffff;
+            color:#343842 !important;
+        }
+        .dropdown-item{
+            color:#343842 !important;
         }
 
     /* end of Landing page navbar color styling */
@@ -52,13 +53,14 @@
             transition: background-color 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
-
+    .navbar.solidpost {
+        background-color:#ffffff ;
+        transition: background-color 1s ease 0s;
+        box-shadow: 0 0 4px grey;
+    }
         .nav-link.cp:hover,.dropdown-item.cp:hover{
-            background-color: #ffd700;
             color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
+
         }
 
         .dropdown-menu.cp{
@@ -89,13 +91,20 @@
         }
 
         .nav-link.sp:hover,.dropdown-item.sp:hover{
-            background-color: #00cc00;
-            color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
 
+            color: #FFFFFF;
+
+        }
+    .nav-link.spost,.dropdown-item.spost{
+
+        color: #343842 !important;
+
+
+    }
+    .dropdown-item{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+    }
         .dropdown-menu.sp{
             background-image: linear-gradient(to bottom right, #FFF720, #3CD500);
             border: 1px solid #ffffff;

@@ -154,5 +154,5 @@
     </script>
     <!--===============================================================================================-->
     <script src="{{ asset('assets/event/js/main.js') }}"></script>
-    @include('includes.events')
+
 @endsection

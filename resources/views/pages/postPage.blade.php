@@ -154,9 +154,9 @@
     </style>
 </head>
 @section('content')
-    <div style="height: 150px;background-image: linear-gradient(to bottom right, #52E5E7, #130CB7);">
 
-    </div>
+
+    <div style="height: 100px"></div>
     <!-- SECTION -->
     <div class="section container">
         <!-- CONTAINER -->
@@ -169,9 +169,9 @@
                     <!-- ARTICLE POST -->
                     <article class="article article-post">
                         <div class="article-share">
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook" style="margin-top: 20px;"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter" style="margin-top: 20px;"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram" style="margin-top: 20px;"></i></a>
                         </div>
                         <div class="article-main-img">
                             <img src="{{asset('images/PostCover/'.$currentPost->cover_image)}}" alt="{{ $currentPost->post_title }}">
@@ -334,7 +334,7 @@
         <!-- /CONTAINER -->
     </div>
     <!-- /SECTION -->
-    @include('includes.news')
+
     <script>
 
         $('#carouselExample').on('slide.bs.carousel', function (e) {

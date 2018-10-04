@@ -10,8 +10,8 @@
   <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
   data-animsition-out="fade-out">
     <div class="page-content vertical-align-middle">
-      <h2>Forgot Your Password ?</h2>
-      <p>Input your registered email to reset your password</p>
+      <h2>{{trans('app.forgot_your_password')}} <span style="font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;">؟</span></h2>
+      <p>{{trans('app.input_your_data')}}</p>
        @if (session('status'))
 			<div class="alert alert-success">
 				{{ session('status') }}
@@ -23,7 +23,7 @@
 			
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 			
-				<input id="email" placeholder="E-Mail Address"  type="email" class="form-control" name="email" value="{{ old('email') }}">
+				<input id="email" placeholder="{{trans('app.email_address')}}"  type="email" class="form-control" name="email" value="{{ old('email') }}">
 
 				@if ($errors->has('email'))
 					<span class="help-block">
@@ -35,25 +35,13 @@
 		
         <div class="form-group">
 		<button type="submit" class="btn btn-primary ladda-button btn-block" data-plugin="ladda" data-style="expand-left">
-			 Reset Your Password
+			 {{trans('app.reset_your_password')}}
 		<span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div>
 		</button>
           <!--<button type="submit" class="btn btn-primary btn-block">Reset Your Password</button>-->
         </div>
       </form>
-	  <p>Go back for login <a href="{{ url('/login') }}">Sign In</a></p>
-      <footer>          
-          <div class="social">           
-            <a class="btn btn-icon btn-round social-facebook" href="{{ url('/redirect/facebook') }}">
-              <i class="icon bd-facebook" aria-hidden="true"></i>
-            </a>
-            <a class="btn btn-icon btn-round social-google-plus" href="{{ url('/redirect/google') }}">
-              <i class="icon bd-google-plus" aria-hidden="true"></i>
-            </a>
-			 <a class="btn btn-icon btn-round social-twitter" href="{{ url('/redirect/twitter') }}">
-              <i class="icon bd-twitter" aria-hidden="true"></i>
-            </a>
-          </div>
-        </footer>
+	  <p>{{trans('app.Go_back_for_login')}} <a href="{{ url('/login') }}">{{trans('app.sign_in')}}</a></p>
+
     </div>
 @endsection
