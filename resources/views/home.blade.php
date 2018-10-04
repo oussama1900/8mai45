@@ -273,7 +273,7 @@
                 <li data-target="#demo" data-slide-to="5"></li>
             </ul>
             <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('images/baraa/baraa1.jpg')">
+                <div class="carousel-item active" style="background-image: url('images/baraa/baraa1.png')">
 
 
 
