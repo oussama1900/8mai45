@@ -278,7 +278,7 @@
 
 
                 </div>
-                <div class="carousel-item " style="background-image: url('images/baraa/baraa2.ARW')">
+                <div class="carousel-item " style="background-image: url('images/baraa/baraa2.png')">
 
 
 
