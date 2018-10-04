@@ -436,22 +436,22 @@
     <table style="border: 0px solid white;margin-bottom: 50px" width="100%">
         <tr style="border: 0px solid white">
             <td width="50%"  style="border: 0px solid white;text-align: center">قائد الوحدة</td>
-            @if($data['unit']=="الأشبال")
+            @if($data['report_unit']=="cubs")
             <td  width="50%" style="border: 0px solid white;text-align: center">
                 <p> السدوس  الأكبر</p>
                 <p>{{$data['last_name']}} {{$data['first_name']}}</p>
             </td>
             @endif
-            @if($data['unit']=="الكشاف" || $data['unit']=="الكشاف المتقدم")
+            @if($data['report_unit']=="sct" || $data['report_unit']=="asct")
                     <td  width="50%" style="border: 0px solid white;text-align: center">
                         <p>العريف  الأكبر</p>
                         <p>{{$data['last_name']}} {{$data['first_name']}}</p>
                     </td>
                 @endif
-                @if($data['unit']=="الجوالة")
+                @if($data['report_unit']=="tvlr")
                         <td  width="50%" style="border: 0px solid white;text-align: center">
                          <p> الرائد  الأكبر</p>
-                            <p>{{$data['last_name']}} {{$data['first_name']}}</p>
+                            <p>{{$data['last_name']}} {{$data['first_name']}}a</p>
 
 
                         </td>

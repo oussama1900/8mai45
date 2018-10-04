@@ -183,7 +183,7 @@
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
     }
-    label,select,option,h3,button,fg-input{
+    label,select,option,h3,button,fg-input[type=email]{
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
     }

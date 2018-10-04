@@ -381,9 +381,10 @@ class FormsController extends Controller
          $unit_fin_pos = $request->input('unit_fin_pos');
 				$unit = Auth::user()->captain->unit_name->unit_name;
 				$operation_type = $request->input('operation_type');
-
+       $report_unit = Auth::user()->captain->unit;
         $data=["date"=>$date,
                "unit"=>$unit,
+                "report_unit"=>$report_unit,
                "month"=>$month,
                "first_name"=>$first_name,
                "last_name"=>$last_name,

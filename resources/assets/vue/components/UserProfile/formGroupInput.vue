@@ -28,7 +28,7 @@
 
 </script>
 <style>
-input,label{
+input[type="email"],input[type="text"],label{
   font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
 }
