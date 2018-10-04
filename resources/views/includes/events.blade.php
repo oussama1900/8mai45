@@ -64,7 +64,7 @@
             <div class="inner">
                 <img class="content-box-thumb" src="{{asset('images/EventImages/'.$events[$event]->event_image)}}" alt="tech image">
 
-                <div class="clock{{$events[$event]->event_id}}" style="width: auto;zoom: 0.35;position: absolute;left: 25%;top: 55%"></div>
+                <div class="clock{{$events[$event]->event_id}}" style="width: auto;zoom: 0.35;position: absolute;left: 25%;top: 50%"></div>
                 <script type="text/javascript">
                     var clock;
 

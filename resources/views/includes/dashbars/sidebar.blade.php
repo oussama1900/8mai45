@@ -194,11 +194,13 @@
                           <span class="site-menu-title">{{trans('app.traveler')}}</span>
                           </a>
                       </li>
+                      @if(Auth::user()->hasRole('gov'))
                       <li class="site-menu-item">
                           <router-link class="animsition-link" to="/dashboard/Events/Media"/>
                           <span class="site-menu-title">{{trans('app.media')}}</span>
                           </a>
                       </li>
+                      @endif
                       <li class="site-menu-item">
                           <router-link class="animsition-link" to="/dashboard/Events/CSD"/>
                           <span class="site-menu-title" >{{trans('app.CSD')}}</span>
@@ -317,6 +319,7 @@
                               <router-link class="animsition-link" to="/dashboard/posts/captain/post"/>
                               <span class="site-menu-title">{{ trans('app.leader')}}</span>
                           </li>
+                          @if(Auth::user()->hasRole('gov'))
                             <li class="site-menu-item">
                               <router-link class="animsition-link" to="/dashboard/posts/media/post"/>
                               <span class="site-menu-title">{{ trans('app.media')}}</span>
@@ -329,6 +332,7 @@
                               <router-link class="animsition-link" to="/dashboard/posts/csd/post"/>
                               <span class="site-menu-title" >{{ trans('app.CSD')}}</span>
                           </li>
+                          @endif
                             <li class="site-menu-item">
                               <router-link class="animsition-link" to="/dashboard/posts/surv/post"/>
                               <span class="site-menu-title" style="font-size:small">{{ trans('app.SURV')}}</span>

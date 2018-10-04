@@ -263,8 +263,15 @@
 @section('content')
     <!-- Masthead -->
     <header>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+                <li data-target="#demo" data-slide-to="4"></li>
+                <li data-target="#demo" data-slide-to="5"></li>
+            </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active" style="background-image: url('images/baraa/baraa1.jpg')">
 
@@ -338,9 +345,9 @@
 
     </div>
 
-    <div class=" container-fluid parallax"  ></div>
 
-    <div class="row header" style="text-align: center;margin-top:20px">
+
+    <div class="row header" style="text-align: center;margin-top:40px">
         <div style="text-align: center;width:100%">
             <h3 class="title" style="text-align: center">محطاتنا القادمة </h3>
         </div>

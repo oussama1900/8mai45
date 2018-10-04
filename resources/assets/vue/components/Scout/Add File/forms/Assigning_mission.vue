@@ -118,8 +118,8 @@
             download(){
                 if(this.from.localeCompare("")===0 ||
                     this.location.localeCompare("")===0 ||
-                    this.charged.length===0 ||
-                    this.fullname.length===0 ||
+                    this.charged.length === 0 ||
+                    this.fullname.length ===0 ||
                     this.to.localeCompare("")===0||
                     this.framed.localeCompare("")===0||
                     this.date.localeCompare("")===0||
@@ -146,9 +146,6 @@
                     var temp_date3 = this.date.slice(0,10),
                         cut_date3 = temp_date3.split("-");
                     this.date_temp  = cut_date3[0]+"/"+cut_date3[1]+"/"+cut_date3[2];
-                }
-
-
                     var vm  =this;
                     axios({
                         url:  '/api/downloadAssigning_missionPDF',
@@ -184,6 +181,10 @@
 
 
                     });
+                }
+
+
+
             }
         }
     }

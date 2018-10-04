@@ -73,25 +73,17 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('{{asset('images/slide/slide f.jpg')}}')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>First Slide</h3>
-                        <p>This is a description for the first slide.</p>
-                    </div>
+                <div class="carousel-item active" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[0]->cover_image}}')">
+
                 </div>
+
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 2.jpg')}}')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Second Slide</h3>
-                        <p>This is a description for the second slide.</p>
-                    </div>
+                <div class="carousel-item" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[1]->cover_image}}')">
+
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('images/slide/slide 3.jpg')}}')">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Third Slide</h3>
-                        <p>This is a description for the third slide.</p>
-                    </div>
+                <div class="carousel-item" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[2]->cover_image}}')">
+
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -104,7 +96,16 @@
             </a>
         </div>
     </header>
+    <div class="row header" style="text-align: center;margin-top:20px">
+        <div style="text-align: center;width:100%">
+            <h3 class="title" style="text-align: center">آخر أخبار وحدة الكشاف المتقدم </h3>
+        </div>
+        <div style="text-align: center;width:100%">
+            <h4 class="title" style="text-align: center;color:grey">شعارنا كن مستعد
+            </h4>
+        </div>
 
-    @include('includes.news')
+    </div>
+    @include('includes.news_test')
     @include('includes.events')
 @endsection

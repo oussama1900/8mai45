@@ -38,10 +38,11 @@
         .footer{
             background-color: #2e2e2e !important;
             margin-top:30px;
+
         }
         input[type=text], select, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 5px;
             border: 1px solid #ccc;
             margin-top: 6px;
             margin-bottom: 16px;
@@ -51,8 +52,7 @@
         input[type=submit] {
             background-color: #4CAF50;
             color: white;
-            padding: 12px 20px;
-            border: none;
+
             cursor: pointer;
         }
 
@@ -98,10 +98,10 @@
 
 
         <div class="container">
-            <div class="media-container-row content mbr-white" style="display:flex">
+     <!--       <div class="media-container-row content mbr-white" style="display:flex">
                 <div class="col-12 col-md-6">
-                    <div style="width:100%;height:400px">
-                        <div><div><iframe style="float:left" width="500" height="400" id="" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+                    <div style="width:100%;height:300px">
+                        <div><div><iframe style="float:left" width="400" height="300" id="" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
                     </div>                </div>
                 <div class="col-12 col-md-6 mbr-fonts-style display-7" style="margin-left:45px">
                     <div class="column">
@@ -112,18 +112,16 @@
                             <input type="text" style="text-align:right" id="lname" name="lastname" placeholder="اسمك">
                             <label class="float-right" for="subject" style="text-align:right">الموضوع</label>
                             <textarea id="subject" style="text-align:right" name="subject" placeholder="اكتب هنا ..." style="height:170px"></textarea>
-                            <input class="float-right" type="submit" value="ارسل">
+                            <input class="float-right btn btn-success" type="submit" value="ارسل">
                         </form>
                     </div>
                 </div>
 
 
-            </div>
+            </div>-->
             <div class="footer-lower">
                 <div class="media-container-row">
-                    <div class="col-sm-12">
-                        <hr>
-                    </div>
+
                 </div>
                 <div class="row mbr-white">
                     <div class="col-sm-6 copyright">

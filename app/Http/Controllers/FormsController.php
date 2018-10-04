@@ -95,7 +95,7 @@ class FormsController extends Controller
         $state_scout_gov = $request->input('urban_security_center_president');
         $subject = $request->input('subject');
         $data =["content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'urban_security_center_president'=>$state_scout_gov,"gov"=>$gov];
-        $pdf = PDF::loadView('FormsTemplate.Security_Reporter',$data);
+        $pdf = PDF::loadView('FormsTemplate.Security_Reporter',compact('data'));
 
         return $pdf->download('example.pdf');
     }

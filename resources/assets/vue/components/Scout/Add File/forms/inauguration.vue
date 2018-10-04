@@ -97,7 +97,9 @@
                 if(this.date.localeCompare("")===0 ||
                     this.location.localeCompare("")===0 ||
                     this.elected.length===0 || this.role.length===0 ||
-                    this.presence.localeCompare("")===0 ){
+                    this.presence.localeCompare("")===0
+
+                ){
 
 
                 }else{

@@ -11,9 +11,9 @@
         $solid_number = "0";
 
     if (Route::currentRouteNamed('cubs')){
-        $nav_color = 'cp';
+        $nav_color = 'lp';
         $nav_logo = '/images/cubs_logo.jpg';
-        $solid_color = 'solidc';
+        $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavc = 'activenav';
     }
@@ -25,30 +25,30 @@
 
     }
     if (Route::currentRouteNamed('scout')){
-        $nav_color = 'sp';
+        $nav_color = 'lp';
         $nav_logo = '/images/scout_logo.jpg';
-        $solid_color = 'solids';
+        $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavs = 'activenav';
     }
 
     if (Route::currentRouteNamed('advanced_scout')){
-        $nav_color = 'asp';
+         $nav_color = 'lp';
         $nav_logo = '/images/advanced_scout_logo.jpg';
-        $solid_color = 'solidas';
+        $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavas = 'activenav';
     }
 
     if (Route::currentRouteNamed('traveler')){
-        $nav_color = 'tp';
+         $nav_color = 'lp';
         $nav_logo = '/images/traveler_logo.png';
-        $solid_color = 'solidt';
+        $solid_color = 'solidl';;
         $activenavu = 'activenav';
         $activenavt = 'activenav';
     }
      if (Route::currentRouteNamed('captains')){
-        $nav_color = 'spost';
+          $nav_color = 'spost';
         $nav_logo = '/images/landing_page_Logo.png';
         $solid_color = 'solidpost';
         $solid_number = 1;

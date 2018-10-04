@@ -550,7 +550,9 @@ public function EditPost($post_id, Request $request){
                 break;
             }
          case 6:{
-                $post = Post::with('post_creator')->where('linked_unit','med')->get();
+             $media = Captain::where('role','med')->value('scout_id');
+             $vmedia = Captain::where('role','vmed')->value('scout_id');
+                $post = Post::with('post_creator')->whereIn('posted_by',[$media,$vmedia])->get();
                 break;
             }
          case 7:{
