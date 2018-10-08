@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Captain;
 use App\User;
 use App\Scout;
+use App\Correspondence;
 use PDF;
 use DB;
 use Auth;
@@ -139,13 +140,85 @@ class FormsController extends Controller
         $content = $request->input('content');
         $date = $request->input('date');
         $gov = $request->input('gov');
-        $outing_mail = $request->input('outing_mail');
+        $outing_mail="15";
         $to = $request->input('to');
         $subject = $request->input('subject');
+         $agree = true;
+      /*  if(Auth::user()->captain->role=="gov"){
+            $filename =date('YmdHis',time()).mt_rand().'.pdf';
+            $outing_mail=  DB::table('correspondences')->insertGetId([
+                "sender"=>Auth::user()->scout_id,
+                "time"=>$date,
+                "to"=>$to,
+                "subject"=>$subject,
+                "content"=>$content,
+                "gov"=>$gov,
+                "approved"=>true,
+                "file"=>$filename,
+            ]);
+         $agree=true;
+
+           $pdf_string = $pdf->output();
+            $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
+
+            file_put_contents($pdfroot, $pdf_string);
+
+        }else{
+            $agree=false;
+
+        }*/
+
+        $data =["agree"=>$agree,"content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
+
+        $pdf = PDF::loadView('FormsTemplate.Outing_mail',compact('data'));
+        return response()->json(['msg'=>"message"]);
+    }
+    public function SendOuting_mail_forAgree(Request $request){
+        $content = $request->input('content');
+        $date = $request->input('date');
+        $gov = $request->input('gov');
+
+        $to = $request->input('to');
+        $subject = $request->input('subject');
+
+
+
+        $filename =date('YmdHis',time()).mt_rand().'.pdf';
+
+
+
+
+        $outing_mail=  DB::table('correspondences')->insertGetId([
+            "sender"=>Auth::user()->scout_id,
+            "time"=>$date,
+            "to"=>$to,
+            "subject"=>$subject,
+            "content"=>$content,
+            "gov"=>$gov,
+            "file"=>$filename,
+            "approved"=>false,
+        ]);
+
+
+
         $data =["content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
         $pdf = PDF::loadView('FormsTemplate.Outing_mail',compact('data'));
+        $pdf_string = $pdf->output();
+        $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
 
-        return $pdf->download('example.pdf');
+        file_put_contents($pdfroot, $pdf_string);
+        $gov = User::find(Captain::where('role','gov')->value('scout_id'));
+        $notification_message="مراسلة بريد صادر تحتاج المصادقة";
+        $notification_type = "مصادقة على مراسلة";
+        $image = "/images/Report.png";
+        if($gov!=null)
+            $gov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
+
+
+
+
+
+        return response()->json(['msg'=>'Successfully sent']);
     }
     public function downloadInaugurationPDF(Request $request){
        $date = $request->input('date');
@@ -300,6 +373,7 @@ class FormsController extends Controller
             $filename = $old_report->file_name;
             $old_report->delete();
         }
+
         $pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
 
 

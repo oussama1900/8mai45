@@ -131,14 +131,18 @@
                   <li class="site-menu-item has-sub ">
                       <a href="javascript:void(0)">
                           <i class="site-menu-icon wb-file" aria-hidden="true"></i>
-                          <span class="site-menu-title">{{ trans('app.add file')}}</span>
+                          <span class="site-menu-title">{{ trans('app.Administrative_Documents')}}</span>
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">
                           @if( Auth::user()->hasRole('gov') ||
                                Auth::user()->hasRole('vgov') )
+                              <li class="site-menu-item">
+                                  <router-link class="animsition-link" to="/dashboard/form"/>
+                                  <span class="site-menu-title">{{ trans('app.form')}}</span>
+                              </li>
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="/dashboard/form"/>
+                              <router-link class="animsition-link" to="/dashboard/forms"/>
                                   <span class="site-menu-title">{{ trans('app.form')}}</span>
                           </li>
                           @endif

@@ -276,6 +276,8 @@ Route::post('/previewOuting_mailPDF', 'FormsController@previewOuting_mailPDF'
 
 Route::put('/downloadOuting_mailPDF', 'FormsController@downloadOuting_mailPDF'
 );
+Route::put('/SendOuting_mail_forAgree', 'FormsController@SendOuting_mail_forAgree'
+);
 Route::put('/downloadInaugurationPDF', 'FormsController@downloadInaugurationPDF'
 );
 Route::put('/downloadAssigning_missionPDF', 'FormsController@downloadAssigning_missionPDF'

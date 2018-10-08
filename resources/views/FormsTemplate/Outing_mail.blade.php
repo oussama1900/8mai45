@@ -49,6 +49,11 @@
 <div style="margin-left: 80px;margin-top:30px">
     <p> محـــافظ الفوج</p>
     <p>{{$data['gov']}}</p>
+    @if($data['agree'])
+    <div>
+        <img src="/images/Report.png" width="100" height="100"/>
+    </div>
+        @endif
 </div>
 
 <footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">

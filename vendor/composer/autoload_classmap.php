@@ -13,6 +13,7 @@ return array(
     'CaptainSeeder' => $baseDir . '/database/seeds/CaptainSeeder.php',
     'CountrySeeder' => $baseDir . '/database/seeds/CountrySeeder.php',
     'CreateCaptainsTable' => $baseDir . '/database/migrations/2015_07_20_102253_create_captains_table.php',
+    'CreateCorrespondencesTable' => $baseDir . '/database/migrations/2018_10_08_143054_create_correspondences_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2016_10_10_202550_create_events_table.php',
     'CreateFinancesTable' => $baseDir . '/database/migrations/2018_09_11_125420_create_finances_table.php',
     'CreateLanguagesTable' => $baseDir . '/database/migrations/2017_11_12_000000_create_languages_table.php',

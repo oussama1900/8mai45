@@ -1,9 +1,6 @@
 <template>
     <div style="margin: 20px">
-        <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
-            <label style="font-size: medium;float:right" class="label_title">رقــم البريــد الصادر </label>
-            <input id="input1" maxlength="200" type="text" required="required"  placeholder="رقــم البريــد الصادر" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" dir="rtl" v-model="outing_mail"/>
-        </div>
+
         <div class="form-group" style="padding-bottom: 10px;padding-top: 10px">
             <label style="font-size: medium;float:right" class="label_title">التاريخ </label>
             <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value"  v-model="date" format="yyyy/MM/dd " style="margin-right:-10px;margin-left:10px"></datetime>
@@ -29,7 +26,10 @@
             <input id="input6" disabled="true" maxlength="200" type="text" required="required"  placeholder="محـــافظ الفوج  " dir="rtl" v-model="governor" />
         </div>
 
-        <button class="btn btn-primary nextBtn pull-left label_title" style="text-align: center" type="button" @click="download()" >تحميل</button>
+
+        <button class="btn btn-primary nextBtn pull-left label_title" style="text-align: center" type="button" @click="download()">تحميل</button>
+
+
         <sweet-modal icon="warning" ref="warn">
             <h3 class="label_title">لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
@@ -62,6 +62,7 @@
                 governor :'',
                 outing_mail:'',
                 to:'',
+                current_user:'',
                 saveit:true,
                 preview_button:false,
                 download_button:false,
@@ -85,6 +86,7 @@
             var vm = this;
             axios.get('/api/getGovernor').then(function (response) {
                 vm.governor = response.data.governor;
+
             });
         },
         methods:{
@@ -112,8 +114,8 @@
                 var vm  =this;
                 axios({
                     url:  '/api/previewOuting_mailPDF',
-                    method: 'Post',
-                    responseType: 'blob',
+                    method: 'put',
+
                     data:{
                         content:vm.content,
                         date :full_date,
@@ -150,45 +152,48 @@
             },
             download(){
                 this.show = true;
-                if(this.outing_mail<10){
-                    if(!this.outing_mail.includes('0'))
-                        this.outing_mail = "0"+this.outing_mail;
-                }
+
+
+
 
                 var temp_date = this.date.slice(0,10),
                     cut_date = temp_date.split("-"),
                     full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
                 var vm  =this;
-                axios({
-                    url:  '/api/downloadOuting_mailPDF',
-                    method: 'put',
-                    responseType: 'blob',
-                    data:{
-                        content:vm.content,
-                        date :full_date,
-                        gov : vm.governor,
-                        subject:vm.subject,
-                        outing_mail:vm.outing_mail,
-                        to:vm.to,
-                    }
+
+                    axios({
+                        url:  '/api/downloadOuting_mailPDF',
+                        method: 'put',
+
+                        data:{
+                            content:vm.content,
+                            date :full_date,
+                            gov : vm.governor,
+                            subject:vm.subject,
+                            to:vm.to,
+
+                        }
 
 
-                }).then(function (response) {
+                    }).then(function (response) {
+                        vm.show = false;
+                      /*  let blob = new Blob([response.data], { type:  'application/pdf' } );
 
-                    let blob = new Blob([response.data], { type:  'application/pdf' } );
-
-                    let link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = 'مراسلة البريد الصادر.pdf';
-                    link.click();
-                    vm.show = false;
-
-
+                        let link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = 'مراسلة البريد الصادر.pdf';
+                        link.click();*/
+                      console.log(response);
 
 
 
 
-                });
+
+
+
+                    });
+
+
 
 
             }

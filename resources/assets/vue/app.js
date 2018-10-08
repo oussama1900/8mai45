@@ -30,6 +30,7 @@ import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
 import MyScout from './components/MyScout';
 import NewForm from './components/NewForm';
+import Reporter from './components/Scout/Add File/forms/Reporter';
 import NewRapport from './components/Scout/Add File/Reports/NewRapport';
 import Allposts from './components/Scout/Miscellaneous/AllPosts';
 import MyEvents from './components/Scout/Miscellaneous/Event/MyEvents';
@@ -717,7 +718,7 @@ const routes = [
         }
     },
     {
-        path:"/dashboard/form",
+        path:"/dashboard/forms",
         component: New_Form,
         beforeEnter: (to, from, next) => {
 
@@ -726,6 +727,23 @@ const routes = [
                 current_user = response.data.current_user;
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
+    },
+    {
+        path:"/dashboard/form",
+        component: Reporter,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 || current_user.localeCompare('surv')===0 || current_user.localeCompare('csd')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0|| current_user.localeCompare('vgov')===0)
                     next();
                 else
                     next(false);

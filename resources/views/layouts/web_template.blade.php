@@ -14,9 +14,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/flipclock.css') }}" />
         <!-- Website icon -->
-        <link rel="icon"
-              type="image/png"
-              href="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Algerian_Muslim_Scouts.svg/1200px-Algerian_Muslim_Scouts.svg.png">
+        <link rel="icon" href="{{{ asset('images/landing_page_logo.png') }}}" >
 
         <!-- Custom fonts for this template -->
         <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">

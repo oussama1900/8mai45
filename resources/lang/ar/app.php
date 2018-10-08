@@ -1,6 +1,7 @@
 <?php
 return [
 "home" =>"الصفحة الرئيسية",
+"Administrative_Documents" =>"وثائق ادارية",
 "login_creds" => "رقم الكشاف أو البريد الالكتروني",
 "units" => "وحدات الفوج",
 "Events" => "الأحداث",
