@@ -203,7 +203,7 @@
 
                     <div class="col-md-12" >
 
-                        <div class="input-group input-group-file" style="margin-top:15px">
+                        <div class="input-group input-group-file" style="z-index:0;margin-top:15px">
                             <input type="text"  class="form-control" name="image_name" readonly="true" style="z-index:0" placeholder="اختر صورة" dir="rtl" >
                             <span class="input-group-btn">
                                         <span class="btn btn-success btn-file" style="z-index:0">

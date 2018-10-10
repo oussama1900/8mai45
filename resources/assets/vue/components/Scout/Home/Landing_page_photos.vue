@@ -12,7 +12,7 @@
 
 
                 </div>
-                <input type="text" placeholder="وصف الصورة"  v-model="element.description"/>
+                <input type="text" placeholder="وصف الصورة"  v-model="element.description" />
          <button class="btn btn-success" :id="'button'+element.id" @click="affectimage(element)" v-if="!element.image.includes('Carousel_Image')">
              <span class="fa fa-check btn-circle">
 
@@ -89,7 +89,7 @@
                     filereader[i].readAsDataURL(e.target.files[i]);
                     filereader[i].onload =(e)=>{
                         this.landing_page.push({id:this.landing_page.length,image:e.target.result,description:''});
-                       this.new_landing_page_elements.push({image:e.target.result,description:''});
+                        this.new_landing_page_elements.push({image:e.target.result,description:''});
                     };
                 }
             },
@@ -97,11 +97,12 @@
                 this.$refs.warning_alert.open();
                 var vm = this;
                 $("#confirmation_button").unbind().click(function () {
-                    axios.put('/api/addNewCarouselImage',{new_images:vm.new_landing_page_elements}).then(function (response) {
+                    axios.put('/api/addNewCarouselImage',{new_images:vm.landing_page}).then(function (response) {
                         $('#button'+element.id).hide();
                         $('#button'+element.id).attr("disabled", true);
                         vm.$refs.warning_alert.close();
                         vm.$refs.success.open();
+                       
                     })
                 });
                 $("#cancel_button").unbind().click(function () {

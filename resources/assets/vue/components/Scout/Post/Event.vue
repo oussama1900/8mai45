@@ -240,7 +240,7 @@
                             <img :src="Event.image"  style="width:100%;">
 
                         </div>
-                        <div class="input-group input-group-file"  style="float:right">
+                        <div class="input-group input-group-file"  style="z-index:0;float:right">
                             <input   class="form-control" name="image_name"
                                      readonly="true"
                                      placeholder="اختر صورة"

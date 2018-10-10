@@ -145,15 +145,21 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function addNewCarouselImage(Request $request){
-        $new_images = $request->input('new_images');
+        $new_images = $request->input('new_images');$value="ousss";
         foreach ($new_images as $image){
-            $file_name = $this->insertImage($image['image']);
-            $newCarousel_image = new landingPageCarousel;
-            $newCarousel_image->image =$file_name;
-            $newCarousel_image->description = $image['description'];
-            $newCarousel_image->save();
+            if(strpos($image['image'],'Carousel_Image')!== false ){
+
+            }else{
+                $file_name = $this->insertImage($image['image']);
+                $newCarousel_image = new landingPageCarousel;
+                $newCarousel_image->image =$file_name;
+                $value = $image['description'];
+                $newCarousel_image->description = $image['description'];
+                $newCarousel_image->save();
+            }
+
         }
-        return response()->json(["msg"=>"success"]);
+        return response()->json(["msg"=>$value]);
 
     }
     public function deleteCarouselImage($id){

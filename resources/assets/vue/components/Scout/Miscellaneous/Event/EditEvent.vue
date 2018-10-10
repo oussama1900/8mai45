@@ -194,7 +194,7 @@
                 </div>
 
             </div>
-            <div class="input-group input-group-file"  style="float:right;margin-top:20px">
+            <div class="input-group input-group-file"  style="z-index:0;float:right;margin-top:20px">
 
                 <input   class="form-control label_title" name="image_name"
                          readonly="true"
