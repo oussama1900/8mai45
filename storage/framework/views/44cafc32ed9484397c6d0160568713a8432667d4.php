@@ -35,7 +35,7 @@
         <title>الموقع الرسمي لفوج الفلاح  </title>
 
     </head>
-    <body>
+    <body style="overflow-x:hidden">
         <div id="app">
             <?php echo $__env->make("includes.navbar", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             <main>

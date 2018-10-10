@@ -143,7 +143,9 @@
                             </a>
                             <div class="mc-footer">
                                 <h4 class="pull-right"  dir="rtl" style="text-align: right;position: absolute;right: 50%">
-                                    تواصل
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{ $captain->scout_id }}">
+                                        read more
+                                    </button>
                                 </h4>
                                 <a class="fa fa-fw fa-facebook"></a>
                                 <a class="fa fa-fw fa-twitter"></a>
@@ -151,6 +153,36 @@
                                 <a class="fa fa-fw fa-google-plus"></a>
                             </div>
                         </article>
+                    </div>
+                    <!-- The Modal -->
+                    <div class="modal fade" id="myModal{{ $captain->scout_id }}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">{{ $captain->profile->getFullName() }}</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    family statue : {{ $captain->profile->family_status }}
+                                    <br>
+                                    adress : {{ $captain->profile->adress }}
+                                    <br>
+                                    scout info : {!! $captain->profile->scout_info !!}
+                                    <br>
+                                    personal info : {!!  $captain->profile->personal_info !!}
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>

@@ -35,7 +35,7 @@
         <title>الموقع الرسمي لفوج الفلاح  </title>
 
     </head>
-    <body>
+    <body style="overflow-x:hidden">
         <div id="app">
             @include("includes.navbar")
             <main>
