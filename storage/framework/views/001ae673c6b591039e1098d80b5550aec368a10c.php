@@ -54,7 +54,7 @@
     <div class=" mt-3 ">
 
         <div class="row">
-            <?php echo $__env->make('includes.news', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('includes.news_test', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
 
 

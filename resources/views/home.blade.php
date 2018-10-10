@@ -54,7 +54,7 @@
     <div class=" mt-3 ">
 
         <div class="row">
-            @include('includes.news')
+            @include('includes.news_test')
         </div>
 
 

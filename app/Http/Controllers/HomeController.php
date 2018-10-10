@@ -35,7 +35,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderby('created_at','desc')->get();
+        $posts = Post::orderby('created_at','desc')->take(3)->paginate(3);
         $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         $carousels = landingPageCarousel::all();
         app(\App\Http\Controllers\VisitorController::class)->log();
