@@ -25,26 +25,32 @@
   <?php echo $__env->make('includes.dashdependencies.predeps', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
   <style>
+
+     .site-menu-title{
+          font-size:18px !important;
+      }
+
     .dashboard{
       background-color: #e6f2ff;
     }
     .page{
       background-color: #0b0b0b;
     }
+   
     .page-content {
       padding: 0px 30px;
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
     .site-menubar {
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
       padding-top:30px;
     }
     .site-navbar {
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
       height: 80px;
     }
     .font_kufi {
-      font-family: "DroidArabicKufiRegular", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif!important;
       font-size: 100%;
     }
     .navbar-header{
@@ -111,6 +117,7 @@
     .sidebar-body .friend-list{
       display: none;
     }
+
   </style>
 </head>
 

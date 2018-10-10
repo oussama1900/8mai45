@@ -11,6 +11,7 @@ use App\Event;
 use App\Post;
 use App\PostImage;
 use App\Captain;
+use App\landingPageCarousel;
 
 class HomeController extends Controller
 {
@@ -34,11 +35,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderby('created_at','desc')->paginate(3);
+        $posts = Post::orderby('created_at','desc')->get();
         $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
-        $events = Event::orderby('created_at','desc')->paginate(3);
+        $carousels = landingPageCarousel::all();
         app(\App\Http\Controllers\VisitorController::class)->log();
-        return view('home')->with('posts',$posts)->with('events',$events);
+        return view('home')->with('posts',$posts)->with('events',$events)->with('carousels',$carousels);
     }
 
     public function cubs()
@@ -73,6 +74,14 @@ class HomeController extends Controller
         return view('pages.units.traveler')->with('posts',$posts)->with('events',$events);
     }
 
+    public function captains()
+    {
+        $posts = Post::where('linked_unit','cap')->orderby('created_at','desc')->paginate(3);
+        $events = Event::where('unit','cap')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        app(\App\Http\Controllers\VisitorController::class)->log();
+        return view('pages.units.captains')->with('posts',$posts)->with('events',$events);
+    }
+
     public function news()
     {
         $posts = Post::orderby('created_at','desc')->get();
@@ -103,10 +112,10 @@ class HomeController extends Controller
         return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
     }
 
-    public function captains(){
+    public function team(){
         $captains = Captain::all();
         app(\App\Http\Controllers\VisitorController::class)->log();
-        return view('pages.captains')->with('captains',$captains);
+        return view('pages.team')->with('captains',$captains);
     }
 
     public function contact(){

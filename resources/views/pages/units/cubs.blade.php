@@ -72,20 +72,29 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
+                @if(count($posts)==0)
+                    <div class="carousel-item active" style="background-image: url('https://via.placeholder.com/1200x720?text=post+1')">
+                    </div>
+                    <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1200x720?text=post+2')">
+                    </div>
+                    <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1200x720?text=post+3')">
+                    </div>
+                @endif
                 <!-- Slide One - Set the background image for this slide in the line below -->
-
-                <div class="carousel-item active" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[0]->cover_image}}')">
-
-                </div>
-
+                @if(count($posts)>0)
+                    <div class="carousel-item active" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[0]->cover_image}}')">
+                    </div>
+                @endif
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[1]->cover_image}}')">
-
-                </div>
+                @if(count($posts)>1)
+                    <div class="carousel-item" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[1]->cover_image}}')">
+                    </div>
+                @endif
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[2]->cover_image}}')">
-
-                </div>
+                @if(count($posts)>2)
+                    <div class="carousel-item" style="background-image: url('{{asset('images/PostCover/')}}{{'/'.$posts[2]->cover_image}}')">
+                    </div>
+                @endif
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

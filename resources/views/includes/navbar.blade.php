@@ -47,18 +47,12 @@
         $activenavu = 'activenav';
         $activenavt = 'activenav';
     }
-     if (Route::currentRouteNamed('captains')){
-          $nav_color = 'spost';
-        $nav_logo = '/images/landing_page_Logo.png';
-        $solid_color = 'solidpost';
-        $solid_number = 1;
-    }
 @endphp
 @if($solid_color=="solidpost")
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top {{$solid_color}}" style="margin-bottom: 0px" >
-    @else
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
-        @endif
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top {{$solid_color}}" style="margin-bottom: 0px" >
+@else
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
+@endif
     <div   style="width: 100%" >
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"> </span>
@@ -76,7 +70,7 @@
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
-                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('captains') ? 'activenav' : '' }}" href="/captains" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
+                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('captains') ? 'activenav' : '' }}" href="/team" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
                 </li>
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown" style="position:static" id="dropdownbutton">
@@ -92,7 +86,7 @@
 
                          <li class="dropdown-menu-item">   <a class="dropdown-item {{ $nav_color }} {{ $activenavt }} " style=" text-align: center;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a></li>
 
-                         <li class="dropdown-menu-item">   <a class="dropdown-item  {{ $nav_color }} {{ $activenavt }}" style=" text-align: center;font-size: large; color: #ffffff;"  href="/Captains">القادة</a></li>
+                         <li class="dropdown-menu-item">   <a class="dropdown-item  {{ $nav_color }} {{ $activenavt }}" style=" text-align: center;font-size: large; color: #ffffff;"  href="/captains">القادة</a></li>
 
                      </ul>
 

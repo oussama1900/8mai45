@@ -8,40 +8,51 @@
         $activenavs = '';
         $activenavas = '';
         $activenavt = '';
+        $solid_number = "0";
 
     if (Route::currentRouteNamed('cubs')){
-        $nav_color = 'cp';
+        $nav_color = 'lp';
         $nav_logo = '/images/cubs_logo.jpg';
-        $solid_color = 'solidc';
+        $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavc = 'activenav';
     }
+    if (Route::currentRouteNamed('readPost')){
+        $nav_color = 'spost';
+        $nav_logo = '/images/landing_page_Logo.png';
+        $solid_color = 'solidpost';
+        $solid_number = 1;
+
+    }
     if (Route::currentRouteNamed('scout')){
-        $nav_color = 'sp';
+        $nav_color = 'lp';
         $nav_logo = '/images/scout_logo.jpg';
-        $solid_color = 'solids';
+        $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavs = 'activenav';
     }
 
     if (Route::currentRouteNamed('advanced_scout')){
-        $nav_color = 'asp';
+         $nav_color = 'lp';
         $nav_logo = '/images/advanced_scout_logo.jpg';
-        $solid_color = 'solidas';
+        $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavas = 'activenav';
     }
 
     if (Route::currentRouteNamed('traveler')){
-        $nav_color = 'tp';
+         $nav_color = 'lp';
         $nav_logo = '/images/traveler_logo.png';
-        $solid_color = 'solidt';
+        $solid_color = 'solidl';;
         $activenavu = 'activenav';
         $activenavt = 'activenav';
     }
 ?>
-
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
+<?php if($solid_color=="solidpost"): ?>
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top <?php echo e($solid_color); ?>" style="margin-bottom: 0px" >
+<?php else: ?>
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
+<?php endif; ?>
     <div   style="width: 100%" >
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"> </span>
@@ -59,7 +70,7 @@
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
-                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('captains') ? 'activenav' : ''); ?>" href="/captains" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('captains') ? 'activenav' : ''); ?>" href="/team" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
                 </li>
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown" style="position:static" id="dropdownbutton">
@@ -75,7 +86,7 @@
 
                          <li class="dropdown-menu-item">   <a class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavt); ?> " style=" text-align: center;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a></li>
 
-                         <li class="dropdown-menu-item">   <a class="dropdown-item  <?php echo e($nav_color); ?> <?php echo e($activenavt); ?>" style=" text-align: center;font-size: large; color: #ffffff;"  href="/Captains">القادة</a></li>
+                         <li class="dropdown-menu-item">   <a class="dropdown-item  <?php echo e($nav_color); ?> <?php echo e($activenavt); ?>" style=" text-align: center;font-size: large; color: #ffffff;"  href="/captains">القادة</a></li>
 
                      </ul>
 
@@ -106,11 +117,18 @@
         // Transition effect for navbar
         $(window).scroll(function() {
             // checks if window is scrolled more than 500px, adds/removes solid class
-            if($(this).scrollTop() > 80) {
-                $('.navbar').addClass('<?php echo e($solid_color); ?>');
-            } else {
-                $('.navbar').removeClass('<?php echo e($solid_color); ?>');
+
+               var number  = <?php echo e($solid_number); ?> ;
+            if(number== 1 ){
+
+            }else{
+                if($(this).scrollTop() > 80) {
+                    $('.navbar').addClass('<?php echo e($solid_color); ?>');
+                } else {
+                    $('.navbar').removeClass('<?php echo e($solid_color); ?>');
+                }
             }
+
         });
     });
 </script>

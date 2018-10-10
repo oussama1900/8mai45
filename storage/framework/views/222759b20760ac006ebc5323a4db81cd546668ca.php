@@ -15,7 +15,7 @@
 		 
 		<div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
 					
-						<input id="email" type="text" class="form-control" placeholder="<?php echo e(trans('app.login_creds')); ?>" name="email" value="<?php echo e(old('email')); ?>" required>
+						<input  style="    font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;" id="email" type="text" class="form-control" placeholder="<?php echo e(trans('app.login_creds')); ?>" name="email" value="<?php echo e(old('email')); ?>" required>
 
 						<?php if($errors->has('email')): ?>
 							<span class="help-block">
@@ -25,7 +25,7 @@
 				</div>
 			
 		 <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">			
-				<input id="password" type="password" required class="form-control" name="password" placeholder="<?php echo e(trans('app.password')); ?>">
+				<input id="password"  style="    font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;" type="password" required class="form-control" name="password" placeholder="<?php echo e(trans('app.password')); ?>">
 
 				<?php if($errors->has('password')): ?>
 					<span class="help-block">
@@ -36,13 +36,16 @@
 		
           <div class="form-group clearfix">
 		 
-            <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+            <div class="checkbox-custom checkbox-inline checkbox-primary pull-right">
+
+
               <input type="checkbox" id="remember" name="checkbox" title="remember">
-              <label for="inputCheckbox"><?php echo e(trans('app.remember_me')); ?></label>
+				<label ></label>
             </div>
-			
-			  
-				<a class="pull-right" href="<?php echo e(url('/password/reset')); ?>"><?php echo e(trans('app.forget_password')); ?> </a>
+			  <span class="pull-right" style="margin-right:5px;margin-top:5px"><?php echo e(trans('app.remember_me')); ?><span style="font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;"><?php echo e(trans('app.question_mark')); ?></span></span>
+
+
+			  <a class="pull-left" style="margin-top:5px" href="<?php echo e(url('/password/reset')); ?>"><?php echo e(trans('app.forget_password')); ?> <span style="font-family: Arial,Segoe UI, Tahoma, Geneva, Verdana,sans-serif !important;"><?php echo e(trans('app.question_mark')); ?></span></a>
 			  
 			
 		  </div>

@@ -23,11 +23,12 @@ Route::get('/cubs', 'HomeController@cubs')->name('cubs');
 Route::get('/scout', 'HomeController@scout')->name('scout');
 Route::get('/advanced_scout', 'HomeController@advanced_scout')->name('advanced_scout');
 Route::get('/traveler', 'HomeController@traveler')->name('traveler');
+Route::get('/captains', 'HomeController@captains')->name('captains');
 Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/posts/{id}', 'HomeController@viewPost')->name('readPost');
 Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/events/{id}', 'HomeController@viewEvent')->name('readEvent');
-Route::get('/captains', 'HomeController@captains')->name('captains');
+Route::get('/team', 'HomeController@team')->name('team');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 

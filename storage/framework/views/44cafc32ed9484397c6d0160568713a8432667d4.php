@@ -14,9 +14,7 @@
         <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/owl.theme.default.css')); ?>" />
         <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/flipclock.css')); ?>" />
         <!-- Website icon -->
-        <link rel="icon"
-              type="image/png"
-              href="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Algerian_Muslim_Scouts.svg/1200px-Algerian_Muslim_Scouts.svg.png">
+        <link rel="icon" href="<?php echo e(asset('images/landing_page_logo.png')); ?>" >
 
         <!-- Custom fonts for this template -->
         <link href="<?php echo e(asset('assets/vendor/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" type="text/css">
@@ -34,7 +32,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title> فوج الفلاح  </title>
+        <title>الموقع الرسمي لفوج الفلاح  </title>
 
     </head>
     <body>

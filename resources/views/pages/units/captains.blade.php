@@ -48,10 +48,10 @@
     </header>
     <div class="row header" style="text-align: center;margin-top:20px">
         <div style="text-align: center;width:100%">
-            <h3 class="title" style="text-align: center">آخر أخبار وحدة الكشاف </h3>
+            <h3 class="title" style="text-align: center">آخر أخبار وحدة القادة </h3>
         </div>
         <div style="text-align: center;width:100%">
-            <h4 class="title" style="text-align: center;color:grey">شعارنا كن مستعد
+            <h4 class="title" style="text-align: center;color:grey">شعارنا للعمل
             </h4>
         </div>
 

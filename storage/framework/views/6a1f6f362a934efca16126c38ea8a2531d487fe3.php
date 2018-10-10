@@ -8,6 +8,12 @@
    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
   <meta name="author" content="">
   <title> تسجيل الدخول</title>
+    <style>
+        *{
+            font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+        }
+    </style>
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/global/css/bootstrap-extend.min.css">
   <link rel="stylesheet" href="<?php echo e(URL::to('/')); ?>/assets/css/site.min.css">
