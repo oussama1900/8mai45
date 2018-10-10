@@ -15,11 +15,11 @@
 
     <!-- Owl Carousel 1 -->
     <div id="owl-carousel-1" class="owl-carousel owl-theme center-owl-nav">
-        @php
-            $i=0;
-        @endphp
-        @foreach($posts as $post)
-            <!-- ARTICLE -->
+    @php
+        $i=0;
+    @endphp
+    @foreach($posts as $post)
+        <!-- ARTICLE -->
             <article class="article thumb-article">
                 <div class="article-img">
                     <img style="background-image: url('{{asset('images/PostCover/'.$post->cover_image)}}');background-position: center;background-repeat: no-repeat;background-size:cover; height: 100%;" src="/images/cover.png" alt="{{$post->post_title}}">

@@ -61,7 +61,7 @@
 </head>
 
 @section('content')
-    <div class="mb-3" style="height:150px;background-image: linear-gradient(to bottom right, #52E5E7, #130CB7); "></div>
+    <div class="mb-3" style="height: 100px;background-color: #4f4f4f"></div>
 <div class="container">
     <div style="text-align:center">
         <h2>تواصل معنا</h2>
@@ -74,12 +74,12 @@
         </div>
         <div class="column">
             <form action="#">
-                <label class="float-right" for="fname" style="text-align:right">اللقب</label>
-                <input type="text" style="text-align:right" id="fname" name="firstname" placeholder="لقبك">
-                <label class="float-right" for="lname" style="text-align:right">الاسم</label>
-                <input type="text" style="text-align:right" id="lname" name="lastname" placeholder="اسمك">
-                <label class="float-right" for="subject" style="text-align:right">الموضوع</label>
-                <textarea id="subject" style="text-align:right" name="subject" placeholder="اكتب هنا ..." style="height:170px"></textarea>
+                <label class="float-right" for="fname" style="text-align:right;color: black">اللقب</label>
+                <input type="text" style="text-align:right;" id="fname" name="firstname" placeholder="لقبك">
+                <label class="float-right" for="lname" style="text-align:right;color: black">الاسم</label>
+                <input type="text" style="text-align:right;color: black" id="lname" name="lastname" placeholder="اسمك">
+                <label class="float-right" for="subject" style="text-align:right;color: black">الموضوع</label>
+                <textarea id="subject" style="text-align:right;color: black" name="subject" placeholder="اكتب هنا ..." style="height:170px"></textarea>
                 <input class="float-right" type="submit" value="ارسل">
             </form>
         </div>

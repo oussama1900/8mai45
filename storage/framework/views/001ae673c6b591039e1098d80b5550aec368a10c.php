@@ -21,9 +21,17 @@
             <div class="carousel-inner">
                 <?php $__currentLoopData = $carousels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carousel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($loop->index == 0): ?>
-                        <div class="carousel-item active" style="background-image: url('<?php echo e(asset('/images/Carousel').'/'.$carousel->image); ?>')"></div>
+                        <div class="carousel-item active" style="background-image: url('<?php echo e(asset('/images/Carousel').'/'.$carousel->image); ?>')">
+                            <div class="carousel-caption">
+                                <h3 style="position: absolute;bottom: 50px;left: 35%"><?php echo e($carousel->description); ?></h3>
+                            </div>
+                        </div>
                     <?php else: ?>
-                        <div class="carousel-item" style="background-image: url('<?php echo e(asset('/images/Carousel').'/'.$carousel->image); ?>')"></div>
+                        <div class="carousel-item" style="background-image: url('<?php echo e(asset('/images/Carousel').'/'.$carousel->image); ?>')">
+                            <div class="carousel-caption">
+                                <h3 style="position: absolute;bottom: 50px;left: 35%"><?php echo e($carousel->description); ?></h3>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
@@ -52,14 +60,9 @@
 
     <!--start posts -->
     <div class=" mt-3 ">
-
         <div class="row">
             <?php echo $__env->make('includes.news_test', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
-
-
-
-
     </div>
 
 

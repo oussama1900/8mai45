@@ -56,6 +56,25 @@
         </div>
 
     </div>
-    @include('includes.news_test')
-    @include('includes.events')
+    <div class=" mt-3 ">
+        <div class="row">
+            @include('includes.news_test')
+        </div>
+    </div>
+    <div class="row header" style="text-align: center;margin-top:40px">
+        <div style="text-align: center;width:100%">
+            <h3 class="title" style="text-align: center">محطاتنا القادمة </h3>
+        </div>
+        <div style="text-align: center;width:100%">
+            <h4 class="title" style="text-align: center;color:grey">محطاتنا القادمة وانشطتنا المرتقبة</h4>
+        </div>
+        <div style="text-align: center;width:100%">
+            <h4 class="title" style="text-align: center;color:grey"> قريبا </h4>
+        </div>
+    </div>
+    <div class=" mt-3 ">
+        <div class="row">
+            @include('includes.events')
+        </div>
+    </div>
 @endsection

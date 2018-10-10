@@ -21,9 +21,17 @@
             <div class="carousel-inner">
                 @foreach($carousels as $carousel)
                     @if($loop->index == 0)
-                        <div class="carousel-item active" style="background-image: url('{{ asset('/images/Carousel').'/'.$carousel->image }}')"></div>
+                        <div class="carousel-item active" style="background-image: url('{{ asset('/images/Carousel').'/'.$carousel->image }}')">
+                            <div class="carousel-caption">
+                                <h3 style="position: absolute;bottom: 50px;left: 35%">{{ $carousel->description }}</h3>
+                            </div>
+                        </div>
                     @else
-                        <div class="carousel-item" style="background-image: url('{{ asset('/images/Carousel').'/'.$carousel->image }}')"></div>
+                        <div class="carousel-item" style="background-image: url('{{ asset('/images/Carousel').'/'.$carousel->image }}')">
+                            <div class="carousel-caption">
+                                <h3 style="position: absolute;bottom: 50px;left: 35%">{{ $carousel->description }}</h3>
+                            </div>
+                        </div>
                     @endif
                 @endforeach
             </div>
@@ -52,14 +60,9 @@
 
     <!--start posts -->
     <div class=" mt-3 ">
-
         <div class="row">
             @include('includes.news_test')
         </div>
-
-
-
-
     </div>
 
 

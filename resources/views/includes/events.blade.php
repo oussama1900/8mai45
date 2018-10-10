@@ -84,6 +84,7 @@
     }
 </style>
 <!-- events Showcases -->
+<div class="container">
 @if($events->count()>0)
     @foreach($events as $event)
         <div class="col-md-12 ">
@@ -91,26 +92,26 @@
 
                 <div class="col-md-6">
                     <div class="post-thumbnail">
-                        <img style="filter: blur(5px);" class="post-image" src="{{asset('images/EventImages/')}}{{"/".$event->event_image}}"  width="100%" height="100%" alt="{{$event->title}}">
+                        <img style="filter: blur(2px);" class="post-image" src="{{asset('images/EventImages/')}}{{"/".$event->event_image}}"  width="100%" height="100%" alt="{{$event->title}}">
                         @php
                             $earlier = new DateTime();
                             $later = new DateTime(substr($event->event_time, 0, 10));
                             $diff = $later->diff($earlier)->format("%a");
                         @endphp
                         @if($diff == 0)
-                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;">سيتم هاذا النشاط اليوم</h1>
+                            <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;">سيتم هاذا النشاط اليوم</h3>
                         @endif
                         @if($diff == 1)
-                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط غدا </h1>
+                            <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط غدا </h3>
                         @endif
                         @if($diff == 2)
-                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد يومين </h1>
+                            <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد يومين </h3>
                         @endif
                         @if($diff > 2 && $diff <= 10)
-                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد  {{ $diff }} ايام </h1>
+                            <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد  {{ $diff }} ايام </h3>
                         @endif
                         @if($diff > 10)
-                            <h1 class="" style="font-size: 50px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد  {{ $diff }} يوم </h1>
+                            <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد  {{ $diff }} يوم </h3>
                         @endif
                     </div>
                 </div>
@@ -168,4 +169,4 @@
         </div>
     @endforeach
 @endif
-
+</div>

@@ -1,5 +1,6 @@
 
 <!-- events Showcases -->
+<div class="container">
 @if($posts->count()>0)
     @foreach($posts as $post)
         <div class="col-auto mb-3 mt-3 allu {{ $post->linked_unit }}">
@@ -43,3 +44,4 @@
         </div>
     @endforeach
 @endif
+</div>

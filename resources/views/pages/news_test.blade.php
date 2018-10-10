@@ -189,27 +189,27 @@
         </div>
         <div class="container-fluid border" align="right">
             <div class="btn-group-toggle btn-group-block" data-toggle="buttons">
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "cap">
+                <label class="btn btn-outline-secondary category-button" data-filter = "cap">
                     <input type="radio" name="options" id="option2"  autocomplete="off">القادة
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "tvlr">
+                <label class="btn btn-outline-secondary category-button" data-filter = "tvlr">
                     <input type="radio" name="options" id="option2"  autocomplete="off">الجوالة
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "asct">
+                <label class="btn btn-outline-secondary category-button" data-filter = "asct">
                     المتقدم<input type="radio" name="options" id="option2"  autocomplete="off">المتقدم
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "sct">
+                <label class="btn btn-outline-secondary category-button" data-filter = "sct">
                     <input type="radio" name="options" id="option2"  autocomplete="off">الكشاف
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "cubs">
+                <label class="btn btn-outline-secondary category-button" data-filter = "cubs">
                     <input type="radio" name="options" id="option2"  autocomplete="off">الاشبال
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button active" data-filter = "allu">
+                <label class="btn btn-outline-secondary category-button active" data-filter = "allu">
                     <input type="radio" name="options" id="option1"  autocomplete="off" checked> كل الوحدات
                 </label>
             </div>

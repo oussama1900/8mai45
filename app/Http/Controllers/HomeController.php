@@ -77,7 +77,7 @@ class HomeController extends Controller
     public function captains()
     {
         $posts = Post::where('linked_unit','cap')->orderby('created_at','desc')->paginate(3);
-        $events = Event::where('unit','cap')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $events = Event::where('unit','القادة')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.captains')->with('posts',$posts)->with('events',$events);
     }

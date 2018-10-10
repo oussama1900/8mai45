@@ -98,57 +98,62 @@
             }
         </style>
     </head>
-                <div style="height: 100px;">
-
-    </div>
+    <div style="height: 100px;background-color: #4f4f4f"></div>
 
     <section class="container mt-3">
-        <div class="row active-with-click">
-            @foreach($captains as $captain)
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <article class="material-card Light-Blue">
-                        <h2>
-                            <span style="text-align: right">{{ $captain->profile->getFullName() }}</span>
-                            <strong style="text-align: right">
-                                {{ $captain->assignedRole->getRole() }}
-                                <i class="fa fa-fw fa-star"></i>
-                            </strong>
-                        </h2>
-                        <div class="mc-content">
-                            <div class="img-container">
-                                <img class="img-fluid" style="width:100% !important" src="{{ $captain->profile->getPicture() }}">
-                            </div>
-                            @php
-                                $birth_date = "تاريخ الميلاد";
-                                $membership_date = "تاريخ الانضمام";
-                                $email = "البريد الالكتروني";
-                                $phone = "رقم الهاتف";
-                            @endphp
-                            <div class="mc-description" style="text-align: right">
-                                {{ $captain->profile->date_of_birth }} : {{ $birth_date }}
-                                <br>
-                                {{ $captain->profile->membership_date }} : {{ $membership_date }}
-                                <br>
-                                {{ $captain->profile->email }} : {{ $email }}
-                                <br>
-                                {{ $captain->profile->phone }} : {{ $phone }}
-                            </div>
-                        </div>
-                        <a class="mc-btn-action" style="color: #fff;">
-                            <i class="fa fa-bars" style="color:white"></i>
-                        </a>
-                        <div class="mc-footer">
-                            <h4 class="pull-right"  dir="rtl" style="text-align: right;position: absolute;right: 50%">
-                                تواصل
-                            </h4>
-                            <a class="fa fa-fw fa-facebook"></a>
-                            <a class="fa fa-fw fa-twitter"></a>
-                            <a class="fa fa-fw fa-linkedin"></a>
-                            <a class="fa fa-fw fa-google-plus"></a>
-                        </div>
-                    </article>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <h1 class="text-center" style="font-size: 30px;font-weight: bold;"> قادتنا </h1>
                 </div>
-            @endforeach
+            </div>
+            <div class="row active-with-click">
+                @foreach($captains as $captain)
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <article class="material-card Light-Blue ml-2">
+                            <h2>
+                                <span style="text-align: right">{{ $captain->profile->getFullName() }}</span>
+                                <strong style="text-align: right">
+                                    {{ $captain->assignedRole->getRole() }}
+                                    <i class="fa fa-fw fa-star"></i>
+                                </strong>
+                            </h2>
+                            <div class="mc-content">
+                                <div class="img-container">
+                                    <img class="img-fluid" style="width:100% !important" src="{{ $captain->profile->getPicture() }}">
+                                </div>
+                                @php
+                                    $birth_date = "تاريخ الميلاد";
+                                    $membership_date = "تاريخ الانضمام";
+                                    $email = "البريد الالكتروني";
+                                    $phone = "رقم الهاتف";
+                                @endphp
+                                <div class="mc-description" style="text-align: right">
+                                    {{ $captain->profile->date_of_birth }} : {{ $birth_date }}
+                                    <br>
+                                    {{ $captain->profile->membership_date }} : {{ $membership_date }}
+                                    <br>
+                                    {{ $captain->profile->email }} : {{ $email }}
+                                    <br>
+                                    {{ $captain->profile->phone }} : {{ $phone }}
+                                </div>
+                            </div>
+                            <a class="mc-btn-action" style="color: #fff;">
+                                <i class="fa fa-bars" style="color:white"></i>
+                            </a>
+                            <div class="mc-footer">
+                                <h4 class="pull-right"  dir="rtl" style="text-align: right;position: absolute;right: 50%">
+                                    تواصل
+                                </h4>
+                                <a class="fa fa-fw fa-facebook"></a>
+                                <a class="fa fa-fw fa-twitter"></a>
+                                <a class="fa fa-fw fa-linkedin"></a>
+                                <a class="fa fa-fw fa-google-plus"></a>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </section>
 @endsection

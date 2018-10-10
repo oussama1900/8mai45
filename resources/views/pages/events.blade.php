@@ -29,35 +29,6 @@
     <head>
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css')}}"/>
         <style>
-            #style-1{
-
-
-
-
-                overflow-y: scroll;
-
-
-            }
-            #style-1::-webkit-scrollbar-track
-            {
-                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-                border-radius: 10px;
-                background-color: #F5F5F5;
-            }
-
-
-            #style-1::-webkit-scrollbar
-            {
-                width: 12px;
-                background-color: #F5F5F5;
-            }
-
-            #style-1::-webkit-scrollbar-thumb
-            {
-                border-radius: 10px;
-                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-                background-color: #555;
-            }
             .btn-light{
                 position: absolute;
                 bottom:0px;
@@ -241,32 +212,32 @@
     </div>
     <!-- /Owl Carousel 1 -->
     <div class="card shadow m-lg-5" id="style-1" >
-        <div class="card-header" {!! $news_style !!}>
+        <div class="card-header">
             <h3 class="center text-center" style="color: #ffffff;">نشاطاتنا القادمة</h3>
         </div>
         <div class="container-fluid border" align="right">
             <div class="btn-group-toggle btn-group-block" data-toggle="buttons">
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "cap">
+                <label class="btn btn-outline-secondary category-button" data-filter = "القادة">
                     <input type="radio" name="options" id="option2"  autocomplete="off">القادة
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "tvlr">
+                <label class="btn btn-outline-secondary category-button" data-filter = "الجوالة">
                     <input type="radio" name="options" id="option2"  autocomplete="off">الجوالة
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "asct">
+                <label class="btn btn-outline-secondary category-button" data-filter = "المتقدم">
                     المتقدم<input type="radio" name="options" id="option2"  autocomplete="off">المتقدم
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "sct">
+                <label class="btn btn-outline-secondary category-button" data-filter = "الكشاف">
                     <input type="radio" name="options" id="option2"  autocomplete="off">الكشاف
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button" data-filter = "cubs">
+                <label class="btn btn-outline-secondary category-button" data-filter = "الاشبال">
                     <input type="radio" name="options" id="option2"  autocomplete="off">الاشبال
                 </label>
 
-                <label class="btn btn-outline-primary btn-custom category-button active" data-filter = "allu">
+                <label class="btn btn-outline-secondary category-button active" data-filter = "allu">
                     <input type="radio" name="options" id="option1"  autocomplete="off" checked> كل الوحدات
                 </label>
             </div>
@@ -279,55 +250,45 @@
                         <div class="card-deck">
                             @if($events->count()>0)
                                 @foreach($events as $event)
-
-
-
-
-
                                     <div class="col-md-12 allu {{ $event->unit }}">
                                         <div class="row" dir="rtl">
 
                                             <div class="col-md-6">
                                                 <div class="post-thumbnail">
-                                                    <img class="post-image" src="{{asset('images/EventImages/')}}{{"/".$event->cover_image}}"  width="100%" height="100%" alt="{{$event->post_title}}">
+                                                    <img style="filter: blur(2px);" class="post-image" src="{{asset('images/EventImages/')}}{{"/".$event->event_image}}"  width="100%" height="100%" alt="{{$event->title}}">
+                                                    @php
+                                                        $earlier = new DateTime();
+                                                        $later = new DateTime(substr($event->event_time, 0, 10));
+                                                        $diff = $later->diff($earlier)->format("%a");
+                                                    @endphp
+                                                    @if($diff == 0)
+                                                        <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;">سيتم هاذا النشاط اليوم</h3>
+                                                    @endif
+                                                    @if($diff == 1)
+                                                        <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط غدا </h3>
+                                                    @endif
+                                                    @if($diff == 2)
+                                                        <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد يومين </h3>
+                                                    @endif
+                                                    @if($diff > 2 && $diff <= 10)
+                                                        <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد  {{ $diff }} ايام </h3>
+                                                    @endif
+                                                    @if($diff > 10)
+                                                        <h3 class="" style="font-size: 35px;color: white;text-shadow: 3px 2px black;position: absolute;top: 50%;left: 50px;"> سيتم هاذا النشاط بعد  {{ $diff }} يوم </h3>
+                                                    @endif
                                                 </div>
-                                                <div class="clock{{ $event->event_id }}" style="width: auto;zoom: 0.35;position: absolute;left: 30%;top: 500px"></div>
-                                                <script type="text/javascript">
-                                                    var clock;
-
-                                                    $(document).ready(function() {
-
-                                                        // Grab the current date
-                                                        var currentDate = new Date();
-
-
-                                                        // Set some date in the future. In this case, it's always Jan 1
-                                                        var futureDate  = new Date({{substr($event->event_time, 0, 4)}},({{substr($event->event_time, 5, 2)}}),{{substr($event->event_time, 8, 2)}},{{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
-
-                                                        // Calculate the difference in seconds between the future and current date
-                                                        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-
-                                                        // Instantiate a coutdown FlipClock
-                                                        clock = $('.clock{{ $event->event_id }}').FlipClock(futureDate, {
-                                                            clockFace: 'dailyCounter',
-                                                            countdown: true,
-                                                            language:'ar-ar',
-                                                            autoStart: true
-                                                        });
-                                                    });
-                                                </script>
                                             </div>
                                             <div class=" post-content col-md-6">
                                                 <div class="post-description-container">
                                                     <div class="post-header">
                                                         <h5>
-                                                                     <span style="background: #7d7d8e;">
-                                                                    {{ $event->type }}
-                                                                  </span>
+                                <span style="background: #7d7d8e;">
+                                    {{ $event->type }}
+                                </span>
                                                             <span dir="rtl">
-                                                        <i class="fa fa-clock-o"></i>
+                                    <i class="fa fa-clock-o"></i>
                                                                 {{substr($event->event_time, 0, 10)}}
-                                                              </span>
+                                </span>
                                                         </h5>
 
                                                     </div>
@@ -338,27 +299,9 @@
                                                             </h2>
                                                         </div>
                                                         <div class="post-summary">
-                                                            {!! $event->post_summary !!}
+                                                            {!! $event->description !!}
                                                         </div>
-                                                        @php
-                                                            $unit_name = '';
-                                                            if($event->unit == "cubs"){
-                                                                $unit_name = 'وحدة الاشبال';
-                                                            }
-                                                            if($event->unit == "sct"){
-                                                                $unit_name = 'وحدة الكشاف';
-                                                            }
-                                                            if($event->unit == "asct"){
-                                                                $unit_name = 'وحدة الكشاف المتقدم';
-                                                            }
-                                                            if($event->unit == "tvlr"){
-                                                                $unit_name = 'وحدة الجوالة';
-                                                            }
-                                                            if($event->unit == "cap"){
-                                                                $unit_name= 'وحدة القادة';
-                                                            }
-                                                        @endphp
-                                                        <small class="card-subtitle text-right float-right" style="color: grey">{{$unit_name}}</small>
+                                                        <small class="card-subtitle text-right float-right" style="color: grey">{{$event->unit}}</small>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -369,86 +312,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                   <!-- <div class="col-auto mb-3 mt-3 allu {{ $event->unit }}">
-                                        <div class="card shadow " style="width: 18rem;">
-                                            <div class="card-content">
-                                                <div class="card-img">
-                                                    <img class="img-fluid hoverZoomLink" style="height: 250px;width: 100%" src="{{asset('images/EventImages/'.$event->event_image)}}" alt="{{$event->title}}">
-                                                    <span {!! $news_style !!}><h4>{{ $event->type }}</h4></span>
-                                                </div>
-
-                                                <div class="card-body" >
-                                                    <div class="row">
-                                                        <h6 class="text-black col-5 mt-2"><i class="fa fa-clock-o" style="color: {{ $card_color }}"></i> <small>{{$event->event_time}}</small></h6>
-                                                        <h5 class="text-right text-black col-7">{{$event->title}}</h5>
-                                                        <div class="clock{{ $event->event_id }}" style="width: auto;zoom: 0.35;position: absolute;left: 75px;top: 500px"></div>
-                                                        <script type="text/javascript">
-                                                            var clock;
-
-                                                            $(document).ready(function() {
-
-                                                                // Grab the current date
-                                                                var currentDate = new Date();
-
-
-                                                                // Set some date in the future. In this case, it's always Jan 1
-                                                                var futureDate  = new Date({{substr($event->event_time, 0, 4)}},({{substr($event->event_time, 5, 2)}}),{{substr($event->event_time, 8, 2)}},{{substr($event->event_time, 11, 2)}}, {{substr($event->event_time, 14, 2)}});
-
-                                                                // Calculate the difference in seconds between the future and current date
-                                                                var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-
-                                                                // Instantiate a coutdown FlipClock
-                                                                clock = $('.clock{{ $event->event_id }}').FlipClock(futureDate, {
-                                                                    clockFace: 'dailyCounter',
-                                                                    countdown: true,
-                                                                    language:'ar-ar',
-                                                                    autoStart: true
-                                                                });
-                                                            });
-                                                        </script>
-                                                    </div>
-
-                                                    @php
-                                                        $unit_name = '';
-                                                        if($event->unit == "cubs"){
-                                                            $unit_name = 'وحدة الاشبال';
-                                                        }
-                                                        if($event->unit == "sct"){
-                                                            $unit_name = 'وحدة الكشاف';
-                                                        }
-                                                        if($event->unit == "asct"){
-                                                            $unit_name = 'وحدة الكشاف المتقدم';
-                                                        }
-                                                        if($event->unit == "tvlr"){
-                                                            $unit_name = 'وحدة الجوالة';
-                                                        }
-                                                        if($event->unit == "cap"){
-                                                            $unit_name = 'وحدة القادة';
-                                                        }
-                                                    @endphp
-
-                                                    <small class="card-subtitle text-right float-right" style="color: grey">{{$unit_name}}</small>
-                                                    <a href="/events/{{$event->event_id}}" class="btn btn-outline-primary btn-custom btn-block mt-3">اقرأ اكثر</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
                                 @endforeach
                             @endif
                         </div>
