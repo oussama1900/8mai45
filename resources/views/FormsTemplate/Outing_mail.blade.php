@@ -40,7 +40,7 @@
 <div>
 
     <div style="text-align:right;margin-right:-25px;">
-      {!! $data['content'] !!}
+      {!!$data['content'] !!}
     </div>
 
 
@@ -51,7 +51,7 @@
     <p>{{$data['gov']}}</p>
     @if($data['agree'])
     <div>
-        <img src="/images/Report.png" width="100" height="100"/>
+        <img src= src="{{ public_path() .'/images/Report.png' }}" width="100" height="100" />
     </div>
         @endif
 </div>

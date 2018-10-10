@@ -18,7 +18,7 @@ use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    //
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -48,41 +48,41 @@ class EventController extends Controller
         $event_image = $this->insertEventImage($image);
         if(Auth::user()->captain->role=='gov'){
             $unit =$unit['0'];
-            if($unit == "الأشبال")
+            if($unit == "???????")
                 $unit ="cubs";
-            if($unit == "الكشاف")
+            if($unit == "??????")
                 $unit ="sct";
-            if($unit == "الكشاف المتقدم")
+            if($unit == "?????? ???????")
                 $unit ="asct";
-            if($unit == "الجوالة")
+            if($unit == "???????")
                 $unit ="tvlr";
-            if($unit == "القادة")
+            if($unit == "??????")
                 $unit ="cap";
-            if($unit=="وحدة أخرى")
+            if($unit=="???? ????")
                 $unit ="gov";
 
 
         }
         if(Auth::user()->captain->role=='med' ||Auth::user()->captain->role=='vmed' ){
             $unit =$unit['0'];
-            if($unit == "الأشبال")
+            if($unit == "???????")
                 $unit ="cubs";
-            if($unit == "الكشاف")
+            if($unit == "??????")
                 $unit ="sct";
-            if($unit == "الكشاف المتقدم")
+            if($unit == "?????? ???????")
                 $unit ="asct";
-            if($unit == "الجوالة")
+            if($unit == "???????")
                 $unit ="tvlr";
-            if($unit == "القادة")
+            if($unit == "??????")
                 $unit ="cap";
-            if($unit=="الاعلام")
+            if($unit=="???????")
                 $unit ="med";
 
-            if($unit=="المالية")
+            if($unit=="???????")
                 $unit ="fin";
-            if($unit=="متابعة البرامج وتنفيذ الخطط")
+            if($unit=="?????? ??????? ?????? ?????")
                 $unit ="surv";
-            if($unit=="خدمة و تنمية المجتمع")
+            if($unit=="???? ? ????? ???????")
                 $unit ="csd";
 
 
@@ -130,7 +130,7 @@ class EventController extends Controller
                 $current_user = Auth::user();
                 $current_user_fullname=' '.$current_user->profile->last_name .' '.$current_user->profile->first_name.' ';
 
-                  $notification_type = '( حدث للموافقة(  '.$type;
+                  $notification_type = '( ??? ????????(  '.$type;
 
                 if(Auth::user()->captain->role=='trne'){
 
@@ -147,7 +147,7 @@ class EventController extends Controller
                    $ucap = User::find($ucap_id);
                   $vucap = User::find($vucap_id);
                   $capa = User::find($capa_id);
-                       $message_forgov="القائد المربص".$current_user_fullname.'قام بوضع حدث جديد منتظرا الموافقة عليه';
+                       $message_forgov="?????? ??????".$current_user_fullname.'??? ???? ??? ???? ?????? ???????? ????';
                        if($gov_user!=null)
                       $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                     if($med_user!=null)
@@ -164,11 +164,11 @@ class EventController extends Controller
                 }else{
 
                      if(Auth::user()->captain->role!='gov'){
-                          $message_forgov=" قام القائد ".$current_user_fullname.'بوضع حدث جديد ';
+                          $message_forgov=" ??? ?????? ".$current_user_fullname.'???? ??? ???? ';
                          if($gov_user!=null)
                             $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                             if(Auth::user()->captain->role !='med'){
-                              $message_forgov=" قام القائد".$current_user_fullname.'بوضع حدث جديد ';
+                              $message_forgov=" ??? ??????".$current_user_fullname.'???? ??? ???? ';
                                 if($med_user!=null)
                                 $med_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                                 if(Auth::user()->captain->role !='vmed'){
@@ -184,11 +184,11 @@ class EventController extends Controller
 
                          $current_user = Auth::user()->profile;
                          $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
-                         $notification_message =" لقد تم اختيارك من طرف".$current_user_fullname. " الرجاء تأكيد الحضور من عدمه";
+                         $notification_message =" ??? ?? ??????? ?? ???".$current_user_fullname. " ?????? ????? ?????? ?? ????";
 
 
                          $user = User::find($concerned['scout_id']);
-                          $notification_type = '( حدث جديد(  '.$type;
+                          $notification_type = '( ??? ????(  '.$type;
                           if($user!=null)
                            $user->notify(new notifyCaptain($notification_message,$notification_type,$event_image,$time));
                         }
@@ -298,8 +298,8 @@ class EventController extends Controller
 
         $current_user = Auth::user()->profile;
         $current_user_fullname = ' ' . $current_user->last_name . ' ' . $current_user->first_name . ' ';
-        $message_forgov = "  الحدث تم تعديله بواسطة " . $current_user_fullname;
-        $notification_type = '( تعديل الحدث (  ' . $type;
+        $message_forgov = "  ????? ?? ?????? ?????? " . $current_user_fullname;
+        $notification_type = '( ????? ????? (  ' . $type;
         $gov_id = Captain::where('role', 'gov')->value('scout_id');
         $gov_user = User::find($gov_id);
 
@@ -382,7 +382,7 @@ class EventController extends Controller
                     DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                     $current_user = Auth::user()->profile;
                     $current_user_fullname = ' ' . $current_user->last_name . ' ' . $current_user->first_name . ' ';
-                    $notification_message = " لقد تم اختيارك من طرف" . $current_user_fullname . " الرجاء تأكيد الحضور من عدمه";
+                    $notification_message = " ??? ?? ??????? ?? ???" . $current_user_fullname . " ?????? ????? ?????? ?? ????";
 
                     $user = User::find($con['scout_id']);
                     if ($user != null)
@@ -426,12 +426,12 @@ class EventController extends Controller
             $current_user_fullname = ' ' . $current_user->last_name . ' ' . $current_user->first_name . ' ';
 
             if ($user_role == 'gov') {
-                $notification_message = " قام القائد " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ?????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the gov is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام القائد " . $current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ?????? " . $current_user_fullname . "  ?????? ???  ";
                         if ($med_user != null && $med_user != $creator_user && $med_user != $responsible_user){
 
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -444,7 +444,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام القائد " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -454,19 +454,19 @@ class EventController extends Controller
                         }
                     } else {
                         // the gov is responsible but is not creator
-                        $notification_message = " قام القائد " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ?????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($med_user != null && $med_user != $creator_user)
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($vmed_user != null && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($creator_user != null){
-                            $notification_message = " قام القائد " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ?????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام القائد " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -479,19 +479,19 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام القائد " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ??? ?????? " . $current_user_fullname . " ?????? ??? ";
                         if ($med_user != null && $med_user != $responsible_user)
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($vmed_user != null && $vmed_user != $responsible_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null){
-                            $notification_message = " قام القائد " . $current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ??? ?????? " . $current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام القائد " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -500,20 +500,20 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام القائد " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ?????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($med_user != null && $med_user != $responsible_user  && $med_user != $creator_user)
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام القائد " . $current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? " . $current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام القائد " . $current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? " . $current_user_fullname . "  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
@@ -533,12 +533,12 @@ class EventController extends Controller
 
             }
             if ($user_role == 'med') {
-                $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the med is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -551,7 +551,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -561,19 +561,19 @@ class EventController extends Controller
                         }
                     } else {
                         // the gov is responsible but is not creator
-                        $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user)
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($vmed_user != null && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($creator_user != null){
-                            $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -586,19 +586,19 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام  مسؤول الاعلام " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ???  ????? ??????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user)
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($vmed_user != null && $vmed_user != $responsible_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null){
-                            $notification_message = " قام  مسؤول الاعلام " . $current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ???  ????? ??????? " . $current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -607,20 +607,20 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user  && $gov_user != $creator_user)
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام مسؤول الاعلام " . $current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
@@ -640,12 +640,12 @@ class EventController extends Controller
 
             }
             if ($user_role == 'vmed') {
-                $notification_message = " قام نائب مسؤول الاعلام " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ???? ????? ??????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the med is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام نائب مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -658,7 +658,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام نائب مسؤول الاعلام " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ???? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -668,19 +668,19 @@ class EventController extends Controller
                         }
                     } else {
                         // the gov is responsible but is not creator
-                        $notification_message = " قام نائب  مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ????  ????? ??????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user)
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($med_user != null && $med_user != $creator_user)
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($creator_user != null){
-                            $notification_message = " قام نائب  مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ????  ????? ??????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام نائب  مسؤول الاعلام " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????  ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -693,19 +693,19 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام  نائب  مسؤول الاعلام " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ???  ????  ????? ??????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user)
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($med_user != null && $med_user != $responsible_user)
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null){
-                            $notification_message = " قام  نائب  مسؤول الاعلام " . $current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ???  ????  ????? ??????? " . $current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام  نائب مسؤول الاعلام " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ???  ???? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -714,20 +714,20 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام نائب  مسؤول الاعلام " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ????  ????? ??????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user  && $gov_user != $creator_user)
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($med_user != null && $med_user != $responsible_user  && $med_user != $creator_user)
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام نائب  مسؤول الاعلام " . $current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ????  ????? ??????? " . $current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام نائب  مسؤول الاعلام " . $current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ????  ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
@@ -747,29 +747,29 @@ class EventController extends Controller
 
             }
             if ($user_role == 'ucap') {
-                $notification_message = " قام قائد الوحدة " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ???? ?????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the med is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null &&  $med_user != $creator_user && $med_user != $responsible_user ){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null &&  $vmed_user != $creator_user && $vmed_user != $responsible_user ){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($vucap_user != null &&  $vucap_user != $creator_user && $vucap_user != $responsible_user ){
 
                             $vucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -783,7 +783,7 @@ class EventController extends Controller
                             $trne_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام قائد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ???? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -793,24 +793,24 @@ class EventController extends Controller
                         }
                     } else {
                         // the gov is responsible but is not creator
-                        $notification_message = " قام قائد الوحدة " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ???? ?????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($vucap_user != null &&  $vucap_user != $creator_user  ){
 
                             $vucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -824,13 +824,13 @@ class EventController extends Controller
                             $trne_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($creator_user != null){
-                            $notification_message = " قام قائد الوحدة " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ???? ?????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام قائد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ???? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -843,28 +843,28 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام  قائد الوحدة " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ???  ???? ?????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $responsible_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $responsible_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($responsible_user != null){
-                            $notification_message = " قام  قائد وحدة " . $cap_unit.' ' .$current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ???  ???? ???? " . $cap_unit.' ' .$current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($vucap_user != null &&   $vucap_user != $responsible_user ){
 
                             $vucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -880,7 +880,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام  قائد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ???  ???? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -889,37 +889,37 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام قائد الوحدة " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ???? ?????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user  && $gov_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $responsible_user  && $med_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام قائد وحدة " .  $cap_unit.' '.$current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " .  $cap_unit.' '.$current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام قائد وحدة " .  $cap_unit.' '.$current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " .  $cap_unit.' '.$current_user_fullname ."  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($vucap_user != null &&  $vucap_user != $creator_user && $vucap_user != $responsible_user ){
 
                             $vucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -949,29 +949,29 @@ class EventController extends Controller
 
             }
             if ($user_role == 'vucp') {
-                $notification_message = " قام نائب قائد الوحدة " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ???? ???? ?????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the med is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null &&  $med_user != $creator_user && $med_user != $responsible_user ){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null &&  $vmed_user != $creator_user && $vmed_user != $responsible_user ){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام نائب قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&  $ucap_user != $creator_user && $ucap_user != $responsible_user ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -985,7 +985,7 @@ class EventController extends Controller
                             $trne_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام نائب قائد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ???? ???? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -995,24 +995,24 @@ class EventController extends Controller
                         }
                     } else {
                         // the gov is responsible but is not creator
-                        $notification_message = " قام نائب قائد الوحدة " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ???? ???? ?????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $creator_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $creator_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام نائب قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&  $ucap_user != $creator_user  ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1026,13 +1026,13 @@ class EventController extends Controller
                             $trne_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($creator_user != null){
-                            $notification_message = " قام نائب قائد الوحدة " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ???? ???? ?????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام نائب قائد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ???? ???? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1045,28 +1045,28 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام نائب  قائد الوحدة " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ??? ????  ???? ?????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $responsible_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $responsible_user){
-                            $notification_message = " قام نائب قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($responsible_user != null){
-                            $notification_message = " قام نائب  قائد وحدة " . $cap_unit.' ' .$current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ??? ????  ???? ???? " . $cap_unit.' ' .$current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام نائب قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&   $ucap_user != $responsible_user ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1082,7 +1082,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام نائب  قائد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????  ???? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1091,37 +1091,37 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام قائد الوحدة " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ???? ?????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user  && $gov_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $responsible_user  && $med_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user){
-                            $notification_message = " قام قائد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام قائد وحدة " .  $cap_unit.' '.$current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " .  $cap_unit.' '.$current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام قائد وحدة " .  $cap_unit.' '.$current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ???? " .  $cap_unit.' '.$current_user_fullname ."  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $capa_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','capa')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام قائد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ???? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&  $ucap_user != $creator_user && $ucap_user != $responsible_user ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1151,29 +1151,29 @@ class EventController extends Controller
 
             }
             if ($user_role == 'capa') {
-                $notification_message = " قام نائب قائد الوحدة " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ???? ???? ?????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the med is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null &&  $med_user != $creator_user && $med_user != $responsible_user ){
-                            $notification_message = " قام االقائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ??????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null &&  $vmed_user != $creator_user && $vmed_user != $responsible_user ){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام القائد المساعد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ?????? ??????? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&  $ucap_user != $creator_user && $ucap_user != $responsible_user ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1187,7 +1187,7 @@ class EventController extends Controller
                             $trne_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام القائد المساعد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ?????? ??????? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -1197,24 +1197,24 @@ class EventController extends Controller
                         }
                     } else {
                         // the gov is responsible but is not creator
-                        $notification_message = " قام القائد المساعد الوحدة " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ?????? ??????? ?????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $creator_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $creator_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام القائد المساعد الوحدة " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ?????? ??????? ?????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&  $ucap_user != $creator_user  ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1228,13 +1228,13 @@ class EventController extends Controller
                             $trne_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($creator_user != null){
-                            $notification_message = " قام القائد المساعد الوحدة " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ?????? ??????? ?????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام القائد المساعد الوحدة " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ?????? ??????? ?????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1247,28 +1247,28 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام القائد المساعد الوحدة " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ??? ?????? ??????? ?????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $responsible_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $responsible_user){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($responsible_user != null){
-                            $notification_message = " قام القائد المساعد وحدة " . $cap_unit.' ' .$current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ??? ?????? ??????? ???? " . $cap_unit.' ' .$current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام القائد المساعد  " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ?????? ???????  " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&   $ucap_user != $responsible_user ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1284,7 +1284,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام القائد المساعد " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ?????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1293,37 +1293,37 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام القائد المساعد " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ?????? ??????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user  && $gov_user != $creator_user){
-                            $notification_message = " قام القائد المساعد " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($med_user != null && $med_user != $responsible_user  && $med_user != $creator_user){
-                            $notification_message = " قام القائد المساعد " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $med_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user){
-                            $notification_message = " قام القائد المساعد " . $cap_unit.' '.$current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? " . $cap_unit.' '.$current_user_fullname . "  ?????? ???  ";
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام القائد المساعد " .  $cap_unit.' '.$current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? " .  $cap_unit.' '.$current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام القائد المساعد " .  $cap_unit.' '.$current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ?????? ??????? " .  $cap_unit.' '.$current_user_fullname ."  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
                         $ucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','ucap')->value('scout_id'));
                         $vucap_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','vucp')->value('scout_id'));
                         $trne_user = User::find(Captain::where('unit',$ucap_user_unit)->where('role','trne')->value('scout_id'));
-                        $notification_message = " قام القائد المساعد " .$current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ?????? ??????? " .$current_user_fullname . "  ?????? ???  ";
                         if ($ucap_user != null &&  $ucap_user != $creator_user && $ucap_user != $responsible_user ){
 
                             $ucap_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1354,12 +1354,12 @@ class EventController extends Controller
             }
 
             if ($user_role == 'fin') {
-                $notification_message = " قام مسؤول المالية " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the gov is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام مسؤول المالية " . $current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1376,7 +1376,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -1387,7 +1387,7 @@ class EventController extends Controller
                     } else {
                         // the gov is responsible but is not creator
 
-                        $notification_message = " قام مسؤول المالية " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user ){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1397,13 +1397,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($creator_user != null){
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1416,7 +1416,7 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام مسؤول المالية " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user ){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1426,13 +1426,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $responsible_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null){
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1441,7 +1441,7 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام مسؤول المالية " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ??? ????? ??????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user && $gov_user != $creator_user ){
 
@@ -1452,13 +1452,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام مسؤول المالية " . $current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
@@ -1478,12 +1478,12 @@ class EventController extends Controller
 
             }
             if ($user_role == 'surv') {
-                $notification_message = " قام مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ????? ?????? ??????? ?????? ????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the gov is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1500,7 +1500,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -1511,7 +1511,7 @@ class EventController extends Controller
                     } else {
                         // the gov is responsible but is not creator
 
-                        $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user ){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1521,13 +1521,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($creator_user != null){
-                            $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ?????? ??????? ?????? ????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1540,7 +1540,7 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user ){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1550,13 +1550,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $responsible_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null){
-                            $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1565,7 +1565,7 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user && $gov_user != $creator_user ){
 
@@ -1576,13 +1576,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ????? ?????? ??????? ?????? ????? " . $current_user_fullname . "  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
@@ -1602,12 +1602,12 @@ class EventController extends Controller
 
             }
             if ($user_role == 'csd') {
-                $notification_message = " قام مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . "  يتعديل حدث ";
+                $notification_message = " ??? ????? ???? ? ????? ??????? " . $current_user_fullname . "  ?????? ??? ";
                 if ($user_id == $responsible) {
                     // so the gov is responsible
                     if ($user_id == $creator) {
                         // the gov is responsible + is creator
-                        $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . "  بتعديل حدث  ";
+                        $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user && $gov_user != $responsible_user){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1624,7 +1624,7 @@ class EventController extends Controller
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
 
                             $user_con = User::find($con['scout_id']);
@@ -1635,7 +1635,7 @@ class EventController extends Controller
                     } else {
                         // the gov is responsible but is not creator
 
-                        $notification_message = " قام  مسؤول خدمة و تنمية المجتمع" . $current_user_fullname . "  بتعديل حدث هو المسؤول عنه  ";
+                        $notification_message = " ???  ????? ???? ? ????? ???????" . $current_user_fullname . "  ?????? ??? ?? ??????? ???  ";
                         if ($gov_user != null && $gov_user != $creator_user ){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1645,13 +1645,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($creator_user != null){
-                            $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . "  بتعديل حدث قمت بكتابته ";
+                            $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . "  ?????? ??? ??? ??????? ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ??? ????? ???? ? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1664,7 +1664,7 @@ class EventController extends Controller
                     // so the gov is not a responsible
                     if ($user_id == $creator) {
                         // the gov is a creator
-                        $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . " بتعديل حدث ";
+                        $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . " ?????? ??? ";
                         if ($gov_user != null && $gov_user != $responsible_user ){
 
                             $gov_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
@@ -1674,13 +1674,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $responsible_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null){
-                            $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . " بتعديل حدث وتم وضعك كمسؤول في هذا الحدث ";
+                            $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . " ?????? ??? ??? ???? ?????? ?? ??? ????? ";
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
 
                         foreach ($Concerned as $con) {
-                            $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . " باختيارك لتكون معني بهذا الحدث يرجى تأكيد الحضور من عدمه";
+                            $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . " ???????? ????? ???? ???? ????? ???? ????? ?????? ?? ????";
                             DB::insert('insert into concerned (event_id,scout_id) values(?,?)', [$event_id, $con['scout_id']]);
                             $user_con = User::find($con['scout_id']);
                             if ($user_con != null && $user_id != $con['scout_id'])
@@ -1689,7 +1689,7 @@ class EventController extends Controller
                         }
 
                     } else {
-                        $notification_message = " قام  مسؤول خدمة و تنمية المجتمع " . $current_user_fullname . " بتعديل حدث";
+                        $notification_message = " ???  ????? ???? ? ????? ??????? " . $current_user_fullname . " ?????? ???";
                         // the gov is not creator
                         if ($gov_user != null && $gov_user != $responsible_user && $gov_user != $creator_user ){
 
@@ -1700,13 +1700,13 @@ class EventController extends Controller
                         if ($vmed_user != null && $vmed_user != $responsible_user  && $vmed_user != $creator_user)
                             $vmed_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         if ($responsible_user != null && $responsible_user !=  $creator_user){
-                            $notification_message = " قام  مسؤول متابعة البرامج وتنفيذ الخطط " . $current_user_fullname ."  بتعديل حدث  ";
+                            $notification_message = " ???  ????? ?????? ??????? ?????? ????? " . $current_user_fullname ."  ?????? ???  ";
 
                             $responsible_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
                         if ($creator_user != null){
-                            $notification_message = " قام خدمة و تنمية المجتمع " . $current_user_fullname . "  بتعديل حدث  ";
+                            $notification_message = " ??? ???? ? ????? ??????? " . $current_user_fullname . "  ?????? ???  ";
                             $creator_user->notify(new notifyCaptain($notification_message, $notification_type, $notification_image, $time));
                         }
 
@@ -1789,8 +1789,8 @@ class EventController extends Controller
 
         $current_user = Auth::user()->profile;
         $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
-        $notification_message = 'القائد'.$current_user_fullname.'أكد حضوره للحدث';
-        $notification_type =   '( تأكيد حضور ('.$event->type;
+        $notification_message = '??????'.$current_user_fullname.'??? ????? ?????';
+        $notification_type =   '( ????? ???? ('.$event->type;
         $notification_image = $event->event_image;
         $notification_time = $event->event_time;
 
@@ -1891,8 +1891,8 @@ return response()->json(["concernedevent"=>$concerned_event]);
 
   $current_user = Auth::user()->profile;
   $current_user_fullname=' '.$current_user->last_name .' '.$current_user->first_name.' ';
-  $notification_message = 'القائد'.$current_user_fullname.'أكد غيابه عن الحدث';
-  $notification_type =   '( تأكيد غياب ('.$event->type;
+  $notification_message = '??????'.$current_user_fullname.'??? ????? ?? ?????';
+  $notification_type =   '( ????? ???? ('.$event->type;
   $notification_image = $event->event_image;
   $notification_time = $event->event_time;
 
@@ -2042,8 +2042,8 @@ $concerned_cap->notify(new notifyCaptain($notification_message,$notification_typ
     $user = Auth::user()->profile;
         $current_user = Auth::user();
         $current_user_fullname=' '.$current_user->profile->last_name .' '.$current_user->profile->first_name.' ';
-    $notification_message ='قام القائد '.$current_user_fullname.'بالموافقة على حدث  طالبت بنشره ';
-     $notification_type = '( حدث جديد(  '.$event->type;
+    $notification_message ='??? ?????? '.$current_user_fullname.'????????? ??? ???  ????? ????? ';
+     $notification_type = '( ??? ????(  '.$event->type;
      $creator = User::find( $event->created_by);
         $creator_unit = $creator->captain->unit;
         $ucap = User::find(Captain::where('unit',$creator_unit)->where('role','ucap')->value('scout_id'));
@@ -2052,7 +2052,7 @@ $concerned_cap->notify(new notifyCaptain($notification_message,$notification_typ
         if($creator!=null)
             $creator->notify(new notifyCaptain($notification_message,$notification_type,$event->event_image,$event->event_time));
         $trainee_user_fullname=' '.$creator->profile->last_name .' '.$creator->profile->first_name.' ';
-        $notification_message ='قام القائد '.$current_user_fullname.'بالموافقة على حدث  طالب القائد المتربص '.$trainee_user_fullname;
+        $notification_message ='??? ?????? '.$current_user_fullname.'????????? ??? ???  ???? ?????? ??????? '.$trainee_user_fullname;
         if($ucap!=null)
             $ucap->notify(new notifyCaptain($notification_message,$notification_type,$event->event_image,$event->event_time));
         if($vucap!=null)
@@ -2069,8 +2069,8 @@ $concerned_cap->notify(new notifyCaptain($notification_message,$notification_typ
         $user = Auth::user()->profile;
         $current_user = Auth::user();
         $current_user_fullname=' '.$current_user->profile->last_name .' '.$current_user->profile->first_name.' ';
-        $notification_message ='قام القائد '.$current_user_fullname.'برفض  حدث طالبت بنشره ';
-        $notification_type = '( حدث جديد(  '.$event->type;
+        $notification_message ='??? ?????? '.$current_user_fullname.'????  ??? ????? ????? ';
+        $notification_type = '( ??? ????(  '.$event->type;
         $creator = User::find( $event->created_by);
         $creator_unit = $creator->captain->unit;
         $ucap = User::find(Captain::where('unit',$creator_unit)->where('role','ucap')->value('scout_id'));
@@ -2079,7 +2079,7 @@ $concerned_cap->notify(new notifyCaptain($notification_message,$notification_typ
         if($creator!=null)
             $creator->notify(new notifyCaptain($notification_message,$notification_type,$event->event_image,$event->event_time));
         $trainee_user_fullname=' '.$creator->profile->last_name .' '.$creator->profile->first_name.' ';
-        $notification_message ='قام القائد '.$current_user_fullname.'برفض  حدث  طالب القائد المتربص '.$trainee_user_fullname;
+        $notification_message ='??? ?????? '.$current_user_fullname.'????  ???  ???? ?????? ??????? '.$trainee_user_fullname;
 
         if($ucap!=null)
             $ucap->notify(new notifyCaptain($notification_message,$notification_type,$event->event_image,$event->event_time));

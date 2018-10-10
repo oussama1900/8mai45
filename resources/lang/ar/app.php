@@ -2,6 +2,9 @@
 return [
 "home" =>"الصفحة الرئيسية",
 "Administrative_Documents" =>"وثائق ادارية",
+"Approve_Correspondences" =>"المصادقة",
+"mypapers" =>"أوراقي",
+"forms" =>"استمارات",
 "login_creds" => "رقم الكشاف أو البريد الالكتروني",
 "units" => "وحدات الفوج",
 "Events" => "الأحداث",
@@ -271,7 +274,9 @@ return [
 "forum"=>"المنتدى",
 "Finance"=>"المالية",
 "Financial report"=>"التقرير المالي",
-"money mangment"=>"الإدارة المالية",
+"money mangment"=>"الصندوق",
+"Bank_Account"=>"حالة الحساب البنكي",
+"landing_page"=>"صفحة الموقع الرئيسية",
 "Equipment"=>"العتاد",
 
 "my_scouts"=>"كشافي الوحدة",

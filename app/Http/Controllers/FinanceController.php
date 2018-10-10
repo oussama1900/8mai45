@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\BankAccount;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Finance;
 use Carbon\Carbon;
 use DB;
 use PDF;
+use Auth;
 use App\UnitsReport;
 use App\Captain;
 use App\User;
@@ -16,8 +18,24 @@ class FinanceController extends Controller
 {
     public function __construct()
     {
-      //  $this->middleware('auth');
+    $this->middleware('auth');
 
+    }
+    public function update_BankAccount_Info(Request $request){
+        $account_value = $request->input('money');
+        $last_view = $request->input('date');
+        $view_by = Auth::user()->profile->getFullName();
+        $account = new BankAccount;
+        $account->last_view = $last_view;
+        $account->account_value = $account_value;
+        $account->view_by = $view_by;
+        $account->save();
+
+    }
+    public function GetMoneyFundInfo(){
+        $current_price = Finance::orderby('id','desc')->first()->money_total;
+        $last_price = Finance::orderby('id','desc')->skip(1)->take(1)->get()[0]->money_total;
+        return response()->json(["current_price"=>$current_price,"last_price"=>$last_price]);
     }
 	public function update_money(Request $request){
 	$money = $request->input('money');
@@ -92,12 +110,50 @@ $current_month_days=[];
 
 
 
-
 	return  response()->json(["money_values"=>[$money_values,$transaction_date,$current_month_days,$transaction_description,$trans_money]]);
+}
+public function getaccount_monthly_review(){
+
+	$current_month = Carbon::now()->format('m');
+	$money =DB::table("bank_account")
+	->select('id')
+
+				->whereRaw('MONTH(last_view) = ?',[$current_month])
+                ->orderBy('last_view','asc')
+				->get();
+
+				$money_values = [];
+				$last_view=[];
+				$view_by=[];
+
+			foreach($money as $key){
+					$money_data = BankAccount::select('account_value','last_view','view_by')
+															 ->where('id',$key->id)
+															 ->orderBy('last_view','asc')
+															 ->get()[0];
+						array_push($money_values,$money_data->account_value);
+						array_push($last_view,$money_data->last_view);
+                        array_push($view_by,$money_data->view_by );
+
+
+
+				}
+
+
+
+$current_month_days=[];
+			for($i=1;$i<=31;$i++){
+				array_push($current_month_days,$i);
+			}
+
+
+
+
+	return  response()->json(["money_values"=>[$money_values,$last_view,$current_month_days,$view_by]]);
 }
 
 public function getyearly_money(){
-	$months=["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+	$months=["?????","?????","????","?????","???","????","??????","???","??????","??????","??????","??????"];
     $current_year = Carbon::now()->format('Y');
 
 	$money =DB::table("finances")
@@ -124,6 +180,36 @@ public function getyearly_money(){
 
     }
     return  response()->json(["money_values"=>[$money_values,$transaction_date,$months,$transaction_description,$trans_money]]);
+
+}
+public function getyearly_money_account(){
+	$months=["?????","?????","????","?????","???","????","??????","???","??????","??????","??????","??????"];
+    $current_year = Carbon::now()->format('Y');
+
+	$money =DB::table("bank_account")
+        ->select('id')
+
+        ->whereRaw('YEAR(last_view) = ?',[$current_year])
+        ->orderBy('last_view','asc')
+        ->get();
+
+    $money_values=[];
+    $view_by=[];
+    $last_view=[];
+
+    foreach($money as $key){
+        $transaction_money = BankAccount::select('last_view','account_value','view_by')
+            ->where('id',$key->id)
+            ->orderBy('last_view','asc')
+            ->get()[0];
+
+        array_push($money_values,$transaction_money->account_value);
+        array_push($last_view,$months[date("m",strtotime($transaction_money->last_view))-1] );
+        array_push($view_by,$transaction_money->view_by );
+
+
+    }
+    return  response()->json(["money_values"=>[$money_values,$last_view,$months,$view_by]]);
 
 }
 public function getFinanceInfo(){
@@ -164,7 +250,7 @@ public function SendFinanceReport(){
 					->get();
 					  $filename =date('YmdHis',time()).mt_rand().'.pdf';
 					$old_report_id = UnitsReport::select('id')
-					                       ->where('unit','المالية')
+					                       ->where('unit','???????')
 																	->where('month',Carbon::now()->month)
 																	->whereYear('created_at', date('Y'))
 																	->get();
@@ -176,12 +262,12 @@ public function SendFinanceReport(){
 
 						$current_year_month = date('m-Y');
 						$date = date('Y-m-d');
-					$description = 'تقرير المالية '.$current_year_month;
+					$description = '????? ??????? '.$current_year_month;
 					  $report = new UnitsReport;
 					$report->file_name = $filename;
 					$report->month = Carbon::now()->month;
 					$report->report_date = $date;
-					$report->unit = "المالية";
+					$report->unit = "???????";
 					$report->description = $description;
 					$report->created_at = Carbon::now();
 					$report->save();
@@ -191,8 +277,8 @@ public function SendFinanceReport(){
 					$pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
 					file_put_contents($pdfroot, $pdf_string);
 					$vgov = User::find(Captain::where('role','vgov')->value('scout_id'));
-					$notification_message = "تم ارسال تقرير المالية الشهري";
-			$notification_type = "تقرير جديد";
+					$notification_message = "?? ????? ????? ??????? ??????";
+			$notification_type = "????? ????";
 			$image = "/images/Report.png";
 			if($vgov!=null)
 			$vgov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));

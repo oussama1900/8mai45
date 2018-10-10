@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace  App\Http\Controllers;
 use App\Notifications\notifyCaptain;
 use App\UnitScout;
 use Illuminate\Http\Request;
@@ -13,10 +12,16 @@ use App\Correspondence;
 use PDF;
 use DB;
 use Auth;
+use FILE;
 use App\UnitsReport;
 use Carbon\Carbon;
 
-class FormsController extends Controller
+
+
+
+
+class FormsController extends  Controller
+
 {
     //
     public function __construct()
@@ -24,11 +29,56 @@ class FormsController extends Controller
         set_time_limit(300);
 
     }
+    public function delete_document($id){
+        $document = Correspondence::find($id);
+        $document_name = $document->file;
+        File::delete(public_path().'/uploads/Correspondence/'.$document_name);
+        $document->delete();
+
+    }
     public function getGovernor(){
         $governor = Scout::find(Captain::where('role','gov')->value('scout_id'));
         $governor = $governor->last_name." ".$governor->first_name;
         return response()->json(["governor"=>$governor]);
     }
+    public function GetCorrespondences(){
+        $Correspondences_Not_Appr = Correspondence::with('sender')->where('approved',false)->get();
+        $Correspondences_Appr = Correspondence::with('sender')->where('approved',true)->get();
+      $public_path = url('/uploads/Correspondence/');
+        return response()->json(["Correspondences_Not_Appr"=>$Correspondences_Not_Appr,"Correspondences_Appr"=>$Correspondences_Appr,"public_path"=>$public_path]);
+    }
+    public function GetMyCorrespondences(){
+        $scout_id = Auth::user()->scout_id;
+
+        $Correspondences_Not_Appr = Correspondence::with('sender')->where('sender',$scout_id)->where('approved',false)->get();
+        $Correspondences_Appr = Correspondence::with('sender')->where('sender',$scout_id)->where('approved',true)->get();
+      $public_path = url('/uploads/Correspondence/');
+        return response()->json(["Correspondences_Not_Appr"=>$Correspondences_Not_Appr,"Correspondences_Appr"=>$Correspondences_Appr,"public_path"=>$public_path]);
+    }
+    public function Authenticate_Correspondence($correspondence_id){
+       $correspondence_not_appr = Correspondence::find($correspondence_id);
+        $correspondence_not_appr->approved = true;
+        $correspondence_not_appr->save();
+
+        $data=["content"=>$correspondence_not_appr->content,"subject"=>$correspondence_not_appr->subject,"to"=>$correspondence_not_appr->to,"date"=>$correspondence_not_appr->time,"agree"=>true,"gov"=>$correspondence_not_appr->gov,"outing_mail_number"=>$correspondence_not_appr->outing_mail_id];
+        $pdf = PDF::loadView('/FormsTemplate/Outing_mail',compact('data'));
+        $pdf_string = $pdf->output();
+        $pdfroot = public_path() . '/uploads/Correspondence/' . $correspondence_not_appr->file;
+
+        file_put_contents($pdfroot, $pdf_string);
+
+
+        $captain  = User::find($correspondence_not_appr->sender);
+        $notification_type="????? ????? ?????";
+        $notification_message = "??? ????? ????? ????????? ??? ?????? ??? ????????";
+        $image = "/images/Report.png";
+        if($captain!=null)
+            $captain->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
+
+
+        return response()->json(["msg"=>$correspondence_not_appr]);
+    }
+
     public function previewHonorary(Request $request){
         $content = $request->input('content');
         $date = $request->input('date');
@@ -136,7 +186,7 @@ class FormsController extends Controller
 
         return $pdf->stream('example.pdf');
     }
-    public function downloadOuting_mailPDF(Request $request){
+   public function downloadOuting_mailPDF(Request $request){
         $content = $request->input('content');
         $date = $request->input('date');
         $gov = $request->input('gov');
@@ -144,7 +194,7 @@ class FormsController extends Controller
         $to = $request->input('to');
         $subject = $request->input('subject');
          $agree = true;
-      /*  if(Auth::user()->captain->role=="gov"){
+      if(Auth::user()->captain->role!="gov"){
             $filename =date('YmdHis',time()).mt_rand().'.pdf';
             $outing_mail=  DB::table('correspondences')->insertGetId([
                 "sender"=>Auth::user()->scout_id,
@@ -155,23 +205,27 @@ class FormsController extends Controller
                 "gov"=>$gov,
                 "approved"=>true,
                 "file"=>$filename,
+                "created_at"=>Carbon::now()->format('Y-m-d'),
             ]);
          $agree=true;
+           $data =["agree"=>$agree,"content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
 
+           $pdf = PDF::loadView('/FormsTemplate/Outing_mail',compact('data'));
            $pdf_string = $pdf->output();
             $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
 
             file_put_contents($pdfroot, $pdf_string);
 
         }else{
+           $outing_mail = (Correspondence::orderBy('outing_mail_id','desc')->first()->outing_mail_id)+1;
             $agree=false;
 
-        }*/
+        }
 
         $data =["agree"=>$agree,"content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
 
-        $pdf = PDF::loadView('FormsTemplate.Outing_mail',compact('data'));
-        return response()->json(['msg'=>"message"]);
+        $pdf = PDF::loadView('/FormsTemplate/Outing_mail',compact('data'));
+        return $pdf->download('example.pdf');
     }
     public function SendOuting_mail_forAgree(Request $request){
         $content = $request->input('content');
@@ -197,19 +251,20 @@ class FormsController extends Controller
             "gov"=>$gov,
             "file"=>$filename,
             "approved"=>false,
+            "created_at"=>Carbon::now()->format('Y-m-d'),
         ]);
 
 
 
-        $data =["content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
-        $pdf = PDF::loadView('FormsTemplate.Outing_mail',compact('data'));
+        $data =["content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov,"agree"=>false];
+        $pdf = PDF::loadView('/FormsTemplate/Outing_mail',compact('data'));
         $pdf_string = $pdf->output();
         $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
 
         file_put_contents($pdfroot, $pdf_string);
         $gov = User::find(Captain::where('role','gov')->value('scout_id'));
-        $notification_message="مراسلة بريد صادر تحتاج المصادقة";
-        $notification_type = "مصادقة على مراسلة";
+        $notification_message="?????? ???? ???? ????? ????????";
+        $notification_type = "?????? ??? ??????";
         $image = "/images/Report.png";
         if($gov!=null)
             $gov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -267,10 +322,10 @@ class FormsController extends Controller
                     $to_day =  substr($to,8,2);
                     $time =$from_day.'-'.$from_year.'/'.$from_month.'/'.$to_day;
                 }else{
-                    $time =$to.'الى'. $from;
+                    $time =$to.'???'. $from;
                 }
             }else{
-                $time =$to.'الى'. $from;
+                $time =$to.'???'. $from;
             }
         }
         $data =["outing_mail"=>$outing_mail,
@@ -379,7 +434,7 @@ class FormsController extends Controller
 
         file_put_contents($pdfroot, $pdf_string);
 
-       $description ="ورقة نشاط وحدة".$unit." ".$current_year_month;
+       $description ="???? ???? ????".$unit." ".$current_year_month;
         $report = new UnitsReport;
 
         $report->file_name = $filename;
@@ -397,8 +452,8 @@ class FormsController extends Controller
 
 
         $surv = User::find(Captain::where('role','surv')->value('scout_id'));
-        $notification_message = "تم ارسال ورقة نشاط  لوحدة ". $unit.' '.$current_year_month;
-        $notification_type = "تقرير جديد";
+        $notification_message = "?? ????? ???? ????  ????? ". $unit.' '.$current_year_month;
+        $notification_type = "????? ????";
         $image = "/images/Report.png";
         if($surv!=null)
             $surv->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -507,7 +562,7 @@ class FormsController extends Controller
         if($operation_type == "send"){
            $current_year_month = date('m-Y');
             $filename =date('YmdHis',time()).mt_rand().'.pdf';
-            $description = ' التقرير الشهري لوحدة '.$unit.''.$current_year_month;
+            $description = ' ??????? ?????? ????? '.$unit.''.$current_year_month;
 
             $old_report_id = UnitsReport::select('id')
 						                        ->where('unit',$unit)
@@ -535,8 +590,8 @@ class FormsController extends Controller
                 $pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
                 file_put_contents($pdfroot, $pdf_string);
                 $vgov = User::find(Captain::where('role','vgov')->value('scout_id'));
-                $notification_message = "تم ارسال التقرير الشهري لوحدة ". $unit;
-            $notification_type = "تقرير جديد";
+                $notification_message = "?? ????? ??????? ?????? ????? ". $unit;
+            $notification_type = "????? ????";
             $image = "/images/Report.png";
             if($vgov!=null)
             $vgov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -549,7 +604,7 @@ class FormsController extends Controller
 			if(Auth::user()->captain->role == "surv"){
 				$monthly_reports = UnitsReport::select('file_name','unit','description')
 																				->where(DB::raw('MONTH(month)',Carbon::now()->format('m')))
-																				->where('unit','!=','المالية')
+																				->where('unit','!=','???????')
 																				->where('type','report')
 																				->whereYear('created_at', date('Y'))
 																				->get();
@@ -570,7 +625,7 @@ class FormsController extends Controller
         if(Auth::user()->captain->role == "surv"){
             $monthly_reports = UnitsReport::select('file_name','unit','description')
                 ->where('month',$month)
-                ->where('unit','!=','المالية')
+                ->where('unit','!=','???????')
                 ->where('type','report')
                 ->whereYear('created_at', $year)
                 ->get();
@@ -591,7 +646,7 @@ class FormsController extends Controller
 
             $monthly_reports = UnitsReport::select('file_name','unit','description')
                 ->where('month',$month)
-                ->where('unit','!=','المالية')
+                ->where('unit','!=','???????')
                 ->where('type','activity_paper')
                 ->whereYear('created_at', $year)
                 ->get();

@@ -28,10 +28,13 @@ Vue.use(SweetModal);
 Vue.use(loading);
 import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
+import Bank_Account from './components/Scout/Finance/Bank_Account_Info.vue';
 import MyScout from './components/MyScout';
 import NewForm from './components/NewForm';
 import Reporter from './components/Scout/Add File/forms/Reporter';
+import Correspondences_Received from './components/Scout/Add File/forms/Correspondences_Received';
 import NewRapport from './components/Scout/Add File/Reports/NewRapport';
+import MyPapers from './components/Scout/Add File/forms/mypapers';
 import Allposts from './components/Scout/Miscellaneous/AllPosts';
 import MyEvents from './components/Scout/Miscellaneous/Event/MyEvents';
 import Concerned_Events from './components/Scout/Miscellaneous/Event/Concerned_Events';
@@ -112,6 +115,7 @@ import Advanced_Scout from './components/Scout/Scouts/Advanced_Scout';
 
 import Traveler from './components/Scout/Scouts/Traveler';
 import Captain from './components/Scout/Scouts/Captain';
+import landing_page from './components/Scout/Home/Landing_page_photos';
 
 
 
@@ -281,8 +285,159 @@ Vue.component('year-line-chart', {
 
   }
 });
+Vue.component('yearly-bank-account', {
+    extends: VueChartJs.Line,
+    mounted () {
+        var vm = this;
+
+        var money="";
+        var months="";
+        var money_data=[];
+        var last_view=[];
+        var view_by=[];
+        axios.get('/api/getyearly_money_account').then(function(response){
+            money = response.data.money_values[0];
+            last_view = response.data.money_values[1];
+            months = response.data.money_values[2];
+            view_by=response.data.money_values[3];
 
 
+            var money_index=1;
+            for(var i = 0;i<last_view.length;i++){
+                money_data.push({x:last_view[i],y:money[i]})
+            }
+
+
+
+
+
+            vm.renderChart({
+                    labels: months,
+                    datasets: [
+                        {
+                            label: 'قيمة الحساب البنكي ',
+                            borderColor:"#33b5e5" ,
+                            data:money_data
+                        }
+                    ],
+
+
+                },
+
+                {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    },
+
+                    legend: {
+                        display: false,
+                    },
+                    tooltips: {
+                        callbacks:{
+                            label: function(tooltipItem) {
+                                return "قيمة الحساب البنكي : " +tooltipItem.yLabel +" دج";
+                            },
+                            title:function (tooltipItem) {
+
+                                return view_by[tooltipItem[0].index];
+
+                            }
+
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+
+                },
+
+
+            )
+        });
+
+    }
+});
+Vue.component('monthly-bank-account', {
+    extends: VueChartJs.Line,
+    mounted () {
+        var vm = this;
+
+        var money="";
+        var current_month_days="";
+        var money_data=[];
+        var last_view=[];
+        var view_by=[];
+
+        axios.get('/api/getaccount_monthly_review').then(function(response){
+            money = response.data.money_values[0];
+            last_view = response.data.money_values[1];
+            current_month_days = response.data.money_values[2];
+            view_by=response.data.money_values[3];
+
+
+
+
+            var money_index=1;
+            for(var i = 0;i<last_view.length;i++){
+                money_data.push({x:parseInt(last_view[i].slice(8, 10)),y:money[i]})
+            }
+
+
+
+
+
+            vm.renderChart({
+                    labels: current_month_days,
+                    datasets: [
+                        {
+                            label: 'قيمة الحساب الجاري',
+                            borderColor:"#33b5e5" ,
+                            data:money_data
+                        }
+                    ]
+                },
+                {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    },
+
+                    legend: {
+                        display: false,
+                    },
+                    tooltips: {
+                        callbacks:{
+                            label: function(tooltipItem) {
+                                return "قيمة الحساب الجاري : " +tooltipItem.yLabel +" دج";
+                            },
+                            title:function (tooltipItem) {
+
+
+
+                                return view_by[tooltipItem[0].index];
+
+                            }
+
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+
+                },
+
+            )
+        });
+
+    }
+});
 
 Vue.component('datetime', Datetime);
 Vue.component('notification-content',notification_content);
@@ -330,6 +485,27 @@ const routes = [
         path: "/dashboard",
 
         component: Hub
+
+    },
+    {
+
+        path: "/dashboard/landing-page",
+
+        component: landing_page,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
 
     },
 
@@ -727,6 +903,40 @@ const routes = [
                 current_user = response.data.current_user;
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                    next();
+                else
+                    next(false);
+            });
+
+        }
+    },
+    {
+        path:"/dashboard/forms/Approve",
+        component: Correspondences_Received,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0)
+                    next();
+                else
+                    next(false);
+            });
+
+        }
+    } ,
+    {
+        path:"/dashboard/forms/mypapers",
+        component: MyPapers,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('ucap')===0 ||current_user.localeCompare('vgov')===0 ||current_user.localeCompare('surv')===0 ||current_user.localeCompare('csd')===0 )
                     next();
                 else
                     next(false);
@@ -1245,6 +1455,25 @@ const routes = [
     {
         path:"/dashboard/finance/Financial_management",
         component:Financial_management,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('fin')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+        path:"/dashboard/finance/Bank-Account",
+        component:Bank_Account,
         beforeEnter: (to, from, next) => {
 
 

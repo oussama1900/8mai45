@@ -13,11 +13,15 @@
     </a>
     <ul class="dropdown-menu" style="margin-top: 12px;margin-left: -200px;padding: 0px 0px 0px !important;width: 350px;height: 350px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
 
-      <li class="header" style="color: white;width: 100%;margin-top: 0px;text-align: right;background-color: rgb(51, 181, 229);border-top-left-radius: 10px;border-top-right-radius: 10px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;padding-top: 0px;">
-   التنبيهات   <i class="fa fa-bill"></i>
+      <li class="header" style="height:50px;color: white;width: 100%;margin-top: 0px;text-align: right;background-color: rgb(51, 181, 229);border-top-left-radius: 10px;border-top-right-radius: 10px;margin-bottom: 0px;padding-left: 0px;padding-right: 0px;padding-top: 0px;">
+          <p>
+              <i class="fa fa-bell-o pull-right"></i>
+              التنبيهات
+          </p>
+
 
       </li>
-      <li style="width:350px;height:280px;overflow-y:auto;overflow-x:hidden">
+      <li id="notification-body" style="width:350px;height:280px;overflow-y:auto;overflow-x:hidden">
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu" >
                   <!--start-->
@@ -89,6 +93,26 @@
 </template>
 
 <style scoped>
+    #notification-body::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+
+    #notification-body::-webkit-scrollbar
+    {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    #notification-body::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
 #not:hover{
 background-color:white
 }

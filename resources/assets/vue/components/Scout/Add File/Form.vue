@@ -7,11 +7,11 @@
 
    <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
-            <div class="stepwizard-step col-xs-3 col-md-6">
+            <div class="stepwizard-step col-xs-6 col-md-6">
                 <a href="#step-1"  class="btn btn-success btn-circle header-title"  >1</a>
                 <p><small class="header-title">نوع الاستمارة</small></p>
             </div>
-            <div class="stepwizard-step col-xs-3 col-md-6">
+            <div class="stepwizard-step col-xs-6 col-md-6">
                 <a href="#step-2"  class="btn btn-default btn-circle header-title" disabled="true">2</a>
                 <p><small class="header-title">ملء الاستمارة</small></p>
             </div>

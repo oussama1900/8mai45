@@ -276,6 +276,8 @@ Route::post('/previewOuting_mailPDF', 'FormsController@previewOuting_mailPDF'
 
 Route::put('/downloadOuting_mailPDF', 'FormsController@downloadOuting_mailPDF'
 );
+Route::put('/downloadoutingmail', 'FormsController@downloadoutingmail'
+);
 Route::put('/SendOuting_mail_forAgree', 'FormsController@SendOuting_mail_forAgree'
 );
 Route::put('/downloadInaugurationPDF', 'FormsController@downloadInaugurationPDF'
@@ -295,9 +297,25 @@ Route::get('/getNbr_of_Posts', 'DashboardController@getNbr_of_Posts'
 
 Route::get('/getAccount_Nbr', 'DashboardController@getAccount_Nbr'
 );
+Route::get('/GetCorrespondences', 'FormsController@GetCorrespondences'
+);
+Route::get('/GetMyCorrespondences', 'FormsController@GetMyCorrespondences'
+);
+Route::get('/Authenticate_Correspondence/{correspondence_id}', 'FormsController@Authenticate_Correspondence'
+);
 
 
 Route::get('/getMyTeam', 'DashboardController@getMyTeam'
+);
+Route::get('/Landing_page_images', 'DashboardController@Landing_page_images'
+);
+Route::get('/GetMoneyFundInfo', 'FinanceController@GetMoneyFundInfo'
+);
+Route::post('/update_BankAccount_Info', 'FinanceController@update_BankAccount_Info'
+);
+Route::get('/getyearly_money_account', 'FinanceController@getyearly_money_account'
+);
+Route::get('/getaccount_monthly_review', 'FinanceController@getaccount_monthly_review'
 );
 Route::get('/ExportUsersList', 'AccountsController@ExportUsersList'
 );
@@ -331,6 +349,12 @@ Route::get('/DownloadFinanceReport', 'FinanceController@DownloadFinanceReport'
 Route::get('/SendFinanceReport', 'FinanceController@SendFinanceReport'
 );
 Route::get('/SendActivityPaperPDF', 'FormsController@SendActivityPaperPDF'
+);
+Route::delete('/delete_document/{id}', 'FormsController@delete_document'
+);
+Route::put('/addNewCarouselImage', 'DashboardController@addNewCarouselImage'
+);
+Route::delete('/deleteCarouselImage/{id}', 'DashboardController@deleteCarouselImage'
 );
 
 Route::post('/marsNotificationAsRead',function(){

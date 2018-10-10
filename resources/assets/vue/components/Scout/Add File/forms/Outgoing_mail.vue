@@ -153,47 +153,44 @@
             download(){
                 this.show = true;
 
+               if(this.date.localeCompare('')===0){
+                   var full_date="";
+               }else{
+                   var temp_date = this.date.slice(0,10),
+                       cut_date = temp_date.split("-"),
+                       full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
+               }
 
-
-
-                var temp_date = this.date.slice(0,10),
-                    cut_date = temp_date.split("-"),
-                    full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
                 var vm  =this;
-
-                    axios({
-                        url:  '/api/downloadOuting_mailPDF',
-                        method: 'put',
-
-                        data:{
-                            content:vm.content,
-                            date :full_date,
-                            gov : vm.governor,
-                            subject:vm.subject,
-                            to:vm.to,
-
-                        }
+                axios({
+                    url:  '/api/downloadOuting_mailPDF',
+                    method: 'put',
+                    responseType: 'blob',
+                    data:{
+                        content:vm.content,
+                        date :full_date,
+                        gov : vm.governor,
+                        to:vm.to,
+                        subject:vm.subject,
+                    }
 
 
-                    }).then(function (response) {
-                        vm.show = false;
-                      /*  let blob = new Blob([response.data], { type:  'application/pdf' } );
+                }).then(function (response) {
 
-                        let link = document.createElement('a');
-                        link.href = window.URL.createObjectURL(blob);
-                        link.download = 'مراسلة البريد الصادر.pdf';
-                        link.click();*/
-                      console.log(response);
+                    let blob = new Blob([response.data], { type:  'application/pdf' } );
 
+                    let link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'مراسلة.pdf';
+                    link.click();
+
+                    vm.show = false;
 
 
 
 
 
-
-                    });
-
-
+                });
 
 
             }

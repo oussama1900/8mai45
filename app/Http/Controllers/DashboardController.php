@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\landingPageCarousel;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -16,6 +17,7 @@ use Carbon\Carbon;
 use Session;
 use App\Foo;
 use View;
+use File;
 use App\Event;
 use App\Post;
 use App\Scout;
@@ -46,6 +48,7 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
 	public function index(Request $request){
 		if (Auth::user()->hasRole('gov') || Auth::user()->hasRole('Captain') ) {
@@ -113,9 +116,58 @@ class DashboardController extends Controller
 		return view('dashboard.dashboard_user',compact('todayvisitor'));
     }
 
+
+    public function insertImage($image){
+
+        if($image==""){
+            $filename="";
+        }else{
+            $expl = explode(',',$image);
+            $decode = base64_decode($expl[1]);
+            if(str_contains($expl[0],'png')){
+                $exte= 'png';
+
+            }else{
+                $exte= 'jpeg';
+            }
+
+            $filename = 'Carousel_Image'.'-'. date('YmdHis',time()).mt_rand().'.'.$exte;
+            $filepath = public_path().'/images/Carousel/'.$filename;
+
+
+            file_put_contents($filepath,$decode);
+
+        }
+        return $filename;
+
+    }
     /**
      * @return \Illuminate\Http\JsonResponse
      */
+    public function addNewCarouselImage(Request $request){
+        $new_images = $request->input('new_images');
+        foreach ($new_images as $image){
+            $file_name = $this->insertImage($image['image']);
+            $newCarousel_image = new landingPageCarousel;
+            $newCarousel_image->image =$file_name;
+            $newCarousel_image->description = $image['description'];
+            $newCarousel_image->save();
+        }
+        return response()->json(["msg"=>"success"]);
+
+    }
+    public function deleteCarouselImage($id){
+        $landingPageCarousel = landingPageCarousel::find($id);
+        $image_name = $landingPageCarousel->image;
+        File::delete(public_path().'/images/Carousel/'.$image_name);
+        $landingPageCarousel->delete();
+        return response()->json(["msg"=>"success"]);
+
+    }
+    public function Landing_page_images(){
+        $landing_page_image = landingPageCarousel::all();
+        return response()->json(["landing_page"=>$landing_page_image]);
+    }
     public function getNbr_of_Events(){
         $nbr_of_events = Event::count();
         return response()->json(["nbr_of_events"=>$nbr_of_events]);

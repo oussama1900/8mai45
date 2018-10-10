@@ -7,6 +7,21 @@
 		حالة الصندوق لشهر 	{{getCurrent_month()}}
 				</h4>
 			</div>
+		<div class ="row" style="width:100%">
+			<div class="col-md-4 col-xs-11 card pull-right" style="display: inline-block">
+				<p>
+					<span class="label_title">القيمة الحالية</span>
+                    <span class="label_title">{{current_price}}</span>
+				</p>
+			</div>
+			<div class="col-md-4 col-xs-11 card pull-left" style="  display: inline-block;margin-left:20px">
+				<p>
+                    <span class="label_title">القيمة قبل اخر معاملة</span>
+                    <span class="label_title">{{last_price}}</span>
+                </p>
+			</div>
+
+		</div>
              <monthly-line-chart></monthly-line-chart>
 
 </div>
@@ -57,7 +72,11 @@
  </li>
 </ul>
 </div>
-<div class="container col-md-11 col-sm-11 col-xs-11 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+
+
+
+
+	  <div class="container col-md-11 col-sm-11 col-xs-11 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
 	<div class="header" style="margin-bottom:10px">
 		<h4 style="text-align:center;	color:#fff;" class="label_title">
 	{{getCurrent_year()}}		حالة الصندوق لعام
@@ -104,9 +123,18 @@
 				description:'',
 				date:'',
 				money_state:'',
+				current_price:'',
+				last_price:'',
 
 			}
 		},
+      created:function(){
+          var vm = this;
+        axios.get('/api/GetMoneyFundInfo').then(function (response) {
+            vm.current_price = response.data.current_price;
+            vm.last_price = response.data.last_price;
+        });
+      },
 		methods:{
         validate(){
           if(this.money.localeCompare("")===0 || this.description.localeCompare("")===0 || this.date.localeCompare("")===0 || this.clicked===false){

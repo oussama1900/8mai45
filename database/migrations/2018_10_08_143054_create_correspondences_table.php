@@ -22,7 +22,7 @@ class CreateCorrespondencesTable extends Migration
             $table->text('content');
             $table->string('gov',255);
             $table->string('file',255);
-            $table->boolean('approved')->default(false);
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }

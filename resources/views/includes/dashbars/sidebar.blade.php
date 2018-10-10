@@ -22,6 +22,22 @@
                     </li>
                   </ul>
                        </li>
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                          <span class="site-menu-title">
+                      {{ trans('app.landing_page')}}
+                    </span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/dashboard/landing-page">
+                                  <span class="site-menu-title">{{ trans('app.landing_page')}}</span>
+                              </router-link>
+                          </li>
+                      </ul>
+                  </li>
                   <!-- end dashboard item -->
 
                               @if(Auth::user()->hasRole('gov'))
@@ -135,16 +151,37 @@
                           <span class="site-menu-arrow"/>
                       </a>
                       <ul class="site-menu-sub">
-                          @if( Auth::user()->hasRole('gov') ||
-                               Auth::user()->hasRole('vgov') )
+                          @if( Auth::user()->hasRole('gov'))
                               <li class="site-menu-item">
-                                  <router-link class="animsition-link" to="/dashboard/form"/>
-                                  <span class="site-menu-title">{{ trans('app.form')}}</span>
+                                  <router-link class="animsition-link" to="/dashboard/forms"/>
+                                  <span class="site-menu-title">{{ trans('app.forms')}}</span>
                               </li>
+                          @endif
+                          @if(Auth::user()->hasRole('ucap') ||
+                          Auth::user()->hasRole('surv') ||
+                          Auth::user()->hasRole('vgov') ||
+                          Auth::user()->hasRole('csd')
+                          )
                           <li class="site-menu-item">
-                              <router-link class="animsition-link" to="/dashboard/forms"/>
+                              <router-link class="animsition-link" to="/dashboard/form"/>
                                   <span class="site-menu-title">{{ trans('app.form')}}</span>
                           </li>
+                              @endif
+                              @if( Auth::user()->hasRole('gov'))
+                                  <li class="site-menu-item">
+                                      <router-link class="animsition-link" to="/dashboard/forms/Approve"/>
+                                      <span class="site-menu-title">{{ trans('app.Approve_Correspondences')}}</span>
+                                  </li>
+                              @endif
+                              @if(Auth::user()->hasRole('ucap') ||
+                            Auth::user()->hasRole('surv') ||
+                            Auth::user()->hasRole('vgov') ||
+                            Auth::user()->hasRole('csd')
+                            )
+                              <li class="site-menu-item">
+                                  <router-link class="animsition-link" to="/dashboard/forms/mypapers"/>
+                                  <span class="site-menu-title">{{ trans('app.mypapers')}}</span>
+                              </li>
                           @endif
                           @if( Auth::user()->hasRole('ucap'))
                           <li class="site-menu-item">
@@ -422,21 +459,28 @@
                           <span class="site-menu-title">{{ trans('app.Finance')}}</span>
                           <span class="site-menu-arrow"/>
                       </a>
-                      @if(Auth::user()->hasRole('fin'))
-                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
 
+                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
+                          @if(Auth::user()->hasRole('fin'))
                           <li class="site-menu-item">
                               <router-link class="animsition-link" to="/dashboard/Finance/Repport">
                                   <span class="site-menu-title">{{ trans('app.Financial report')}}</span>
                               </router-link>
                           </li>
 
-                      </ul>
+
                       @endif
-                      <ul class="site-menu-sub">  <!--forum sidebar item-->
+                       <!--forum sidebar item-->
                           <li class="site-menu-item">
 														<router-link class="animsition-link" to="/dashboard/finance/Financial_management">
 																<span class="site-menu-title">{{ trans('app.money mangment')}}</span>
+														</router-link>
+                          </li>
+
+                      <!--forum sidebar item-->
+                          <li class="site-menu-item">
+														<router-link class="animsition-link" to="/dashboard/finance/Bank-Account">
+																<span class="site-menu-title">{{ trans('app.Bank_Account')}}</span>
 														</router-link>
                           </li>
                       </ul>

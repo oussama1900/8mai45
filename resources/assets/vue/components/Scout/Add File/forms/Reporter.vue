@@ -41,6 +41,9 @@
         <sweet-modal icon="warning" ref="warn">
             <h3 class="label_title">لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
+        <sweet-modal icon="success" ref="sent">
+            <h3 class="label_title">الرجاء انتظار المصادقة على الوثيقة من طرف الجهة المخولة</h3>
+        </sweet-modal>
         <loading
                 class="label_title"
                 :show="show"
@@ -70,7 +73,6 @@
                 content:'',
                 subject:'',
                 governor :'',
-                outing_mail:'',
                 to:'',
                 current_user:'',
                 saveit:true,
@@ -133,7 +135,6 @@
                         date :full_date,
                         gov : vm.governor,
                         subject:vm.subject,
-                        outing_mail:vm.outing_mail,
                         to:vm.to,
                     }
 
@@ -165,17 +166,18 @@
             PDF_Operation(type){
                 this.show = true;
 
-                if(this.outing_mail<10){
-                    if(!this.outing_mail.includes('0'))
-                        this.outing_mail = "0"+this.outing_mail;
-                }
 
 
-                var temp_date = this.date.slice(0,10),
-                    cut_date = temp_date.split("-"),
-                    full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
+                   if( this.date.localeCompare('')===0){
+                    var full_date = "";
+                   }else{
+                       var temp_date = this.date.slice(0,10),
+                           cut_date = temp_date.split("-"),
+                           full_date = cut_date[0]+"/"+cut_date[1]+"/"+cut_date[2];
+                   }
+
                 var vm  =this;
-                if(type.localeCompare('download')){
+                if(type.localeCompare('download')===0){
                     axios({
                         url:  '/api/downloadOuting_mailPDF',
                         method: 'put',
@@ -184,10 +186,8 @@
                             content:vm.content,
                             date :full_date,
                             gov : vm.governor,
-                            subject:vm.subject,
-                            outing_mail:vm.outing_mail,
                             to:vm.to,
-                            type:type,
+                            subject:vm.subject,
                         }
 
 
@@ -199,8 +199,8 @@
                         link.href = window.URL.createObjectURL(blob);
                         link.download = 'مراسلة.pdf';
                         link.click();
-                        vm.show = false;
 
+                        vm.show = false;
 
 
 
@@ -225,7 +225,7 @@
                     }).then(function (response) {
 
                         vm.show = false;
-
+                          vm.$refs.sent.open();
 
 
 
