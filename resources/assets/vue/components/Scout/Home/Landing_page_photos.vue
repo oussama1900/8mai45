@@ -102,7 +102,7 @@
                         $('#button'+element.id).attr("disabled", true);
                         vm.$refs.warning_alert.close();
                         vm.$refs.success.open();
-                       
+
                     })
                 });
                 $("#cancel_button").unbind().click(function () {
