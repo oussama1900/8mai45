@@ -69,8 +69,8 @@ class FormsController extends  Controller
 
 
         $captain  = User::find($correspondence_not_appr->sender);
-        $notification_type="????? ????? ?????";
-        $notification_message = "??? ????? ????? ????????? ??? ?????? ??? ????????";
+        $notification_type="وثيقة مصادق عليها";
+        $notification_message = "قام محافظ الفوج بالمصادقة على وثيقة قمت بارسالها";
         $image = "/images/Report.png";
         if($captain!=null)
             $captain->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -263,8 +263,8 @@ class FormsController extends  Controller
 
         file_put_contents($pdfroot, $pdf_string);
         $gov = User::find(Captain::where('role','gov')->value('scout_id'));
-        $notification_message="?????? ???? ???? ????? ????????";
-        $notification_type = "?????? ??? ??????";
+        $notification_message="تم ارسال لك وثيقة جديدة للمصادقة عليها ";
+        $notification_type = "وثيقة جديدة للمصادقة عليها";
         $image = "/images/Report.png";
         if($gov!=null)
             $gov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -322,10 +322,10 @@ class FormsController extends  Controller
                     $to_day =  substr($to,8,2);
                     $time =$from_day.'-'.$from_year.'/'.$from_month.'/'.$to_day;
                 }else{
-                    $time =$to.'???'. $from;
+                    $time =$to.'-'. $from;
                 }
             }else{
-                $time =$to.'???'. $from;
+                $time =$to.'-'. $from;
             }
         }
         $data =["outing_mail"=>$outing_mail,
@@ -434,7 +434,7 @@ class FormsController extends  Controller
 
         file_put_contents($pdfroot, $pdf_string);
 
-       $description ="???? ???? ????".$unit." ".$current_year_month;
+       $description ="تقرير وحدة".$unit." ".$current_year_month;
         $report = new UnitsReport;
 
         $report->file_name = $filename;
@@ -452,8 +452,8 @@ class FormsController extends  Controller
 
 
         $surv = User::find(Captain::where('role','surv')->value('scout_id'));
-        $notification_message = "?? ????? ???? ????  ????? ". $unit.' '.$current_year_month;
-        $notification_type = "????? ????";
+        $notification_message = "تم ارسال ورقة نشاط  لوحدة ". $unit.' '.$current_year_month;
+        $notification_type ="ورقة نشاط";
         $image = "/images/Report.png";
         if($surv!=null)
             $surv->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -562,7 +562,7 @@ class FormsController extends  Controller
         if($operation_type == "send"){
            $current_year_month = date('m-Y');
             $filename =date('YmdHis',time()).mt_rand().'.pdf';
-            $description = ' ??????? ?????? ????? '.$unit.''.$current_year_month;
+            $description = ' التقرير الشهري لوحدة '.$unit.''.$current_year_month;
 
             $old_report_id = UnitsReport::select('id')
 						                        ->where('unit',$unit)
@@ -590,8 +590,8 @@ class FormsController extends  Controller
                 $pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
                 file_put_contents($pdfroot, $pdf_string);
                 $vgov = User::find(Captain::where('role','vgov')->value('scout_id'));
-                $notification_message = "?? ????? ??????? ?????? ????? ". $unit;
-            $notification_type = "????? ????";
+                $notification_message = "تم ارسال التقرير الشهري لوحدة ". $unit;
+            $notification_type = "نقرير شهري";
             $image = "/images/Report.png";
             if($vgov!=null)
             $vgov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
@@ -604,7 +604,7 @@ class FormsController extends  Controller
 			if(Auth::user()->captain->role == "surv"){
 				$monthly_reports = UnitsReport::select('file_name','unit','description')
 																				->where(DB::raw('MONTH(month)',Carbon::now()->format('m')))
-																				->where('unit','!=','???????')
+																				->where('unit','!=','المالية')
 																				->where('type','report')
 																				->whereYear('created_at', date('Y'))
 																				->get();
@@ -625,7 +625,7 @@ class FormsController extends  Controller
         if(Auth::user()->captain->role == "surv"){
             $monthly_reports = UnitsReport::select('file_name','unit','description')
                 ->where('month',$month)
-                ->where('unit','!=','???????')
+                ->where('unit','!=','المالية')
                 ->where('type','report')
                 ->whereYear('created_at', $year)
                 ->get();
@@ -646,7 +646,7 @@ class FormsController extends  Controller
 
             $monthly_reports = UnitsReport::select('file_name','unit','description')
                 ->where('month',$month)
-                ->where('unit','!=','???????')
+                ->where('unit','!=','المالية')
                 ->where('type','activity_paper')
                 ->whereYear('created_at', $year)
                 ->get();

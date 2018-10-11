@@ -13,7 +13,10 @@
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <title> قائمة {{$unit_fullname['unit']}}</title>
     <style>
-        *{font-size: 14px}
+        *{
+            font-size: 14px;
+            font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+        }
         .text-align-right{
             margin-right:0px
         }

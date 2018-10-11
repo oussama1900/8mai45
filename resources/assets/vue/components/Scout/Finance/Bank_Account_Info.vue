@@ -1,6 +1,6 @@
 <template>
-  <div class="container" style="background-color: #e6f2ff">
-    <div class="container col-md-7 col-sm-11 col-xs-11 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+  <div class="container col-md-12 col-sm-12 col-xs-12" style="background-color: #e6f2ff">
+    <div class="container col-md-7 col-sm-12 col-xs-12 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 10px;padding-left: 0px;padding-right: 0px" >
 
 			<div class="header" style="margin-bottom:10px">
 				<h4 style="text-align:center;	color:#fff;" class="label_title">
@@ -11,7 +11,7 @@
              <monthly-bank-account></monthly-bank-account>
 
 </div>
-<div class="col-md-4 card" style="margin:10px;margin-top: 80px;border-radius: 5px;padding:0px">
+<div class="col-md-4 col-xs-12 card" style="margin:10px;margin-top: 80px;border-radius: 5px;padding:0px">
   <div class="header" style="margin-bottom:10px">
     <h4 style="text-align:center;	color:#fff;" class="label_title">
     ادارة الأموال
@@ -45,7 +45,7 @@
 
 
 
-	  <div class="container col-md-11 col-sm-11 col-xs-11 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 40px;padding-left: 0px;padding-right: 0px" >
+	  <div class="container col-md-12 col-sm-12 col-xs-12 text-center card"  style="margin:10px;margin-top: 80px;border-radius: 5px;margin-left: 10px;padding-left: 0px;padding-right: 0px" >
 	<div class="header" style="margin-bottom:10px">
 		<h4 style="text-align:center;	color:#fff;" class="label_title">
 	{{getCurrent_year()}}		حالة الحساب البنكي لعام

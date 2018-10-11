@@ -153,7 +153,7 @@ $current_month_days=[];
 }
 
 public function getyearly_money(){
-	$months=["?????","?????","????","?????","???","????","??????","???","??????","??????","??????","??????"];
+	$months=["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
     $current_year = Carbon::now()->format('Y');
 
 	$money =DB::table("finances")
@@ -183,8 +183,7 @@ public function getyearly_money(){
 
 }
 public function getyearly_money_account(){
-	$months=["?????","?????","????","?????","???","????","??????","???","??????","??????","??????","??????"];
-    $current_year = Carbon::now()->format('Y');
+    $months=["جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];    $current_year = Carbon::now()->format('Y');
 
 	$money =DB::table("bank_account")
         ->select('id')
@@ -250,7 +249,7 @@ public function SendFinanceReport(){
 					->get();
 					  $filename =date('YmdHis',time()).mt_rand().'.pdf';
 					$old_report_id = UnitsReport::select('id')
-					                       ->where('unit','???????')
+					                       ->where('unit','المالية')
 																	->where('month',Carbon::now()->month)
 																	->whereYear('created_at', date('Y'))
 																	->get();
@@ -262,12 +261,12 @@ public function SendFinanceReport(){
 
 						$current_year_month = date('m-Y');
 						$date = date('Y-m-d');
-					$description = '????? ??????? '.$current_year_month;
+					$description = 'تقرير المالية لشهر '.$current_year_month;
 					  $report = new UnitsReport;
 					$report->file_name = $filename;
 					$report->month = Carbon::now()->month;
 					$report->report_date = $date;
-					$report->unit = "???????";
+					$report->unit = "المالية";
 					$report->description = $description;
 					$report->created_at = Carbon::now();
 					$report->save();
@@ -277,8 +276,8 @@ public function SendFinanceReport(){
 					$pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
 					file_put_contents($pdfroot, $pdf_string);
 					$vgov = User::find(Captain::where('role','vgov')->value('scout_id'));
-					$notification_message = "?? ????? ????? ??????? ??????";
-			$notification_type = "????? ????";
+					$notification_message = "تم ارسال تقرير المالية لهذا الشهر";
+			$notification_type = "تقرير المالية الشهري";
 			$image = "/images/Report.png";
 			if($vgov!=null)
 			$vgov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
