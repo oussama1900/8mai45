@@ -5,6 +5,7 @@
  */
 
 // require('./bootstrap');
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import vueResource from 'vue-resource';
@@ -19,7 +20,7 @@ var current_user ;
 require('./bootstrap');
 
 import 'vue-datetime/dist/vue-datetime.css'
-Vue.config.productionTip = false;
+
 import loading from 'vue-full-loading';
 window.Vue = require('vue');
 
@@ -498,7 +499,7 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0)
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0 || current_user.localeCompare('vgod')===0 || current_user.localeCompare('surv')===0)
                     next();
                 else
                     next(false);
@@ -902,7 +903,7 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                if(current_user.localeCompare('gov')===0 )
                     next();
                 else
                     next(false);
@@ -953,7 +954,7 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 || current_user.localeCompare('surv')===0 || current_user.localeCompare('csd')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0|| current_user.localeCompare('vgov')===0)
+                if( current_user.localeCompare('vgov')===0 || current_user.localeCompare('surv')===0 || current_user.localeCompare('csd')===0 || current_user.localeCompare('med')===0 || current_user.localeCompare('vmed')===0|| current_user.localeCompare('ucap')===0)
                     next();
                 else
                     next(false);
@@ -994,8 +995,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('cubs')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }
@@ -1011,8 +1020,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('sct')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }
@@ -1028,8 +1045,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('asct')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }
@@ -1045,8 +1070,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('tvlr')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }
@@ -1079,8 +1112,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('cubs')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }
@@ -1097,8 +1138,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('sct')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }
@@ -1112,10 +1161,20 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
+                if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 ){
                     next();
-                else
+                }
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                       if(response.data.ucap_unit.localeCompare('asct')===0)
+                           next();
+                       else
+                           next(false);
+                    }
+                    else
                     next(false);
+                }
+
             });
 
         }
@@ -1131,8 +1190,16 @@ const routes = [
 
                 if(current_user.localeCompare('gov')===0 || current_user.localeCompare('vgov')===0 )
                     next();
-                else
+                else{
+                    if(current_user.localeCompare('ucap')===0 ){
+                        if(response.data.ucap_unit.localeCompare('tvlr')===0)
+                            next();
+                        else
+                            next(false);
+                    }
+                    else
                     next(false);
+                }
             });
 
         }

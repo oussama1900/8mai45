@@ -290,6 +290,9 @@ public function ExportUsersList(){
 
 }
 public function current_user(){
+        if(Auth::user()->captain->role=="ucap"){
+            return response()->json(["current_user"=>Auth::user()->captain->role,"ucap_unit"=>Auth::user()->captain->unit]);
+        }
     return response()->json(["current_user"=>Auth::user()->captain->role]);
 }
 }

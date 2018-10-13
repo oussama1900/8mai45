@@ -2,7 +2,7 @@
     <div class="container col-md-11 col-sm-11 col-xs-11 text-center card " style="padding-right: 0px;padding-left:0px">
         <div class="header">
 
-            <h4 class="title">التقارير الشهرية</h4>
+            <h4 class="title">أوراق النشاطات</h4>
         </div>
         <div  class="card-body" style="margin:10px;">
             <div class="row form-group">

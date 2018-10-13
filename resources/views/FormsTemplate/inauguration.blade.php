@@ -45,9 +45,25 @@
     <p style="text-align: right;">  تم انتخاب السيد : {{$data['elected']}}  &nbsp;&nbsp; <b>{{$data['role']}}</b></p>
     <p> </p> <p> </p> <p> </p>
     <p style="text-align: right;">{{$data['time']}} : سطيف في  : {{$data['date']}} على الساعة  </p>
-    <p style="margin-top:80px;display: inline">
-    <p  style="text-align: right;margin-right:50px;float: right">ختم الفوج</p>
-    <p style="margin-left:80px">ختم المحافظ الولائي</p>
+
+
+    <p style="margin-top:80px;">
+    <table style="width: 100%">
+        <tr style="width: 100%">
+            <td style="width: 50%;padding-left:50px">
+    <p style="margin-left:30px;float:right">ختم المحافظ الولائي</p>
+    </td>
+            <td style="text-align: right;padding-right:50px;width: 50%">
+            <p  style="text-align: right;float: right">ختم الفوج</p>
+            </td>
+
+        </tr>
+    </table>
+
+
+
+
+
     </p>
 
 

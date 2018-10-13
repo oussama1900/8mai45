@@ -11,9 +11,9 @@
         </div>
         <div  style="margin-bottom: 10px;margin-top: 10px">
             <label class="label_title" style="font-size: medium;text-align: center">أنا الممضي أسفله السيد</label>
-            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="fullname" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="أنا الممضي أسفله السيد" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
+            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="fullname" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="أنا الممضي أسفله السيد" :max="1" :show-labels="false"  :custom-label="customLabel"  track-by="last_name" :preselect-first="true">
 
-                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="cursor: pointer;"  @click="props.remove(props.option)">❌</span></span></template>
+                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="color:white;cursor: pointer;"  @click="props.remove(props.option)">❌</span></span></template>
 
             </multiselect>
             </div>
@@ -23,9 +23,9 @@
 
         <div  style="margin-bottom: 10px;margin-top: 10px">
             <label  class="label_title" style="font-size: medium;text-align: center">أكلف السيد</label>
-            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="charged" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="أكلف السيد" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
+            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="charged" :options="Scouts"  :multiple="true"  :max="1" :close-on-select="true" :clear-on-select="true"  :hide-selected="true" :preserve-search="true"   placeholder="أكلف السيد"  :show-labels="false"  :custom-label="customLabel" track-by="last_name" :preselect-first="true">
 
-                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="cursor: pointer;"  @click="props.remove(props.option)">❌</span></span></template>
+                <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title" style="color:white;cursor: pointer;"  @click="props.remove(props.option)">❌</span></span></template>
 
             </multiselect>
 
@@ -83,6 +83,7 @@
                 label: '....الرجاء الإنتظار',
                 placeholder:"التاريخ ",
                 direction:'rtl',
+                Scouts:'',
                 value:"UTC+2",
                Captains:[],
                fullname:[],
@@ -109,6 +110,8 @@
             axios.get('/api/getCaptains').then(function (response) {
 
                 vm.Captains = response.data.captain[0];
+                vm.Scouts = response.data.captain[2];
+
             });
         },
         methods: {

@@ -132,7 +132,7 @@
                             <div class="card  card-default" style="background-color:#222d32 ;margin-bottom: 0;margin-top: 0;height:100%;margin-left:0px" >
 
                                 <div  class="card-body" style="padding: 0px;height:100%">
-                                    <div id="chatbody"   style="overflow-x:hidden;height:90%;width:100%">
+                                    <div id="chatbody"   style="height:90%;width:100%">
                                         <chat-log :messages="messages"></chat-log>
 
                                     </div>
@@ -183,6 +183,7 @@
 <script>
 $(document).ready(function() {
     $(".dropdown-toggle").dropdown();
+
 });
     function Navigate() {
         if(document.getElementById("mySidenav").style.width==="0px"){
@@ -224,7 +225,7 @@ $(document).ready(function() {
 
         }
     }
-#chatbody,#list-friend{
+#list-friend{
 
 
 
@@ -233,7 +234,7 @@ $(document).ready(function() {
 
 
 }
-#chatbody::-webkit-scrollbar-track,#list-friend::-webkit-scrollbar-track
+#list-friend::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
@@ -241,13 +242,13 @@ $(document).ready(function() {
 }
 
 
-#chatbody::-webkit-scrollbar,#list-friend::-webkit-scrollbar-track
+#list-friend::-webkit-scrollbar
 {
     width: 12px;
     background-color: #F5F5F5;
 }
 
-#chatbody::-webkit-scrollbar-thumb,#list-friend::-webkit-scrollbar-thumb
+#list-friend::-webkit-scrollbar-thumb
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);

@@ -328,6 +328,19 @@ class FormsController extends  Controller
                 $time =$to.'-'. $from;
             }
         }
+
+        $filename =date('YmdHis',time()).mt_rand().'.pdf';
+        $outing_mail = DB::table('correspondences')->insertGetId([
+            "sender"=>Auth::user()->scout_id,
+            "time"=>"",
+            "to"=>"",
+            "subject"=>"تكليف بهمة كشفية",
+            "content"=>"",
+            "gov"=>"",
+            "approved"=>true,
+            "file"=>$filename,
+            "created_at"=>Carbon::now()->format('Y-m-d'),
+        ]);
         $data =["outing_mail"=>$outing_mail,
             "date"=>$date,
             "fullname"=>$fullname,
@@ -341,7 +354,10 @@ class FormsController extends  Controller
             'organiser'=>$organiser,
             'location'=>$location];
         $pdf = PDF::loadView('FormsTemplate.Assigning_mission',compact('data'));
+        $pdf_string = $pdf->output();
+        $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
 
+        file_put_contents($pdfroot, $pdf_string);
         return $pdf->download('example.pdf');
     }
     public function getMyScout(){
@@ -355,7 +371,8 @@ class FormsController extends  Controller
            $myscout = Scout::find($key->scout_id);
             array_push($MyScouts,$myscout);
         }
-        return response()->json(["myscout"=>$MyScouts]);
+
+        return response()->json(["myscout"=>$MyScouts,"unit_name"=>$user_unit]);
     }
     public function downloadActivityPaperPDF(Request $request){
         $date = $request->input('date');
@@ -646,7 +663,7 @@ class FormsController extends  Controller
 
             $monthly_reports = UnitsReport::select('file_name','unit','description')
                 ->where('month',$month)
-                ->where('unit','!=','المالية')
+
                 ->where('type','activity_paper')
                 ->whereYear('created_at', $year)
                 ->get();
@@ -655,6 +672,58 @@ class FormsController extends  Controller
 
         $public_path = url('/uploads/Units_Report/');
         return response()->json(["reports"=>$monthly_reports,"public_path"=>$public_path]);
+    }
+    public function Assigning_mission_travel(Request $request){
+        $fullname = $request->input('fullname');
+        $charged = $request->input('charged');
+        $mission_type = $request->input('mission_type');
+        $paper_name = $request->input('paper_name');
+        $issued_by = $request->input('issued_by');
+        $mission = $request->input('mission');
+        $serial_number = $request->input('serial_number');
+        $paper_code = $request->input('paper_code');
+        $scout_job="";
+
+        if(is_array($fullname)){
+            $scout_job =Captain::find($fullname[0]['scout_id'])->assignedRole->getRole() ;
+            $fullname = $fullname[0]['last_name']." ".$fullname[0]['first_name'];
+
+
+        }
+        $filename =date('YmdHis',time()).mt_rand().'.pdf';
+        $outing_mail = DB::table('correspondences')->insertGetId([
+            "sender"=>Auth::user()->scout_id,
+            "time"=>"",
+            "to"=>"",
+            "subject"=>"تكليف بهمة",
+            "content"=>"",
+            "gov"=>"",
+            "approved"=>true,
+            "file"=>$filename,
+            "created_at"=>Carbon::now()->format('Y-m-d'),
+        ]);
+        $data=["fullname"=>$fullname,
+               "scout_job"=>$scout_job,
+               "charged"=>$charged,
+                "mission_type"=>$mission_type,
+               "paper_name"=>$paper_name,
+               "issued_by"=>$issued_by,
+               "serial_number"=>$serial_number,
+               "paper_code"=>$paper_code,
+               "mission"=>$mission,
+               "outing_mail"=>$outing_mail
+
+            ];
+        $pdf = PDF::loadView('/FormsTemplate/Assigning_mission_Travel',compact('data'));
+
+        $pdf_string = $pdf->output();
+        $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
+
+        file_put_contents($pdfroot, $pdf_string);
+
+        return $pdf->download();
+
+
     }
 
 }

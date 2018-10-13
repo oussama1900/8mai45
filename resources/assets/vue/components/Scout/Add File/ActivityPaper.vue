@@ -334,7 +334,7 @@
                     }
                     axios({
                         url:  '/api/downloadActivityPaperPDF',
-                        method: 'Post',
+                        method: 'put',
                         responseType: 'blob',
                         data:{
                             date:vm.date_temp,

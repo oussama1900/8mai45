@@ -27,7 +27,8 @@ class EventController extends Controller
 
         $captain =DB::select('select * from scouts where scout_id in ( select scout_id from captains)');
         $current_user = Auth::user()->captain->role;
-        return response()->json(["captain"=>[$captain,$current_user]]);
+        $scout = Scout::all();
+        return response()->json(["captain"=>[$captain,$current_user,$scout]]);
     }
     public function PostEvent(Request $request){
         $title = $request->input('title');

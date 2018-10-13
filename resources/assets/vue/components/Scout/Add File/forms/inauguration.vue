@@ -12,7 +12,7 @@
 
         <div  style="margin-bottom: 10px;margin-top: 10px">
             <label style="font-size: medium;text-align: center" class="label_title">تم انتخاب السيد</label>
-            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="elected" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="اختر الشخص المنتخب" :max="1" :show-labels="false"  :custom-label="customLabel" :preselect-first="false">
+            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="elected" :options="Captains"  :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true"   placeholder="اختر الشخص المنتخب" :max="1" :show-labels="false"  :custom-label="customLabel" track-by="last_name"  :preselect-first="false">
 
                 <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -33,7 +33,7 @@
 
 
         </div>
-            <button class="btn btn-primary label_title"   style="text-align: center;margin-top: 20px" type="button" @click="download">تحميل</button>
+            <button class="btn btn-primary label_title"   style="text-align: center;margin-top: 20px" type="button" @click="download()">تحميل</button>
         <sweet-modal icon="warning" ref="warn">
             <h3 class="label_title">لم يتم ادخال جميع المعلومات اللازمة</h3>
         </sweet-modal>
@@ -100,6 +100,7 @@
                     this.presence.localeCompare("")===0
 
                 ){
+                    this.$refs.warn.open();
 
 
                 }else{

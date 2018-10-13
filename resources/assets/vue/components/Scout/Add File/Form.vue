@@ -29,8 +29,9 @@
 
                    <div style="margin :20px">
                     <select  id="forms" class="form-control header-title" dir="rtl" >
-                        <option class="header-title">	الاجتماع الشرفي</option>
-                        <option class="header-title">	تكليف بمهمة</option>
+                        <!--  <option class="header-title">	الاجتماع الشرفي</option>-->
+                        <option class="header-title">	تكليف بمهمة كشفية</option>
+                        <option class="header-title">	تكليف بمهمة عادية</option>
                         <option class="header-title">	 محضر تنصيب </option>
                        <!-- <option class="header-title">	مراسلة الامن</option>
                         <option class="header-title">	مراسلة المؤسسات التربوية</option>-->
@@ -52,9 +53,9 @@
              </div>
              <div  class="panel-body">
 
-                 <!--  <div id="Reporter-state-scout" v-if="Reporter_state_scout">
-                      <reporter-state-scout ></reporter-state-scout>
-                  </div>-->
+                 <div id="Assigning_mission_travel" v-if="Assigning_mission_travel">
+                      <Assigning-mission-travel></Assigning-mission-travel>
+                  </div>
                   <div id="Honorary-meeting" v-if="Honorary_meeting">
                       <Honorary-meeting></Honorary-meeting>
                   </div>
@@ -99,7 +100,7 @@
          components: {Camping_request},
          data(){
            return{
-               Reporter_state_scout:false,
+               Assigning_mission_travel:false,
                Honorary_meeting:false,
                Assigning_mission:false,
                Security_reporter:false,
@@ -155,8 +156,8 @@
          methods:{
              showforms(form){
          switch (form){
-             case 'مراسلة المحافظ الولائي':{
-                 this.Reporter_state_scout=true;
+             case 'تكليف بمهمة عادية':{
+                 this.Assigning_mission_travel=true;
                  this.Honorary_meeting=false;
                  this.Assigning_mission=false;
                  this.Security_reporter=false;
@@ -168,7 +169,7 @@
 
 
              case 'الاجتماع الشرفي':{
-                 this.Reporter_state_scout=false;
+                 this.Assigning_mission_travel=false;
                  this.Honorary_meeting=true;
                  this.Assigning_mission=false;
                  this.Security_reporter=false;
@@ -179,8 +180,8 @@
                  break;
              }
 
-             case 'تكليف بمهمة':{
-                 this.Reporter_state_scout=false;
+             case 'تكليف بمهمة كشفية':{
+                 this.Assigning_mission_travel=false;
                  this.Honorary_meeting=false;
                  this.Assigning_mission=true;
                  this.Security_reporter=false;
@@ -193,7 +194,7 @@
              }
 
              case 'مراسلة الامن':{
-                 this.Reporter_state_scout=false;
+                 this.Assigning_mission_travel=false;
                  this.Honorary_meeting=false;
                  this.Assigning_mission=false;
                  this.Security_reporter=true;
@@ -204,11 +205,11 @@
                  break;
              }
              case 'محضر تنصيب':{
-                 this.Reporter_state_scout=true;
+                 this.Assigning_mission_travel=false;
                  this.Honorary_meeting=false;
                  this.Assigning_mission=false;
                  this.Security_reporter=false;
-                 this.Inauguration=false;
+                 this.Inauguration=true;
                  this.Educational_Institutions=false;
                  this.Outgoing_mail=false;
 
@@ -216,7 +217,7 @@
                  break;
              }
              case 'مراسلة المؤسسات التربوية':{
-                 this.Reporter_state_scout=false;
+                 this.Assigning_mission_travel=false;
                  this.Honorary_meeting=false;
                  this.Assigning_mission=false;
                  this.Security_reporter=false;
@@ -229,7 +230,7 @@
                  break;
              }
              case 'مراسلة البريد الصادر':{
-                 this.Reporter_state_scout=false;
+                 this.Assigning_mission_travel=false;
                  this.Honorary_meeting=false;
                  this.Assigning_mission=false;
                  this.Security_reporter=false;

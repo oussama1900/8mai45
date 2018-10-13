@@ -270,6 +270,8 @@ Route::post('/previewEducational_Institutions', 'FormsController@previewEducatio
 );
 Route::put('/downloadEducational_Institutions', 'FormsController@downloadEducational_Institutions'
 );
+Route::put('/Assigning_mission_travel', 'FormsController@Assigning_mission_travel'
+);
 
 Route::post('/previewOuting_mailPDF', 'FormsController@previewOuting_mailPDF'
 );
@@ -286,7 +288,7 @@ Route::put('/downloadAssigning_missionPDF', 'FormsController@downloadAssigning_m
 );
 Route::get('/getMyScout', 'FormsController@getMyScout'
 );
-Route::post('/downloadActivityPaperPDF', 'FormsController@downloadActivityPaperPDF'
+Route::put('/downloadActivityPaperPDF', 'FormsController@downloadActivityPaperPDF'
 );
 Route::put('/manageMonthlyRapportPDF', 'FormsController@manageMonthlyRapportPDF'
 );
@@ -348,7 +350,7 @@ Route::get('/DownloadFinanceReport', 'FinanceController@DownloadFinanceReport'
 );
 Route::get('/SendFinanceReport', 'FinanceController@SendFinanceReport'
 );
-Route::get('/SendActivityPaperPDF', 'FormsController@SendActivityPaperPDF'
+Route::post('/SendActivityPaperPDF', 'FormsController@SendActivityPaperPDF'
 );
 Route::delete('/delete_document/{id}', 'FormsController@delete_document'
 );

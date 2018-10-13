@@ -102,7 +102,7 @@
 																		<option value="csd">مسؤول خدمة و تنمية المجتمع</option>
                                     <option value="ucap">قائد وحدة</option>
                                     <option value="vucp">نائب قائد وحدة</option>
-                                    <option value="capa">مساعد نائب قائد وحدة </option>
+                                    <option value="capa">مساعد  قائد وحدة </option>
                                     <option value="trne">قائد متربص</option>
                                 </select>
                                 <span id="role_exist" style="float:right"></span>
@@ -234,7 +234,7 @@
              direction:"rtl",
                Scout:{
                    ScoutInfo:{
-                       assurance_num:'',
+                       assurance_num:'0000000',
                        first_name:'',
                        last_name:'',
                        date_of_birth:'',
@@ -268,6 +268,7 @@
 
        },
         created: function () {
+            var vm = this;
 
 
          if(this.$route.path.localeCompare("/dashboard/AddNewScout/cub")===0 ||
@@ -283,7 +284,7 @@
 
 
 
-          var vm = this;
+
          var url = ""+vm.$route.fullPath;
 
       if(url.localeCompare("/dashboard/AddNewScout/cub")===0){
@@ -338,14 +339,18 @@
 
 
              }else {
+
+
                  this.unitcontainer="col-md-12"
              }
 
     this.getData();
-var vm = this;
-axios.get('/api/getcurrentuser').then(function (response) {
-    vm.current_user_role = response.data.user_role;
-});
+             axios.get('/api/getcurrentuser').then(function (response) {
+                 vm.current_user_role = response.data.user_role;
+                 if(vm.current_user_role.localeCompare('ucap')===0)
+                     vm.Scout.showunit= false;
+             });
+
 }
 
 
@@ -480,47 +485,137 @@ axios.get('/api/getcurrentuser').then(function (response) {
                 ) {
                     this.$refs.warn.open();
                 } else {
-                    this.show = true;
+                    if(this.show_unit_reps){
+                        if(this.Scout.unit_resp.localeCompare('')===0)
+                            this.$refs.warn.open();
+                        else{
+                            this.show = true;
 
-                    if (this.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
-                        if (this.Scout.role.localeCompare('med') === 0) {
-                            this.Scout.unit_resp = 'med'
-                        } else {
-                            if (this.Scout.role.localeCompare('vmed') === 0) {
-                                this.Scout.unit_resp = 'vmed'
-                            } else {
-                                if (this.Scout.role.localeCompare('fin') === 0) {
-                                    this.Scout.unit_resp = 'fin'
+                            if (this.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
+                                if (this.Scout.role.localeCompare('med') === 0) {
+                                    this.Scout.unit_resp = 'med'
                                 } else {
-                                    if (this.Scout.role.localeCompare('vfin') === 0) {
-                                        this.Scout.unit_resp = 'vfin'
+                                    if (this.Scout.role.localeCompare('vmed') === 0) {
+                                        this.Scout.unit_resp = 'vmed'
                                     } else {
-                                        if (this.Scout.role.localeCompare('surv') === 0) {
-                                            this.Scout.unit_resp = 'surv'
+                                        if (this.Scout.role.localeCompare('fin') === 0) {
+                                            this.Scout.unit_resp = 'fin'
+                                        } else {
+                                            if (this.Scout.role.localeCompare('vfin') === 0) {
+                                                this.Scout.unit_resp = 'vfin'
+                                            } else {
+                                                if (this.Scout.role.localeCompare('surv') === 0) {
+                                                    this.Scout.unit_resp = 'surv'
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+
+                            var vm = this;
+
+
+                            axios.post("/api/AddNewScout", vm.Scout).then(function (response) {
+                                if(response.data.msg.localeCompare('added Successfully')===0){
+                                    vm.show = false;
+                                    vm.$router.go(-1);
+                                }else{
+                                    if(response.data.msg.localeCompare('email already exists')===0){
+                                        vm.show = false;
+                                        vm.$refs.email_exist.open();
+                                        $('#email_error').html('عنوان البريد الإالكتروني موجود مسبقا').css('color','red');
+                                        $('#email').keyup(function (event) {
+                                            $('#email_error').html('');
+                                        });
+                                    }
+                                    if(response.data.msg.localeCompare('role already exists')===0){
+                                        vm.show = false;
+                                        vm.$refs.role_exist.open();
+                                        $('#role_exist').html(' هذا الدور محجوز مسبقا ').css('color','red');
+                                        $('#role').change(function (event) {
+                                            $('#role_exist').html('');
+                                        });
+                                    }
+
+
+
+                                }
+
+
+                                /* if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
+
+                                     vm.$router.push('/dashboard/scouts/cubs');
+                                 } else {
+                                     if (vm.Scout.scout_unit.unit_id.localeCompare('sct') === 0) {
+
+                                         vm.$router.push('/dashboard/scouts/scout');
+                                     } else {
+                                         if (vm.Scout.scout_unit.unit_id.localeCompare('asct') === 0) {
+
+                                             vm.$router.push('/dashboard/scouts/advanced_scout');
+                                         } else {
+                                             if (vm.Scout.scout_unit.unit_id.localeCompare('tvlr') === 0) {
+
+                                                 vm.$router.push('/dashboard/scouts/traveler');
+                                             } else {
+                                                 if (vm.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
+
+                                                     vm.$router.push('/dashboard/scouts/captain');
+                                                 }
+
+                                             }
+
+                                         }
+                                     }
+
+                                 }*/
+
+                            });
+                        }
+                    }else{
+                        this.show = true;
+
+                        if (this.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
+                            if (this.Scout.role.localeCompare('med') === 0) {
+                                this.Scout.unit_resp = 'med'
+                            } else {
+                                if (this.Scout.role.localeCompare('vmed') === 0) {
+                                    this.Scout.unit_resp = 'vmed'
+                                } else {
+                                    if (this.Scout.role.localeCompare('fin') === 0) {
+                                        this.Scout.unit_resp = 'fin'
+                                    } else {
+                                        if (this.Scout.role.localeCompare('vfin') === 0) {
+                                            this.Scout.unit_resp = 'vfin'
+                                        } else {
+                                            if (this.Scout.role.localeCompare('surv') === 0) {
+                                                this.Scout.unit_resp = 'surv'
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
 
 
-                    var vm = this;
+                        var vm = this;
 
 
-                    axios.post("/api/AddNewScout", vm.Scout).then(function (response) {
-                        if(response.data.msg.localeCompare('added Successfully')===0){
-                            vm.show = false;
-                            vm.$router.go(-1);
-                        }else{
-                            if(response.data.msg.localeCompare('email already exists')===0){
+                        axios.post("/api/AddNewScout", vm.Scout).then(function (response) {
+                            if(response.data.msg.localeCompare('added Successfully')===0){
                                 vm.show = false;
-                                vm.$refs.email_exist.open();
-                                $('#email_error').html('عنوان البريد الإالكتروني موجود مسبقا').css('color','red');
-                                $('#email').keyup(function (event) {
-                                    $('#email_error').html('');
-                                });
-                            }
+                                vm.$router.go(-1);
+                            }else{
+                                if(response.data.msg.localeCompare('email already exists')===0){
+                                    vm.show = false;
+                                    vm.$refs.email_exist.open();
+                                    $('#email_error').html('عنوان البريد الإالكتروني موجود مسبقا').css('color','red');
+                                    $('#email').keyup(function (event) {
+                                        $('#email_error').html('');
+                                    });
+                                }
                                 if(response.data.msg.localeCompare('role already exists')===0){
                                     vm.show = false;
                                     vm.$refs.role_exist.open();
@@ -532,38 +627,40 @@ axios.get('/api/getcurrentuser').then(function (response) {
 
 
 
-                        }
-
-
-                       /* if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
-
-                            vm.$router.push('/dashboard/scouts/cubs');
-                        } else {
-                            if (vm.Scout.scout_unit.unit_id.localeCompare('sct') === 0) {
-
-                                vm.$router.push('/dashboard/scouts/scout');
-                            } else {
-                                if (vm.Scout.scout_unit.unit_id.localeCompare('asct') === 0) {
-
-                                    vm.$router.push('/dashboard/scouts/advanced_scout');
-                                } else {
-                                    if (vm.Scout.scout_unit.unit_id.localeCompare('tvlr') === 0) {
-
-                                        vm.$router.push('/dashboard/scouts/traveler');
-                                    } else {
-                                        if (vm.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
-
-                                            vm.$router.push('/dashboard/scouts/captain');
-                                        }
-
-                                    }
-
-                                }
                             }
 
-                        }*/
 
-                    });
+                            /* if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
+
+                                 vm.$router.push('/dashboard/scouts/cubs');
+                             } else {
+                                 if (vm.Scout.scout_unit.unit_id.localeCompare('sct') === 0) {
+
+                                     vm.$router.push('/dashboard/scouts/scout');
+                                 } else {
+                                     if (vm.Scout.scout_unit.unit_id.localeCompare('asct') === 0) {
+
+                                         vm.$router.push('/dashboard/scouts/advanced_scout');
+                                     } else {
+                                         if (vm.Scout.scout_unit.unit_id.localeCompare('tvlr') === 0) {
+
+                                             vm.$router.push('/dashboard/scouts/traveler');
+                                         } else {
+                                             if (vm.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
+
+                                                 vm.$router.push('/dashboard/scouts/captain');
+                                             }
+
+                                         }
+
+                                     }
+                                 }
+
+                             }*/
+
+                        });
+                    }
+
                 }
 
 

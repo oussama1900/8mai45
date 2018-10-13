@@ -20,24 +20,20 @@
                         <span class="site-menu-title">{{ trans('app.home')}}</span>
                         </router-link>
                     </li>
+                      @if(Auth::user()->hasRole('gov')  ||
+                          Auth::user()->hasRole('med')  ||
+                          Auth::user()->hasRole('vmed')  ||
+                          Auth::user()->hasRole('surv') ||
+                          Auth::user()->hasRole('vgov') )
+                      <li class="site-menu-item">
+                          <router-link class="animsition-link" to="/dashboard/landing-page">
+                              <span class="site-menu-title">{{ trans('app.landing_page')}}</span>
+                          </router-link>
+                      </li>
+                          @endif
                   </ul>
                        </li>
-                  <li class="site-menu-item has-sub ">
-                      <a href="javascript:void(0)">
-                          <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                          <span class="site-menu-title">
-                      {{ trans('app.landing_page')}}
-                    </span>
-                          <span class="site-menu-arrow"/>
-                      </a>
-                      <ul class="site-menu-sub">
-                          <li class="site-menu-item">
-                              <router-link class="animsition-link" to="/dashboard/landing-page">
-                                  <span class="site-menu-title">{{ trans('app.landing_page')}}</span>
-                              </router-link>
-                          </li>
-                      </ul>
-                  </li>
+
                   <!-- end dashboard item -->
 
                               @if(Auth::user()->hasRole('gov'))
