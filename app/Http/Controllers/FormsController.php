@@ -86,6 +86,7 @@ class FormsController extends  Controller
         $outing_mail = $request->input('outing_mail');
         $toscout = $request->input('toscout');
         $data =["content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'toscout'=>$toscout,"gov"=>$gov];
+
         $pdf = PDF::loadView('/FormsTemplate/Honorary_meeting', compact('data'));
 
         return $pdf->download('example.pdf');
@@ -194,7 +195,7 @@ class FormsController extends  Controller
         $to = $request->input('to');
         $subject = $request->input('subject');
          $agree = true;
-      if(Auth::user()->captain->role!="gov"){
+      if(Auth::user()->captain->role=="gov"){
             $filename =date('YmdHis',time()).mt_rand().'.pdf';
             $outing_mail=  DB::table('correspondences')->insertGetId([
                 "sender"=>Auth::user()->scout_id,
@@ -217,14 +218,35 @@ class FormsController extends  Controller
             file_put_contents($pdfroot, $pdf_string);
 
         }else{
-           $outing_mail = (Correspondence::orderBy('outing_mail_id','desc')->first()->outing_mail_id)+1;
-            $agree=false;
+          $filename =date('YmdHis',time()).mt_rand().'.pdf';
+          $outing_mail=  DB::table('correspondences')->insertGetId([
+              "sender"=>Auth::user()->scout_id,
+              "time"=>$date,
+              "to"=>$to,
+              "subject"=>$subject,
+              "content"=>$content,
+              "gov"=>$gov,
+              "approved"=>false,
+              "file"=>$filename,
+              "created_at"=>Carbon::now()->format('Y-m-d'),
+          ]);
+          $agree=false;
+          $data =["agree"=>$agree,"content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
+
+          $pdf = PDF::loadView('/FormsTemplate/Outing_mail',compact('data'));
+          $pdf_string = $pdf->output();
+          $pdfroot = public_path() . '/uploads/Correspondence/' . $filename;
+
+          file_put_contents($pdfroot, $pdf_string);
+         
+
 
         }
 
         $data =["agree"=>$agree,"content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
 
         $pdf = PDF::loadView('/FormsTemplate/Outing_mail',compact('data'));
+
         return $pdf->download('example.pdf');
     }
     public function SendOuting_mail_forAgree(Request $request){

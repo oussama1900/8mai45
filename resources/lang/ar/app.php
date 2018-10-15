@@ -1,6 +1,7 @@
 <?php
 return [
 "home" =>"الصفحة الرئيسية",
+"books" =>"الكتب",
 "Administrative_Documents" =>"وثائق ادارية",
 "Approve_Correspondences" =>"المصادقة",
 "mypapers" =>"أوراقي",

@@ -98,7 +98,7 @@ class ConfigVariables
 			'autoVietnamese' => true,
 			'autoArabic' => true,
 			// mPDF 6.0 (similar to old useLang)
-			'autoLangToFont' => false,
+			'autoLangToFont' => true,
 
 			// Substitute missing characters in UTF-8(multibyte) documents - from other fonts
 			'useSubstitutions' => false,

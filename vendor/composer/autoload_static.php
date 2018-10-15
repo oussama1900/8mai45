@@ -411,6 +411,8 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'CaptainSeeder' => __DIR__ . '/../..' . '/database/seeds/CaptainSeeder.php',
         'CountrySeeder' => __DIR__ . '/../..' . '/database/seeds/CountrySeeder.php',
         'CreateBankAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_09_212352_create_bank_accounts_table.php',
+        'CreateBooksCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_14_090931_create_books_categories_table.php',
+        'CreateBooksLibrariesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_14_085516_create_books_libraries_table.php',
         'CreateCaptainsTable' => __DIR__ . '/../..' . '/database/migrations/2015_07_20_102253_create_captains_table.php',
         'CreateCorrespondencesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_08_143054_create_correspondences_table.php',
         'CreateEventsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_10_202550_create_events_table.php',

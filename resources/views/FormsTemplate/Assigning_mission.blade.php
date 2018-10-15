@@ -68,6 +68,14 @@
                 <td style="text-align: right;width:50%"> <p style="text-align: right;float: right;display: inline">ختم الجهة المستقبلة  </p></td>
 
             </tr>
+            <tr>
+                <td style="width:50%;">
+                    <div >
+                        <img src= src="{{ public_path() .'/images/cachet.png' }}" width="200" height="200" />
+                    </div>
+                </td>
+                <td></td>
+            </tr>
         </table>
 
 

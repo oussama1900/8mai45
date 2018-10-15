@@ -62,6 +62,8 @@ import MyApprovedPosts from './components/Scout/Miscellaneous/Post/MyApprovedPos
 
 
 import notification from './components/Notification/notification';
+import Books from './components/Scout/Add File/AddBook/OurBooks';
+import AddBook from './components/Scout/Add File/AddBook/AddNewBook';
 import notification_content from './components/Notification/notification_content';
 import Cubs_Events from './components/Scout/Miscellaneous/Event/Units_Events/Cubs_Events';
 import Scout_Events from './components/Scout/Miscellaneous/Event/Units_Events/Scout_Events';
@@ -499,7 +501,73 @@ const routes = [
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
-                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0 || current_user.localeCompare('vgod')===0 || current_user.localeCompare('surv')===0)
+                if(current_user.localeCompare('gov')===0||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0 || current_user.localeCompare('vgov')===0 || current_user.localeCompare('surv')===0)
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+
+        path: "/dashboard/books",
+
+        component: Books,
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 ||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0 )
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+
+        path: "/dashboard/books/New",
+        name:'add_book',
+        component: AddBook,
+
+
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 ||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0 )
+                    next();
+                else
+                    next(false);
+
+            });
+
+        }
+
+    },
+    {
+
+        path: "/dashboard/books/edit/:id",
+        name:'edit_book',
+        component: AddBook,
+
+        beforeEnter: (to, from, next) => {
+
+
+            axios.get('/api/current_user').then(function(response){
+                current_user = response.data.current_user;
+
+                if(current_user.localeCompare('gov')===0 ||current_user.localeCompare('med')===0|| current_user.localeCompare('vmed')===0 )
                     next();
                 else
                     next(false);

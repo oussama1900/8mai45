@@ -28,11 +28,14 @@ class Pdf {
 			'margin_bottom'        =>   $this->getConfig('margin_bottom'),     // margin bottom
 			'margin_header'        =>   $this->getConfig('margin_header'),     // margin header
 			'margin_footer'        =>   $this->getConfig('margin_footer'),     // margin footer
-			'tempDir'              =>   $this->getConfig('tempDir')            // margin footer
+			'tempDir'              =>   $this->getConfig('tempDir') ,           // margin footer
+			'fontDir'              =>   $this->getConfig('font_path'),            // margin footer
+			'fontdata'              =>   $this->getConfig('font_data')            // margin footer
 		];
 
 		// Handle custom fonts
 		$mpdf_config = $this->addCustomFontsConfig($mpdf_config);
+
 
 		$this->mpdf = new Mpdf\Mpdf($mpdf_config);
 
@@ -61,18 +64,21 @@ class Pdf {
 	protected function addCustomFontsConfig($mpdf_config)
 	{
 		if (!Config::has('pdf.font_path') || !Config::has('pdf.font_data')) {
+
 			return $mpdf_config;
 		}
 
 		// Get default font configuration
 		$fontDirs = (new Mpdf\Config\ConfigVariables())->getDefaults()['fontDir'];
-		$fontData = (new Mpdf\Config\FontVariables())->getDefaults()['fontdata'];
+		$fontData = (new Mpdf\Config\FontVariables())->getDefaults()['fontdata']['xbriyaz'];
+
 
 		// Merge default with custom configuration
 		$mpdf_config['fontDir'] = array_merge($fontDirs, [Config::get('pdf.font_path')]);
 		$mpdf_config['fontdata'] = array_merge($fontData, Config::get('pdf.font_data'));
-
+        echo '<pre>'; print_r($fontData); echo '</pre>';
 		return $mpdf_config;
+
 	}
 
 	/**
@@ -135,3 +141,5 @@ class Pdf {
 		return $this->mpdf->Output($filename, 'I');
 	}
 }
+
+

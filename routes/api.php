@@ -358,6 +358,18 @@ Route::put('/addNewCarouselImage', 'DashboardController@addNewCarouselImage'
 );
 Route::delete('/deleteCarouselImage/{id}', 'DashboardController@deleteCarouselImage'
 );
+Route::get('/getCategories', 'BooksController@getCategories'
+);
+Route::put('/UploadBook', 'BooksController@UploadBook'
+);
+Route::get('/getBooks', 'BooksController@getBooks'
+);
+Route::delete('/deleteBook/{id}', 'BooksController@deleteBook'
+);
+Route::get('/getBook/{id}', 'BooksController@getBook'
+);
+Route::put('/EditBookInfo/{id}', 'BooksController@EditBookInfo'
+);
 
 Route::post('/marsNotificationAsRead',function(){
   $user = Auth::user();

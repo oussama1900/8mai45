@@ -187,7 +187,7 @@ class LanguageToFont implements \Mpdf\Language\LanguageToFontInterface
 			/* Middle Eastern */
 			case 'ar':
 			case 'ara': // Arabic	NB Arabic text identified by Autofont will be marked as und-Arab
-				$unifont = 'xbriyaz';
+				$unifont = 'alarabiyafont';
 				break;
 			case 'fa':
 			case 'fas': // Persian (Farsi)
@@ -315,9 +315,9 @@ class LanguageToFont implements \Mpdf\Language\LanguageToFontInterface
 			// Sindhi (Arabic or Devanagari)
 			case 'sd':
 			case 'snd': // Sindhi
-				$unifont = 'lateef';
+				$unifont = 'alarabiyafont';
 				if ($country === 'in') {
-					$unifont = 'freeserif';
+					$unifont = 'alarabiyafont';
 				}
 				break;
 
@@ -488,7 +488,7 @@ class LanguageToFont implements \Mpdf\Language\LanguageToFontInterface
 
 			/* Middle Eastern */
 			case 'arab':  // ARABIC
-				return 'xbriyaz';
+				return 'alarabiyafont';
 			case 'xsux': // CUNEIFORM
 				return 'akkadian';
 			//CASE 'sarb':	// OLD_SOUTH_ARABIAN

@@ -5,7 +5,10 @@ A default margin-top/bottom for lists is NOT set in config.php - (standard brows
 [mPDF default CSS set in configuration only works on basic elements, cannot do selectors such as "ol ol"]
 Need to add the following to do this, but also prevent margins in nested lists as per default HTML in most browsers:
 */
-
+@font-face {
+	font-family: "Alarabiya Font";
+	src: url("/Alarabiya-Font.ttf");
+}
 ul, ol {
 	margin-top: 0.83em;
 	margin-bottom: 0.83em;
@@ -18,7 +21,7 @@ ul ul, ul ol, ol ul, ol ol {
 
 /* INDEXES */
 div.mpdf_index_main {
-	font-family: sans-serif;
+	font-family:"Alarabiya Font" ,sans-serif;
 	line-height: normal;
 }
 
@@ -28,7 +31,7 @@ div.mpdf_index_entry {
 }
 
 div.mpdf_index_letter {
-	font-family: sans-serif;
+	font-family:"Alarabiya Font" ,sans-serif;
 	font-size: 1.8em;
 	font-weight: bold;
 	line-height: normal;
@@ -45,7 +48,7 @@ a.mpdf_index_link {
 
 /* TABLE OF CONTENTS */
 div.mpdf_toc {
-	font-family: sans-serif;
+	font-family: "Alarabiya Font" ,sans-serif;
 	line-height: normal;
 }
 

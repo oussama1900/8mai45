@@ -9,6 +9,7 @@ class FontVariables
 
 	public function __construct()
 	{
+
 		$this->defaults = [
 
 			// Specify which font metrics to use:
@@ -91,7 +92,11 @@ class FontVariables
 					),
 				),
 			 */
-
+            "alarabiyafont" => [
+                'R' => "Alarabiya-Font.ttf",
+                'useOTL' => 0xFF,
+                'useKashida' => 75,
+            ],
 			'fontdata' => [
 				"dejavusanscondensed" => [
 					'R' => "DejaVuSansCondensed.ttf",
@@ -101,7 +106,8 @@ class FontVariables
 					'useOTL' => 0xFF,
 					'useKashida' => 75,
 				],
-				"dejavusans" => [
+
+                "dejavusans" => [
 					'R' => "DejaVuSans.ttf",
 					'B' => "DejaVuSans-Bold.ttf",
 					'I' => "DejaVuSans-Oblique.ttf",
@@ -257,14 +263,22 @@ class FontVariables
 					'useOTL' => 0xFF,
 				],
 				/* Arabic fonts */
-				"xbriyaz" => [
-					'R' => "XB Riyaz.ttf",
-					'B' => "XB RiyazBd.ttf",
-					'I' => "XB RiyazIt.ttf",
-					'BI' => "XB RiyazBdIt.ttf",
-					'useOTL' => 0xFF,
-					'useKashida' => 75,
-				],
+                "alarabiyafont" => [
+                    'R' => "Alarabiya-Font.ttf",
+                    'B' => "Alarabiya-Font.ttf",
+                    'I' => "Alarabiya-Font.ttf",
+                    'BI' => "Alarabiya-Font.ttf",
+                    'useOTL' => 0xFF,
+                    'useKashida' => 75,
+                ],
+                "xbriyaz" => [
+                    'R' => "XB Riyaz.ttf",
+                    'B' => "XB RiyazBd.ttf",
+                    'I' => "XB RiyazIt.ttf",
+                    'BI' => "XB RiyazBdIt.ttf",
+                    'useOTL' => 0xFF,
+                    'useKashida' => 75,
+                ],
 				"lateef" => [/* Sindhi, Pashto and Urdu */
 					'R' => "LateefRegOT.ttf",
 					'useOTL' => 0xFF,
@@ -308,7 +322,7 @@ class FontVariables
 			'sans_fonts' => ['dejavusanscondensed', 'sans', 'sans-serif', 'cursive', 'fantasy', 'dejavusans', 'freesans', 'liberationsans',
 				'arial', 'helvetica', 'verdana', 'geneva', 'lucida', 'arialnarrow', 'arialblack',
 				'franklin', 'franklingothicbook', 'tahoma', 'garuda', 'calibri', 'trebuchet', 'lucidagrande', 'microsoftsansserif',
-				'trebuchetms', 'lucidasansunicode', 'franklingothicmedium', 'albertusmedium', 'xbriyaz', 'albasuper', 'quillscript',
+				'trebuchetms', 'lucidasansunicode', 'franklingothicmedium', 'albertusmedium', 'xbriyaz','alarabiyafont', 'albasuper', 'quillscript',
 				'humanist777', 'humanist777black', 'humanist777light', 'futura', 'hobo', 'segoeprint'
 			],
 
@@ -321,7 +335,9 @@ class FontVariables
 			'mono_fonts' => ['dejavusansmono', 'mono', 'monospace', 'freemono', 'liberationmono', 'courier', 'ocrb', 'ocr-b', 'lucidaconsole',
 				'couriernew', 'monotypecorsiva'
 			],
+
 		];
+
 	}
 
 	public function getDefaults()

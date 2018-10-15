@@ -13,9 +13,10 @@
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <title>مراسلة البريد الصادر</title>
     <style>
+
         *{
             font-size: 14px;
-            font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+            font-family: "dejavusanscondensed" ;
         }
         .text-align-right{
             margin-right:0px
@@ -52,13 +53,15 @@
 <div style="margin-left: 80px;margin-top:30px">
     <p> محـــافظ الفوج</p>
     <p>{{$data['gov']}}</p>
-    @if($data['agree'])
-    <div>
-        <img src= src="{{ public_path() .'/images/Report.png' }}" width="100" height="100" />
-    </div>
-        @endif
-</div>
 
+
+
+</div>
+@if($data['agree'])
+<div style="margin-left: 15px;">
+    <img src= src="{{ public_path() .'/images/cachet.png' }}" width="200" height="200" />
+</div>
+@endif
 <footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">
     <img src= src="{{ public_path() .'/images/page_footer.jpg' }}" width="100%" height="150px" />
 </footer>
