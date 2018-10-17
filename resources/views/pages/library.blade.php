@@ -13,7 +13,13 @@
                             <img class="card-img" src="/uploads/Books/Images/{{ $book->picture }}" alt="{{ $book->title }}">
                         </div>
                         <div class="card-body">
-                            <div class="" dir="rtl">{!! $book->description !!}</div>
+                            <h1 class="card-title" dir="rtl" style="text-align: right !important;">{{ $book->title }}</h1>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-8 metadata" dir="rtl" style="text-align: right">{{ $book->author }}</div>
+                                </div>
+                            </div>
+                            <p class="card-text" dir="rtl" style="text-align: right !important;">{!! $book->description !!}</p>
                             <a class="trailer-preview pull-right" href="/uploads/Books/PDF/{{ $book->file }}" target="new" dir="rtl" style="text-align: right">
                                 حمل من هنا<i class="fa fa-download"></i>
                             </a>
