@@ -34,7 +34,7 @@
         }
     </style>
 <div>
-    <div class="mb-3" style="height: 100px;background-color: #4f4f4f"></div>
+    <div class="mb-3" style="height: 100px"></div>
     <div >
        <h1 style="text-align: center;">
             <span style="text-align: center;" >

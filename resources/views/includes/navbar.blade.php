@@ -8,6 +8,7 @@
         $activenavs = '';
         $activenavas = '';
         $activenavt = '';
+        $activenavcp = '';
         $solid_number = "0";
 
     if (Route::currentRouteNamed('cubs')){
@@ -47,6 +48,14 @@
         $activenavu = 'activenav';
         $activenavt = 'activenav';
     }
+
+    if (Route::currentRouteNamed('captains')){
+         $nav_color = 'lp';
+        $nav_logo = '/images/landing_page_Logo.png';
+        $solid_color = 'solidl';;
+        $activenavu = 'activenav';
+        $activenavcp = 'activenav';
+    }
 @endphp
 
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
@@ -67,7 +76,7 @@
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
-                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('captains') ? 'activenav' : '' }}" href="/team" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
+                    <a class="nav-link {{ $nav_color }} {{ Route::currentRouteNamed('team') ? 'activenav' : '' }}" href="/team" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
@@ -87,7 +96,7 @@
 
                          <li class="dropdown-menu-item">   <a class="dropdown-item {{ $nav_color }} {{ $activenavt }} " style=" text-align: center;font-size: large; color: #ffffff;" href="/traveler">الجوالة</a></li>
 
-                         <li class="dropdown-menu-item">   <a class="dropdown-item  {{ $nav_color }} {{ $activenavt }}" style=" text-align: center;font-size: large; color: #ffffff;"  href="/captains">القادة</a></li>
+                         <li class="dropdown-menu-item">   <a class="dropdown-item  {{ $nav_color }} {{ $activenavcp }}" style=" text-align: center;font-size: large; color: #ffffff;"  href="/captains">القادة</a></li>
 
                      </ul>
 

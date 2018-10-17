@@ -1,96 +1,114 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
-@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
-body {
-  background-color: #F8FAFB;
-  font-family: 'Open Sans', sans-serif;
-  padding-top: 10%;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-.col-md-5, .description {
-  padding: 0;
+.u-clearfix:before,
+.u-clearfix:after {
+  content: " ";
+  display: table;
 }
 
-.description {
-  font-family: 'Fredericka the Great', cursive;
-  text-align: center;
+.u-clearfix:after {
+  clear: both;
 }
 
-.card-header, .metadata {
-  background: none;
-  padding: 0;
+.u-clearfix {
+  *zoom: 1;
+}
+
+.subtle {
+  color: #aaa;
+}
+
+.card-container {
+  margin: 25px auto 0;
   position: relative;
-  border-style: none;
-}
-
-.metadata {
-  font-size: 16px;
-}
-.metadata i, .metadata p {
-  float: left;
-}
-.metadata p {
-  margin-top: 0;
-  margin-left: 10px;
-}
-.metadata i {
-  color: #ff9d00;
-  margin-top: 5px;
-  margin-left: 1px;
-}
-
-.card-img {
-  -webkit-clip-path: inset(10% 0 20% 0);
-  clip-path: inset(10% 0 20% 0);
-  margin-top: -15%;
-}
-
-.card-body {
-  position: relative;
-  margin-top: -30%;
-  color: #9FA7A9;
-}
-.card-body .card-title {
-  font-weight: 600;
-  color: #414345;
-}
-.card-body .card-text {
-  margin-top: 8px;
-  font-weight: 600;
-  line-height: 30px;
-}
-
-.card, .trailer-preview {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.card:hover, .trailer-preview:hover {
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.18);
+  width: 692px;
 }
 
 .card {
-  border-radius: 8pt;
-  border-style: none;
-  overflow: hidden;
-  transform: scale(0.8);
-  margin-top: -60px;
+  background-color: #fff;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 0 5px rgba(75, 75, 75, .07);
+  z-index: 1;
 }
 
-.trailer-preview {
-  background-color: #ff3d49;
-  position: absolute;
-  top: -46px;
-  right: 24px;
-  width: 80px;
-  height: 80px;
+.card-body {
+  display: inline-block;
+  float: left;
+  width: 310px;
+}
+
+.card-number {
+  margin-top: 15px;
+}
+
+.card-circle {
+  border: 1px solid #aaa;
   border-radius: 50%;
-  color: white;
-  font-size: 36px;
+  display: inline-block;
+  line-height: 22px;
+  font-size: 12px;
+  height: 25px;
   text-align: center;
-  padding-top: 13px;
+  width: 25px;
 }
-.trailer-preview:hover, .trailer-preview:disabled, .trailer-preview:active, .trailer-preview:focus {
-  background-color: #ff3d49;
-  color: white;
+
+.card-author {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .5px;
+  margin: 15px 0 0;
+  text-transform: uppercase;
 }
-.trailer-preview i {
-  margin-left: 5px;
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 300;
+  line-height: 60px;
+  margin: 10px 0;
+}
+
+.card-description {
+  display: inline-block;
+  font-weight: 300;
+  line-height: 22px;
+  margin: 10px 0;
+}
+
+.card-read {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  margin: 5px 0 20px;
+  position: relative;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.card-read:after {
+  background-color: #b8bddd;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 9px;
+  width: 75%;
+}
+
+.card-tag {
+  float: right;
+  margin: 5px 0 0;
+}
+
+.card-shadow {
+  background-color: #fff;
+  box-shadow: 0 2px 25px 2px rgba(0, 0, 0, 1), 0 2px 50px 2px rgba(0, 0, 0, 1), 0 0 100px 3px rgba(0, 0, 0, .25);
+  height: 1px;
+  margin: -1px auto 0;
+  width: 80%;
+  z-index: -1;
 }

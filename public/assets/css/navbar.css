@@ -46,7 +46,7 @@
     /* active navbar elment styling */
 
         .activenav{
-            border: 1px solid #ffffff;
+            border: 1px solid black !important;
             border-radius: 5px;
         }
 
