@@ -60,9 +60,9 @@
 
     <!--start posts -->
     <div class=" mt-3 ">
-        <div class="row">
-            @include('includes.news_test')
-        </div>
+
+            @include('includes.news_landing')
+
     </div>
 
 
@@ -80,8 +80,51 @@
     </div>
     <div class=" mt-3 ">
         <div class="row">
-            @include('includes.events')
+            @include('includes.events_landing')
+        </div>
+    </div>
+    <div class="row header" style="text-align: center;margin-top:40px">
+        <div style="text-align: center;width:100%">
+            <h3 class="title" style="text-align: center">وحدات الفوج </h3>
+        </div>
+        <div style="text-align: center;width:100%">
+            <h4 class="title" style="text-align: center;color:grey">القلب النابض للفوج ، بهم نفتخر </h4>
+        </div>
+        <div class=" mt-3 ">
+            <div class="row">
+                @include('includes.news_landing_page')
+            </div>
         </div>
     </div>
 
+    <div class="row header" style="text-align: center;margin-top:40px">
+        <div style="text-align: center;width:100%">
+            <h3 class="title" style="text-align: center">مواقع كشفية </h3>
+        </div>
+
+        <div class=" mt-3 ">
+            <div class="row" >
+               <div class="col-md-3 card website" style="display:table-cell;margin:0 auto;padding-left:0px;padding-right: 0px">
+
+                   <a  href="http://www.scouts-dz.org/" target="_blank">
+                       <img src="/images/algerianwebsite.png" class="image" style="width:100%;height:150px"/>
+                   </a>
+               </div>
+                <div class="col-md-3 card website" style="display:table-cell;margin:0 auto;padding-left:0px;padding-right: 0px">
+
+                    <a  href="https://www.scout.org/ar" target="_blank">
+                        <img src="/images/worldscout.png" class="image" style="width:100%;height:150px"/>
+                    </a>
+               </div>
+                <div class="col-md-3 card website" style="display:table-cell;margin:0 auto;padding-left:0px;padding-right: 0px" >
+
+                    <a  href="https://www.scout.org/ar/arab" target="_blank">
+                        <img src="/images/arabic-region.png" class="image" style="width:100%;height:150px"/>
+                    </a>
+
+               </div>
+
+            </div>
+        </div>
+    </div>
 @endsection
