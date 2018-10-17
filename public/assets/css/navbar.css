@@ -3,190 +3,41 @@
 
         .navbar.solidl {
             background-color:#ffffff;
-            color:#343842;
+            color:black;
             transition: all 1s ease 0s;
             box-shadow: 0 0 4px grey;
         }
 
         .navbar.solidl .navbar-brand {
-            color: #343842;
+            color: black;
             transition: color 1s ease 0s;
         }
 
         .navbar.solidl .navbar-nav > li > a {
-            color: #343842  !important;
+            color: black  !important;
             font-weight: bold;
             transition: color 1s ease 0s;
         }
 
         .nav-link.lp:hover,.dropdown-item.lp:hover{
 
-            color: #343842 !important;
+            color: black !important;
 
         }
 
         .dropdown-menu.lp{
             background-color: #ffffff;
-            color:#343842 !important;
+            color:black !important;
         }
         .dropdown-item{
-            color:#343842 !important;
+            color:black !important;
         }
 
     /* end of Landing page navbar color styling */
-
-    /* cubs page navbar color styling */
-
-        .navbar.solidc .navbar-brand {
-            color: #ffffff;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidc .navbar-nav > li > a {
-            color: #ffffff;
-            font-weight: bold;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidc {
-            background-image: linear-gradient(to bottom right, #FDEB71, #F8D800);
-            transition: background-color 1s ease 0s;
-            box-shadow: 0 0 4px grey;
-        }
-    .navbar.solidpost {
-        background-color:#ffffff ;
-        transition: background-color 1s ease 0s;
-        box-shadow: 0 0 4px grey;
-    }
-        .nav-link.cp:hover,.dropdown-item.cp:hover{
-            color: #FFFFFF;
-
-        }
-
-        .dropdown-menu.cp{
-            background-image: linear-gradient(to bottom right, #FDEB71, #F8D800);
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-    /* end of cubs page navbar color styling */
-
-    /* scout page navbar color styling */
-
-        .navbar.solids .navbar-brand {
-            color: #ffffff;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solids .navbar-nav > li > a {
-            color: #ffffff;
-            font-weight: bold;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solids {
-            background-image: linear-gradient(to bottom right, #FFF720, #3CD500);
-            transition: background-color 1s ease 0s;
-            box-shadow: 0 0 4px grey;
-        }
-
-        .nav-link.sp:hover,.dropdown-item.sp:hover{
-
-            color: #FFFFFF;
-
-        }
-    .nav-link.spost,.dropdown-item.spost{
-
-        color: #343842 !important;
-
-
-    }
-    .dropdown-item{
-        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
-
-    }
-        .dropdown-menu.sp{
-            background-image: linear-gradient(to bottom right, #FFF720, #3CD500);
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-    /* end of scout page navbar color styling */
-
-    /* advanced scout page navbar color styling */
-
-        .navbar.solidas .navbar-brand {
-            color: #ffffff;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidas .navbar-nav > li > a {
-            color: #ffffff;
-            font-weight: bold;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidas {
-            background-image: linear-gradient(to bottom right, #F05F57, #360940);
-            transition: background-color 1s ease 0s;
-            box-shadow: 0 0 4px grey;
-        }
-
-        .nav-link.asp:hover,.dropdown-item.asp:hover{
-            background-color: #701700;
-            color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-        .dropdown-menu.asp{
-            background-image: linear-gradient(to bottom right, #F05F57, #360940);
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-    /* end of advanced scout page navbar color styling */
-
-    /* traveler page navbar color styling */
-
-        .navbar.solidt .navbar-brand {
-            color: #ffffff;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidt .navbar-nav > li > a {
-            color: #ffffff;
-            font-weight: bold;
-            transition: color 1s ease 0s;
-        }
-
-        .navbar.solidt {
-            background-image: linear-gradient(to bottom right, #FEB692, #EA5455);
-            transition: background-color 1s ease 0s;
-            box-shadow: 0 0 4px grey;
-        }
-
-        .nav-link.tp:hover,.dropdown-item.tp:hover{
-            background-color: #ee2c2c ;
-            color: #FFFFFF;
-            border-radius: 5px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-        .dropdown-menu.tp{
-            background-image: linear-gradient(to bottom right, #FEB692, #EA5455);
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-        }
-
-    /* end of traveler page navbar color styling */
-
     /* navbar font */
 
         #nl,#dropdown04{
-            color: white;
+            color: black !important;
             font-weight: bold;
         }
 

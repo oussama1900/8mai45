@@ -2,11 +2,11 @@
   background-color: #62a8ea;
 }
 .site-navbar .navbar-header {
-  color: #fff;
+  color: black;
   background-color: transparent;
 }
 .site-navbar .navbar-header .navbar-toggle {
-  color: #fff;
+  color: black;
 }
 .site-navbar .navbar-header .hamburger:before,
 .site-navbar .navbar-header .hamburger:after,
@@ -15,7 +15,7 @@
 }
 .site-navbar .navbar-header .navbar-brand {
   font-family: "DroidArabicKufiRegular", "Roboto", sans-serif;
-  color: #fff;
+  color: black;
   cursor: pointer;
 }
 @media (min-width: 768px) {

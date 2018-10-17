@@ -13,6 +13,12 @@ class CreateBooksLibrariesTable extends Migration
      */
     public function up()
     {
+        Schema::create('books_categories', function (Blueprint $table) {
+            $table->increments('id')->unique();
+            $table->string('category_name',255)->unique();
+            $table->timestamps();
+        });
+
         Schema::create('books_library', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title',255);

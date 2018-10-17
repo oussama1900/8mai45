@@ -33,7 +33,15 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>الموقع الرسمي لفوج الفلاح  </title>
-
+        <style>
+            @font-face {
+                font-family: "Alarabiya Font";
+                src: url("/Alarabiya-Font.ttf");
+            }
+            *:not(.fa){
+                font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+            }
+        </style>
     </head>
     <body style="overflow-x:hidden">
         <div id="app">

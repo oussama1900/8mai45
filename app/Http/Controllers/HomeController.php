@@ -12,6 +12,8 @@ use App\Post;
 use App\PostImage;
 use App\Captain;
 use App\landingPageCarousel;
+use App\BooksLibrary;
+use App\BooksCategory;
 
 class HomeController extends Controller
 {
@@ -110,6 +112,12 @@ class HomeController extends Controller
         $currentEvent = Event::find($id);
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
+    }
+
+    public function library(){
+        $books = BooksLibrary::all();
+        app(\App\Http\Controllers\VisitorController::class)->log();
+        return view('pages.library')->with('books',$books);
     }
 
     public function team(){

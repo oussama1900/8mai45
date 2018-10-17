@@ -28,6 +28,7 @@ Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/posts/{id}', 'HomeController@viewPost')->name('readPost');
 Route::get('/events', 'HomeController@events')->name('events');
 Route::get('/events/{id}', 'HomeController@viewEvent')->name('readEvent');
+Route::get('/library', 'HomeController@library')->name('library');
 Route::get('/team', 'HomeController@team')->name('team');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
@@ -38,6 +39,7 @@ Route::get('/user', 'ActivityController@index');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::any('/dashboard/{query}', 'DashboardController@index')->where('query', '.*');
+
 
 Auth::routes();
 

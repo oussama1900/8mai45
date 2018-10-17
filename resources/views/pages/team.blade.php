@@ -98,7 +98,7 @@
             }
         </style>
     </head>
-    <div style="height: 100px;background-color: #4f4f4f"></div>
+    <div class="mb-3" style="height: 100px;background-color: #4f4f4f"></div>
 
     <section class="container mt-3">
         <div class="card">

@@ -48,11 +48,8 @@
         $activenavt = 'activenav';
     }
 ?>
-<?php if($solid_color=="solidpost"): ?>
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top <?php echo e($solid_color); ?>" style="margin-bottom: 0px" >
-<?php else: ?>
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
-<?php endif; ?>
+
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
     <div   style="width: 100%" >
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"> </span>
@@ -66,11 +63,15 @@
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
-                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('about') ? 'activenav' : ''); ?>" href="/about" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف علينا</a>
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('about') ? 'activenav' : ''); ?>" href="/about" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">من نحن</a>
                 </li>
                 <li class="nav-item">
                     <!-- this is the about link -->
                     <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('captains') ? 'activenav' : ''); ?>" href="/team" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">تعرف على قادتنا</a>
+                </li>
+                <li class="nav-item">
+                    <!-- this is the about link -->
+                    <a class="nav-link <?php echo e($nav_color); ?> <?php echo e(Route::currentRouteNamed('library') ? 'activenav' : ''); ?>" href="/library" style="font-size: medium;margin-right: 8px;margin-left: 8px" id="nl">مكتبتنا</a>
                 </li>
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown" style="position:static" id="dropdownbutton">
