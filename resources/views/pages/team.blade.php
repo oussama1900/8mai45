@@ -204,9 +204,9 @@
     <section class=" " style="background-color: #ECEFF1;width:100%;padding:20px;padding-top:60px">
 
         <h1 style="margin-bottom:20px;color: grey;font-size: 100px;text-shadow: 3px 2px black;text-align: center">قادة الفوج</h1>
-            <div class="row active-with-click ">
+            <div class="row active-with-click filtr-container">
                 @foreach($captains as $captain)
-                    <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="col-md-4 col-sm-6 col-xs-12 filtr-item " data-category="1">
                         <article class="material-card Light-Blue ml-2">
                             <h2>
                                 <span style="text-align: right">{{ $captain->profile->getFullName() }}</span>
@@ -345,7 +345,23 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="gh"></div>
             </div>
 
     </section>
+    <script>
+        var filterizd = $('.filtr-container').filterizr({
+           //options object
+        });
+        function check(){
+            setTimeout(function () { checked(); }, 1000);
+        }
+        function checked(){
+            if(document.querySelectorAll('.filteredOut').length=={{$captains->count()}}){
+                $(".gh").text("القائد الذي تبحث عنه غير موجود");
+            }else{
+                $(".gh").text("");
+            }
+        }
+    </script>
 @endsection
