@@ -10,13 +10,13 @@
         <div class="row flex-column-reverse flex-md-row">
             @foreach($books as $book)
                 <div class="col-md-4" style="margin: 0 !important;padding: 0 !important;">
-                    <div class="card text-right" dir="rtl" style="margin: 0 !important;padding: 0 !important;height:402px">
+                    <div class="card text-right" dir="rtl" style="margin: 0 !important;padding: 0 !important;height:550px">
                         <div class="card-header" style="padding: 0 !important;margin-bottom:120px">
                             @if( $book->picture=="")
 
-                                <img class="card-img img-fluid" src="/images/book.jpg" alt="{{ $book->title }}">
+                                <img class="card-img img-fluid" src="/images/book.jpg" alt="{{ $book->title }}" style="height:400px !important;">
                             @else
-                                <img class="card-img img-fluid" src="uploads/Books/Images/{{ $book->picture }}" alt="{{ $book->title }}">
+                                <img class="card-img img-fluid" src="uploads/Books/Images/{{ $book->picture }}" alt="{{ $book->title }}" style="height:400px !important;">
                                 @endif
                         </div>
                         <div class="card-body">
@@ -26,7 +26,7 @@
                                     <div class="col-8 metadata">{{ $book->category }}</div>
                                 </div>
                             </div>
-                            <p class="card-text">{!! $book->description !!}</p>
+                            <p class="card-text" style="padding-bottom: 10px">{!! $book->description !!}</p>
                             <a class="trailer-preview "  href="uploads/Books/PDF/{{ $book->file }}" target="new" download="{{ $book->title }}.pdf">
                                 <i class="fa fa-arrow-down" style="position: absolute;right: 30%;top: 30%" aria-hidden="true"></i>
                             </a>
