@@ -13,7 +13,7 @@
 
     if (Route::currentRouteNamed('cubs')){
         $nav_color = 'lp';
-        $nav_logo = '/images/cubs_logo.jpg';
+        $nav_logo = '/images/cubs-logo.png';
         $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavc = 'activenav';
@@ -27,7 +27,7 @@
     }
     if (Route::currentRouteNamed('scout')){
         $nav_color = 'lp';
-        $nav_logo = '/images/scout_logo.jpg';
+        $nav_logo = '/images/scout-logo.png';
         $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavs = 'activenav';
@@ -35,7 +35,7 @@
 
     if (Route::currentRouteNamed('advanced_scout')){
          $nav_color = 'lp';
-        $nav_logo = '/images/advanced_scout_logo.jpg';
+        $nav_logo = '/images/advanced_scout-logo.png';
         $solid_color = 'solidl';
         $activenavu = 'activenav';
         $activenavas = 'activenav';
@@ -43,7 +43,7 @@
 
     if (Route::currentRouteNamed('traveler')){
          $nav_color = 'lp';
-        $nav_logo = '/images/traveler_logo.png';
+        $nav_logo = '/images/traveler-logo.png';
         $solid_color = 'solidl';;
         $activenavu = 'activenav';
         $activenavt = 'activenav';
