@@ -96,18 +96,30 @@
                 color: white !important;
                 text-shadow: 3px 2px black !important;
             }
+            .jumbotron{
+                background: url("https://www.alainsamson.net/images/conferences/banniere-diriger-avec-courage.jpg") no-repeat center center;
+                height: 370px;
+                width: 100%;
+                margin-bottom: 0px;
+                border-radius: 0 !important;
+                -webkit-background-size: 100% 100%;
+                -moz-background-size: 100% 100%;
+                -o-background-size: 100% 100%;
+                background-size: 100% 100%;
+            }
+            .container{
+                padding-top:20px
+            }
         </style>
     </head>
-    <div class="mb-3" style="height: 100px;"></div>
 
-    <section class="container mt-3">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <h1 class="text-center" style="font-size: 30px;font-weight: bold;"> قادتنا </h1>
-                </div>
-            </div>
-            <div class="row active-with-click">
+    <div class="jumbotron" style="margin-top:80px">
+        <h1 style="color: white;font-size: 100px;text-shadow: 3px 2px black;text-align: center">قادتنا</h1>
+    </div>
+    <section class=" " style="background-color: #ECEFF1;width:100%;padding:20px;padding-top:60px">
+
+        <h1 style="margin-bottom:20px;color: grey;font-size: 100px;text-shadow: 3px 2px black;text-align: center">قادة الفوج</h1>
+            <div class="row active-with-click ">
                 @foreach($captains as $captain)
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <article class="material-card Light-Blue ml-2">
@@ -133,24 +145,28 @@
                                     <br>
                                     {{ $captain->profile->membership_date }} : {{ $membership_date }}
                                     <br>
-                                    {{ $captain->profile->email }} : {{ $email }}
+                                <small>{{ $captain->profile->email }}</small>     : {{ $email }}
                                     <br>
                                     {{ $captain->profile->phone }} : {{ $phone }}
                                 </div>
+
                             </div>
                             <a class="mc-btn-action" style="color: #fff;">
                                 <i class="fa fa-bars" style="color:white"></i>
                             </a>
                             <div class="mc-footer">
-                                <h4 class="pull-right"  dir="rtl" style="text-align: right;position: absolute;right: 50%">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{ $captain->scout_id }}">
-                                        read more
+                                <h4 class="pull-right"  dir="rtl" style="text-align: center;position: absolute;right: 10%">
+                                    <button style="margin-top: -20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{ $captain->scout_id }}">
+                                        اقرأ اكثر
                                     </button>
                                 </h4>
-                                <a class="fa fa-fw fa-facebook"></a>
-                                <a class="fa fa-fw fa-twitter"></a>
-                                <a class="fa fa-fw fa-linkedin"></a>
-                                <a class="fa fa-fw fa-google-plus"></a>
+                                <div style="position: absolute;right:30%">
+                                    <a  class="fa fa-fw fa-facebook" href="{{$captain->facebook}}"></a>
+                                    <a class="fa fa-fw fa-twitter" href="{{$captain->twitter}}"></a>
+                                    <a class="fa fa-fw fa-instagram" href="{{$captain->instagram}}"></a>
+                                </div>
+
+
                             </div>
                         </article>
                     </div>
@@ -158,34 +174,93 @@
                     <div class="modal fade" id="myModal{{ $captain->scout_id }}">
                         <div class="modal-dialog">
                             <div class="modal-content">
-
-                                <!-- Modal Header -->
                                 <div class="modal-header">
-                                    <h4 class="modal-title">{{ $captain->profile->getFullName() }}</h4>
+                                    <h4 class="modal-title">{{$captain->profile->getFullName()}}</h4>
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
 
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    family statue : {{ $captain->profile->family_status }}
-                                    <br>
-                                    adress : {{ $captain->profile->adress }}
-                                    <br>
-                                    scout info : {!! $captain->profile->scout_info !!}
-                                    <br>
-                                    personal info : {!!  $captain->profile->personal_info !!}
                                 </div>
+                              <div class="row">
 
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                  <div class="col-md-9 col-xs-9"  style="padding-top: 20px">
+                                      @if($captain->profile->first_name!="")
+                                      <p style="text-align: right">
+                                          <span style="float: right;padding-left:15px">: الاسم</span>
+                                          <span>{{$captain->profile->first_name}}</span>
+                                      </p>
+                                      @endif
+                                      @if($captain->profile->last_name!="")
+                                      <p style="text-align: right">
+                                          <span style="float: right;padding-left:15px">: اللقب</span>
+                                          <span>{{$captain->profile->last_name}}</span>
+                                      </p>
+                                          @endif
+                                      @if($captain->profile->date_of_birth!="")
+                                      <p style="text-align: right">
+                                          <span style="float: right;padding-left:15px">: تاريخ الازدياد</span>
+                                          <span>{{$captain->profile->date_of_birth}}</span>
+                                      </p>
+                                              @endif
+
+                                      @if($captain->profile->place_of_birth!="")
+                                      <p style="text-align: right">
+                                          <span style="float: right;padding-left:15px">: مكان الميلاد</span>
+                                          <span>{{$captain->profile->place_of_birth}}</span>
+                                      </p>
+                                                  @endif
+
+                                      @if($captain->profile->address!="")
+                                      <p style="text-align: right">
+                                          <span style="float: right;padding-left:15px">: العنوان</span>
+                                          <span>{{$captain->profile->address}}</span>
+                                      </p>
+                                                          @endif
+                                      @if($captain->profile->phone!="")
+                                      <p style="text-align: right">
+                                          <span style="float: right;padding-left:15px">: رقم الهاتف  </span>
+                                          <span>{{$captain->profile->phone}}</span>
+                                      </p>
+                                         @endif
+
+                                  </div>
+                                      <div class="col-md-2 col-xs-2">
+                                          @if($captain->profile->image=="")
+                                          <img class="img-circle img-rounded" src="/images/default.png" height="80" width="80" style="border-radius: 50%;margin-top: 10px;margin-left: 15px"/>
+                                           @else
+                                          <img class="img-circle img-rounded" src="/images/Captain/{{$captain->profile->image}}" height="80" width="80" style="border-radius: 50%;margin-top: 10px;margin-left: 15px"/>
+                                          @endif
+                                      </div>
+
+
+
+                              </div>
+                                    @if($captain->profile->personal_info!="")
+                                <div class="row">
+                                    <div style="width: 100%;padding:20px">
+                                        <h1 style="text-align: right;color:grey">معلومات القائد الشخصية</h1>
+                                    </div>
+                                    <div dir="rtl">
+                                        {!! $captain->profile->personal_info !!}
+                                    </div>
+
                                 </div>
+                                        @endif
+                                @if($captain->profile->scout_info!="")
+                                <div class="row">
+                                    <div style="width: 100%;padding:20px">
+                                        <h1 style="text-align: right;color:grey">معلومات القائد الكشفية</h1>
+                                    </div>
+                                    <div dir="rtl">
+                                        {!! $captain->profile->scout_info !!}
+                                    </div>
+
+                                </div>
+                                        @endif
 
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-        </div>
+
     </section>
 @endsection
