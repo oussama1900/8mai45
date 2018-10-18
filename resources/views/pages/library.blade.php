@@ -3,28 +3,30 @@
     <link rel="stylesheet" href="css/library.css">
 </head>
 @section('content')
-    <div style="height: 100px"> </div>
-    <div class="container jumbotron">
+    <div class="jumbotron">
+        <h1 style="color: white;font-size: 100px;text-shadow: 3px 2px black;text-align: center">كتبنا</h1>
+    </div>
+    <div class="container jumbotron-fluid">
         <div class="row flex-column-reverse flex-md-row">
             @foreach($books as $book)
-                <div class="card-container">
-                    <div class="card u-clearfix">
-                        <div class="row">
-                            <div class="col-6 col-xs-12">
+                <div class="col-md-4" style="margin: 0 !important;padding: 0 !important;">
+                    <div class="card text-right" dir="rtl" style="margin: 0 !important;padding: 0 !important;">
+                        <div class="card-header" style="padding: 0 !important;">
+                            <img class="card-img-100 img-fluid" src="uploads/Books/Images/{{ $book->picture }}" alt="{{ $book->title }}">
+                        </div>
                         <div class="card-body">
-                                    <h2 class="card-title">{{ $book->title }}</h2>
-                                    <span class="card-author subtle">{{ $book->author }}</span>
-                                    <span class="card-description subtle">{!! $book->description !!}</span>
-                                    <div class="card-read"><a class="trailer-preview pull-right" href="/uploads/Books/PDF/{{ $book->file }}" target="new">حمل من هنا</a></div>
-                                    <span class="card-tag card-circle subtle">C</span>
+                            <h1 class="card-title">{{ $book->title }}</h1>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-8 metadata">{{ $book->category }}</div>
+                                </div>
                             </div>
-                            </div>
-                            <div class="col-6 col-xs-12">
-                                <img src="/uploads/Books/Images/{{ $book->picture }}" alt="{{ $book->title }}" class="img-fluid">
-                            </div>
+                            <p class="card-text">{!! $book->description !!}</p>
+                            <a class="trailer-preview "  href="uploads/Books/PDF/{{ $book->file }}" target="new" download="{{ $book->title }}.pdf">
+                                <i class="fa fa-arrow-down" style="position: absolute;right: 30%;top: 30%" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="card-shadow"></div>
                 </div>
             @endforeach
         </div>
