@@ -5,11 +5,12 @@
 @section('content')
     <div class="jumbotron" style="margin-top:-60px">
         <h1 style="color: white;font-size: 100px;text-shadow: 3px 2px black;text-align: center">كتبنا</h1>
+        <input oninput="check()" type="text" dir="rtl" name="search" placeholder="ابحث..." data-search>
     </div>
     <div class="container jumbotron-fluid">
-        <div class="row flex-column-reverse flex-md-row">
+        <div class="row flex-column-reverse flex-md-row filtr-container">
             @foreach($books as $book)
-                <div class="col-md-4" style="margin: 0 !important;padding: 0 !important;">
+                <div class="col-md-4 filtr-item" data-category="{{ $book->category}}" style="margin: 0 !important;padding: 0 !important;">
                     <div class="card text-right" dir="rtl" style="margin: 0 !important;padding: 0 !important;height:550px">
                         <div class="card-header" style="padding: 0 !important;margin-bottom:120px">
                             @if( $book->picture=="")
@@ -34,6 +35,22 @@
                     </div>
                 </div>
             @endforeach
+            <div class="gh"></div>
         </div>
     </div>
+    <script>
+        var filterizd = $('.filtr-container').filterizr({
+           //options object
+        });
+        function check(){
+            setTimeout(function () { checked(); }, 1000);
+        }
+        function checked(){
+            if(document.querySelectorAll('.filteredOut').length=={{$books->count()}}){
+                $(".gh").text("الكتاب الذي تبحث عنه غير موجود");
+            }else{
+                $(".gh").text("");
+            }
+        }
+    </script>
 @endsection

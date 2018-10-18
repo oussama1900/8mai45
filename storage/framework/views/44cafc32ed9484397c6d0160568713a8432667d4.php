@@ -29,6 +29,8 @@
         <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
         <script src="<?php echo e(asset('assets/js/filter-gallery.js')); ?>"></script>
 
+        <script src="/js/jquery.filterizr.min.js"></script>
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
