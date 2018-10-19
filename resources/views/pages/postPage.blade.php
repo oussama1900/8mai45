@@ -264,9 +264,9 @@
                         <div class="widget-title">
                             <h2 class="title">سجل في قائمة الاخبار</h2>
                         </div>
-                        <form>
-                            <input class="input" type="email" placeholder="Enter Your Email">
-                            <button class="input-btn">سجل</button>
+                        <form action="{{route('newSubscriber')}}" method="post">
+                            <input class="input" type="email" placeholder="ادخل بريدك الالكتروني " name="subscriber_email">
+                            <button class="input-btn" type="submit">سجل</button>
                         </form>
                     </div>
                     <!-- /subscribe widget -->

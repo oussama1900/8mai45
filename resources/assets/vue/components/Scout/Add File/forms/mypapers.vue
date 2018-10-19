@@ -100,7 +100,7 @@
 
                 <div class="col-md-4 card text-center report-card " style="margin-left:15px;padding-right:0px;padding-left:0px;height:165px" v-for="correspondence_appr in Correspondences_Appr" :id="'correspondence_appr'+correspondence_appr.outing_mail_id">
 
-                    <div class="card-block"  @click="viewpdf(report)" style="cursor: pointer">
+                    <div class="card-block"  @click="viewpdf(correspondence_appr)" style="cursor: pointer">
                         <img src="/images/pdf_image.png" width="100px" height="100px"/>
                     </div>
                     <div class="card-footer">

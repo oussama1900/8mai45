@@ -163,11 +163,12 @@ class EventController extends Controller
         }else{
 
             if(Auth::user()->captain->role!='gov'){
-                $message_forgov="لقد قام".$current_user_fullname.'بوضع منشور جديد ';
+                $notification_type = '( حدث جديد (  '.$type;
+                $message_forgov=" قام القائد ".$current_user_fullname.'بوضع حدث جديد ';
                 if($gov_user!=null)
                     $gov_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                 if(Auth::user()->captain->role !='med'){
-                    $message_forgov="لقد قام".$current_user_fullname.'بوضع منشور جديد ';
+                    $message_forgov="  قام القائد ".$current_user_fullname.'بوضع حدث جديد ';
                     if($med_user!=null)
                         $med_user->notify(new notifyCaptain($message_forgov,$notification_type,$event_image,$time));
                     if(Auth::user()->captain->role !='vmed'){

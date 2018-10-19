@@ -34,8 +34,8 @@
         </div>
 
 
-        <button class="btn btn-primary nextBtn pull-left label_title" style="text-align: center;margin-top: 10px" type="button" @click="PDF_Operation('download')" v-if="current_user.localeCompare('gov')===0">تحميل</button>
-        <button class="btn btn-primary nextBtn pull-right label_title" style="text-align: center;margin-top: 10px" type="button" @click="PDF_Operation('send')" v-if="current_user.localeCompare('gov')===0">طلب المصادقة</button>
+        <button class="btn btn-primary nextBtn pull-left label_title" style="text-align: center;margin-top: 10px" type="button" @click="PDF_Operation('download')" >تحميل</button>
+        <button class="btn btn-primary nextBtn pull-right label_title" style="text-align: center;margin-top: 10px" type="button" @click="PDF_Operation('send')" >طلب المصادقة</button>
 
 
         <sweet-modal icon="warning" ref="warn">

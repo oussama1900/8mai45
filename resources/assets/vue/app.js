@@ -839,6 +839,7 @@ const routes = [
                 current_user = response.data.current_user;
 
                 if(current_user.localeCompare('gov')===0 ||
+                    current_user.localeCompare('vgov')===0 ||
                     current_user.localeCompare('med')===0 ||
                     current_user.localeCompare('vmed')===0 ||
                     current_user.localeCompare('ucap')===0 ||

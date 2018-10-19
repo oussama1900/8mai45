@@ -698,8 +698,9 @@ $scout_image = $request->input('ScoutInfo.image');
          * then delete his record from captain table then from scout table
          */
 
-        if($user){
-            $user->delete();
+        if($user!=null){
+
+            DB::delete('delete from users where scout_id = ?',[$scout_id]);
             $captain->delete();
             $scout->delete();
         }else {
@@ -707,7 +708,7 @@ $scout_image = $request->input('ScoutInfo.image');
              * if he don't have an account mean's he's a simple captain
              * so we need to delete his records from captain table then scout table
              */
-            if ($captain) {
+            if ($captain!=null) {
                $captain->delete();
                 $scout->delete();
             } else {
@@ -716,7 +717,7 @@ $scout_image = $request->input('ScoutInfo.image');
                  * mean he's a simple scout of type (cub or scout or advanced_scout or traveler)
                  * so we will delete it from his unit then from scout table
                  */
-                if ($scout) {
+                if ($scout!=null) {
                     $unitscouts->delete();
                     $scout->delete();
                 } else {

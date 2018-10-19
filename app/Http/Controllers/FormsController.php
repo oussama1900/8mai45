@@ -12,7 +12,7 @@ use App\Correspondence;
 use PDF;
 use DB;
 use Auth;
-use FILE;
+use File;
 use App\UnitsReport;
 use Carbon\Carbon;
 

@@ -33,17 +33,17 @@
                     <div class="  col-md-7 " style="padding-top:10px;float:right;padding-right:0px;">
                         <ul style="float: right;">
                             <li>
-                                <p style="text-align: right" dir="rtl"> <span>{{scout.scout.last_name}}</span> <span  dir="rtl">اللقب:</span> </p>
+                                <p style="text-align: right" dir="rtl"> <span  dir="rtl">اللقب:</span> <span>{{scout.scout.last_name}}</span>  </p>
 
                             </li>
                             <li>
                                 <p style="text-align: right "  dir="rtl"> <span  dir="rtl">الاسم :</span> <span>{{scout.scout.first_name}}</span> </p>
                             </li>
                             <li >
-                                <p style="text-align: right">تاريخ الميلاد{{scout.scout.date_of_birth}} </p>
+                                <p style="text-align: right">تاريخ الميلاد : {{scout.scout.date_of_birth}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">{{scout.scout.membership_date}}:تاريخ الانخراط</p>
+                                <p style="text-align: right">{{scout.scout.membership_date}} : تاريخ الانخراط</p>
                             </li>
                         </ul>
                     </div>
@@ -60,7 +60,7 @@
                 <div>
                     <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green;padding-left:13px" :to="'/dashboard/EditScoutInfo/Scout/'+scout.scout.scout_id"></router-link>
                     <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" >
-                       {{  setScoutCode(scout)}}
+                       {{setScoutCode(scout)}}
 
     </span>
 
@@ -126,8 +126,8 @@
             setScoutCode(scout){
                 var membershipdate =scout.scout.membership_date;
 
-                var scout_code = 'SF-'+ membershipdate.substr(2,2)+'-'+scout.scout.scout_id;
-                return scout_code;
+
+                return  'SF-'+ membershipdate.substr(2,2)+'-'+scout.scout.scout_id;
 
             },
             removeScout(scout) {
