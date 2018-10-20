@@ -158,6 +158,22 @@
 
     <div style="height: 100px"></div>
     <!-- SECTION -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session('result'))
+        <div class="alert alert-success">
+            <ul>
+                    <li>لقد تم تسجيلك بنجاح</li>
+            </ul>
+        </div>
+    @endif
     <div class="section container">
         <!-- CONTAINER -->
         <div class="container">
@@ -264,8 +280,9 @@
                         <div class="widget-title">
                             <h2 class="title">سجل في قائمة الاخبار</h2>
                         </div>
-                        <form action="{{route('newSubscriber')}}" method="post">
-                            <input class="input" type="email" placeholder="ادخل بريدك الالكتروني " name="subscriber_email">
+                        <form action="/newSubscriber" method="post">
+                            {{ csrf_field() }}
+                            <input class="input" type="email" placeholder="ادخل بريدك الالكتروني " name="email">
                             <button class="input-btn" type="submit">سجل</button>
                         </form>
                     </div>
@@ -376,7 +393,13 @@
                 content.html($(this).html());
                 $(".modal-profile").modal({show:true});
             });
-
+            @if(!empty($result))
+                @if(isTrue($result))
+                    alert("true");
+                @else
+                    alert("false");
+                @endif
+            @endif
         });
 
         $(document).on("click", '[data-toggle="lightbox"]', function(event) {
@@ -416,6 +439,7 @@
         }
 
         setInterval(function(){plusSlides(1);}, 2000);
+
     </script>
     <script src="{{ asset('assets/js/ekko-lightbox.js') }}"></script>
 @endsection

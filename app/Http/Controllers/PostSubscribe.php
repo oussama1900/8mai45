@@ -10,19 +10,17 @@ class PostSubscribe extends Controller
 {
     //
     public function newSubscriber(Request $request){
+        $request->validate(
+            ['email' => 'required|unique:post_subscribers',],
+            ['email.unique' => 'هاذا الايمايل مسجل']
+            );
+
         $email = $request->input('email');
-        $subscriber = PostSubscriber::where('email',$email)->get();
-        $newSubscriber = new PostSubscriber;
+
+        $newSubscriber = new PostSubscriber();
         $newSubscriber->email = $email;
         $newSubscriber->save();
-       if($subscriber!=null){
+        return back()->with('result','true');
 
-           return back()->with('result',false);
-       }else{
-           $newSubscriber = new PostSubscriber;
-           $newSubscriber->email = $email;
-           $newSubscriber->save();
-           return back()->with('result',true);
-       }
     }
 }
