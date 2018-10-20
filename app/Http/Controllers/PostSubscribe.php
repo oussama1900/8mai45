@@ -51,7 +51,12 @@ class PostSubscribe extends Controller
         return back()->with('result','true');
     }
     public function getContactUs(){
-        $contactus = Contact::all()->sortByDesc("id");
+        $contactus = Contact::orderby('created_at','desc')->get();
         return response()->json(["contactus"=>$contactus]);
+    }
+    public function deleteContactMessage($id){
+        $contactus = Contact::find($id);
+        $contactus->delete();
+
     }
 }

@@ -18,6 +18,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth.basic');
 Route::get('/getContactUs','PostSubscribe@getContactUs');
+Route::delete('/deletecontactmessage/{id}','PostSubscribe@deleteContactMessage');
 Route::get('/getCalenderEvents',[  'uses' =>'EventController@getCalenderEvents']);
 Route::get('/dashboard/scouts/cubs',[
 
