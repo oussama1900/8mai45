@@ -7,6 +7,7 @@ use App\Notifications\notifyCaptain;
 use App\PostSubscriber;
 use Illuminate\Http\Request;
 use App\Post;
+use Notification;
 use App\PostImage;
 use App\Captain;
 use App\User;
@@ -14,6 +15,7 @@ use Auth;
 use DB;
 use File;
 use Carbon\Carbon;
+
 
 class postsController extends Controller
 {

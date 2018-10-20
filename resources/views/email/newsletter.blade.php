@@ -4,13 +4,32 @@
 <header>
     <style>
 
-
-        .button-color {
-            background-color: #0066cc;
+        .btn{
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #238df7;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
         }
+        .btn:hover{
+            background-color: #037af1
+        }
+        .btn:active{
+            background-color: #005db9;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
     </style>
 </header>
-{{Html::style('global/css/bootstrap.min.css')}}
+
     <body>
         <div>
 
@@ -18,10 +37,10 @@
                <h1 style="text-align: center">{{$title}} </h1>
             </div>
             <div style="text-align: center">
-                <img  src="/images/PostCover/{{$picture}}" style="width: 100%;height:50%">
+                <img  src="www.faleh.com/images/PostCover/{{$picture}}">
             </div>
             <div style="text-align: center;margin: 20px">
-                <a class="btn btn-primary btn-lg " href="www.faleh.com/posts/{{$id}}"  style="padding:10px !important;">اقرأ أكثر</a>
+                <a class="btn" href="www.faleh.com/posts/{{$id}}"  >اقرأ أكثر</a>
              </div>
         </div>
     </body>

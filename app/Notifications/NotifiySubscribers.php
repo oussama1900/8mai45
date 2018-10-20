@@ -48,7 +48,7 @@ class NotifiySubscribers extends Notification
      */
     public function toMail($notifiable)
     {
-        (new MailMessage)->view('email.newsletter',['title'=>$this->title,'id'=>$this->id,'picture'=>$this->picture]);
+       return (new MailMessage)->view('email.newsletter',['title'=>$this->title,'id'=>$this->id,'picture'=>$this->picture]);
     }
 
     /**
