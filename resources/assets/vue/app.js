@@ -29,6 +29,7 @@ Vue.use(SweetModal);
 Vue.use(loading);
 import Ckeditor from 'vue-ckeditor2'
 import Hub from './components/Scout/Home/Hub.vue';
+import ContactUs from './components/contactus';
 import Bank_Account from './components/Scout/Finance/Bank_Account_Info.vue';
 import MyScout from './components/MyScout';
 import NewForm from './components/NewForm';
@@ -1681,6 +1682,11 @@ const routes = [
             });
 
         }
+
+    },
+    {
+        path:"/dashboard/contact-us",
+        component:ContactUs
 
     }
 

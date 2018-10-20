@@ -29,7 +29,7 @@
         }
 
         /* Style the container/contact section */
-        .container {
+        .contact-us {
             border-radius: 5px;
             background-color: #f2f2f2;
             padding: 10px;
@@ -78,14 +78,14 @@
             </ul>
         </div>
     @endif
-<div class="container">
+<div class="container contact-us">
     <div style="text-align:center">
         <h2>تواصل معنا</h2>
     </div>
     <div class="row">
         <div class="column">
-            <div style="width:100%;height:500px">
-                <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de">website erstellen</a></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+            <div style="width:100%;height:500px;">
+                <div class="mapouter"><div class="gmap_canvas"><iframe  style="margin-right:100px" width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href=""></a></div><style>.mapouter{text-align:right;height:500px;width:500px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
             </div>
         </div>
         <div class="column">

@@ -17,7 +17,7 @@ use App\Events\MessagePosted;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth.basic');
-
+Route::get('/getContactUs','PostSubscribe@getContactUs');
 Route::get('/getCalenderEvents',[  'uses' =>'EventController@getCalenderEvents']);
 Route::get('/dashboard/scouts/cubs',[
 

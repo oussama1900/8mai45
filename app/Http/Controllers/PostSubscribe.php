@@ -50,4 +50,8 @@ class PostSubscribe extends Controller
         $newContact->save();
         return back()->with('result','true');
     }
+    public function getContactUs(){
+        $contactus = Contact::all()->sortByDesc("id");
+        return response()->json(["contactus"=>$contactus]);
+    }
 }

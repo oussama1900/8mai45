@@ -16,7 +16,7 @@
             background-color: #238df7;
             border: none;
             border-radius: 15px;
-            box-shadow: 0 9px #999;
+
         }
         .btn:hover{
             background-color: #037af1

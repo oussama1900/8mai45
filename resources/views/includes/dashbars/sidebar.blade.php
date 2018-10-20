@@ -509,7 +509,19 @@
                   </li>
                   @endif
 
-
+                  <li class="site-menu-item has-sub ">
+                      <a href="javascript:void(0)">
+                          <i class="site-menu-icon wb-envelope" aria-hidden="true"></i>
+                          <span class="site-menu-title">{{ trans('app.website_messages')}}</span>
+                          <span class="site-menu-arrow"/>
+                      </a>
+                      <ul class="site-menu-sub">  <!--my posts sidebar item-->
+                          <li class="site-menu-item">
+                              <router-link class="animsition-link" to="/dashboard/contact-us"/>
+                              <span class="site-menu-title">{{ trans('app.website_messages')}}</span>
+                          </li>
+                      </ul>
+                  </li>
                   </ul><!-- Message  menu -->
                          @permission('message.messages')
                   <li class="site-menu-item has-sub {{ Request::is('message') ? 'active open' : '' }}">

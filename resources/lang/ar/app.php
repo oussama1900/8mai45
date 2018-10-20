@@ -2,6 +2,7 @@
 return [
 "home" =>"الصفحة الرئيسية",
 "books" =>"الكتب",
+"website_messages" =>"رسائل الصفحة",
 "Administrative_Documents" =>"وثائق ادارية",
 "Approve_Correspondences" =>"المصادقة",
 "mypapers" =>"أوراقي",
