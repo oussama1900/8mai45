@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NotifiySubscribers;
 use App\Notifications\notifyCaptain;
+use App\PostSubscriber;
 use Illuminate\Http\Request;
 use App\Post;
 use App\PostImage;
@@ -299,7 +301,14 @@ class postsController extends Controller
                 $vmed->notify(new notifyCaptain($notification_message,$notification_type,$cover_image,Carbon::now()));
 
         }
+          if($user->captain->role!="trne"){
+            $subscribers = PostSubscriber::all();
+            foreach ($subscribers as $subscriber){
 
+                Notification::route('mail', $subscriber->email)->notify(new NotifiySubscribers($cover_image,$post_title,$post_id));
+
+            }
+          }
         return response()->json(["message"=>"created Successfully"]);
     }
 

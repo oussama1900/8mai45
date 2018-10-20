@@ -67,7 +67,7 @@
                                                                             <p style="text-align:right">  البريد الالكتروني :<span> {{$email}} </span> </p>
                                                                               <p style="text-align:right">  كلمة السر :<span> {{$userpassword}} </span></p>
                                                                           </div>
-                                                                        <div style="font-weight: 200; text-align: center; margin: 25px;"><a href="http://www.faleh.com/login"style="padding:0.6em 1em;border-radius:600px;color:#ffffff;font-size:14px;text-decoration:none;font-weight:bold;text-align:right;font-size:medium" dir="rtl" class="button-color" >اضغظ لتسجيل الدخول</a></div>
+                                                                        <div style="font-weight: 200; text-align: center; margin: 25px;"><a href="http://www.faleh.com/login" style="padding:0.6em 1em;border-radius:600px;color:#ffffff;font-size:14px;text-decoration:none;font-weight:bold;text-align:right;font-size:medium" dir="rtl" class="button-color" >اضغظ لتسجيل الدخول</a></div>
                                                                      </td>
                                                                   </tr>
                                                                </tbody>

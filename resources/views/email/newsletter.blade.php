@@ -1,19 +1,28 @@
-<html>
 
+
+<html>
+<header>
+    <style>
+
+
+        .button-color {
+            background-color: #0066cc;
+        }
+    </style>
+</header>
+{{Html::style('global/css/bootstrap.min.css')}}
     <body>
-        <div style="background-color:#ececec;padding:0;margin:0 auto;font-weight:200;width:100%!important">
-            <div class="header text-center">
-                منشور جديد
-            </div>
+        <div>
+
             <div class="text-center">
-                {{ $post->post_title }}
+               <h1 style="text-align: center">{{$title}} </h1>
             </div>
-            <div>
-                <img src="{{asset('images/PostCover/'.$post->cover_image)}}">
+            <div style="text-align: center">
+                <img  src="/images/PostCover/{{$picture}}" style="width: 100%;height:50%">
             </div>
-            <div>
-                <a class="btn btn-primary" href="/posts/{{$post->post_id}}" target="_blank"></a>
-            </div>
+            <div style="text-align: center;margin: 20px">
+                <a class="btn btn-primary btn-lg " href="www.faleh.com/posts/{{$id}}"  style="padding:10px !important;">اقرأ أكثر</a>
+             </div>
         </div>
     </body>
 </html>

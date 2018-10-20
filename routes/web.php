@@ -32,7 +32,9 @@ Route::get('/library', 'HomeController@library')->name('library');
 Route::get('/team', 'HomeController@team')->name('team');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
-Route::post('/newSubscriber','PostSubscribe@newSubscriber')->name('newSubscriber');
+Route::get('/newSubscriber',function (){
+    return view('email.newsletter');
+});
 Route::get('/login', 'DashboardController@index');
 Route::get('/logout', 'DashboardController@index');
 Route::get('/user', 'ActivityController@index');
