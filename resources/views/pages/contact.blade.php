@@ -62,6 +62,22 @@
 
 @section('content')
     <div class="mb-3" style="height: 100px;"></div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session('result'))
+        <div class="alert alert-success">
+            <ul>
+                <li>لقد تم الاستلام بنجاح</li>
+            </ul>
+        </div>
+    @endif
 <div class="container">
     <div style="text-align:center">
         <h2>تواصل معنا</h2>
@@ -73,13 +89,14 @@
             </div>
         </div>
         <div class="column">
-            <form action="#">
+            <form action="/contactForm" method="post">
+                {{ csrf_field() }}
                 <label class="float-right" for="fname" style="text-align:right;color: black">اللقب</label>
-                <input type="text" style="text-align:right;" id="fname" name="firstname" placeholder="لقبك">
+                <input type="text" style="text-align:right;" id="fname" required name="name" placeholder="لقبك">
                 <label class="float-right" for="lname" style="text-align:right;color: black">الاسم</label>
-                <input type="text" style="text-align:right;color: black" id="lname" name="lastname" placeholder="اسمك">
+                <input type="text" style="text-align:right;color: black" id="lname" required name="surname" placeholder="اسمك">
                 <label class="float-right" for="subject" style="text-align:right;color: black">الموضوع</label>
-                <textarea id="subject" style="text-align:right;color: black" name="subject" placeholder="اكتب هنا ..." style="height:170px"></textarea>
+                <textarea id="subject" style="text-align:right;color: black" required name="message" placeholder="اكتب هنا ..." style="height:170px"></textarea>
                 <input class="float-right" type="submit" value="ارسل">
             </form>
         </div>

@@ -33,6 +33,7 @@ Route::get('/team', 'HomeController@team')->name('team');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::post('/newSubscriber', 'PostSubscribe@newSubscriber');
+Route::post('/contactForm', 'PostSubscribe@contactForm');
 
 Route::get('/login', 'DashboardController@index');
 Route::get('/logout', 'DashboardController@index');

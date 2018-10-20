@@ -15,6 +15,7 @@ return array(
     'CreateBankAccountsTable' => $baseDir . '/database/migrations/2018_10_09_212352_create_bank_accounts_table.php',
     'CreateBooksLibrariesTable' => $baseDir . '/database/migrations/2018_10_14_085516_create_books_libraries_table.php',
     'CreateCaptainsTable' => $baseDir . '/database/migrations/2015_07_20_102253_create_captains_table.php',
+    'CreateContactsTable' => $baseDir . '/database/migrations/2018_10_20_172000_create_contacts_table.php',
     'CreateCorrespondencesTable' => $baseDir . '/database/migrations/2018_10_08_143054_create_correspondences_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2016_10_10_202550_create_events_table.php',
     'CreateFinancesTable' => $baseDir . '/database/migrations/2018_09_11_125420_create_finances_table.php',
