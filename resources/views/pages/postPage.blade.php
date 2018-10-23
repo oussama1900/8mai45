@@ -265,12 +265,9 @@
                             <h2 class="title">تواصل معنا</h2>
                         </div>
                         <ul>
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i><br><span>Facebook</span></a></li>
+                            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ URL::current() }}" class="facebook social-button"><i class="fa fa-facebook"></i><br><span>Facebook</span></a></li>
                             <li><a href="#" class="twitter"><i class="fa fa-twitter"></i><br><span>Twitter</span></a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google"></i><br><span>Google+</span></a></li>
                             <li><a href="#" class="instagram"><i class="fa fa-instagram"></i><br><span>Instagram</span></a></li>
-                            <li><a href="#" class="youtube"><i class="fa fa-youtube"></i><br><span>Youtube</span></a></li>
-                            <li><a href="#" class="rss"><i class="fa fa-rss"></i><br><span>RSS</span></a></li>
                         </ul>
                     </div>
                     <!-- /social widget -->
@@ -442,4 +439,20 @@
 
     </script>
     <script src="{{ asset('assets/js/ekko-lightbox.js') }}"></script>
+@endsection
+
+@section('og')
+    <meta property="og:title" content="{{ $currentPost->post_title }}" />
+    <meta property="og:image" content="{{asset('images/PostCover/'.$currentPost->cover_image)}}" />
+    <meta property="og:description" content="{{strip_tags($currentPost->description)}}" />
+    <meta property="og:type" content="website" />
+@endsection
+
+@section('title')
+    <title> {{ $currentPost->post_title }} </title>
+    <meta name="description" content="{{ "Author: ".$currentPost->post_creator->getFullName()."Description: ".strip_tags($currentPost->description) }}">
+    <meta name="author" content="{{$currentPost->post_creator->getFullName()}}">
+@endsection
+@section('icon')
+    <link rel="icon" href="{{{ asset('/images/landing_page_Logo.png') }}}" >
 @endsection

@@ -156,3 +156,18 @@
     <script src="{{ asset('assets/event/js/main.js') }}"></script>
 
 @endsection
+@section('og')
+    <meta property="og:title" content="{{ $currentEvent->title }}" />
+    <meta property="og:image" content="{{asset('images/EventImages/'.$currentEvent->event_image)}}" />
+    <meta property="og:description" content="{{strip_tags($currentEvent->description)}}" />
+    <meta property="og:type" content="website" />
+@endsection
+
+@section('title')
+    <title> {{ $currentEvent->title }} </title>
+    <meta name="description" content="{{ "Author: ".$currentEvent->Event_responsible->profile->getFullName()."Description: ".strip_tags($currentEvent->description) }}">
+    <meta name="author" content="{{$currentPost->post_creator->getFullName()}}">
+@endsection
+@section('icon')
+    <link rel="icon" href="{{{ asset('/images/landing_page_Logo.png') }}}" >
+@endsection

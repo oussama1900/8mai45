@@ -78,3 +78,17 @@
         </div>
     </div>
 @endsection
+@section('og')
+    <meta property="og:title" content="فوج الفلاح وحدة الجوالة" />
+    <meta property="og:image" content="{{ asset('/images/traveler-logo.png') }}" />
+    <meta property="og:description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة" />
+    <meta property="og:type" content="website" />
+@endsection
+
+@section('title')
+    <title>فوج الفلاح وحدة الجوالة</title>
+    <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
+@endsection
+@section('icon')
+    <link rel="icon" href="{{{ asset('/images/traveler-logo.png') }}}" >
+@endsection

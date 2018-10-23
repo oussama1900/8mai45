@@ -291,3 +291,17 @@
         </div>
     </div>
 @endsection
+@section('og')
+    <meta property="og:title" content="الموقع الرسمي لفوج الفلاح" />
+    <meta property="og:image" content="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/18835730_1701449486822767_2312127021052390335_n.jpg?_nc_cat=110&_nc_ht=scontent-cdg2-1.xx&oh=cd825a0c4d827b279c38b8729d706544&oe=5C4062E0" />
+    <meta property="og:description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة" />
+    <meta property="og:type" content="website" />
+@endsection
+
+@section('title')
+    <title> الموقع الرسمي لفوج الفلاح </title>
+    <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
+@endsection
+@section('icon')
+    <link rel="icon" href="{{{ asset('/images/landing_page_Logo.png') }}}" >
+@endsection

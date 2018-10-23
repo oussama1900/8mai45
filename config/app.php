@@ -167,6 +167,7 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
         App\Providers\EntrustServiceProvider::class,
         Mariuzzo\LaravelJsLocalization\LaravelJsLocalizationServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
     ],
 
@@ -216,7 +217,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-		
+        'Share' => Jorenvh\Share\ShareFacade::class,
 		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 		'Notification' => Illuminate\Support\Facades\Notification::class,

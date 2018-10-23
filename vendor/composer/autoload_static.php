@@ -97,6 +97,10 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
             'Laravel\\Tinker\\' => 15,
             'Laravel\\Socialite\\' => 18,
         ),
+        'J' => 
+        array (
+            'Jorenvh\\Share\\' => 14,
+        ),
         'I' => 
         array (
             'Illuminate\\' => 11,
@@ -289,6 +293,10 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
         'Laravel\\Socialite\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/socialite/src',
+        ),
+        'Jorenvh\\Share\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jorenvanhocht/laravel-share/src',
         ),
         'Illuminate\\' => 
         array (

@@ -140,3 +140,17 @@
 
 
 @endsection
+@section('og')
+    <meta property="og:title" content="فوج الفلاح وحدة الأشبال" />
+    <meta property="og:image" content="{{ asset('/images/cubs-logo.png') }}" />
+    <meta property="og:description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة" />
+    <meta property="og:type" content="website" />
+@endsection
+
+@section('title')
+    <title>فوج الفلاح وحدة الأشبال</title>
+    <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
+@endsection
+@section('icon')
+    <link rel="icon" href="{{{ asset('/images/cubs-logo.png') }}}" >
+@endsection

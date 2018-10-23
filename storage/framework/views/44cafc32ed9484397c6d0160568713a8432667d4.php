@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo e(asset('assets/vendor/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
@@ -14,8 +14,7 @@
         <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/owl.theme.default.css')); ?>" />
         <link type="text/css" rel="stylesheet" href="<?php echo e(asset('assets/css/flipclock.css')); ?>" />
         <!-- Website icon -->
-        <link rel="icon" href="<?php echo e(asset('images/landing_page_logo.png')); ?>" >
-
+        <?php echo $__env->yieldContent('icon'); ?>
         <!-- Custom fonts for this template -->
         <link href="<?php echo e(asset('assets/vendor/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" type="text/css">
         <link href="<?php echo e(asset('assets/vendor/simple-line-icons/css/simple-line-icons.css')); ?>" rel="stylesheet" type="text/css">
@@ -30,11 +29,11 @@
         <script src="<?php echo e(asset('assets/js/filter-gallery.js')); ?>"></script>
 
         <script src="/js/jquery.filterizr.min.js"></script>
-
+        <script src="<?php echo e(asset('js/share.js')); ?>"></script>
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-
-        <title>الموقع الرسمي لفوج الفلاح  </title>
+        <?php echo $__env->yieldContent('og'); ?>
+        <?php echo $__env->yieldContent('title'); ?>
         <style>
             @font-face {
                 font-family: "Alarabiya Font";
