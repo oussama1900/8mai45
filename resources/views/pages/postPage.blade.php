@@ -185,9 +185,8 @@
                     <!-- ARTICLE POST -->
                     <article class="article article-post">
                         <div class="article-share">
-                            <a href="#" class="facebook"><i class="fa fa-facebook" style="margin-top: 20px;"></i></a>
-                            <a href="#" class="twitter"><i class="fa fa-twitter" style="margin-top: 20px;"></i></a>
-                            <a href="#" class="instagram"><i class="fa fa-instagram" style="margin-top: 20px;"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ URL::current() }}" class="facebook social-button"><i class="fa fa-facebook" style="margin-top: 20px;"></i></a>
+                            <a href="https://twitter.com/intent/tweet?text={{strip_tags($currentPost->post_summary)}}&amp;url={{ URL::current() }}" class="twitter social-button"><i class="fa fa-twitter" style="margin-top: 20px;"></i></a>
                         </div>
                         <div class="article-main-img">
                             <img src="{{asset('images/PostCover/'.$currentPost->cover_image)}}" alt="{{ $currentPost->post_title }}">
@@ -266,8 +265,8 @@
                         </div>
                         <ul>
                             <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ URL::current() }}" class="facebook social-button"><i class="fa fa-facebook"></i><br><span>Facebook</span></a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i><br><span>Twitter</span></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram"></i><br><span>Instagram</span></a></li>
+                            <li><a href="https://twitter.com/intent/tweet?text={{strip_tags($currentPost->post_summary)}}&amp;url={{ URL::current() }}" class="twitter social-button"><i class="fa fa-twitter"></i><br><span>Twitter</span></a></li>
+
                         </ul>
                     </div>
                     <!-- /social widget -->
