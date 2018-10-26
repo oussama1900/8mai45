@@ -37,10 +37,10 @@
                <h1 style="text-align: center">{{$title}} </h1>
             </div>
             <div style="text-align: center">
-                <img  src="www.faleh.com/images/PostCover/{{$picture}}">
+                <img  src="www.falehscout.com/images/PostCover/{{$picture}}">
             </div>
             <div style="text-align: center;margin: 20px">
-                <a class="btn" href="www.faleh.com/posts/{{$id}}"  >اقرأ أكثر</a>
+                <a class="btn" href="www.falehscout.com/posts/{{$id}}"  >اقرأ أكثر</a>
              </div>
         </div>
     </body>
