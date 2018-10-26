@@ -100,6 +100,7 @@
                     axios.put('/api/addNewCarouselImage',{new_images:vm.landing_page}).then(function (response) {
                         $('#button'+element.id).hide();
                         $('#button'+element.id).attr("disabled", true);
+                        vm.landing_page='';
                         vm.$refs.warning_alert.close();
                         vm.$refs.success.open();
 
