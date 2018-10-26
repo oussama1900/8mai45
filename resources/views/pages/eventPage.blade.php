@@ -166,7 +166,7 @@
 @section('title')
     <title> {{ $currentEvent->title }} </title>
     <meta name="description" content="{{ "Author: ".$currentEvent->Event_responsible->profile->getFullName()."Description: ".strip_tags($currentEvent->description) }}">
-    <meta name="author" content="{{$currentPost->post_creator->getFullName()}}">
+    <meta name="author" content="{{$currentEvent->Event_responsible->profile->getFullName()}}">
 @endsection
 @section('icon')
     <link rel="icon" href="{{{ asset('/images/landing_page_Logo.png') }}}" >
