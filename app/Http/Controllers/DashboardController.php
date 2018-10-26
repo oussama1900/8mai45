@@ -145,7 +145,8 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function addNewCarouselImage(Request $request){
-        $new_images = $request->input('new_images');$value="ousss";
+        $new_images = $request->input('new_images');
+        $value="";
         foreach ($new_images as $image){
             if(strpos($image['image'],'Carousel_Image')!== false ){
 
