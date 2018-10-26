@@ -830,7 +830,11 @@
     font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
 }
-label,h3,h4,span,input{
+*:not('.fa'){
+    font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+
+}
+*:not('.glyphicon'){
     font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
 }
