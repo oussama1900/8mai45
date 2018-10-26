@@ -1,8 +1,5 @@
 @extends('layouts.web_template')
 <head>
-    <title>{{ $currentEvent->title }}</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/event/vendor/animate/animate.css') }}">

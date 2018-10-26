@@ -147,9 +147,11 @@
             opacity: 0.6;
         }
 
-        .active,
         .demo:hover {
             opacity: 1;
+        }
+        nav {
+            background-color: #ffffff !important;
         }
     </style>
 </head>
