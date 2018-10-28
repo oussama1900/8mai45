@@ -11,3 +11,4 @@ package-lock.json
 phpunit.xml
 .idea/workspace.xml
 .idea/workspace.xml
+.env
