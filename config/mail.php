@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'md.jewelfarazi@gmail.com', 'name' => 'فوج الفلاح'],
+    'from' => ['address' => 'mail@falehscout.com', 'name' => 'فوج الفلاح'],
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +68,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------
