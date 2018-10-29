@@ -250,7 +250,7 @@
                         <div class="card-deck">
                             @if($events->count()>0)
                                 @foreach($events as $event)
-                                    <div class="col-md-12 allu {{ $event->unit }}">
+                                    <div class="col-md-12 allu {{ $event->unit }} mb-3">
                                         <div class="row" dir="rtl">
 
                                             <div class="col-md-6">
@@ -301,7 +301,7 @@
                                                         <div class="post-summary">
                                                             {!! $event->description !!}
                                                         </div>
-                                                        <small class="card-subtitle text-right float-right" style="color: grey">{{$event->unit}}</small>
+                                                        <small class="card-subtitle text-right float-right" style="color: grey"></small>
                                                     </div>
                                                 </div>
                                                 <div>
