@@ -43,6 +43,28 @@
                 font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
             }
         </style>
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+        <script>
+            window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                    "palette": {
+                        "popup": {
+                            "background": "#edeff5",
+                            "text": "#838391"
+                        },
+                        "button": {
+                            "background": "#4b81e8"
+                        }
+                    },
+                    "theme": "classic",
+                    "content": {
+                        "message": "يستخدم هذا الموقع ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة على موقعنا.",
+                        "dismiss": "أقبل",
+                        "link": "اقرأ أكثر"
+                    }
+                })});
+        </script>
     </head>
     <body style="overflow-x:hidden">
         <div id="app">
