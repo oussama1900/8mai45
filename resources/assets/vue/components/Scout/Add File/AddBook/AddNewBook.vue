@@ -151,6 +151,14 @@
                 :show="show"
                 :label="label">
         </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
+        <sweet-modal ref="pdfsize" icon="error">
+
+            <h3> 8 <span>Mo</span> <span>حجم الملف يجب ان لا يتجاوز </span>    </h3>
+        </sweet-modal>
     </div>
 </template>
 
@@ -233,34 +241,47 @@
                 this.enable_all = true;
             },
             setBookImage(e){
-                var vm = this;
-                var filereader = new FileReader();
-                var img = new Image();
-                filereader.readAsDataURL(e.target.files[0]);
-                filereader.onload =(e)=>{
+                var imagesize =((e.target.files[0].size)/1024)/1024;
+                if(Math.floor(imagesize)<4){
+                    var vm = this;
+                    var filereader = new FileReader();
+                    var img = new Image();
+
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
 
 
 
-                    img.src = e.target.result;
-                    img.onload = function() {
+                        img.src = e.target.result;
+                        img.onload = function() {
 
-                        vm.book_image= e.target.result;
+                            vm.book_image= e.target.result;
+
+                        };
 
                     };
+                }else{
+                    this.$refs.imagesize.open();
+                }
 
-                };
             },
             setBook(e){
-                var vm = this;
-                var filereader = new FileReader();
+                var pdfsize =((e.target.files[0].size)/1024)/1024;
+                if(Math.floor(pdfsize)<8){
+                    var vm = this;
+                    var filereader = new FileReader();
 
-                filereader.readAsDataURL(e.target.files[0]);
-                filereader.onload =(e)=>{
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
 
-                    vm.book_pdf= e.target.result;
+                        vm.book_pdf= e.target.result;
 
 
-                };
+                    };
+                }else{
+                    this.$refs.pdfsize.open();
+                }
+
             },
             uploadbook(){
 

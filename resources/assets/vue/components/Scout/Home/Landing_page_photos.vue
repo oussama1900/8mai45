@@ -33,7 +33,7 @@
                     <span class="input-group-btn">
                                         <span class="btn btn-primary btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
-                                            <input type="file" name="titleImage" multiple="true"  accept="image/*"  id="titleImage"
+                                            <input type="file" name="titleImage"  accept="image/*"  id="titleImage"
                                                    @change="addimage($event)"
                                             >
 
@@ -57,19 +57,34 @@
             <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
         </sweet-modal>
+        <loading
+                class="loading-style"
+                :show="show"
+                :label="label">
+        </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
     </div>
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
     export default {
         name: "Landing_page_photos",
+        components:{
+            loading
+        },
         data(){
             return{
                 landing_page:[{
                     image:'',
                     description:''
                 }],
-                new_landing_page_elements:[]
+                new_landing_page_elements:[],
+                show: false,
+                label: '....الرجاء الإنتظار',
             }
         },
         created:function(){
@@ -80,28 +95,39 @@
         },
         methods:{
             addimage(e){
+                var vm =this;
                 var  image_count=  e.target.files.length;
                 var filereader = new Array();
+                var imagesize =((e.target.files[0].size)/1024)/1024;
+                if(Math.floor(imagesize)>=4){
+                    vm.$refs.imagesize.open();
+                }else{
+                    for(var i = 0 ;i<image_count;i++){
+                        filereader.push(new FileReader());
 
-                for(var i = 0 ;i<image_count;i++){
-                    filereader.push(new FileReader());
 
-                    filereader[i].readAsDataURL(e.target.files[i]);
-                    filereader[i].onload =(e)=>{
-                        this.landing_page.push({id:this.landing_page.length,image:e.target.result,description:''});
-                        this.new_landing_page_elements.push({image:e.target.result,description:''});
-                    };
+                        filereader[i].readAsDataURL(e.target.files[i]);
+                        filereader[i].onload =(e)=>{
+                            this.landing_page.push({id:this.landing_page.length,image:e.target.result,description:''});
+                            this.new_landing_page_elements.push({image:e.target.result,description:''});
+                        };
+                    }
                 }
+
             },
             affectimage(element){
                 this.$refs.warning_alert.open();
                 var vm = this;
                 $("#confirmation_button").unbind().click(function () {
+                    vm.$refs.warning_alert.close();
+                    vm.show = true;
                     axios.put('/api/addNewCarouselImage',{new_images:vm.new_landing_page_elements}).then(function (response) {
                         $('#button'+element.id).hide();
                         $('#button'+element.id).attr("disabled", true);
                         vm.new_landing_page_elements=[];
-                        vm.$refs.warning_alert.close();
+                        vm.show = false;
+
+
                         vm.$refs.success.open();
 
                     })
@@ -116,12 +142,15 @@
                 this.$refs.warning_alert.open();
                 var vm =this;
                 $("#confirmation_button").unbind().click(function () {
+                    vm.$refs.warning_alert.close();
+
 
                     if(element.image.includes('Carousel_Image')){
+                        vm.show = true;
                         axios.delete('/api/deleteCarouselImage/'+element.id).then(function (response) {
                             var position = vm.landing_page.indexOf(element);
                             vm.landing_page.splice(position,1);
-                            vm.$refs.warning_alert.close();
+                            vm.show = false;
                             vm.$refs.success.open();
                         })
 
@@ -235,4 +264,7 @@
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
         width:95%;
     }
+      .loading-style{
+          font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+      }
 </style>

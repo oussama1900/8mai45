@@ -47,22 +47,22 @@
                                 <li  style="background: grey; " id="first"  v-on:click="ProfileCTRL('personal-info')">
                                     <div >
                                         <span style="text-align: center;padding-right:10px;color:white;margin-top:5px;font-size:17px;" >المعلومات الشخصية</span>
-                                        <span class ="  icon-container glyphicon glyphicon-user btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
+                                        <i class ="  icon-container glyphicon glyphicon-user btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></i>
                                     </div>
 
                                 </li>
                                 <li  style="background: grey;"  v-on:click="ProfileCTRL('settings')">
                                     <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px">تغيير كلمة السر</span>
-                                    <span class ="  icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
+                                    <i class ="  icon-container glyphicon glyphicon-cog btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></i>
                                 </li>
                                 <li  style="background: grey;"  v-on:click="ProfileCTRL('cv')">
                                     <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px"  >تعديل السيرة الذاتية</span>
-                                    <span class ="  icon-container glyphicon glyphicon-file btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
+                                    <i class ="  icon-container glyphicon glyphicon-file btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></i>
                                 </li>
                                 <li  style="background: grey;"  v-on:click="ProfileCTRL('social-media')">
 
-                                    <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px" >وسائل التواصل الإجتماعية</span>
-                                    <span class ="  icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></span>
+                                    <span style="text-align: center;padding-right:10px;color:white;font-size:17px;margin-top:5px" >مواقع التواصل الإجتماعية</span>
+                                    <i class ="  icon-container glyphicon glyphicon-cloud btn btn-grey" style="float: right; height: 38px;margin-top:-1px;border-radius:0px"></i>
                                 </li>
 
 
@@ -124,14 +124,25 @@
         </div>
 
     </div>
+        <loading
+                class="loading-style"
+                :show="show"
+                :label="label">
+        </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
     </div>
 </template>
 
 <script>
 
-
+    import loading from 'vue-full-loading';
     export default {
-
+           components:{
+               loading
+           },
         data(){
             return{
                 data:{
@@ -141,6 +152,8 @@
                     social_media:false
 
                 },
+                show: false,
+                label: '....الرجاء الإنتظار',
                 myimage:'',
                 newimage:'',
                 fullname:"",
@@ -208,18 +221,36 @@
                 if(e.target.files[0]===undefined ){
 
                 }else{
+                    var vm = this;
+
                     var filereader = new FileReader();
-                    filereader.readAsDataURL(e.target.files[0]);
-                    filereader.onload =(e)=>{
-                        this.newimage = e.target.result;
-                        var vm = this;
-                        axios.post('/api/changmyimage',{image:vm.newimage}).then(function (response) {
 
-                            vm.myimage = response.data.image;
 
-                        });
+                    var imagesize =((e.target.files[0].size)/1024)/1024;
+                    if(Math.floor(imagesize)<4){
+                        this.show=true;
+                        filereader.readAsDataURL(e.target.files[0]);
+                        filereader.onload =(e)=>{
 
-                    };
+
+
+
+
+
+                            this.newimage = e.target.result;
+
+                            axios.post('/api/changmyimage',{image:vm.newimage}).then(function (response) {
+
+                                vm.myimage = response.data.image;
+                                vm.show=false;
+                            });
+
+                        };
+                    }else{
+                        vm.$refs.imagesize.open();
+                    }
+
+
 
 
 
@@ -380,5 +411,9 @@ input,span,small,p{
     font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
 }
+
+    .loading-style{
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
 
 </style>

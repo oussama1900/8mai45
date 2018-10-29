@@ -257,7 +257,7 @@ class AccountsController extends Controller
             $exte= 'jpeg';
         }
         $currenttime = Carbon::now()->timestamp;
-        $filename = $currenttime.'.'.$exte;
+        $filename = 'Captain-'.$currenttime.'.'.$exte;
         $filepath = public_path().'/images/Captain/'.$filename;
         file_put_contents($filepath,$decode);
         return $filename;

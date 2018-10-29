@@ -213,9 +213,14 @@
             <h3>الدور محجوز مسبقا </h3>
         </sweet-modal>
         <loading
+                class="loading-font"
                 :show="show"
                 :label="label">
         </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
     </div><!-- end container -->
 </template>
 
@@ -437,33 +442,6 @@
                         vm.show = false;
 
                         vm.$router.go(-1);
-                     /*   if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
-
-                            vm.$router.push('/dashboard/scouts/cubs');
-                        } else {
-                            if (vm.Scout.scout_unit.unit_id.localeCompare('sct') === 0) {
-
-                                vm.$router.push('/dashboard/scouts/scout');
-                            } else {
-                                if (vm.Scout.scout_unit.unit_id.localeCompare('asct') === 0) {
-
-                                    vm.$router.push('/dashboard/scouts/advanced_scout');
-                                } else {
-                                    if (vm.Scout.scout_unit.unit_id.localeCompare('tvlr') === 0) {
-
-                                        vm.$router.push('/dashboard/scouts/traveler');
-                                    } else {
-                                        if (vm.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
-
-                                            vm.$router.push('/dashboard/scouts/captain');
-                                        }
-
-                                    }
-
-                                }
-                            }
-
-                        }*/
 
 
                     });
@@ -485,10 +463,26 @@
                 ) {
                     this.$refs.warn.open();
                 } else {
-                    if(this.show_unit_reps){
-                        if(this.Scout.unit_resp.localeCompare('')===0)
-                            this.$refs.warn.open();
-                        else{
+
+                    if(this.show_unit_reps || this.Scout.showCaprole){
+                        if(this.Scout.showCaprole){
+                            if(this.Scout.showCaprole){
+                                if(this.Scout.role.localeCompare('')===0){
+                                    this.$refs.warn.open();
+                                  return;
+                                }
+                            }
+                            if(this.show_unit_reps ){
+                                if(this.Scout.unit_resp.localeCompare('')===0){
+                                    this.$refs.warn.open();
+                                    return;
+                                }
+                            }
+                        }
+
+
+
+                        
                             this.show = true;
 
                             if (this.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
@@ -506,6 +500,8 @@
                                             } else {
                                                 if (this.Scout.role.localeCompare('surv') === 0) {
                                                     this.Scout.unit_resp = 'surv'
+                                                }else{
+                                                    this.Scout.unit_resp = ''
                                                 }
                                             }
                                         }
@@ -544,36 +540,8 @@
                                 }
 
 
-                                /* if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
-
-                                     vm.$router.push('/dashboard/scouts/cubs');
-                                 } else {
-                                     if (vm.Scout.scout_unit.unit_id.localeCompare('sct') === 0) {
-
-                                         vm.$router.push('/dashboard/scouts/scout');
-                                     } else {
-                                         if (vm.Scout.scout_unit.unit_id.localeCompare('asct') === 0) {
-
-                                             vm.$router.push('/dashboard/scouts/advanced_scout');
-                                         } else {
-                                             if (vm.Scout.scout_unit.unit_id.localeCompare('tvlr') === 0) {
-
-                                                 vm.$router.push('/dashboard/scouts/traveler');
-                                             } else {
-                                                 if (vm.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
-
-                                                     vm.$router.push('/dashboard/scouts/captain');
-                                                 }
-
-                                             }
-
-                                         }
-                                     }
-
-                                 }*/
-
                             });
-                        }
+
                     }else{
                         this.show = true;
 
@@ -592,6 +560,8 @@
                                         } else {
                                             if (this.Scout.role.localeCompare('surv') === 0) {
                                                 this.Scout.unit_resp = 'surv'
+                                            }else{
+                                                this.Scout.unit_resp = ''
                                             }
                                         }
                                     }
@@ -630,33 +600,7 @@
                             }
 
 
-                            /* if (vm.Scout.scout_unit.unit_id.localeCompare('cubs') === 0) {
 
-                                 vm.$router.push('/dashboard/scouts/cubs');
-                             } else {
-                                 if (vm.Scout.scout_unit.unit_id.localeCompare('sct') === 0) {
-
-                                     vm.$router.push('/dashboard/scouts/scout');
-                                 } else {
-                                     if (vm.Scout.scout_unit.unit_id.localeCompare('asct') === 0) {
-
-                                         vm.$router.push('/dashboard/scouts/advanced_scout');
-                                     } else {
-                                         if (vm.Scout.scout_unit.unit_id.localeCompare('tvlr') === 0) {
-
-                                             vm.$router.push('/dashboard/scouts/traveler');
-                                         } else {
-                                             if (vm.Scout.scout_unit.unit_id.localeCompare('cap') === 0) {
-
-                                                 vm.$router.push('/dashboard/scouts/captain');
-                                             }
-
-                                         }
-
-                                     }
-                                 }
-
-                             }*/
 
                         });
                     }
@@ -671,14 +615,20 @@
                 if (e.target.files.length === 0) {
 
                 } else {
-                    var filereader = new FileReader();
-                    filereader.readAsDataURL(e.target.files[0]);
-                    filereader.onload = (e) => {
+                    var imagesize =((e.target.files[0].size)/1024)/1024;
+                    if(Math.floor(imagesize)<4){
+                        var filereader = new FileReader();
+                        filereader.readAsDataURL(e.target.files[0]);
+                        filereader.onload = (e) => {
 
-                        this.Scout.ScoutInfo.image = e.target.result;
+                            this.Scout.ScoutInfo.image = e.target.result;
 
 
-                    };
+                        };
+                    }else{
+                        this.$refs.imagesize.open();
+                    }
+
 
 
                 }
@@ -817,5 +767,8 @@
     .label_title{
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+    }
+    .loading-font {
+        font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
     }
 </style>

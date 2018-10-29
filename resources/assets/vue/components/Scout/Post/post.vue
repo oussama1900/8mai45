@@ -304,6 +304,11 @@
                     :show="show"
                     :label="label">
             </loading>
+            <sweet-modal ref="imagesize" icon="error">
+                <h3><span>حجم الصورة كبير </span></h3>
+                <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+            </sweet-modal>
+
         </div>
 
     </div>
@@ -634,24 +639,30 @@
 
             },
             setPostCover(e){
-               var vm = this;
-                var filereader = new FileReader();
-                var img = new Image();
-                filereader.readAsDataURL(e.target.files[0]);
-                filereader.onload =(e)=>{
-                    img.src = e.target.result;
-                    img.onload = function() {
+                var imagesize =((e.target.files[0].size)/1024)/1024;
+                if(Math.floor(imagesize)<4){
+                    var vm = this;
+                    var filereader = new FileReader();
+                    var img = new Image();
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
+                        img.src = e.target.result;
+                        img.onload = function() {
 
-                        if(img.width>=1280 && img.height>=720){
+                            if(img.width>=1280 && img.height>=720){
 
-                            vm.post.cover_image =  e.target.result;
-                        }else{
-                            vm.$refs.image_size.open();
-                        }
+                                vm.post.cover_image =  e.target.result;
+                            }else{
+                                vm.$refs.image_size.open();
+                            }
+
+                        };
 
                     };
+                }else{
+                    this.$refs.imagesize.open();
+                }
 
-                };
 
             },
             setPostImages(e){
@@ -661,11 +672,17 @@
 
                 for(var i = 0 ;i<image_count;i++){
                     filereader.push(new FileReader());
+                    var imagesize =((e.target.files[i].size)/1024)/1024;
+                    if(Math.floor(imagesize)<4){
+                        filereader[i].readAsDataURL(e.target.files[i]);
+                        filereader[i].onload =(e)=>{
+                            this.post.post_images.push(e.target.result);
+                        };
+                    }else{
+                        this.$refs.imagesize.open();
+                    }
 
-                    filereader[i].readAsDataURL(e.target.files[i]);
-                    filereader[i].onload =(e)=>{
-                        this.post.post_images.push(e.target.result);
-                    };
+
 
                 }
 

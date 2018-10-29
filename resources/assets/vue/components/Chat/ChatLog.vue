@@ -14,7 +14,7 @@
         props:['messages'],
         updated:function(){
             var objDiv = document.getElementById("chat-log");
-            console.log(objDiv.scrollHeight);
+
             objDiv.scrollTop = objDiv.scrollHeight;
         }
     }

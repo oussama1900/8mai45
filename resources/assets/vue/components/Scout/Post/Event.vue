@@ -302,6 +302,10 @@
                 :show="show"
                 :label="label">
         </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
     </div>
 
 
@@ -652,27 +656,33 @@ value:"UTC+2",
                 return ` ${last_name} ${first_name} `
             },
             setEventImage(e){
-                var vm = this;
-                var filereader = new FileReader();
-                var img = new Image();
-                filereader.readAsDataURL(e.target.files[0]);
-                filereader.onload =(e)=>{
+                var imagesize =((e.target.files[0].size)/1024)/1024;
+                if(Math.floor(imagesize)<4){
+                    var vm = this;
+                    var filereader = new FileReader();
+                    var img = new Image();
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
 
 
 
-                 img.src = e.target.result;
-                    img.onload = function() {
+                        img.src = e.target.result;
+                        img.onload = function() {
 
-                         if(img.width>=1500 && img.height>=750){
+                            if(img.width>=1500 && img.height>=750){
 
-                             vm.Event.image= e.target.result;
-                         }else{
-                             vm.$refs.image_size.open();
-                         }
+                                vm.Event.image= e.target.result;
+                            }else{
+                                vm.$refs.image_size.open();
+                            }
+
+                        };
 
                     };
+                }else{
+                    this.$refs.imagesize.open();
+                }
 
-                };
             },
             is_gov(){
 
