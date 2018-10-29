@@ -92,7 +92,7 @@ class HomeController extends Controller
     }
 
     public function viewPost($id){
-        $post=Post::find($id);
+        $post=Post::where('post_id',$id)->get();
         if(count($post)>0){
             $posts = Post::orderby('created_at','desc')->paginate(3);
             $allPosts = Post::inRandomOrder()->get();
@@ -113,7 +113,7 @@ class HomeController extends Controller
     }
 
     public function viewEvent($id){
-        $event=Event::find($id);
+        $event=Event::where('event_id',$id)->get();
         if (count($event)>0){
             $events = Event::orderby('event_time','asc')->paginate(3);
             $currentEvent = Event::find($id);
