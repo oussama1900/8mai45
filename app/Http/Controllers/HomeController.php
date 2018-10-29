@@ -92,12 +92,17 @@ class HomeController extends Controller
     }
 
     public function viewPost($id){
-        $posts = Post::orderby('created_at','desc')->paginate(3);
-        $allPosts = Post::inRandomOrder()->get();
-        $currentPost = Post::find($id);
-        $currentPostImages = PostImage::where('post_id',$id)->get();
-        app(\App\Http\Controllers\VisitorController::class)->log();
-        return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost)->with('allPosts',$allPosts)->with('currentPostImages',$currentPostImages);
+        $post=Post::find($id);
+        if(count($post)>0){
+            $posts = Post::orderby('created_at','desc')->paginate(3);
+            $allPosts = Post::inRandomOrder()->get();
+            $currentPost = Post::find($id);
+            $currentPostImages = PostImage::where('post_id',$id)->get();
+            app(\App\Http\Controllers\VisitorController::class)->log();
+            return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost)->with('allPosts',$allPosts)->with('currentPostImages',$currentPostImages);
+        }else {
+            return news();
+        }
     }
 
     public function events()
@@ -108,10 +113,16 @@ class HomeController extends Controller
     }
 
     public function viewEvent($id){
-        $events = Event::orderby('event_time','asc')->paginate(3);
-        $currentEvent = Event::find($id);
-        app(\App\Http\Controllers\VisitorController::class)->log();
-        return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
+        $event=Event::find($id);
+        if (count($event)>0){
+            $events = Event::orderby('event_time','asc')->paginate(3);
+            $currentEvent = Event::find($id);
+            app(\App\Http\Controllers\VisitorController::class)->log();
+            return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
+        }else{
+            return $this->events();
+        }
+
     }
 
     public function library(){
