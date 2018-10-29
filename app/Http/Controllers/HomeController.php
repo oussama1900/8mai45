@@ -101,7 +101,7 @@ class HomeController extends Controller
             app(\App\Http\Controllers\VisitorController::class)->log();
             return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost)->with('allPosts',$allPosts)->with('currentPostImages',$currentPostImages);
         }else {
-            return news();
+            return redirect('/news');;
         }
     }
 
@@ -120,7 +120,7 @@ class HomeController extends Controller
             app(\App\Http\Controllers\VisitorController::class)->log();
             return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);
         }else{
-            return $this->events();
+            return redirect('/events');;
         }
 
     }
