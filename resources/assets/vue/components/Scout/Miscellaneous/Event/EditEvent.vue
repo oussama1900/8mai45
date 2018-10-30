@@ -233,6 +233,11 @@
             <h3 class="label_title">تم التعديل بنجاح </h3>
 
         </sweet-modal>
+
+        <sweet-modal ref="image_size" icon="warning">
+            <h3>يجب أن تكون دقة الصورة اكثر من   </h3>  <h3> 1280 X 750  </h3>
+        </sweet-modal>
+
         <sweet-modal ref="valide" icon="warning">
             <h3 class="label_title">لم يتم ادخال كل المعلومات اللازمة لنشر الحدث </h3>
             <h3 class="label_title">الرجاء التأكد من ادخالك لجميع المعومات </h3>
@@ -242,6 +247,10 @@
                 :show="show"
                 :label="label">
         </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
         </div>
 
 
@@ -400,12 +409,7 @@ var vm =this;
 
 
 
-                /* if(this.is_med()){
-                     if(this.Event.unit.localeCompare("")===0){
-                         $('#unit').html('اختر الوحدة المقصودة بالحدث').css('color', 'red');
-                         return false;
-                     }
-                 }*/
+
                 return true;
 
 
@@ -422,16 +426,31 @@ var vm =this;
                 if(e.target.files.length===0){
 
                 }else{
-                    var filereader = new FileReader();
-                    filereader.readAsDataURL(e.target.files[0]);
-                    filereader.onload =(e)=>{
+                    var vm = this;
+                    var imagesize =((e.target.files[0].size)/1024)/1024;
+                    if(Math.floor(imagesize)<4){
+                        var filereader = new FileReader();
+                        filereader.readAsDataURL(e.target.files[0]);
+                        var img = new Image();
+                        filereader.onload =(e)=>{
 
-                        this.image= e.target.result;
+                            img.src = e.target.result;
+                            img.onload = function() {
+                                if(img.width>=1280 && img.height>=720){
+
+                                    vm.image= e.target.result;
+                                }else{
+                                    vm.$refs.image_size.open();
+                                }
+                            };
 
 
 
+                        };
+                    }else{
+                        vm.$refs.imagesize.open();
+                    }
 
-                    };
 
 
                 }

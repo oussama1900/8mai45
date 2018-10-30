@@ -41,7 +41,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">التاريخ</label>
-                          <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                          <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post_date" format="yyyy-MM-dd HH:mm"></datetime>
                         <span id="post_time" style="float: right"></span>
                     </div>
 
@@ -301,6 +301,7 @@
 
             </sweet-modal>
             <loading
+                    class="label_title"
                     :show="show"
                     :label="label">
             </loading>
@@ -351,6 +352,7 @@
               placeholder:"التاريخ",
               direction:'rtl',
               value:"UTC+2",
+                post_date:'',
                 unit_for_gov:[
                     "الأشبال",
                     "الكشاف",
@@ -418,7 +420,7 @@
                         this.post.post_title.localeCompare("")===0 ||
                         this.post.post_summary.localeCompare("")===0||
 
-                        this.post.post_date.localeCompare("")===0 ||
+                        this.post_date.localeCompare("")===0 ||
                         this.post.location.localeCompare("")===0 ||
                         this.post.cover_image.localeCompare("")===0 ||
                         this.post.description.localeCompare("")===0  ||
@@ -451,7 +453,7 @@
                             $('#location').html('');
                         }
 
-                        if(this.post.post_date.localeCompare("")===0){
+                        if(this.post_date.localeCompare("")===0){
                             $('#post_time').html(' حدد التاريخ ').css('color', 'red');
 
                         }else{
@@ -484,7 +486,7 @@
                             this.post.post_title.localeCompare("")===0 ||
                             this.post.post_summary.localeCompare("")===0||
                             this.post.post_type.length===0  ||
-                            this.post.post_date.localeCompare("")===0 ||
+                            this.post_date.localeCompare("")===0 ||
                             this.post.location.localeCompare("")===0 ||
                             this.post.cover_image.localeCompare("")===0 ||
                             this.post.description.localeCompare("")===0
@@ -516,7 +518,7 @@
                                 $('#location').html('');
                             }
 
-                            if(this.post.post_date.localeCompare("")===0){
+                            if(this.post_date.localeCompare("")===0){
                                 $('#post_time').html(' حدد التاريخ ').css('color', 'red');
 
                             }else{
@@ -548,7 +550,7 @@
                             this.post.post_title.localeCompare("")===0 ||
                             this.post.post_summary.localeCompare("")===0||
                             this.post.post_type.length===0  ||
-                            this.post.post_date.localeCompare("")===0 ||
+                            this.post_date.localeCompare("")===0 ||
                             this.post.location.localeCompare("")===0 ||
                             this.post.cover_image.localeCompare("")===0 ||
                             this.post.description.localeCompare("")===0
@@ -575,7 +577,7 @@
                                 $('#location').html('');
                             }
 
-                            if(this.post.post_date.localeCompare("")===0){
+                            if(this.post_date.localeCompare("")===0){
                                 $('#post_time').html(' حدد التاريخ ').css('color', 'red');
 
                             }else{
@@ -618,7 +620,7 @@
 
             },
           dateformat(){
-            var datetime = this.post.post_date;
+            var datetime = this.post_date;
             var dateArray = datetime.split("T");
              var date = dateArray[0];
              var time = dateArray[1].split(".")[0];

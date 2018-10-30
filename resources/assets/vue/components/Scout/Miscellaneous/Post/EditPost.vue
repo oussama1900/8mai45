@@ -42,7 +42,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">التاريخ </label>
-                      <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post.post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                      <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post_date" format="yyyy-MM-dd HH:mm"></datetime>
                         <span id="post_time" style="float: right"></span>
                     </div>
 
@@ -271,6 +271,10 @@
                 :show="show"
                 :label="label">
         </loading>
+        <sweet-modal ref="imagesize" icon="error">
+            <h3><span>حجم الصورة كبير </span></h3>
+            <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
+        </sweet-modal>
     </div>
 
 
@@ -309,6 +313,7 @@
               placeholder:"التاريخ",
               direction:'rtl',
               value:"UTC+2",
+                post_date:'',
                 news_type:[
                     "نشاط اسبوعي ",
                     "رياضةاسبوعية ",
@@ -359,7 +364,7 @@
                     this.post.post_title.localeCompare("")===0 ||
                     this.summary.localeCompare("")===0||
                     this.post.post_type.length===0  ||
-                    this.post.post_date.localeCompare("")===0 ||
+                    this.post_date.localeCompare("")===0 ||
                     this.post.location.localeCompare("")===0 ||
                     this.post.cover_image.localeCompare("")===0 ||
                     this.description.localeCompare("")===0
@@ -386,7 +391,7 @@
                         $('#location').html('');
                     }
 
-                    if(this.post.post_date.localeCompare("")===0){
+                    if(this.post_date.localeCompare("")===0){
                         $('#post_time').html(' حدد التاريخ ').css('color', 'red');
 
                     }else{
@@ -437,11 +442,11 @@
                      var datetime = vm.post.post_date.split(" ");
                      var date = datetime[0];
                      var time = datetime[1];
-                   vm.post.post_date   =  date+"T"+time;
+                   vm.post_date   =  date+"T"+time;
                 });
             },
             dateformat(){
-              var datetime = this.post.post_date;
+              var datetime = this.post_date;
               var dateArray = datetime.split("T");
                var date = dateArray[0];
                var time = dateArray[1].split(".")[0];
@@ -464,25 +469,54 @@
 
             },
             setPostCover(e){
-                var filereader = new FileReader();
-                filereader.readAsDataURL(e.target.files[0]);
-                filereader.onload =(e)=>{
-                    this.post.cover_image =  e.target.result;
-                };
+                var vm =this;
+                var imagesize =((e.target.files[0].size)/1024)/1024;
+                if(Math.floor(imagesize)<4){
+                    var filereader = new FileReader();
+                    var img = new Image();
+                    filereader.readAsDataURL(e.target.files[0]);
+                    filereader.onload =(e)=>{
+
+
+
+
+                        img.src = e.target.result;
+                        img.onload = function() {
+
+                            if(img.width>=1280 && img.height>=720){
+
+                                vm.post.cover_image =  e.target.result;
+                            }else{
+                                vm.$refs.image_size.open();
+                            }
+
+                        };
+                    };
+                }else{
+                    vm.$refs.imagesize.open();
+                }
+
 
             },
             setPostImages(e){
+                var vm = this;
                 var  image_count=  e.target.files.length;
                 var filereader = new Array();
 
                 for(var i = 0 ;i<image_count;i++){
-                    filereader.push(new FileReader());
+                    var imagesize =((e.target.files[i].size)/1024)/1024;
+                    if(Math.floor(imagesize)<4){
+                        filereader.push(new FileReader());
 
-                    filereader[i].readAsDataURL(e.target.files[i]);
-                    filereader[i].onload =(e)=>{
-                        this.post_images.push(e.target.result);
-                        this.new_post_images.push(e.target.result);
-                    };
+                        filereader[i].readAsDataURL(e.target.files[i]);
+                        filereader[i].onload =(e)=>{
+                            this.post_images.push(e.target.result);
+                            this.new_post_images.push(e.target.result);
+                        };
+                    }else{
+                        this.$refs.imagesize.open();
+                    }
+
                 }
 
 
