@@ -148,6 +148,9 @@
                 background-image: linear-gradient(to bottom right, #52E5E7, #130CB7) !important;
                 opacity: 0;
             }
+            .article-img>img{
+                opacity: 0.9;
+            }
         </style>
     </head>
 

@@ -1,7 +1,14 @@
 <!-- this is used to extend from the app layout -->
+
 @extends('layouts.web_template')
+
 <head>
     <link rel="stylesheet" href="/css/landing.css">
+    <style>
+        .carousel-item{
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <!-- this is the content of our index page  ,
     all of the page content must be inside the content section -->
@@ -91,7 +98,7 @@
             <h4 class="title" style="text-align: center;color:grey">القلب النابض للفوج ، بهم نفتخر </h4>
         </div>
         <div class=" mt-3 ">
-            <div class="row">
+            <div class="row" >
                 @include('includes.news_landing_page')
             </div>
         </div>

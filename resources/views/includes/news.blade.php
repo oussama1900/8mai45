@@ -1,5 +1,6 @@
 
 <!-- events Showcases -->
+
 <div class="container">
 @if($posts->count()>0)
     @foreach($posts as $post)

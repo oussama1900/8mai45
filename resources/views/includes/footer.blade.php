@@ -127,21 +127,23 @@
                     <div class="col-sm-6 copyright">
                         <div class="mbr-text mbr-fonts-style display-7">
                         <ul class="list-inline mb-2">
+
+                            <li class="list-inline-item">
+                                <span class="{{ $color }} text-light" >&copy; All Rights Reserved Group El-Faleh</span>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">&sdot;</li>
                             <li class="list-inline-item">
                                 <a class="{{ $color }}" href="/about">About</a>
                             </li>
                             <li class="list-inline-item">&sdot;</li>
+
                             <li class="list-inline-item">
                                 <a class="{{ $color }}" href="/contact">Contact</a>
                             </li>
                             <li class="list-inline-item">&sdot;</li>
-                            <li class="list-inline-item">
-                                <a class="{{ $color }}" href="#">Terms of Use</a>
-                            </li>
+
                             <li class="list-inline-item">&sdot;</li>
-                            <li class="list-inline-item">
-                                <a class="{{ $color }}" href="#">Privacy Policy</a>
-                            </li>
                         </ul>
                             </div>
                     </div>
@@ -149,30 +151,24 @@
                         <div class="social-list align-right">
                             <ul class="list-inline mb-2" style="float:right">
                                 <li class="list-inline-item">
-                                    <a href="https://twitter.com/groupe_faleh_19" target="_blank">
-                                        <i class=" fa fa-twitter fa-2x fa-fw"></i>                                    </a>
-                                </li>
-                                <li class="list-inline-item">&sdot;</li>
-                                <li class="list-inline-item">
                                     <a href="https://www.facebook.com/faleh.19" target="_blank">
                                         <i class=" fa fa-facebook fa-2x fa-fw"></i>                                    </a>
                                 </li>
+
                                 <li class="list-inline-item">&sdot;</li>
+
                                 <li class="list-inline-item">
-                                    <a href="#" target="_blank">
-                                        <i class=" fa fa-youtube fa-2x fa-fw"></i>                                    </a>
+                                    <a href="https://twitter.com/groupe_faleh_19" target="_blank">
+                                        <i class=" fa fa-twitter fa-2x fa-fw"></i>                                    </a>
                                 </li>
+
                                 <li class="list-inline-item">&sdot;</li>
                                 <li class="list-inline-item">
                                     <a href="https://www.instagram.com/groupefaleh/" target="_blank">
                                         <i class=" fa fa-instagram fa-2x fa-fw"></i>
                                     </a>
                                 </li>
-                                <li class="list-inline-item">
-                                    <a href="#" target="_blank">
-                                        <i class=" fa fa-google-plus fa-2x fa-fw"></i>
-                                    </a>
-                                </li>
+
                             </ul>
 
                     </div>

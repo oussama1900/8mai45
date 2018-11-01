@@ -58,6 +58,14 @@
             padding:10px 5px;
             line-height: 0;
         }
+        .carousel-item{
+            opacity: 0.85;
+        }
+
+
+
+
+
     </style>
 </head>
 <!-- this is the content of our index page  ,

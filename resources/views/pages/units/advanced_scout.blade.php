@@ -2,6 +2,14 @@
 @extends('layouts.web_template')
 <!-- this is the content of our index page  ,
     all of the page content must be inside the content section -->
+<head>
+    <style>
+        .carousel-item{
+            opacity: 0.85;
+        }
+    </style>
+
+</head>
 @section('content')
     <!-- Masthead -->
     <header>
