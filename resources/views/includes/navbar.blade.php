@@ -163,10 +163,18 @@
 
     },function () {
         $(this).removeClass('show');
-        $('#units-dropdown').removeClass('show')
+        $('#dropdown04').removeClass('show')
 
     })
+    $('#units-dropdown').hover(function () {
+        $(this).addClass('show');
+        $('#dropdown04').addClass('show')
 
+    },function () {
+        $(this).removeClass('show');
+        $('#dropdown04').removeClass('show')
+
+    })
 
 </script>
 
