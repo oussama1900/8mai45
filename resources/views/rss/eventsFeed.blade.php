@@ -2,6 +2,11 @@
 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
+        <image>
+            <title>falehscout.com</title>
+            <url>{{ asset('/images/landing_page_Logo.png') }}</url>
+            <link>https://falehscout.com/</link>
+        </image>
         <title>احداث فوج الفلاح</title>
         <description>RSS Feed</description>
         <link>{{ url('/events') }}</link>
