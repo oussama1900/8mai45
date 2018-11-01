@@ -29,7 +29,7 @@ class CreateEventsTable extends Migration
             $table->boolean('approved');
             $table->string('unit',10);
 
-            $table->foreign('responsible')->references('scout_id')->on('users')
+            $table->foreign('responsible')->references('scout_id')->on('captains')
                   ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('created_by')->references('scout_id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
