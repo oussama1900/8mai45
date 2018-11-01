@@ -19,12 +19,12 @@
             @endphp
 
             <item>
-                <title>{{ $event->post_title }}</title>
-                <description><![CDATA[{!! $img !!} {!! $event->post_summary !!}]]></description>
-                <pubDate>{{ date('D, d M Y H:i:s', strtotime($event->created_at)) }} GMT</pubDate>
-                <link>{{ url('/posts/'.$event->post_id) }}</link>
-                <guid>{{ url('/posts/'.$event->post_id) }}</guid>
-                <atom:link href="{{ url('/posts/'.$event->post_id) }}" rel="self" type="application/rss+xml"/>
+                <title>{{ $post->post_title }}</title>
+                <description><![CDATA[{!! $img !!} {!! $post->post_summary !!}]]></description>
+                <pubDate>{{ date('D, d M Y H:i:s', strtotime($post->created_at)) }} GMT</pubDate>
+                <link>{{ url('/posts/'.$post->post_id) }}</link>
+                <guid>{{ url('/posts/'.$post->post_id) }}</guid>
+                <atom:link href="{{ url('/posts/'.$post->post_id) }}" rel="self" type="application/rss+xml"/>
             </item>
 
         @endforeach
