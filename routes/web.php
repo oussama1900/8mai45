@@ -133,3 +133,6 @@ Route::post('/dashboard/posts/', "postsController@store");
 Route::get('/dashboard/posts/create', "postsController@create");
 Route::get('/dashboard/posts/{id}', "postsController@show");
 
+/* RSS feeds routs */
+Route::get('/eventsFeed', 'FeedController@eventsFeed')->name('eventsFeed');
+Route::get('/postsFeed', 'FeedController@postsFeed')->name('postsFeed');

@@ -34,6 +34,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         @yield('og')
         @yield('title')
+        <link href='{{ url('/eventsFeed') }}' rel='alternate' title='RSS' type='application/rss+xml'/>
+        <link href='{{ url('/postsFeed') }}' rel='alternate' title='RSS' type='application/rss+xml'/>
+
         <style>
             @font-face {
                 font-family: "Alarabiya Font";

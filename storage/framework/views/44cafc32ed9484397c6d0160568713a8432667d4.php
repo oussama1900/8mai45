@@ -34,6 +34,9 @@
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
         <?php echo $__env->yieldContent('og'); ?>
         <?php echo $__env->yieldContent('title'); ?>
+        <link href='<?php echo e(url('/eventsFeed')); ?>' rel='alternate' title='RSS' type='application/rss+xml'/>
+        <link href='<?php echo e(url('/postsFeed')); ?>' rel='alternate' title='RSS' type='application/rss+xml'/>
+
         <style>
             @font-face {
                 font-family: "Alarabiya Font";
