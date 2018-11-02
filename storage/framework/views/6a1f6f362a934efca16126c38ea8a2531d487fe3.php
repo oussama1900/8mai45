@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+
   <meta name="author" content="">
   <title> تسجيل الدخول</title>
+    <link rel="icon" href="<?php echo e(asset('/images/landing_page_Logo.png')); ?>" >
     <style>
         *{
             font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;

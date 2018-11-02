@@ -1,7 +1,14 @@
 <!-- this is used to extend from the app layout -->
 
+
+
 <head>
     <link rel="stylesheet" href="/css/landing.css">
+    <style>
+        .carousel-item{
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <!-- this is the content of our index page  ,
     all of the page content must be inside the content section -->
@@ -83,19 +90,7 @@
             <?php echo $__env->make('includes.events_landing', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </div>
     </div>
-    <div class="row header" style="text-align: center;margin-top:40px">
-        <div style="text-align: center;width:100%">
-            <h3 class="title" style="text-align: center">وحدات الفوج </h3>
-        </div>
-        <div style="text-align: center;width:100%">
-            <h4 class="title" style="text-align: center;color:grey">القلب النابض للفوج ، بهم نفتخر </h4>
-        </div>
-        <div class=" mt-3 ">
-            <div class="row">
-                <?php echo $__env->make('includes.news_landing_page', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            </div>
-        </div>
-    </div>
+
 
     <div class="row header" style="text-align: center;margin-top:40px">
         <div style="text-align: center;width:100%">

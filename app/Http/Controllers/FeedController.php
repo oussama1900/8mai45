@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class FeedController extends Controller
 {
     public function eventsFeed(){
-        $events = Event::orderBy('updated_at', 'desc')->take(20)->get();
+        $events = Event::orderBy('created_at', 'desc')->take(20)->get();
         return view('rss.eventsFeed')->with(compact('events'));
     }
     public function postsFeed(){
-        $posts = Post::orderBy('updated_at', 'desc')->take(20)->get();
+        $posts = Post::orderBy('created_at', 'desc')->take(20)->get();
         return view('rss.postsFeed')->with(compact('posts'));
     }
 }

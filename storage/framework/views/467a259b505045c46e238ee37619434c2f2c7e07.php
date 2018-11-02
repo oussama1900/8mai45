@@ -56,7 +56,23 @@
         $activenavu = 'activenav';
         $activenavcp = 'activenav';
     }
+
 ?>
+<head>
+    <style>
+        .dropdown-menu{
+            display: none ;
+        }
+        #dropdown04:hover #units-dropdown {display: block !important; }
+        .dropdown-item{
+            background-color: white !important;
+        }
+
+
+    </style>
+</head>
+
+
 
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top" style="margin-bottom: 0px" >
     <div   style="width: 100%" >
@@ -85,7 +101,7 @@
                 <!-- this is the groups dropdown button -->
                 <li class="nav-item dropdown" style="position:static" id="dropdownbutton">
                     <a class="nav-link <?php echo e($nav_color); ?> <?php echo e($activenavu); ?> dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: medium;margin-right: 8px;margin-left: 8px; ">الوحدات</a>
-                    <ul class="dropdown-menu <?php echo e($nav_color); ?>  " role="menu" aria-labelledby="dropdown04" style="width:100%;margin-top:0px">
+                    <ul class="dropdown-menu <?php echo e($nav_color); ?>  " role="menu" aria-labelledby="dropdown04" id="units-dropdown" style="width:100%;margin-top:0px">
 
 
                          <li class="dropdown-menu-item">   <a  class="dropdown-item <?php echo e($nav_color); ?> <?php echo e($activenavc); ?>" style="text-align: center;font-size: large;color: #ffffff;"  href="/cubs" >الأشبال</a></li>
@@ -141,7 +157,28 @@
 
         });
     });
+    $('#dropdown04').hover(function () {
+        $(this).addClass('show');
+        $('#units-dropdown').addClass('show')
+
+    },function () {
+        $(this).removeClass('show');
+        $('#dropdown04').removeClass('show')
+
+    })
+    $('#units-dropdown').hover(function () {
+        $(this).addClass('show');
+        $('#dropdown04').addClass('show')
+
+    },function () {
+        $(this).removeClass('show');
+        $('#dropdown04').removeClass('show')
+
+    })
+
 </script>
+
+
 <style>
     li.nav-item.dropdown.open{
         position:static

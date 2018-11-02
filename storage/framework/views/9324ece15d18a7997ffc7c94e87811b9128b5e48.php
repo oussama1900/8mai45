@@ -7,7 +7,7 @@
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="">
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
-
+  <link rel="icon" href="<?php echo e(asset('/images/landing_page_Logo.png')); ?>" >
   <link rel="stylesheet" href="/css/app.css"/>
   <title>الموقع الرسمي لفوج الفلاح</title>
 

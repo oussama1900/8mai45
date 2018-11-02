@@ -136,3 +136,15 @@ Route::get('/dashboard/posts/{id}', "postsController@show");
 /* RSS feeds routs */
 Route::get('/eventsFeed', 'FeedController@eventsFeed')->name('eventsFeed');
 Route::get('/postsFeed', 'FeedController@postsFeed')->name('postsFeed');
+
+/* sitemap urls */
+Route::get('/sitemap', 'SitemapController@index');
+Route::get('/sitemap/main', 'SitemapController@main');
+Route::get('/sitemap/cubs', 'SitemapController@cubs');
+Route::get('/sitemap/scout', 'SitemapController@scout');
+Route::get('/sitemap/advanced_scout', 'SitemapController@advanced_scout');
+Route::get('/sitemap/traveler', 'SitemapController@traveler');
+Route::get('/sitemap/captains', 'SitemapController@captains');
+Route::get('/sitemap/news', 'SitemapController@news');
+Route::get('/sitemap/events', 'SitemapController@events');
+Route::get('/sitemap/library', 'SitemapController@library');
