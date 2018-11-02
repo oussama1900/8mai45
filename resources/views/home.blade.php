@@ -90,19 +90,7 @@
             @include('includes.events_landing')
         </div>
     </div>
-    <div class="row header" style="text-align: center;margin-top:40px">
-        <div style="text-align: center;width:100%">
-            <h3 class="title" style="text-align: center">وحدات الفوج </h3>
-        </div>
-        <div style="text-align: center;width:100%">
-            <h4 class="title" style="text-align: center;color:grey">القلب النابض للفوج ، بهم نفتخر </h4>
-        </div>
-        <div class=" mt-3 ">
-            <div class="row" >
-                @include('includes.news_landing_page')
-            </div>
-        </div>
-    </div>
+
 
     <div class="row header" style="text-align: center;margin-top:40px">
         <div style="text-align: center;width:100%">
