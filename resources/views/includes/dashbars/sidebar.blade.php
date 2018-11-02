@@ -31,11 +31,13 @@
                           </router-link>
                       </li>
                           @endif
+                      @if(Auth::user()->hasRole('gov'))
                       <li class="site-menu-item">
                           <router-link class="animsition-link" to="/dashboard/books">
                               <span class="site-menu-title">{{ trans('app.books')}}</span>
                           </router-link>
                       </li>
+                      @endif
                   </ul>
                        </li>
 
