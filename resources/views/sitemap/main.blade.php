@@ -18,19 +18,19 @@
     @endforeach
     <url>
         <loc>{{ url('/team') }}</loc>
-        <lastmod>2018-11-2</lastmod>
+        <lastmod>2018-11-02T15:41:46+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>{{ url('/contact') }}</loc>
-        <lastmod>2018-11-2</lastmod>
+        <lastmod>2018-11-02T15:41:46+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>{{ url('/about') }}</loc>
-        <lastmod>2018-11-2</lastmod>
+        <lastmod>2018-11-02T15:41:46+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
