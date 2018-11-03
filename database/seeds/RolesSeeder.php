@@ -109,5 +109,11 @@ class RolesSeeder extends Seeder
             'description' => 'قائد متربص',
             'removable' => false
         ]);
+        Role::create([
+            'name' => 'rolenone',
+            'display_name' => 'roles.rolenone',
+            'description' => 'لا شيء',
+            'removable' => false
+        ]);
     }
 }

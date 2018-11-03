@@ -1997,15 +1997,28 @@ class EventController extends Controller
     }
     public function getMyUnitEvents(){
 
-        $all_events = Event::with('creator')->where('approved',true)->get();
+
         $MyUnitEvents = [];
+        $team=[];
         $user_cap =Auth::user()->captain;
-        foreach ($all_events as $event){
+        $ucap = Captain::where('role','ucap')->where('unit',$user_cap->unit)->value('scout_id');
+        $vucp = Captain::where('role','vucp')->where('unit',$user_cap->unit)->value('scout_id');
+        $capa = Captain::where('role','capa')->where('unit',$user_cap->unit)->value('scout_id');
+        $trne = Captain::where('role','trne')->where('unit',$user_cap->unit)->get();
+        array_push($team,$ucap);
+        array_push($team,$vucp);
+        array_push($team,$capa);
+        foreach ($trne as $member){
+            array_push($team,$member->scout_id);
+        }
+        $MyUnitEvents = Event::with(['creator','is_captain'])->where('approved',true)->whereIn('created_by',$team)->get();
+
+      /*  foreach ($all_events as $event){
             $captain = Captain::where('scout_id',$event->created_by)->get()[0];
             if($captain->unit == $user_cap->unit){
                 array_push($MyUnitEvents,$event);
             }
-        }
+        }*/
         return response()->json(["allevents"=>[$MyUnitEvents,$user_cap]]);
     }
     public function getEventsNotApproved(){
@@ -2016,10 +2029,10 @@ class EventController extends Controller
         if($user->role =='gov'| $user->role =='med' | $user->role =='vmed'){
             return response()->json(["notApproved"=>$notApproved]);
         }else{
-            if($user->role =='ucap' | $user->role =='vucap' | $user->role =='capa'){
+            if($user->role =='ucap' || $user->role =='vucap' || $user->role =='capa'){
                 foreach($notApproved as $sameunit){
-                    $creator = $notApproved->created_by;
-                    $captain = Captain::where('scout_id',$creator)->get();
+                    $creator = $sameunit->created_by;
+                    $captain = Captain::where('scout_id',$creator)->get()[0];
 
                     $captain_unit = $captain->unit;
                     if($user->unit==$captain_unit){
@@ -2094,16 +2107,29 @@ class EventController extends Controller
     public function getEventsApproved(){
 
         $event = Event::with('creator')->where('approved',true)->get();
-
         $event_trainee=[];
-        foreach ($event as $trainee_event){
-            $creator = $trainee_event->created_by;
-            $trainee = Captain::where('scout_id',$creator)->get()[0];
-            if($trainee->role=='trne'){
-                array_push($event_trainee,$trainee_event);
+        if(Auth::user()->hasRole('gov') || Auth::user()->hasRole('med') || Auth::user()->hasRole('vmed')){
+            foreach ($event as $trainee_event){
+                $creator = $trainee_event->created_by;
+                $trainee = Captain::where('scout_id',$creator)->get()[0];
+                if($trainee->role=='trne'){
+                    array_push($event_trainee,$trainee_event);
 
+                }
+            }
+        }else{
+            foreach ($event as $trainee_event){
+                $creator = $trainee_event->created_by;
+                $trainee = Captain::where('scout_id',$creator)->get()[0];
+                if($trainee->role=='trne' && $trainee->unit == Auth::user()->captain->unit){
+                    array_push($event_trainee,$trainee_event);
+
+                }
             }
         }
+
+
+
         return response()->json(["eventsapproved"=>$event_trainee]);
     }
     public function getUnitEvents($unit_number){

@@ -16,10 +16,10 @@
             <div class="card-body" style="height: 50px; background-color: #C8C8C8">
                 <h6> {{post.post_title}} </h6>
             </div>
-            <div class="trigger" @click="delete_post(post)">
+            <div class="trigger" @click="delete_post(post)" v-if="licence(post)">
                 <i class="glyphicon glyphicon-remove" ></i>
             </div>
-            <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/post/EditPost/'+post.post_id">
+            <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/post/EditPost/'+post.post_id" v-if="licence(post)">
                 <i class="glyphicon glyphicon-edit" ></i>
             </router-link>
             <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
@@ -118,24 +118,24 @@
 
             },
             licence(post){
-                if(this.user.localeCompare('ucap')===0 ){
+                if(this.user.role.localeCompare('ucap')===0 ){
                     return true;
                 }else{
-                    if(this.user.localeCompare('vucp')===0 ) {
+                    if(this.user.role.localeCompare('vucp')===0 ) {
                         if(post.is_captain.role.localeCompare('ucap')===0)
                             return false;
                         else{
                             return true;
                         }
                     }else{
-                        if(this.user.localeCompare('capa')===0 ){
+                        if(this.user.role.localeCompare('capa')===0 ){
                             if(post.is_captain.role.localeCompare('ucap')===0 || post.is_captain.role.localeCompare('vucp')===0)
                                 return false;
                             else
                                 return true;
                         }else{
-                            if(this.user.localeCompare('trne')===0){
-                                if(post.is_captain.role.localeCompare('trne')===0)
+                            if(this.user.role.localeCompare('trne')===0){
+                                if(post.is_captain.role.localeCompare('trne')===0 && post.is_captain.scout_id === this.user.scout_id)
                                     return true;
                                 else
                                     return false;

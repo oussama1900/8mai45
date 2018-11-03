@@ -353,9 +353,19 @@ class postsController extends Controller
     public function getMyUnitPosts(){
         $user = Auth::user();
         $user_unit = $user->captain->unit;
-
-        $unitposts = Post::with(['post_creator','is_captain'])->where('linked_unit',$user_unit)->where('approved',true)->get();
-         $user_role = Auth::user()->captain->role;
+        $unit_member=[];
+        $trne = Captain::where('role','trne')->where('unit',$user_unit)->get();
+        $ucap = Captain::where('role','ucap')->where('unit',$user_unit)->value('scout_id');
+        $vucp = Captain::where('role','vucp')->where('unit',$user_unit)->value('scout_id');
+        $capa = Captain::where('role','capa')->where('unit',$user_unit)->value('scout_id');
+        array_push($unit_member,$ucap);
+        array_push($unit_member,$vucp);
+        array_push($unit_member,$capa);
+        foreach ($trne as $member){
+            array_push($unit_member,$member->scout_id);
+        }
+        $unitposts = Post::with(['post_creator','is_captain'])->where('linked_unit',$user_unit)->where('approved',true)->whereIn('posted_by',$unit_member)->get();
+         $user_role = Auth::user()->captain;
         return response()->json(["myunitPosts"=>$unitposts,"user"=>$user_role]);
 
     }
@@ -371,11 +381,31 @@ class postsController extends Controller
    public function getPostsNotApproved(){
         $user = Auth::user();
         $user_unit = $user->captain->unit;
-        if($user_unit == 'cubs' || $user_unit == 'sct' ||  $user_unit == 'asct' || $user_unit == 'tvlr'){
+        if(Auth::user()->hasRole('gov') || Auth::user()->hasRole('med') ||Auth::user()->hasRole('vmed')){
             $post_not_approved = Post::with('post_creator')
-                                     ->where('linked_unit',$user_unit)
-                                     ->where('approved',false)
-                                     ->get();
+                ->where('approved',false)
+                ->get();
+        }
+        if(Auth::user()->hasRole('ucap') || Auth::user()->hasRole('vucp') || Auth::user()->hasRole('capa')){
+
+            $current_user_unit = Auth::user()->captain->unit;
+            $unit_member=[];
+
+            $trne = Captain::where('role','trne')->where('unit',$current_user_unit)->get();
+
+            foreach ($trne as $member){
+                array_push($unit_member,$member->scout_id);
+            }
+
+
+
+
+
+
+            $post_not_approved = Post::with('post_creator')
+                ->whereIn('posted_by',$unit_member)
+                ->where('approved',false)
+                ->get();
         }
         return response()->json(["post_not_approved"=>$post_not_approved]);
    }
@@ -391,12 +421,24 @@ class postsController extends Controller
        $user = Auth::user();
        $user_unit = $user->captain->unit;
        $publisher_id = Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id');
-
-       if($user_unit == 'cubs' || $user_unit == 'sct' ||  $user_unit == 'asct' || $user_unit == 'tvlr'){
+       if(Auth::user()->hasRole('gov') || Auth::user()->hasRole('med') ||Auth::user()->hasRole('vmed')){
            $post_approved = Post::with('post_creator')
-               ->where('linked_unit',$user_unit)
                ->where('approved',true)
-               ->where('posted_by',$publisher_id)
+               ->get();
+       }
+       if(Auth::user()->hasRole('ucap') || Auth::user()->hasRole('vucp') || Auth::user()->hasRole('capa')){
+         $current_user_unit = Auth::user()->captain->unit;
+            $unit_member=[];
+
+          $trne = Captain::where('role','trne')->where('unit',$current_user_unit)->get();
+
+         foreach ($trne as $member){
+             array_push($unit_member,$member->scout_id);
+         }
+
+           $post_approved = Post::with('post_creator')
+               ->whereIn('posted_by',$unit_member)
+               ->where('approved',true)
                ->get();
        }
        return response()->json(["post_approved"=>$post_approved]);

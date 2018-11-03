@@ -154,10 +154,13 @@ class ScoutController extends Controller
         $scout_email =  $request->input('ScoutInfo.email');
         $role =  $request->input('role');
         $unit_resp = $request->input('unit_resp');
-        $role_exist = Captain::where('role',$role)->where('unit',$unit_resp)->get();
-        if(count($role_exist)==1){
-            return response()->json(["msg"=>"role already exists"]);
+        if($role!="none" && $role!="trne"){
+            $role_exist = Captain::where('role',$role)->where('unit',$unit_resp)->get();
+            if(count($role_exist)==1){
+                return response()->json(["msg"=>"role already exists"]);
+            }
         }
+
         $email_existe = Scout::where('email',$scout_email)->get();
         if(count($email_existe)==1){
             return response()->json(["msg"=>"email already exists"]);
@@ -237,7 +240,7 @@ class ScoutController extends Controller
 
 
                    $unit_resp = $request->input('unit_resp');
-                $captain->scout_id = $scout_id;
+                   $captain->scout_id = $scout_id;
                    $captain->role = $role;
                    $captain->unit = $unit_resp;
                    $captain->save();
@@ -452,7 +455,7 @@ class ScoutController extends Controller
         $scout = Scout::find($scout_id);
 
 
-$scout_image = $request->input('ScoutInfo.image');
+     $scout_image = $request->input('ScoutInfo.image');
      $user = User::find($scout_id);
 
 
@@ -463,7 +466,7 @@ $scout_image = $request->input('ScoutInfo.image');
 
 
       $newunit = $request->input('scout_unit.unit_id');
-   $captain = Captain::where('scout_id','=',$scout_id);
+      $captain = Captain::where('scout_id','=',$scout_id);
       /**
        * if he doesn't exist
        */
@@ -485,7 +488,7 @@ $scout_image = $request->input('ScoutInfo.image');
            $scout->family_status = $request->input('ScoutInfo.family_status');
            $scout->address = $request->input('ScoutInfo.address');
 
-           if($user){
+           if($user!=null){
                $user->email = $request->input('ScoutInfo.email');
                $user->save();
            }
@@ -493,8 +496,12 @@ $scout_image = $request->input('ScoutInfo.image');
       $unit_resp = $request->input('unit_resp');
      if($unitscout->value('scout_id')==null){
          // captain
+         if($role!="trne" && $role!="none")
+             $role_exist = Captain::where('role',$role)->where('unit',$unit_resp)->get();
 
-         $role_exist = Captain::where('role',$role)->where('unit',$unit_resp)->get();
+         else   $role_exist=[];
+
+
 
          if(count($role_exist)==1){
              $old_captain_id = $role_exist[0]->scout_id;

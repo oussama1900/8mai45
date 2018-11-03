@@ -18,7 +18,7 @@
                     <h6> {{events.title}} </h6>
                 </div>
 
-                <div class="trigger" @click="delete_event(events)" v-if="licence(events)">
+                <div class="trigger" @click="delete_event(events)" c>
                     <i class="glyphicon glyphicon-remove" ></i>
                 </div>
                 <router-link class="trigger" style="float: right; right: 0px;" :to="'/dashboard/myposts/event/'+events.event_id" v-if="licence(events)">
@@ -143,7 +143,7 @@
                                 return true;
                         }else{
                             if(this.user.role.localeCompare('trne')===0){
-                                if(events.is_captain.role.localeCompare('trne')===0)
+                                if(events.is_captain.role.localeCompare('trne')===0 && events.is_captain.scout_id === this.user.scout_id )
                                     return true;
                                 else
                                     return false;

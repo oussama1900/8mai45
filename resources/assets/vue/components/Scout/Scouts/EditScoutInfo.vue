@@ -104,6 +104,7 @@
                                     <option value="vucp">نائب قائد وحدة</option>
                                     <option value="capa">مساعد  قائد وحدة </option>
                                     <option value="trne">قائد متربص</option>
+                                    <option value="none">لايملك دور</option>
                                 </select>
                                 <span id="role_exist" style="float:right"></span>
 
@@ -427,6 +428,9 @@
                                     } else {
                                         if (this.Scout.role.localeCompare('surv') === 0) {
                                             this.Scout.unit_resp = 'surv'
+                                        }else{
+                                            if (this.Scout.role.localeCompare('trne') !== 0)
+                                                this.Scout.unit_resp = ''
                                         }
                                     }
                                 }
@@ -501,6 +505,7 @@
                                                 if (this.Scout.role.localeCompare('surv') === 0) {
                                                     this.Scout.unit_resp = 'surv'
                                                 }else{
+                                                    if (this.Scout.role.localeCompare('trne') !== 0)
                                                     this.Scout.unit_resp = ''
                                                 }
                                             }

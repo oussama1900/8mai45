@@ -49,7 +49,7 @@
                                 <p style="text-align: right">تاريخ الانخراط : {{cap.is_scout.membership_date}} </p>
                             </li>
                             <li >
-                                <p style="text-align: right">  <span>الدور : </span>  <span>{{cap_role(cap)}}</span>      </p>
+                                <p style="text-align: right">  <span>الدور : </span>  <span>{{cap_role(cap)}}</span>   <span>{{cap_unit(cap)}}</span>    </p>
                             </li>
                         </ul>
                     </div>
@@ -118,6 +118,7 @@
                Title:'',
                Scout_code:'',
 
+
            }
 
        },
@@ -140,6 +141,17 @@
 
         },
         methods:{
+            cap_unit(cap){
+                if(cap.unit.localeCompare("cubs")===0)
+                    return " - الأشبال";
+                if(cap.unit.localeCompare("sct")===0)
+                    return " - الكشاف";
+                if(cap.unit.localeCompare("asct")===0)
+                    return " - الكشاف المتقدم";
+                if(cap.unit.localeCompare("tvlr")===0)
+                    return " - الجوالة";
+                return "";
+            },
            cap_role(cap){
                if(cap.role.localeCompare("gov")===0)
                    return "محافظ الفوج";
@@ -165,6 +177,8 @@
                    return "خدمة و تنمية المجتمع";
                if(cap.role.localeCompare("surv")===0)
                    return "متابعة البرامج وتنفيذ الخطط";
+               if(cap.role.localeCompare("none")===0)
+                   return "لا يملك دور";
            },
            setScoutCode(cap){
                var membershipdate =cap.is_scout.membership_date;
