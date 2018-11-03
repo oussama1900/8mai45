@@ -337,17 +337,32 @@ class DashboardController extends Controller
 		        $user_role =Auth::user()->captain->role;
 		        if($user_role=="ucap"){
 		            $vucp = Scout::find(Captain::where('unit',$user_unit)->where('role','vucp')->value('scout_id'));
-		            $vucp_role = Captain::find($vucp->scout_id)->assignedRole->getRole();
-		            $vucp_event_number = DB::table('events')->select(DB::raw('count(event_id) as vucp_event_number'))->where('created_by',$vucp->scout_id)->get();
-		            $vucp_post_number = DB::table('posts')->select(DB::raw('count(post_id) as vucp_post_number'))->where('posted_by',$vucp->scout_id)->get();
+                    $vucp_role=[0];
+                        $vucp_event_number=[0];
+                            $vucp_post_number=[0];
+		            if($vucp!=null){
+                        $vucp_role = Captain::find($vucp->scout_id)->assignedRole->getRole();
+                        $vucp_event_number = DB::table('events')->select(DB::raw('count(event_id) as vucp_event_number'))->where('created_by',$vucp->scout_id)->get();
+                        $vucp_post_number = DB::table('posts')->select(DB::raw('count(post_id) as vucp_post_number'))->where('posted_by',$vucp->scout_id)->get();
+                    }
+
 
 		            $capa = Scout::find(Captain::where('unit',$user_unit)->where('role','capa')->value('scout_id'));
-		            $capa_role = Captain::find($capa->scout_id)->assignedRole->getRole();
-		            $capa_event_number = DB::table('events')->select(DB::raw('count(event_id) as capa_event_number'))->where('created_by',$capa->scout_id)->get();
-		            $capa_post_number = DB::table('posts')->select(DB::raw('count(post_id) as capa_post_number'))->where('posted_by',$capa->scout_id)->get();
 
+                    $capa_role=[];
+                        $capa_event_number=[0];
+                            $capa_post_number=[0];
+                            if($capa!=null){
+                                $capa_role = Captain::find($capa->scout_id)->assignedRole->getRole();
+                                $capa_event_number = DB::table('events')->select(DB::raw('count(event_id) as capa_event_number'))->where('created_by',$capa->scout_id)->get();
+                                $capa_post_number = DB::table('posts')->select(DB::raw('count(post_id) as capa_post_number'))->where('posted_by',$capa->scout_id)->get();
+                            }
+
+                                            if(count(Captain::where('unit',$user_unit)->where('role','trne')->get())>1){
+                                                $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->get()[0]->scout_id);
+                                            }else
 		            $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
-		            $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
+		            $trne_role =  Captain::find($trne->scout_id)->assignedRole->getRole();
 		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
 		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
 		            return response()->json(["first"=>[$vucp,$vucp_role,$vucp_event_number[0]->vucp_event_number,$vucp_post_number[0]->vucp_post_number],
@@ -366,7 +381,10 @@ class DashboardController extends Controller
 		            $capa_event_number = DB::table('events')->select(DB::raw('count(event_id) as capa_event_number'))->where('created_by',$capa->scout_id)->get();
 		            $capa_post_number = DB::table('posts')->select(DB::raw('count(post_id) as capa_post_number'))->where('posted_by',$capa->scout_id)->get();
 
-		            $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
+                    if(count(Captain::where('unit',$user_unit)->where('role','trne')->get())>1){
+                        $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->get()[0]->scout_id);
+                    }else
+                        $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
 		            $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
 		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
 		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
@@ -387,7 +405,12 @@ class DashboardController extends Controller
 		        $ucap_role = Captain::find($ucap->scout_id)->assignedRole->getRole();
 		        $ucap_event_number = DB::table('events')->select(DB::raw('count(event_id) as ucap_event_number'))->where('created_by',$ucap->scout_id)->get();
 		        $ucap_post_number = DB::table('posts')->select(DB::raw('count(post_id) as ucap_post_number'))->where('posted_by',$ucap->scout_id)->get();
-		        $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
+
+
+                if(count(Captain::where('unit',$user_unit)->where('role','trne')->get())>1){
+                    $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->get()[0]->scout_id);
+                }else
+                    $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
 		        $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
 		        $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
 		        $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();

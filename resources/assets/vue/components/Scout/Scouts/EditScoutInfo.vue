@@ -429,7 +429,7 @@
                                         if (this.Scout.role.localeCompare('surv') === 0) {
                                             this.Scout.unit_resp = 'surv'
                                         }else{
-                                            if (this.Scout.role.localeCompare('trne') !== 0)
+                                            if (this.Scout.role.localeCompare('trne') !== 0 && this.Scout.role.localeCompare('ucap') !== 0 && this.Scout.role.localeCompare('vucp') !== 0 && this.Scout.role.localeCompare('capa') !== 0)
                                                 this.Scout.unit_resp = ''
                                         }
                                     }
@@ -505,7 +505,7 @@
                                                 if (this.Scout.role.localeCompare('surv') === 0) {
                                                     this.Scout.unit_resp = 'surv'
                                                 }else{
-                                                    if (this.Scout.role.localeCompare('trne') !== 0)
+                                                    if (this.Scout.role.localeCompare('trne') !== 0 && this.Scout.role.localeCompare('ucap') !== 0 && this.Scout.role.localeCompare('vucp') !== 0 && this.Scout.role.localeCompare('capa') !== 0)
                                                     this.Scout.unit_resp = ''
                                                 }
                                             }
