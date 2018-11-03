@@ -107,7 +107,7 @@ class HomeController extends Controller
 
     public function events()
     {
-        $events = Event::approved()->orderby('event_time','asc')->get();
+        $events = Event::approved()->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.events')->with('events',$events);
     }
