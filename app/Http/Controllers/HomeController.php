@@ -37,8 +37,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderby('created_at','desc')->take(3)->paginate(3);
-        $events = Event::where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $posts = Post::approved()->orderby('created_at','desc')->take(3)->paginate(3);
+        $events = Event::approved()->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         $carousels = landingPageCarousel::all();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('home')->with('posts',$posts)->with('events',$events)->with('carousels',$carousels);
@@ -46,56 +46,56 @@ class HomeController extends Controller
 
     public function cubs()
     {
-        $posts = Post::where('linked_unit','cubs')->orderby('created_at','desc')->paginate(3);
-        $events = Event::where('unit','cubs')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $posts = Post::approved()->where('linked_unit','cubs')->orderby('created_at','desc')->paginate(3);
+        $events = Event::approved()->where('unit','cubs')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.cubs')->with('posts',$posts)->with('events',$events);
     }
 
     public function scout()
     {
-        $posts = Post::where('linked_unit','sct')->orderby('created_at','desc')->paginate(3);
-        $events = Event::where('unit','sct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $posts = Post::approved()->where('linked_unit','sct')->orderby('created_at','desc')->paginate(3);
+        $events = Event::approved()->where('unit','sct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.scout')->with('posts',$posts)->with('events',$events);
     }
 
     public function advanced_scout()
     {
-        $posts = Post::where('linked_unit','asct')->orderby('created_at','desc')->paginate(3);
-        $events = Event::where('unit','asct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $posts = Post::approved()->where('linked_unit','asct')->orderby('created_at','desc')->paginate(3);
+        $events = Event::approved()->where('unit','asct')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.advanced_scout')->with('posts',$posts)->with('events',$events);
     }
 
     public function traveler()
     {
-        $posts = Post::where('linked_unit','tvlr')->orderby('created_at','desc')->paginate(3);
-        $events = Event::where('unit','tvlr')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $posts = Post::approved()->where('linked_unit','tvlr')->orderby('created_at','desc')->paginate(3);
+        $events = Event::approved()->where('unit','tvlr')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.traveler')->with('posts',$posts)->with('events',$events);
     }
 
     public function captains()
     {
-        $posts = Post::where('linked_unit','cap')->orderby('created_at','desc')->paginate(3);
-        $events = Event::where('unit','القادة')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
+        $posts = Post::approved()->where('linked_unit','cap')->orderby('created_at','desc')->paginate(3);
+        $events = Event::approved()->where('unit','القادة')->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.units.captains')->with('posts',$posts)->with('events',$events);
     }
 
     public function news()
     {
-        $posts = Post::orderby('created_at','desc')->get();
+        $posts = Post::approved()->orderby('created_at','desc')->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.news_test')->with('posts',$posts);
     }
 
     public function viewPost($id){
-        $post=Post::where('post_id',$id)->get();
+        $post=Post::approved()->where('post_id',$id)->get();
         if(count($post)>0){
-            $posts = Post::orderby('created_at','desc')->paginate(3);
-            $allPosts = Post::inRandomOrder()->get();
+            $posts = Post::approved()->orderby('created_at','desc')->paginate(3);
+            $allPosts = Post::approved()->inRandomOrder()->get();
             $currentPost = Post::find($id);
             $currentPostImages = PostImage::where('post_id',$id)->get();
             app(\App\Http\Controllers\VisitorController::class)->log();
@@ -107,15 +107,15 @@ class HomeController extends Controller
 
     public function events()
     {
-        $events = Event::orderby('event_time','asc')->get();
+        $events = Event::approved()->orderby('event_time','asc')->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.events')->with('events',$events);
     }
 
     public function viewEvent($id){
-        $event=Event::where('event_id',$id)->get();
+        $event=Event::approved()->where('event_id',$id)->get();
         if (count($event)>0){
-            $events = Event::orderby('event_time','asc')->paginate(3);
+            $events = Event::approved()->orderby('event_time','asc')->paginate(3);
             $currentEvent = Event::find($id);
             app(\App\Http\Controllers\VisitorController::class)->log();
             return view('pages.eventPage')->with('events',$events)->with('currentEvent',$currentEvent);

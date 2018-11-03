@@ -23,5 +23,9 @@ class Event extends Model
     public function is_concerned(){
         return $this->hasMany('App\Concerned','event_id','event_id');
     }
+    public function scopeApproved($query)
+    {
+        return $query->where('approved', 1);
+    }
 
 }

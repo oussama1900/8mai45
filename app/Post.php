@@ -19,4 +19,8 @@ class Post extends Model
         return $this->belongsTo('App\Captain','posted_by','scout_id');
 
     }
+    public function scopeApproved($query)
+    {
+        return $query->where('approved', 1);
+    }
 }
