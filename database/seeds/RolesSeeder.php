@@ -110,6 +110,12 @@ class RolesSeeder extends Seeder
             'removable' => false
         ]);
         Role::create([
+            'name' => 'dev',
+            'display_name' => 'roles.dev',
+            'description' => 'مطور',
+            'removable' => false
+        ]);
+        Role::create([
             'name' => 'rolenone',
             'display_name' => 'roles.rolenone',
             'description' => 'لا شيء',

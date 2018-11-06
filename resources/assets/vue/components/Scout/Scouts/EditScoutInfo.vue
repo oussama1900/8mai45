@@ -104,6 +104,7 @@
                                     <option value="vucp">نائب قائد وحدة</option>
                                     <option value="capa">مساعد  قائد وحدة </option>
                                     <option value="trne">قائد متربص</option>
+                                    <option value="dev" v-if="add">مطور الموقع</option>
                                     <option value="none">لايملك دور</option>
                                 </select>
                                 <span id="role_exist" style="float:right"></span>

@@ -21,7 +21,7 @@
             <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12  card" :id="'captain'+cap.scout_id" style="padding:0px;padding-right:20px; " v-for="cap in MyScouts">
                 <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                     <div class="col-md-1" style="float:left;padding: 0px;margin-left: 10px;" >
-                        <i role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(cap)" ></i>
+                        <i role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(cap)"   v-if="cap.role.localeCompare('dev')!==0"></i>
 
                     </div>
                     <div class=" pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-if="ImageExiste(cap)">
@@ -66,7 +66,7 @@
 
 
                 <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/dashboard/EditScoutInfo/Captain/'+cap.scout_id"></router-link>
+                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green" :to="'/dashboard/EditScoutInfo/Captain/'+cap.scout_id"  v-if="cap.role.localeCompare('dev')!==0"></router-link>
                     <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" >
                        {{setScoutCode(cap)}}
 
@@ -177,6 +177,8 @@
                    return "خدمة و تنمية المجتمع";
                if(cap.role.localeCompare("surv")===0)
                    return "متابعة البرامج وتنفيذ الخطط";
+               if(cap.role.localeCompare("dev")===0)
+                   return "مطور الموقع";
                if(cap.role.localeCompare("none")===0)
                    return "لا يملك دور";
            },
