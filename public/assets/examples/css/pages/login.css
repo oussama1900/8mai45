@@ -1,5 +1,11 @@
 .page-login:before {
-  background-image: url('https://scontent-mrs1-1.xx.fbcdn.net/v/t1.15752-9/42996847_712403292452437_6588230135550312448_n.png?_nc_cat=110&oh=868bc52373a2d6e326a246e882a8cfe7&oe=5C1D94A3');
+  background-image: url("/images/login_background.jpg") ;
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 .page-login form {
   width: 340px;
