@@ -30,7 +30,7 @@
 </div>
 <div class="text-align-right" style="margin-top:20px">
 
-    <p style="text-align: right;margin-right:-25px"><span>  رقــم البريــد الصادر :</span><span> {{$data['outing_mail_number']}} / م و س/ 2018  </span></p>
+    <p style="text-align: right;margin-right:-25px"><span>  رقــم البريــد الصادر :</span><span> {{$data['outing_mail_number']}} / ف ف/ 2018  </span></p>
     <p style="text-align: right;margin-right:-25px"> {{$data['date']}}   <span> :</span><span>التاريخ</span> </p>
 </div>
 <div style="margin-left: 110px">

@@ -76,7 +76,7 @@
                             </div>
 
                         </div>
-                        <vue-editor v-model="summary" :editorToolbar="customToolbar" lang="20"></vue-editor>
+                        <vue-editor v-model="summary"  lang="20"></vue-editor>
 
                     </div>
                     <span id="post_summary" style="float: right"></span>
@@ -113,7 +113,7 @@
                             </div>
 
                         </div>
-                        <vue-editor v-model="description" :editorToolbar="customToolbar" class="label_title"></vue-editor>
+                        <vue-editor v-model="description" class="label_title"></vue-editor>
 
 
                     </div>

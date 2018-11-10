@@ -151,7 +151,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="Event.desc" :editorToolbar="customToolbar" class="label_title"></vue-editor>
+                        <vue-editor v-model="Event.desc"  class="label_title"></vue-editor>
 
 
                     </div>

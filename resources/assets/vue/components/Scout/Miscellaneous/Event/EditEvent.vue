@@ -160,7 +160,7 @@
                             </div>
 
                         </div>
-                        <vue-editor   v-model="desc" :editorToolbar="customToolbar" class="label_title"></vue-editor>
+                        <vue-editor   v-model="desc"  class="label_title"></vue-editor>
 
 
                     </div>

@@ -64,7 +64,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="post.post_summary" :editorToolbar="customToolbar" class="label_title" lang="20"></vue-editor>
+                        <vue-editor v-model="post.post_summary" class="label_title" lang="20"></vue-editor>
 
                     </div>
 
@@ -90,7 +90,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="post.description" :editorToolbar="customToolbar" class="label_title"></vue-editor>
+                        <vue-editor v-model="post.description" class="label_title"></vue-editor>
 
 
                     </div>
