@@ -197,10 +197,10 @@
                          vm.MyInfo.role = "نائب محافظ الفوج";
                         break;
                         case "med":
-                           vm.MyInfo.role = "مسؤول المالية";
+                           vm.MyInfo.role = "مسؤول الاعلام";
                           break;
                           case "vmed":
-                             vm.MyInfo.role = "نائب مسؤول المالية";
+                             vm.MyInfo.role = "نائب مسؤول الاعلام";
                             break;
                             case "ucap":
                                vm.MyInfo.role = "قائد وحدة";
@@ -226,6 +226,12 @@
                                           case "csd":
                                              vm.MyInfo.role = "خدمة و تنمية المجتمع";
                                             break;
+                      case "dev":
+                          vm.MyInfo.role = "مطور برمجيات";
+                          break;
+                      case "none":
+                          vm.MyInfo.role = "لاشيئ";
+                          break;
 
                   }
 
