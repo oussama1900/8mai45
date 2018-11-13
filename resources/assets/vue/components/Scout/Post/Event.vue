@@ -668,13 +668,13 @@ value:"UTC+2",
 
                         img.src = e.target.result;
                         img.onload = function() {
-
-                            if(img.width>=1500 && img.height>=750){
+                            vm.Event.image= e.target.result;
+                          /*  if(img.width>=1500 && img.height>=750){
 
                                 vm.Event.image= e.target.result;
                             }else{
                                 vm.$refs.image_size.open();
-                            }
+                            }*/
 
                         };
 

@@ -436,12 +436,13 @@ var vm =this;
 
                             img.src = e.target.result;
                             img.onload = function() {
-                                if(img.width>=1280 && img.height>=720){
+                                vm.image= e.target.result;
+                               /* if(img.width>=1280 && img.height>=720){
 
                                     vm.image= e.target.result;
                                 }else{
                                     vm.$refs.image_size.open();
-                                }
+                                }*/
                             };
 
 
