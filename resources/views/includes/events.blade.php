@@ -136,7 +136,7 @@
                                 </h2>
                             </div>
                             <div class="post-summary">
-                                {!! $event->description !!}
+                                {!! substr($event->description,0,500) !!}...
                             </div>
                             @php
                                 $unit_name = '';
