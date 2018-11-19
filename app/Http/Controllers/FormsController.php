@@ -219,7 +219,13 @@ class FormsController extends  Controller
 
         }else{
           $filename =date('YmdHis',time()).mt_rand().'.pdf';
-          $outing_mail=  DB::table('correspondences')->insertGetId([
+          if(Correspondence::count()==0){
+              $outing_mail = 1;
+          }else{
+              $outing_mail = (Correspondence::all()->last()->outing_mail_id)+1;
+          }
+
+        /*  $outing_mail=  DB::table('correspondences')->insertGetId([
               "sender"=>Auth::user()->scout_id,
               "time"=>$date,
               "to"=>$to,
@@ -229,7 +235,7 @@ class FormsController extends  Controller
               "approved"=>false,
               "file"=>$filename,
               "created_at"=>Carbon::now()->format('Y-m-d'),
-          ]);
+          ]);*/
           $agree=false;
           $data =["agree"=>$agree,"content"=>$content,"date"=>$date,'outing_mail_number'=>$outing_mail,'subject'=>$subject,'to'=>$to,"gov"=>$gov];
 

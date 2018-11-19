@@ -267,7 +267,7 @@
             },
             setBook(e){
                 var pdfsize =((e.target.files[0].size)/1024)/1024;
-                if(Math.floor(pdfsize)<8){
+                if(Math.floor(pdfsize)<16){
                     var vm = this;
                     var filereader = new FileReader();
 

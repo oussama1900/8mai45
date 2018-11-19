@@ -148,7 +148,7 @@
     <table style="float:right;width: 100%" dir="rtl">
         <tr style="text-align:right">
             <td>اختتم النشاط على الساعة : {{$data['end_time']}}</td>
-            <td>امضـــاء قائد النشاط :</td>
+            <td>قائد النشاط :</td>
         </tr>
 
     </table>
