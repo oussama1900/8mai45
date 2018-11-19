@@ -323,7 +323,7 @@
                                     <div style="width: 100%;padding:20px">
                                         <h1 style="text-align: right;color:grey">معلومات القائد الشخصية</h1>
                                     </div>
-                                    <div style="text-align:right;padding:20px">
+                                    <div style="text-align:right;padding:20px;margin-left:20px;width:100%">
                                         {!! $captain->profile->personal_info !!}
                                     </div>
 
@@ -334,7 +334,7 @@
                                     <div style="width: 100%;padding:20px">
                                         <h1 style="text-align: right;color:grey">معلومات القائد الكشفية</h1>
                                     </div>
-                                    <div  style="text-align:right;padding:20px">
+                                    <div  style="text-align:right;padding:20px;margin-left:20px;width:100%">
                                         {!! $captain->profile->scout_info !!}
                                     </div>
 
