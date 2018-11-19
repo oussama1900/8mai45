@@ -5,6 +5,9 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/gallery.css')}}"/>
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/ekko-lightbox.css')}}"/>
     <style>
+        #description-container{
+            text-align:right
+        }
         .btn-outline-primary.btn-custom {
             color: #2b53ce !important;
             background-color: transparent;
@@ -201,7 +204,7 @@
                             <ul class="article-meta mr-3" style="text-align: right">
                                 <li style="text-align: right"> {{substr($currentPost->post_date, 0, 10)}} <i class="fa fa-clock-o" style="text-align: right" dir="rtl"></i></li>
                             </ul>
-                            <div class="mr-3">
+                            <div class="mr-3" id="description-container">
                                 {!! $currentPost->description !!}
                             </div>
                             <h1 class="article-title mr-3" style="text-align: right" dir="rtl">صور النشاط</h1>
