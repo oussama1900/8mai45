@@ -147,7 +147,10 @@
     @endfor
     <table style="float:right;width: 100%" dir="rtl">
         <tr style="text-align:right">
-            <td>اختتم النشاط على الساعة : {{$data['end_time']}}</td>
+           @if($data['end_time']=="NaN:NaN")
+            <td>اختتم النشاط على الساعة : </td>
+            @else  <td>اختتم النشاط على الساعة : {{$data['end_time']}}</td>
+        @endif
             <td>قائد النشاط :</td>
         </tr>
 

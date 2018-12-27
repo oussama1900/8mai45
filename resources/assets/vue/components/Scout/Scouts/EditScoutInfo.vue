@@ -246,7 +246,7 @@
                        last_name:'',
                        date_of_birth:'',
                        membership_date:'',
-                       email:'',
+                       email:'scout@falehscout.com',
                        phone:'',
                        image:'/images/default.png',
                        place_of_birth:'',
@@ -400,6 +400,9 @@
 
             },
             UpdateInfo() {
+                $('#email_error').html('');
+                $('#role_exist').html('');
+
                 if (this.Scout.ScoutInfo.first_name.toString().localeCompare("") === 0 ||
                     this.Scout.ScoutInfo.last_name.toString().localeCompare("") === 0 ||
                     this.Scout.ScoutInfo.date_of_birth.toString().localeCompare("") === 0 ||
@@ -443,10 +446,20 @@
 
 
                     axios.put("/api/EditScoutInfo/" + this.$route.params.id, vm.Scout).then(function (response) {
+                           if(response.data.msg==="email" || response.data.msg === "role"){
+                               if(response.data.msg==="email")
+                               $('#email_error').html('عنوان البريد الإالكتروني موجود مسبقا').css('color','red');
+                                if (response.data.msg === "role")
+                                    $('#role_exist').html('الدور ملك لقائد آخر').css('color','red');
+                                 vm.show = false;
+                           }else{
+                               vm.show = false;
+                               vm.$router.go(-1);
+                           }
 
-                        vm.show = false;
 
-                        vm.$router.go(-1);
+
+
 
 
                     });

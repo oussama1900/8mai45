@@ -279,13 +279,14 @@
         </tr>
         <tr>
             <td>
-                @for($i=0;$i<count($Shortages);$i++)
-                    <p> - {{$Shortages[$i]}} </p>
-                @endfor
+
+                    @for($i=0;$i<count($Positives);$i++)
+                        <p> - {{$Positives[$i]}} </p>
+                    @endfor
             </td>
             <td>
-                @for($i=0;$i<count($Positives);$i++)
-                    <p> - {{$Positives[$i]}} </p>
+                @for($i=0;$i<count($Shortages);$i++)
+                    <p> - {{$Shortages[$i]}} </p>
                 @endfor
 
             </td>

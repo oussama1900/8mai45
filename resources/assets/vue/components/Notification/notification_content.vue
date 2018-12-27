@@ -28,7 +28,7 @@
              </small>
              <small  class="pull-left" style="text-align:right;height:40px;margin-top: -20px;margin-right:0px"  v-else>
                  <i class="fa fa-clock-o"></i>
-              <small v-if="is_Event()" class="notification_title">    {{notification.data[2]}}</small>
+              <small v-if="is_Event()" class="notification_title">{{notification.data[2]}}</small>
 							<small v-else class="notification_title">    {{notification.data[2].date.slice(0, 19)}}</small>
                </small>
 

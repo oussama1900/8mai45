@@ -125,6 +125,13 @@
 
 @include('includes.dashbars.topnavbar')
 <div id="app">
+  <vue-loading :active.sync="$root.isLoading"
+           :can-cancel="false"
+           :loader="$root.dots"
+           :color="$root.color"
+           :width="$root.width"
+           :height="$root.height"
+           :is-full-page="$root.fullPage"></vue-loading>
 @include('includes.dashbars.sidebar')
 <!-- Page -->
   <div class="page" style="animation-duration: 2000ms; opacity: 1;">

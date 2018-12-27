@@ -311,8 +311,9 @@
 
 
 
-
-                     this.end_time_temp = this.end_time.slice(11,16);
+                     var end =new Date(this.end_time);
+                      end.setHours(end.getHours());
+                     this.end_time_temp = end.getHours()+":"+end.getMinutes();
                      for(var i =1;i<=EDsubject;i++){
                         this.goals[i-1] = $('#EDsubject'+i).val();
 

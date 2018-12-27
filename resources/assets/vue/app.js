@@ -22,6 +22,11 @@ require('./bootstrap');
 import 'vue-datetime/dist/vue-datetime.css'
 
 import loading from 'vue-full-loading';
+
+
+import vue_loading from 'vue-loading-overlay';
+// Import stylesheet
+import 'vue-loading-overlay/dist/vue-loading.css';
 window.Vue = require('vue');
 
 Vue.use(VueRouter,  Axios,VueCkeditor,vueResource,Datetime,SweetModal);
@@ -444,6 +449,7 @@ Vue.component('monthly-bank-account', {
 });
 
 Vue.component('datetime', Datetime);
+Vue.component('vue-loading', vue_loading);
 Vue.component('notification-content',notification_content);
 Vue.component('Notification',notification);
 Vue.component('reporter-state-scout',state_scout_reporter);
@@ -1717,7 +1723,15 @@ const app = new Vue({
 
 
       Settings.defaultLocale = "us"
-    }
+    },
+    data:{
+        isLoading: false,
+        fullPage: true,
+        dots:"dots",
+        width:50,
+        height:50,
+        color:"#19ea39",
+    },
 
 
 });
@@ -1802,3 +1816,12 @@ const app2 = new Vue({
 const not = new Vue({
     el: '#notification',
 })
+router.beforeEach((to, from, next) => {
+    app.isLoading = true;
+    next();
+});
+
+router.afterEach((to, from, next) => {
+    app.isLoading = false;
+
+});

@@ -51,7 +51,7 @@
     </tr>
     @for($i=0;$i<count($scout);$i++)
     <tr>
-        <td>{{$scout[$i]->profile->scout_id}}</td>
+        <td>{{$i+1}}</td>
         <td>{{$scout[$i]->profile->last_name}}</td>
         <td>{{$scout[$i]->profile->first_name}}</td>
         <td>{{$scout[$i]->profile->date_of_birth}}</td>
@@ -67,7 +67,9 @@
     </tr>
    @endfor
 </table>
-
+<div style="margin-left: 15px;">
+    <img src= src="{{ public_path() .'/images/cachet.png' }}" width="200" height="250" />
+</div>
 <footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">
     <img src= src="{{ public_path() .'/images/page_footer.jpg' }}" width="100%" height="150px" />
 </footer>

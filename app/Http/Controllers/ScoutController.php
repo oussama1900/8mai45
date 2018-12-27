@@ -162,7 +162,7 @@ class ScoutController extends Controller
         }
 
         $email_existe = Scout::where('email',$scout_email)->get();
-        if(count($email_existe)==1){
+        if($scout_email!="scout@falehscout.com" && count($email_existe)==1){
             return response()->json(["msg"=>"email already exists"]);
         }
         $unit_id = $request->input('scout_unit.unit_id');
@@ -183,6 +183,8 @@ class ScoutController extends Controller
         /**
          * insert our data to the data base then save it
          */
+        if($scout_email=="scout@falehscout.com")
+            $scout_email = "scout".(DB::table('scouts')->count()+1)."@falehscout.com";
 				 $scout_id = DB::table('scouts')->insertGetId(
 					 [
 						 'assurance_num'=>(int)$request->input('ScoutInfo.assurance_num'),
@@ -190,7 +192,7 @@ class ScoutController extends Controller
 						 'last_name'=>$request->input('ScoutInfo.last_name'),
 						 'date_of_birth'=>$request->input('ScoutInfo.date_of_birth'),
 						 'membership_date'=>$request->input('ScoutInfo.membership_date'),
-						  'email'=>$request->input('ScoutInfo.email'),
+						  'email'=>$scout_email,
 						 'phone'=>$request->input('ScoutInfo.phone'),
 						 'place_of_birth'=>$request->input('ScoutInfo.place_of_birth'),
 						 'family_status'=>$request->input('ScoutInfo.family_status'),
@@ -441,14 +443,27 @@ class ScoutController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
   public function  EditScoutInfo(Request $request,$scout_id){
+      $email = $request->input('ScoutInfo.email');
+      if(Scout::where('email',$email)->where('scout_id','!=',$scout_id)->exists())
+          return  response()->json(["msg" => "email"]);
+      $newunit = $request->input('scout_unit.unit_id');
+      $role = $request->input('role');
+      if($role!="ucap" && $role!="vucp" && $role!="ucap" && $role!="capa"){
+          if(Captain::where('role',$role)->where('scout_id','!=',$scout_id)->exists())
+              return  response()->json(["msg" => "role"]);
+      }else{
+          if(Captain::where('role',$role)->where('unit',$newunit)->where('scout_id','!=',$scout_id)->exists())
+              return  response()->json(["msg" => "role"]);
+
+      }
+
       $unitscout= UnitScout::where('scout_id', '=',$scout_id);
       if($unitscout->value('scout_id')==null){
           $role = $request->input('role');
           $role_exist = Captain::where('role',$role)->get();
 
       }
-      $imageold="";
-      $insidecap="";
+
       /**
        * find and get record of the scout who want to update his information
        */
@@ -465,7 +480,7 @@ class ScoutController extends Controller
       $scoutunit = UnitScout::with('scout')->where('scout_id',$scout_id)->get();
 
 
-      $newunit = $request->input('scout_unit.unit_id');
+
       $captain = Captain::where('scout_id','=',$scout_id);
       /**
        * if he doesn't exist
@@ -631,21 +646,6 @@ class ScoutController extends Controller
 
 
      }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
          $scout->save();
 
            if($newunit != $oldunit){

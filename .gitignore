@@ -13,3 +13,4 @@ phpunit.xml
 .idea/workspace.xml
 .env
 .env
+*.jpeg

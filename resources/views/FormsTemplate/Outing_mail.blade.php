@@ -59,7 +59,7 @@
 </div>
 @if($data['agree'])
 <div style="margin-left: 15px;">
-    <img src= src="{{ public_path() .'/images/cachet.png' }}" width="200" height="200" />
+    <img src= src="{{ public_path() .'/images/cachet.png' }}" width="200" height="250" />
 </div>
 @endif
 <footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">

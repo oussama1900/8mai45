@@ -16,64 +16,100 @@
         </div>
 
         <div id="products" class="row list-group">
-            <div class="container   col-md-11 col-sm-11 col-xs-11">
-                <div class="item  col-lg-5 col-md-11  col-sm-12 col-xs-12  card" style="padding:0px;padding-right:20px; " :id="'scout'+scout.scout_id" v-for="scout in MyScouts">
-                <div class="row" style="padding-botoom:0px;margin-bottom: 0px;">
-                    <div class=" col-md-1" style="float:left;padding: 0px;margin-left: 10px;" >
-                        <i role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></i>
+            <div class="container   col-md-12 col-sm-12 col-xs-12" style="padding: 25px;">
+                <table id="scoutTable" class="table table-bordered table-hover" dir="ltr" v-if="MyScouts.length!==0">
+                    <thead>
+                    <tr>
+                        <th class="text-center">العمليات</th>
+                        <th class="text-center">الهاتف</th>
+                        <th class="text-center">العنوان</th>
+                        <th class="text-center">تاريخ الانخراط</th>
+                        <th class="text-center">تاريخ الميلاد</th>
+                        <th class="text-center">الاسم</th>
+                        <th class="text-center">اللقب</th>
 
-                    </div>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="scout in MyScouts" :id="'scout'+scout.scout_id" >
+                        <td class="text-center">
 
-                    <div class="pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-if="ImageExiste(scout)">
-                        <img v-bind:src="'/images/Scout/'+scout.scout.image"  class="  img-rounded" width="80" height="165" style="float: right;">
-                    </div>
-                    <div class=" pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-else>
-                        <img src="/images/default.png"  class=" img-rounded" width="80" height="165" style="float: right;">
-                    </div>
-                    <div class="  col-md-7 " style="padding-top:10px;float:right;padding-right:0px;">
-                        <ul style="float: right;">
-                            <li>
-                                <p style="text-align: right" dir="rtl"> <span  dir="rtl">اللقب:</span> <span>{{scout.scout.last_name}}</span>  </p>
-
-                            </li>
-                            <li>
-                                <p style="text-align: right "  dir="rtl"> <span  dir="rtl">الاسم :</span> <span>{{scout.scout.first_name}}</span> </p>
-                            </li>
-                            <li >
-                                <p style="text-align: right">تاريخ الميلاد : {{scout.scout.date_of_birth}} </p>
-                            </li>
-                            <li >
-                                <p style="text-align: right">{{scout.scout.membership_date}} : تاريخ الانخراط</p>
-                            </li>
-                        </ul>
-                    </div>
+                            <router-link :to="'/dashboard/EditScoutInfo/Scout/'+scout.scout.scout_id" class="btn btn-primary"><i class="fas fa-edit"></i></router-link>
+                            <button class="btn btn-danger" @click="removeScout(scout)" ><i class="fas fa-trash"></i></button>
+                        </td>
 
 
+                        <td class="text-center">{{scout.scout.phone}}</td>
+
+                        <td class="text-center">{{scout.scout.address}}</td>
+                        <td class="text-center">{{scout.scout.date_of_birth}}</td>
+
+                        <td class="text-center"> {{scout.scout.date_of_birth}} </td>
+                        <td class="text-center">{{scout.scout.first_name}}</td>
+                        <td class="text-center">{{scout.scout.last_name}}</td>
+
+                    </tr>
+                    </tbody>
+
+
+                </table>
+                <!--<div class="item  col-lg-5 col-md-11  col-sm-12 col-xs-12  card" style="padding:0px;padding-right:20px; " :id="'scout'+scout.scout_id" v-for="scout in MyScouts">-->
+                <!--<div class="row" style="padding-botoom:0px;margin-bottom: 0px;">-->
+                    <!--<div class=" col-md-1" style="float:left;padding: 0px;margin-left: 10px;" >-->
+                        <!--<i role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></i>-->
+
+                    <!--</div>-->
+
+                    <!--<div class="pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-if="ImageExiste(scout)">-->
+                        <!--<img v-bind:src="'/images/Scout/'+scout.scout.image"  class="  img-rounded" width="80" height="165" style="float: right;">-->
+                    <!--</div>-->
+                    <!--<div class=" pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-else>-->
+                        <!--<img src="/images/default.png"  class=" img-rounded" width="80" height="165" style="float: right;">-->
+                    <!--</div>-->
+                    <!--<div class="  col-md-7 " style="padding-top:10px;float:right;padding-right:0px;">-->
+                        <!--<ul style="float: right;">-->
+                            <!--<li>-->
+                                <!--<p style="text-align: right" dir="rtl"> <span  dir="rtl">اللقب:</span> <span>{{scout.scout.last_name}}</span>  </p>-->
+
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<p style="text-align: right "  dir="rtl"> <span  dir="rtl">الاسم :</span> <span>{{scout.scout.first_name}}</span> </p>-->
+                            <!--</li>-->
+                            <!--<li >-->
+                                <!--<p style="text-align: right">تاريخ الميلاد : {{scout.scout.date_of_birth}} </p>-->
+                            <!--</li>-->
+                            <!--<li >-->
+                                <!--<p style="text-align: right">{{scout.scout.membership_date}} : تاريخ الانخراط</p>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
 
 
 
 
 
 
-                </div>
-
-                <div>
-                    <router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green;padding-left:13px" :to="'/dashboard/EditScoutInfo/Scout/'+scout.scout.scout_id"></router-link>
-                    <span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" >
-                       {{setScoutCode(scout)}}
-
-    </span>
-
-                </div>
 
 
+                <!--</div>-->
 
+                <!--<div>-->
+                    <!--<router-link  class="glyphicon glyphicon-edit btn-lg" onclick="" style="float: left;color:green;padding-left:13px" :to="'/dashboard/EditScoutInfo/Scout/'+scout.scout.scout_id"></router-link>-->
+                    <!--<span style="text-align:center;float: right;font-size: small;margin-bottom: 0px;padding-right:10px" >-->
+                       <!--{{setScoutCode(scout)}}-->
 
+    <!--</span>-->
+
+                <!--</div>-->
 
 
 
 
-            </div>
+
+
+
+
+            <!--</div>-->
             </div>
 
             <div v-if="MyScouts.length===0">
