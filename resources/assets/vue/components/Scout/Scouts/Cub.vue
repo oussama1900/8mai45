@@ -43,7 +43,7 @@
                         <td class="text-center">{{cub.scout.phone}}</td>
 
                         <td class="text-center">{{cub.scout.address}}</td>
-                        <td class="text-center">{{cub.scout.date_of_birth}}</td>
+                        <td class="text-center">{{cub.scout.membership_date}}</td>
 
                         <td class="text-center"> {{cub.scout.date_of_birth}} </td>
                         <td class="text-center">{{cub.scout.first_name}}</td>

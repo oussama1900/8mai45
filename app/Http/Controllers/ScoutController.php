@@ -183,8 +183,10 @@ class ScoutController extends Controller
         /**
          * insert our data to the data base then save it
          */
-        if($scout_email=="scout@falehscout.com")
-            $scout_email = "scout".(DB::table('scouts')->count()+1)."@falehscout.com";
+        if($scout_email=="scout@falehscout.com"){
+            $max_scout_id = DB::table('scouts')->max('scout_id');
+            $scout_email = "scout".($max_scout_id+1)."@falehscout.com";
+        }
 				 $scout_id = DB::table('scouts')->insertGetId(
 					 [
 						 'assurance_num'=>(int)$request->input('ScoutInfo.assurance_num'),

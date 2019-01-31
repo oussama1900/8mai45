@@ -42,7 +42,7 @@
                         <td class="text-center">{{scout.scout.phone}}</td>
 
                         <td class="text-center">{{scout.scout.address}}</td>
-                        <td class="text-center">{{scout.scout.date_of_birth}}</td>
+                        <td class="text-center">{{scout.scout.membership_date}}</td>
 
                         <td class="text-center"> {{scout.scout.date_of_birth}} </td>
                         <td class="text-center">{{scout.scout.first_name}}</td>

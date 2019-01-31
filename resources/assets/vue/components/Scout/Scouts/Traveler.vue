@@ -44,7 +44,7 @@
                         <td class="text-center">{{tvlr.scout.phone}}</td>
 
                         <td class="text-center">{{tvlr.scout.address}}</td>
-                        <td class="text-center">{{tvlr.scout.date_of_birth}}</td>
+                        <td class="text-center">{{tvlr.scout.membership_date}}</td>
 
                         <td class="text-center">{{tvlr.scout.date_of_birth}} </td>
                         <td class="text-center">{{tvlr.scout.first_name}}</td>
