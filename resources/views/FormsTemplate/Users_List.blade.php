@@ -28,14 +28,26 @@
         td{
             padding:5px;
         }
+        @page {
+
+            margin-top:200px;
+            margin-right: 0px;
+            margin-left: 0px;
+
+            margin-bottom: 200px;
+            header: page-header;
+            footer: page-footer;
+
+        }
     </style>
 </head>
 <body>
-<div style="margin-right:-60px ;margin-top: -100px;padding-top:-60px">
-<img src= src="{{ public_path() .'/images/page_header.jpg' }}" width="100%" height="150px" />
+<htmlpageheader name="page-header" style="display:block;position:absolute;top:0;margin-right:-120px ;float:right;margin-top: -100px;padding-top:-60px">
+    <img src= src="{{ public_path() .'/images/page_header.png' }}" width="100%" height="180px" style="margin-top: -35px;"/>
 
 
-</div>
+</htmlpageheader>
+<div style="margin-right: 60px;margin-left: 60px">
 <h3 style="text-align:center">قائمة مستخدمي الموقع الإلكتروني</h3>
 <table width="100%" dir="rtl">
     <tr>
@@ -59,10 +71,10 @@
     </tr>
    @endfor
 </table>
-
-<footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">
-    <img src= src="{{ public_path() .'/images/page_footer.jpg' }}" width="100%" height="150px" />
-</footer>
+</div>
+<htmlpagefooter name="page-footer" >
+    <img src= src="{{ public_path() .'/images/page_footer.png' }}" width="100%" height="180px" style="margin-bottom:-35px;" />
+</htmlpagefooter>
 
 <div>
 
