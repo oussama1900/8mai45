@@ -18,7 +18,6 @@ use App\Notifications\notifyCaptain;
 
 /* home controller */
 Route::get('/', 'HomeController@index')->name('home');
-//Route::get('/', function(){return view('welcome');})->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/cubs', 'HomeController@cubs')->name('cubs');
 Route::get('/scout', 'HomeController@scout')->name('scout');
@@ -45,14 +44,6 @@ Route::any('/dashboard/{query}', 'DashboardController@index')->where('query', '.
 
 
 Auth::routes();
-
-
-Route::get('/dashboard/oussama' ,function (){
-  User::find(1)->notify(new notifyCaptain);
-
-});
-
-
 
 
 
@@ -90,20 +81,20 @@ Route::get('/language', "LanguageController@index");
 Route::post('LanguageController/store', ['as' => 'languages.store', 'uses' => 'LanguageController@store']);
 Route::get('LanguageController/edit/{id}', "LanguageController@edit");
 Route::post('LanguageController/update/{id}', "LanguageController@update");
-Route::get('LanguageController/chooser_language/{id}',"LanguageController@chooser_language" );
+Route::get('LanguageController/chooser_language/{id}', "LanguageController@chooser_language");
 Route::get('/LanguageController/destroy/{id}/{lan}', "LanguageController@destroy");
 
 /* roles and Permission */
 Route::get('/dashboard/roles', "RoleController@index");
 Route::get('/dashboard/roles/edit/{id}', "RoleController@edit");
 Route::post('/dashboard/roles', 'RoleController@store');
-Route::put('/dashboard/roles/update/{id}','RoleController@update');
+Route::put('/dashboard/roles/update/{id}', 'RoleController@update');
 Route::delete('/dashboard/roles/destroy/{id}', "RoleController@destroy");
 
 Route::get('/dashboard/permissions', "PermissionController@index");
 Route::get('/dashboard/permissions/edit/{id}', "PermissionController@edit");
 Route::post('/dashboard/permissions', 'PermissionController@store');
-Route::put('/dashboard/permissions/update/{id}','PermissionController@update');
+Route::put('/dashboard/permissions/update/{id}', 'PermissionController@update');
 Route::post('/dashboard/permissions/attach', 'PermissionController@saveRolePermissions');
 Route::delete('/dashboard/permissions/destroy/{id}', "PermissionController@destroy");
 
@@ -112,15 +103,15 @@ Route::get('/dashboard/activity', "ActivityController@index");
 Route::get('/dashboard/activity/user/{id}', "ActivityController@activity_user");
 
 /* Setting (subject to deletion)*/
-Route::get('/settings/', "SettingController@index");
-Route::post('/settings/', "SettingController@store");
+Route::get('/settings', "SettingController@index");
+Route::post('/settings', "SettingController@store");
 Route::post('/SettingController/upload/{id}', "SettingController@upload");
 Route::post('/SettingController/auth_registration', "SettingController@auth_registration");
 Route::get('/dashboard#/SettingController/sidebar', "SettingController@sidebar");
 
 /* Message (TODO)*/
-Route::get('/message/', "MessageController@index");
-Route::get('/SendMessage/', "MessageController@sendmail");
+Route::get('/message', "MessageController@index");
+Route::get('/SendMessage', "MessageController@sendmail");
 Route::get('/sendDetails/{id}', "MessageController@sendDetails");
 Route::get('/inboxDetails/{id}/{replayidid}', "MessageController@inboxDetails");
 Route::post('MessageController/save/', "MessageController@store");
