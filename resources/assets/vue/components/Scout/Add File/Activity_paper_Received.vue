@@ -45,6 +45,7 @@
                         <option :value="2016" class="label_title">2016</option>
                         <option :value="2017" class="label_title">2017</option>
                         <option :value="2018" class="label_title">2018</option>
+                        <option :value="2019" class="label_title">2019</option>
                     </select>
                 </div>
                 <div class="col-md-1" style="float:right;margin-top:25px">
@@ -67,7 +68,7 @@
 
                            <p style="text-align: right;margin-top:0px;margin-bottom:0px">
                               <span style="font-size: 17px" class="label_title">  {{report.description.split('.')[0]}} </span>
-                               <a :href="'/uploads/Units_Report/'+report.file_name" class="btn btn-primary btn-circle btn-lg" style="padding-left: 7px;padding-top:7px" download>
+                               <a :href="'/uploads/Units_Report/'+report.file_name" class="btn btn-primary btn-circle btn-lg" style="padding-left: 7px;padding-top:7px" :download="report.description.split('.')[0]">
                                    <span class="glyphicon glyphicon-download" aria-hidden="true" ></span>
                                </a>
 

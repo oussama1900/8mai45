@@ -39,7 +39,7 @@
                                <a  class="btn btn-primary btn-circle btn-lg" style="padding-left: 6px; padding-top: 6px;padding-right:8px" @click="Authenticate(correspondence)">
                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"  style="font-size:2rem"></span>
                                </a>
-                               <a :href="'/uploads/Correspondence/'+correspondence.file" class="btn btn-primary btn-circle btn-lg" style="padding-left: 6px; padding-top: 6px;padding-right:8px" download>
+                               <a :href="'/uploads/Correspondence/'+correspondence.file" class="btn btn-primary btn-circle btn-lg" style="padding-left: 6px; padding-top: 6px;padding-right:8px" :download="correspondence.subject">
                                    <span class="glyphicon glyphicon-download" aria-hidden="true" style="font-size:2rem" ></span>
                                </a>
                                <a  class="btn btn-primary btn-circle btn-lg" style="padding-left: 6px; padding-top: 6px;padding-right:8px" @click="remove_document(correspondence,'notapproved')">
@@ -117,7 +117,7 @@
                         <p style="text-align: right;margin-top:0px;margin-bottom:0px">
                             <span style="font-size: 17px" class="label_title" >  {{correspondence_appr.subject}} </span>
 
-                            <a :href="'/uploads/Correspondence/'+correspondence_appr.file" class="btn btn-primary btn-circle btn-lg" style="padding-left: 6px; padding-top: 6px;padding-right:8px" download>
+                            <a :href="'/uploads/Correspondence/'+correspondence_appr.file" class="btn btn-primary btn-circle btn-lg" style="padding-left: 6px; padding-top: 6px;padding-right:8px" :download="correspondence_appr.subject">
                                 <span class="glyphicon glyphicon-download" aria-hidden="true"  style="font-size:2rem"></span>
                             </a>
 

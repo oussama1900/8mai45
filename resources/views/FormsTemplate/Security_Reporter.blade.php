@@ -20,14 +20,26 @@
         .text-align-right{
             margin-right:0px
         }
+        @page {
+
+            margin-top:200px;
+            margin-right: 0px;
+            margin-left: 0px;
+
+            margin-bottom: 200px;
+            header: page-header;
+            footer: page-footer;
+
+        }
     </style>
 </head>
 <body>
-<div style="margin-right:-60px ;margin-top: -100px;padding-top:-60px">
-<img src= src="{{ public_path() .'/images/page_header.jpg' }}" width="100%" height="150px" />
+<htmlpageheader name="page-header" style="display:block;position:absolute;top:0;margin-right:-120px ;float:right;margin-top: -100px;padding-top:-60px">
+    <img src= src="{{ public_path() .'/images/page_header.png' }}" width="100%" height="180px" style="margin-top: -35px;"/>
 
 
-</div>
+</htmlpageheader>
+<div style="margin-right: 60px;margin-left: 60px">
 <div class="text-align-right" style="margin-top:20px">
 
     <p style="text-align: right;margin-right:-25px"><span>  رقــم البريــد الصادر :</span><span> {{$data['outing_mail_number']}} / ف ف/ 2018  </span></p>
@@ -55,10 +67,11 @@
     <p> محـــافظ الفوج</p>
     <p>{{$data['gov']}}</p>
 </div>
+</div>
 
-<footer style="position:absolute;left:45px;bottom:0px;margin-left:-60px">
-    <img src= src="{{ public_path() .'/images/page_footer.jpg' }}" width="100%" height="150px" />
-</footer>
+<htmlpagefooter name="page-footer" >
+    <img src= src="{{ public_path() .'/images/page_footer.png' }}" width="100%" height="180px" style="margin-bottom:-35px;" />
+</htmlpagefooter>
 
 <div>
 
