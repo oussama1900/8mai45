@@ -10,10 +10,10 @@ use App\Concerned;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
 use File;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -30,6 +30,7 @@ class EventController extends Controller
         $scout = Scout::all();
         return response()->json(["captain"=>[$captain,$current_user,$scout]]);
     }
+
     public function PostEvent(Request $request){
         $title = $request->input('title');
         $desc = $request->input('desc');
@@ -206,6 +207,39 @@ class EventController extends Controller
         $event = Event::where('created_by',$scout_id)->get();
         return response()->json(["Events"=>[$event,$scout]]);
     }
+
+    /**
+    * retrieves a list of concerned captains of an event
+    */
+    public function getConcernedCaptains($event_id){
+        //I'm fetching all columns from the join between scout and concerned
+        //If you see that that's a lot you can specify what you need using ->select() (before get())
+        //Also, if there happens a case where Apache says php run out of limit use chunck() (Google it)
+        $captains_list = DB::table('concerned')
+                              ->join('captains', 'concerned.scout_id', 'captains.scout_id')
+                              ->join('scouts', 'concerned.scout_id', 'scouts.scout_id')
+                              ->get();
+
+        return response()->json(["Concerned"=>$captains_list])
+    }
+
+    /**
+    * retrieves a list of present captains during an event
+    */
+    public function getPresentCaptains($event_id){
+        $concerned = Concerned::where([
+                ['event_id', $event_id],
+                ['presence', 1]
+                ])->captains();
+
+        $captains_list = array();
+        foreach($concerned as $captain)
+            $captains_list[] = $captain->scout;
+
+        return response()->json(["Concerned" => $captains_list])
+    }
+
+
     public function insertEventImage( $image){
         $filename="";
         $filepath="";

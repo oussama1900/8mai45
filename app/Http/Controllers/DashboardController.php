@@ -97,7 +97,7 @@ class DashboardController extends Controller
 							->orderBy('date', 'ASC')
 							->get();
 
-			return view('dashboard.dashboard_page',compact('todayvisitor','monthvisitor','totaluser','newuser','users','recentactivity','graphregister'));
+			return view('dashboard.dashboard_page',compact('todayvisitor','monthvisitor','totaluser','newuser','users', 'recentactivity', 'graphregister'));
 		}
 		return $this->defaultDashboard();
 	}
