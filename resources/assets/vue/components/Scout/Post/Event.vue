@@ -16,7 +16,7 @@
 
                         <label  style="float:right;font-size:medium"> نوع الحدث</label>
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.type" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.type" @select="edited=true" :options="EventType" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن نشاط" :max="1" :show-labels="false"   :preselect-first="false">
 
                             <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -41,7 +41,7 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> عنوان الحدث</label>
-                        <input type="text"  dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
+                        <input type="text" @keyup="edited=true" dir="rtl" v-model="Event.title" placeholder=" عنوان الحدث ">
                     </div>
 
 
@@ -64,7 +64,7 @@
                         <div>
                             <label  style="float:right;font-size:medium">  القائد المسؤول </label>
 
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.responsible" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.responsible" @select="edited=true" :options="Captains" :multiple="true" :max="1" :close-on-select="true" :clear-on-select="true" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
                                 <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -95,7 +95,7 @@
 
                         <div>
                             <label  style="float:right;font-size:medium">  القادة المعنيون </label>
-                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.Concerned" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
+                            <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.Concerned" @select="edited=true" :options="Captains" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن قائد" :custom-label="customLabel" :show-labels="false"  track-by="last_name" :preselect-first="true">
 
                                 <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option.last_name}} {{props.option.first_name}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -123,7 +123,7 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">  مكان الحدث</label>
-                        <input v-model="Event.location" id="event_place" type="text"  dir="rtl"  placeholder=" مكان الحدث ">
+                        <input v-model="Event.location" @keyup="edited=true" id="event_place" type="text"  dir="rtl"  placeholder=" مكان الحدث ">
                         <span id="location" style="float: right"></span>
                     </div>
 
@@ -177,7 +177,7 @@
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;"class="label_title" v-model="Event.unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;"class="label_title" v-model="Event.unit" @select="edited=true" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false"  :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
                             <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -206,7 +206,7 @@
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة بالحدث</label>
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="Event.unit" @select="edited=true" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
                             <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title" style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -244,12 +244,12 @@
                             <input   class="form-control" name="image_name"
                                      readonly="true"
                                      placeholder="اختر صورة"
-
+                                     @keyup="edited=true"
                                      dir="rtl" >
                             <span class="input-group-btn">
                                         <span class="btn btn-success btn-file">
                                             <i class="icon wb-upload" aria-hidden="true"></i>
-                                            <input type="file" name="titleImage" multiple="false"   accept="image/*"
+                                            <input type="file" name="titleImage" multiple="false"  @keyup="edited=true" accept="image/*"
                                                    @change="setEventImage($event)"
 
                                                    id="titleImage"
@@ -306,11 +306,16 @@
             <h3><span>حجم الصورة كبير </span></h3>
             <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
         </sweet-modal>
+
+        <sweet-modal ref="confirmation" icon="warning">
+            <h3>هل تريد حفظ هذه التغييرات؟</h3>
+            <h4> ملاحظة : التغييرات لن يتم نشرها إلا إذا طلبت ذلك</h4>
+            <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+            <button id="confirm_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
+
+        </sweet-modal>
+
     </div>
-
-
-
-
 </template>
 
 <script>
@@ -351,6 +356,7 @@ direction:'rtl',
 value:"UTC+2",
                 time:'',
                 show: false,
+                edited: false,
                 label: '....الرجاء الإنتظار',
             unit_for_gov:[
                 "الأشبال",
@@ -423,7 +429,41 @@ value:"UTC+2",
 
             }
         },
+
+        beforeRouteLeave(to, from, next){
+                if(this.edited){
+                    next(false);
+                    var answer = this.$refs.confirmation.open();
+                    var vuem = this;
+                    $("#cancel_button").click({vue: vuem, next: next}, function(e){
+                        e.data.vue.$refs.confirmation.close();
+                        e.data.next();
+                    });
+
+                    $("#confirm_button").click({vue: vuem, next: next, storage: sessionStorage}, function(e){
+                        storage.Event = JSON.stringify(e.data.vue.Event);
+                        e.data.vue.$refs.confirmation.close();
+                        e.data.next();
+                    });
+                } else next();
+        },
+
+        mounted(){
+            if(sessionStorage.event)
+                this.Event = JSON.parse(sessionStorage.Event);
+            else
+                sessionStorage.Event = JSON.stringify(this.Event);
+        },
+
         methods:{
+            persist(){
+                sessionStorage.Event = JSON.stringify(this.Event);
+                this.$refs.confirmation.close();
+            },
+
+            terminate(){
+                this.$ref.confirmation.close();
+            },
 
             validate(){
                 if(this.is_gov()){
@@ -643,6 +683,7 @@ value:"UTC+2",
             postEvent(){
 
               if(this.validate()){
+                  this.edited = false;
                   this.show=true;
                   this.dateformat();
 

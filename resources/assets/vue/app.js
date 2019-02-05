@@ -840,8 +840,6 @@ const routes = [
         path:"/dashboard/posts/new",
         component: Post,
         beforeEnter: (to, from, next) => {
-
-
             axios.get('/api/current_user').then(function(response){
                 current_user = response.data.current_user;
 
@@ -862,7 +860,7 @@ const routes = [
                     next(false);
             });
 
-        }
+        },
     },
     {
         path:"/dashboard/events/new",

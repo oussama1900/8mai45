@@ -61,7 +61,6 @@
                         <h4> ملاحظة : هذه العملية غير رجعية</h4>
                         <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
                          <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
-
                     </sweet-modal>
                 </div>
 

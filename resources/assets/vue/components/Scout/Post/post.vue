@@ -14,7 +14,7 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> عنوان الخبر</label>
-                        <input id="title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title">
+                        <input id="title" type="text"  dir="rtl"  placeholder="عنوان الخبر" v-model="post.post_title" @keyup="edited = true">
                     </div>
 
                 </div>
@@ -35,13 +35,13 @@
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">المكان  </label>
-                        <input id="activity_place" type="text" dir="rtl"  placeholder="المكان" v-model="post.location">
+                        <input id="activity_place" type="text" dir="rtl"  placeholder="المكان" v-model="post.location" @click="edited=true">
                         <span id="location" style="float: right"></span>
                     </div>
                     <div class="col-md-6" >
 
                         <label  style="float:right;font-size:medium">التاريخ</label>
-                          <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post_date" format="yyyy-MM-dd HH:mm"></datetime>
+                          <datetime class="label_title" :dir="direction" :placeholder="placeholder" :value-zone="value" type="datetime" v-model="post_date" format="yyyy-MM-dd HH:mm" @click="edited=true"></datetime>
                         <span id="post_time" style="float: right"></span>
                     </div>
 
@@ -64,7 +64,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="post.post_summary" class="label_title" lang="20"></vue-editor>
+                        <vue-editor v-model="post.post_summary" @focus="edited = true" class="label_title" lang="20"></vue-editor>
 
                     </div>
 
@@ -90,8 +90,7 @@
             <div style="margin: 20px;margin-right: 30px;padding-top:40px;padding-bottom: 30px ">
                 <div class="row">
                     <div class="col-md-12" >
-                        <vue-editor v-model="post.description" class="label_title"></vue-editor>
-
+                        <vue-editor v-model="post.description" @focus="edited = true" class="label_title"></vue-editor>
 
                     </div>
 
@@ -115,7 +114,7 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium"> الوحدة المقصودة </label>
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.linked_unit" :options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.linked_unit" @select="edited=true":options="unit_for_gov" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
                             <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -143,7 +142,7 @@
                     <div class="col-md-12" >
 
                         <label  style="float:right;font-size:medium" > الوحدة المقصودة </label>
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.linked_unit" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.linked_unit" @select="edited=true" :options="unit_for_med" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن وحدة" :max="1"  :show-labels="false"   :preselect-first="false">
 
                             <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -175,7 +174,7 @@
                         <label  style="float:right;font-size:medium">نوع الخبر </label>
 
 
-                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.post_type" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
+                        <multiselect style="border: 1px solid #9C9C9C;border-radius: 7px;" class="label_title" v-model="post.post_type" @select="edited=true" :options="  news_type" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="ابحث عن خبر" :max="1"  :show-labels="false"   :preselect-first="false">
 
                             <template slot="tag" slot-scope="props"><span class="multiselect__tag" style="padding-right:5px" ><span style="padding-right:5px;" class="label_title">{{props.option}}  </span><span class="custom__remove label_title"  style="cursor: pointer;" @click="props.remove(props.option)">❌</span></span></template>
 
@@ -310,6 +309,13 @@
                 <h3> 4 <span>Mo</span> <span>حجم الصورة يجب ان يكون اقل من </span>    </h3>
             </sweet-modal>
 
+            <sweet-modal ref="confirmation" icon="warning">
+                <h3>هل تريد حفظ هذه التغييرات؟</h3>
+                <h4> ملاحظة : التغييرات لن يتم نشرها إلا إذا طلبت ذلك</h4>
+                <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
+                <button id="confirm_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
+            </sweet-modal>
+
         </div>
 
     </div>
@@ -328,6 +334,7 @@
     import loading from 'vue-full-loading';
     import 'vue-multiselect/dist/vue-multiselect.min.css';
     import 'vue-multiselect/dist/vue-multiselect.min.js';
+
 
     import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
 
@@ -348,7 +355,8 @@
         data(){
             return {
                 show: false,
-                label: '....الرجاء الإنتظار',
+                edited: false,
+              label: '....الرجاء الإنتظار',
               placeholder:"التاريخ",
               direction:'rtl',
               value:"UTC+2",
@@ -421,12 +429,37 @@
             }
         },
         created:function(){
-            var vm = this;
+           var vm = this;
            axios.get('/api/current_user').then(function (response) {
                vm.current_user = response.data.current_user;
-
            })
         },
+
+        mounted(){
+            if(sessionStorage.post)
+                this.post = JSON.parse(sessionStorage.post);
+            else
+                sessionStorage.post = JSON.stringify(this.post);
+        },
+
+        beforeRouteLeave(to, from, next){
+                if(this.edited){
+                    next(false);
+                    this.$refs.confirmation.open();
+                    var vuem = this;
+                    $("#cancel_button").click({vue: vuem, next: next}, function(e){
+                        e.data.vue.$refs.confirmation.close();
+                        e.data.next();
+                    });
+
+                    $("#confirm_button").click({vue: vuem, next: next, storage: sessionStorage}, function(e){
+                        // storage.post = JSON.stringify(e.data.vue.post);
+                        e.data.vue.$refs.confirmation.close();
+                        e.data.next();
+                    });
+                } else next();
+        },
+
         methods:{
             validate(){
                 if(this.is_gov()){
@@ -642,7 +675,7 @@
           },
             postNews(){
                 if(this.validate()===true){
-                  
+                    this.edited = false;
                     this.show=true;
                     this.dateformat();
                     var vm = this;
