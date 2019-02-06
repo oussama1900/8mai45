@@ -77,6 +77,8 @@
         <td>الرقم</td>
         <td>اللقب</td>
         <td>الاسم</td>
+        <td>اللقب بالاتينية</td>
+        <td> الاسم بالاتينية</td>
         @if($choice["birthday"])
         <td>تاريخ الميلاد</td>
         @endif
@@ -96,6 +98,8 @@
         <td>{{($i+1)}}</td>
         <td>{{$captains[$i]->last_name}}</td>
         <td>{{$captains[$i]->first_name}}</td>
+        <td>{{$captains[$i]->latin_lname}}</td>
+        <td>{{$captains[$i]->latin_fname}}</td>
         @if($choice["birthday"])
         <td>{{$captains[$i]->date_of_birth}}</td>
         @endif

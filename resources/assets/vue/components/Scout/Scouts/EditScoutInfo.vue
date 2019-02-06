@@ -22,6 +22,19 @@
 
                 </li>
                     <li>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label style="font-size: medium;float: right;"> الاسم باللاتينية</label>
+                            <input id="l_first_name" type="text" placeholder="الاسم باللاتينية" dir="rtl" v-model="Scout.ScoutInfo.latin_fname"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label style="font-size: medium;float: right;">اللقب باللاتينية</label>
+                            <input id="l_last_name"    type="text" placeholder="اللقب باللاتينية" dir="rtl" v-model="Scout.ScoutInfo.latin_lname"/>
+                        </div>
+                    </div>
+
+                </li>
+                    <li>
                         <div class="row">
                             <div class="col-md-6" style="padding-right: 0px;padding-left: 25px;">
                                 <label style="font-size: medium;float: right;">تاريخ الازدياد</label>
@@ -755,7 +768,7 @@
 
     }
 
-    #first_name,#last_name,#place_of_birth,#phone,#family_status,#email,#assurance_num,#address{
+    #first_name,#last_name,#place_of_birth,#phone,#family_status,#email,#assurance_num,#address,#l_first_name,#l_last_name{
         border-top: 1px solid #9C9C9C;
         border-right: 1px solid #9C9C9C;
         border-left: 1px solid #9C9C9C;

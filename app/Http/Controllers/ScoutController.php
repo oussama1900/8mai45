@@ -192,6 +192,8 @@ class ScoutController extends Controller
 						 'assurance_num'=>(int)$request->input('ScoutInfo.assurance_num'),
 						 'first_name'=>$request->input('ScoutInfo.first_name'),
 						 'last_name'=>$request->input('ScoutInfo.last_name'),
+                         "latin_fname"=> $request->input('ScoutInfo.latin_fname'),
+                         "latin_lname"=> $request->input('ScoutInfo.latin_lname'),
 						 'date_of_birth'=>$request->input('ScoutInfo.date_of_birth'),
 						 'membership_date'=>$request->input('ScoutInfo.membership_date'),
 						  'email'=>$scout_email,
@@ -497,6 +499,8 @@ class ScoutController extends Controller
            $scout->assurance_num = $request->input('ScoutInfo.assurance_num');
            $scout->first_name= $request->input('ScoutInfo.first_name');
            $scout->last_name= $request->input('ScoutInfo.last_name');
+           $scout->latin_fname= $request->input('ScoutInfo.latin_fname');
+           $scout->latin_lname= $request->input('ScoutInfo.latin_lname');
            $scout->date_of_birth= $request->input('ScoutInfo.date_of_birth');
            $scout->membership_date= $request->input('ScoutInfo.membership_date');
            $scout->phone = $request->input('ScoutInfo.phone');
