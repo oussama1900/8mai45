@@ -419,6 +419,7 @@ class ComposerStaticInitfd831b3308118b39df7d46c82a967d82
     public static $classMap = array (
         'AddForeignKeys' => __DIR__ . '/../..' . '/database/migrations/2015_10_10_171734_add_foreign_keys.php',
         'AddImageToUsersAndPosts' => __DIR__ . '/../..' . '/database/migrations/2018_08_13_175829_add_image_to_users_and_posts.php',
+        'AlterScouts' => __DIR__ . '/../..' . '/database/migrations/2019_02_06_231100_alter_scouts.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CaptainSeeder' => __DIR__ . '/../..' . '/database/seeds/CaptainSeeder.php',
