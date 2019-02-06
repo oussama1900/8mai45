@@ -218,25 +218,50 @@ class EventController extends Controller
         $captains_list = DB::table('concerned')
                               ->join('captains', 'concerned.scout_id', 'captains.scout_id')
                               ->join('scouts', 'concerned.scout_id', 'scouts.scout_id')
+                              ->join('events', 'concerned.event_id', 'events.event_id')
+                              ->where('concerned.event_id',$event_id)
                               ->get();
 
-        return response()->json(["Concerned"=>$captains_list])
+        return response()->json(["Concerned"=>$captains_list]);
     }
 
     /**
     * retrieves a list of present captains during an event
     */
     public function getPresentCaptains($event_id){
-        $concerned = Concerned::where([
-                ['event_id', $event_id],
-                ['presence', 1]
-                ])->captains();
 
-        $captains_list = array();
-        foreach($concerned as $captain)
-            $captains_list[] = $captain->scout;
 
-        return response()->json(["Concerned" => $captains_list])
+        $captains_list = DB::table('concerned')
+            ->join('captains', 'concerned.scout_id', 'captains.scout_id')
+            ->join('scouts', 'concerned.scout_id', 'scouts.scout_id')
+            ->join('events', 'concerned.event_id', 'events.event_id')
+            ->where('concerned.event_id',$event_id)
+            ->where('concerned.presence',1)
+            ->get();
+
+//        $concerned = Concerned::where([
+//                ['event_id', $event_id],
+//                ['presence', 1]
+//                ])->select('scout_id as scout')->get();
+//
+//        $captains_list = array();
+//        foreach($concerned as $captain)
+//            $captains_list[] = $captain->scout;
+
+        return response()->json(["Concerned" => $captains_list]);
+    }
+    public function getAbsentCaptains($event_id)
+    {
+
+
+        $captains_list = DB::table('concerned')
+            ->join('captains', 'concerned.scout_id', 'captains.scout_id')
+            ->join('scouts', 'concerned.scout_id', 'scouts.scout_id')
+            ->join('events', 'concerned.event_id', 'events.event_id')
+            ->where('concerned.event_id', $event_id)
+            ->where('concerned.presence', 0)
+            ->get();
+        return response()->json(["Concerned" => $captains_list]);
     }
 
 
@@ -1796,7 +1821,7 @@ class EventController extends Controller
             $event = Event::with('creator')
                 ->with('is_concerned')
                 ->where('event_id',$con->event_id)
-                ->get()[0];
+                ->get()->first();
             array_push($concerned_event,$event);
 
         }

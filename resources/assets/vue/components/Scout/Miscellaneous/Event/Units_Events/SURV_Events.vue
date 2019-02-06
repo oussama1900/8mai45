@@ -15,7 +15,7 @@
 
                 </div>
                 <div class="card-body" style="height: 50px; background-color: #C8C8C8">
-                    <h6> {{events.title}} </h6>
+                    <h6 @click="checkChoice(events.event_id)"> {{events.title}} </h6>
                 </div>
                 <div class="trigger" @click="delete_event(events)">
                     <i class="glyphicon glyphicon-remove" ></i>
@@ -65,15 +65,54 @@
             <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
 
         </sweet-modal>
+        <sweet-modal ref="export_choice" >
+            <h3>حدد الخيارات المراد وضعها </h3>
+            <div>
+                <label class="choice" for="box1">الهاتف</label>
+                <input  id="box1" type="checkbox" v-model="choice.phone"/>
+                <label class="choice" for="box1"></label>
+
+                <label class="choice" for="box2">الدور</label>
+                <input id="box2" type="checkbox" v-model="choice.role"/>
+                <label class="choice" for="box2"></label>
+                <label class="choice" for="box3">تاريخ الميلاد</label>
+                <input id="box3" type="checkbox" v-model="choice.birthday"/>
+                <label class="choice" for="box3"></label>
+
+
+
+            </div>
+
+
+            <button id="done_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" @click="ExportPresentCaptains">تحميل</button>
+        </sweet-modal>
+        <loading
+                class="label_title"
+                :show="show"
+                :label="label">
+        </loading>
         </div>
 
 </template>
 
 <script>
+    import loading from 'vue-full-loading';
+
     export default {
+        components:{
+            loading
+        },
         data(){
             return{
                 AllEvents:'',
+                choice:{
+                    birthday:false,
+                    role:false,
+                    phone:false
+                },
+                event_id:'',
+                show: false,
+                label: '....الرجاء الإنتظار',
             }
         },
         created:function(){
@@ -130,7 +169,33 @@
 
                 });
             },
+            checkChoice(event_id){
+                this.$refs.export_choice.open();
+                this.event_id = event_id;
+            },
+            ExportPresentCaptains(){
+                this.$refs.export_choice.close();
+                this.show = true;
+                var vm = this;
+                axios({
+                    url: '/api/ExportPresentsCaptains/'+vm.event_id,
+                    method: 'Post',
+                    responseType: 'blob',
+                    data:{
+                        choice:vm.choice
+                    }
+                }).then(function (response) {
+                    let blob = new Blob([response.data], {type: 'application/pdf'});
 
+                    let link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'قائمة الحضور.pdf';
+                    link.click();
+                    vm.show = false;
+                }).catch(function(error){
+                    vm.show = false;
+                })
+            }
         }
     }
     /*the floating button css*/

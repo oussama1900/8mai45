@@ -1,6 +1,8 @@
 <?php
 
 namespace  App\Http\Controllers;
+use App\Concerned;
+use App\Event;
 use App\Notifications\notifyCaptain;
 use App\UnitScout;
 use Illuminate\Http\Request;
@@ -752,6 +754,46 @@ class FormsController extends  Controller
         return $pdf->download();
 
 
+    }
+
+
+    public function getPresentCaptains($event_id){
+
+
+        $captains_list = DB::table('concerned')
+            ->join('captains', 'concerned.scout_id', 'captains.scout_id')
+            ->join('scouts', 'concerned.scout_id', 'scouts.scout_id')
+            ->join('events', 'concerned.event_id', 'events.event_id')
+            ->join('roles', 'roles.name', 'captains.role')
+            ->where('concerned.event_id',$event_id)
+            ->where('concerned.presence',1)
+            ->get();
+
+//        $concerned = Concerned::where([
+//                ['event_id', $event_id],
+//                ['presence', 1]
+//                ])->select('scout_id as scout')->get();
+//
+//        $captains_list = array();
+//        foreach($concerned as $captain)
+//            $captains_list[] = $captain->scout;
+
+        return $captains_list;
+    }
+    // export pdf contains list of captains who confirm present in an event
+
+    public function ExportPresentCaptains(Request $request,$event_id){
+        $choice = $request->input('choice');
+        $captains = $this->getPresentCaptains($event_id);
+        $event = Event::find($event_id);
+        $title = $event->title;
+        $event_time = $event->event_time;
+        $responsible =Scout::find($event->responsible);
+        $concerneds =Concerned::where('event_id',$event_id)->count();
+
+        $pdf = PDF::loadView('FormsTemplate.PresentCaptains_List',compact('captains','choice','title','event_time','responsible','concerneds'));
+        return $pdf->download();
+        // return response()->json(["data"=>$choice]);
     }
 
 }

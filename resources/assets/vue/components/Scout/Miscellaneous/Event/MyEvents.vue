@@ -18,8 +18,8 @@
                             <img :src="'/images/EventImages/'+events.event_image" class="icon" >
 
                         </div>
-                        <div class="card-body" style="height: 50px; background-color: #C8C8C8">
-                            <h6> {{events.title}} </h6>
+                        <div class="card-body" style="height: 50px; background-color: #C8C8C8" >
+                            <h6 @click="checkChoice(events.event_id)" style="cursor:pointer;"> {{events.title}} </h6>
                         </div>
 
 
@@ -39,6 +39,7 @@
 
                         <!--here you can make confition if scout color to change the background-->
                         <div class="card-footer" style="background-color:white;height: 50px; margin: 0 0; padding: 0 0" >
+                         
                             <div class="col-sm-8 col-xs-8" style="height: 100%;padding: 0 0">
                                 <h6 style="text-align:right;margin-top: 5%;margin-right: 0; padding-right: 0">{{myinfo.last_name}} {{myinfo.first_name}}</h6>
                                 <h6 style="text-align:right;margin: 0 0">    <span>نشر بتاريخ</span><span> {{getday(events)}} </span> <span> {{getcurrentmonth(events)}} </span>   الساعة <span>{{gettime(events)}}</span> </h6>
@@ -53,6 +54,7 @@
 
 
 
+
                         </div>
 
                     </div>
@@ -62,6 +64,27 @@
                         <button id="cancel_button" class="btn btn-danger" style="margin:10px;margin-top:20px">لا</button>
                          <button id="confirmation_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" >نعم</button>
                     </sweet-modal>
+                    <sweet-modal ref="export_choice" >
+                        <h3>حدد الخيارات المراد وضعها </h3>
+                        <div>
+                            <label class="choice" for="box1">الهاتف</label>
+                            <input  id="box1" type="checkbox" v-model="choice.phone"/>
+                            <label class="choice" for="box1"></label>
+
+                            <label class="choice" for="box2">الدور</label>
+                            <input id="box2" type="checkbox" v-model="choice.role"/>
+                            <label class="choice" for="box2"></label>
+                            <label class="choice" for="box3">تاريخ الميلاد</label>
+                            <input id="box3" type="checkbox" v-model="choice.birthday"/>
+                            <label class="choice" for="box3"></label>
+
+
+
+                        </div>
+
+
+                         <button id="done_button" class="btn btn-primary" style="margin: 10px;margin-top:20px" @click="ExportPresentCaptains">تحميل</button>
+                    </sweet-modal>
                 </div>
 
 
@@ -70,22 +93,35 @@
 
             </div>
         </div>
+        <loading
+                class="label_title"
+                :show="show"
+                :label="label">
+        </loading>
     </div>
 
 </template>
 
 <script>
     import { SweetModal, SweetModalTab  } from 'sweet-modal-vue'
-
+    import loading from 'vue-full-loading';
     export default {
         components:{
-            SweetModal,
+            SweetModal,loading
         },
         data(){
             return{
                 myevents:'',
                 myinfo:'',
-                float:''
+                float:'',
+                choice:{
+                    birthday:false,
+                    role:false,
+                    phone:false
+                },
+                event_id:'',
+                show: false,
+                label: '....الرجاء الإنتظار',
             }
         },
 
@@ -127,6 +163,7 @@
             },
             delete_event(event){
                 this.$refs.confirmation.open();
+
                 var vm = this;
                 $("#confirmation_button").unbind().click(function () {
 
@@ -152,6 +189,34 @@
                    this.float='';
 
                 return true;
+            },
+            checkChoice(event_id){
+                this.$refs.export_choice.open();
+                this.event_id = event_id;
+            },
+            ExportPresentCaptains(){
+                this.$refs.export_choice.close();
+                this.show = true;
+                var vm = this;
+                axios({
+                    url: '/api/ExportPresentsCaptains/'+vm.event_id,
+                    method: 'Post',
+                    responseType: 'blob',
+                    data:{
+                        choice:vm.choice
+                    }
+                }).then(function (response) {
+
+                    let blob = new Blob([response.data], {type: 'application/pdf'});
+
+                    let link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'قائمة الحضور.pdf';
+                    link.click();
+                    vm.show = false;
+                }).catch(function(error){
+                    vm.show = false;
+                })
             }
 
         }
@@ -304,5 +369,26 @@
     h6,h3,h4,span,p,button {
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
+    }
+    .download-trigger{
+        margin-top:5px;
+    }
+    .card-footer{
+        height:60px !important;
+    }
+    input[type=checkbox] { display:none; } /* to hide the checkbox itself */
+    input[type=checkbox] + label:before {
+        font-family: FontAwesome;
+        display: inline-block;
+    }
+
+    input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
+    input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+
+    input[type=checkbox]:checked + label:before { content: "\f046"; } /* checked icon */
+    input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+
+    .choice{
+        font-size:24px;
     }
 </style>

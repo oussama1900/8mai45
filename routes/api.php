@@ -372,6 +372,7 @@ Route::get('/getBook/{id}', 'BooksController@getBook'
 );
 Route::put('/EditBookInfo/{id}', 'BooksController@EditBookInfo'
 );
+Route::Post('/ExportPresentsCaptains/{id}', 'FormsController@ExportPresentCaptains')->name('ExportPresentsCaptains');
 
 Route::post('/marsNotificationAsRead',function(){
   $user = Auth::user();
