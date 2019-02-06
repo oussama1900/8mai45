@@ -14,7 +14,7 @@ class Scout extends Model
     protected $membership_date;
 
     protected $fillable = [
-        'first_name', 'last_name', 'assurance_num', 'date_of_birth',
+        'first_name', 'last_name', 'latin_fname', 'latin_lname', 'assurance_num', 'date_of_birth',
         'membership_date', 'email', 'phone','image','scout_info','personal_info','family_status'
     ];
 
@@ -33,6 +33,11 @@ class Scout extends Model
     public function getFullName(){
         return $this->last_name.' '.$this->first_name;
     }
+
+    public function getLatinFullName(){
+        return $this->latin_lname.' '.$this->latin_fname;
+    }
+
     public function  getId(){
         return $this->scout_id;
     }
