@@ -19,8 +19,6 @@ class CreateScoutsTable extends Migration
             $table->unsignedInteger('assurance_num');
             $table->string('first_name', 30);
             $table->string('last_name', 30);
-            $table->string('latin_fname', 30);
-            $table->string('latin_lname', 30);
             $table->date('date_of_birth');
             $table->string('place_of_birth', 255);
             $table->string('family_status', 255);

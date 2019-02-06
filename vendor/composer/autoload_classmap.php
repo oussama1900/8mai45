@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddForeignKeys' => $baseDir . '/database/migrations/2015_10_10_171734_add_foreign_keys.php',
     'AddImageToUsersAndPosts' => $baseDir . '/database/migrations/2018_08_13_175829_add_image_to_users_and_posts.php',
+    'AlterScouts' => $baseDir . '/database/migrations/2019_02_06_231100_alter_scouts.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'CaptainSeeder' => $baseDir . '/database/seeds/CaptainSeeder.php',
