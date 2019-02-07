@@ -9,7 +9,7 @@
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
   <link rel="icon" href="<?php echo e(asset('/images/landing_page_Logo.png')); ?>" >
   <link rel="stylesheet" href="/css/app.css"/>
-  <title>الموقع الرسمي لفوج الفلاح</title>
+  <title>الادارة الالكترونية</title>
 
 
 
@@ -125,6 +125,13 @@
 
 <?php echo $__env->make('includes.dashbars.topnavbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <div id="app">
+  <vue-loading :active.sync="$root.isLoading"
+           :can-cancel="false"
+           :loader="$root.dots"
+           :color="$root.color"
+           :width="$root.width"
+           :height="$root.height"
+           :is-full-page="$root.fullPage"></vue-loading>
 <?php echo $__env->make('includes.dashbars.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <!-- Page -->
   <div class="page" style="animation-duration: 2000ms; opacity: 1;">

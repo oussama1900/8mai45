@@ -37,11 +37,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::approved()->orderby('created_at','desc')->take(3)->paginate(3);
-        $events = Event::approved()->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(3)->get();
-        $carousels = landingPageCarousel::all();
+        $cubPost = Post::approved()->where('linked_unit','cubs')->orderby('created_at','desc')->get()->first();
+        $scoutPost = Post::approved()->where('linked_unit','sct')->orderby('created_at','desc')->get()->first();
+        $ascoutPost = Post::approved()->where('linked_unit','asct')->orderby('created_at','desc')->get()->first();
+        $travelerPost = Post::approved()->where('linked_unit','tvlr')->orderby('created_at','desc')->get()->first();
+        $capPost = Post::approved()->where('linked_unit','cap')->orderby('created_at','desc')->get()->first();
+        $events = Event::approved()->where('event_time', '>=', Carbon::now()->toDateString())->orderby('event_time','asc')->take(2)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
-        return view('home')->with('posts',$posts)->with('events',$events)->with('carousels',$carousels);
+        return view('home')
+            ->with('cubPost',$cubPost)
+            ->with('scoutPost',$scoutPost)
+            ->with('ascoutPost',$ascoutPost)
+            ->with('travelerPost',$travelerPost)
+            ->with('capPost',$capPost)
+            ->with('events',$events);
     }
 
     public function cubs()

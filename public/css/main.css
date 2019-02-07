@@ -1,0 +1,553 @@
+@import url(https://fonts.googleapis.com/earlyaccess/amiri.css);
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(https://fonts.googleapis.com/earlyaccess/lateef.css);
+@import url(https://fonts.googleapis.com/earlyaccess/scheherazade.css);
+@import url(https://fonts.googleapis.com/earlyaccess/thabit.css);
+
+html {
+    min-height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    width: 100%;
+    background-image: linear-gradient(to bottom, white, white 50%, #25598D 10%, white);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+.navbar {
+
+    display: flex;
+    z-index: 3;
+
+}
+
+.navbar-brand {
+
+    position: absolute;
+    left: calc(50% - 35px);
+    top: 2%;
+    display: block;
+
+
+
+}
+
+.navbar-brand img {
+    height: 70px;
+    width: 70px;
+    margin-top: 20%;
+    border-radius: 50%;
+
+
+}
+
+nav a {
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+
+}
+
+.navbar-collapse li {
+    margin: 0;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 160px;
+}
+
+/* .row.vdivide [class*='col-']:not(:last-child):after {
+    background: #e0e0e0;
+    width: 1px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: 10%;
+    min-height: 70px;
+} */
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+
+
+}
+
+.home-bg-img {
+    background-image: url(../images/bg.png);
+    padding: 16.5em 0;
+    width: 100%;
+    color: #ffffff;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 105%;
+    background-position: center;
+    /* background-attachment: fixed; */
+
+}
+
+.home-bg-img h1 {
+    font-size: 4em;
+    margin-top: -10%;
+}
+
+.home-bg-img h1 span {
+    text-align: center;
+    font-weight: 300;
+    display: block;
+    font-size: .9;
+    margin-bottom: 1.0em;
+}
+
+.button {
+
+    display: inline-block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-width: 2px;
+    border-style: solid;
+    padding: .2em 1.0em;
+    text-align: center;
+}
+
+.button-accent {
+    color: beige;
+}
+
+@media (max-width:55rem) {
+    .home-bg-img h1 {
+        font-size: 3em;
+    }
+
+    .home-bg-img {
+        width: 1077em;
+    }
+}
+
+
+div.three-cards {
+    border-radius: 25px;
+    border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.three-cards {
+
+    margin: 2%;
+    margin-top: -5%;
+    height: 14em;
+
+}
+
+
+
+
+.three-cards img {
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.three-cards h1 {
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    font-size: 30px;
+    margin-top: 5%;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+
+.three-cards h3 {
+    font-family: 'droidarabicnaskh', sans-serif;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.three-cards #card1 {
+    color: #3F4246;
+}
+
+.three-cards #card2 {
+    color: #DBA130;
+}
+
+.three-cards #card3 {
+    color: #25598D;
+}
+
+
+.home-separator-elems {
+    /* background-color: blueviolet; */
+    margin-top: 7%;
+    margin-bottom: 5%;
+    text-align: center;
+
+}
+
+.home-separator-elems h3 {
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    color: #25598D;
+    font-size: 130%;
+}
+
+.home-separator-elems h1 {
+    font-family: 'droidarabicnaskh', sans-serif;
+    font-size: 35px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.home-separator-elems span {
+    stroke: #ffffff;
+    border: #ffffff;
+    margin-left: 2%;
+
+}
+
+.home-separator-elems hr {
+    position: relative;
+    margin: 1%;
+    margin-left: calc(50% - 40px);
+    width: 5rem;
+    border-width: 2.5px;
+    border-color: #25598D;
+
+}
+
+.home-event-2 .card1 {
+
+    text-align: center;
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    max-width: 30rem;
+    height: 30em;
+    margin: 2%;
+    margin-bottom: 7% !important;
+    z-index: 2;
+    padding-top: 2.5%;
+    opacity: .8;
+    border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+
+
+
+
+
+}
+
+.home-event-2 .card2 {
+    max-width: 35rem;
+    height: 35em;
+    margin: 2%;
+    margin-right: -10%;
+    margin-left: -10%;
+    padding: 0;
+    border-radius: 5px;
+    margin-bottom: 7% !important;
+    border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+
+
+.card2 .card-body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+    padding: 0;
+    position: relative;
+    border-radius: 5px;
+
+}
+
+.color-filter {
+
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: #25598D;
+    opacity: 0.35;
+    filter: alpha(opacity=50);
+    z-index: -1;
+    position: absolute;
+    border-radius: 5px;
+}
+
+
+.home-event-3 .event-card1 {
+    text-align: right;
+    color: #ffffff;
+    max-width: 25rem;
+    margin-left: 32%;
+    margin-top: 2%;
+    height: 250px;
+    padding: 0;
+    border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+.home-event-3 .event-card2 {
+    text-align: center;
+    color: #ffffff;
+    max-width: 25rem;
+    height: 516px;
+    margin-top: 0;
+    margin-left: 5%;
+    padding: 0;
+    border: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.home-event-3 .event-card1 .card-title {
+    margin-top: 25%;
+    margin-right: 5%;
+    font-family: 'Droid Arabic Kufi', Courier, monospace;
+
+}
+
+.home-event-3 .event-card2 .card-title {
+    margin-top: 85%;
+    margin-right: 5%;
+    font-family: 'Droid Arabic Kufi', Courier, monospace;
+
+}
+
+.card-title h3 {
+    margin: 0;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.card-title h4 {
+    margin: 0;
+    font-size: 100%;
+}
+
+.card-title h5 {
+    margin: 0;
+    font-size: 70%;
+}
+
+.event-card1 .card-text {
+    font-family: 'scheherazade';
+    font-size: 120%;
+    margin-top: 0;
+    margin-right: 5%;
+    margin-left: 15%;
+    text-align: right;
+}
+
+.event-card1 .card-body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+    padding: 0;
+    position: relative;
+}
+
+.event-card1 .card-body:hover .side-filter1 {
+    width: 100%;
+    opacity: .8;
+
+}
+
+.event-card2 .card-body:hover .side-filter2 {
+    height: 100%;
+    opacity: .8;
+
+}
+
+.event-card2 .card-body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+    padding: 0;
+    position: relative;
+}
+
+.side-filter1 {
+    height: 100%;
+    width: 30%;
+    right: 0;
+    background-color: #25598D;
+    opacity: .8;
+    filter: alpha(opacity=50);
+    z-index: -1;
+    position: absolute;
+    transition: all .3s ease;
+}
+
+
+
+.side-filter2 {
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+    background-color: #25598D;
+    opacity: .8;
+    filter: alpha(opacity=50);
+    z-index: -1;
+    position: absolute;
+    transition: all .3s ease;
+
+
+}
+
+.grid-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 30em;
+
+}
+
+.grid-text {
+    background: white;
+    text-align: right;
+    opacity: .7;
+}
+
+/* .card .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    float: left;
+    shape-outside: circle();
+    margin: 30px 10px 30px 0;
+}
+
+.card p {
+    padding: 0;
+    text-align: right;
+    line-height: 22px;
+    font-family: 'Droid Arabic Kufi', sans-serif;
+}
+
+.card h1 {
+    padding: 0;
+    font-size: 30px;
+}
+
+.card h5 {
+    margin-top: 5%;
+    padding: 0;
+    text-align: cneter;
+} */
+
+
+
+@media (min-width: 48rem) {
+
+    .middle {
+        margin-top: -15%;
+    }
+
+    .home-bg-img {
+        background-image: url(../images/bg.png);
+        padding: 16.5em 0;
+        width: 100%;
+        color: #ffffff;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: 105%;
+        background-position: center;
+
+
+    }
+
+}
+
+@media (min-width:10rem) {
+
+
+    .home-bg-img {
+        background-image: url(../images/bg.png);
+        padding: 16.5em 0;
+        width: 100%;
+        color: #ffffff;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: 105%;
+        background-position: center;
+
+
+    }
+
+}
+
+
+
+
+
+@media (max-width:60rem) {
+
+    .home-event-3 .event-card1 {
+
+        max-width: 20rem;
+        margin-left: 10%;
+        margin-top: 2%;
+        height: 250px;
+
+
+
+    }
+
+    .home-event-3 .event-card2 {
+
+        max-width: 20rem;
+        height: 516px;
+        margin-top: 0;
+        margin-left: 10%;
+
+    }
+}
+
+
+/* 
+center-somthing {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+} */
