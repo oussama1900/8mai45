@@ -95,7 +95,7 @@ class HomeController extends Controller
 
     public function news()
     {
-        $posts = Post::approved()->orderby('created_at','desc')->get();
+        $posts = Post::approved()->orderby('created_at','desc')->paginate(6);
         $sidePosts = Post::approved()->orderby('created_at','desc')->take(6)->get();
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.news_test')->with('posts',$posts)->with('sidePosts',$sidePosts);

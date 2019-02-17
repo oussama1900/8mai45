@@ -115,7 +115,7 @@
                         </div>
                     @endforeach
                 </div>
-
+                {{ $posts->links('pagination::bootstrap-4') }}
             </div>
         </div>
 
@@ -128,6 +128,11 @@
 @endsection
 @section('styles')
     <link rel="stylesheet" href="/css/news.css">
+    <style>
+        .page-link{
+            color: black !important;
+        }
+    </style>
 @endsection
 @section('og')
     <meta property="og:title" content="الموقع الرسمي لفوج الفلاح" />
