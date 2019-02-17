@@ -1,193 +1,4 @@
-<!-- this is used to extend from the app layout -->
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="icon" href="<?php echo e(asset('/images/landing_page_Logo.png')); ?>" >
-<!-- Custom fonts for this template -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
-    <script src="/js/ghost-typer.min.js"></script>
-
-
-
-    <script>
-        $(document).ready(function(){
-            $("#span-ani").ghosttyper({
-
-                messages:['فلاح','نجاح','ناس ملاح'],
-                timeWrite:150,
-                timeDelete:120,
-                timePause:1000
-
-            });
-
-        });
-    </script>
-
-    <script>
-
-        $(document).ready(function(){
-            $(window).scroll(function ()
-            {
-                fadeIO();
-
-            });
-        });
-
-
-
-
-        function fadeIO(){
-            var wScroll= $(window).scrollTop();
-
-            $('.home-bg-img').css('background-postition','center '+(wScroll *0.75)+'px');
-
-            //  $('#three-card2').css('opacity',(wScroll*0.005));
-
-
-            $('#event-text-card1').css('left', -30+(wScroll*0.025)+'em');
-            $('#event-text-card2').css('right', -35 + (wScroll * 0.025) + 'em');
-
-            if((wScroll>150) && (wScroll<400)){
-
-                $("#three-card1").addClass('animated fadeInDown');
-                $("#three-card2").addClass('animated zoomIn');
-                $("#three-card3").addClass('animated fadeInDown');
-
-
-            }
-            if((wScroll>2700)&&(wScroll<3900)){
-                console.log("shit");
-                $("#grid-text-one").addClass('animated bounceInLeft ');
-            }
-
-            if ((wScroll > 3300) && (wScroll < 4900))
-            {
-                console.log("shit");
-                $("#grid-text-two").addClass('animated bounceInRight ');
-            }
-
-
-
-
-            $(".grid-image").on({
-
-                mouseenter: function ()
-                {
-                    $(this).addClass('animated pulse ');
-                },
-                mouseleave: function ()
-                {
-                    $(this).removeClass('animated pulse ');
-                }
-            });
-            console.log(wScroll);
-
-
-
-
-
-
-
-// $(".three-cards.card1").fadeToggle(1000);
-
-        }
-    </script>
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <meta property="og:title" content="الموقع الرسمي لفوج الفلاح" />
-    <meta property="og:image" content="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/18835730_1701449486822767_2312127021052390335_n.jpg?_nc_cat=110&_nc_ht=scontent-cdg2-1.xx&oh=cd825a0c4d827b279c38b8729d706544&oe=5C4062E0" />
-    <meta property="og:description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة" />
-    <meta property="og:type" content="website" />
-    <title> الموقع الرسمي لفوج الفلاح </title>
-    <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
-    <link href='<?php echo e(url('/eventsFeed')); ?>' rel='alternate' title='RSS' type='application/rss+xml'/>
-    <link href='<?php echo e(url('/postsFeed')); ?>' rel='alternate' title='RSS' type='application/rss+xml'/>
-
-    <style>
-        @font-face {
-            font-family: "Alarabiya Font";
-            src: url("/Alarabiya-Font.ttf");
-        }
-        *:not(.fa){
-            font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
-        }
-        .nav-link {
-            color: black !important;
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-    <script>
-        window.addEventListener("load", function(){
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#edeff5",
-                        "text": "#838391"
-                    },
-                    "button": {
-                        "background": "#4b81e8"
-                    }
-                },
-                "theme": "classic",
-                "content": {
-                    "message": "يستخدم هذا الموقع ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة على موقعنا.",
-                    "dismiss": "أقبل",
-                    "link": "اقرأ أكثر"
-                }
-            })});
-    </script>
-</head>
-<body style="overflow-x:hidden">
-<section id="nav-bar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="/images/landing_page_Logo.png" alt="main_logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="row vdivide">
-                <ul class="navbar-nav col-md-12">
-                    <li class="nav-item active col-md-2">
-                        <a class="nav-link" href="#">تواصل معنا <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item col-md-2">
-                        <a class="nav-link" href="#">القادة</a>
-                    </li>
-                    <li class="nav-item col-md-2">
-                        <a class="nav-link" href="#">مكتبتنا</a>
-                    </li>
-                    <li class="nav-item col-md-2">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">الوحدات</a>
-                    </li>
-                    <li class="nav-item col-md-2">
-                        <a class="nav-link" href="#">الأخبار</a>
-                    </li>
-                    <li class="nav-item col-md-2">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">الرئيسية</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</section>
+<?php $__env->startSection('content'); ?>
     <section class="home-bg-img col-md-12">
         <div class="container ">
             <h1>فوج الفلاح
@@ -525,8 +336,107 @@
 
     </section> -->
     <!---->
-<?php echo $__env->make("includes.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-</body>
+<?php $__env->startSection('scripts'); ?>
+    <script>
+        $(document).ready(function(){
+            $("#span-ani").ghosttyper({
 
-</html>
+                messages:['فلاح','نجاح'],
+                timeWrite:150,
+                timeDelete:120,
+                timePause:1000
+
+            });
+
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function(){
+            $(window).scroll(function ()
+            {
+                fadeIO();
+
+            });
+        });
+
+
+
+
+        function fadeIO(){
+            var wScroll= $(window).scrollTop();
+
+            $('.home-bg-img').css('background-postition','center '+(wScroll *0.75)+'px');
+
+            //  $('#three-card2').css('opacity',(wScroll*0.005));
+
+
+            $('#event-text-card1').css('left', -30+(wScroll*0.025)+'em');
+            $('#event-text-card2').css('right', -35 + (wScroll * 0.025) + 'em');
+
+            if((wScroll>150) && (wScroll<400)){
+
+                $("#three-card1").addClass('animated fadeInDown');
+                $("#three-card2").addClass('animated zoomIn');
+                $("#three-card3").addClass('animated fadeInDown');
+
+
+            }
+            if((wScroll>2700)&&(wScroll<3900)){
+                console.log("shit");
+                $("#grid-text-one").addClass('animated bounceInLeft ');
+            }
+
+            if ((wScroll > 3300) && (wScroll < 4900))
+            {
+                console.log("shit");
+                $("#grid-text-two").addClass('animated bounceInRight ');
+            }
+
+
+
+
+            $(".grid-image").on({
+
+                mouseenter: function ()
+                {
+                    $(this).addClass('animated pulse ');
+                },
+                mouseleave: function ()
+                {
+                    $(this).removeClass('animated pulse ');
+                }
+            });
+            console.log(wScroll);
+
+
+
+
+
+
+
+// $(".three-cards.card1").fadeToggle(1000);
+
+        }
+    </script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('styles'); ?>
+    <link rel="stylesheet" href="/css/main.css">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('og'); ?>
+    <meta property="og:title" content="الموقع الرسمي لفوج الفلاح" />
+    <meta property="og:image" content="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/18835730_1701449486822767_2312127021052390335_n.jpg?_nc_cat=110&_nc_ht=scontent-cdg2-1.xx&oh=cd825a0c4d827b279c38b8729d706544&oe=5C4062E0" />
+    <meta property="og:description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة" />
+    <meta property="og:type" content="website" />
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?>
+    <title> الموقع الرسمي لفوج الفلاح </title>
+    <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('icon'); ?>
+    <link rel="icon" href="<?php echo e(asset('/images/landing_page_Logo.png')); ?>" >
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Layouts.new_template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
