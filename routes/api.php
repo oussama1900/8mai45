@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Events\MessagePosted;
+use ImageOptimizer;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,13 +65,13 @@ Route::delete('/deleteScout/{scout_id}',[
 Route::post('/AddNewScout',[
 
     'uses' =>'ScoutController@AddNewScout'
-]);
+])->middleware('optimizeImages');
 
 
 Route::post('/createOurUnits',[
 
     'uses' =>'ScoutController@createOurUnits'
-]);
+])->middleware('optimizeImages');
 
 Route::get('/Units',[
 
@@ -85,7 +86,7 @@ Route::get('/users-accounts',[
 Route::post('/addnewaccount',[
 
     'uses' =>'AccountsController@AddNewAccount'
-])->name('new_user');
+])->name('new_user')->middleware('optimizeImages');
 
 
 Route::get('/getUser',[
@@ -98,16 +99,16 @@ Route::get('/getcurrentuser',[
 Route::post('/UpdateMyInfo',[
     'uses' =>'AccountsController@UpdateMyInfo'
 
-]);
+])->middleware('optimizeImages');;
 Route::post('/UpdateCurriculumVitae','ScoutController@UpdateCurriculumVitae'
 
-);
+)->middleware('optimizeImages');
 Route::get('/getCurriculumVitae','ScoutController@getCurriculumVitae'
 
 );
 Route::post('/social_media_accounts','ScoutController@social_media_accounts'
 
-);
+)->middleware('optimizeImages');;
 Route::get('/getsocial_media_accounts','ScoutController@getsocial_media_accounts'
 
 );
@@ -131,7 +132,7 @@ Route::get('/getimage',[
 ]);
 Route::post('/changmyimage',[
     'uses' =>'AccountsController@ChangMyImage'
-]);
+])->middleware('optimizeImages');
 Route::get('/getMembershipdate/{scout_id}',[
     'uses' =>'AccountsController@getMembershipdate'
 ]);
@@ -147,7 +148,7 @@ Route::get('/getCaptains',[
 ]);
 Route::post('/postEvent',[
     'uses' =>'EventController@PostEvent'
-]);
+])->middleware('optimizeImages');
 Route::get('/getMyEvents',[
     'uses' =>'EventController@getMyEvents'
 ]);
@@ -157,7 +158,7 @@ Route::get('/getEvent/{event_id}',[
 
 Route::post('/UpdateEvent',[
     'uses' =>'EventController@UpdateEvent'
-]);
+])->middleware('optimizeImages');
 Route::delete('/deleteEvent/{event_id}',[
     'uses' =>'EventController@deleteEvent'
 ]);
@@ -166,10 +167,10 @@ Route::get('/getConcernedEvents',[
 ]);
 Route::post('/Confirm_presence',[
     'uses' =>'EventController@Confirm_presence'
-]);
+])->middleware('optimizeImages');
 Route::post('/Confirm_absence',[
     'uses' =>'EventController@Confirm_absence'
-]);
+])->middleware('optimizeImages');
 Route::get('/getPresenceEvents',[
     'uses' =>'EventController@getPresenceEvents'
 ]);
@@ -187,10 +188,10 @@ Route::get('/getEventsNotApproved',[
 ]);
 Route::post('/approveEvent',[
     'uses' =>'EventController@approveEvent'
-]);
+])->middleware('optimizeImages');
 Route::post('/disapproveEvent',[
     'uses' =>'EventController@disapproveEvent'
-]);
+])->middleware('optimizeImages');
 Route::get('/getEventsApproved',[
     'uses' =>'EventController@getEventsApproved'
 ]);
@@ -199,7 +200,7 @@ Route::get('/getUnitEvents/{unit_number}',[
 ]);
 Route::post('/newpost',[
     'uses' =>'postsController@createNewPost'
-]);
+])->middleware('optimizeImages');
 
 Route::get('/getMyPosts',[
     'uses' =>'postsController@getMyPosts'
@@ -226,16 +227,17 @@ Route::delete('/deletepost/{post_id}',[
 ]);
 Route::post('/approvePost/{post_id}',[
     'uses' =>'postsController@ApprovePost'
-]);
+])->middleware('optimizeImages');
 Route::post('/disapprovePost/{post_id}',[
     'uses' =>'postsController@DisapprovePost'
-]);
+])->middleware('optimizeImages');
 Route::get('/getPost/{post_id}',[
     'uses' =>'postsController@getPost'
 ]);
 Route::post('/EditPost/{post_id}',[
     'uses' =>'postsController@EditPost'
-]);
+])->middleware('optimizeImages');
+
 Route::get('/current_user','AccountsController@current_user');
 Route::get('/getUnitPosts/{unit_id}',[
     'uses' =>'postsController@getUnitPosts'
@@ -246,7 +248,7 @@ Route::get('/getMyApprovedPosts',[
 
 Route::post('/update_money',
 [  'uses' =>'FinanceController@update_money']
-);
+)->middleware('optimizeImages');
 Route::get('/getmoney_values',
 [  'uses' =>'FinanceController@getmoney_values']
 );
@@ -257,26 +259,26 @@ Route::get('/getGovernor',
 [  'uses' =>'FormsController@getGovernor']
 );
 Route::post('/previewHonorary_pdf', 'FormsController@previewHonorary'
-);
+)->middleware('optimizeImages');
 Route::put('/downloadHonoraryPDF', 'FormsController@downloadHonoraryPDF'
 );
 Route::post('/previewReporte_Scout_state_gov', 'FormsController@previewReporte_Scout_state_gov'
-);
+)->middleware('optimizeImages');
 Route::put('/downloadReporte_Scout_state_gov', 'FormsController@downloadReporte_Scout_state_gov'
 );
 Route::post('/PreviewSecurity_ReporterPDF', 'FormsController@PreviewSecurity_ReporterPDF'
-);
+)->middleware('optimizeImages');
 Route::put('/downloadSecurity_ReporterPDF', 'FormsController@downloadSecurity_ReporterPDF'
 );
 Route::post('/previewEducational_Institutions', 'FormsController@previewEducational_Institutions'
-);
+)->middleware('optimizeImages');
 Route::put('/downloadEducational_Institutions', 'FormsController@downloadEducational_Institutions'
 );
 Route::put('/Assigning_mission_travel', 'FormsController@Assigning_mission_travel'
 );
 
 Route::post('/previewOuting_mailPDF', 'FormsController@previewOuting_mailPDF'
-);
+)->middleware('optimizeImages');
 
 Route::put('/downloadOuting_mailPDF', 'FormsController@downloadOuting_mailPDF'
 );
@@ -411,13 +413,6 @@ Route::post('/dashboard/messages', function () {
 
     return response()->json(["status","ok"]) ;
 });
-
-
-
-
-
-
-
 
 Route::get('/dashboard/users', function (){
     return App\User::with('Profile')->get();
