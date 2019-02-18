@@ -15,7 +15,7 @@ class ConcernedTest extends TestCase
      */
     public function testExample()
     {
-        $class = App:make('EventController');
+        $class = App::make('EventController');
         $resp  = $class->getConcernedCaptains(1);
         $this->assert(is_set($resp));
     }
