@@ -191,12 +191,10 @@ $(document).ready(function() {
         }
         
         }
-        console.log(e.target);
         
         
 });
 $('#mySidenav').click(function(){
-    console.log("in");
 })
 $('.fa-bell-o').click(function(){
     if(document.getElementById("mySidenav").style.width!="0px"){

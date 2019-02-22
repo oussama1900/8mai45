@@ -153,7 +153,8 @@ return [
 	    Zizaco\Entrust\EntrustServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
 		Illuminate\Notifications\NotificationServiceProvider::class,
-		Laravel\Tinker\TinkerServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
+        Spatie\LaravelImageOptimizer\ImageOptimizerServiceProvider::class,
 
 
         /*
@@ -220,7 +221,8 @@ return [
         'Share' => Jorenvh\Share\ShareFacade::class,
 		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-		'Notification' => Illuminate\Support\Facades\Notification::class,
+        'Notification' => Illuminate\Support\Facades\Notification::class,
+        'ImageOptimizer' => Spatie\LaravelImageOptimizer\Facades\ImageOptimizer::class,
 
     ],
 

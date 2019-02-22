@@ -62,6 +62,8 @@ class Kernel extends HttpKernel
 		'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
 		'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
 		'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
-		'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        'optimizeImages' => \Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages::class,
+
     ];
 }

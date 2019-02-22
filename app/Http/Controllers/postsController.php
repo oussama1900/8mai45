@@ -15,6 +15,8 @@ use Auth;
 use DB;
 use File;
 use Carbon\Carbon;
+use ImageOptimizer;
+
 
 
 class postsController extends Controller

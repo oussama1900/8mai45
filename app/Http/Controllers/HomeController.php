@@ -15,6 +15,7 @@ use App\landingPageCarousel;
 use App\BooksLibrary;
 use App\BooksCategory;
 
+
 class HomeController extends Controller
 {
     /**
@@ -28,6 +29,7 @@ class HomeController extends Controller
 	   $this->foo = $foo;
 
     }
+    
 
 
     /**
