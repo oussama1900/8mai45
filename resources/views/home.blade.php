@@ -5,41 +5,47 @@
             <h1>فوج الفلاح
                 <span id="span-ani" style="height:80px;margin-bottom:50px "></span>
             </h1>
-            <a href="/about" class="button button-accent">من نحن </a>
+           <a href="/about" class="square_btn">!...من نحن </a>
+         
         </div>
     </section>
     <!---->
     <section class="home-cards h-100">
         <div class="row h-100 justify-content-center align-items-center ">
-
             <div class="card three-cards bg-light mb-3 col-md-3 " id="three-card1">
-                <div class="card-body ">
+               <a href="/team">
+                <div class="card-body">
                     <img src="/images/captains-logo.png" alt="">
                     <div id="card1">
-                        <h1>القادة</h1>
-                        <h3><a href="/team">تعرف على قادة الفوج</a></h3>
+                          <h1>القادة</h1>
+                          <h3>تعرف على قادة الفوج</h3>
                     </div>
                 </div>
+              </a>
             </div>
 
             <div class="card three-cards middle bg-light col-md-3 " id="three-card2">
+                <a href="/news">
                 <div class=" card-body">
                     <img src="/images/news-logo.png" alt="">
                     <div id="card2">
                         <h1>الأخبار</h1>
-                        <h3><a href="/news">اطلع على آخر الأخبار</a></h3>
+                        <h3>اطلع على آخر الأخبار</h3>
                     </div>
                 </div>
-            </div>
+                </a>
+             </div>
             <div class="card three-cards bg-light mb-3 col-md-3" id="three-card3">
-                <div class=" card-body">
+                <a href="/library">
+                   <div class=" card-body">
                     <img src="/images/library-logo.png" alt="">
                     <div id="card3">
                         <h1>المكتبة</h1>
-                        <h3><a href="/library"> يمكنك قراءة و تحميل كتبنا</a> </h3>
+                        <h3>يمكنك قراءة و تحميل كتبنا</h3>
                     </div>
                 </div>
-            </div>
+                </a>
+           </div>
         </div>
     </section>
     <!---->
@@ -51,7 +57,7 @@
         <div class="row">
             <hr width="50%">
         </div>
-        <a href="/news" class="btn btn-primary btn-rounded">كل الاخبار</a>
+        <a href="/news" class="btn btn-primary btn-rounded ">كل الاخبار</a>
     </section>
     <!---->
 @if(!empty($cubPost))
@@ -124,15 +130,17 @@
                 <div class="row h-100">
                     <div class="card event-card1 bg-light mb-3 col-md-12">
                         <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$ascoutPost->cover_image}});">
+                          <a href="#">
                             <div class="color-filter"></div>
                             <div class="side-filter1"></div>
                             <div class="card-title">
-                                <h3>{{$ascoutPost->post_title}}</h3>
+                                <h2>{{$ascoutPost->post_title}}</h2>
                                 <h4> {{substr($ascoutPost->post_date, 0, 10)}} </h4>
-                                <h5> وحدة المتقدم </h5>
+                                <h6> وحدة المتقدم </h6>
 
                             </div>
                             <p class="card-text">{!! $ascoutPost->post_summary !!}</p>
+                          </a>
                         </div>
                     </div>
                 </div>
@@ -141,15 +149,17 @@
                 <div class="row h-100">
                     <div class="card bg-light event-card1 mb-3 col-md-12">
                         <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$travelerPost->cover_image}});">
+                          <a href="#">
                             <div class="color-filter"></div>
                             <div class="side-filter1"></div>
                             <div class="card-title">
-                                <h3>{{$travelerPost->post_title}} </h3>
+                                <h2>{{$travelerPost->post_title}} </h2>
                                 <h4>{{substr($travelerPost->post_date, 0, 10)}} </h4>
-                                <h5> وحدة الجوالة </h5>
+                                <h6> وحدة الجوالة </h6>
 
                             </div>
                             <p class="card-text">{!! $travelerPost->post_summary !!}</p>
+                          </a>
                         </div>
                     </div>
                 </div>
@@ -160,16 +170,17 @@
                 <div class="row h-100 ">
                     <div class="card bg-light event-card2 mb-3 col-md-12">
                         <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$capPost->cover_image}});">
+                         <a href="#">
                             <div class="color-filter"></div>
                             <div class="side-filter2"></div>
                             <div class="card-title">
-                                <h3>{{$capPost->post_title}}</h3>
+                                <h2>{{$capPost->post_title}}</h2>
                                 <h4> {{substr($capPost->post_date, 0, 10)}} </h4>
-                                <h5> وحدة القادة </h5>
-
+                                <h6> وحدة القادة </h6>
                             </div>
                             <p class="card-text">{!! $capPost->post_summary !!}</p>
-                        </div>
+                         </a>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -344,7 +355,7 @@
         $(document).ready(function(){
             $("#span-ani").ghosttyper({
 
-                messages:['فلاح','نجاح'],
+                messages:['|...فلاح','|...كفاح','|...نجاح','|...تقدم','|...عمل'],
                 timeWrite:150,
                 timeDelete:120,
                 timePause:1000

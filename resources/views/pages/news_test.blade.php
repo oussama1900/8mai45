@@ -75,13 +75,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md defer-news-container">
-                <div class="row" style="margin-bottom:10%;">
+            <div class="col-md defer-news-container ">
+                <div class="row " style="margin-bottom:10%;">
                     @foreach($posts as $post)
+                      <a href="/posts/{{$post->post_id}}">
                         <div class="col-md-4">
-                            <div class="card text-center">
+                            <div class="card text-center card-bg">
                                 <div class="card-header" style="text-align: right">
-                                    <h3><a href="/posts/{{$post->post_id}}">{{$post->post_title}}</a></h3>
+                                    <h3>{{$post->post_title}}</h3>
                                     <h5>{{substr($post->post_date, 0, 10)}}</h5>
                                     @php
                                         $unit_name = '';
@@ -113,6 +114,7 @@
                                 </div>
                             </div>
                         </div>
+                     </a>
                     @endforeach
                 </div>
                 {{ $posts->links('pagination::bootstrap-4') }}

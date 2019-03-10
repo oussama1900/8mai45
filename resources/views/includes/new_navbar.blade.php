@@ -1,7 +1,9 @@
 <section id="nav-bar" >
     <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-        <a class="navbar-brand" href="#"><img src="/images/landing_page_Logo.png" alt="main_logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+         <div class="nav-brand-container">
+          <a class="navbar-brand" href="#"><img src="/images/landing_page_Logo.png" alt="main_logo"></a>
+         </div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
