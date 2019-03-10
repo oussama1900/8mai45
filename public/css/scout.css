@@ -1,0 +1,544 @@
+@import url(https://fonts.googleapis.com/earlyaccess/amiri.css);
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url(https://fonts.googleapis.com/earlyaccess/lateef.css);
+@import url(https://fonts.googleapis.com/earlyaccess/scheherazade.css);
+@import url(https://fonts.googleapis.com/earlyaccess/thabit.css);
+
+html {
+    min-height: 100%;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 !important;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+
+
+}
+
+.navbar {
+
+    display: flex;
+    z-index: 3;
+
+
+}
+
+/* .navbar-brand {
+
+    position: absolute;
+    left: calc(50% - 35px);
+    top: 2%;
+    display: block;
+
+
+
+} */
+
+.logo-bg {
+    position: absolute;
+    left: calc(50% - 35px);
+    top: 5%;
+    display: block;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    padding: 0;
+    background-color: #FFF;
+
+}
+
+.navbar-brand img {
+    height: 100%;
+    width: 100%;
+    margin-top: 10% !important;
+    margin-left: 7% !important;
+}
+
+nav a {
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+
+
+}
+
+.navbar-collapse li {
+    margin: 0;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 160px;
+
+}
+
+/* .row.vdivide [class*='col-']:not(:last-child):after {
+    background: #e0e0e0;
+    width: 1px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: 10%;
+    min-height: 70px;
+} */
+.shape {
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.shape1 {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: -100px;
+    float: right;
+    padding: 0 !important;
+}
+
+
+.top {
+    height: 0;
+    /* border-width: 180px 2000px 0px 0px; */
+    border-width: 150px 0px 0px 0px;
+    border-left-width: 400px;
+    border-style: solid;
+    border-color: #2A4E2A transparent #2A4E2A transparent;
+    padding: 0 !important;
+
+}
+
+.bottom {
+    height: 50px;
+    background-color: #2A4E2A;
+    padding: 0 !important;
+
+}
+
+.shape1 h1 {
+    color: white;
+    font-size: 300%;
+    font-family: 'droidarabicnaskh';
+    position: absolute;
+    left: calc(50% - 140px);
+    display: block;
+    /* margin-top: -10%; when 200% size */
+    padding: 0 !important;
+
+}
+
+.shape1 h2 {
+    color: white;
+    opacity: .8;
+    font-size: 200%;
+    font-family: 'droidarabicnaskh';
+    position: absolute;
+    left: calc(50% - 40px);
+    display: block;
+    /* margin-top: -10%; when 200% size */
+    margin-top: 3.5%;
+    padding: 0 !important;
+
+}
+
+
+
+.news-cards-container {
+    margin-left: 5%;
+    padding: 0 !important;
+
+
+
+}
+
+.defer-news-container {
+    margin-top: -2%;
+    margin-left: 5%;
+    padding: 0 !;
+    max-height: 1300px;
+
+}
+
+.news-cards-container .card {
+    text-align: right;
+    font-family: 'Droid Arabic Kufi', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.news-cards-container .card-header {
+    border-width: 2px !important;
+    border-color: #2A4E2A !important;
+
+
+}
+
+.btn-cust {
+    font-family: Raleway-SemiBold !important;
+    font-size: 20px !important;
+    letter-spacing: 1px !important;
+    line-height: 15px !important;
+    border-radius: 40px !important;
+    transition: all 0.3s ease 0s !important;
+    color: white !important;
+    background-color: #2A4E2A !important;
+    width: 100% !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+.btn-cust:hover {
+    color: #FFF !important;
+    background: #42A442 !important;
+
+}
+
+.btn-fb {
+    margin: 5%;
+    margin-bottom: 0;
+    background-color: rgb(59, 89, 152) !important;
+    color: #FFF !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.btn-fb:hover {
+    background-color: rgb(139, 157, 195) !important;
+
+}
+
+.btn-tw {
+    margin: 5%;
+    margin-bottom: 0;
+    background-color: rgb(56, 161, 243) !important;
+    color: #FFF !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.btn-tw:hover {
+    background-color: rgb(56, 121, 253) !important;
+}
+
+.btn-yt {
+    margin: 5%;
+    margin-bottom: 0;
+    background-color: rgb(199, 22, 16) !important;
+    color: #FFF !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.btn-yt:hover {
+    background-color: rgb(169, 22, 16) !important;
+}
+
+.btn-gplus {
+    margin: 5%;
+    margin-bottom: 0;
+    background-color: rgb(212, 70, 56) !important;
+    color: #FFF !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.btn-gplus:hover {
+    background-color: rgb(178, 49, 33) !important;
+}
+
+.btn-email {
+    margin: 5%;
+    margin-bottom: 5%;
+    background-color: rgb(155, 174, 200) !important;
+    color: #FFF !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.btn-email:hover {
+    background-color: rgb(217, 225, 232) !important;
+}
+
+.btn-ins {
+    margin: 5%;
+    background-color: rgb(195, 42, 163) !important;
+    color: #FFF !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.btn-ins:hover {
+    background-color: rgb(114, 50, 189) !important;
+}
+
+
+
+.card-header h3 {
+    font-family: 'Droid Arabic Kufi',
+        sans-serif;
+    color: #2A4E2A;
+    font-size: 90%;
+    font-weight: bold;
+
+}
+
+.card-header h5 {
+    font-family: 'Droid Arabic Kufi',
+        sans-serif;
+    font-size: 70%;
+
+}
+
+.card-header h6 {
+    font-family: 'Droid Arabic Kufi',
+        sans-serif;
+    font-size: 50%;
+
+}
+
+.card-footer p {
+    font-family: 'scheherazade';
+    font-size: 130%;
+
+    line-height: 20pt;
+
+}
+
+.defer-news-container .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.defer-news-container .card:hover {
+    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+/**********************************************/
+.card-section {
+
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+    display: flex;
+    padding: 0 !important;
+    margin-bottom: 5%;
+
+
+
+
+}
+
+
+
+
+.card-section div {
+    padding: 4% 10%;
+
+
+}
+
+.card-section .row {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+
+}
+
+@media (min-width: 2700px) {
+    .card-section {
+        height: 480px;
+    }
+
+}
+
+@media (min-width: 4000px) {
+    .card-section {
+        height: 570px;
+    }
+
+    .card-summary {
+        height: 24%;
+    }
+
+}
+
+@media (min-width: 5000px) {
+    section {
+        height: 660px;
+    }
+
+    .card-summary {
+        height: 24% !important;
+    }
+
+}
+
+@media screen and (max-width: 1400px) {
+
+    .card-summary {
+        height: 32% !important;
+    }
+
+}
+
+.one {
+
+    width: 100%;
+    height: 100%;
+    padding-right: 40% !important;
+    padding-top: 2%;
+    text-align: right;
+    padding-bottom: 0 !important;
+    background: -webkit-linear-gradient(15deg, #ffffff 68%, #2A4E2A, #2A4E2A 69%, transparent, transparent 85%),
+        url("../weekly-imgg.png");
+    max-height: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+
+}
+
+
+/* .two {
+    width: 100% !important;
+    height: 100% !important;
+    padding-right: 0;
+    padding-top: 0%;
+    padding-left: 40%;
+    padding-bottom: 0;
+    background: -webkit-linear-gradient(170deg, #ffffff 60%, #CEB17C, #CEB17C 69%, transparent, transparent -2%), url("../weekly-img5.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+} */
+
+/*.read-more{*/
+/*float:left;*/
+/*border-radius: 40%;*/
+/*padding: 20px;*/
+/*background-color: #CEB17C ;*/
+/*color: white;*/
+/*text-decoration: none;*/
+/*cursor: pointer;*/
+/*box-shadow:0 25px 30px rgba(0,0,0,.5);*/
+
+/*}*/
+.button {
+    float: left;
+    position: relative;
+    appearance: none;
+    background: #2A4E2A;
+    text-decoration: none;
+    padding: 0.5em 2em;
+    margin-bottom: 10%;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+span {
+    position: relative;
+}
+
+
+.card-section h3 {
+
+    text-align: right;
+    font-size: 150%;
+    margin-right: 5%;
+    width: 100%;
+    font-family: "droidarabicnaskh" !important;
+    font-weight: bolder;
+}
+
+.card-section h1 {
+    text-align: right;
+    font-size: 150%;
+    margin-right: 5%;
+    width: 100%;
+    color: #2A4E2A;
+    font-family: "droidarabicnaskh" !important;
+
+}
+
+.card-section h2 {
+    text-align: right !important;
+    font-size: 100%;
+    color: gray;
+    margin-right: 5%;
+    width: 100%;
+    font-family: "droidarabicnaskh" !important;
+    font-style: initial;
+}
+
+.card-section p {
+    text-align: right !important;
+    font-size: 150%;
+    margin-right: 5%;
+    width: 100%;
+    font-family: "scheherazade" !important;
+    line-height: 22pt;
+    margin-bottom: 0;
+    padding: 0;
+
+}
+
+.read-more {
+    font-family: "Raleway-SemiBold" !important;
+    font-size: 20px !important;
+    letter-spacing: 1px !important;
+    line-height: 15px !important;
+    border-radius: 40px !important;
+    transition: all 0.3s ease 0s !important;
+    color: white !important;
+    background-color: #2A4E2A !important;
+    border: #2A4E2A !important;
+    width: 30% !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+.read-more:hover {
+    color: #FFF !important;
+    background: #42A442 !important;
+
+}
