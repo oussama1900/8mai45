@@ -66,13 +66,8 @@
     @yield('styles')
 </head>
 <body style="overflow-x:hidden">
-<div id="app">
     @include("includes.new_navbar")
-    <main>
-        @yield('content')
-
-    </main>
-</div>
+    @yield('content')
 @include("includes.footer")
 @yield('scripts')
 </body>
