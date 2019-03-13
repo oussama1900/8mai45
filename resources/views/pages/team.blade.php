@@ -112,19 +112,20 @@
             }
             .input-holder{
                 border-radius: 50px;
-                width: 450px;
+                width: 50% !important;
                 position: absolute;
-                right: 28%;
                 background: rgba(0,0,0,0.8);
                 -webkit-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
                 -moz-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
                 transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
                 overflow: hidden;
-                height: 70px;
+                height: 50px;
+                left: 50%;
+                transform: translateX(-50%);
             }
             .input-holder>input{
                 width: 100%;
-                height: 50px;
+                height: 25px;
                 padding: 0px 70px 0 20px;
                 opacity: 0;
                 position: absolute;
@@ -136,7 +137,6 @@
                 box-sizing: border-box;
                 border: none;
                 outline: none;
-
                 font-size: 16px;
                 font-weight: 400;
                 line-height: 20px;
@@ -163,8 +163,10 @@
                 height: 70px;
                 border: none;
                 border-radius: 6px;
-                background: #FFF;
+                background: transparent;
+                color:white;
                 padding: 0px;
+                margin-top:0 !important;
                 outline: none;
                 position: relative;
                 z-index: 2;
@@ -179,6 +181,7 @@
                 height: 50px;
                 margin: 10px;
                 border-radius: 30px;
+                color:#FFF;
 
             }
             input{
@@ -188,8 +191,56 @@
 
                 padding: 0px 70px 10px 20px !important;
             }
+            .mc-footer{
+                background-color:#25598D !important;
+                height:50px !important;
+                padding:0 !important; 
+                border-bottom-right-radius:25px !important;
+                border-bottom-left-radius:25px !important;
+            }
+            .material-card.Light-Blue.mc-active h2:before {
+                border-top-color: transparent;
+                border-right-color: #25598D;
+                border-bottom-color: #25598D;
+                border-left-color: transparent;
+                border-bottom-right-radius:25px !important;
+            }
+            .material-card.Light-Blue h2:after {
+                border-top-color: #25598D;
+                border-right-color: #25598D;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+            .pull-right{
+                text-align: center !important;
+                position: absolute !important;
+                right: 5% !important;
+            }
+            .btn-primary{
+                margin-top: -50px !important;
+                font-size: 100% !important;
+                letter-spacing: 1px !important;
+                line-height: 15px !important;
+                border-radius: 40px !important;
+                transition: all 0.3s ease 0s !important;
+                color: #25598D !important;
+                background-color: transparent!important;
+                width: 35% !important;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 2px 10px 0 rgba(0, 0, 0, 0.19);
 
+            }
 
+                .btn-primary:hover {
+                    color: #FFF !important;
+                    background: #2E93F6 !important;
+
+                }
+
+           /**************************/
+                            
+           
+                                
 
         </style>
     </head>
@@ -207,15 +258,15 @@
             <div class="row active-with-click filtr-container">
                 @foreach($captains as $captain)
                     <div class="col-md-4 col-sm-6 col-xs-12 filtr-item " data-category="1">
-                        <article class="material-card Light-Blue ml-2">
-                            <h2>
-                                <span style="text-align: right">{{ $captain->profile->getFullName() }}</span>
+                        <article class="material-card Light-Blue ml-2" >
+                            <h2 style="background-color:#25598D ; border-bottom-right-radius: 25px;">
+                                <span style="text-align: right ">{{ $captain->profile->getFullName() }}</span>
                                 <strong style="text-align: right">
                                     {{ $captain->assignedRole->getRole() }}
-                                    <i class="fa fa-fw fa-star"></i>
+                                    <i class="fa fa-fw fa-star" style="color:yellow"></i>
                                 </strong>
                             </h2>
-                            <div class="mc-content">
+                            <div class="mc-content" style="background-color:#D5EAFF">
                                 <div class="img-container">
                                     <img class="img-fluid" style="width:100% !important" src="{{ $captain->profile->getPicture() }}">
                                 </div>
@@ -225,7 +276,7 @@
                                     $email = "البريد الالكتروني";
                                     $phone = "رقم الهاتف";
                                 @endphp
-                                <div class="mc-description" style="text-align: right">
+                                <div class="mc-description" style="text-align: right;">
                                     {{ $captain->profile->date_of_birth }} : {{ $birth_date }}
                                     <br>
                                     {{ $captain->profile->membership_date }} : {{ $membership_date }}
@@ -236,19 +287,31 @@
                                 </div>
 
                             </div>
-                            <a class="mc-btn-action" style="color: #fff;">
+                            <a class="mc-btn-action" style="color: #FFF;background-color:#25598D;">
                                 <i class="fa fa-bars" style="color:white"></i>
                             </a>
                             <div class="mc-footer">
-                                <h4 class="pull-right"  dir="rtl" style="text-align: center;position: absolute;right: 10%">
-                                    <button style="margin-top: -20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{ $captain->scout_id }}">
+                                <h4 class="pull-right"  dir="rtl">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{ $captain->scout_id }}">
                                         اقرأ اكثر
                                     </button>
                                 </h4>
-                                <div style="position: absolute;right:30%">
-                                    <a  class="fa fa-fw fa-facebook" href="{{$captain->facebook}}"></a>
-                                    <a class="fa fa-fw fa-twitter" href="{{$captain->twitter}}"></a>
-                                    <a class="fa fa-fw fa-instagram" href="{{$captain->instagram}}"></a>
+                                <div style="background-color:transparent">
+                                    <a  class="fa fa-fw fa-facebook" style="background-color:transparent;position: absolute;
+                                    left: 25%;
+                                    transform: translateX(-25%);" 
+                                    href="{{$captain->facebook}}">
+                                    </a>
+                                    <a class="fa fa-fw fa-twitter" style="background-color:transparent;position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);" 
+                                    href="{{$captain->twitter}}">
+                                    </a>
+                                    <a class="fa fa-fw fa-instagram" style="background-color:transparent; position: absolute;
+                                    left: 75%;
+                                    transform: translateX(-75%);" 
+                                    href="{{$captain->instagram}}">
+                                    </a>
                                 </div>
 
 
@@ -257,18 +320,18 @@
                     </div>
                     <!-- The Modal -->
                     <div class="modal fade" id="myModal{{ $captain->scout_id }}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">{{$captain->profile->getFullName()}}</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-dialog" >
+                            <div class="modal-content" >
+                                <div class="modal-header" >
+                                    <h4 class="modal-title" >{{$captain->profile->getFullName()}}</h4>
+                                    <button type="button" class="close" data-dismiss="modal" >&times;</button>
 
                                 </div>
                               <div class="row">
 
                                   <div class="col-md-9 col-xs-9"  style="padding-top: 20px">
                                       @if($captain->profile->first_name!="")
-                                      <p style="text-align: right">
+                                      <p style="text-align: right ;">
                                           <span style="float: right;padding-left:15px">: الاسم</span>
                                           <span>{{$captain->profile->first_name}}</span>
                                       </p>
@@ -307,7 +370,7 @@
                                          @endif
 
                                   </div>
-                                      <div class="col-md-2 col-xs-2">
+                                      <div class="col-md-2 col-xs-2" >
                                           @if($captain->profile->image=="")
                                           <img class="img-circle img-rounded" src="/images/default.png" height="80" width="80" style="border-radius: 50%;margin-top: 10px;margin-left: 15px"/>
                                            @else
