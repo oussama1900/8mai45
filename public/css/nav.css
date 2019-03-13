@@ -25,7 +25,9 @@
 
 }
 
-
+.nav-link{
+    color: black !important;
+}
 
 .navbar-brand img {
     height: 70px;

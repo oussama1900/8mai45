@@ -106,12 +106,11 @@ class HomeController extends Controller
     public function viewPost($id){
         $post=Post::approved()->where('post_id',$id)->get();
         if(count($post)>0){
-            $posts = Post::approved()->orderby('created_at','desc')->paginate(3);
-            $allPosts = Post::approved()->inRandomOrder()->get();
             $currentPost = Post::find($id);
             $currentPostImages = PostImage::where('post_id',$id)->get();
+            $sidePosts = Post::approved()->orderby('created_at','desc')->take(6)->get();
             app(\App\Http\Controllers\VisitorController::class)->log();
-            return view('pages.postPage')->with('posts',$posts)->with('currentPost',$currentPost)->with('allPosts',$allPosts)->with('currentPostImages',$currentPostImages);
+            return view('pages.postPage')->with('currentPost',$currentPost)->with('sidePosts',$sidePosts)->with('currentPostImages',$currentPostImages);
         }else {
             return redirect('/news');;
         }

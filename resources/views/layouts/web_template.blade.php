@@ -9,7 +9,7 @@
         <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Custom css -->
-        <link href="{{ asset('assets/css/navbar.css') }}" rel="stylesheet">
+        <link href="{{ asset('/css/nav.css') }}" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.css') }}" />
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/flipclock.css') }}" />
@@ -71,7 +71,7 @@
     </head>
     <body style="overflow-x:hidden">
         <div id="app">
-            @include("includes.navbar")
+            @include("includes.new_navbar")
             <main>
                 @yield('content')
 

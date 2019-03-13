@@ -87,7 +87,7 @@
 </head>
 
 @section('content')
-    <div class="jumbotron" style="margin-top:-45px">
+    <div class="jumbotron">
         <h1 style="color: white;font-size: 100px;text-shadow: 3px 2px black;text-align: center">كتبنا</h1>
         <div class="input-holder">
             <input oninput="check()" type="text"  dir="rtl" name="search" placeholder="ابحث..." data-search>
