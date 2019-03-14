@@ -31,6 +31,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css')}}"/>
         <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/capStyle.css')}}"/>
         <style>
+            
             .btn-outline-primary.btn-custom {
                 color: #2b53ce !important;
                 background-color: transparent;
@@ -98,8 +99,9 @@
             }
             .jumbotron{
                 background: url("https://www.alainsamson.net/images/conferences/banniere-diriger-avec-courage.jpg") no-repeat center center;
-                height: 370px;
+                height: 500px;
                 width: 100%;
+                margin-top:0px !important;
                 margin-bottom: 0px;
                 border-radius: 0 !important;
                 -webkit-background-size: 100% 100%;
@@ -238,10 +240,20 @@
                 }
 
            /**************************/
-                            
-           
-                                
-
+                .captains-cards-container{
+                   background-color: #f2f2f2;
+                   width:90%;
+                   padding:20px;
+                   padding-top:60px; 
+                   margin-left:5%;
+                   margin-top:-50px;
+                   border-radius:10px;
+                   /* border-width:2;
+                   border-color:#25598D; */
+                   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 2px 10px 0 rgba(0, 0, 0, 0.19);
+                }            
+                
         </style>
     </head>
 
@@ -252,18 +264,15 @@
             <button class="search-icon"  onclick="check()"><span class="fa fa-search"></span></button>
         </div>
     </div>
-    <section class=" " style="background-color: #ECEFF1;width:100%;padding:20px;padding-top:60px">
-
-        <h1 style="margin-bottom:20px;color: grey;font-size: 100px;text-shadow: 3px 2px black;text-align: center">قادة الفوج</h1>
+    <section class="captains-cards-container card">  
             <div class="row active-with-click filtr-container">
                 @foreach($captains as $captain)
-                    <div class="col-md-4 col-sm-6 col-xs-12 filtr-item " data-category="1">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 filtr-item cards-gird" data-category="1">
                         <article class="material-card Light-Blue ml-2" >
                             <h2 style="background-color:#25598D ; border-bottom-right-radius: 25px;">
-                                <span style="text-align: right ">{{ $captain->profile->getFullName() }}</span>
-                                <strong style="text-align: right">
+                                <span style="text-align: right;font-size:75%">{{ $captain->profile->getFullName() }}</span>
+                                <strong style="text-align: right; font-size:70%">
                                     {{ $captain->assignedRole->getRole() }}
-                                    <i class="fa fa-fw fa-star" style="color:yellow"></i>
                                 </strong>
                             </h2>
                             <div class="mc-content" style="background-color:#D5EAFF">
@@ -276,7 +285,7 @@
                                     $email = "البريد الالكتروني";
                                     $phone = "رقم الهاتف";
                                 @endphp
-                                <div class="mc-description" style="text-align: right;">
+                                <div class="mc-description" style="text-align: right; padding-top:70px;">
                                     {{ $captain->profile->date_of_birth }} : {{ $birth_date }}
                                     <br>
                                     {{ $captain->profile->membership_date }} : {{ $membership_date }}
@@ -328,7 +337,6 @@
 
                                 </div>
                               <div class="row">
-
                                   <div class="col-md-9 col-xs-9"  style="padding-top: 20px">
                                       @if($captain->profile->first_name!="")
                                       <p style="text-align: right ;">
