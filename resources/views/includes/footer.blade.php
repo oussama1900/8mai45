@@ -5,7 +5,7 @@
         line-height: 2.2 !important;
       }
       .page-footer{
-          background-color:#333333 !important
+          background-color:#333333 
       }
       .btn-floating{
         width: 50px;

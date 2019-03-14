@@ -1,5 +1,12 @@
 @extends('Layouts.new_template')
 @section('content')
+<head>
+ <style>
+  .page-footer{
+      display:none;
+  }
+ </style>
+</head>
 
     <!--boby background image filtred-->
     <div class="bg-filter" style="background-image:url('images/book.jpg') !important ">
