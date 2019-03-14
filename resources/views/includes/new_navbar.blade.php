@@ -8,24 +8,35 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="row vdivide">
+            <div class="row ghadje" style="width:100%;padding:0;margin:0">
                 <ul class="navbar-nav col-md-12" >
-                    <li class="nav-item active col-md-2">
+                    <li class="nav-item active col-md-2  topnav">
                         <a class="nav-link" href="/contact">تواصل معنا <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item col-md-2">
+                    <li class="nav-item col-md-2 topnav">
                         <a class="nav-link" href="/team">القادة</a>
                     </li>
-                    <li class="nav-item col-md-2">
+                    <li class="nav-item col-md-2 topnav">
                         <a class="nav-link" href="/library">مكتبتنا</a>
                     </li>
-                    <li class="nav-item col-md-2">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">الوحدات</a>
+                   <!--  -->
+                   <li class="nav-item dropdown col-md-2">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          الوحدات
+                     </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
                     </li>
-                    <li class="nav-item col-md-2">
+                   <!--  -->
+                    <li class="nav-item col-md-2 topnav">
                         <a class="nav-link" href="/news">الأخبار</a>
                     </li>
-                    <li class="nav-item col-md-2">
+                    <li class="nav-item col-md-2 topnav">
                         <a class="nav-link disabled" href="/" tabindex="-1" aria-disabled="true">الرئيسية</a>
                     </li>
                 </ul>
