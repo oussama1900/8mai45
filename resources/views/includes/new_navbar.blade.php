@@ -25,11 +25,11 @@
                           الوحدات
                      </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="/cubs">وحدة الاشبال</a>
+                        <a class="dropdown-item" href="/scout">وحدة الكشاف</a>
+                        <a class="dropdown-item" href="/advanced_scout">وحدة الكشاف المتقدم</a>
+                        <a class="dropdown-item" href="/traveler">وحدة الجوالة</a>
+                        <a class="dropdown-item" href="/captains">وحدة القادة</a>
                         </div>
                     </li>
                    <!--  -->

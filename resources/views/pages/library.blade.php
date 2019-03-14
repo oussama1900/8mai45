@@ -2,7 +2,7 @@
 @section('content')
 
     <!--boby background image filtred-->
-    <div class="bg-filter" style="background-image:url('library1.png') !important ">
+    <div class="bg-filter" style="background-image:url('images/book.jpg') !important ">
     </div>
     <!------  ---------->
     <div class="wrapper" style="margin-top:20%"> 
