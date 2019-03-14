@@ -113,10 +113,127 @@
     <div class="container text-center text-md-left">
 
       <!-- Grid row -->
-      <div class="row">
+      <div class="row" dir="rtl">
+
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-4 mr-auto my-md-4 my-0 mt-4 mb-1 content">
+
+          <!-- Content -->
+          <h5 class="font-weight-bold text-uppercase mb-4" >الفوج</h5>
+          <p dir="rtl" >الكشافة الاسلامية الجزائرية ك إ ج جمعية وطنية تربوية إنسانية تطوعية مستقلة ذات طابع المنفعة العمومية. </p>
+          <p dir="rtl" >فوج الفلاح للكشافة الاسلامية الجزائرية فوج كشفي مستقل تأسس سنة 1989  يخضع للقانون الاساسي الصادر عن المؤتمر الوطني والنظام الداخلي الصادر عن المجلس الوطني وينظمه النظام الداخلي الخاص به المصادق عليه من طرف مجلسه أعلى هيئة.</p>
+        </div>
+        <!-- Grid column -->
 
 
 
+
+
+
+
+
+
+
+
+
+
+      
+
+        <hr class="clearfix w-100 d-md-none">
+
+
+ <!-- Grid column -->
+ <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1 Website-links">
+
+<!-- Links -->
+<h5 class="font-weight-bold text-uppercase mb-4"> الموقع</h5>
+
+<ul class="list-unstyled">
+  <li>
+    <p>
+      <a href="/">الصفحة الرئيسية</a>
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="/news">آخر الأخبار</a>
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="/library">مكتبة الفوج</a>
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="/contact">تواصل معنا</a>
+    </p>
+  </li>
+</ul>
+
+</div>
+<!-- Grid column -->
+
+
+
+
+
+
+
+
+
+
+        <hr class="clearfix w-100 d-md-none">
+
+     
+
+
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1 addresses">
+
+<!-- Contact details -->
+<h5 class="font-weight-bold text-uppercase mb-4 address-title"> عناويننا</h5>
+
+<ul class="list-unstyled  address">
+  <li>
+    <p dir="rtl">
+    <i class="fas fa-home " ></i> 
+    <small>              دار الشباب شخشوخ الزيتوني حي يحياوي  سطيف 
+    </small>
+   
+    </p>
+  </li>
+  <li>
+    <p dir="rtl">
+    <i class="fas fa-envelope" ></i>
+    <small class="mail-address">contact@falehscout.com</small>
+    </p>
+  </li>
+  <li>
+    <p dir="rtl" >
+   
+      <i class="fas fa-phone "  ></i> 
+      <small  dir="ltr">+ 213 336 525 457</small>
+      </p>
+  </li>
+  <li>
+    <p  dir="rtl" >
+      <i class="fas fa-mobile-alt " ></i>
+      <small dir="ltr">+ 213 780 737 357</small>
+      </p>
+  </li>
+</ul>
+
+</div>
+<!-- Grid column -->
+
+
+
+
+
+        <hr class="clearfix w-100 d-md-none">
 
 
 
@@ -169,105 +286,6 @@
 
 
 
-
-
-
-
-
-      
-
-        <hr class="clearfix w-100 d-md-none">
-
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1 addresses">
-
-<!-- Contact details -->
-<h5 class="font-weight-bold text-uppercase mb-4 address-title"> عناويننا</h5>
-
-<ul class="list-unstyled  address">
-  <li>
-    <p dir="rtl">
-    <i class="fas fa-home " ></i> 
-    <small>              دار الشباب شخشوخ الزيتوني حي يحياوي  سطيف 
-    </small>
-   
-    </p>
-  </li>
-  <li>
-    <p dir="rtl">
-    <i class="fas fa-envelope" ></i>
-    <small class="mail-address">contact@falehscout.com</small>
-    </p>
-  </li>
-  <li>
-    <p dir="rtl" >
-   
-      <i class="fas fa-phone "  ></i> 
-      <small  dir="ltr">+ 213 336 525 457</small>
-      </p>
-  </li>
-  <li>
-    <p  dir="rtl" >
-      <i class="fas fa-mobile-alt " ></i>
-      <small dir="ltr">+ 213 780 737 357</small>
-      </p>
-  </li>
-</ul>
-
-</div>
-<!-- Grid column -->
-        <hr class="clearfix w-100 d-md-none">
-
-     
-
-
-
-
- <!-- Grid column -->
- <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1 Website-links">
-
-<!-- Links -->
-<h5 class="font-weight-bold text-uppercase mb-4"> الموقع</h5>
-
-<ul class="list-unstyled">
-  <li>
-    <p>
-      <a href="/">الصفحة الرئيسية</a>
-    </p>
-  </li>
-  <li>
-    <p>
-      <a href="/news">آخر الأخبار</a>
-    </p>
-  </li>
-  <li>
-    <p>
-      <a href="/library">مكتبة الفوج</a>
-    </p>
-  </li>
-  <li>
-    <p>
-      <a href="/contact">تواصل معنا</a>
-    </p>
-  </li>
-</ul>
-
-</div>
-<!-- Grid column -->
-
-
-
-        <hr class="clearfix w-100 d-md-none">
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-4 mr-auto my-md-4 my-0 mt-4 mb-1 content">
-
-          <!-- Content -->
-          <h5 class="font-weight-bold text-uppercase mb-4" >الفوج</h5>
-          <p dir="rtl" >الكشافة الاسلامية الجزائرية ك إ ج جمعية وطنية تربوية إنسانية تطوعية مستقلة ذات طابع المنفعة العمومية. </p>
-          <p dir="rtl" >فوج الفلاح للكشافة الاسلامية الجزائرية فوج كشفي مستقل تأسس سنة 1989  يخضع للقانون الاساسي الصادر عن المؤتمر الوطني والنظام الداخلي الصادر عن المجلس الوطني وينظمه النظام الداخلي الخاص به المصادق عليه من طرف مجلسه أعلى هيئة.</p>
-        </div>
-        <!-- Grid column -->
 
       </div>
       <!-- Grid row -->
