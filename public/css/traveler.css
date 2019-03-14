@@ -15,6 +15,7 @@ html {
 }
 
 body {
+    background-color: #f2f2f2;
     font-family: 'Droid Arabic Kufi', sans-serif;
     width: 100%;
     background-size: cover;
@@ -27,7 +28,6 @@ img {
     max-width: 100%;
     height: auto;
 
-
 }
 
 .navbar {
@@ -35,73 +35,55 @@ img {
     display: flex;
     z-index: 3;
 
-
 }
 
-/* .navbar-brand {
-
+.nav-brand-container{
     position: absolute;
-    left: calc(50% - 35px);
-    top: 2%;
-    display: block;
-
-
-
-} */
-
-.logo-bg {
-    position: absolute;
-    left: calc(50% - 35px);
-    top: 5%;
-    display: block;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    width: 70px ;
+    height: 70px ;
+    background-color: #fafafa !important;
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    padding: 0;
-    background-color: #FFF;
+    text-align: center;
+}
+
+.navbar-brand {
+   display: inline-block !important;
+   margin:auto;
+   margin-top:5%;
+   padding: 0 ;
 
 }
+
 
 .navbar-brand img {
-    height: 100%;
-    width: 100%;
-    margin-top: 10% !important;
-    margin-left: 7% !important;
-}
+    height: 70px;
+    width: 70px;  
+    border-radius: 50%;
 
+}
 nav a {
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1em;
 
-
 }
+
 
 .navbar-collapse li {
     margin: 0;
     margin-left: 4%;
     margin-right: 4%;
     width: 160px;
-
 }
 
-/* .row.vdivide [class*='col-']:not(:last-child):after {
-    background: #e0e0e0;
-    width: 1px;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: 10%;
-    min-height: 70px;
-} */
+
 .shape {
     width: 100%;
     margin: 0 auto;
-
 }
 
 .shape1 {
@@ -109,68 +91,59 @@ nav a {
     margin: 0 auto;
     margin-top: -100px;
     float: right;
-    padding: 0 !important;
 }
 
 
 .top {
-    height: 0;
+    height:0;
     /* border-width: 180px 2000px 0px 0px; */
     border-width: 150px 0px 0px 0px;
-    border-left-width: 400px;
+    border-left-width: 300px;
+    border-right-width: 0px;
     border-style: solid;
+    /* background-color: red; */
     border-color: #902723 transparent #902723 transparent;
-    padding: 0 !important;
 
 }
 
 .bottom {
     height: 50px;
     background-color: #902723;
-    padding: 0 !important;
 
 }
 
 .shape1 h1 {
+    text-align: center;
     color: white;
-    font-size: 300%;
-    font-family: 'droidarabicnaskh';
+    font-size: 250% !important;
     position: absolute;
-    left: calc(50% - 140px);
-    display: block;
-    /* margin-top: -10%; when 200% size */
-    padding: 0 !important;
-
+    margin-top:-2%;
+    left: 50%;
+    transform: translateX(-50%);
+ 
 }
 
 .shape1 h2 {
+    text-align: center;
     color: white;
-    opacity: .8;
     font-size: 200%;
-    font-family: 'droidarabicnaskh';
     position: absolute;
-    left: calc(50% - 40px);
-    display: block;
-    /* margin-top: -10%; when 200% size */
-    margin-top: 3.5%;
-    padding: 0 !important;
-
+    margin-top:3%;
+    left: 50%;
+    transform: translateX(-50%);
+ 
 }
-
 
 
 .news-cards-container {
     margin-left: 5%;
     padding: 0 !important;
-
-
-
 }
 
 .defer-news-container {
     margin-top: -2%;
     margin-left: 5%;
-    padding: 0 !;
+    padding: 0 !important;
     max-height: 1300px;
 
 }
@@ -186,8 +159,6 @@ nav a {
 .news-cards-container .card-header {
     border-width: 2px !important;
     border-color: #902723 !important;
-
-
 }
 
 .btn-cust {
@@ -208,7 +179,7 @@ nav a {
 
 .btn-cust:hover {
     color: #FFF !important;
-    background: #B1241F !important;
+    background: #FF5D00 !important;
 
 }
 
@@ -346,25 +317,17 @@ nav a {
 .card-section {
 
     background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 2px 10px 0 rgba(0, 0, 0, 0.19);
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),0 2px 10px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     padding: 0 !important;
     margin-bottom: 5%;
-
-
-
-
 }
-
-
-
+.card-section:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3),0 2px 10px 0 rgba(0, 0, 0, 0.19);
+}
 
 .card-section div {
     padding: 4% 10%;
-
-
 }
 
 .card-section .row {
@@ -374,42 +337,7 @@ nav a {
 
 }
 
-@media (min-width: 2700px) {
-    .card-section {
-        height: 480px;
-    }
 
-}
-
-@media (min-width: 4000px) {
-    .card-section {
-        height: 570px;
-    }
-
-    .card-summary {
-        height: 24%;
-    }
-
-}
-
-@media (min-width: 5000px) {
-    section {
-        height: 660px;
-    }
-
-    .card-summary {
-        height: 24% !important;
-    }
-
-}
-
-@media screen and (max-width: 1400px) {
-
-    .card-summary {
-        height: 32% !important;
-    }
-
-}
 
 .one {
 
@@ -419,8 +347,6 @@ nav a {
     padding-top: 2%;
     text-align: right;
     padding-bottom: 0 !important;
-    background: -webkit-linear-gradient(15deg, #ffffff 68%, #902723, #902723 69%, transparent, transparent 85%),
-        url("../weekly-imgg.png");
     max-height: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -430,29 +356,6 @@ nav a {
 }
 
 
-/* .two {
-    width: 100% !important;
-    height: 100% !important;
-    padding-right: 0;
-    padding-top: 0%;
-    padding-left: 40%;
-    padding-bottom: 0;
-    background: -webkit-linear-gradient(170deg, #ffffff 60%, #CEB17C, #CEB17C 69%, transparent, transparent -2%), url("../weekly-img5.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-} */
-
-/*.read-more{*/
-/*float:left;*/
-/*border-radius: 40%;*/
-/*padding: 20px;*/
-/*background-color: #CEB17C ;*/
-/*color: white;*/
-/*text-decoration: none;*/
-/*cursor: pointer;*/
-/*box-shadow:0 25px 30px rgba(0,0,0,.5);*/
-
-/*}*/
 .button {
     float: left;
     position: relative;
@@ -477,7 +380,6 @@ span {
     position: relative;
 }
 
-
 .card-section h3 {
 
     text-align: right;
@@ -490,7 +392,7 @@ span {
 
 .card-section h1 {
     text-align: right;
-    font-size: 150%;
+    font-size: 160%;
     margin-right: 5%;
     width: 100%;
     color: #902723;
@@ -525,20 +427,68 @@ span {
     font-size: 20px !important;
     letter-spacing: 1px !important;
     line-height: 15px !important;
-    border-radius: 40px !important;
+    border-radius: 50px !important;
     transition: all 0.3s ease 0s !important;
     color: white !important;
     background-color: #902723 !important;
-    border: #902723 !important;
-    width: 30% !important;
+    border: #902723!important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 2px 10px 0 rgba(0, 0, 0, 0.19);
-
 
 }
 
 .read-more:hover {
     color: #FFF !important;
-    background: #B1241F !important;
+    background: #FF5D00 !important;
 
+}
+
+/**************************************/
+@media (max-width:75rem) {
+    
+    .shape1{width:55%;}
+    .shape1 h1 {  font-size: 243%; margin-top:-35px;}
+    .shape1 h2 {font-size: 200%; margin-top:15px;}
+    .card-section h3 {font-size: 140%; margin-right: 2.5%;}
+    .card-section h1 {font-size: 150%;margin-right:2.5%;}
+    .card-section h2 {font-size: 90%;margin-right: 2.5%;}
+    /* #ghadje {font-size: 140% !important;  margin-right: 2.5% !important;} */
+
+}
+
+
+/**************************************/
+@media (max-width:48rem) {
+    .shape1{width:45%;}
+    .shape1 h1 {  font-size: 180%; margin-top:-40px;}
+    .shape1 h2 {font-size: 150%; margin-top:0px;}
+    .card-section h3 {font-size: 130%; margin-right: 2%;}
+    .card-section h1 {font-size: 140%;margin-right:2%;}
+    .card-section h2 {font-size: 80%;margin-right: 2%;}
+
+}
+
+/**************************************/
+@media (max-width:36rem) {
+    .shape1{width:45%;}
+    .shape1 h1 {  font-size: 130%; margin-top:-45px;}
+    .shape1 h2 {font-size: 110%; margin-top:-10px;}
+    .card-section h3 {font-size: 120%}
+    .card-section h1 {font-size: 130%}
+    .card-section h2 {font-size: 70%}
+    
+}
+
+/*********for phones**************/
+@media (max-width:26rem) {
+
+    .shape1{float:left;width:45%;}
+    .top{border-color: #f2f2f2 transparent #f2f2f2 transparent !important;}
+    .bottom{ background-color: #f2f2f2}
+    .shape1 h1 {  font-size: 110%; margin-top:-45px;color:#902723 }
+    .shape1 h2 {font-size: 100%; margin-top:-10px;color:#902723}
+    .card-section h3 {font-size: 100%;margin-right:10%}
+    .card-section h1 {font-size: 110%;margin-right:10%}
+    .card-section h2 {font-size: 50%;margin-right:10%}
+    
 }
