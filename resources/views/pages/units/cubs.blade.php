@@ -1,23 +1,25 @@
 @extends('Layouts.new_template')
 @section('content')
 
-<section class="sec1">
-<div class="shape">
-    <div class="bottom"></div>
-    <div class="top"></div>
+<!---->
+    <section class="sec1"></section>
+    <div class="shape">
+        <div class="bottom"></div>
+        <div class="top"></div>
 
-</div>
-<div class="shape1">
-    <div class="bottom">
-        <div class="page-title">
-            <h1>آخر أخبار وحدة الأشبال</h1>
-            <h2>شعارنا العمل</h2>
-        </div>
     </div>
-    <div class="top"></div>
+    <div class="shape1">
+        <div class="bottom">
+            <div class="page-title">
+                <h1>آخر أخبار وحدة القادة</h1>
+                <h2>شعارنا العمل</h2>
+            </div>
+        </div>
+        <div class="top"></div>
 
-</div>
-</section>
+    </div>
+    </section>
+    <!---->
 <!---->
 <section class="sec2">
     <div class="row col">
@@ -86,17 +88,17 @@
                                 <div class="row">
                                     <h3>{{ $post->post_type }}</h3>
                                     <h1>{{$post->post_title}}</h1>
-                                        <h2>{{substr($post->post_date, 0, 10)}}</h2>
-                                        {!! $post->post_summary !!}
-                                        <div class="row col">
-                                            <a class="btn btn-primary read-more button" href="/posts/{{$post->post_id}}">إقرأ المزيد</a>
-                                        </div>
+                                    <h2>{{substr($post->post_date, 0, 10)}}</h2>
+                                    <!-- <p id="ghadje">{!! $post->post_summary !!}</p> -->
+                                    <!-- {{ $post->post_summary }} -->
+                                    {!! $post->post_summary !!}
+                                    <div class="row col">
+                                        <a class="btn btn-primary read-more button" href="/posts/{{$post->post_id}}">إقرأ المزيد</a>
+                                    </div>
                                 </div>
                             </div>
                         </section>
-
                     </div>
-
                 </div>
             @endforeach
         </div>

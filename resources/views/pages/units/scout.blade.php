@@ -82,12 +82,12 @@
                     <div class="row">
                         <div class="col">
                             <section class="card-section">
-                                <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url('{{asset('images/PostCover/')}}{{"/".$post->cover_image}}')">
+                                <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #2A4E2A, #2A4E2A 69%, transparent, transparent 85%),url('{{asset('images/PostCover/')}}{{"/".$post->cover_image}}')">
                                     <div class="row">
                                         <h3>{{ $post->post_type }}</h3>
                                         <h1>{{$post->post_title}}</h1>
                                         <h2>{{substr($post->post_date, 0, 10)}}</h2>
-                                        {!! $post->post_summary !!}
+                                          {!! $post->post_summary !!}
                                         <div class="row col">
                                             <a class="btn btn-primary read-more button" href="/posts/{{$post->post_id}}">إقرأ المزيد</a>
                                         </div>
