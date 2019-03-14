@@ -1,4 +1,4 @@
-@extends('layouts.web_template')
+@extends('layouts.new_template')
 
 <!-- this is the content of our index page  ,
     all of the page content must be inside the content section -->
@@ -420,7 +420,7 @@
             </div>
 
     </section>
-    <script>
+  <script>
         var filterizd = $('.filtr-container').filterizr({
            //options object
         });

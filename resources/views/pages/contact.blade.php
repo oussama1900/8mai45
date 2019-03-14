@@ -1,4 +1,4 @@
-@extends('layouts.web_template')
+@extends('layouts.new_template')
 
 <head>
     <style>
