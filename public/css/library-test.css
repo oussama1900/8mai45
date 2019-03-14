@@ -19,18 +19,10 @@ body{
      background-size: cover;
      position: absolute;
      margin:0;
-     margin-top:-5%;
+     margin-top:0;
      padding:0;
 }
 
-h1{
-  font-size: 2.5rem;
-  font-family: 'Montserrat';
-  font-weight: normal;
-  color: #444;
-  text-align: center;
-  margin: 2rem 0;
-}
 
 .wrapper{
   width: 90%;
@@ -60,7 +52,8 @@ h1{
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 	-webkit-perspective: 1000px;
-	        perspective: 1000px;
+          perspective: 1000px;
+  margin-bottom:25px;        
 }
 
 .front,
@@ -118,6 +111,8 @@ h1{
     top: 0;
     left: 0;
     width: 100%;
+    font-family: 'Montserrat' !important;
+    
 }
 
 .inner{
@@ -190,23 +185,12 @@ h1{
 }
 
 @media screen and (max-width: 64rem){
-  .col{
-    width: calc(33.333333% - 2rem);
-  }
+
+  .wrapper{ margin-top: 25% !important;}
+  .container{  padding: 0;}
+  .front p{ font-size: 110% !important; }
+  .front span{ font-size: 90% !important; }
+  .back{  font-size:110% !important; }
+ 
 }
-
-@media screen and (max-width: 48rem){
-  .col{
-    width: calc(50% - 2rem);
-  }
-}
-
-@media screen and (max-width: 32rem){
-  .col{
-    width: 100%;
-    margin: 0 0 2rem 0;
-  }
-}
-
-
 

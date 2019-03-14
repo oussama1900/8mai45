@@ -1,11 +1,14 @@
 @extends('Layouts.new_template')
 @section('content')
+
+    <!--boby background image filtred-->
+    <div class="bg-filter" style="background-image:url('library1.png') !important ">
+    </div>
     <!------  ---------->
-    <div class="wrapper">
-        <h1>Parallax Flipping Cards</h1>
+    <div class="wrapper" style="margin-top:20%"> 
         <div class="row">
             @foreach($books as $book)
-                <div class="col-3" ontouchstart="this.classList.toggle('hover');">
+                <div class="col-md-4 col-sm-12 " ontouchstart="this.classList.toggle('hover');">
                     <div class="container">
                         <div class="front" style="background-image: url('uploads/Books/Images/{{ $book->picture }}')">
                             <div class="inner">
