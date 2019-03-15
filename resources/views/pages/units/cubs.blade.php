@@ -83,8 +83,13 @@
             @foreach($posts as $post)
                 <div class="row">
                     <div class="col">
-                        <section class="card-section">
-                            <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url('{{asset('images/PostCover/')}}{{"/".$post->cover_image}}')">
+                        <section class="card-section" style=" background-image:url('images/book.jpg');
+                                width:100%;
+                                height:90%;
+                                max-width:100%;
+                                background-repeat:no-repeat;
+                                background-size:cover;">
+                            <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url('')">
                                 <div class="row">
                                     <h3>{{ $post->post_type }}</h3>
                                     <h1>{{$post->post_title}}</h1>

@@ -142,7 +142,11 @@
                 <input type="text" style="text-align:right;color: black" id="lname" required name="surname" placeholder="اسمك">
                 <label class="float-right lb" for="subject" style="text-align:right;color: black">الموضوع</label>
                 <textarea id="subject" style="text-align:right;color: black" required name="message" placeholder="اكتب هنا ..." style="height:170px"></textarea>
-               
+                <div class="row">
+                  <div class="col-lg-12">
+                    <input class="btn" type="submit" value="ارسل">
+                 </div>
+                </div>
             </form>
         </div>
         <!--  -->
@@ -150,12 +154,7 @@
         </div>
         
     </div>
-     <div class="row">
-         <div class="col-lg-12">
-  <input class="btn" type="submit" value="ارسل">
-         </div>
-          
-        </div>
+    
     
 </div>
 
