@@ -81,7 +81,7 @@
                 <div class="row">
                     <div class="col">
                         <section class="card card-section">
-                            <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url('') z-index:1">
+                            <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url(''); z-index:1">
                                 <div class="row">
                                     <h3>{{ $post->post_type }}</h3>
                                     <h1>{{$post->post_title}}</h1>
