@@ -83,7 +83,7 @@
             @foreach($posts as $post)
                 <div class="row">
                     <div class="col">
-                        <section class="card-section" style=" background-image:url('images/book.jpg');
+                        <section class="card-section" style=" background-image:url('{{asset('images/PostCover/')}}{{"/".$post->cover_image}}');
                                 width:100%;
                                 height:90%;
                                 max-width:100%;
