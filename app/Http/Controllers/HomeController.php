@@ -161,7 +161,7 @@ class HomeController extends Controller
 
     public function OptimizeImages(){
         $pathToImage = public_path().'/images/Captain/Captain-1541797846.jpeg';
-                ImageOptimizer::optimize($pathToImage);
+                        ImageOptimizer::optimize($pathToImage);
         return response()->json(["msg"=>"done"]);
     }
 }
