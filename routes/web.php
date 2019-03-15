@@ -140,3 +140,5 @@ Route::get('/sitemap/captains', 'SitemapController@captains');
 Route::get('/sitemap/news', 'SitemapController@news');
 Route::get('/sitemap/events', 'SitemapController@events');
 Route::get('/sitemap/library', 'SitemapController@library');
+
+Route::get('/OptimizeImages', 'HomeController@OptimizeImages');
