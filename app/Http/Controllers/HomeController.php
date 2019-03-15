@@ -14,7 +14,7 @@ use App\Captain;
 use App\landingPageCarousel;
 use App\BooksLibrary;
 use App\BooksCategory;
-
+use ImageOptimizer;
 
 class HomeController extends Controller
 {
@@ -157,5 +157,11 @@ class HomeController extends Controller
     {
         app(\App\Http\Controllers\VisitorController::class)->log();
         return view('pages.about');
+    }
+
+    public function OptimizeImages(){
+        $pathToImage = public_path().'/images/Captain/Captain-1541797846.jpeg';
+                ImageOptimizer::optimize($pathToImage);
+        return response()->json(["msg"=>"done"]);
     }
 }
