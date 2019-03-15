@@ -59,19 +59,16 @@
                             تواصل معنا
                         </div>
                         <ul class="list-group list-group-flush">
-                            <!--Facebook-->
-                            <button type="button" class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
+                           <!--Facebook-->
+                           <a href="https://www.facebook.com/faleh.19/" target="_blank" class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</a>
                             <!--Twitter-->
-                            <button type="button" class="btn btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</button>
+                            <a href="https://twitter.com/groupe_faleh_19" target="_blank" class="btn btn-tw"><i class="fab fa-twitter pr-1"></i> Twitter</a>
                             <!--Instagram-->
-                            <button type="button" class="btn btn-ins"><i class="fab fa-instagram pr-1"></i> Instagram</button>
-                            <!--Google +-->
-                            <button type="button" class="btn btn-gplus"><i class="fab fa-google-plus-g pr-1"></i>
-                                Google +</button>
+                            <a href="https://www.instagram.com/groupfaleh/" target="_blank" class="btn btn-ins"><i class="fab fa-instagram pr-1"></i> Instagram</a>
                             <!--Youtube-->
-                            <button type="button" class="btn btn-yt"><i class="fab fa-youtube pr-1"></i> Youtube</button>
+                            <a href="https://www.youtube.com/channel/UCvJ4gk_JufwvI9_VneFF2ZQ" target="_blank" class="btn btn-yt"><i class="fab fa-youtube pr-1"></i> Youtube</a>
                             <!--Email-->
-                            <button type="button" class="btn btn-email"><i class="fas fa-envelope pr-1"></i> Email</button>
+                            <a href="/contact" target="_blank" class="btn btn-email"><i class="fas fa-envelope pr-1"></i> Email</a>
 
                         </ul>
                     </div>

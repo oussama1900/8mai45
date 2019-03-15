@@ -38,7 +38,7 @@
             src: url("/Alarabiya-Font.ttf");
         }
         *:not(.fab,.fa,.fas){
-            font-family: "Alarabiya Font";
+            font-family: "Alarabiya Font" !important;
         }
     </style>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
@@ -65,6 +65,15 @@
             })});
     </script>
     @yield('styles')
+    <style>
+        @font-face {
+            font-family: "Alarabiya Font";
+            src: url("/Alarabiya-Font.ttf");
+        }
+        *:not(.fab,.fa,.fas){
+            font-family: "Alarabiya Font" !important;
+        }
+    </style>
 </head>
 <body style="overflow-x:hidden">
     @include("includes.new_navbar")
