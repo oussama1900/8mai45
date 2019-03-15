@@ -95,6 +95,9 @@
                 margin-top: 0;
             }
         }
+        .alert-message>li{
+          text-align:right;
+        }
     </style>
 </head>
 
@@ -111,8 +114,8 @@
     @endif
     @if (session('result'))
         <div class="alert alert-success">
-            <ul>
-                <li>لقد تم الاستلام بنجاح</li>
+            <ul dir="rtl" class="alert-message">
+                <li dir="rtl"> لقد تم الاستلام بنجاح</li>
             </ul>
         </div>
     @endif
@@ -142,7 +145,12 @@
                 <input type="text" style="text-align:right;color: black" id="lname" required name="surname" placeholder="اسمك">
                 <label class="float-right lb" for="subject" style="text-align:right;color: black">الموضوع</label>
                 <textarea id="subject" style="text-align:right;color: black" required name="message" placeholder="اكتب هنا ..." style="height:170px"></textarea>
-               
+                <div class="row">
+         <div class="col-lg-12">
+  <input class="btn" type="submit" value="ارسل">
+         </div>
+          
+        </div>
             </form>
         </div>
         <!--  -->
@@ -150,12 +158,7 @@
         </div>
         
     </div>
-     <div class="row">
-         <div class="col-lg-12">
-  <input class="btn" type="submit" value="ارسل">
-         </div>
-          
-        </div>
+    
     
 </div>
 
@@ -169,6 +172,10 @@
         var marker = new google.maps.Marker({position:myCenter});
         marker.setMap(map);
     }
+    setTimeout(function(){
+      if($('.alert-success').is(":visible"))
+        $('.alert-success').hide('slow');
+    },5000)
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
