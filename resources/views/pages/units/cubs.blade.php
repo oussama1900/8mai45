@@ -83,13 +83,8 @@
             @foreach($posts as $post)
                 <div class="row">
                     <div class="col">
-                        <section class="card-section" style=" background-image:url('{{asset('images/PostCover/')}}{{"/".$post->cover_image}}');
-                                width:100%;
-                                height:90%;
-                                max-width:100%;
-                                background-repeat:no-repeat;
-                                background-size:cover;">
-                            <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url('')">
+                        <section class="card card-section">
+                            <div class=" one" style="background: -webkit-linear-gradient(15deg, #ffffff 68%, #C1B508, #C1B508 69%, transparent, transparent 85%),url('') z-index:1">
                                 <div class="row">
                                     <h3>{{ $post->post_type }}</h3>
                                     <h1>{{$post->post_title}}</h1>
@@ -102,6 +97,14 @@
                                     </div>
                                 </div>
                             </div>
+                             <div style="position:absolute;right:0; width:50%;height:100% !important;padding:0 !important;margin:0 !important;
+                                 background: url('{{asset('images/PostCover/')}}{{"/".$post->cover_image}}') no-repeat center center;
+                                 -webkit-background-size: cover;
+                                 -moz-background-size: cover;
+                                 -o-background-size: cover;
+                                 background-size: cover;
+                                 z-index:0 ">
+                                </div>
                         </section>
                     </div>
                 </div>
