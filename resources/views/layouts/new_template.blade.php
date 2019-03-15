@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
     <script src="/js/ghost-typer.min.js"></script>
     <script src="{{ asset('assets/js/capJs.js') }}"></script>
-      <script src="/js/jquery.filterizr.min.js"></script>
+    <script src="/js/jquery.filterizr.min.js"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('og')
