@@ -4,6 +4,25 @@
     <style>
         * {
             box-sizing: border-box;
+            
+        }
+        body{
+            background-color:#3E5064!important;
+        }
+         .contact-us{
+             background-color:#607A93!important;
+             margin-bottom:150px;
+             padding-bottom:150px !important;
+             border-radius:25px;
+             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);
+
+        }
+
+        .lb{
+            color:#fff !important;
+            padding-right:25px;
+            font-weight:bolder;
         }
 
         /* Style inputs */
@@ -14,33 +33,52 @@
             margin-top: 6px;
             margin-bottom: 16px;
             resize: vertical;
+            border-radius:50px;
+            background-color:#D5EAFF;
+            
+            
         }
+
+        textarea{
+            height:150px;
+        }
+
+         input[type=text]:hover, select:hover, textarea:hover{
+           border-width:1;
+           border-color:#25598D;
+        }
+
 
         input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
+            background-color: #fff;
+            color: #607A93;
             border: none;
             cursor: pointer;
+            text-align:center;
+            font-weight:bolder;
+            border-radius:50px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 2px 10px 0 rgba(0, 0, 0, 0.19);        
         }
-
+    
         input[type=submit]:hover {
-            background-color: #45a049;
+            background-color: #2F88E1;
+            color:#fff;
         }
 
-        /* Style the container/contact section */
-        .contact-us {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 10px;
+        .btn{
+            margin-top:50px;
+             position: absolute;
+             left: 50%;
+             transform: translateX(-50%);
+            width:200px;
         }
-
+       
         /* Create two columns that float next to eachother */
-        .column {
-            float: left;
-            width: 50%;
+        .column {   
+            width: 100%;
             margin-top: 6px;
-            padding: 20px;
+           
         }
 
         /* Clear floats after the columns */
@@ -79,28 +117,46 @@
         </div>
     @endif
 <div class="container contact-us">
-    <div style="text-align:center">
+    <div  style="text-align:center ; color:#FFF;font-weight:bold;padding:50px">
         <h2>تواصل معنا</h2>
     </div>
     <div class="row">
+        <div class="col-lg-6">
+  <!--  -->
         <div class="column">
             <div style="width:100%;height:500px;">
                 <div class="mapouter"><div class="gmap_canvas"><iframe  style="margin-right:100px" width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href=""></a></div><style>.mapouter{text-align:right;height:500px;width:500px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
             </div>
         </div>
+        <!--  -->
+        </div>
+      
+        <div class="col-lg-6">
+<!--  -->
         <div class="column">
             <form action="/contactForm" method="post">
                 {{ csrf_field() }}
-                <label class="float-right" for="fname" style="text-align:right;color: black">اللقب</label>
+                <label class="float-right lb" for="fname" style="text-align:right;color: black">اللقب</label>
                 <input type="text" style="text-align:right;" id="fname" required name="name" placeholder="لقبك">
-                <label class="float-right" for="lname" style="text-align:right;color: black">الاسم</label>
+                <label class="float-right lb" for="lname" style="text-align:right;color: black">الاسم</label>
                 <input type="text" style="text-align:right;color: black" id="lname" required name="surname" placeholder="اسمك">
-                <label class="float-right" for="subject" style="text-align:right;color: black">الموضوع</label>
+                <label class="float-right lb" for="subject" style="text-align:right;color: black">الموضوع</label>
                 <textarea id="subject" style="text-align:right;color: black" required name="message" placeholder="اكتب هنا ..." style="height:170px"></textarea>
-                <input class="float-right" type="submit" value="ارسل">
+               
             </form>
         </div>
+        <!--  -->
+       
+        </div>
+        
     </div>
+     <div class="row">
+         <div class="col-lg-12">
+  <input class="btn" type="submit" value="ارسل">
+         </div>
+          
+        </div>
+    
 </div>
 
 <!-- Initialize Google Maps -->
