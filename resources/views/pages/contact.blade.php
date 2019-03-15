@@ -66,7 +66,7 @@
             color:#fff;
         }
 
-        .btn{
+        .submit-button{
             margin-top:50px;
              position: absolute;
              left: 50%;
@@ -125,7 +125,7 @@
   <!--  -->
         <div class="column">
             <div style="width:100%;height:500px;">
-                <div class="mapouter"><div class="gmap_canvas"><iframe  style="margin-right:100px" width="500" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href=""></a></div><style>.mapouter{text-align:right;height:500px;width:500px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+                <div class="mapouter"><div class="gmap_canvas"><iframe  style="margin-right:100px" width="800" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Cite%20Yahiaoui&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href=""></a></div><style>.mapouter{text-align:right;height:500px;width:500px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width: 742px;}</style></div>
             </div>
         </div>
         <!--  -->
@@ -143,10 +143,11 @@
                 <label class="float-right lb" for="subject" style="text-align:right;color: black">الموضوع</label>
                 <textarea id="subject" style="text-align:right;color: black" required name="message" placeholder="اكتب هنا ..." style="height:170px"></textarea>
                 <div class="row">
-                  <div class="col-lg-12">
-                    <input class="btn" type="submit" value="ارسل">
-                 </div>
-                </div>
+         <div class="col-lg-12">
+  <input class="btn" type="submit" value="ارسل">
+         </div>
+          
+        </div>
             </form>
         </div>
         <!--  -->

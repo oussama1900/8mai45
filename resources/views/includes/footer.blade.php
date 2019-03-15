@@ -104,6 +104,22 @@
       .copyright>a{
           color: #ffffff;
       }
+      .container {
+    max-width: 1525px;
+}
+  .fas{
+    font-family: "Font Awesome 5 Free";
+  }
+  .Website-links>ul,.addresses>ul,.follow-us>ul{
+    padding-right:0;
+  }
+  @font-face {
+            font-family: "Alarabiya Font";
+            src: url("/Alarabiya-Font.ttf");
+        }
+        *:not(.fab,.fa,.fas){
+            font-family: "Alarabiya Font" !important;
+        }
     </style>
 </head>
 <!-- Footer -->
@@ -191,7 +207,7 @@
 
 
           <!-- Grid column -->
-          <div class="col-md-4 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1 addresses">
+          <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1 addresses">
 
 <!-- Contact details -->
 <h5 class="font-weight-bold text-uppercase mb-4 address-title"> عناويننا</h5>

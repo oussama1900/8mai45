@@ -252,7 +252,10 @@
                    border-color:#25598D; */
                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
                 0 2px 10px 0 rgba(0, 0, 0, 0.19);
-                }            
+                }          
+                .fa{
+                    font-family: FontAwesome;
+                }  
                 
         </style>
     </head>

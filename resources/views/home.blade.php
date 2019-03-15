@@ -197,7 +197,7 @@
         <div class="row">
             <hr width="50%">
         </div>
-        <a href="/events" class="btn btn-primary btn-rounded">كل الاخبار</a>
+       <!-- <a href="/events" class="btn btn-primary btn-rounded">كل الاخبار</a>-->
     </section>
     <!---->
     <section class="home-grid">

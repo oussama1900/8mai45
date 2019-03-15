@@ -16,7 +16,7 @@ html {
 
 body {
     background-color: #f2f2f2;
-    font-family: 'Droid Arabic Kufi', sans-serif;
+
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -149,7 +149,6 @@ nav a {
 
 .news-cards-container .card {
     text-align: right;
-    font-family: 'Droid Arabic Kufi', sans-serif;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 2px 10px 0 rgba(0, 0, 0, 0.19);
 
@@ -161,7 +160,6 @@ nav a {
 }
 
 .btn-cust {
-    font-family: Raleway-SemiBold !important;
     font-size: 20px !important;
     letter-spacing: 1px !important;
     line-height: 15px !important;
@@ -269,8 +267,7 @@ nav a {
 
 
 .card-header h3 {
-    font-family: 'Droid Arabic Kufi',
-        sans-serif;
+     
     color: #B8AE1D;
     font-size: 90%;
     font-weight: bold;
@@ -278,21 +275,18 @@ nav a {
 }
 
 .card-header h5 {
-    font-family: 'Droid Arabic Kufi',
-        sans-serif;
     font-size: 70%;
 
 }
 
 .card-header h6 {
-    font-family: 'Droid Arabic Kufi',
-        sans-serif;
+    
     font-size: 50%;
 
 }
 
 .card-footer p {
-    font-family: 'scheherazade';
+  
     font-size: 130%;
 
     line-height: 20pt;
@@ -383,7 +377,7 @@ span {
     font-size: 150%;
     margin-right: 5%;
     width: 100%;
-    font-family: "droidarabicnaskh" !important;
+   
     font-weight: bolder;
 }
 
@@ -393,7 +387,7 @@ span {
     margin-right: 5%;
     width: 100%;
     color: #B8AE1D;
-    font-family: "droidarabicnaskh" !important;
+  
 
 }
 
@@ -403,7 +397,7 @@ span {
     color: gray;
     margin-right: 5%;
     width: 100%;
-    font-family: "droidarabicnaskh" !important;
+   
     font-style: initial;
 }
 
@@ -412,7 +406,7 @@ span {
     font-size: 150%;
     margin-right: 5%;
     width: 100%;
-    font-family: "scheherazade" !important;
+    
     line-height: 22pt;
     margin-bottom: 0;
     padding: 0;
@@ -420,7 +414,7 @@ span {
 }
 
 .read-more {
-    font-family: "Raleway-SemiBold" !important;
+  
     font-size: 20px !important;
     letter-spacing: 1px !important;
     line-height: 15px !important;

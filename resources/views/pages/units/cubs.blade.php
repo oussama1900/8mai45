@@ -122,6 +122,16 @@
         .page-link{
             color: #000 !important;
         }
+        <style>
+        @font-face {
+            font-family: "Alarabiya Font";
+            src: url("/Alarabiya-Font.ttf");
+        }
+        *:not(.fab,.fa,.fas){
+            font-family: "Alarabiya Font" !important;
+        }
+    </style>
+
     </style>
 @endsection
 @section('og')
