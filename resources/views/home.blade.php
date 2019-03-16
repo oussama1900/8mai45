@@ -130,7 +130,7 @@
                 <div class="row h-100">
                     <div class="card event-card1 bg-light mb-3 col-md-12">
                         <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$ascoutPost->cover_image}});">
-                          <a href="#">
+                          <a href="/posts/{{$ascoutPost->post_id}}">
                             <div class="color-filter"></div>
                             <div class="side-filter1"></div>
                             <div class="card-title">
@@ -149,7 +149,7 @@
                 <div class="row h-100">
                     <div class="card bg-light event-card1 mb-3 col-md-12">
                         <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$travelerPost->cover_image}});">
-                          <a href="#">
+                          <a href="/posts/{{$travelerPost->post_id}}">
                             <div class="color-filter"></div>
                             <div class="side-filter1"></div>
                             <div class="card-title">
@@ -170,7 +170,7 @@
                 <div class="row h-100 ">
                     <div class="card bg-light event-card2 mb-3 col-md-12">
                         <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$capPost->cover_image}});">
-                         <a href="#">
+                         <a href="/posts/{{$capPost->post_id}}">
                             <div class="color-filter"></div>
                             <div class="side-filter2"></div>
                             <div class="card-title">
@@ -189,17 +189,16 @@
     </section>
 
     <!---->
-    <section class="home-separator-elems">
+    <!--<section class="home-separator-elems">
         <div class="row">
             <h3 class="col-md-12">الأخبار</h3>
             <h1 class="col-md-12">آخر أخبارنا وآخر النشاطات في فوجنا العريق</h1>
         </div>
         <div class="row">
             <hr width="50%">
-        </div>
+        </div>-->
        <!-- <a href="/events" class="btn btn-primary btn-rounded">كل الاخبار</a>-->
-    </section>
-    <!---->
+    <!--</section>
     <section class="home-grid">
         @if(!empty($events[0]))
         <div class="row" style="width:100%;margin: 0;">
@@ -281,7 +280,7 @@
             </div>
         </div>
         @endif
-    </section>
+    </section>-->
     <!---->
     <!-- <section class="captains-section">
       <div class="row col-md-6">
