@@ -41,12 +41,13 @@
                             سجل في قائمة الأخبار
                         </div>
                         <form action="/newSubscriber" method="post">
+                            {{ csrf_field() }}
                             <ul class="list-group list-group-flush">
                                 <div class="row" style="max-width: 90%; margin: 5% 0% 0% 5%">
                                     <input type="email" placeholder="ادخل بريدك الالكتروني " name="email" class="form-control" aria-describedby="inputGroup-sizing-sm">
                                 </div>
                                 <div class="row" style="max-width: 90%; margin: 5% 0% 5% 5%">
-                                    <input type="submit" class="btn btn-cust">سجل</input>
+                                    <button type="submit" class="btn btn-cust">سجل</button>
                                 </div>
                             </ul>
                         </form>
