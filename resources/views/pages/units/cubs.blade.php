@@ -11,7 +11,7 @@
     <div class="shape1">
         <div class="bottom">
             <div class="page-title">
-                <h1>آخر أخبار وحدة القادة</h1>
+                <h1>آخر أخبار وحدة الأشبال</h1>
                 <h2>شعارنا العمل</h2>
             </div>
         </div>

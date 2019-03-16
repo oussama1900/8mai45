@@ -1,7 +1,67 @@
+@php
+
+    $nav_color = 'lp';
+    $nav_logo = '/images/landing_page_Logo.png';
+    $solid_color = 'solidl';
+    $activenavu = '';
+    $activenavc = '';
+    $activenavs = '';
+    $activenavas = '';
+    $activenavt = '';
+    $activenavcp = '';
+    $solid_number = "0";
+
+if (Route::currentRouteNamed('cubs')){
+    $nav_color = 'lp';
+    $nav_logo = '/images/cubs-logo.png';
+    $solid_color = 'solidl';
+    $activenavu = 'activenav';
+    $activenavc = 'activenav';
+}
+if (Route::currentRouteNamed('readPost')){
+    $nav_color = 'spost';
+    $nav_logo = '/images/landing_page_Logo.png';
+    $solid_color = 'solidpost';
+    $solid_number = 1;
+
+}
+if (Route::currentRouteNamed('scout')){
+    $nav_color = 'lp';
+    $nav_logo = '/images/scout-logo.png';
+    $solid_color = 'solidl';
+    $activenavu = 'activenav';
+    $activenavs = 'activenav';
+}
+
+if (Route::currentRouteNamed('advanced_scout')){
+     $nav_color = 'lp';
+    $nav_logo = '/images/advanced_scout-logo.png';
+    $solid_color = 'solidl';
+    $activenavu = 'activenav';
+    $activenavas = 'activenav';
+}
+
+if (Route::currentRouteNamed('traveler')){
+     $nav_color = 'lp';
+    $nav_logo = '/images/traveler-logo.png';
+    $solid_color = 'solidl';;
+    $activenavu = 'activenav';
+    $activenavt = 'activenav';
+}
+
+if (Route::currentRouteNamed('captains')){
+     $nav_color = 'lp';
+    $nav_logo = '/images/landing_page_Logo.png';
+    $solid_color = 'solidl';;
+    $activenavu = 'activenav';
+    $activenavcp = 'activenav';
+}
+
+@endphp
 <section id="nav-bar" >
     <nav class="navbar navbar-expand-lg navbar-light bg-light" >
          <div class="nav-brand-container">
-          <a class="navbar-brand" href="#"><img src="/images/landing_page_Logo.png" alt="main_logo"></a>
+          <a class="navbar-brand" href="#"><img src="{{$nav_logo}}" alt="main_logo"></a>
          </div>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                 aria-expanded="false" aria-label="Toggle navigation">

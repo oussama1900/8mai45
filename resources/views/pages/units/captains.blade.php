@@ -133,5 +133,5 @@
     <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
 @endsection
 @section('icon')
-    <link rel="icon" href="{{ asset('/images/cubs-logo.png') }}" >
+    <link rel="icon" href="{{ asset('/images/landing_page_Logo.png') }}" >
 @endsection
