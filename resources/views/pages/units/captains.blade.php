@@ -42,15 +42,17 @@
                         <div class="card-header">
                             سجل في قائمة الأخبار
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <div class="row" style="max-width: 90%; margin: 5% 0% 0% 5%">
-                                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-sm">
-                            </div>
-                            <div class="row" style="max-width: 90%; margin: 5% 0% 5% 5%">
-                                <button type="button" class="btn btn-cust">سجل</button>
-                            </div>
-
-                        </ul>
+                        <form action="/newSubscriber" method="post">
+                            {{ csrf_field() }}
+                            <ul class="list-group list-group-flush">
+                                <div class="row" style="max-width: 90%; margin: 5% 0% 0% 5%">
+                                    <input type="email" placeholder="ادخل بريدك الالكتروني " name="email" class="form-control" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="row" style="max-width: 90%; margin: 5% 0% 5% 5%">
+                                    <button type="submit" class="btn btn-cust">سجل</button>
+                                </div>
+                            </ul>
+                        </form>
                     </div>
                 </div>
                 <div class=" row">
@@ -133,5 +135,5 @@
     <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
 @endsection
 @section('icon')
-    <link rel="icon" href="{{ asset('/images/cubs-logo.png') }}" >
+    <link rel="icon" href="{{ asset('/images/landing_page_Logo.png') }}" >
 @endsection
