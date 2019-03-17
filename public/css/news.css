@@ -29,57 +29,6 @@ img {
 
 }
 
-.navbar {
-
-    display: flex;
-    z-index: 3;
-
-}
-
-.nav-brand-container{
-    position: absolute;
-    left: 50%;
-    top: 90%;
-    transform: translate(-50%, -50%);
-    width: 70px ;
-    height: 70px ;
-    background-color: #fafafa !important;
-    border-radius: 50%;
-    text-align: center;
-}
-
-.navbar-brand {
-   display: inline-block !important;
-   margin:auto;
-   margin-top:5%;
-   padding: 0 ;
-
-}
-
-
-.navbar-brand img {
-    height: 70px;
-    width: 70px;  
-    border-radius: 50%;
-
-}
-nav a {
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1em;
-
-}
-
-
-.navbar-collapse li {
-    margin: 0;
-    margin-left: 4%;
-    margin-right: 4%;
-    width: 160px;
-}
-
-
 .shape {
     width: 100%;
     margin: 0 auto;
@@ -94,11 +43,13 @@ nav a {
 
 
 .top {
-    height: 0;
+    height:0;
     /* border-width: 180px 2000px 0px 0px; */
     border-width: 150px 0px 0px 0px;
-    border-left-width: 400px;
+    border-left-width: 300px;
+    border-right-width: 0px;
     border-style: solid;
+    /* background-color: red; */
     border-color: #25598D transparent #25598D transparent;
 
 }
@@ -109,15 +60,28 @@ nav a {
 
 }
 
+
 .shape1 h1 {
+    text-align: center;
     color: white;
-    font-size: 400%;
+    font-size: 250% !important;
     position: absolute;
+    margin-top:-2%;
     left: 50%;
     transform: translateX(-50%);
  
 }
 
+.shape1 h2 {
+    text-align: center;
+    color: white;
+    font-size: 200%;
+    position: absolute;
+    margin-top:3%;
+    left: 50%;
+    transform: translateX(-50%);
+ 
+}
 
 .news-cards-container {
     margin-left: 5%;
@@ -129,17 +93,11 @@ nav a {
 .defer-news-container {
     margin-top: -2%;
     margin-left: 5%;
-    padding: 0 !;
+    padding: 0 !important;
     max-height: 1300px;
-    
-}
-.card-bg{
-   margin-bottom: 10%;
+    margin-bottom: 217px;
 }
 
-.defer-news-container a {
-    text-decoration: none;
-}
 .news-cards-container .card {
     text-align: right;
     font-family: 'Droid Arabic Kufi', sans-serif;
@@ -256,15 +214,13 @@ nav a {
     background-color: rgb(114, 50, 189) !important;
 }
 
-.card-header {
-   font-size: 110%;  
-}
+
 
 .card-header h3 {
     font-family: 'Droid Arabic Kufi',
         sans-serif;
     color: #25598D;
-    font-size: 90%;
+    font-size: 100%;
     font-weight: bold;
 
 }
@@ -272,21 +228,22 @@ nav a {
 .card-header h5 {
     font-family: 'Droid Arabic Kufi',
         sans-serif;
-    font-size: 70%;
+    font-size: 80%;
 
 }
 
 .card-header h6 {
     font-family: 'Droid Arabic Kufi',
         sans-serif;
-    font-size: 50%;
+    font-size: 60%;
 
 }
 
-.text-muted{
-    font-family: 'droidarabickufi' !important;
-    font-size: 130%;
-    line-height: 20pt;
+.card-footer p {
+    font-family: 'scheherazade';
+    font-size: 180%;
+
+    line-height: 25pt;
 
 }
 
@@ -303,5 +260,53 @@ nav a {
 
 /**************************************/
 @media (max-width:75rem) {
-    .shape1 h1{  font-size: 350%;margin-top:-10px !important;}   
+    
+    .shape1{width:55%;}
+    .shape1 h1 {  font-size: 243%; margin-top:-35px;}
+    .shape1 h2 {font-size: 200%; margin-top:15px;}
+    .card-section h3 {font-size: 140%; margin-right: 2.5%;}
+    .card-section h1 {font-size: 150%;margin-right:2.5%;}
+    .card-section h2 {font-size: 90%;margin-right: 2.5%;}
+    /* #ghadje {font-size: 140% !important;  margin-right: 2.5% !important;} */
+
+}
+
+
+/**************************************/
+@media (max-width:48rem) {
+    .shape1{width:45%;}
+    .shape1 h1 {  font-size: 180%; margin-top:-40px;}
+    .shape1 h2 {font-size: 150%; margin-top:0px;}
+    .card-section h3 {font-size: 130%; margin-right: 2%;}
+    .card-section h1 {font-size: 140%;margin-right:2%;}
+    .card-section h2 {font-size: 80%;margin-right: 2%;}
+
+}
+
+/**************************************/
+@media (max-width:36rem) {
+    .shape1{width:45%;}
+    .shape1 h1 {  font-size: 130%; margin-top:-45px;}
+    .shape1 h2 {font-size: 110%; margin-top:-10px;}
+    .card-section h3 {font-size: 120%}
+    .card-section h1 {font-size: 130%}
+    .card-section h2 {font-size: 70%}
+    
+}
+
+/*********for phones**************/
+@media (max-width:26rem) {
+
+    .shape1{float:left;width:45%;}
+    .top{border-color: #fff transparent #fff transparent !important;}
+    .bottom{ background-color: #fff }
+    .shape1 h1 {  font-size: 110%; margin-top:-45px;color:#25598D }
+    .shape1 h2 {font-size: 100%; margin-top:-10px;color:#25598D}
+    .card-section h3 {font-size: 100%;margin-right:10%}
+    .card-section h1 {font-size: 110%;margin-right:10%}
+    .card-section h2 {font-size: 50%;margin-right:10%}
+    .defer-news-container{
+        margin-bottom:720px;
+    }
+    
 }

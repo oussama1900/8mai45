@@ -389,6 +389,14 @@
             $('#event-text-card1').css('left', -30+(wScroll*0.025)+'em');
             $('#event-text-card2').css('right', -35 + (wScroll * 0.025) + 'em');
 
+            if(wScroll>1200){
+                  $('#event-text-card1').css('left', 5+'em');
+            }
+            if(wScroll>1800){
+                  $('#event-text-card2').css('right',  0+ 'em');
+
+            }
+
             if((wScroll>150) && (wScroll<400)){
 
                 $("#three-card1").addClass('animated fadeInDown');
@@ -398,13 +406,13 @@
 
             }
             if((wScroll>2700)&&(wScroll<3900)){
-                console.log("shit");
+                
                 $("#grid-text-one").addClass('animated bounceInLeft ');
             }
 
             if ((wScroll > 3300) && (wScroll < 4900))
             {
-                console.log("shit");
+                
                 $("#grid-text-two").addClass('animated bounceInRight ');
             }
 
