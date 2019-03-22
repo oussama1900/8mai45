@@ -33,7 +33,7 @@ class BooksController extends Controller
         $new_category = $request->input('new_category');
 
             $book_image = $this->insertBookImage($book_image);
-
+            $this->OptimizeImages('/uploads/Books/Images',$book_image);
 
         $book_pdf = $this->insertBookPDF($book_pdf);
 
@@ -108,6 +108,11 @@ class BooksController extends Controller
         $book = BooksLibrary::find($id);
         File::delete(public_path().'/uploads/Books/PDF/'.$book->file);
         if($book->picture!=""){
+            $url = '/uploads/Books/Images';
+            if(file_exists(public_path().$url.'/medium/'.$book->picture))
+            File::delete(public_path().$url.'/medium/'.$book->picture);
+            if(file_exists(public_path().$url.'/origin/'.$book->picture));
+            File::delete(public_path().$url.'/origin/'.$book->picture);
             File::delete(public_path().'/uploads/Books/Images/'.$book->picture);
         }
         $book->delete();
@@ -126,6 +131,7 @@ class BooksController extends Controller
         $new_category = $request->input('new_category');
 
         $book_image = $this->insertBookImage($book_image);
+        $this->OptimizeImages('/uploads/Books/Images',$book_image);
         if(count($new_category)!=0){
             foreach ($new_category as $category){
                 $add_category = new BooksCategory;
@@ -141,5 +147,39 @@ class BooksController extends Controller
         $new_book->picture = $book_image;
         $new_book->save();
     }
+    public function OptimizeImages ($url,$filename){
+        $realpath = public_path($url);
+        if(file_exists($realpath.'/'.$filename)){
+            if(!file_exists($realpath.'/origin'))
+        mkdir($realpath.'/origin', 0777, true);
+    
+        if(!file_exists($realpath.'/medium'))
+        mkdir($realpath.'/medium', 0777, true);
+         
+        
+    
+        copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
+        $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
+    
+        if($imagesize<1)
+           copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+        
+        else{
+            File::delete($realpath.'/'.$filename);
+            list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+    
+            $image_medium = new \Intervention\Image\ImageManager();
+            $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
+          
+            $image_small = new \Intervention\Image\ImageManager();
+            $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
+        }  
+
+        }
+      
+          
+        
+    
+        }
 
 }

@@ -46,6 +46,9 @@ class EventController extends Controller
         $unit = $request->input("unit");
 
         $event_image = $this->insertEventImage($image);
+        
+        $this->OptimizeImages('/images/EventImages',$event_image);
+
         if(Auth::user()->captain->role=='gov'){
             $unit =$unit['0'];
             if($unit == "الأشبال")
@@ -313,13 +316,16 @@ class EventController extends Controller
         $time = $request->input('event_time');
         $location = $request->input('location');
         $Concerned = $request->input('Concerned');
+      
+  
         if(is_array($request->input('responsible.0.scout_id'))){
             $responsible = $request->input('responsible.0.scout_id');
         }else{
             $responsible = $request->input('responsible.scout_id');
         }
 
-        $image = $request->input('image');
+        $image = $request->input('event_image');
+
         $updated_at = date('Y-m-d H:i:s');
         $unit = $request->input('unit');
         $event_image = "";
@@ -342,7 +348,7 @@ class EventController extends Controller
 
 
         $oldimage = Event::find($event_id)->event_image;
-        if ($image == null) {
+        if ($image ==  $oldimage) {
 
             $notification_image = $oldimage;
         } else {
@@ -350,6 +356,7 @@ class EventController extends Controller
 
             $this->deleteOldEventImage($oldimage);
             $event_image = $this->insertEventImage($image);
+            $this->OptimizeImages('/images/EventImages',$event_image);
             $notification_image = $event_image;
             $event->event_image = $event_image;
         }
@@ -1795,6 +1802,12 @@ class EventController extends Controller
     }
     public function deleteOldEventImage($image_name){
         $imagepath =  public_path().'/images/EventImages/'.$image_name;
+
+        $url = '/images/EventImages';
+		if(file_exists(public_path().$url.'/medium/'.$image_name))
+		File::delete(public_path().$url.'/medium/'.$image_name);
+		if(file_exists(public_path().$url.'/origin/'.$image_name));
+		File::delete(public_path().$url.'/origin/'.$image_name);
         File::delete($imagepath);
 
     }
@@ -2325,5 +2338,40 @@ class EventController extends Controller
         }
 
     }
+    public function OptimizeImages ($url,$filename){
+        $realpath = public_path($url);
+        if(file_exists($realpath.'/'.$filename)){
+            if(!file_exists($realpath.'/origin'))
+        mkdir($realpath.'/origin', 0777, true);
+    
+        if(!file_exists($realpath.'/medium'))
+        mkdir($realpath.'/medium', 0777, true);
+         
+        
+    
+        copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
+        $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
+    
+        if($imagesize<1)
+           copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+        
+        else{
+            File::delete($realpath.'/'.$filename);
+            list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+    
+            $image_medium = new \Intervention\Image\ImageManager();
+            $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
+          
+            $image_small = new \Intervention\Image\ImageManager();
+            $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
+        }  
+
+        }
+      
+          
+        
+    
+        }
+
 
 }

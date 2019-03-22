@@ -168,6 +168,32 @@ class ScoutController extends Controller
         $unit_id = $request->input('scout_unit.unit_id');
         $newimage = $request->input('ScoutInfo.image');
         $filename =  $this->insertImage($newimage,$unit_id);
+        switch ($unit_id){
+            case 'cubs':{
+                $this->OptimizeImages('/images/Cubs',$filename);
+               
+                break;
+            }
+            case 'sct':{
+                $this->OptimizeImages('/images/Scout',$filename);
+              
+                break;
+            }
+            case 'asct':{
+                $this->OptimizeImages('/images/AdvancedScout',$filename);
+              
+                break;
+            }
+            case 'tvlr':{
+                $this->OptimizeImages('/images/Traveler',$filename);
+               
+                break;
+            }
+            default:
+                $this->OptimizeImages('/images/Captain/',$filename);
+               
+            
+        }
 
         /**
          * create a new record in the database from a model,
@@ -279,123 +305,231 @@ class ScoutController extends Controller
         switch ($oldunit){
             case 'cubs':{
                 $oldfiledirectory = public_path().'/images/Cubs/'.$image;
+                $oldfiledirectory_medium = public_path().'/images/Cubs/medium/'.$image;
+                $oldfiledirectory_origin = public_path().'/images/Cubs/origin/'.$image;
                 switch ($newunit){
                     case 'sct':{
                         $newfiledirectory = public_path().'/images/Scout/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Scout/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Scout/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'asct':{
                         $newfiledirectory = public_path().'/images/AdvancedScout/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/AdvancedScout/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/AdvancedScout/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'tvlr':{
                         $newfiledirectory = public_path().'/images/Traveler/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Traveler/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Traveler/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     default:{
                         $newfiledirectory = public_path().'/images/Captain/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Captain/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Captain/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                     }
                 }
                 break;
             }
             case 'sct':{
                 $oldfiledirectory = public_path().'/images/Scout/'.$image;
+                $oldfiledirectory_medium = public_path().'/images/Scout/medium/'.$image;
+                $oldfiledirectory_origin = public_path().'/images/Scout/origin/'.$image;
                 switch ($newunit){
                     case 'cubs':{
                         $newfiledirectory = public_path().'/images/Cubs/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Cubs/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Cubs/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'asct':{
                         $newfiledirectory = public_path().'/images/AdvancedScout/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/AdvancedScout/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/AdvancedScout/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'tvlr':{
                         $newfiledirectory = public_path().'/images/Traveler/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Traveler/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Traveler/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     default:{
                         $newfiledirectory = public_path().'/images/Captain/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Captain/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Captain/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                     }
                 }
                 break;
             }
             case 'asct':{
                 $oldfiledirectory = public_path().'/images/AdvancedScout/'.$image;
+                $oldfiledirectory_medium = public_path().'/images/AdvancedScout/medium/'.$image;
+                $oldfiledirectory_origin = public_path().'/images/AdvancedScout/origin/'.$image;
                 switch ($newunit){
                     case 'cubs':{
                         $newfiledirectory = public_path().'/images/Cubs/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Cubs/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Cubs/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'sct':{
                         $newfiledirectory = public_path().'/images/Scout/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Scout/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Scout/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'tvlr':{
                         $newfiledirectory = public_path().'/images/Traveler/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Traveler/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Traveler/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     default:{
                         $newfiledirectory = public_path().'/images/Captain/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Captain/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Captain/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                     }
                 }
                 break;
             }
             case 'tvlr':{
                 $oldfiledirectory = public_path().'/images/Traveler/'.$image;
+                $oldfiledirectory_medium = public_path().'/images/Traveler/medium/'.$image;
+                $oldfiledirectory_origin = public_path().'/images/Traveler/origin/'.$image;
                 switch ($newunit){
                     case 'cubs':{
                         $newfiledirectory = public_path().'/images/Cubs/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Cubs/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Cubs/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'sct':{
                         $newfiledirectory = public_path().'/images/Scout/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Scout/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Scout/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     case 'asct':{
                         $newfiledirectory = public_path().'/images/AdvancedScout/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/AdvancedScout/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/AdvancedScout/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                         break;
                     }
                     default:{
                         $newfiledirectory = public_path().'/images/Captain/'.$image;
+                        $newfiledirectory_medium = public_path().'/images/Captain/medium/'.$image;
+                        $newfiledirectory_origin = public_path().'/images/Captain/origin/'.$image;
                         copy($oldfiledirectory, $newfiledirectory);
+                        copy($oldfiledirectory_medium, $newfiledirectory_medium);
+                        copy($oldfiledirectory_origin, $newfiledirectory_origin);
                         File::delete($oldfiledirectory);
+                        File::delete($oldfiledirectory_medium);
+                        File::delete($oldfiledirectory_origin);
                     }
                 }
                 break;
             }
             default:{
                 $oldfile = public_path().'/images/Captain/'.$image;
+                $oldfile_medium = public_path().'/images/Captain/medium/'.$image;
+                $oldfile_origin = public_path().'/images/Captain/origin/'.$image;
                 File::delete($oldfile);
+                File::delete($oldfile_medium);
+                File::delete($oldfile_origin);
 
             }
         }
@@ -415,22 +549,52 @@ class ScoutController extends Controller
         $imagename = $scout->image;
         switch ($unit){
             case 'cubs':{
+
+                $url = '/images/Cubs';
+                if(file_exists(public_path().$url.'/medium/'.$image_name))
+                File::delete(public_path().$url.'/medium/'.$image_name);
+                if(file_exists(public_path().$url.'/origin/'.$image_name));
+                File::delete(public_path().$url.'/origin/'.$image_name);
+
                 $deletedimage = public_path().'/images/Cubs/'.$imagename;
             break;
         }
             case 'sct':{
+                $url = '/images/Scout';
+                if(file_exists(public_path().$url.'/medium/'.$image_name))
+                File::delete(public_path().$url.'/medium/'.$image_name);
+                if(file_exists(public_path().$url.'/origin/'.$image_name));
+                File::delete(public_path().$url.'/origin/'.$image_name);
+
                 $deletedimage = public_path().'/images/Scout/'.$imagename;
                 break;
             }
             case 'asct':{
+                $url = '/images/AdvancedScout';
+                if(file_exists(public_path().$url.'/medium/'.$image_name))
+                File::delete(public_path().$url.'/medium/'.$image_name);
+                if(file_exists(public_path().$url.'/origin/'.$image_name));
+                File::delete(public_path().$url.'/origin/'.$image_name);
+
                 $deletedimage = public_path().'/images/AdvancedScout/'.$imagename;
                 break;
             }
             case 'tvlr':{
+                $url = '/images/Traveler';
+                if(file_exists(public_path().$url.'/medium/'.$image_name))
+                File::delete(public_path().$url.'/medium/'.$image_name);
+                if(file_exists(public_path().$url.'/origin/'.$image_name));
+                File::delete(public_path().$url.'/origin/'.$image_name);
+
                 $deletedimage = public_path().'/images/Traveler/'.$imagename;
                 break;
             }
             default:{
+                $url = '/images/Captain';
+                if(file_exists(public_path().$url.'/medium/'.$image_name))
+                File::delete(public_path().$url.'/medium/'.$image_name);
+                if(file_exists(public_path().$url.'/origin/'.$image_name));
+                File::delete(public_path().$url.'/origin/'.$image_name);
                 $deletedimage = public_path().'/images/Captain/'.$imagename;
                 break;
             }
@@ -577,12 +741,15 @@ class ScoutController extends Controller
 
                  // then insert new image (DB+File)
                  $filename =  $this->insertImage($request->input('ScoutInfo.image'),'cap');
+                 $this->OptimizeImages('/images/Captain',$filename);
                   $scout->image =$filename;
 
              }else{
 
                  // he's a captain and he want to change image and he don't have one yet
                  $filename =  $this->insertImage($request->input('ScoutInfo.image'),'cap');
+                 $this->OptimizeImages('/images/Captain',$filename);
+
                  $scout->image =$filename;
              }
          }
@@ -613,6 +780,32 @@ class ScoutController extends Controller
                          // we need to delete  the old one and create a new one
                          $imageold =  $this->deleteimageFromDirecotry($scout,$oldunit);
                          $filename =  $this->insertImage($request->input('ScoutInfo.image'),$oldunit);
+                         switch ($oldunit){
+                            case 'cubs':{
+                                $this->OptimizeImages('/images/Cubs',$filename);
+                               
+                                break;
+                            }
+                            case 'sct':{
+                                $this->OptimizeImages('/images/Scout',$filename);
+                              
+                                break;
+                            }
+                            case 'asct':{
+                                $this->OptimizeImages('/images/AdvancedScout',$filename);
+                              
+                                break;
+                            }
+                            case 'tvlr':{
+                                $this->OptimizeImages('/images/Traveler',$filename);
+                               
+                                break;
+                            }
+                            default:
+                                $this->OptimizeImages('/images/Captain/',$filename);
+                               
+                            
+                        }
                          $scout->image = $filename;
                      }
                  }
@@ -642,6 +835,33 @@ class ScoutController extends Controller
 
                      // insert new picture in the new unit
                      $image = $this->insertImage($request->input('ScoutInfo.image'),$newunit);
+                     switch ($newunit){
+                        case 'cubs':{
+                            $this->OptimizeImages('/images/Cubs',$image);
+                           
+                            break;
+                        }
+                        case 'sct':{
+                            $this->OptimizeImages('/images/Scout',$image);
+                          
+                            break;
+                        }
+                        case 'asct':{
+                            $this->OptimizeImages('/images/AdvancedScout',$image);
+                          
+                            break;
+                        }
+                        case 'tvlr':{
+                            $this->OptimizeImages('/images/Traveler',$image);
+                           
+                            break;
+                        }
+                        default:
+                            $this->OptimizeImages('/images/Captain/',$image);
+                           
+                        
+                    }
+                     
                      $scout->image = $image;
                  }
 
@@ -830,4 +1050,40 @@ public function getsocial_media_accounts(){
 
     return response()->json(["facebook"=>$facebook,"instagram"=>$instagram,"twitter"=>$twitter]);
 }
+
+public function OptimizeImages ($url,$filename){
+    $realpath = public_path($url);
+    if(file_exists($realpath.'/'.$filename)){
+        if(!file_exists($realpath.'/origin'))
+    mkdir($realpath.'/origin', 0777, true);
+
+    if(!file_exists($realpath.'/medium'))
+    mkdir($realpath.'/medium', 0777, true);
+     
+    
+
+    copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
+    $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
+
+    if($imagesize<1)
+       copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+    
+    else{
+        File::delete($realpath.'/'.$filename);
+        list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+
+        $image_medium = new \Intervention\Image\ImageManager();
+        $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
+      
+        $image_small = new \Intervention\Image\ImageManager();
+        $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
+    }  
+
+    }
+  
+      
+    
+
+    }
+
 }

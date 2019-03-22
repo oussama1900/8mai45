@@ -59,6 +59,10 @@ class postsController extends Controller
 
         $repo ='PostCover';
         $cover_image = $this->insertImage($cover_image,$repo,$repo);
+
+        $this->OptimizeImages('/images/PostCover',$cover_image);
+       
+
         $user = Auth::user();
         $user_unit = $user ->captain->unit;
 
@@ -149,6 +153,7 @@ class postsController extends Controller
         for($i=0;$i<count($images);$i++){
 
             $post_image[$i] = $this->insertImage($images[$i],$title,$repo);
+            $this->OptimizeImages('/images/Postimages',$post_image[$i]);
             DB::insert('insert into postimages(post_id,image) values (?,?)',[ $post_id,$post_image[$i]]);
 
         }
@@ -449,10 +454,26 @@ class postsController extends Controller
         $post = Post::find($post_id);
         $post_images = PostImage::where('post_id',$post_id)->get();
         foreach ($post_images as $image){
+
+
+
             File::delete(public_path().'/images/Postimages/'.$image->image);
+
+
+            $url = '/images/Postimages';
+            if(file_exists(public_path().$url.'/medium/'.$image->image))
+            File::delete(public_path().$url.'/medium/'.$image->image);
+            if(file_exists(public_path().$url.'/origin/'.$image->image));
+            File::delete(public_path().$url.'/origin/'.$image->image);
             DB::delete('delete from postimages where post_id = ?',[$image->post_id]);
        }
         if($post!=null){
+            $url = '/images/PostCover';
+            if(file_exists(public_path().$url.'/medium/'.$post->cover_image))
+            File::delete(public_path().$url.'/medium/'.$post->cover_image);
+            if(file_exists(public_path().$url.'/origin/'.$post->cover_image));
+            File::delete(public_path().$url.'/origin/'.$post->cover_image);
+
             File::delete(public_path().'/images/PostCover/'.$post->cover_image);
             $post->delete();
         }
@@ -491,6 +512,17 @@ public function EditPost($post_id, Request $request){
         }
 
         $cover_image = $request->input('post.cover_image');
+        if(strpos($cover_image, 'PostCover') === false){
+            $url = '/images/PostCover';
+            if(file_exists(public_path().$url.'/medium/'.$post->cover_image))
+            File::delete(public_path().$url.'/medium/'.$post->cover_image);
+            if(file_exists(public_path().$url.'/origin/'.$post->cover_image));
+            File::delete(public_path().$url.'/origin/'.$post->cover_image);
+
+            File::delete(public_path().'/images/PostCover/'.$post->cover_image);
+            $cover_image = $this->insertImage($cover_image,'PostCover','PostCover');
+            $this->OptimizeImages('/images/PostCover',$cover_image);
+        }
 
         // first we need to insert the new post
         $post->post_title = $post_title;
@@ -556,9 +588,24 @@ public function EditPost($post_id, Request $request){
 
         foreach ($post_images_deleted as $deleted){
             $image =  $deleted['image'];
-           DB::table('postimages')->where('post_id',$post_id)
-                                       ->where('image',$image)
-                                       ->delete();
+           if(strpos($image, 'post_images') !== false){
+
+            $url = '/images/Postimages';
+            if(file_exists(public_path().$url.'/medium/'.$image))
+            File::delete(public_path().$url.'/medium/'.$image);
+            if(file_exists(public_path().$url.'/origin/'.$image));
+            File::delete(public_path().$url.'/origin/'.$image);
+
+            File::delete(public_path().'/images/Postimages/'.$image);
+
+            DB::table('postimages')->where('post_id',$post_id)
+            ->where('image',$image)
+            ->delete();
+
+
+           }
+
+        
         }
 
         // insert the new images
@@ -568,7 +615,8 @@ public function EditPost($post_id, Request $request){
        for($i=0;$i<count($new_post_images);$i++){
 
         $new_image[$i] = $this->insertImage($new_post_images[$i],$title,$repo);
-       DB::insert('insert into postimages(post_id,image) values (?,?)',[ $post_id,$new_image[$i]]);
+        $this->OptimizeImages('/images/Postimages',$new_image[$i]);
+        DB::insert('insert into postimages(post_id,image) values (?,?)',[ $post_id,$new_image[$i]]);
 
     }
      DB::table('editedposts')->insert([
@@ -729,4 +777,38 @@ public function getMyApprovedPosts(){
     {
         //
     }
+    public function OptimizeImages ($url,$filename){
+        $realpath = public_path($url);
+        if(file_exists($realpath.'/'.$filename)){
+            if(!file_exists($realpath.'/origin'))
+        mkdir($realpath.'/origin', 0777, true);
+    
+        if(!file_exists($realpath.'/medium'))
+        mkdir($realpath.'/medium', 0777, true);
+         
+        
+    
+        copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
+        $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
+    
+        if($imagesize<1)
+           copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+        
+        else{
+            File::delete($realpath.'/'.$filename);
+            list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+    
+            $image_medium = new \Intervention\Image\ImageManager();
+            $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
+          
+            $image_small = new \Intervention\Image\ImageManager();
+            $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
+        }  
+
+        }
+      
+          
+        
+    
+        }
 }

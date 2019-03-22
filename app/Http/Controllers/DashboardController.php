@@ -151,7 +151,8 @@ class DashboardController extends Controller
             if(strpos($image['image'],'Carousel_Image')!== false ){
 
             }else{
-                $file_name = $this->insertImage($image['image']);
+				$file_name = $this->insertImage($image['image']);
+				$this->OptimizeImages('/images/Carousel',$file_name);
                 $newCarousel_image = new landingPageCarousel;
                 $newCarousel_image->image =$file_name;
                 $value = $image['description'];
@@ -165,7 +166,13 @@ class DashboardController extends Controller
     }
     public function deleteCarouselImage($id){
         $landingPageCarousel = landingPageCarousel::find($id);
-        $image_name = $landingPageCarousel->image;
+		$image_name = $landingPageCarousel->image;
+		$url = '/images/Carousel';
+		if(file_exists(public_path().$url.'/medium/'.$image_name))
+		File::delete(public_path().$url.'/medium/'.$image_name);
+		if(file_exists(public_path().$url.'/origin/'.$image_name))
+		File::delete(public_path().$url.'/origin/'.$image_name);
+
         File::delete(public_path().'/images/Carousel/'.$image_name);
         $landingPageCarousel->delete();
         return response()->json(["msg"=>"success"]);
@@ -479,7 +486,42 @@ class DashboardController extends Controller
     public function create()
     {
         //
-    }
+	}
+	
+	public function OptimizeImages ($url,$filename){
+        $realpath = public_path($url);
+        if(file_exists($realpath.'/'.$filename)){
+            if(!file_exists($realpath.'/origin'))
+        mkdir($realpath.'/origin', 0777, true);
+    
+        if(!file_exists($realpath.'/medium'))
+        mkdir($realpath.'/medium', 0777, true);
+         
+        
+    
+        copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
+        $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
+    
+        if($imagesize<1)
+           copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+        
+        else{
+            File::delete($realpath.'/'.$filename);
+            list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+    
+            $image_medium = new \Intervention\Image\ImageManager();
+            $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
+          
+            $image_small = new \Intervention\Image\ImageManager();
+            $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
+        }  
+
+        }
+      
+          
+        
+    
+        }
 
 
 

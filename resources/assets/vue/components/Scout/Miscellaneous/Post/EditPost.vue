@@ -679,7 +679,7 @@
 
     }
 
-    h4,span,input,h3,label{
+    h4,input,h3,label{
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
 
     }
