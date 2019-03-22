@@ -33,7 +33,7 @@ class HomeController extends Controller
 
     }
     
-    public function OptimizeScoutImages (){
+   /* public function OptimizeScoutImages (){
      
 
            $captains = Scout::all();
@@ -146,7 +146,7 @@ class HomeController extends Controller
         $this->OptimizeImages('/images','arabic-region.PNG');
         $this->OptimizeImages('/images','arabic-region.png');
         $this->OptimizeImages('/images','login_logo.png');
-     }
+     }*/
 
     /**
      * Show the application dashboard.

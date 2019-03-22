@@ -23,12 +23,12 @@ use Intervention\Image\ImageManager;
 
 //Route::get('/optimized/images/{image}/{width}/{height}','HomeController@OptimizeImages')->name('optimized');
 
-Route::get('/optimizeScout','HomeController@OptimizeScoutImages');
+/*Route::get('/optimizeScout','HomeController@OptimizeScoutImages');
 Route::get('/optimizeEvent','HomeController@OptimizeEventImages');
 Route::get('/optimizePost','HomeController@OptimizePostImages');
 Route::get('/optimizeBook','HomeController@optimizeBooks');
 Route::get('/OptimizeTest','HomeController@OptimizeTest');
-
+*/
 
 /* home controller */
 Route::get('/', 'HomeController@index')->name('home');
