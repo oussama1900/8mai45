@@ -25,7 +25,10 @@
   @include('includes.dashdependencies.predeps')
 
   <style>
-
+ @font-face {
+  font-family: "Alarabiya Font";
+  src: url("/Alarabiya-Font.ttf");
+ }
      .site-menu-title{
           font-size:18px !important;
       }
@@ -140,17 +143,97 @@
 </div>
 
 
-@include('includes.dashdependencies.scripts')
+<script src={{ url("/assets/vue/app.js")}} charset="UTF-8"></script>
+
+
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
+
+    <script src="{{URL::to('/')}}/global/vendor/asrange/jquery-asRange.min.js"></script>
+
+<!-- Scripts -->
+{{ Html::script('global/js/core.js') }}
+{{ Html::script('assets/js/site.js') }}
+{{ Html::script('assets/js/sections/menu.js') }}
+{{ Html::script('assets/js/sections/menubar.js') }}
+{{ Html::script('assets/js/sections/gridmenu.js') }}
+{{ Html::script('assets/js/sections/sidebar.js') }}
+{{ Html::script('global/js/configs/config-colors.js') }}
+
+{{ Html::script('global/vendor/asscrollable/jquery.asScrollable.all.js') }}
+
+
+
+
+<!-- Compiled and minified JavaScript -->
+
+
+
+
+<script src="{{URL::to('/')}}/global/vendor/toolbar/jquery.toolbar.min.js"></script>
+<script src="{{URL::to('/')}}/assets/examples/js/uikit/icon.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Vue.js -->
-<script src={{ url("/assets/vue/app.js")}} charset="UTF-8"></script>
+
 
 <script src="https://unpkg.com/vue-ckeditor2"></script>
 <script src="https://cdn.ckeditor.com/4.6.1/full/ckeditor.js"></script>
-  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-	  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
-
+    <script>
+$(window).load(function() {		
+$(".loadersjew").fadeOut("slow");;
+});
+</script>
 </body>
 </html>

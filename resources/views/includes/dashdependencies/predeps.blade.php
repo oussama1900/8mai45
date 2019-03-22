@@ -8,10 +8,7 @@
 {{Html::style('global/css/bootstrap-extend.min.css')}}
 {{Html::style('assets/css/site.min.css')}}
 <style>
- @font-face {
-  font-family: "Alarabiya Font";
-  src: url("/Alarabiya-Font.ttf");
- }
+
 </style>
 <!-- Plugins -->
  {{Html::style('global/vendor/animsition/animsition.css')}}

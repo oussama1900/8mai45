@@ -46,7 +46,7 @@
 </div>
 
 <script src="{{URL::to('/')}}/global/vendor/bootstrap/bootstrap.js"></script>
-<script src="{{URL::to('/')}}/global/vendor/animsition/animsition.js"></script>
+<!--<script src="{{URL::to('/')}}/global/vendor/animsition/animsition.js"></script>
 <script src="{{URL::to('/')}}/global/vendor/asscrollable/jquery.asScrollable.all.js"></script>
 <script src="{{URL::to('/')}}/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
 <script src="{{URL::to('/')}}/global/js/core.js"></script>
@@ -60,7 +60,7 @@
 
 <script src="{{URL::to('/')}}/global/vendor/ladda-bootstrap/spin.js"></script>
   <script src="{{URL::to('/')}}/global/vendor/ladda-bootstrap/ladda.js"></script>
-<script src="{{URL::to('/')}}/global/js/components/ladda-bootstrap.js"></script> 
+<script src="{{URL::to('/')}}/global/js/components/ladda-bootstrap.js"></script> -->
  
 <script>
 	(function(document, window, $) {
