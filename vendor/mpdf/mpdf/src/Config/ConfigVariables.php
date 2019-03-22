@@ -98,7 +98,7 @@ class ConfigVariables
 			'autoVietnamese' => true,
 			'autoArabic' => true,
 			// mPDF 6.0 (similar to old useLang)
-			'autoLangToFont' => true,
+			'autoLangToFont' => false,
 
 			// Substitute missing characters in UTF-8(multibyte) documents - from other fonts
 			'useSubstitutions' => false,
@@ -506,6 +506,7 @@ class ConfigVariables
 			// cURL options
 			'curlFollowLocation' => false,
 			'curlAllowUnsafeSslRequests' => false,
+			'curlCaCertificate' => '',
 			'curlTimeout' => 5,
 		];
 	}

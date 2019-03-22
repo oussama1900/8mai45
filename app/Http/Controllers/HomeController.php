@@ -15,7 +15,7 @@ use App\landingPageCarousel;
 use App\BooksLibrary;
 use App\BooksCategory;
 use ImageOptimizer;
-
+use Image;
 class HomeController extends Controller
 {
     /**
@@ -30,7 +30,20 @@ class HomeController extends Controller
 
     }
     
+    public function OptimizeImages (){
+     
 
+
+            list($width, $height, $type, $attr) =getimagesize(public_path('/images/Captain/Captain-1553181584.jpeg'));
+
+            $image_medium = new \Intervention\Image\ImageManager();
+            $image_medium->make(public_path('/images/Captain/Captain-1553181584.jpeg'))->resize($width/2,$height/2)->save(public_path('/images/Captain/test.jpeg'));
+          
+         return "done";
+            
+        
+
+        }
 
     /**
      * Show the application dashboard.
@@ -159,9 +172,5 @@ class HomeController extends Controller
         return view('pages.about');
     }
 
-    public function OptimizeImages(){
-        $pathToImage = public_path().'/images/Captain/Captain-1541797846.jpeg';
-                        ImageOptimizer::optimize($pathToImage);
-        return response()->json(["msg"=>"done"]);
-    }
+   
 }

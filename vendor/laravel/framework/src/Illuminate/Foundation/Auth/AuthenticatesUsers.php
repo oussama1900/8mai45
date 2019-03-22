@@ -85,22 +85,8 @@ trait AuthenticatesUsers
      * @return array
      */
     protected function credentials(Request $request)
-    {   
-        $username = $request->only($this->username())[$this->username()];
-
-        if(filter_var($username, FILTER_VALIDATE_EMAIL))
-            return $request->only($this->username(), 'password');
-        else {
-            if(strpos($username, 'SF-') !== false)
-                $username = substr($username, 5);
-
-                $creds = array(
-                "scout_id" => $username, 
-                "password" => $request->only('password')['password']
-            );
-
-            return $creds;
-        }
+    {
+        return $request->only($this->username(), 'password');
     }
 
     /**

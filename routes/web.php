@@ -4,6 +4,7 @@ use App\Events\MessagePosted;
 use App\Scout;
 use App\User;
 use App\Notifications\notifyCaptain;
+use Intervention\Image\ImageManager;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,13 @@ use App\Notifications\notifyCaptain;
 | to using a Closure or controller method. Build something great!
 |
 */
+
+
+
+
+//Route::get('/optimized/images/{image}/{width}/{height}','HomeController@OptimizeImages')->name('optimized');
+
+Route::get('/optimized','HomeController@OptimizeImages')->name('optimized');
 
 
 /* home controller */

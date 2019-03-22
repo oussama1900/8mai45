@@ -80,7 +80,7 @@
             </div>
             <div class="
             card card2 mb-3 col-md-6">
-                <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$cubPost->cover_image}});">
+                <div class="card-body" style=" background-image: url({{asset('images/PostCover/')}}{{"/".$scoutPost->cover_image}});">
                     <div class="color-filter"></div>
                 </div>
             </div>
@@ -187,6 +187,8 @@
             @endif
         </div>
     </section>
+
+    <img src="{{route(optimized, ['images/landing_page_Logo.png', 50, 50])}}">
 
     <!---->
     <!--<section class="home-separator-elems">

@@ -440,7 +440,8 @@ var vm =this;
 
                             img.src = e.target.result;
                             img.onload = function() {
-                                vm.image= e.target.result;
+                                vm.image = e.target.result;
+                                vm.Event.event_image= e.target.result;
                                /* if(img.width>=1280 && img.height>=720){
 
                                     vm.image= e.target.result;
