@@ -34,10 +34,10 @@ class HomeController extends Controller
      
 
 
-            list($width, $height, $type, $attr) =getimagesize(public_path('/images/Captain/Captain-1553181584.jpeg'));
+            list($width, $height, $type, $attr) =getimagesize(public_path('/images/Captain/image-test.jpeg'));
 
             $image_medium = new \Intervention\Image\ImageManager();
-            $image_medium->make(public_path('/images/Captain/Captain-1553181584.jpeg'))->resize($width/2,$height/2)->save(public_path('/images/Captain/test.jpeg'));
+            $image_medium->make(public_path('/images/Captain/image-test.jpeg'))->resize($width/2,$height/2)->save(public_path('/images/Captain/test.jpeg'));
           
          return "done";
             
