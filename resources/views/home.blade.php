@@ -188,7 +188,7 @@
         </div>
     </section>
 
-    <img src="{{route(optimized, ['images/landing_page_Logo.png', 50, 50])}}">
+    
 
     <!---->
     <!--<section class="home-separator-elems">
