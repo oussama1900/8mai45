@@ -1073,6 +1073,25 @@ axios.get('/api/getcurrentuser').then(function(response){
 							vm.MyTeam.first = response.data.first;
 							vm.MyTeam.second = response.data.second;
 							vm.MyTeam.third = response.data.third;
+							var object = {
+									first_name :"",
+									last_name:"",
+									image : ""
+								}
+							if(response.data.first[0]===null){
+
+							  vm.MyTeam.first[0] = object;
+							  
+							}
+							if(response.data.second[0]===null){
+								vm.MyTeam.second[0] = object;
+							}
+							if(response.data.third[0]===null){
+								vm.MyTeam.third[0] = object;
+                                 
+
+							}
+                         
 
 			            });
 

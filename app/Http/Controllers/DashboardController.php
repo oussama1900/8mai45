@@ -369,12 +369,19 @@ class DashboardController extends Controller
                                                 $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->get()[0]->scout_id);
                                             }else
 		            $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
-		            $trne_role =  Captain::find($trne->scout_id)->assignedRole->getRole();
-		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
-		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
+                    if($trne!=null){
+                        $trne_role =  Captain::find($trne->scout_id)->assignedRole->getRole();
+                        $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get()->first();
+                        $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get()->first();
+                    }else{
+                        $trne_role = "";
+                        $trne_event_number =  "";
+                        $trne_post_number = "";
+                    }
+                   
 		            return response()->json(["first"=>[$vucp,$vucp_role,$vucp_event_number[0]->vucp_event_number,$vucp_post_number[0]->vucp_post_number],
 		                                     "second"=>[$capa,$capa_role,$capa_event_number[0]->capa_event_number,$capa_post_number[0]->capa_post_number],
-		                                     "third"=>[$trne,$trne_role,$trne_event_number[0]->trne_event_number,$trne_post_number[0]->trne_post_number]]);
+		                                     "third"=>[$trne,$trne_role,$trne_event_number,$trne_post_number]]);
 
 		        }
 		        if($user_role=="vucp"){
@@ -392,13 +399,21 @@ class DashboardController extends Controller
                         $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->get()[0]->scout_id);
                     }else
                         $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
-		            $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
-		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
-		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
+                  if($trne!=null){
+                    $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
+		            $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get()->first();
+		            $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get()->first();
+                  }else{
+                    $trne_role = "";
+                    $trne_event_number = "";
+                    $trne_post_number = "";
+                  }
+                  
+                      
 
 		            return response()->json(["first"=>[$ucap,$ucap_role,$ucap_event_number[0]->ucap_event_number,$ucap_post_number[0]->ucap_post_number],
 		                                    "second"=>[$capa,$capa_role,$capa_event_number[0]->capa_event_number,$capa_post_number[0]->capa_post_number],
-		                                    "third"=>[$trne,$trne_role,$trne_event_number[0]->trne_event_number,$trne_post_number[0]->trne_post_number]]);
+		                                    "third"=>[$trne,$trne_role,$trne_event_number,$trne_post_number]]);
 
 
 
@@ -418,13 +433,20 @@ class DashboardController extends Controller
                     $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->get()[0]->scout_id);
                 }else
                     $trne = Scout::find(Captain::where('unit',$user_unit)->where('role','trne')->value('scout_id'));
-		        $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
-		        $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get();
-		        $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get();
+                 if($trne!=null){
+                    $trne_role = Captain::find($trne->scout_id)->assignedRole->getRole();
+                    $trne_event_number = DB::table('events')->select(DB::raw('count(event_id) as trne_event_number'))->where('created_by',$trne->scout_id)->where('approved',true)->get()->first();
+                    $trne_post_number = DB::table('posts')->select(DB::raw('count(post_id) as trne_post_number'))->where('posted_by',$trne->scout_id)->where('approved',true)->get()->first();
+                 }else{
+                     $trne_role = "";
+                     $trne_event_number = "";
+                     $trne_post_number = "";
+                 }
+                    
 
 		        return response()->json(["first"=>[$ucap,$ucap_role,$ucap_event_number[0]->ucap_event_number,$ucap_post_number[0]->ucap_post_number],
 		                                 "second"=>[$vucp,$vucp_role,$vucp_event_number[0]->vucp_event_number,$vucp_post_number[0]->ucap_post_number],
-		                                 "third"=>[$trne,$trne_role,$trne_event_number[0]->trne_event_number,$trne_post_number[0]->trne_post_number]]);
+		                                 "third"=>[$trne,$trne_role,$trne_event_number,$trne_post_number]]);
 
 
 		    }
@@ -489,34 +511,37 @@ class DashboardController extends Controller
 	}
 	
 	public function OptimizeImages ($url,$filename){
-        $realpath = public_path($url);
-        if(file_exists($realpath.'/'.$filename)){
-            if(!file_exists($realpath.'/origin'))
-        mkdir($realpath.'/origin', 0777, true);
-    
-        if(!file_exists($realpath.'/medium'))
-        mkdir($realpath.'/medium', 0777, true);
-         
+        if($file_name!=""){
+            $realpath = public_path($url);
+            if(file_exists($realpath.'/'.$filename)){
+                if(!file_exists($realpath.'/origin'))
+            mkdir($realpath.'/origin', 0777, true);
         
-    
-        copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
-        $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
-    
-        if($imagesize<1)
-           copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+            if(!file_exists($realpath.'/medium'))
+            mkdir($realpath.'/medium', 0777, true);
+             
+            
         
-        else{
-            File::delete($realpath.'/'.$filename);
-            list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+            copy($realpath.'/'.$filename,$realpath.'/origin/'.$filename);
+            $imagesize = round(filesize($realpath.'/origin/'.$filename)/1024/1024); 
+        
+            if($imagesize<1)
+               copy($realpath.'/'.$filename,$realpath.'/medium/'.$filename);
+            
+            else{
+                File::delete($realpath.'/'.$filename);
+                list($width, $height, $type, $attr) = getimagesize($realpath.'/origin/'.$filename);
+        
+                $image_medium = new \Intervention\Image\ImageManager();
+                $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
+              
+                $image_small = new \Intervention\Image\ImageManager();
+                $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
+            }  
     
-            $image_medium = new \Intervention\Image\ImageManager();
-            $image_medium->make($realpath.'/origin/'.$filename)->resize($width/2,$height/2)->save($realpath.'/medium/'.$filename);
-          
-            $image_small = new \Intervention\Image\ImageManager();
-            $image_small->make($realpath.'/origin/'.$filename)->resize($width/3,$height/3)->save($realpath.'/'.$filename);
-        }  
-
+            }
         }
+   
       
           
         

@@ -9,10 +9,83 @@
 
         </div>
 
-        <div id="products" class="row list-group" style="padding-right:15px;padding-left:15px">
+        <div id="products" class="row list-group" style="padding-right:15px;padding-left:15px;margin-top: 38px;">
 
-            <div class="container col-md-11 col-sm-11 col-xs-11">
-                <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12  card" style="padding:0px;padding-right:20px; " v-for="scout in MyScouts">
+            <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+              <table id="advscoutTable" class="table table-bordered table-hover" dir="ltr">
+                   <thead>
+                  <tr>
+                      <th class="text-center">العمليات</th>
+                      <th class="text-center">الهاتف</th>
+                      <th class="text-center">العنوان</th>
+                      <th class="text-center">تاريخ الانخراط</th>
+                      <th class="text-center">تاريخ الميلاد</th>
+                      <th class="text-center">الاسم</th>
+                      <th class="text-center">اللقب</th>
+                      <th class="text-center">الصورة</th>
+                      <th class="text-center">الرقم</th>
+                  </tr>
+                  </thead>
+                    <tbody>
+                  <tr v-for="scout in MyScouts" :id="'adv'+scout.scout_id" >
+                      <td class="text-center">
+
+                          <router-link :to="edit_route+scout.scout_id" class="btn btn-primary"><i class="fas fa-edit"></i></router-link>
+                          <button class="btn btn-danger"  @click="removeScout(scout)" ><i class="fas fa-trash"></i></button>
+                      </td>
+
+
+                      <td class="text-center">{{scout.phone}}</td>
+
+                      <td class="text-center">{{scout.address}}</td>
+                      <td class="text-center">{{scout.membership_date}}</td>
+
+                      <td class="text-center"> {{scout.date_of_birth}} </td>
+                      <td class="text-center">{{scout.first_name}}</td>
+                      <td class="text-center">{{scout.last_name}}</td>
+               
+                              <td class="text-center">
+
+                           <div class=" pic col-md-2" style="padding-top: 10px !important;padding-right:10px;float:right" v-if="ImageExiste(scout)">
+                            <img v-bind:src="'/images/Cubs/'+scout.image"  class="img-rounded" width="70" height="70" style="float: right" v-if="scout.image.includes('Cubs')">
+                            <img v-bind:src="'/images/Scout/'+scout.image"  class="img-rounded" width="70" height="70" style="float: right" v-if="scout.image.includes('Scout')">
+                            <img v-bind:src="'/images/AdvancedScout/'+scout.image"  class="img-rounded" width="70" height="70" style="float: right" v-if="scout.image.includes('AdvancedScout')">
+                            <img v-bind:src="'/images/Traveler/'+scout.image"  class="img-rounded" width="70" height="70" style="float: right" v-if="scout.image.includes('Traveler')">
+
+                          </div>
+
+
+
+
+
+                            <div class="pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-else>
+                                <img src="/images/default.png"  class="img-rounded" width="70" height="70" style="float: right">
+                            </div>
+
+                              </td>
+                              <td>{{setScoutCode(scout)}}</td>
+ 
+                  </tr>
+                  </tbody>
+
+                  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!--  <div class="item col-lg-5 col-md-11  col-sm-12 col-xs-12  card" style="padding:0px;padding-right:20px; " v-for="scout in MyScouts">
                     <div class="row" style="padding-botoom:0px;margin-bottom: 0px">
                         <div class="col-md-1"  style="float:left;padding: 0px;margin-left: 10px;" >
                             <i role="button" class="glyphicon glyphicon-remove btn-lg " style="color:red;" @click="removeScout(scout)" ></i>
@@ -25,6 +98,11 @@
                             <img v-bind:src="'/images/Traveler/'+scout.image"  class="img-rounded" width="80" height="165" style="float: right" v-if="scout.image.includes('Traveler')">
 
                         </div>
+
+
+
+
+
                         <div class="pic col-md-2" style="padding-top: 10px;padding-right:10px;float:right" v-else>
                             <img src="/images/default.png"  class="img-rounded" width="80" height="120" style="float: right">
                         </div>
@@ -83,11 +161,9 @@
 
 
 
-                </div>
+                </div>-->
             </div>
-            <div v-if="MyScouts.length===0">
-                <h1>لا يوجد اي كشاف في الوحدة حتى الآن</h1>
-            </div>
+     
         </div>
         <sweet-modal ref="confirmation" icon="warning">
             <h3>هل أنت متأكد </h3>
@@ -183,6 +259,7 @@
                 this.$refs.confirmation.open();
                 var vm = this;
                 $("#confirmation_button").unbind().click(function () {
+                       vm.$refs.confirmation.close();
                     axios.delete("/api/deleteScout/" + scout.scout_id).then(function (response) {
 
 
@@ -191,7 +268,7 @@
 
 
                         vm.MyScouts.splice(position, 1);
-                        vm.$refs.confirmation.close();
+                     
                     });
                 });
                 $("#cancel_button").unbind().click(function () {
@@ -244,6 +321,9 @@
 
     p,span,h2,h3,h4,button{
         font-family: "Alarabiya Font",'Segoe UI', Tahoma, Geneva, Verdana,sans-serif !important;
+    }
+    .img-rounded{
+        border-radius: 50px;
     }
 
 </style>
