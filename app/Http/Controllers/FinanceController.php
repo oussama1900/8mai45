@@ -242,6 +242,12 @@ else
 public function SendFinanceReport(){
 
 		$current_month = Carbon::now()->format('m');
+		$month_array = array("جانفي","فيفري","مارس","أفريل","ماي","جوان","جويلية","أوت","سبتمبر","أكتوبر","نوفمبر","ديسمبر");
+		
+		
+		$month_name = $month_array[date('m')-1];
+		
+		$year = date('Y');
 		$money =DB::table("finances")
 		->select('id','transaction_money','transaction_date','transaction_description')
 
@@ -267,10 +273,11 @@ public function SendFinanceReport(){
 					$report->month = Carbon::now()->month;
 					$report->report_date = $date;
 					$report->unit = "المالية";
+					$report->type="report";
 					$report->description = $description;
 					$report->created_at = Carbon::now();
 					$report->save();
-						$pdf = PDF::loadView('FormsTemplate.FinanceReport', compact('money'));
+						$pdf = PDF::loadView('FormsTemplate.FinanceReport', compact('money','month_name','year'));
 					$pdf_string = $pdf->output();
 
 					$pdfroot = public_path() . '/uploads/Units_Report/' . $filename;
@@ -279,8 +286,8 @@ public function SendFinanceReport(){
 					$notification_message = "تم ارسال تقرير المالية لهذا الشهر";
 			$notification_type = "تقرير المالية الشهري";
 			$image = "/images/Report.png";
-			if($vgov!=null)
-			$vgov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
+			//if($vgov!=null)
+			//$vgov->notify(new notifyCaptain($notification_message,$notification_type,$image,Carbon::now()));
 
 
 

@@ -48,7 +48,7 @@
 
 </htmlpageheader>
 <div style="margin-right: 60px;margin-left: 60px">
-<h3 style="text-align:center">التقرير الشهري لمسؤول المالية</h3>
+<h3 style="text-align:center" dir="ltr"> {{$year}} التقرير الشهري لمسؤول المالية {{$month_name}}  </h3>
 <table width="100%" dir="rtl">
     <tr>
         <td>رقم المعاملة</td>
