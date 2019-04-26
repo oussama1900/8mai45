@@ -216,7 +216,7 @@
   <li>
     <p dir="rtl">
     <i class="fas fa-home " ></i> 
-    <small>              دار الشباب شخشوخ الزيتوني حي يحياوي  سطيف 
+    <small>              دار الشباب السعيد بوخريصة لانقار سطيف 
     </small>
    
     </p>
@@ -224,20 +224,20 @@
   <li>
     <p dir="rtl">
     <i class="fas fa-envelope" ></i>
-    <small class="mail-address">contact@falehscout.com</small>
+    <small class="mail-address">contact@8mai45.falehscout.com</small>
     </p>
   </li>
   <li>
     <p dir="rtl" >
    
       <i class="fas fa-phone "  ></i> 
-      <small  dir="ltr">+ 213 336 525 457</small>
+      <small  dir="ltr">+ 213 672 064 673</small>
       </p>
   </li>
   <li>
     <p  dir="rtl" >
       <i class="fas fa-mobile-alt " ></i>
-      <small dir="ltr">+ 213 780 737 357</small>
+      <small dir="ltr">+ 213 672 064 673</small>
       </p>
   </li>
 </ul>
@@ -261,7 +261,7 @@
 <ul class="list-unstyled social-media-list">
   <!-- Facebook -->
    <li>
-      <a  class="btn btn-floating btn-fb" href="https://www.facebook.com/faleh.19/" target="_blank">
+      <a  class="btn btn-floating btn-fb" href="https://www.facebook.com/%D9%81%D9%88%D8%AC-8-%D9%85%D8%A7%D9%8A-45-%D8%B3%D8%B7%D9%8A%D9%81--844823848970649/?__xts__%5B0%5D=68.ARA9TKWwU1o87_MU0i8n5H-YHMcVKdyNitwAB2ZDni6gw3gWpwOCRU_r0eR0wKGUpyOagxt5iUecskKvqV2R-LGp6Y5sfKIfFrCLDvjW3cF6xYq0GR5xIpFh8PP-FCWLphwFrJ5N6QjxN1o5RaqmARsxE3S_rPGFo-RdXfc07Iwbr27rVIIKaemYaDoHbf_5c9fz_HttGU_NcN3E7JP-pHL-8DZKAd7kG1w_I-TaPaKr16yuF5mXsTEW8gTnDKM9Fds1XDrHheDqLPAC_UDxenu0-NVn9rKgPrKACE_8NJHPMUckxON5V3lEwjsyqPjTs6JHeUxzbdCSWjWs8_hceDswSg&__xts__%5B1%5D=68.ARD47AqY_FS6JKJsRNejbR-2Y4qsU91HKRjXSYY3yT33v4LaT1W_9QjphvTEBKvrRzLf0jpTv-NZpeIoY_PD-6kRfC3DFF9VX2OFOVPhRZDxBJN09zKCQ03Ooo-LvKOiOUwJ_dkS0_uKJG8EtJoobea-euNkZFMHMbdp63jfW_FXUlbHqcFXldyKN5TTcgbt_VMCt4Jun3v9W9fFso-A-M7UmYs5iuVF-FcjDHWowhTjR1GqXtNxd9Xx38HvKdl9jpRHrgfCi9hsaSgDftZ0sjg_FVdqJgG5_DI87SgCouohKOoP1yhC9cL8vdKyjKElCOLVAFo122Txx0A144alg0t77g&__xts__%5B2%5D=68.ARAzmDcZQo37-wtOCRVvweNXRxaQARltFixaXxs3nVV00jpqmpX7Js7mxi0IHTiLNnHTanXe9rClWc7rZQVE8l0N0YOe7i1G1o1EMzc7OikRnS6M-vYjQHZgEo2G5-YVPoLrrs_9_kPxgAKL3CNsLWxe_anRcKnn3-rbodR9ubEdYqPF9rfJrJ4UYYhmRG3apoH5tpgotuhVN_npYmC8gKVy8q3NlCFYynEi_bOeiGoygZtGfpPNUqRZEHtrTWcOF3SqGTGmh78eRzS9TiuxbLLjCWkgbK7E5rO62IqgUl25r6dNmCw1_MN4zOe0FM1serTXD3gX_J3awJvILuYTbIlo_Q&hc_ref=ART3Hug5oT_oATnusbSS3Q7eSW4RWpFW-by2vzKLglJbCR7VBE6DUI4LM-cWN6Dsqys&fref=nf&__tn__=kC-R" target="_blank">
         <i class="fab fa-facebook-f"></i>
        </a>
     </li>

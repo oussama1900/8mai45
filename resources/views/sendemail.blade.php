@@ -61,7 +61,7 @@
                                                                   <tr>
                                                                      <td align="center" width="100%" style="padding: 0 15px;text-align: justify;color: rgb(76, 76, 76);font-size: 12px;line-height: 18px;">
                                                                         <h2 style="font-weight: 600; padding: 0px; margin: 0px;  line-height: 24px; text-align: center;" class="title-color">مرحبا {{$fullname}}</h2>
-                                                                      <h3>  <p style="margin: 20px 0 30px 0;text-align: center;line-height: 35px;font-family:Droid Naskh">  ألف مبروك لقد تم ترقيتك لتكون ضمن اسرة الطاقم القيادي لفوج الفلاح العريق وبهذا الصدد نتشرف بمنحك حساب الكتروني في الموقع الالكتروني الخاص بنا  <b> <a href="https://www.falehscout.com" style="text-decoration:none">فوج الفلاح</a>  </b></p></h3>
+                                                                      <h3>  <p style="margin: 20px 0 30px 0;text-align: center;line-height: 35px;font-family:Droid Naskh">  ألف مبروك لقد تم ترقيتك لتكون ضمن اسرة الطاقم القيادي لفوج 8 ماي 1945 العريق وبهذا الصدد نتشرف بمنحك حساب الكتروني في الموقع الالكتروني الخاص بنا  <b> <a href="https://www.falehscout.com" style="text-decoration:none">فوج الفلاح</a>  </b></p></h3>
                                                                         <p style="text-align:center;font-size:large"> <b>معلومات الحساب</b></p>
                                                                           <div dir="rtl">
                                                                             <p style="text-align:right">  البريد الالكتروني :<span> {{$email}} </span> </p>
@@ -98,7 +98,7 @@
                                                           <td align="center"  width="100%" style="border-top:1px solid #d9d9d9;padding:12px 0px 20px 0px;text-align:center;color:#4c4c4c;font-weight:200;font-size:12px;line-height:18px;font-size:medium">نتمنى أن تكون عند قدر تطلعاتنا أملنا فيك كبير </td>
                                                      </tr>
                                                       <tr>
-                                                         <td align="center" valign="middle" width="100%" style="padding:12px 0px 20px 0px;text-align:center;color:#4c4c4c;font-weight:200;font-size:12px;line-height:18px;font-size:medium">محافظ فوج الفلاح
+                                                         <td align="center" valign="middle" width="100%" style="padding:12px 0px 20px 0px;text-align:center;color:#4c4c4c;font-weight:200;font-size:12px;line-height:18px;font-size:medium">محافظ فوج 8 ماي 1945
                                                             <br><b><small>{{$governor}} </small></b>
                                                          </td>
                                                       </tr>

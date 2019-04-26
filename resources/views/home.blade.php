@@ -2,7 +2,7 @@
 @section('content')
     <section class="home-bg-img col-md-12">
         <div class="container ">
-            <h1>فوج الفلاح
+            <h1>فوج 8 ماي 1945
                 <span id="span-ani" style="height:80px;margin-bottom:50px "></span>
             </h1>
            <a href="/about" class="square_btn">!...من نحن </a>
@@ -448,13 +448,13 @@
     <link rel="stylesheet" href="/css/main.css">
 @endsection
 @section('og')
-    <meta property="og:title" content="الموقع الرسمي لفوج الفلاح" />
+    <meta property="og:title" content="الموقع الرسمي لفوج 8 ماي 1945" />
     <meta property="og:image" content="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/18835730_1701449486822767_2312127021052390335_n.jpg?_nc_cat=110&_nc_ht=scontent-cdg2-1.xx&oh=cd825a0c4d827b279c38b8729d706544&oe=5C4062E0" />
     <meta property="og:description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة" />
     <meta property="og:type" content="website" />
 @endsection
 @section('title')
-    <title> الموقع الرسمي لفوج الفلاح </title>
+    <title> الموقع الرسمي لفوج 8 ماي 1945 </title>
     <meta name="description" content="تربية النشأ و تحقيق استمرارية الفوج و الأفراد من أجل الانتشار الأوسع في المجتمع من خلال تأسيس كشفية جديدة">
 @endsection
 @section('icon')

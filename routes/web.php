@@ -45,7 +45,7 @@ Route::get('/events/{id}', 'HomeController@viewEvent')->name('readEvent');
 Route::get('/library', 'HomeController@library')->name('library');
 Route::get('/team', 'HomeController@team')->name('team');
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::get('/about', 'HomeController@about')->name('about');
+//Route::get('/about', 'HomeController@about')->name('about');
 Route::post('/newSubscriber', 'PostSubscribe@newSubscriber')->middleware('optimizeImages');
 Route::post('/contactForm', 'PostSubscribe@contactForm')->middleware('optimizeImages');
 
