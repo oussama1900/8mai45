@@ -61,13 +61,13 @@
                                                                   <tr>
                                                                      <td align="center" width="100%" style="padding: 0 15px;text-align: justify;color: rgb(76, 76, 76);font-size: 12px;line-height: 18px;">
                                                                         <h2 style="font-weight: 600; padding: 0px; margin: 0px;  line-height: 24px; text-align: center;" class="title-color">مرحبا {{$fullname}}</h2>
-                                                                      <h3>  <p style="margin: 20px 0 30px 0;text-align: center;line-height: 35px;font-family:Droid Naskh">  ألف مبروك لقد تم ترقيتك لتكون ضمن اسرة الطاقم القيادي لفوج 8 ماي 1945 العريق وبهذا الصدد نتشرف بمنحك حساب الكتروني في الموقع الالكتروني الخاص بنا  <b> <a href="https://www.falehscout.com" style="text-decoration:none">فوج الفلاح</a>  </b></p></h3>
+                                                                      <h3>  <p style="margin: 20px 0 30px 0;text-align: center;line-height: 35px;font-family:Droid Naskh">  ألف مبروك لقد تم ترقيتك لتكون ضمن اسرة الطاقم القيادي لفوج 8 ماي 1945 العريق وبهذا الصدد نتشرف بمنحك حساب الكتروني في الموقع الالكتروني الخاص بنا  <b> <a href="https://www.8mai45.falehscout.com" style="text-decoration:none">فوج 8 ماي 1945</a>  </b></p></h3>
                                                                         <p style="text-align:center;font-size:large"> <b>معلومات الحساب</b></p>
                                                                           <div dir="rtl">
                                                                             <p style="text-align:right">  البريد الالكتروني :<span> {{$email}} </span> </p>
                                                                               <p style="text-align:right">  كلمة السر :<span> {{$userpassword}} </span></p>
                                                                           </div>
-                                                                        <div style="font-weight: 200; text-align: center; margin: 25px;"><a href="https://www.admin.falehscout.com" style="padding:0.6em 1em;border-radius:600px;color:#ffffff;font-size:14px;text-decoration:none;font-weight:bold;text-align:right;font-size:medium" dir="rtl" class="button-color" >اضغظ لتسجيل الدخول</a></div>
+                                                                        <div style="font-weight: 200; text-align: center; margin: 25px;"><a href="https://www.8mai45.falehscout.com/login" style="padding:0.6em 1em;border-radius:600px;color:#ffffff;font-size:14px;text-decoration:none;font-weight:bold;text-align:right;font-size:medium" dir="rtl" class="button-color" >اضغظ لتسجيل الدخول</a></div>
                                                                      </td>
                                                                   </tr>
                                                                </tbody>

@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'mail@falehscout.com', 'name' => 'فوج الفلاح'],
+    'from' => ['address' => 'mail@8mai45.falehscout.com', 'name' => 'فوج 8 ماي 1945'],
 
     /*
     |--------------------------------------------------------------------------
